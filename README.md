@@ -149,7 +149,7 @@ Read-only on-chain calls, no wallet and no transactions from us. Proof the chain
 | Stored-evidence replay | `npm run verify:flows`: 304 leaderboard rows re-derived from the stored bodies, 0 diffs |
 | Latency (measured 2026-11-21 on `lib/` as of commit 848c00e; unchanged since) | One live lookup, NVDA 30 d, n=20: p50 2.0 s, p95 2.6 s (nearest-rank; credits per call 7 or 0, see the note in bench.json). A top-20 leaderboard refresh (20 live lookups, 7 d, sequential): 38.4 s wall, per-lookup p50 1950 ms, p95 2537 ms (n=20, so p95 is the 2nd-largest of 20), 85 credits. Deployed `/api/lookup` (cached repeat, n=20) p50 500 ms, p95 782 ms; `/flows` p50 306 ms, p95 515 ms. One machine, home broadband, not a load test; raw samples in [`docs/proof/bench.json`](docs/proof/bench.json) (`npm run bench`) |
 | E2E | 7 Playwright specs x 2 viewports against the live URL (`npm run e2e`), including the judged click: Run it live, verdict, receipts drawer |
-| Coverage | v8 line coverage over `lib/` 86.5% (floor 80, enforced by `npm run test:coverage`) |
+| Coverage | v8 line coverage over `lib/` 86.6% (floor 80, enforced by `npm run test:coverage`) |
 | Dependencies | `npm audit`: 0 vulnerabilities (a `postcss` override lifts the copy bundled in Next 15.5) |
 | Secrets | gitleaks clean on full history at HEAD (`gitleaks detect --log-opts=--all`, 2026-11-21) |
 
