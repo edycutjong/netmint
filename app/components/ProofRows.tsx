@@ -31,7 +31,9 @@ export function ProofRows({ w }: { w: WrapperResult }) {
           {p.errPct !== null ? (
             <p className="verdict-line" style={{ margin: '6px 0 0' }}>
               Step {p.date}: chain vs CMC {pct(p.errPct)}
-              {p.withinRemedy ? ' · within remedy ±10%' : ' · outside remedy ±10%'}
+              {p.boundKind === 'floor'
+                ? `${p.withinRemedy ? ' · within' : ' · outside'} the floor ±${units(p.bound ?? 0)} (0.5% of supply, larger than ±10% of this step)`
+                : p.withinRemedy ? ' · within remedy ±10%' : ' · outside remedy ±10%'}
             </p>
           ) : null}
         </>
@@ -46,7 +48,7 @@ export function ProofRows({ w }: { w: WrapperResult }) {
         </div>
       ) : null}
       <p className={`verdict-line${m.status === 'pass' ? ' pass' : ''}`}>
-        Found: {m.status === 'pass' ? `window within remedy (${m.errPct === null ? 'no move' : pct(m.errPct)} against ±10%), material steps within remedy` : w.reason}
+        Found: {m.status === 'pass' ? `window and material steps verified: ${w.reason.replace(/^window endpoints and the steps carrying ≥ 80% of the flow verified /, '')}` : w.reason}
       </p>
       {w.mintReceipt ? (
         <p className="capture" style={{ margin: '6px 0 0' }}>

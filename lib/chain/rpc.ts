@@ -36,10 +36,18 @@ export class RpcError extends Error {
   }
 }
 
-const MAX_RETRIES = 8;
+/** Request-path budget (the lookup route has maxDuration 60 s): 12 s per attempt, 3 retries (≤ ~4 s of backoff).
+ * Capture scripts pass the long budget explicitly. */
+export const RPC_REQUEST = { timeoutMs: 12_000, maxRetries: 3 } as const;
+export const RPC_SCRIPT = { timeoutMs: 30_000, maxRetries: 8 } as const;
 
 /** One JSON-RPC batch; returns results in request order. Throws if any entry errors. */
-export async function rpcBatch<T = string>(chain: ChainId, reqs: RpcReq[], timeoutMs = 30_000): Promise<T[]> {
+export async function rpcBatch<T = string>(
+  chain: ChainId,
+  reqs: RpcReq[],
+  budget: { timeoutMs: number; maxRetries: number } = RPC_REQUEST,
+): Promise<T[]> {
+  const { timeoutMs, maxRetries: MAX_RETRIES } = budget;
   if (reqs.length === 0) return [];
   const payload = reqs.map((r, i) => ({ jsonrpc: '2.0', id: i, method: r.method, params: r.params }));
   const backoff = (a: number) => new Promise((r) => setTimeout(r, Math.min(500 * 2 ** a, 8000) + Math.random() * 250));

@@ -11,7 +11,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { cmcFetch } from '../lib/cmc/client';
-import { rpcBatch, totalSupplyReq, chainFromPlatform, scaleUnits, isRevert, SEL, type ChainId } from '../lib/chain/rpc';
+import { RPC_SCRIPT, rpcBatch, totalSupplyReq, chainFromPlatform, scaleUnits, isRevert, SEL, type ChainId } from '../lib/chain/rpc';
 import { loadKeys, assertNoSecrets } from './_env';
 
 loadKeys();
@@ -66,7 +66,7 @@ async function main() {
     const days: Record<string, number | null> = { ...(prev?.days ?? {}) };
     let decimals: number = prev?.decimals;
     if (decimals === undefined) {
-      const [d] = await rpcBatch(leg.chain, [{ method: 'eth_call', params: [{ to: leg.address, data: SEL.decimals }, 'latest'] }]);
+      const [d] = await rpcBatch(leg.chain, [{ method: 'eth_call', params: [{ to: leg.address, data: SEL.decimals }, 'latest'] }], RPC_SCRIPT);
       decimals = parseInt(d, 16);
     }
     // null days are re-fetched on every run (a null is only ever written for an empty result or a revert)
@@ -75,11 +75,11 @@ async function main() {
       const chunk = todo.slice(i, i + 40);
       // one batch; if any entry errors, retry singly: a revert (deterministic) → null,
       // anything else (rate limit, timeout, network) aborts the run so no transient failure is stored
-      const res = await rpcBatch<string>(leg.chain, chunk.map(([, b]) => totalSupplyReq(leg.address, b))).catch(async () => {
+      const res = await rpcBatch<string>(leg.chain, chunk.map(([, b]) => totalSupplyReq(leg.address, b)), RPC_SCRIPT).catch(async () => {
         const out: (string | null)[] = [];
         for (const [, b] of chunk) {
           out.push(
-            await rpcBatch<string>(leg.chain, [totalSupplyReq(leg.address, b)])
+            await rpcBatch<string>(leg.chain, [totalSupplyReq(leg.address, b)], RPC_SCRIPT)
               .then((r) => r[0])
               .catch((e) => {
                 if (isRevert(e)) return null;

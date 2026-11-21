@@ -30,7 +30,8 @@ export function decideVerdict(metrics: FlowMetrics | null, mint: MintCheck | nul
   if ((mint.status === 'impossible' && !mint.coverageOk) || !mint.guardOk) return { verdict: 'NOT_VERIFIABLE', reason: mint.reason };
   // 3. immaterial → FLAT (decided on CMC's own net, which already sums every chain; certifies nothing)
   if (Math.abs(metrics.net) < flatThreshold(metrics, p)) {
-    return { verdict: 'FLAT', reason: `below threshold, not put to trial (|net| < $${Math.round(flatThreshold(metrics, p)).toLocaleString('en-US')})` };
+    const failed = mint.status === 'fail' || mint.status === 'ambiguous' ? `; the chain check did not pass: ${mint.reason}` : '';
+    return { verdict: 'FLAT', reason: `below threshold, not put to trial (|net| < $${Math.round(flatThreshold(metrics, p)).toLocaleString('en-US')})${failed}` };
   }
   // 2b. coverage held but a step day had no chain data: material moves cannot be tried → NOT VERIFIABLE (after FLAT)
   if (mint.status === 'impossible') return { verdict: 'NOT_VERIFIABLE', reason: mint.reason };

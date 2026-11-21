@@ -80,9 +80,11 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
   Object.assign(out, { coverageA, coverageB, outsideSupplyA: u, chainDelta: chainB - chainA });
   const firstUnread = unreadable[0] ?? 'a chain NetMint cannot read';
 
-  // circulating guard: the stamp must certify the series the dollars use (evaluated first; failure is NOT VERIFIABLE)
+  // circulating guard: the stamp must certify the series the dollars use (evaluated first; failure is NOT VERIFIABLE).
+  // ΔCirc − ΔTot is a move in CMC's own non-circulating bucket; units off the read chains (u, a stock) say nothing
+  // about it, so u is not part of this tolerance (a2a arch r1). u stays on the RECOUNT routing (outsideSupplyA).
   const dCirc = B.supply - A.supply;
-  const guardTol = Math.max(p.remedy * Math.abs(cmcDelta), p.floorFrac * cmcB) + u;
+  const guardTol = Math.max(p.remedy * Math.abs(cmcDelta), p.floorFrac * cmcB);
   out.guardOk = comparator === 'circulating_supply' || Math.abs(dCirc - cmcDelta) <= guardTol;
 
   if (coverageA < p.coverageMin) {
@@ -102,7 +104,8 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
     };
   }
 
-  // step check: material step days (largest |flow| until ≥ 80% of gross, ≤ 5), 3-day sums, not shifted by d
+  // step check: material step days (largest |flow| until ≥ 80% of gross, ≤ 5), 3-day sums; the chain side is read at
+  // the frozen issuer offset d, the same alignment as the window check and the proof row
   const gross = flows.reduce((s, f) => s + Math.abs(f.flow), 0);
   const ranked = [...flows].sort((x, y) => Math.abs(y.flow) - Math.abs(x.flow));
   const material: string[] = [];
@@ -119,9 +122,9 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
     const hi = clampDate(addDays(D, 1), A.date, B.date);
     const cLo = byDate.get(lo), cHi = byDate.get(hi);
     const cmc3d = cLo && cHi ? tot(cHi) - tot(cLo) : 0;
-    const chLo = chainAt(lo), chHi = chainAt(hi);
+    const chLo = chainAt(addDays(lo, offset)), chHi = chainAt(addDays(hi, offset));
     if (chLo === null || chHi === null) {
-      stepUnavailable ??= chLo === null ? lo : hi;
+      stepUnavailable ??= chLo === null ? addDays(lo, offset) : addDays(hi, offset);
       stepDays.push({ date: D, cmc3d, chain3d: null, ok: false });
       continue;
     }
@@ -155,7 +158,7 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
     return {
       ...out,
       status: 'pass',
-      reason: `window endpoints and the steps carrying ≥ 80% of the flow verified within remedy (chain ${signed(at.chainDelta)} · CMC ${signed(cmcDelta)} · ${errLine(out.errPct)})`,
+      reason: `window endpoints and the steps carrying ≥ 80% of the flow verified (chain ${signed(at.chainDelta)} · CMC ${signed(cmcDelta)} · ${errLine(out.errPct, at.tol, cmcDelta, p)})`,
     };
   }
   // failure routing (1): another single offset passes → ambiguous alignment, never RECOUNT
@@ -186,6 +189,11 @@ function clampDate(d: string, lo: string, hi: string): string {
 function signed(x: number): string {
   return `${x >= 0 ? '+' : '−'}${fmt(Math.abs(x))}`;
 }
-function errLine(e: number | null): string {
-  return e === null ? 'no move' : `${e >= 0 ? '+' : '−'}${Math.abs(e * 100).toFixed(1)}% · within remedy ±10%`;
+/** The error and the bound that actually fired: ±10% of the move, or the floor (0.5% of supply at B) when larger. */
+export function errLine(e: number | null, tol: number, cmcDelta: number, p = PARAMS): string {
+  if (e === null) return 'no move';
+  const err = `${e >= 0 ? '+' : '−'}${Math.abs(e * 100).toFixed(1)}%`;
+  return tol > p.remedy * Math.abs(cmcDelta)
+    ? `${err} · within the floor ±${fmt(tol)} units (${(p.floorFrac * 100).toFixed(1)}% of supply, larger than ±${Math.round(p.remedy * 100)}% of this move)`
+    : `${err} · within remedy ±${Math.round(p.remedy * 100)}%`;
 }

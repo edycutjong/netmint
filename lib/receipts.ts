@@ -80,8 +80,16 @@ export class Recorder {
   }
 
   async cmc<T = unknown>(endpoint: string, params: Record<string, string>): Promise<CmcCall<T>> {
-    const call = await this.cmcTransport<T>(endpoint, params);
-    this.record(call);
+    let call: CmcCall<T>;
+    try {
+      call = await this.cmcTransport<T>(endpoint, params);
+    } catch (e) {
+      const msg = (e as Error)?.message ?? String(e);
+      if (/CMC_API_KEY is not set/.test(msg)) throw e; // configuration, not a network failure
+      // timeout / DNS / reset: keep a receipt; httpStatus 0 classifies as transient (a failed run, never a fallback)
+      call = { endpoint, params, method: 'GET', httpStatus: 0, ok: false, startedUtc: new Date().toISOString(), elapsedMs: 0, status: { error_code: 0, error_message: redact(`transport error: ${(e as Error)?.name ?? 'Error'}: ${msg}`) }, body: { transportError: redact(msg) } as T };
+    }
+    this.record(call, call.stored);
     if (call.ok || !this.stored) return call;
     const code = cmcErrorCode(call.status);
     if (classifyCmcError(code, call.httpStatus) !== 'entitlement') return call;

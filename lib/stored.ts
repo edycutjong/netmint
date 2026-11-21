@@ -10,6 +10,7 @@
  */
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
+import type { CmcCall } from './cmc/client';
 
 export interface StoredBody {
   endpoint: string;
@@ -104,4 +105,19 @@ export function storedSummary(): { bodies: number; history_bodies: number; histo
   const hist = memo.filter((s) => s.endpoint === HIST);
   const end = hist.reduce<string | null>((m, s) => (m === null || s.params.time_end > m ? s.params.time_end : m), null);
   return { bodies: memo.length, history_bodies: hist.length, history_end: end, newest_capture_utc: memo[0]?.capturedUtc ?? null };
+}
+
+/**
+ * A CMC transport that answers only from committed bodies (no network): the recorded hero render. A request with no
+ * committed body is a non-ok call (the page then shows the error, never an invented figure).
+ */
+export function storedTransport(find: StoredLookup = committedStore) {
+  return async function <T>(endpoint: string, params: Record<string, string> = {}): Promise<CmcCall<T>> {
+    const s = find(endpoint, params);
+    if (!s) {
+      return { endpoint, params, method: 'GET', httpStatus: 404, ok: false, startedUtc: new Date(0).toISOString(), elapsedMs: 0, status: { error_code: -1, error_message: `no committed CMC body answers ${endpoint}` }, body: null as T };
+    }
+    const status = (s.body as { status?: CmcCall['status'] } | null)?.status ?? null;
+    return { endpoint, params: s.params, method: 'GET', httpStatus: 200, ok: true, startedUtc: s.capturedUtc, elapsedMs: 0, status, body: s.body as T, stored: { file: s.file, capturedUtc: s.capturedUtc } };
+  };
 }

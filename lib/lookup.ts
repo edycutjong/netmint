@@ -16,7 +16,7 @@ import { sanityGuard } from './flow/sanity';
 import { netCreation } from './flow/netCreation';
 import { mintCheck } from './flow/mintCheck';
 import { decideVerdict } from './flow/verdict';
-import type { Offset } from './flow/params';
+import { PARAMS, type Offset } from './flow/params';
 import { chainLegs, legSupplies, sourceOf, summed } from './chain/supply';
 import type { LookupResult, LookupWindow, MintReceipt, ProofStep, RawDailyRow, WrapperResult } from './types';
 
@@ -211,6 +211,10 @@ export function evaluateWrapper(
     chainSource: sourceOf(legs),
   });
   const v = decideVerdict(metrics, mint);
+  const gaps = refused.filter((r) => r.reason === 'gap' && r.date > A && r.date < B).length;
+  if (gaps && (v.verdict === 'REAL_INFLOW' || v.verdict === 'OUTFLOW')) {
+    v.reason += ` · ${gaps} missing CMC day${gaps > 1 ? 's' : ''} inside the window: the supply move is chain-verified, the dollars across ${gaps > 1 ? 'them use' : 'it use'} the neighbouring days' average price`;
+  }
   // a zero-address mint can only illustrate creation: never shown under OUTFLOW (a redemption is a burn)
   const proof = proofStep(accepted, metrics, summed(legs), d, mint.comparator);
   // mints.json `date` is the chain day (the step between block_at(date−1) and block_at(date)) → match CMC day D at D+d
@@ -237,7 +241,10 @@ export function proofStep(
   const c0 = chainAt(cd[0]), c1 = chainAt(cd[1]);
   const chainStep = c0 !== null && c1 !== null ? c1 - c0 : null;
   const errPct = chainStep !== null && cmcStep !== 0 ? (chainStep - cmcStep) / Math.abs(cmcStep) : null;
-  return { date: series[i].date, prevDate: series[i - 1].date, field, cmcStep, chainStep, chainDates: cd, errPct, withinRemedy: errPct === null ? null : Math.abs(errPct) <= 0.1 };
+  const remedyBound = PARAMS.remedy * Math.abs(cmcStep), floorBound = PARAMS.floorFrac * val(series[series.length - 1]);
+  const bound = Math.max(remedyBound, floorBound);
+  const withinRemedy = chainStep === null || cmcStep === 0 ? null : Math.abs(chainStep - cmcStep) <= bound;
+  return { date: series[i].date, prevDate: series[i - 1].date, field, cmcStep, chainStep, chainDates: cd, errPct, withinRemedy, bound, boundKind: floorBound > remedyBound ? 'floor' : 'remedy' };
 }
 
 function pickMintReceipt(cryptoId: number, stepDates: string[]): MintReceipt | undefined {

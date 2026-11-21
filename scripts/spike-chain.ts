@@ -9,7 +9,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { blockTimestamps } from '../lib/chain/blockIndex';
-import { rpcBatch, totalSupplyReq, scaleUnits, EXPLORER, type ChainId } from '../lib/chain/rpc';
+import { RPC_SCRIPT, rpcBatch, totalSupplyReq, scaleUnits, EXPLORER, type ChainId } from '../lib/chain/rpc';
 import { loadKeys, assertNoSecrets } from './_env';
 
 loadKeys();
@@ -40,7 +40,7 @@ async function main() {
   for (const d of ['2026-11-13', '2026-11-14']) {
     const req = totalSupplyReq(token, bsc[d]);
     const t0 = performance.now();
-    const [raw] = await rpcBatch('bsc', [req]);
+    const [raw] = await rpcBatch('bsc', [req], RPC_SCRIPT);
     const ms = Math.round(performance.now() - t0);
     calls.push({ chain: 'bsc', day: d, block: bsc[d], block_url: `${EXPLORER.bsc}/block/${bsc[d]}`, request: { jsonrpc: '2.0', ...req }, raw_result: raw, decimals: 18, totalSupply: scaleUnits(raw, 18), elapsed_ms: ms });
     console.log(`eth_call totalSupply NVDAB @ ${d} block ${bsc[d]} = ${scaleUnits(raw, 18).toFixed(4)} (${ms} ms)`);

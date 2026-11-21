@@ -91,6 +91,8 @@ export async function wrappersOf(
   return { asset: { rwa_id: a.rwa_id, symbol: a.symbol, name: a.name, asset_type: a.asset_type }, tokens };
 }
 
+/** Only CMC's own issuer label marks a derivative. A zero RWA-quote market cap alone does not (a2a arch r1: Robinhood
+ * SPCX and Backed wMUx carry market_cap 0 on 2026-11-21); those wrappers go to trial like any other. */
 export function isDerivative(t: Pick<RwaToken, 'issuer_name' | 'market_cap'>): boolean {
-  return /deriv/i.test(t.issuer_name ?? '') || t.market_cap === 0;
+  return /deriv/i.test(t.issuer_name ?? '');
 }

@@ -8,7 +8,7 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { rpcBatch, totalSupplyReq, chainFromPlatform, scaleUnits, SEL, type ChainId } from '../lib/chain/rpc';
+import { RPC_SCRIPT, rpcBatch, totalSupplyReq, chainFromPlatform, scaleUnits, SEL, type ChainId } from '../lib/chain/rpc';
 import { headBlock } from '../lib/chain/blockIndex';
 import { loadKeys, assertNoSecrets } from './_env';
 
@@ -35,7 +35,7 @@ async function main() {
       const [dec, sup] = await rpcBatch(chain, [
         { method: 'eth_call', params: [{ to: addr, data: SEL.decimals }, '0x' + block.toString(16)] },
         totalSupplyReq(addr, block),
-      ]);
+      ], RPC_SCRIPT);
       const decimals = parseInt(dec, 16);
       legs.push({ chain, address: addr, block, block_utc: new Date(heads[chain].ts * 1000).toISOString(), decimals, totalSupply: scaleUnits(sup, decimals) });
     }

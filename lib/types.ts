@@ -110,6 +110,10 @@ export interface ProofStep {
   chainDates: [string, string];
   errPct: number | null;
   withinRemedy: boolean | null;
+  /** the bound applied, in units: max(remedy × |cmcStep|, floorFrac × supply at B) */
+  bound?: number;
+  /** which bound fired */
+  boundKind?: 'remedy' | 'floor';
 }
 
 export interface MintReceipt {
@@ -182,6 +186,8 @@ export interface LookupResult {
   elapsedMs: number;
   errors: { source: string; message: string }[];
   cmcError?: { code: number; message: string; endpoint: string; httpStatus: number };
+  /** recorded only: when the committed CMC bodies behind this answer were captured */
+  recordedUtc?: string;
   /** every CMC endpoint that answered live on this click (empty if CMC answered nothing live) */
   liveCmcCalls?: string[];
   /** live-stored only: every refused call and the committed body that answered it */

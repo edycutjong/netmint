@@ -17,10 +17,12 @@ const recent = new Map<string, { at: number; result: LookupResult }>();
 
 export async function GET(req: Request) {
   const p = parseLookupParams(new URL(req.url).searchParams);
-  if (!p.ok) return NextResponse.json({ error: p.error }, { status: 400 });
+  if (!p.ok) return NextResponse.json({ error: p.error }, { status: 400, headers: { 'cache-control': 'no-store' } });
   const hit = recent.get(p.key);
   if (hit && Date.now() - hit.at < DEDUPE_MS) {
-    return NextResponse.json({ ...hit.result, live: false, cacheHit: true, mode: 'cached' satisfies LookupResult['mode'] });
+    // a repeat within 60 s is labelled cached; a live-stored answer keeps its mode so the plan refusal stays visible
+    const mode: LookupResult['mode'] = hit.result.mode === 'live' ? 'cached' : hit.result.mode;
+    return NextResponse.json({ ...hit.result, live: false, cacheHit: true, mode }, { headers: { 'cache-control': 'no-store' } });
   }
   try {
     const result = await lookup(p.u, { window: p.window, from: p.from, to: p.to, storedFallback: true });
@@ -29,8 +31,8 @@ export async function GET(req: Request) {
     return NextResponse.json(result, { headers: { 'cache-control': 'no-store' } });
   } catch (e) {
     if (e instanceof LookupFailure) {
-      return NextResponse.json({ error: e.message, ...e.extra, verdict: null }, { status: e.httpStatus });
+      return NextResponse.json({ error: e.message, ...e.extra, verdict: null }, { status: e.httpStatus, headers: { 'cache-control': 'no-store' } });
     }
-    return NextResponse.json({ error: `lookup failed: ${(e as Error).message}`, verdict: null }, { status: 500 });
+    return NextResponse.json({ error: `lookup failed: ${(e as Error).message}`, verdict: null }, { status: 500, headers: { 'cache-control': 'no-store' } });
   }
 }

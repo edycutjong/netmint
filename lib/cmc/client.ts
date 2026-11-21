@@ -23,6 +23,8 @@ export interface CmcCall<T = unknown> {
   elapsedMs: number;
   status: CmcStatus | null;
   body: T; // verbatim parsed JSON body (or raw text if not JSON)
+  /** set when the body is a committed capture, not a network answer (lib/stored.ts) */
+  stored?: { file: string; capturedUtc: string };
 }
 
 export function cmcErrorCode(status: CmcStatus | null): number {
@@ -52,7 +54,7 @@ export async function cmcFetch<T = unknown>(
       ...(opts.jsonBody !== undefined ? { 'Content-Type': 'application/json' } : {}),
     },
     body: opts.jsonBody !== undefined ? JSON.stringify(opts.jsonBody) : undefined,
-    signal: AbortSignal.timeout(opts.timeoutMs ?? 30_000),
+    signal: AbortSignal.timeout(opts.timeoutMs ?? 15_000), // request path: 3 sequential CMC stages fit the 60 s route
     cache: 'no-store',
   });
   const text = await res.text();
