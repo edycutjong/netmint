@@ -1,0 +1,35 @@
+{
+  "name": "netmint",
+  "version": "0.1.0",
+  "private": true,
+  "description": "NetMint: net creation and redemption behind every tokenised stock, from CoinMarketCap supply history, checked against the chain.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "spike": "tsx scripts/spike.ts",
+    "blocks": "tsx scripts/build-block-index.ts",
+    "chain-supply": "tsx scripts/build-chain-supply.ts",
+    "coverage:supply": "tsx scripts/coverage.ts",
+    "spike:chain": "tsx scripts/spike-chain.ts"
+  },
+  "dependencies": {
+    "next": "^15.5.29",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.1.1"
+  }
+}
