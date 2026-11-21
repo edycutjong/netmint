@@ -1,4 +1,4 @@
-$ npm run verify:flows   # 2026-11-21T06:31:15Z, commit 3496f17
+$ npm run verify:flows   # 2026-11-21T06:49:41Z, commit 54bfd2a
 flows-7d.json (2026-11-21): 20 underlyings replayed offline
 flows-30d.json (2026-11-21): 20 underlyings replayed offline
 304 rows, 0 differences, 0 reason strings differ from HEAD's wording
@@ -6,9 +6,9 @@ flows-30d.json (2026-11-21): 20 underlyings replayed offline
 $ npx vitest run   # same commit
  Test Files  8 passed (8)
       Tests  201 passed (201)
-   Duration  933ms (tests 77%, transform 11%, import 10%, worker 2%)
+   Duration  893ms (tests 79%, transform 10%, import 9%, worker 1%)
 
-$ npm run test:coverage   # 2026-11-21T06:31:20Z, commit 3496f17, v8 over lib/
+$ npm run test:coverage   # 2026-11-21T06:49:43Z, commit 54bfd2a, v8 over lib/
 Statements   : 85.12% ( 870/1022 )
 Branches     : 73.89% ( 722/977 )
 Functions    : 87.26% ( 185/212 )
