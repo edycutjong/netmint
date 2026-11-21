@@ -1,0 +1,147 @@
+{
+ "receipt": {
+  "id": "r2",
+  "kind": "cmc",
+  "endpoint": "/v5/real-world-assets/quotes/latest",
+  "params": {
+   "rwa_id": "53"
+  },
+  "startedUtc": "2026-11-21T02:06:54.953Z",
+  "elapsedMs": 271,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": "",
+  "bodyBytes": 2738,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=53\""
+ },
+ "body": {
+  "data": {
+   "rwa_assets": [
+    {
+     "name": "Palantir Technologies Inc",
+     "symbol": "PLTR",
+     "slug": "palantir-technologies",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 145.75856067176647,
+       "tokenized_market_cap": 10271631.470078936,
+       "tokenized_volume_24h": 9176140.39232274,
+       "last_updated": "2026-11-21T02:06:02.000Z"
+      }
+     ],
+     "rwa_id": 53,
+     "asset_type": "stock",
+     "rwa_rank": 32,
+     "has_tokens": true,
+     "average_tokenized_price": 145.75856067176647,
+     "tokenized_market_cap": 10271631.470078936,
+     "tokenized_volume_24h": 9176140.39232274,
+     "last_updated": "2026-11-21T02:06:11.146Z",
+     "tokens": [
+      {
+       "symbol": "PLTRon",
+       "name": "Palantir Technologies Tokenized Stock (Ondo)",
+       "price": 145.7963082303952,
+       "crypto_id": 38073,
+       "issuer_id": "688ca4ccabae9b5b9fb3167a",
+       "issuer_name": "Ondo Assets",
+       "market_cap": 3345208.7731301244,
+       "volume_24h": 2719194.8281947193
+      },
+      {
+       "symbol": "PLTRX",
+       "name": "Palantir tokenized stock (xStock)",
+       "price": 145.60302744733988,
+       "crypto_id": 37062,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 2474299.3773537674,
+       "volume_24h": 112531.14701108178
+      },
+      {
+       "symbol": "PLTR",
+       "name": "Palantir Technologies Inc (Derivatives)",
+       "price": 145.93295377844973,
+       "crypto_id": 39475,
+       "issuer_id": "695e11f774b54210f3b95dc3",
+       "issuer_name": "NA (Derivatives)",
+       "market_cap": 0,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "PLTRB",
+       "name": "Palantir Tokenized bStocks",
+       "price": 145.83437864081444,
+       "crypto_id": 40590,
+       "issuer_id": "6a2aed5097c45356b1a5f710",
+       "issuer_name": "bStocks",
+       "market_cap": 1816658.2244134825,
+       "volume_24h": 3327756.642304083
+      },
+      {
+       "symbol": "rPLTR",
+       "name": "Palantir Tokenized Stock (Reality)",
+       "price": 145.53138080675507,
+       "crypto_id": 40655,
+       "issuer_id": "6a43600c282e7240b76c8bbb",
+       "issuer_name": "Reality",
+       "market_cap": 392771.23426804214,
+       "volume_24h": 609110.3211983471
+      },
+      {
+       "symbol": "PLTR",
+       "name": "Palantir Technologies Tokenized Stock (Robinhood)",
+       "price": 145.49653461946286,
+       "crypto_id": 40689,
+       "issuer_id": "6a465832fbe3004b1a0ea2dd",
+       "issuer_name": "Robinhood",
+       "market_cap": 1795608.4123990105,
+       "volume_24h": 469262.4241359695
+      },
+      {
+       "symbol": "WPLTRX",
+       "name": "Wrapped Palantir Tokenized stock (xStock)",
+       "price": 160.2042295338247,
+       "crypto_id": 37220,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 889.9230204912076,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "PLTRc",
+       "name": "Palantir Technologies Inc. Tokenized Stock (Coinbase)",
+       "price": 145.7271423558189,
+       "crypto_id": 42462,
+       "issuer_id": "6a72fe7072996604d45c6733",
+       "issuer_name": "Coinbase",
+       "market_cap": 446247.8632892988,
+       "volume_24h": 1934009.3353053269
+      }
+     ],
+     "tradfi_markets": [
+      {
+       "exchange": {
+        "slug": "binance",
+        "name": "Binance",
+        "exchange_id": 270
+       },
+       "ticker": "PLTR",
+       "market_url": "https://www.binance.com/en/stocks/EQ_PLTR"
+      }
+     ]
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:06:55.099Z",
+   "error_code": "0",
+   "error_message": "",
+   "elapsed": 5,
+   "credit_count": 1
+  }
+ }
+}

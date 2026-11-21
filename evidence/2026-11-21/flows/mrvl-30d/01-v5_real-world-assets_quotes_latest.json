@@ -1,0 +1,137 @@
+{
+ "receipt": {
+  "id": "r2",
+  "kind": "cmc",
+  "endpoint": "/v5/real-world-assets/quotes/latest",
+  "params": {
+   "rwa_id": "70"
+  },
+  "startedUtc": "2026-11-21T02:06:14.758Z",
+  "elapsedMs": 259,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": "",
+  "bodyBytes": 2494,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=70\""
+ },
+ "body": {
+  "data": {
+   "rwa_assets": [
+    {
+     "name": "Marvell Technology Inc",
+     "symbol": "MRVL",
+     "slug": "marvell-technology",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 125.64753125143554,
+       "tokenized_market_cap": 19656532.414943546,
+       "tokenized_volume_24h": 10727837.68839453,
+       "last_updated": "2026-11-21T02:05:02.000Z"
+      }
+     ],
+     "rwa_id": 70,
+     "asset_type": "stock",
+     "rwa_rank": 133,
+     "has_tokens": true,
+     "average_tokenized_price": 125.64753125143554,
+     "tokenized_market_cap": 19656532.414943546,
+     "tokenized_volume_24h": 10727837.68839453,
+     "last_updated": "2026-11-21T02:06:11.140Z",
+     "tokens": [
+      {
+       "symbol": "MRVLon",
+       "name": "Marvell Technology Tokenized Stock (Ondo)",
+       "price": 126.00551939033781,
+       "crypto_id": 38089,
+       "issuer_id": "688ca4ccabae9b5b9fb3167a",
+       "issuer_name": "Ondo Assets",
+       "market_cap": 5669048.954489398,
+       "volume_24h": 1228544.6728312175
+      },
+      {
+       "symbol": "MRVLX",
+       "name": "Marvell tokenized stock (xStock)",
+       "price": 125.69878993073229,
+       "crypto_id": 37050,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 4942023.344145911,
+       "volume_24h": 959243.5468581019
+      },
+      {
+       "symbol": "rMRVL",
+       "name": "Marvell Tokenized Stock (Reality)",
+       "price": 125.14321575236292,
+       "crypto_id": 40614,
+       "issuer_id": "6a43600c282e7240b76c8bbb",
+       "issuer_name": "Reality",
+       "market_cap": 2121435.875980467,
+       "volume_24h": 871949.121807707
+      },
+      {
+       "symbol": "MRVL",
+       "name": "Marvell Technology Tokenized Stock (Robinhood)",
+       "price": 125.50047637079011,
+       "crypto_id": 40723,
+       "issuer_id": "6a465832fbe3004b1a0ea2dd",
+       "issuer_name": "Robinhood",
+       "market_cap": 176986.52221195638,
+       "volume_24h": 1282652.458779519
+      },
+      {
+       "symbol": "MRVLB",
+       "name": "Marvell Technology Tokenized bStocks",
+       "price": 125.67035885982985,
+       "crypto_id": 40848,
+       "issuer_id": "6a2aed5097c45356b1a5f710",
+       "issuer_name": "bStocks",
+       "market_cap": 6613101.981192236,
+       "volume_24h": 6283602.84421515
+      },
+      {
+       "symbol": "WMRVLX",
+       "name": "Wrapped Marvell Tokenized stock (xStock)",
+       "price": null,
+       "crypto_id": 37213,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 45918.22,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "MRVLc",
+       "name": "Marvell Technology, Inc. Tokenized Stock (Coinbase)",
+       "price": 125.61834207343601,
+       "crypto_id": 42419,
+       "issuer_id": "6a72fe7072996604d45c6733",
+       "issuer_name": "Coinbase",
+       "market_cap": 133964.72124072845,
+       "volume_24h": 101815.60245947856
+      }
+     ],
+     "tradfi_markets": [
+      {
+       "exchange": {
+        "slug": "binance",
+        "name": "Binance",
+        "exchange_id": 270
+       },
+       "ticker": "MRVL",
+       "market_url": "https://www.binance.com/en/stocks/EQ_MRVL"
+      }
+     ]
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:06:14.889Z",
+   "error_code": "0",
+   "error_message": "",
+   "elapsed": 5,
+   "credit_count": 1
+  }
+ }
+}

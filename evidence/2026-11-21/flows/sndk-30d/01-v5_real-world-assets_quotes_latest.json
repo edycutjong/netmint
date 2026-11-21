@@ -1,0 +1,157 @@
+{
+ "receipt": {
+  "id": "r2",
+  "kind": "cmc",
+  "endpoint": "/v5/real-world-assets/quotes/latest",
+  "params": {
+   "rwa_id": "48"
+  },
+  "startedUtc": "2026-11-21T02:04:50.711Z",
+  "elapsedMs": 251,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": "",
+  "bodyBytes": 2905,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=48\""
+ },
+ "body": {
+  "data": {
+   "rwa_assets": [
+    {
+     "name": "SanDisk Corp",
+     "symbol": "SNDK",
+     "slug": "sandisk-corp",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 89.82600415058901,
+       "tokenized_market_cap": 56821883.70106255,
+       "tokenized_volume_24h": 38504233.49902766,
+       "last_updated": "2026-11-21T02:04:02.000Z"
+      }
+     ],
+     "rwa_id": 48,
+     "asset_type": "stock",
+     "rwa_rank": 167,
+     "has_tokens": true,
+     "average_tokenized_price": 89.82600415058901,
+     "tokenized_market_cap": 56821883.70106255,
+     "tokenized_volume_24h": 38504233.49902766,
+     "last_updated": "2026-11-21T02:04:16.600Z",
+     "tokens": [
+      {
+       "symbol": "SNDK",
+       "name": "SanDisk Corporation (Derivatives)",
+       "price": 80.96417232514752,
+       "crypto_id": 39507,
+       "issuer_id": "695e11f774b54210f3b95dc3",
+       "issuer_name": "NA (Derivatives)",
+       "market_cap": 0,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "SNDKon",
+       "name": "SanDisk Tokenized Stock (Ondo)",
+       "price": 645.7700170465887,
+       "crypto_id": 39788,
+       "issuer_id": "688ca4ccabae9b5b9fb3167a",
+       "issuer_name": "Ondo Assets",
+       "market_cap": 2341606.1462435187,
+       "volume_24h": 330703.44030140736
+      },
+      {
+       "symbol": "SNDKX",
+       "name": "Sandisk Corporation tokenized stock(xstock)",
+       "price": 81.02683817302587,
+       "crypto_id": 40037,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 2384015.8935762835,
+       "volume_24h": 9481105.366196996
+      },
+      {
+       "symbol": "SNDKB",
+       "name": "SanDisk Tokenized bStocks",
+       "price": 80.93204102285289,
+       "crypto_id": 40216,
+       "issuer_id": "6a2aed5097c45356b1a5f710",
+       "issuer_name": "bStocks",
+       "market_cap": 47447576.72797388,
+       "volume_24h": 8033240.585539422
+      },
+      {
+       "symbol": "rSNDK",
+       "name": "SanDisk Tokenized Stock (Reality)",
+       "price": 81.31141917456483,
+       "crypto_id": 40648,
+       "issuer_id": "6a43600c282e7240b76c8bbb",
+       "issuer_name": "Reality",
+       "market_cap": 1047812.0235503662,
+       "volume_24h": 4179402.057726494
+      },
+      {
+       "symbol": "SNDK",
+       "name": "Sandisk Corporation Tokenized Stock (Robinhood)",
+       "price": 81.72294006621463,
+       "crypto_id": 40700,
+       "issuer_id": "6a465832fbe3004b1a0ea2dd",
+       "issuer_name": "Robinhood",
+       "market_cap": 841092.3398017479,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "SNDK",
+       "name": "SanDisk Corp tokenized stock (Backpack)",
+       "price": 648.5347811686315,
+       "crypto_id": 40815,
+       "issuer_id": "6a2d54b697c45356b1a634f4",
+       "issuer_name": "Backpack",
+       "market_cap": 628860.0933115885,
+       "volume_24h": 271343.81783378095
+      },
+      {
+       "symbol": "wSNDKx",
+       "name": "Wrapped Sandisk Corporation Tokenized Stock (xStock)",
+       "price": 1412.7300500153626,
+       "crypto_id": 41493,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 0,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "SNDKc",
+       "name": "Sandisk Corporation Tokenized Stock (Coinbase)",
+       "price": 80.91999244148195,
+       "crypto_id": 42478,
+       "issuer_id": "6a72fe7072996604d45c6733",
+       "issuer_name": "Coinbase",
+       "market_cap": 2155733.5457503875,
+       "volume_24h": 16208697.373327369
+      }
+     ],
+     "tradfi_markets": [
+      {
+       "exchange": {
+        "slug": "binance",
+        "name": "Binance",
+        "exchange_id": 270
+       },
+       "ticker": "SNDK",
+       "market_url": "https://www.binance.com/en/stocks/EQ_SNDK"
+      }
+     ]
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:04:50.846Z",
+   "error_code": "0",
+   "error_message": "",
+   "elapsed": 5,
+   "credit_count": 1
+  }
+ }
+}

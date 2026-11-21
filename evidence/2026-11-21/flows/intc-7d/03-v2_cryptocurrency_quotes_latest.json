@@ -1,0 +1,608 @@
+{
+ "receipt": {
+  "id": "r4",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "params": {
+   "id": "38035,37028,40540,40618,40697,37202,42505"
+  },
+  "startedUtc": "2026-11-21T02:03:15.613Z",
+  "elapsedMs": 291,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 11781,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=38035%2C37028%2C40540%2C40618%2C40697%2C37202%2C42505\""
+ },
+ "body": {
+  "data": {
+   "37028": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "toncoin-ecosystem",
+      "name": "Toncoin Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "internet-capital-markets",
+      "name": "Internet Capital Markets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 37028,
+    "name": "Intel tokenized stock (xStock)",
+    "symbol": "INTCX",
+    "slug": "intel-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 484934.72171369,
+    "total_supply": 2402733.27746966,
+    "max_supply": null,
+    "date_added": "2025-07-01T15:48:56.000Z",
+    "num_market_pairs": 19,
+    "cmc_rank": 491,
+    "last_updated": "2026-11-21T02:03:03.448Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "XshPgPdXFRWB8tP1j82rebb2Q9rPgGX37RuqzohmArM"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 127175892.42,
+    "quote": {
+     "USD": {
+      "price": 52.92967538639876,
+      "volume_24h": 3109323.36287869,
+      "volume_change_24h": -35.098941244566,
+      "cex_volume_24h": 2956832.2581070713,
+      "dex_volume_24h": 152491.10477161873,
+      "percent_change_1h": -0.107650289448,
+      "percent_change_24h": -1.924960948452,
+      "percent_change_7d": -9.790763420249,
+      "percent_change_30d": -41.564211405139,
+      "percent_change_60d": -56.800421760618,
+      "percent_change_90d": -40.644350923743,
+      "market_cap": 25667437.40389923,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 127175892.42,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "37202": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 37202,
+    "name": "Wrapped Intel Tokenized stock (xStock)",
+    "symbol": "WINTCX",
+    "slug": "wrapped-intel-tokenized-stock-xstock",
+    "is_active": 0,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 897.5261189985735,
+    "total_supply": 897.5261189985735,
+    "max_supply": null,
+    "date_added": "2025-07-06T08:33:12.000Z",
+    "num_market_pairs": 2,
+    "cmc_rank": null,
+    "last_updated": "2026-11-11T02:15:00.000Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 3897,
+     "slug": "okb",
+     "name": "X Layer",
+     "symbol": "OKB",
+     "token_address": "0x33AA35B0271FFfE2048Cc093aB7fE60931786719"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 47996.39,
+    "quote": {
+     "USD": {
+      "price": null,
+      "volume_24h": 0,
+      "volume_change_24h": 0,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 0,
+      "percent_change_1h": 0,
+      "percent_change_24h": 0,
+      "percent_change_7d": -1.76275615,
+      "percent_change_30d": -44.70640099,
+      "percent_change_60d": -43.74377179,
+      "percent_change_90d": -44.14092913,
+      "market_cap": null,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 47996.39,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "38035": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-alpha",
+      "name": "Binance Alpha",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperevm-ecosystem",
+      "name": "HyperEVM Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "ondo-stocks-ecosystem",
+      "name": "Ondo Stocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 38035,
+    "name": "Intel Tokenized Stock (Ondo)",
+    "symbol": "INTCon",
+    "slug": "intel-tokenized-stock-ondo",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 122924.61512593,
+    "total_supply": 122924.61512593,
+    "max_supply": null,
+    "date_added": "2025-09-03T10:55:20.000Z",
+    "num_market_pairs": 23,
+    "cmc_rank": 1029,
+    "last_updated": "2026-11-21T02:03:03.626Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1027,
+     "slug": "ethereum",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "token_address": "0xFdA09936DbD717368De0835bA441d9E62069d36f"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 6505601.92,
+    "quote": {
+     "USD": {
+      "price": 52.923508587085976,
+      "volume_24h": 1572318.3101356097,
+      "volume_change_24h": -1.084858399499,
+      "cex_volume_24h": 1536475.850739778,
+      "dex_volume_24h": 35842.459395831625,
+      "percent_change_1h": -0.09797723122,
+      "percent_change_24h": -1.967824199027,
+      "percent_change_7d": -9.942135438638,
+      "percent_change_30d": -41.687386682002,
+      "percent_change_60d": -56.788977979722,
+      "percent_change_90d": -40.583468541019,
+      "market_cap": 6505601.924181395,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 6505601.92,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "40540": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-listing",
+      "name": "Binance Listing",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bstocks",
+      "name": "bStocks",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40540,
+    "name": "Intel Tokenized bStocks",
+    "symbol": "INTCB",
+    "slug": "intel-tokenized-bstocks",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 933129.37214305,
+    "total_supply": 933129.37214305,
+    "max_supply": null,
+    "date_added": "2026-06-21T05:25:59.000Z",
+    "num_market_pairs": 33,
+    "cmc_rank": 319,
+    "last_updated": "2026-11-21T02:03:03.569Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1839,
+     "slug": "bnb",
+     "name": "BNB Smart Chain (BEP20)",
+     "symbol": "BNB",
+     "token_address": "0xe614e2fc6c787035ff51f452e8e826bfd32d5283"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 49340896.84,
+    "quote": {
+     "USD": {
+      "price": 52.876801768408704,
+      "volume_24h": 34494364.96419635,
+      "volume_change_24h": 30.598504400546,
+      "cex_volume_24h": 34364968.59044172,
+      "dex_volume_24h": 129396.37375462744,
+      "percent_change_1h": -0.180254311538,
+      "percent_change_24h": -1.950662714415,
+      "percent_change_7d": -9.908920512662,
+      "percent_change_30d": -41.601233786425,
+      "percent_change_60d": -56.846168777039,
+      "percent_change_90d": -40.680916667961,
+      "market_cap": 49340896.83508773,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 49340896.84,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "40618": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bitget-ecosystem",
+      "name": "Bitget Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "rtokens",
+      "name": "rTokens",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40618,
+    "name": "Intel Tokenized Stock (Reality)",
+    "symbol": "rINTC",
+    "slug": "intel-tokenized-stock-reality",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 68080.815776,
+    "total_supply": 68080.815776,
+    "max_supply": null,
+    "date_added": "2026-07-02T07:39:09.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 1260,
+    "last_updated": "2026-11-21T02:03:03.589Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0xafa43b4badfd062f5f1891a398a0579c904da776"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 3594023.76,
+    "quote": {
+     "USD": {
+      "price": 52.790550740482075,
+      "volume_24h": 2104217.304740498,
+      "volume_change_24h": 73.927147220019,
+      "cex_volume_24h": 2104217.304740498,
+      "dex_volume_24h": 0,
+      "percent_change_1h": -0.052739176257,
+      "percent_change_24h": -1.954965222133,
+      "percent_change_7d": -9.968945000705,
+      "percent_change_30d": -41.641524935739,
+      "percent_change_60d": -56.939181873871,
+      "percent_change_90d": -40.65465053502,
+      "market_cap": 3594023.7596763405,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 3594023.76,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "40697": {
+    "tags": [
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-ecosystem",
+      "name": "Robinhood Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-stock",
+      "name": "Robinhood Stock",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40697,
+    "name": "Intel Tokenized Stock (Robinhood)",
+    "symbol": "INTC",
+    "slug": "intel-tokenized-stock-robinhood",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 32981.79179,
+    "total_supply": 32981.79179,
+    "max_supply": null,
+    "date_added": "2026-08-04T07:31:29.000Z",
+    "num_market_pairs": 41,
+    "cmc_rank": 1573,
+    "last_updated": "2026-11-21T02:03:03.626Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 40670,
+     "slug": "robinhood-placeholder",
+     "name": "Robinhood Chain",
+     "symbol": "-",
+     "token_address": "0xc72b96e0E48ecd4DC75E1e45396e26300BC39681"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 1744192.07,
+    "quote": {
+     "USD": {
+      "price": 52.88348439859277,
+      "volume_24h": 8637287.814225905,
+      "volume_change_24h": 5.648699693486,
+      "cex_volume_24h": 7350203.983697293,
+      "dex_volume_24h": 1287083.8305286116,
+      "percent_change_1h": -0.224956043897,
+      "percent_change_24h": -2.006089886746,
+      "percent_change_7d": -9.926168943128,
+      "percent_change_30d": -41.647918989996,
+      "percent_change_60d": -56.948430101848,
+      "percent_change_90d": -40.609207301663,
+      "market_cap": 1744192.0715641002,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 1744192.07,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "42505": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "base-ecosystem",
+      "name": "Base Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "coinbase-ecosystem",
+      "name": "Coinbase Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42505,
+    "name": "Intel Corporation Tokenized Stock (Coinbase)",
+    "symbol": "INTCc",
+    "slug": "intel-corporation-tokenized-stock-coinbase",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 2990.3600078,
+    "total_supply": 2990.3600078,
+    "max_supply": null,
+    "date_added": "2026-10-08T03:59:28.000Z",
+    "num_market_pairs": 2,
+    "cmc_rank": 2708,
+    "last_updated": "2026-11-21T02:02:48.114Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 27716,
+     "slug": "base",
+     "name": "Base",
+     "symbol": "-",
+     "token_address": "0xb2000000000000000000004aff16039ba04bdfbc"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 157998.99,
+    "quote": {
+     "USD": {
+      "price": 52.836108319402214,
+      "volume_24h": 326010.4784490341,
+      "volume_change_24h": 78.998598953062,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 326010.4784490341,
+      "percent_change_1h": -0.662786468444,
+      "percent_change_24h": -2.870289741757,
+      "percent_change_7d": -10.217283287926,
+      "percent_change_30d": -43.233163793295,
+      "percent_change_60d": -43.233163793295,
+      "percent_change_90d": -43.233163793295,
+      "market_cap": 157998.98528612926,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 157998.99,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:03:15.775Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 30,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

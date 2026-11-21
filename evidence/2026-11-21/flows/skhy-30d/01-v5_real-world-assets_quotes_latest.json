@@ -1,0 +1,127 @@
+{
+ "receipt": {
+  "id": "r2",
+  "kind": "cmc",
+  "endpoint": "/v5/real-world-assets/quotes/latest",
+  "params": {
+   "rwa_id": "8065"
+  },
+  "startedUtc": "2026-11-21T02:05:03.394Z",
+  "elapsedMs": 258,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": "",
+  "bodyBytes": 2265,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=8065\""
+ },
+ "body": {
+  "data": {
+   "rwa_assets": [
+    {
+     "name": "SK Hynix",
+     "symbol": "SKHY",
+     "slug": "sk-hynix",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 106.16058936592242,
+       "tokenized_market_cap": 39063639.66297372,
+       "tokenized_volume_24h": 18002947.06036474,
+       "last_updated": "2026-11-21T02:04:02.000Z"
+      }
+     ],
+     "rwa_id": 8065,
+     "asset_type": "stock",
+     "rwa_rank": 19,
+     "has_tokens": true,
+     "average_tokenized_price": 106.16058936592242,
+     "tokenized_market_cap": 39063639.66297372,
+     "tokenized_volume_24h": 18002947.06036474,
+     "last_updated": "2026-11-21T02:04:16.601Z",
+     "tokens": [
+      {
+       "symbol": "SKHYx",
+       "name": "SK hynix tokenized stock (xStock)",
+       "price": 106.20714278938455,
+       "crypto_id": 40786,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 10859829.674532402,
+       "volume_24h": 3024104.345359155
+      },
+      {
+       "symbol": "SKHYB",
+       "name": "SK Hynix Tokenized bStocks",
+       "price": 106.18514584194982,
+       "crypto_id": 40813,
+       "issuer_id": "6a2aed5097c45356b1a5f710",
+       "issuer_name": "bStocks",
+       "market_cap": 24426930.74828166,
+       "volume_24h": 13355151.313691065
+      },
+      {
+       "symbol": "SKHYon",
+       "name": "SK Hynix Tokenized Stock (Ondo)",
+       "price": 106.17405750327028,
+       "crypto_id": 40823,
+       "issuer_id": "688ca4ccabae9b5b9fb3167a",
+       "issuer_name": "Ondo Assets",
+       "market_cap": 1015642.7645673472,
+       "volume_24h": 1214806.707861777
+      },
+      {
+       "symbol": "SKHY",
+       "name": "SK Hynix (Derivatives)",
+       "price": 106.18619524494338,
+       "crypto_id": 40824,
+       "issuer_id": "695e11f774b54210f3b95dc3",
+       "issuer_name": "NA (Derivatives)",
+       "market_cap": 0,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "SKHY",
+       "name": "SK Hynix tokenized stock (Backpack)",
+       "price": 105.88560027038757,
+       "crypto_id": 40833,
+       "issuer_id": "6a2d54b697c45356b1a634f4",
+       "issuer_name": "Backpack",
+       "market_cap": 2479624.2989410986,
+       "volume_24h": 114025.09457290279
+      },
+      {
+       "symbol": "wSKHYx",
+       "name": "Wrapped SK hynix Tokenized Stock (xStock)",
+       "price": 110.29778220131624,
+       "crypto_id": 41523,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 0,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "SKHYc",
+       "name": "SK hynix Inc. Tokenized Stock (Coinbase)",
+       "price": 106.06987765690262,
+       "crypto_id": 42557,
+       "issuer_id": "6a72fe7072996604d45c6733",
+       "issuer_name": "Coinbase",
+       "market_cap": 286251.21710281057,
+       "volume_24h": 289190.1401247474
+      }
+     ],
+     "tradfi_markets": []
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:05:03.526Z",
+   "error_code": "0",
+   "error_message": "",
+   "elapsed": 5,
+   "credit_count": 1
+  }
+ }
+}

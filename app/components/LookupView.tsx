@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Ledger } from './Ledger';
 import { ReceiptDrawer } from './ReceiptDrawer';
+import { HolderPanel } from './HolderPanel';
 import { ErrorBanner, type LookupError } from './ErrorBanner';
 import { utcStamp } from '@/lib/format';
 import type { LookupResult, LookupWindow } from '@/lib/types';
@@ -84,6 +85,7 @@ export function LookupView({ u, from, to, initialWindow }: { u: string; from?: s
           <p className="definition">Counted the way ETF flow tables count creations: units created or redeemed × price ($ at wrapper market price). REAL INFLOW and OUTFLOW are issuer-level net creation and redemption verified on chain, not buyer data.</p>
         </>
       ) : null}
+      {res ? <HolderPanel u={u} /> : null}
       {drawer && res ? <ReceiptDrawer receipts={res.receipts} credits={res.credits} onClose={() => setDrawer(false)} /> : null}
     </section>
   );

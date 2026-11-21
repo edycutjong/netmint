@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     '/api/lookup': ['./data/**/*.json'],
     '/': ['./data/**/*.json'],
+    '/api/holders': ['./data/mints.json'],
+    '/api/health': ['./evidence/*/flows-*d.json', './data/chain-supply/manifest.json'],
+    '/flows': ['./evidence/*/flows-*d.json'],
   },
 };
 

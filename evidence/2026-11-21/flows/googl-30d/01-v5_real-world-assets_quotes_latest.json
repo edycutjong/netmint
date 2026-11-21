@@ -1,0 +1,177 @@
+{
+ "receipt": {
+  "id": "r2",
+  "kind": "cmc",
+  "endpoint": "/v5/real-world-assets/quotes/latest",
+  "params": {
+   "rwa_id": "4"
+  },
+  "startedUtc": "2026-11-21T02:04:27.699Z",
+  "elapsedMs": 272,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": "",
+  "bodyBytes": 3371,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=4\""
+ },
+ "body": {
+  "data": {
+   "rwa_assets": [
+    {
+     "name": "Alphabet Inc Class A",
+     "symbol": "GOOGL",
+     "slug": "google",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 270.4724745477584,
+       "tokenized_market_cap": 207790487.47121745,
+       "tokenized_volume_24h": 104379531.0452517,
+       "last_updated": "2026-11-21T02:03:02.000Z"
+      }
+     ],
+     "rwa_id": 4,
+     "asset_type": "stock",
+     "rwa_rank": 4,
+     "has_tokens": true,
+     "average_tokenized_price": 270.4724745477584,
+     "tokenized_market_cap": 207790487.47121745,
+     "tokenized_volume_24h": 104379531.0452517,
+     "last_updated": "2026-11-21T02:04:16.588Z",
+     "tokens": [
+      {
+       "symbol": "GOOGLX",
+       "name": "Alphabet tokenized stock (xStock)",
+       "price": 270.5986444640426,
+       "crypto_id": 37013,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 62621118.11043434,
+       "volume_24h": 27839699.661998343
+      },
+      {
+       "symbol": "GOOGL.D",
+       "name": "GOOGL tokenized stock (Dinari)",
+       "price": null,
+       "crypto_id": 28634,
+       "issuer_id": "688c6172abae9b5b9fb30359",
+       "issuer_name": "Dinari Assets",
+       "market_cap": null,
+       "volume_24h": null
+      },
+      {
+       "symbol": "GOOGLon",
+       "name": "Alphabet Class A Tokenized Stock (Ondo)",
+       "price": 270.54720852074433,
+       "crypto_id": 38001,
+       "issuer_id": "688ca4ccabae9b5b9fb3167a",
+       "issuer_name": "Ondo Assets",
+       "market_cap": 21268792.285917617,
+       "volume_24h": 14098544.13888733
+      },
+      {
+       "symbol": "GOOGL",
+       "name": "Alphabet Inc (Derivatives)",
+       "price": 270.6263112704929,
+       "crypto_id": 39470,
+       "issuer_id": "695e11f774b54210f3b95dc3",
+       "issuer_name": "NA (Derivatives)",
+       "market_cap": 0,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "GOOGL",
+       "name": "Alphabet Tokenized Stock (Hyperliquid)",
+       "price": 269.95399658169316,
+       "crypto_id": 39622,
+       "issuer_id": "699ed38db54c9320b15928e3",
+       "issuer_name": "Hyperliquid Assets",
+       "market_cap": 0,
+       "volume_24h": 89.08481887195875
+      },
+      {
+       "symbol": "rGOOGL",
+       "name": "Google Tokenized Stock (Reality)",
+       "price": 270.14990531107566,
+       "crypto_id": 40613,
+       "issuer_id": "6a43600c282e7240b76c8bbb",
+       "issuer_name": "Reality",
+       "market_cap": 12018973.22530653,
+       "volume_24h": 1766074.7304406178
+      },
+      {
+       "symbol": "GOOGL",
+       "name": "Alphabet Class A Tokenized Stock (Robinhood)",
+       "price": 270.59616270020547,
+       "crypto_id": 40757,
+       "issuer_id": "6a465832fbe3004b1a0ea2dd",
+       "issuer_name": "Robinhood",
+       "market_cap": 7653515.555725,
+       "volume_24h": 5050764.487551858
+      },
+      {
+       "symbol": "GOOGLB",
+       "name": "Alphabet Tokenized bStocks",
+       "price": 270.36754487602116,
+       "crypto_id": 40793,
+       "issuer_id": "6a2aed5097c45356b1a5f710",
+       "issuer_name": "bStocks",
+       "market_cap": 87925785.76098879,
+       "volume_24h": 42967105.12095068
+      },
+      {
+       "symbol": "WGOOGLX",
+       "name": "Wrapped Alphabet Tokenized stock (xStock)",
+       "price": 271.24644568890466,
+       "crypto_id": 37121,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 513483.68996762985,
+       "volume_24h": 874724.4450716659
+      },
+      {
+       "symbol": "GOOGon",
+       "name": "Alphabet Class C Tokenized Stock (Ondo)",
+       "price": 268.4636660397509,
+       "crypto_id": 42272,
+       "issuer_id": "688ca4ccabae9b5b9fb3167a",
+       "issuer_name": "Ondo Assets",
+       "market_cap": 5729333.189823816,
+       "volume_24h": 7462.454936249378
+      },
+      {
+       "symbol": "GOOGLc",
+       "name": "Alphabet Inc. Tokenized Stock (Coinbase)",
+       "price": 270.4066862547609,
+       "crypto_id": 42421,
+       "issuer_id": "6a72fe7072996604d45c6733",
+       "issuer_name": "Coinbase",
+       "market_cap": 10059485.653056143,
+       "volume_24h": 11775066.92059607
+      }
+     ],
+     "tradfi_markets": [
+      {
+       "exchange": {
+        "slug": "binance",
+        "name": "Binance",
+        "exchange_id": 270
+       },
+       "ticker": "GOOGL",
+       "market_url": "https://www.binance.com/en/stocks/EQ_GOOGL"
+      }
+     ]
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:04:27.843Z",
+   "error_code": "0",
+   "error_message": "",
+   "elapsed": 14,
+   "credit_count": 1
+  }
+ }
+}

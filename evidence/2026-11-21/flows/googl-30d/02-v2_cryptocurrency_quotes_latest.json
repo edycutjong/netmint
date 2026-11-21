@@ -1,0 +1,761 @@
+{
+ "receipt": {
+  "id": "r3",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "params": {
+   "id": "37013,28634,38001,40613,40757,40793,37121,42272,42421"
+  },
+  "startedUtc": "2026-11-21T02:04:27.973Z",
+  "elapsedMs": 283,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 14950,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=37013%2C28634%2C38001%2C40613%2C40757%2C40793%2C37121%2C42272%2C42421\""
+ },
+ "body": {
+  "data": {
+   "28634": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 28634,
+    "name": "GOOGL tokenized stock (Dinari)",
+    "symbol": "GOOGL.D",
+    "slug": "dinari-googl",
+    "is_active": 0,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 0,
+    "total_supply": 97.951028152,
+    "max_supply": 0,
+    "date_added": "2023-12-07T11:26:51.000Z",
+    "num_market_pairs": null,
+    "cmc_rank": null,
+    "last_updated": "2026-11-21T02:04:28.124Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0x8E50D11a54CFF859b202b7Fe5225353bE0646410"
+    },
+    "self_reported_circulating_supply": 5,
+    "self_reported_market_cap": 0,
+    "minted_market_cap": null,
+    "quote": {
+     "USD": {
+      "price": null,
+      "volume_24h": null,
+      "volume_change_24h": null,
+      "cex_volume_24h": null,
+      "dex_volume_24h": null,
+      "percent_change_1h": null,
+      "percent_change_24h": null,
+      "percent_change_7d": null,
+      "percent_change_30d": null,
+      "percent_change_60d": null,
+      "percent_change_90d": null,
+      "market_cap": null,
+      "market_cap_dominance": null,
+      "fully_diluted_market_cap": 0,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "37013": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "toncoin-ecosystem",
+      "name": "Toncoin Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "internet-capital-markets",
+      "name": "Internet Capital Markets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 37013,
+    "name": "Alphabet tokenized stock (xStock)",
+    "symbol": "GOOGLX",
+    "slug": "alphabet-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": true,
+    "is_fiat": 0,
+    "circulating_supply": 231416.96897434,
+    "total_supply": 640833.95483193,
+    "max_supply": null,
+    "date_added": "2025-07-01T14:12:11.000Z",
+    "num_market_pairs": 89,
+    "cmc_rank": 283,
+    "last_updated": "2026-11-21T02:04:03.150Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 173408799.5,
+    "quote": {
+     "USD": {
+      "price": 270.5986444640426,
+      "volume_24h": 27839699.661998343,
+      "volume_change_24h": 113.478502850189,
+      "cex_volume_24h": 26300846.874798276,
+      "dex_volume_24h": 1538852.7872000716,
+      "percent_change_1h": 0.1288210164,
+      "percent_change_24h": -0.764640506217,
+      "percent_change_7d": -8.09762647417,
+      "percent_change_30d": -18.821598737212,
+      "percent_change_60d": -24.299784568412,
+      "percent_change_90d": -21.430145743513,
+      "market_cap": 62621118.11043381,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 173408799.5,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "37121": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 37121,
+    "name": "Wrapped Alphabet Tokenized stock (xStock)",
+    "symbol": "WGOOGLX",
+    "slug": "wrapped-alphabet-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 1893.05223397,
+    "total_supply": 1893.05223397,
+    "max_supply": null,
+    "date_added": "2025-07-03T07:50:39.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 2167,
+    "last_updated": "2026-11-21T02:04:03.044Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 3897,
+     "slug": "okb",
+     "name": "X Layer",
+     "symbol": "OKB",
+     "token_address": "0xf8c5308F80E459bb53d9EbE689854d9cBb2Caa6f"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 513483.69,
+    "quote": {
+     "USD": {
+      "price": 271.24644568890466,
+      "volume_24h": 874724.4450716659,
+      "volume_change_24h": 41.778416931852,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 874724.4450716659,
+      "percent_change_1h": 0.050042568522,
+      "percent_change_24h": -0.766580608787,
+      "percent_change_7d": -7.881910471364,
+      "percent_change_30d": -18.672653236645,
+      "percent_change_60d": -24.182762928014,
+      "percent_change_90d": -21.394595243962,
+      "market_cap": 513483.68996780325,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 513483.69,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "38001": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-alpha",
+      "name": "Binance Alpha",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperevm-ecosystem",
+      "name": "HyperEVM Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "ondo-stocks-ecosystem",
+      "name": "Ondo Stocks Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-ecosystem",
+      "name": "Robinhood Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 38001,
+    "name": "Alphabet Class A Tokenized Stock (Ondo)",
+    "symbol": "GOOGLon",
+    "slug": "alphabet-class-a-tokenized-stock-ondo",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 78613.97795308,
+    "total_supply": 78613.97795308,
+    "max_supply": null,
+    "date_added": "2025-09-03T10:55:17.000Z",
+    "num_market_pairs": 41,
+    "cmc_rank": 564,
+    "last_updated": "2026-11-21T02:04:18.043Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 40670,
+     "slug": "robinhood-placeholder",
+     "name": "Robinhood Chain",
+     "symbol": "-",
+     "token_address": "0xe10cc5f0cd0C90322ebEB33e7757B2c9090146DC"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 21268936.76,
+    "quote": {
+     "USD": {
+      "price": 270.5490462657398,
+      "volume_24h": 14100298.935208164,
+      "volume_change_24h": 13.175496943522,
+      "cex_volume_24h": 12765897.87861744,
+      "dex_volume_24h": 1334401.056590724,
+      "percent_change_1h": 0.129594938918,
+      "percent_change_24h": -0.60534888991,
+      "percent_change_7d": -8.137740523103,
+      "percent_change_30d": -18.800995133181,
+      "percent_change_60d": -24.468673984452,
+      "percent_change_90d": -21.65639220434,
+      "market_cap": 21268936.75836169,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 21268936.76,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "40613": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bitget-ecosystem",
+      "name": "Bitget Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "rtokens",
+      "name": "rTokens",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40613,
+    "name": "Google Tokenized Stock (Reality)",
+    "symbol": "rGOOGL",
+    "slug": "google-tokenized-stock-reality",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 44490.01457715,
+    "total_supply": 44490.01457715,
+    "max_supply": null,
+    "date_added": "2026-07-02T07:39:07.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 774,
+    "last_updated": "2026-11-21T02:04:18.074Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0xca1942edeb697a85af98ef8c74c4910fe9587afb"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 12018973.23,
+    "quote": {
+     "USD": {
+      "price": 270.14990531107566,
+      "volume_24h": 1766074.7304406178,
+      "volume_change_24h": 54.197752397575,
+      "cex_volume_24h": 1766074.7304406178,
+      "dex_volume_24h": 0,
+      "percent_change_1h": 0.341965319626,
+      "percent_change_24h": -0.728434245212,
+      "percent_change_7d": -8.086912387466,
+      "percent_change_30d": -18.728130276153,
+      "percent_change_60d": -24.365165288281,
+      "percent_change_90d": -21.234511174392,
+      "market_cap": 12018973.22530545,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 12018973.23,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "40757": {
+    "tags": [
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-ecosystem",
+      "name": "Robinhood Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-stock",
+      "name": "Robinhood Stock",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40757,
+    "name": "Alphabet Class A Tokenized Stock (Robinhood)",
+    "symbol": "GOOGL",
+    "slug": "alphabet-class-a-tokenized-stock-robinhood",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 28283.90276991607,
+    "total_supply": 28283.90276991607,
+    "max_supply": null,
+    "date_added": "2026-08-04T07:31:54.000Z",
+    "num_market_pairs": 54,
+    "cmc_rank": 962,
+    "last_updated": "2026-11-21T02:04:18.090Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 40670,
+     "slug": "robinhood-placeholder",
+     "name": "Robinhood Chain",
+     "symbol": "-",
+     "token_address": "0x2e0847E8910a9732eB3fb1bb4b70a580ADAD4FE3"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 7653515.56,
+    "quote": {
+     "USD": {
+      "price": 270.59616270020547,
+      "volume_24h": 5050848.603221402,
+      "volume_change_24h": 44.452580745769,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 5050848.603221402,
+      "percent_change_1h": 0.149747396813,
+      "percent_change_24h": -0.650486129638,
+      "percent_change_7d": -8.082209383146,
+      "percent_change_30d": -18.765479886547,
+      "percent_change_60d": -24.180075334512,
+      "percent_change_90d": -21.437852162718,
+      "market_cap": 7653515.555725,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 7653515.56,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "40793": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-listing",
+      "name": "Binance Listing",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bstocks",
+      "name": "bStocks",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40793,
+    "name": "Alphabet Tokenized bStocks",
+    "symbol": "GOOGLB",
+    "slug": "alphabet-tokenized-bstocks",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 325208.359610277,
+    "total_supply": 325208.359610277,
+    "max_supply": null,
+    "date_added": "2026-07-06T06:10:06.000Z",
+    "num_market_pairs": 88,
+    "cmc_rank": 262,
+    "last_updated": "2026-11-21T02:04:18.204Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1839,
+     "slug": "bnb",
+     "name": "BNB Smart Chain (BEP20)",
+     "symbol": "BNB",
+     "token_address": "0x3f53de71c126bdabae20f9cd64848d317f6c3238"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 87925627.4,
+    "quote": {
+     "USD": {
+      "price": 270.3670579315992,
+      "volume_24h": 42967387.87974536,
+      "volume_change_24h": 60.639707686589,
+      "cex_volume_24h": 42430957.77493714,
+      "dex_volume_24h": 536430.1048082148,
+      "percent_change_1h": 0.074202339719,
+      "percent_change_24h": -0.635968450391,
+      "percent_change_7d": -8.107443687753,
+      "percent_change_30d": -18.726374033681,
+      "percent_change_60d": -24.266053458067,
+      "percent_change_90d": -21.321689639423,
+      "market_cap": 87925627.40259211,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 87925627.4,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "42272": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ondo-stocks-ecosystem",
+      "name": "Ondo Stocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42272,
+    "name": "Alphabet Class C Tokenized Stock (Ondo)",
+    "symbol": "GOOGon",
+    "slug": "alphabet-class-c-tokenized-stock-ondo",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 21341.18659087,
+    "total_supply": 21341.18659087,
+    "max_supply": null,
+    "date_added": "2026-09-11T02:10:27.000Z",
+    "num_market_pairs": 1,
+    "cmc_rank": 1078,
+    "last_updated": "2026-11-21T02:04:03.034Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1027,
+     "slug": "ethereum",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "token_address": "0x36B90aDcDC99Be31BF39A3c031288bAa0B457E10"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 5729333.19,
+    "quote": {
+     "USD": {
+      "price": 268.4636660397509,
+      "volume_24h": 7462.454936249378,
+      "volume_change_24h": -99.202358630181,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 7462.454936249378,
+      "percent_change_1h": 0.001926351819,
+      "percent_change_24h": -0.837745932057,
+      "percent_change_7d": -7.653774381584,
+      "percent_change_30d": -18.388016867354,
+      "percent_change_60d": -23.95644332471,
+      "percent_change_90d": -18.160437317496,
+      "market_cap": 5729333.189823334,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 5729333.19,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "42421": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "base-ecosystem",
+      "name": "Base Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "coinbase-ecosystem",
+      "name": "Coinbase Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42421,
+    "name": "Alphabet Inc. Tokenized Stock (Coinbase)",
+    "symbol": "GOOGLc",
+    "slug": "alphabet-inc-tokenized-stock-coinbase",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 37201.31995397,
+    "total_supply": 37201.31995397,
+    "max_supply": null,
+    "date_added": "2026-10-08T03:59:58.000Z",
+    "num_market_pairs": 16,
+    "cmc_rank": 847,
+    "last_updated": "2026-11-21T02:04:03.067Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 27716,
+     "slug": "base",
+     "name": "Base",
+     "symbol": "-",
+     "token_address": "0xb2000000000000000000002D0BA3164cc74f58B7"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 10059485.65,
+    "quote": {
+     "USD": {
+      "price": 270.4066862547609,
+      "volume_24h": 11775066.92059607,
+      "volume_change_24h": 14.276586135795,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 11775066.92059607,
+      "percent_change_1h": -0.357994357653,
+      "percent_change_24h": -1.284859335116,
+      "percent_change_7d": -8.315864540748,
+      "percent_change_30d": -19.067150587584,
+      "percent_change_60d": -23.739748732031,
+      "percent_change_90d": -21.45145611757,
+      "market_cap": 10059485.653056143,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 10059485.65,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:04:28.129Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 21,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

@@ -1,0 +1,167 @@
+{
+ "receipt": {
+  "id": "r2",
+  "kind": "cmc",
+  "endpoint": "/v5/real-world-assets/quotes/latest",
+  "params": {
+   "rwa_id": "3"
+  },
+  "startedUtc": "2026-11-21T02:03:28.809Z",
+  "elapsedMs": 695,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": "",
+  "bodyBytes": 3044,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=3\""
+ },
+ "body": {
+  "data": {
+   "rwa_assets": [
+    {
+     "name": "Apple Inc.",
+     "symbol": "AAPL",
+     "slug": "apple",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 345.4090451900841,
+       "tokenized_market_cap": 31096765.224789836,
+       "tokenized_volume_24h": 40916228.19188792,
+       "last_updated": "2026-11-21T02:02:03.000Z"
+      }
+     ],
+     "rwa_id": 3,
+     "asset_type": "stock",
+     "rwa_rank": 2,
+     "has_tokens": true,
+     "average_tokenized_price": 345.4090451900841,
+     "tokenized_market_cap": 31096765.224789836,
+     "tokenized_volume_24h": 40916228.19188792,
+     "last_updated": "2026-11-21T02:03:11.023Z",
+     "tokens": [
+      {
+       "symbol": "AAPLX",
+       "name": "Apple tokenized stock (xStock)",
+       "price": 345.7321833547759,
+       "crypto_id": 36994,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 12353041.28246944,
+       "volume_24h": 18934807.759415533
+      },
+      {
+       "symbol": "AAPL.D",
+       "name": "AAPL tokenized stock (Dinari)",
+       "price": null,
+       "crypto_id": 28624,
+       "issuer_id": "688c6172abae9b5b9fb30359",
+       "issuer_name": "Dinari Assets",
+       "market_cap": null,
+       "volume_24h": null
+      },
+      {
+       "symbol": "AAPLon",
+       "name": "Apple Tokenized Stock (Ondo)",
+       "price": 345.4969972992632,
+       "crypto_id": 38037,
+       "issuer_id": "688ca4ccabae9b5b9fb3167a",
+       "issuer_name": "Ondo Assets",
+       "market_cap": 7228319.043715339,
+       "volume_24h": 6178261.412073088
+      },
+      {
+       "symbol": "AAPL",
+       "name": "Apple Inc (Derivatives)",
+       "price": 345.4465819643053,
+       "crypto_id": 39491,
+       "issuer_id": "695e11f774b54210f3b95dc3",
+       "issuer_name": "NA (Derivatives)",
+       "market_cap": 0,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "AAPL",
+       "name": "Apple Tokenized Stock (Hyperliquid)",
+       "price": 355.70312619813996,
+       "crypto_id": 39624,
+       "issuer_id": "699ed38db54c9320b15928e3",
+       "issuer_name": "Hyperliquid Assets",
+       "market_cap": 0,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "rAAPL",
+       "name": "Apple Tokenized Stock (Reality)",
+       "price": 345.2908653901653,
+       "crypto_id": 40598,
+       "issuer_id": "6a43600c282e7240b76c8bbb",
+       "issuer_name": "Reality",
+       "market_cap": 524421.733009947,
+       "volume_24h": 34644.1471015728
+      },
+      {
+       "symbol": "AAPL",
+       "name": "Apple Tokenized Stock (Robinhood)",
+       "price": 344.98239198889456,
+       "crypto_id": 40703,
+       "issuer_id": "6a465832fbe3004b1a0ea2dd",
+       "issuer_name": "Robinhood",
+       "market_cap": 3446543.8928478057,
+       "volume_24h": 2089778.5346600525
+      },
+      {
+       "symbol": "AAPLB",
+       "name": "Apple Tokenized bStocks",
+       "price": 345.20046687103263,
+       "crypto_id": 40927,
+       "issuer_id": "6a2aed5097c45356b1a5f710",
+       "issuer_name": "bStocks",
+       "market_cap": 4930520.155696786,
+       "volume_24h": 6712761.577893083
+      },
+      {
+       "symbol": "WAAPLX",
+       "name": "Wrapped Apple Tokenized stock (xStock)",
+       "price": 346.7196316955417,
+       "crypto_id": 37269,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 509067.6950549973,
+       "volume_24h": 254972.42361941026
+      },
+      {
+       "symbol": "AAPLc",
+       "name": "Apple Inc. Tokenized Stock (Coinbase)",
+       "price": 344.7086621674373,
+       "crypto_id": 42427,
+       "issuer_id": "6a72fe7072996604d45c6733",
+       "issuer_name": "Coinbase",
+       "market_cap": 2104851.4219971234,
+       "volume_24h": 6711002.337125189
+      }
+     ],
+     "tradfi_markets": [
+      {
+       "exchange": {
+        "slug": "binance",
+        "name": "Binance",
+        "exchange_id": 270
+       },
+       "ticker": "AAPL",
+       "market_url": "https://www.binance.com/en/stocks/EQ_AAPL"
+      }
+     ]
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:03:29.382Z",
+   "error_code": "0",
+   "error_message": "",
+   "elapsed": 5,
+   "credit_count": 1
+  }
+ }
+}

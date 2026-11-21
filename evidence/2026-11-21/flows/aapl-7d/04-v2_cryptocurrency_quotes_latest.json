@@ -1,0 +1,667 @@
+{
+ "receipt": {
+  "id": "r5",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "params": {
+   "id": "36994,28624,38037,40598,40703,40927,37269,42427"
+  },
+  "startedUtc": "2026-11-21T02:03:29.504Z",
+  "elapsedMs": 559,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 13029,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=36994%2C28624%2C38037%2C40598%2C40703%2C40927%2C37269%2C42427\""
+ },
+ "body": {
+  "data": {
+   "28624": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 28624,
+    "name": "AAPL tokenized stock (Dinari)",
+    "symbol": "AAPL.D",
+    "slug": "dinari-aapl",
+    "is_active": 0,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 0,
+    "total_supply": 142.166281672,
+    "max_supply": 0,
+    "date_added": "2023-12-07T11:08:34.000Z",
+    "num_market_pairs": null,
+    "cmc_rank": null,
+    "last_updated": "2026-11-21T02:03:29.933Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0xCe38e140fC3982a6bCEbc37b040913EF2Cd6C5a7"
+    },
+    "self_reported_circulating_supply": 284,
+    "self_reported_market_cap": 0,
+    "minted_market_cap": null,
+    "quote": {
+     "USD": {
+      "price": null,
+      "volume_24h": null,
+      "volume_change_24h": null,
+      "cex_volume_24h": null,
+      "dex_volume_24h": null,
+      "percent_change_1h": null,
+      "percent_change_24h": null,
+      "percent_change_7d": null,
+      "percent_change_30d": null,
+      "percent_change_60d": null,
+      "percent_change_90d": null,
+      "market_cap": null,
+      "market_cap_dominance": null,
+      "fully_diluted_market_cap": 0,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "36994": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "toncoin-ecosystem",
+      "name": "Toncoin Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "internet-capital-markets",
+      "name": "Internet Capital Markets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 36994,
+    "name": "Apple tokenized stock (xStock)",
+    "symbol": "AAPLX",
+    "slug": "apple-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": true,
+    "is_fiat": 0,
+    "circulating_supply": 35730.08784604,
+    "total_supply": 667624.19397456,
+    "max_supply": null,
+    "date_added": "2025-07-01T07:38:36.000Z",
+    "num_market_pairs": 91,
+    "cmc_rank": 764,
+    "last_updated": "2026-11-21T02:03:18.054Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 230818493.64,
+    "quote": {
+     "USD": {
+      "price": 345.7311699043306,
+      "volume_24h": 18934589.638167128,
+      "volume_change_24h": 52.835731397407,
+      "cex_volume_24h": 17153725.604552552,
+      "dex_volume_24h": 1780864.033614569,
+      "percent_change_1h": 0.065735413647,
+      "percent_change_24h": -1.760901605199,
+      "percent_change_7d": -2.924692307793,
+      "percent_change_30d": 0.442370319946,
+      "percent_change_60d": 1.791338909075,
+      "percent_change_90d": 11.266795242893,
+      "market_cap": 12353005.071795912,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 230818493.64,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "37269": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 37269,
+    "name": "Wrapped Apple Tokenized stock (xStock)",
+    "symbol": "WAAPLX",
+    "slug": "wrapped-apple-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 1468.24018174,
+    "total_supply": 1468.24018174,
+    "max_supply": null,
+    "date_added": "2025-07-08T05:30:21.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 2171,
+    "last_updated": "2026-11-21T02:03:18.071Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 3897,
+     "slug": "okb",
+     "name": "X Layer",
+     "symbol": "OKB",
+     "token_address": "0x943BF64D566c32A2Bcd41AC92FB63C111cC9De8f"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 509067.83,
+    "quote": {
+     "USD": {
+      "price": 346.7197208302114,
+      "volume_24h": 254972.42361941026,
+      "volume_change_24h": -62.337783120094,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 254972.42361941026,
+      "percent_change_1h": -0.092195572931,
+      "percent_change_24h": -1.604532247961,
+      "percent_change_7d": -2.735813058521,
+      "percent_change_30d": 0.675418906257,
+      "percent_change_60d": 1.889727948802,
+      "percent_change_90d": 11.487583752736,
+      "market_cap": 509067.8259245916,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 509067.83,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "38037": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-alpha",
+      "name": "Binance Alpha",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperevm-ecosystem",
+      "name": "HyperEVM Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "ondo-stocks-ecosystem",
+      "name": "Ondo Stocks Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-ecosystem",
+      "name": "Robinhood Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 38037,
+    "name": "Apple Tokenized Stock (Ondo)",
+    "symbol": "AAPLon",
+    "slug": "apple-tokenized-stock-ondo",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 20921.51046237,
+    "total_supply": 20921.51046237,
+    "max_supply": 20921.51046237,
+    "date_added": "2025-09-03T10:55:37.000Z",
+    "num_market_pairs": 50,
+    "cmc_rank": 985,
+    "last_updated": "2026-11-21T02:03:18.027Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 40670,
+     "slug": "robinhood-placeholder",
+     "name": "Robinhood Chain",
+     "symbol": "-",
+     "token_address": "0x9Bf86418CaF2b7a939603d6c24219a77Bf7F9b33"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 7228952.12,
+    "quote": {
+     "USD": {
+      "price": 345.52725687293935,
+      "volume_24h": 6177584.400907598,
+      "volume_change_24h": 2.33714764306,
+      "cex_volume_24h": 5930703.215988469,
+      "dex_volume_24h": 246881.1849191283,
+      "percent_change_1h": 0.100265311476,
+      "percent_change_24h": -1.620566896554,
+      "percent_change_7d": -2.979667805394,
+      "percent_change_30d": 0.290022325384,
+      "percent_change_60d": 1.624420421723,
+      "percent_change_90d": 11.109035144617,
+      "market_cap": 7228952.119701207,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 7228952.12,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "40598": {
+    "tags": [
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bitget-ecosystem",
+      "name": "Bitget Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "rtokens",
+      "name": "rTokens",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40598,
+    "name": "Apple Tokenized Stock (Reality)",
+    "symbol": "rAAPL",
+    "slug": "apple-tokenized-stock-reality",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 1518.78252678,
+    "total_supply": 1518.78252678,
+    "max_supply": null,
+    "date_added": "2026-07-02T03:36:49.000Z",
+    "num_market_pairs": 4,
+    "cmc_rank": 2157,
+    "last_updated": "2026-11-21T02:03:03.649Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0xaba5e0c80e9f58e391214689fb342049c0d31892"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 524421.73,
+    "quote": {
+     "USD": {
+      "price": 345.2908653901653,
+      "volume_24h": 34644.1471015728,
+      "volume_change_24h": -93.772936004026,
+      "cex_volume_24h": 34644.1471015728,
+      "dex_volume_24h": 0,
+      "percent_change_1h": 0.232878938082,
+      "percent_change_24h": -1.509083493366,
+      "percent_change_7d": -2.851012132342,
+      "percent_change_30d": 0.512624321802,
+      "percent_change_60d": 1.858726305024,
+      "percent_change_90d": 11.743886989673,
+      "market_cap": 524421.7330113281,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 524421.73,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "40703": {
+    "tags": [
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-ecosystem",
+      "name": "Robinhood Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-stock",
+      "name": "Robinhood Stock",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40703,
+    "name": "Apple Tokenized Stock (Robinhood)",
+    "symbol": "AAPL",
+    "slug": "apple-tokenized-stock-robinhood",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 9990.492189986191,
+    "total_supply": 9990.492189986191,
+    "max_supply": null,
+    "date_added": "2026-08-04T07:31:32.000Z",
+    "num_market_pairs": 58,
+    "cmc_rank": 1274,
+    "last_updated": "2026-11-21T02:03:18.085Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 40670,
+     "slug": "robinhood-placeholder",
+     "name": "Robinhood Chain",
+     "symbol": "-",
+     "token_address": "0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 3446543.89,
+    "quote": {
+     "USD": {
+      "price": 344.98239198889456,
+      "volume_24h": 2089778.5346600525,
+      "volume_change_24h": 28.994128418165,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 2089778.5346600525,
+      "percent_change_1h": -0.029154234686,
+      "percent_change_24h": -1.699862948137,
+      "percent_change_7d": -3.005745392222,
+      "percent_change_30d": 0.344671429843,
+      "percent_change_60d": 1.932212445326,
+      "percent_change_90d": 11.520665326842,
+      "market_cap": 3446543.8928478057,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 3446543.89,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "40927": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-listing",
+      "name": "Binance Listing",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bstocks",
+      "name": "bStocks",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40927,
+    "name": "Apple Tokenized bStocks",
+    "symbol": "AAPLB",
+    "slug": "apple-tokenized-bstocks",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 14283.063404832632,
+    "total_supply": 14283.063404832632,
+    "max_supply": null,
+    "date_added": "2026-07-28T07:08:33.000Z",
+    "num_market_pairs": 82,
+    "cmc_rank": 1134,
+    "last_updated": "2026-11-21T02:03:18.054Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1839,
+     "slug": "bnb",
+     "name": "BNB Smart Chain (BEP20)",
+     "symbol": "BNB",
+     "token_address": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 4930591.91,
+    "quote": {
+     "USD": {
+      "price": 345.2054908688813,
+      "volume_24h": 6707484.7702085255,
+      "volume_change_24h": 23.509394406404,
+      "cex_volume_24h": 4629166.998707189,
+      "dex_volume_24h": 2078317.7715013376,
+      "percent_change_1h": 0.061967687936,
+      "percent_change_24h": -1.62513654075,
+      "percent_change_7d": -2.932941844117,
+      "percent_change_30d": 0.466217434588,
+      "percent_change_60d": 1.942575398049,
+      "percent_change_90d": 11.595649861582,
+      "market_cap": 4930591.9137766035,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 4930591.91,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "42427": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "base-ecosystem",
+      "name": "Base Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "coinbase-ecosystem",
+      "name": "Coinbase Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42427,
+    "name": "Apple Inc. Tokenized Stock (Coinbase)",
+    "symbol": "AAPLc",
+    "slug": "apple-inc-tokenized-stock-coinbase",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 6106.175019688718,
+    "total_supply": 6106.175019688718,
+    "max_supply": null,
+    "date_added": "2026-10-08T03:59:47.000Z",
+    "num_market_pairs": 11,
+    "cmc_rank": 1495,
+    "last_updated": "2026-11-21T02:03:18.148Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 27716,
+     "slug": "base",
+     "name": "Base",
+     "symbol": "-",
+     "token_address": "0xb200000000000000000000C2e324d24d7eEcd1fb"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 2105479.38,
+    "quote": {
+     "USD": {
+      "price": 344.8115017882898,
+      "volume_24h": 6711002.337125189,
+      "volume_change_24h": 40.641942872863,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 6711002.337125189,
+      "percent_change_1h": -0.316329434246,
+      "percent_change_24h": -2.196605344576,
+      "percent_change_7d": -3.124614085675,
+      "percent_change_30d": -0.097620937405,
+      "percent_change_60d": 1.83215239856,
+      "percent_change_90d": 10.998965987743,
+      "market_cap": 2105479.3787210067,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 2105479.38,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:03:29.936Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 30,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

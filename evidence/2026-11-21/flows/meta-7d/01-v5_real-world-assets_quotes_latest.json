@@ -1,0 +1,157 @@
+{
+ "receipt": {
+  "id": "r2",
+  "kind": "cmc",
+  "endpoint": "/v5/real-world-assets/quotes/latest",
+  "params": {
+   "rwa_id": "10"
+  },
+  "startedUtc": "2026-11-21T02:03:27.736Z",
+  "elapsedMs": 736,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": "",
+  "bodyBytes": 2898,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=10\""
+ },
+ "body": {
+  "data": {
+   "rwa_assets": [
+    {
+     "name": "Meta Platforms, Inc.",
+     "symbol": "META",
+     "slug": "meta",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 569.2004928569454,
+       "tokenized_market_cap": 36547123.96659041,
+       "tokenized_volume_24h": 34084469.78833665,
+       "last_updated": "2026-11-21T02:02:03.000Z"
+      }
+     ],
+     "rwa_id": 10,
+     "asset_type": "stock",
+     "rwa_rank": 11,
+     "has_tokens": true,
+     "average_tokenized_price": 569.2004928569454,
+     "tokenized_market_cap": 36547123.96659041,
+     "tokenized_volume_24h": 34084469.78833665,
+     "last_updated": "2026-11-21T02:03:10.997Z",
+     "tokens": [
+      {
+       "symbol": "METAX",
+       "name": "Meta tokenized stock (xStock)",
+       "price": 569.8163424597251,
+       "crypto_id": 37055,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 9157150.64817246,
+       "volume_24h": 4493750.151128473
+      },
+      {
+       "symbol": "META.D",
+       "name": "META tokenized stock (Dinari)",
+       "price": null,
+       "crypto_id": 28621,
+       "issuer_id": "688c6172abae9b5b9fb30359",
+       "issuer_name": "Dinari Assets",
+       "market_cap": null,
+       "volume_24h": null
+      },
+      {
+       "symbol": "METAon",
+       "name": "Meta Platforms Tokenized Stock (Ondo)",
+       "price": 569.7486241602998,
+       "crypto_id": 38065,
+       "issuer_id": "688ca4ccabae9b5b9fb3167a",
+       "issuer_name": "Ondo Assets",
+       "market_cap": 10532122.715495158,
+       "volume_24h": 10025284.641605701
+      },
+      {
+       "symbol": "META",
+       "name": "Meta Platforms Tokenized Stock (Hyperliquid)",
+       "price": 566.7688042718511,
+       "crypto_id": 39615,
+       "issuer_id": "699ed38db54c9320b15928e3",
+       "issuer_name": "Hyperliquid Assets",
+       "market_cap": 0,
+       "volume_24h": 327.272634957145
+      },
+      {
+       "symbol": "METAB",
+       "name": "Meta Tokenized bStocks",
+       "price": 568.8709928270872,
+       "crypto_id": 40592,
+       "issuer_id": "6a2aed5097c45356b1a5f710",
+       "issuer_name": "bStocks",
+       "market_cap": 4703657.934585756,
+       "volume_24h": 5310934.670288945
+      },
+      {
+       "symbol": "rMETA",
+       "name": "Meta Tokenized Stock (Reality)",
+       "price": 567.7928101098693,
+       "crypto_id": 40602,
+       "issuer_id": "6a43600c282e7240b76c8bbb",
+       "issuer_name": "Reality",
+       "market_cap": 789452.6206068243,
+       "volume_24h": 476196.9779381082
+      },
+      {
+       "symbol": "META",
+       "name": "Meta Platforms Tokenized Stock (Robinhood)",
+       "price": 568.4866580948951,
+       "crypto_id": 40780,
+       "issuer_id": "6a465832fbe3004b1a0ea2dd",
+       "issuer_name": "Robinhood",
+       "market_cap": 5949169.484248717,
+       "volume_24h": 3250054.785694544
+      },
+      {
+       "symbol": "WMETAX",
+       "name": "Wrapped Meta Tokenized stock (xStock)",
+       "price": 572.5088310359414,
+       "crypto_id": 37211,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 277505.304662171,
+       "volume_24h": 523452.06020267337
+      },
+      {
+       "symbol": "METAc",
+       "name": "Meta Platforms Inc. Tokenized Stock (Coinbase)",
+       "price": 568.628206612335,
+       "crypto_id": 42440,
+       "issuer_id": "6a72fe7072996604d45c6733",
+       "issuer_name": "Coinbase",
+       "market_cap": 5138981.6504344065,
+       "volume_24h": 9996089.627910664
+      }
+     ],
+     "tradfi_markets": [
+      {
+       "exchange": {
+        "slug": "binance",
+        "name": "Binance",
+        "exchange_id": 270
+       },
+       "ticker": "META",
+       "market_url": "https://www.binance.com/en/stocks/EQ_META"
+      }
+     ]
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:03:28.346Z",
+   "error_code": "0",
+   "error_message": "",
+   "elapsed": 4,
+   "credit_count": 1
+  }
+ }
+}

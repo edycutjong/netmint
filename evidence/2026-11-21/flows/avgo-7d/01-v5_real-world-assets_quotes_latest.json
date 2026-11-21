@@ -1,0 +1,147 @@
+{
+ "receipt": {
+  "id": "r2",
+  "kind": "cmc",
+  "endpoint": "/v5/real-world-assets/quotes/latest",
+  "params": {
+   "rwa_id": "13"
+  },
+  "startedUtc": "2026-11-21T02:03:31.022Z",
+  "elapsedMs": 252,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": "",
+  "bodyBytes": 2662,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=13\""
+ },
+ "body": {
+  "data": {
+   "rwa_assets": [
+    {
+     "name": "Broadcom Inc",
+     "symbol": "AVGO",
+     "slug": "broadcom",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 312.115299061156,
+       "tokenized_market_cap": 19967738.754954904,
+       "tokenized_volume_24h": 18122419.55213032,
+       "last_updated": "2026-11-21T02:02:03.000Z"
+      }
+     ],
+     "rwa_id": 13,
+     "asset_type": "stock",
+     "rwa_rank": 10,
+     "has_tokens": true,
+     "average_tokenized_price": 312.115299061156,
+     "tokenized_market_cap": 19967738.754954904,
+     "tokenized_volume_24h": 18122419.55213032,
+     "last_updated": "2026-11-21T02:03:10.998Z",
+     "tokens": [
+      {
+       "symbol": "AVGOX",
+       "name": "Broadcom tokenized stock (xStock)",
+       "price": 312.23722143196954,
+       "crypto_id": 37021,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 5724881.077012297,
+       "volume_24h": 2748919.438006443
+      },
+      {
+       "symbol": "AVGOon",
+       "name": "Broadcom Tokenized Stock (Ondo)",
+       "price": 312.99774053579455,
+       "crypto_id": 38062,
+       "issuer_id": "688ca4ccabae9b5b9fb3167a",
+       "issuer_name": "Ondo Assets",
+       "market_cap": 4533253.06143908,
+       "volume_24h": 4483455.91128888
+      },
+      {
+       "symbol": "AVGO.D",
+       "name": "AVGO tokenized stock (Dinari)",
+       "price": null,
+       "crypto_id": 37126,
+       "issuer_id": "688c6172abae9b5b9fb30359",
+       "issuer_name": "Dinari Assets",
+       "market_cap": null,
+       "volume_24h": null
+      },
+      {
+       "symbol": "rAVGO",
+       "name": "Broadcom Tokenized Stock (Reality)",
+       "price": 310.51621490375055,
+       "crypto_id": 40604,
+       "issuer_id": "6a43600c282e7240b76c8bbb",
+       "issuer_name": "Reality",
+       "market_cap": 1936186.6455840748,
+       "volume_24h": 1011350.3710921537
+      },
+      {
+       "symbol": "AVGO",
+       "name": "Broadcom Tokenized Stock (Robinhood)",
+       "price": 311.4479911547714,
+       "crypto_id": 40705,
+       "issuer_id": "6a465832fbe3004b1a0ea2dd",
+       "issuer_name": "Robinhood",
+       "market_cap": 232477.95797333468,
+       "volume_24h": 1873873.0222644694
+      },
+      {
+       "symbol": "AVGOB",
+       "name": "Broadcom Tokenized bStocks",
+       "price": 311.88018431518697,
+       "crypto_id": 40845,
+       "issuer_id": "6a2aed5097c45356b1a5f710",
+       "issuer_name": "bStocks",
+       "market_cap": 7150397.496175608,
+       "volume_24h": 7274889.793872129
+      },
+      {
+       "symbol": "WAVGOX",
+       "name": "Wrapped Broadcom Tokenized stock (xStock)",
+       "price": 313.5718340254433,
+       "crypto_id": 37129,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 38122.926290457435,
+       "volume_24h": 328110.642104543
+      },
+      {
+       "symbol": "AVGOc",
+       "name": "Broadcom Inc. Tokenized Stock (Coinbase)",
+       "price": 311.850878155178,
+       "crypto_id": 42432,
+       "issuer_id": "6a72fe7072996604d45c6733",
+       "issuer_name": "Coinbase",
+       "market_cap": 353498.2984988499,
+       "volume_24h": 387365.06653843867
+      }
+     ],
+     "tradfi_markets": [
+      {
+       "exchange": {
+        "slug": "binance",
+        "name": "Binance",
+        "exchange_id": 270
+       },
+       "ticker": "AVGO",
+       "market_url": "https://www.binance.com/en/stocks/EQ_AVGO"
+      }
+     ]
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:03:31.151Z",
+   "error_code": "0",
+   "error_message": "",
+   "elapsed": 5,
+   "credit_count": 1
+  }
+ }
+}

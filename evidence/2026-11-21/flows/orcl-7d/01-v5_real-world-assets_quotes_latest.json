@@ -1,0 +1,147 @@
+{
+ "receipt": {
+  "id": "r2",
+  "kind": "cmc",
+  "endpoint": "/v5/real-world-assets/quotes/latest",
+  "params": {
+   "rwa_id": "24"
+  },
+  "startedUtc": "2026-11-21T02:03:40.388Z",
+  "elapsedMs": 721,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": "",
+  "bodyBytes": 2630,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=24\""
+ },
+ "body": {
+  "data": {
+   "rwa_assets": [
+    {
+     "name": "Oracle Corp",
+     "symbol": "ORCL",
+     "slug": "oracle",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 103.26914844758693,
+       "tokenized_market_cap": 17162314.70949042,
+       "tokenized_volume_24h": 12732184.48116813,
+       "last_updated": "2026-11-21T02:02:03.000Z"
+      }
+     ],
+     "rwa_id": 24,
+     "asset_type": "stock",
+     "rwa_rank": 37,
+     "has_tokens": true,
+     "average_tokenized_price": 103.26914844758693,
+     "tokenized_market_cap": 17162314.70949042,
+     "tokenized_volume_24h": 12732184.48116813,
+     "last_updated": "2026-11-21T02:03:11.012Z",
+     "tokens": [
+      {
+       "symbol": "ORCLon",
+       "name": "Oracle Tokenized Stock (Ondo)",
+       "price": 104.44819245441555,
+       "crypto_id": 38009,
+       "issuer_id": "688ca4ccabae9b5b9fb3167a",
+       "issuer_name": "Ondo Assets",
+       "market_cap": 3218546.815577335,
+       "volume_24h": 871070.817864161
+      },
+      {
+       "symbol": "ORCLX",
+       "name": "Oracle tokenized stock (xStock)",
+       "price": 103.29188609293516,
+       "crypto_id": 37059,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 3904559.4653591076,
+       "volume_24h": 465430.2509249795
+      },
+      {
+       "symbol": "ORCL",
+       "name": "Oracle Corp (Derivatives)",
+       "price": 103.37137445583046,
+       "crypto_id": 39482,
+       "issuer_id": "695e11f774b54210f3b95dc3",
+       "issuer_name": "NA (Derivatives)",
+       "market_cap": 0,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "rORCL",
+       "name": "Oracle Tokenized Stock (Reality)",
+       "price": 103.0463567006083,
+       "crypto_id": 40654,
+       "issuer_id": "6a43600c282e7240b76c8bbb",
+       "issuer_name": "Reality",
+       "market_cap": 740631.5877070104,
+       "volume_24h": 49816.21365528274
+      },
+      {
+       "symbol": "ORCL",
+       "name": "Oracle Tokenized Stock (Robinhood)",
+       "price": 102.30532269235928,
+       "crypto_id": 40773,
+       "issuer_id": "6a465832fbe3004b1a0ea2dd",
+       "issuer_name": "Robinhood",
+       "market_cap": 372264.5978413289,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "ORCLB",
+       "name": "Oracle Tokenized bStocks",
+       "price": 103.18169330306478,
+       "crypto_id": 40882,
+       "issuer_id": "6a2aed5097c45356b1a5f710",
+       "issuer_name": "bStocks",
+       "market_cap": 8576401.918942802,
+       "volume_24h": 8028854.380629801
+      },
+      {
+       "symbol": "WORCLX",
+       "name": "Wrapped Oracle Tokenized stock (xStock)",
+       "price": 123.41768355256701,
+       "crypto_id": 37218,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 1469.3786301330497,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "ORCLc",
+       "name": "Oracle Corporation Tokenized Stock (Coinbase)",
+       "price": 103.17279272918168,
+       "crypto_id": 42469,
+       "issuer_id": "6a72fe7072996604d45c6733",
+       "issuer_name": "Coinbase",
+       "market_cap": 348978.14558620896,
+       "volume_24h": 3314330.4372707997
+      }
+     ],
+     "tradfi_markets": [
+      {
+       "exchange": {
+        "slug": "binance",
+        "name": "Binance",
+        "exchange_id": 270
+       },
+       "ticker": "ORCL",
+       "market_url": "https://www.binance.com/en/stocks/EQ_ORCL"
+      }
+     ]
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:03:40.992Z",
+   "error_code": "0",
+   "error_message": "",
+   "elapsed": 4,
+   "credit_count": 1
+  }
+ }
+}

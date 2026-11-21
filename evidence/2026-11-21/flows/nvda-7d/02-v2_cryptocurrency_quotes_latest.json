@@ -1,0 +1,682 @@
+{
+ "receipt": {
+  "id": "r3",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "params": {
+   "id": "36992,28616,38093,40215,40605,40685,37270,42461"
+  },
+  "startedUtc": "2026-11-21T02:03:08.516Z",
+  "elapsedMs": 268,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 13327,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=36992%2C28616%2C38093%2C40215%2C40605%2C40685%2C37270%2C42461\""
+ },
+ "body": {
+  "data": {
+   "28616": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 28616,
+    "name": "NVIDIA tokenized stock (Dinari)",
+    "symbol": "NVDA.D",
+    "slug": "dinari-nvda",
+    "is_active": 0,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 0,
+    "total_supply": 646.260894392,
+    "max_supply": 0,
+    "date_added": "2023-12-07T10:41:41.000Z",
+    "num_market_pairs": null,
+    "cmc_rank": null,
+    "last_updated": "2026-11-21T02:03:08.660Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0x4DaFFfDDEa93DdF1e0e7B61E844331455053Ce5c"
+    },
+    "self_reported_circulating_supply": 39,
+    "self_reported_market_cap": 0,
+    "minted_market_cap": null,
+    "quote": {
+     "USD": {
+      "price": null,
+      "volume_24h": null,
+      "volume_change_24h": null,
+      "cex_volume_24h": null,
+      "dex_volume_24h": null,
+      "percent_change_1h": null,
+      "percent_change_24h": null,
+      "percent_change_7d": null,
+      "percent_change_30d": null,
+      "percent_change_60d": null,
+      "percent_change_90d": null,
+      "market_cap": null,
+      "market_cap_dominance": null,
+      "fully_diluted_market_cap": 0,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "36992": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "toncoin-ecosystem",
+      "name": "Toncoin Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "internet-capital-markets",
+      "name": "Internet Capital Markets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 36992,
+    "name": "NVIDIA tokenized stock (xStock)",
+    "symbol": "NVDAX",
+    "slug": "nvidia-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": true,
+    "is_fiat": 0,
+    "circulating_supply": 850138.74810273,
+    "total_supply": 1820063.13088851,
+    "max_supply": null,
+    "date_added": "2025-07-01T07:20:20.000Z",
+    "num_market_pairs": 118,
+    "cmc_rank": 248,
+    "last_updated": "2026-11-21T02:02:48.032Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 237956361.44,
+    "quote": {
+     "USD": {
+      "price": 130.74071849646452,
+      "volume_24h": 106542692.93746552,
+      "volume_change_24h": 60.434146561022,
+      "cex_volume_24h": 96970507.03660241,
+      "dex_volume_24h": 9572185.90086312,
+      "percent_change_1h": 0.480872301546,
+      "percent_change_24h": -9.148124045574,
+      "percent_change_7d": -19.500232789011,
+      "percent_change_30d": -40.438969735222,
+      "percent_change_60d": -42.612993818975,
+      "percent_change_90d": -39.639319291772,
+      "market_cap": 111147750.74863578,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 237956361.44,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "37270": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 37270,
+    "name": "Wrapped NVIDIA Tokenized stock (xStock)",
+    "symbol": "WNVDAX",
+    "slug": "wrapped-nvidia-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 12974.16084924,
+    "total_supply": 12974.16084924,
+    "max_supply": null,
+    "date_added": "2025-07-08T05:35:15.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 1583,
+    "last_updated": "2026-11-21T02:02:48.096Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 3897,
+     "slug": "okb",
+     "name": "X Layer",
+     "symbol": "OKB",
+     "token_address": "0xa8ddb5Cd96b5222AFe198316E9A57CAA642850D5"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 1697136.33,
+    "quote": {
+     "USD": {
+      "price": 130.80894767478574,
+      "volume_24h": 10105540.055648666,
+      "volume_change_24h": 41.403796541777,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 10105540.055648666,
+      "percent_change_1h": 0.287032206406,
+      "percent_change_24h": -9.226119976713,
+      "percent_change_7d": -19.50718049604,
+      "percent_change_30d": -40.558823003936,
+      "percent_change_60d": -42.558628309959,
+      "percent_change_90d": -39.621174716875,
+      "market_cap": 1697136.3276524888,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 1697136.33,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "38093": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-alpha",
+      "name": "Binance Alpha",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperevm-ecosystem",
+      "name": "HyperEVM Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "ondo-stocks-ecosystem",
+      "name": "Ondo Stocks Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-ecosystem",
+      "name": "Robinhood Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 38093,
+    "name": "NVIDIA Tokenized Stock (Ondo)",
+    "symbol": "NVDAon",
+    "slug": "nvidia-tokenized-stock-ondo",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 212042.83272936,
+    "total_supply": 212042.83272936,
+    "max_supply": null,
+    "date_added": "2025-09-03T10:55:27.000Z",
+    "num_market_pairs": 112,
+    "cmc_rank": 459,
+    "last_updated": "2026-11-21T02:02:48.160Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 40670,
+     "slug": "robinhood-placeholder",
+     "name": "Robinhood Chain",
+     "symbol": "-",
+     "token_address": "0xf1b95AE4E7700b962714702EA53784Dc8492a856"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 27697598.33,
+    "quote": {
+     "USD": {
+      "price": 130.62265754806023,
+      "volume_24h": 11240262.47178159,
+      "volume_change_24h": 54.751860015649,
+      "cex_volume_24h": 8920891.732610956,
+      "dex_volume_24h": 2319370.7391706295,
+      "percent_change_1h": -0.044780398352,
+      "percent_change_24h": -9.217978630322,
+      "percent_change_7d": -19.608699276668,
+      "percent_change_30d": -40.518306248846,
+      "percent_change_60d": -42.657514810715,
+      "percent_change_90d": -39.680224177051,
+      "market_cap": 27697598.32512781,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 27697598.33,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "40215": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-listing",
+      "name": "Binance Listing",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bstocks",
+      "name": "bStocks",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40215,
+    "name": "NVIDIA Tokenized bStocks",
+    "symbol": "NVDAB",
+    "slug": "nvidia-tokenized-bstocks",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 1549965.3864350498,
+    "total_supply": 1549965.3864350498,
+    "max_supply": null,
+    "date_added": "2026-06-11T03:04:13.000Z",
+    "num_market_pairs": 108,
+    "cmc_rank": 223,
+    "last_updated": "2026-11-21T02:02:48.114Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1839,
+     "slug": "bnb",
+     "name": "BNB Smart Chain (BEP20)",
+     "symbol": "BNB",
+     "token_address": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 202312973.81,
+    "quote": {
+     "USD": {
+      "price": 130.52741408401988,
+      "volume_24h": 167305563.5779335,
+      "volume_change_24h": 37.591135212982,
+      "cex_volume_24h": 161769330.15206936,
+      "dex_volume_24h": 5536233.425864102,
+      "percent_change_1h": 0.431522980096,
+      "percent_change_24h": -9.026382180632,
+      "percent_change_7d": -19.54092134923,
+      "percent_change_30d": -40.531294399389,
+      "percent_change_60d": -42.630557624948,
+      "percent_change_90d": -39.656802034321,
+      "market_cap": 202312973.81110564,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 202312973.81,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "40605": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bitget-ecosystem",
+      "name": "Bitget Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "rtokens",
+      "name": "rTokens",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40605,
+    "name": "NVIDIA Tokenized Stock (Reality)",
+    "symbol": "rNVDA",
+    "slug": "nvidia-tokenized-stock-reality",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 88542.68667627,
+    "total_supply": 88542.68667627,
+    "max_supply": null,
+    "date_added": "2026-07-02T07:39:03.000Z",
+    "num_market_pairs": 4,
+    "cmc_rank": 789,
+    "last_updated": "2026-11-21T02:02:48.130Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0x0a85b6ebe3c150a1979a65656e304033d62b1e12"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 11522961.52,
+    "quote": {
+     "USD": {
+      "price": 130.14018378197102,
+      "volume_24h": 34821519.99502088,
+      "volume_change_24h": 74.417682627262,
+      "cex_volume_24h": 34821519.99502088,
+      "dex_volume_24h": 0,
+      "percent_change_1h": 0.372687108048,
+      "percent_change_24h": -9.336401798666,
+      "percent_change_7d": -19.732380055449,
+      "percent_change_30d": -40.608894281447,
+      "percent_change_60d": -42.796583014514,
+      "percent_change_90d": -39.791007918341,
+      "market_cap": 11522961.516599255,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 11522961.52,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "40685": {
+    "tags": [
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-ecosystem",
+      "name": "Robinhood Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-stock",
+      "name": "Robinhood Stock",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40685,
+    "name": "NVIDIA Tokenized Stock (Robinhood)",
+    "symbol": "NVDA",
+    "slug": "nvidia-tokenized-stock-robinhood",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 143326.22787534646,
+    "total_supply": 143326.22787534646,
+    "max_supply": null,
+    "date_added": "2026-08-04T07:31:24.000Z",
+    "num_market_pairs": 287,
+    "cmc_rank": 611,
+    "last_updated": "2026-11-21T02:02:48.184Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 40670,
+     "slug": "robinhood-placeholder",
+     "name": "Robinhood Chain",
+     "symbol": "-",
+     "token_address": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 18713828.73,
+    "quote": {
+     "USD": {
+      "price": 130.56806845814668,
+      "volume_24h": 39543094.37145621,
+      "volume_change_24h": 43.354702632369,
+      "cex_volume_24h": 3341962.387977069,
+      "dex_volume_24h": 36201131.98347914,
+      "percent_change_1h": 0.494989915917,
+      "percent_change_24h": -9.015669185293,
+      "percent_change_7d": -19.573096047099,
+      "percent_change_30d": -40.548563507584,
+      "percent_change_60d": -42.636862803603,
+      "percent_change_90d": -39.637232282209,
+      "market_cap": 18713828.73307617,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 18713828.73,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "42461": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "base-ecosystem",
+      "name": "Base Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "coinbase-ecosystem",
+      "name": "Coinbase Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42461,
+    "name": "NVIDIA Corporation Tokenized Stock (Coinbase)",
+    "symbol": "NVDAc",
+    "slug": "nvidia-corporation-tokenized-stock-coinbase",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 62019.73777574,
+    "total_supply": 62019.73777574,
+    "max_supply": null,
+    "date_added": "2026-10-08T03:59:53.000Z",
+    "num_market_pairs": 18,
+    "cmc_rank": 938,
+    "last_updated": "2026-11-21T02:02:48.078Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 27716,
+     "slug": "base",
+     "name": "Base",
+     "symbol": "-",
+     "token_address": "0xb20000000000000000000078ee7ce2fE4908108C"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 8089966.25,
+    "quote": {
+     "USD": {
+      "price": 130.44180035280283,
+      "volume_24h": 20064719.172703274,
+      "volume_change_24h": 9.913934759694,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 20064719.172703274,
+      "percent_change_1h": 0.068282079445,
+      "percent_change_24h": -9.571011524068,
+      "percent_change_7d": -19.764060121826,
+      "percent_change_30d": -40.906223390128,
+      "percent_change_60d": -42.847392923909,
+      "percent_change_90d": -39.761551588437,
+      "market_cap": 8089966.252876261,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 8089966.25,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:03:08.663Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 5,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

@@ -1,0 +1,756 @@
+{
+ "receipt": {
+  "id": "r4",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "params": {
+   "id": "37656,40018,40217,40218,40232,40238,40643,40668,42487"
+  },
+  "startedUtc": "2026-11-21T02:04:27.524Z",
+  "elapsedMs": 276,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 14897,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=37656%2C40018%2C40217%2C40218%2C40232%2C40238%2C40643%2C40668%2C42487\""
+ },
+ "body": {
+  "data": {
+   "37656": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "prestocks-ecosystem",
+      "name": "PreStocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 37656,
+    "name": "SpaceX tokenized stock (PreStocks)",
+    "symbol": "SPACEX",
+    "slug": "spacex-tokenized-stock-prestocks",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 7326.41648826,
+    "total_supply": 7326.41648826,
+    "max_supply": null,
+    "date_added": "2025-08-08T06:30:53.000Z",
+    "num_market_pairs": 29,
+    "cmc_rank": 1220,
+    "last_updated": "2026-11-21T02:04:18.020Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "PreANxuXjsy2pvisWWMNB6YaJNzr7681wJJr2rHsfTh"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 3860402.99,
+    "quote": {
+     "USD": {
+      "price": 526.9155801779135,
+      "volume_24h": 27804.0080314314,
+      "volume_change_24h": 49.033037158845,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 27804.0080314314,
+      "percent_change_1h": 0.825432674098,
+      "percent_change_24h": -4.304902730382,
+      "percent_change_7d": -1.691739963176,
+      "percent_change_30d": -16.581865041051,
+      "percent_change_60d": -11.501838100387,
+      "percent_change_90d": 2.367886530156,
+      "market_cap": 3860402.9945365493,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 3860402.99,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "40018": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40018,
+    "name": "T-SpaceX tokenized stock (Tessera)",
+    "symbol": "tSpaceX",
+    "slug": "t-spacex-tokenized-stock-tessera",
+    "is_active": 1,
+    "infinite_supply": true,
+    "is_fiat": 0,
+    "circulating_supply": 1189,
+    "total_supply": 1189,
+    "max_supply": null,
+    "date_added": "2026-05-19T04:37:39.000Z",
+    "num_market_pairs": 4,
+    "cmc_rank": 2053,
+    "last_updated": "2026-11-21T02:04:03.077Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "TSPXcLV76s6V2zDiZQ18kBfcbnjaE2ZzNT3ga2Pd99v"
+    },
+    "self_reported_circulating_supply": 1189,
+    "self_reported_market_cap": 643694.6451379599,
+    "minted_market_cap": 643694.65,
+    "quote": {
+     "USD": {
+      "price": 541.3748066761647,
+      "volume_24h": 240805.82880866242,
+      "volume_change_24h": -30.365640067662,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 240805.82880866242,
+      "percent_change_1h": -0.00307335894,
+      "percent_change_24h": -0.798055292092,
+      "percent_change_7d": -1.5683079777,
+      "percent_change_30d": -3.158936959052,
+      "percent_change_60d": -3.70378150091,
+      "percent_change_90d": -1.598091205477,
+      "market_cap": 643694.6451379599,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 643694.65,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "40217": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-listing",
+      "name": "Binance Listing",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bstocks",
+      "name": "bStocks",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40217,
+    "name": "SpaceX Tokenized bStocks",
+    "symbol": "SPCXB",
+    "slug": "spacex-tokenized-bstocks",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 840624.42172265,
+    "total_supply": 840624.42172265,
+    "max_supply": null,
+    "date_added": "2026-06-11T03:04:29.000Z",
+    "num_market_pairs": 147,
+    "cmc_rank": 250,
+    "last_updated": "2026-11-21T02:04:18.123Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1839,
+     "slug": "bnb",
+     "name": "BNB Smart Chain (BEP20)",
+     "symbol": "BNB",
+     "token_address": "0xbe9d156892e55e7154bcd3cb0fea677f9d3103e1"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 108685479.58,
+    "quote": {
+     "USD": {
+      "price": 129.2913657633452,
+      "volume_24h": 45386826.73691633,
+      "volume_change_24h": -1.527992890055,
+      "cex_volume_24h": 39739521.976639554,
+      "dex_volume_24h": 5647304.760276792,
+      "percent_change_1h": -0.194509606937,
+      "percent_change_24h": -4.887449913174,
+      "percent_change_7d": -5.209401190601,
+      "percent_change_30d": -17.442108278985,
+      "percent_change_60d": -15.443578966433,
+      "percent_change_90d": -3.918590510822,
+      "market_cap": 108685479.5785437,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 108685479.58,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "40218": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "toncoin-ecosystem",
+      "name": "Toncoin Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "mantle-ecosystem",
+      "name": "Mantle Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperevm-ecosystem",
+      "name": "HyperEVM Ecosystem",
+      "category": "PLATFORM"
+     }
+    ],
+    "id": 40218,
+    "name": "SpaceX tokenized stock (xStock)",
+    "symbol": "SPCXx",
+    "slug": "spacex-tokenized-stock-xtock",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 568262.80728751,
+    "total_supply": 1710458.00162954,
+    "max_supply": null,
+    "date_added": "2026-06-08T15:32:52.000Z",
+    "num_market_pairs": 78,
+    "cmc_rank": 272,
+    "last_updated": "2026-11-21T02:04:03.105Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "Xs3oZwbHvqis4NYcf4YKWmEia2eC84wSiVrcYcTqpH8"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 221210249.77,
+    "quote": {
+     "USD": {
+      "price": 129.32808029206117,
+      "volume_24h": 14993820.844322521,
+      "volume_change_24h": 24.449648256015,
+      "cex_volume_24h": 13376975.093404947,
+      "dex_volume_24h": 1616845.750917572,
+      "percent_change_1h": -0.147619119382,
+      "percent_change_24h": -4.80556712476,
+      "percent_change_7d": -5.19981573961,
+      "percent_change_30d": -17.408951991214,
+      "percent_change_60d": -15.35472994468,
+      "percent_change_90d": -4.056019879424,
+      "market_cap": 73492337.96787117,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 221210249.77,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "40232": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ondo-stocks-ecosystem",
+      "name": "Ondo Stocks Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-ecosystem",
+      "name": "Robinhood Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40232,
+    "name": "SpaceX Tokenized Stock (Ondo)",
+    "symbol": "SPCXon",
+    "slug": "spacex-tokenized-stock-ondo",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 129051.2630865,
+    "total_supply": 129051.2630865,
+    "max_supply": null,
+    "date_added": "2026-06-12T09:35:08.000Z",
+    "num_market_pairs": 41,
+    "cmc_rank": 650,
+    "last_updated": "2026-11-21T02:04:18.123Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 40670,
+     "slug": "robinhood-placeholder",
+     "name": "Robinhood Chain",
+     "symbol": "-",
+     "token_address": "0x9B8294F24453379aa87C807ab82bf1d5722153Fc"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 16706153.93,
+    "quote": {
+     "USD": {
+      "price": 129.45362587949467,
+      "volume_24h": 4793996.943061661,
+      "volume_change_24h": 14.087427433555,
+      "cex_volume_24h": 2555858.7736845934,
+      "dex_volume_24h": 2238138.1693770676,
+      "percent_change_1h": -0.009637527914,
+      "percent_change_24h": -4.758345498699,
+      "percent_change_7d": -5.12351590896,
+      "percent_change_30d": -17.340684318224,
+      "percent_change_60d": -15.327570377352,
+      "percent_change_90d": -4.126928396131,
+      "market_cap": 16706153.930876011,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 16706153.93,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "40238": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40238,
+    "name": "SpaceX tokenized stock (Backpack)",
+    "symbol": "SPCX",
+    "slug": "spacex-tokenized-stock-backpack",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 100635.941064,
+    "total_supply": 100635.941064,
+    "max_supply": null,
+    "date_added": "2026-06-13T13:02:26.000Z",
+    "num_market_pairs": 60,
+    "cmc_rank": 744,
+    "last_updated": "2026-11-21T02:04:03.150Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "SPCXxcqXj6e5dJDVNovHN8744zkbhM2bYudU45BimGb"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 13045793.87,
+    "quote": {
+     "USD": {
+      "price": 129.63354574979468,
+      "volume_24h": 10684040.287968444,
+      "volume_change_24h": 33.788596021884,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 10684040.287968444,
+      "percent_change_1h": 0.085940463475,
+      "percent_change_24h": -4.64027399628,
+      "percent_change_7d": -5.102050576059,
+      "percent_change_30d": -17.151582777724,
+      "percent_change_60d": -14.706696615421,
+      "percent_change_90d": -3.758347407013,
+      "market_cap": 13045793.869993685,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 13045793.87,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "40643": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bitget-ecosystem",
+      "name": "Bitget Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "rtokens",
+      "name": "rTokens",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40643,
+    "name": "SpaceX \nPre-IPO stock (Republic)",
+    "symbol": "preSPCX",
+    "slug": "spacex-pre-ipo-stock-republic",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 474750,
+    "total_supply": 474750,
+    "max_supply": null,
+    "date_added": "2026-07-02T07:39:19.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 290,
+    "last_updated": "2026-11-21T02:04:18.169Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "4HtfQVWujUfTmZJbtDjSjdJPmqYyri4BpnipjqsD9HLS"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 61063925.27,
+    "quote": {
+     "USD": {
+      "price": 128.62332863782106,
+      "volume_24h": 37620.34303287543,
+      "volume_change_24h": -69.637945900575,
+      "cex_volume_24h": 37620.34303287543,
+      "dex_volume_24h": 0,
+      "percent_change_1h": 0.002935026557,
+      "percent_change_24h": -4.753357474438,
+      "percent_change_7d": -5.020386896992,
+      "percent_change_30d": -17.273897097446,
+      "percent_change_60d": -15.483495938235,
+      "percent_change_90d": -5.251315655384,
+      "market_cap": 61063925.270805545,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 61063925.27,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "40668": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bitget-ecosystem",
+      "name": "Bitget Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "rtokens",
+      "name": "rTokens",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40668,
+    "name": "SpaceX Tokenized Stock (Reality)",
+    "symbol": "rSPCX",
+    "slug": "spacex-tokenized-stock-reality",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 121450.56988584,
+    "total_supply": 121450.56988584,
+    "max_supply": null,
+    "date_added": "2026-07-02T07:39:29.000Z",
+    "num_market_pairs": 5,
+    "cmc_rank": 681,
+    "last_updated": "2026-11-21T02:04:18.189Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0x5181b7dd097b42d7787ee78efab86f43d4e12f44"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 15683419.73,
+    "quote": {
+     "USD": {
+      "price": 129.13417985071857,
+      "volume_24h": 1912455.035207156,
+      "volume_change_24h": -1.781494596926,
+      "cex_volume_24h": 1912455.035207156,
+      "dex_volume_24h": 0,
+      "percent_change_1h": -0.080282610477,
+      "percent_change_24h": -4.913581638999,
+      "percent_change_7d": -5.245339469899,
+      "percent_change_30d": -17.396616221199,
+      "percent_change_60d": -15.503292590123,
+      "percent_change_90d": -4.055204451627,
+      "market_cap": 15683419.734610327,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 15683419.73,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "42487": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "base-ecosystem",
+      "name": "Base Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "coinbase-ecosystem",
+      "name": "Coinbase Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42487,
+    "name": "Space Exploration Technologies Corp. Tokenized Stock (Coinbase)",
+    "symbol": "SPCXc",
+    "slug": "space-exploration-technologies-corp-tokenized-stock-coinbase",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 30116.60889535,
+    "total_supply": 30116.60889535,
+    "max_supply": null,
+    "date_added": "2026-10-08T03:59:43.000Z",
+    "num_market_pairs": 10,
+    "cmc_rank": 1216,
+    "last_updated": "2026-11-21T02:04:18.204Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 27716,
+     "slug": "base",
+     "name": "Base",
+     "symbol": "-",
+     "token_address": "0xb2000000000000000000007b9fcbd005511aCBd5"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 3894048.72,
+    "quote": {
+     "USD": {
+      "price": 129.29904322988952,
+      "volume_24h": 12907764.344578553,
+      "volume_change_24h": 13.988657744219,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 12907764.344578553,
+      "percent_change_1h": -0.57433974877,
+      "percent_change_24h": -5.390477810697,
+      "percent_change_7d": -5.422884343274,
+      "percent_change_30d": -17.85112568667,
+      "percent_change_60d": -15.361256800898,
+      "percent_change_90d": -57.463534264422,
+      "market_cap": 3894048.7154975347,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 3894048.72,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:04:27.670Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 5,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

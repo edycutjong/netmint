@@ -1,0 +1,127 @@
+{
+ "receipt": {
+  "id": "r2",
+  "kind": "cmc",
+  "endpoint": "/v5/real-world-assets/quotes/latest",
+  "params": {
+   "rwa_id": "8"
+  },
+  "startedUtc": "2026-11-21T02:06:02.816Z",
+  "elapsedMs": 251,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": "",
+  "bodyBytes": 2204,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=8\""
+ },
+ "body": {
+  "data": {
+   "rwa_assets": [
+    {
+     "name": "Taiwan Semiconductor Manufacturing Co Ltd",
+     "symbol": "TSM",
+     "slug": "tsm",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 329.38795584629685,
+       "tokenized_market_cap": 19990755.185114957,
+       "tokenized_volume_24h": 8271327.45752485,
+       "last_updated": "2026-11-21T02:05:02.000Z"
+      }
+     ],
+     "rwa_id": 8,
+     "asset_type": "stock",
+     "rwa_rank": 9,
+     "has_tokens": true,
+     "average_tokenized_price": 329.38795584629685,
+     "tokenized_market_cap": 19990755.185114957,
+     "tokenized_volume_24h": 8271327.45752485,
+     "last_updated": "2026-11-21T02:05:13.182Z",
+     "tokens": [
+      {
+       "symbol": "TSMon",
+       "name": "Taiwan Semiconductor Manufacturing Tokenized Stock (Ondo)",
+       "price": 332.80862410049804,
+       "crypto_id": 38075,
+       "issuer_id": "688ca4ccabae9b5b9fb3167a",
+       "issuer_name": "Ondo Assets",
+       "market_cap": 7128656.709106198,
+       "volume_24h": 2129408.07357507
+      },
+      {
+       "symbol": "TSM",
+       "name": "Taiwan Semiconductor Manufacturing (Derivatives)",
+       "price": 328.9030781018732,
+       "crypto_id": 39490,
+       "issuer_id": "695e11f774b54210f3b95dc3",
+       "issuer_name": "NA (Derivatives)",
+       "market_cap": 0,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "rTSM",
+       "name": "TSMC Tokenized Stock (Reality)",
+       "price": 327.55787644655567,
+       "crypto_id": 40607,
+       "issuer_id": "6a43600c282e7240b76c8bbb",
+       "issuer_name": "Reality",
+       "market_cap": 2924888.268805859,
+       "volume_24h": 1375892.1964023593
+      },
+      {
+       "symbol": "TSM",
+       "name": "TSMC Tokenized Stock (Robinhood)",
+       "price": 328.56179815400515,
+       "crypto_id": 40769,
+       "issuer_id": "6a465832fbe3004b1a0ea2dd",
+       "issuer_name": "Robinhood",
+       "market_cap": 1198020.0270894952,
+       "volume_24h": 356994.514708989
+      },
+      {
+       "symbol": "TSMB",
+       "name": "TSMC Tokenized bStocks",
+       "price": 328.4221823302885,
+       "crypto_id": 40846,
+       "issuer_id": "6a2aed5097c45356b1a5f710",
+       "issuer_name": "bStocks",
+       "market_cap": 8740475.546731753,
+       "volume_24h": 4409050.484595128
+      },
+      {
+       "symbol": "wTSMx",
+       "name": "Wrapped TSMC Tokenized Stock (xStock)",
+       "price": 359.66260713992233,
+       "crypto_id": 41688,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 0,
+       "volume_24h": 0
+      }
+     ],
+     "tradfi_markets": [
+      {
+       "exchange": {
+        "slug": "binance",
+        "name": "Binance",
+        "exchange_id": 270
+       },
+       "ticker": "TSM",
+       "market_url": "https://www.binance.com/en/stocks/EQ_TSM"
+      }
+     ]
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:06:02.951Z",
+   "error_code": "0",
+   "error_message": "",
+   "elapsed": 5,
+   "credit_count": 1
+  }
+ }
+}

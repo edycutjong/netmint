@@ -1,0 +1,608 @@
+{
+ "receipt": {
+  "id": "r4",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "params": {
+   "id": "38014,40175,40212,40616,40696,40817,42431"
+  },
+  "startedUtc": "2026-11-21T02:03:10.674Z",
+  "elapsedMs": 722,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 11992,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=38014%2C40175%2C40212%2C40616%2C40696%2C40817%2C42431\""
+ },
+ "body": {
+  "data": {
+   "38014": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-alpha",
+      "name": "Binance Alpha",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperevm-ecosystem",
+      "name": "HyperEVM Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "ondo-stocks-ecosystem",
+      "name": "Ondo Stocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 38014,
+    "name": "Micron Technology Tokenized Stock (Ondo)",
+    "symbol": "MUon",
+    "slug": "micron-technology-tokenized-stock-ondo",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 36310.55944329,
+    "total_supply": 36310.55944329,
+    "max_supply": null,
+    "date_added": "2025-09-03T10:55:38.000Z",
+    "num_market_pairs": 30,
+    "cmc_rank": 543,
+    "last_updated": "2026-11-21T02:03:03.465Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1027,
+     "slug": "ethereum",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "token_address": "0x050362Ab1072Cb2Ce74d74770E22A3203Ad04ee5"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 22149232.35,
+    "quote": {
+     "USD": {
+      "price": 609.9942464342224,
+      "volume_24h": 9180012.686613373,
+      "volume_change_24h": 64.257178981993,
+      "cex_volume_24h": 6291680.03295045,
+      "dex_volume_24h": 2888332.653662925,
+      "percent_change_1h": -0.00655587216,
+      "percent_change_24h": -9.020501651868,
+      "percent_change_7d": -20.337685433812,
+      "percent_change_30d": -32.410182928088,
+      "percent_change_60d": -41.821164141858,
+      "percent_change_90d": -36.551944681742,
+      "market_cap": 22149232.34521472,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 22149232.35,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "40175": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "toncoin-ecosystem",
+      "name": "Toncoin Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "mantle-ecosystem",
+      "name": "Mantle Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperevm-ecosystem",
+      "name": "HyperEVM Ecosystem",
+      "category": "PLATFORM"
+     }
+    ],
+    "id": 40175,
+    "name": "Micron Technology tokenized stock (xStock)",
+    "symbol": "MUx",
+    "slug": "micron-technology-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 35073.00585598,
+    "total_supply": 231589.59349011,
+    "max_supply": null,
+    "date_added": "2026-06-10T06:33:41.000Z",
+    "num_market_pairs": 9,
+    "cmc_rank": 562,
+    "last_updated": "2026-11-21T02:02:48.032Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "XsQLZycSZ7QnBBdBXQaTbQdiUcbRqjNJgyBGAMzhHav"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 141186809.42,
+    "quote": {
+     "USD": {
+      "price": 609.64228697816,
+      "volume_24h": 5128363.358442639,
+      "volume_change_24h": 18.587008264819,
+      "cex_volume_24h": 5118913.887931563,
+      "dex_volume_24h": 9449.47051107608,
+      "percent_change_1h": -0.191873392713,
+      "percent_change_24h": -8.837104591477,
+      "percent_change_7d": -20.218571736351,
+      "percent_change_30d": -32.034395209307,
+      "percent_change_60d": -41.901184620269,
+      "percent_change_90d": -36.624058059113,
+      "market_cap": 21381987.501238044,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 141186809.42,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "40212": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-listing",
+      "name": "Binance Listing",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bstocks",
+      "name": "bStocks",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40212,
+    "name": "Micron Technology Tokenized bStocks",
+    "symbol": "MUB",
+    "slug": "micron-technology-tokenized-bstocks",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 120397.73115612574,
+    "total_supply": 120397.73115612574,
+    "max_supply": null,
+    "date_added": "2026-06-11T03:03:49.000Z",
+    "num_market_pairs": 31,
+    "cmc_rank": 273,
+    "last_updated": "2026-11-21T02:02:48.068Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1839,
+     "slug": "bnb",
+     "name": "BNB Smart Chain (BEP20)",
+     "symbol": "BNB",
+     "token_address": "0xcdf2f3e0fa43c47a6662a91c9e4a7c5f69762699"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 73321681.6,
+    "quote": {
+     "USD": {
+      "price": 608.9955424515742,
+      "volume_24h": 50448698.50876955,
+      "volume_change_24h": 51.734295350155,
+      "cex_volume_24h": 50234873.326578654,
+      "dex_volume_24h": 213825.18219089272,
+      "percent_change_1h": -0.114030800557,
+      "percent_change_24h": -9.103141345421,
+      "percent_change_7d": -20.276313379456,
+      "percent_change_30d": -32.135509008755,
+      "percent_change_60d": -41.93549842606,
+      "percent_change_90d": -36.656017923455,
+      "market_cap": 73321681.59536359,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 73321681.6,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "40616": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bitget-ecosystem",
+      "name": "Bitget Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "rtokens",
+      "name": "rTokens",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40616,
+    "name": "Micron Tokenized Stock (Reality)",
+    "symbol": "rMU",
+    "slug": "micron-tokenized-stock-reality",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 7499.19765158,
+    "total_supply": 7499.19765158,
+    "max_supply": null,
+    "date_added": "2026-07-02T07:39:08.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 1162,
+    "last_updated": "2026-11-21T02:03:03.546Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0x548cc634a64301a346f174071a90efa93dae4eb3"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 4560406.09,
+    "quote": {
+     "USD": {
+      "price": 608.1192024619086,
+      "volume_24h": 6417716.928193109,
+      "volume_change_24h": 246.69163347067,
+      "cex_volume_24h": 6417716.928193109,
+      "dex_volume_24h": 0,
+      "percent_change_1h": 0.10250862531,
+      "percent_change_24h": -8.879836477547,
+      "percent_change_7d": -20.162665237997,
+      "percent_change_30d": -32.105226393789,
+      "percent_change_60d": -42.06340104647,
+      "percent_change_90d": -36.599711025544,
+      "market_cap": 4560406.094983048,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 4560406.09,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "40696": {
+    "tags": [
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-ecosystem",
+      "name": "Robinhood Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-stock",
+      "name": "Robinhood Stock",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40696,
+    "name": "Micron Technology Tokenized Stock (Robinhood)",
+    "symbol": "MU",
+    "slug": "micron-technology-tokenized-stock-robinhood",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 6143.8551695680735,
+    "total_supply": 6143.8551695680735,
+    "max_supply": null,
+    "date_added": "2026-08-04T07:31:29.000Z",
+    "num_market_pairs": 52,
+    "cmc_rank": 1243,
+    "last_updated": "2026-11-21T02:02:48.166Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 40670,
+     "slug": "robinhood-placeholder",
+     "name": "Robinhood Chain",
+     "symbol": "-",
+     "token_address": "0xfF080c8ce2E5feadaCa0Da81314Ae59D232d4afD"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 3741647.3,
+    "quote": {
+     "USD": {
+      "price": 609.006430236721,
+      "volume_24h": 2102274.433120922,
+      "volume_change_24h": -46.978903449897,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 2102274.433120922,
+      "percent_change_1h": -0.143719132945,
+      "percent_change_24h": -9.290732039932,
+      "percent_change_7d": -20.139384011954,
+      "percent_change_30d": -32.049734140705,
+      "percent_change_60d": -41.769738299068,
+      "percent_change_90d": -36.65404224122,
+      "market_cap": 3741647.304710076,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 3741647.3,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "40817": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40817,
+    "name": "Micron Technology Inc tokenized stock (Backpack)",
+    "symbol": "MU",
+    "slug": "micron-technology-inc-tokenized-stock-backpack",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 4180.607798,
+    "total_supply": 4180.607798,
+    "max_supply": null,
+    "date_added": "2026-06-13T13:02:26.000Z",
+    "num_market_pairs": 26,
+    "cmc_rank": 1402,
+    "last_updated": "2026-11-21T02:03:03.626Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "MUxEsUKSMACyw5fZf68wxf5FLnZVhtU9CwH8uNNGay1"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 2544001.59,
+    "quote": {
+     "USD": {
+      "price": 608.5243380005792,
+      "volume_24h": 207749.70347383543,
+      "volume_change_24h": -47.883398328509,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 207749.70347383543,
+      "percent_change_1h": -0.078112944012,
+      "percent_change_24h": -9.346028192513,
+      "percent_change_7d": -20.349805309195,
+      "percent_change_30d": -32.024265546627,
+      "percent_change_60d": -41.855731826045,
+      "percent_change_90d": -36.768678653072,
+      "market_cap": 2544001.592718009,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 2544001.59,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   },
+   "42431": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "base-ecosystem",
+      "name": "Base Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "coinbase-ecosystem",
+      "name": "Coinbase Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42431,
+    "name": "Micron Technology Inc. Tokenized Stock (Coinbase)",
+    "symbol": "MUc",
+    "slug": "micron-technology-inc-tokenized-stock-coinbase",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 1879.8707373937038,
+    "total_supply": 1879.8707373937038,
+    "max_supply": null,
+    "date_added": "2026-10-08T03:59:45.000Z",
+    "num_market_pairs": 6,
+    "cmc_rank": 1778,
+    "last_updated": "2026-11-21T02:02:48.160Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 27716,
+     "slug": "base",
+     "name": "Base",
+     "symbol": "-",
+     "token_address": "0xb200000000000000000000Fd2f87532B90095211"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 1143849.36,
+    "quote": {
+     "USD": {
+      "price": 608.4723497672251,
+      "volume_24h": 8104800.018658025,
+      "volume_change_24h": -11.918487267488,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 8104800.018658025,
+      "percent_change_1h": -0.344319765083,
+      "percent_change_24h": -9.645008071154,
+      "percent_change_7d": -20.485162352324,
+      "percent_change_30d": -32.480089380114,
+      "percent_change_60d": -44.955079193722,
+      "percent_change_90d": -44.955079193722,
+      "market_cap": 1143849.3648405932,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 1143849.36,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:02:03.000Z"
+     }
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:03:11.274Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 20,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

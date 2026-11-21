@@ -21,6 +21,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <a className="mark" href="/">
             NetMint
           </a>
+          <nav className="nav" aria-label="Main">
+            <a href="/">Hero</a>
+            <a href="/flows">Flows</a>
+          </nav>
           <span className="tag">CMC records every tokenised stock’s supply. We show the money behind it, checked on chain.</span>
         </header>
         {children}

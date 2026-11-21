@@ -23,7 +23,8 @@
     "calibrate": "tsx scripts/calibrate.ts",
     "find-mint": "tsx scripts/find-mint.ts",
     "snapshot": "tsx scripts/snapshot.ts",
-    "verify:offline": "bash scripts/verify-offline.sh"
+    "verify:offline": "bash scripts/verify-offline.sh",
+    "flows": "tsx scripts/flows.ts"
   },
   "dependencies": {
     "next": "^15.5.29",

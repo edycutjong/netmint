@@ -124,3 +124,14 @@ a:hover { text-decoration-color: var(--after); }
 
 footer.foot { max-width: 1240px; margin: 40px auto 0; padding: 18px 28px 40px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--muted); }
 @media (max-width: 699px) { .proof-row { grid-template-columns: 1fr; gap: 2px; } .proof-row .fig { justify-self: start; } }
+
+/* /flows */
+.seg a.segl { display: inline-flex; align-items: center; justify-content: center; font-size: 14px; padding: 8px 14px; min-height: 44px; min-width: 52px; color: var(--ink); text-decoration: none; transition: background 120ms ease; }
+.seg a.segl + a.segl { border-left: 1px solid var(--rule); }
+.seg a.segl:hover { background: rgba(31, 107, 85, 0.08); }
+.seg a.segl[aria-current='true'] { background: var(--ink); color: var(--card); }
+.tag-div { font-size: 13px; border-bottom: 2px solid var(--after); }
+.ledger.flows td:nth-child(2) { max-width: 360px; }
+.masthead .nav { display: flex; gap: 6px; }
+.masthead .nav a { font-size: 15px; padding: 8px 12px; min-height: 40px; display: inline-flex; align-items: center; text-decoration: none; border: 1px solid transparent; transition: border-color 120ms ease, background 120ms ease; }
+.masthead .nav a:hover { border-color: var(--ink); background: var(--card); }

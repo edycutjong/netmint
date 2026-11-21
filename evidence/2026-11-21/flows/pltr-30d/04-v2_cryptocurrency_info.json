@@ -1,0 +1,497 @@
+{
+ "receipt": {
+  "id": "r5",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/info",
+  "params": {
+   "id": "38073,37062,40590,40655,40689,37220,42462",
+   "aux": "platform"
+  },
+  "startedUtc": "2026-11-21T02:06:55.225Z",
+  "elapsedMs": 760,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 7328,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=38073%2C37062%2C40590%2C40655%2C40689%2C37220%2C42462&aux=platform\""
+ },
+ "body": {
+  "data": {
+   "37062": {
+    "id": 37062,
+    "name": "Palantir tokenized stock (xStock)",
+    "symbol": "PLTRX",
+    "category": "token",
+    "slug": "palantir-tokenized-stock-xstock",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Ethereum Ecosystem",
+     "Tokenized Stock",
+     "Solana Ecosystem",
+     "Arbitrum Ecosystem",
+     "BNB Chain Ecosystem",
+     "Toncoin Ecosystem",
+     "X Layer Ecosystem",
+     "Internet Capital Markets",
+     "Tokenized Assets",
+     "xStocks Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "PLATFORM",
+     "PLATFORM",
+     "PLATFORM",
+     "PLATFORM",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "5426",
+     "name": "Solana",
+     "symbol": "SOL",
+     "slug": "solana",
+     "token_address": "XsoBhf2ufR8fTyNSjqfU71DYGaE6Z3SUGAidpzriAA4"
+    },
+    "twitter_username": "xStocksFi",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "XsoBhf2ufR8fTyNSjqfU71DYGaE6Z3SUGAidpzriAA4",
+      "platform": {
+       "name": "Solana",
+       "coin": {
+        "id": "5426",
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana"
+       }
+      }
+     },
+     {
+      "contract_address": "0x6d482cec5f9dd1f05ccee9fd3ff79b246170f8e2",
+      "platform": {
+       "name": "Arbitrum",
+       "coin": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum"
+       }
+      }
+     },
+     {
+      "contract_address": "0x6d482cec5f9dd1f05ccee9fd3ff79b246170f8e2",
+      "platform": {
+       "name": "BNB Smart Chain (BEP20)",
+       "coin": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb"
+       }
+      }
+     },
+     {
+      "contract_address": "EQCGOLDdW8rldaSAlCE9yJabqk2uRJz2PaH3CTRyP6VLVjXL",
+      "platform": {
+       "name": "TON",
+       "coin": {
+        "id": "11419",
+        "name": "Gram (prev. Toncoin)",
+        "symbol": "GRAM",
+        "slug": "gram"
+       }
+      }
+     },
+     {
+      "contract_address": "0x6d482cec5f9dd1f05ccee9fd3ff79b246170f8e2",
+      "platform": {
+       "name": "Ethereum",
+       "coin": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum"
+       }
+      }
+     },
+     {
+      "contract_address": "0x6d482cec5f9dd1f05ccee9fd3ff79b246170f8e2",
+      "platform": {
+       "name": "Ink",
+       "coin": {
+        "id": "36851",
+        "name": "INK",
+        "symbol": "INK",
+        "slug": "ink-token"
+       }
+      }
+     },
+     {
+      "contract_address": "0x6d482CeC5f9dd1f05CCee9Fd3ff79B246170F8e2",
+      "platform": {
+       "name": "X Layer",
+       "coin": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "37220": {
+    "id": 37220,
+    "name": "Wrapped Palantir Tokenized stock (xStock)",
+    "symbol": "WPLTRX",
+    "category": "token",
+    "slug": "wrapped-palantir-tokenized-stock-xstock",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Arbitrum Ecosystem",
+     "X Layer Ecosystem",
+     "Tokenized Assets"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "PLATFORM",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "3897",
+     "name": "OKB",
+     "symbol": "OKB",
+     "slug": "okb",
+     "token_address": "0x4A2df09536F62341C9f946427D16414C04e21342"
+    },
+    "twitter_username": "xStocksFi",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x4A2df09536F62341C9f946427D16414C04e21342",
+      "platform": {
+       "name": "X Layer",
+       "coin": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb"
+       }
+      }
+     },
+     {
+      "contract_address": "0xa3b6fe1a923585bb828fcfaa460b78eefd5ae2ec",
+      "platform": {
+       "name": "Arbitrum",
+       "coin": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "38073": {
+    "id": 38073,
+    "name": "Palantir Technologies Tokenized Stock (Ondo)",
+    "symbol": "PLTRon",
+    "category": "token",
+    "slug": "palantir-technologies-tokenized-stock-ondo",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Ethereum Ecosystem",
+     "Tokenized Stock",
+     "Solana Ecosystem",
+     "BNB Chain Ecosystem",
+     "Binance Alpha",
+     "Binance Ecosystem",
+     "Tokenized Assets",
+     "HyperEVM Ecosystem",
+     "Ondo Stocks Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "PLATFORM",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "1027",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "slug": "ethereum",
+     "token_address": "0x0c666485b02F7A87d21AdD7AEb9F5e64975AA490"
+    },
+    "twitter_username": "ondofinance",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x0c666485b02F7A87d21AdD7AEb9F5e64975AA490",
+      "platform": {
+       "name": "Ethereum",
+       "coin": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum"
+       }
+      }
+     },
+     {
+      "contract_address": "0x9351abd19f42101dd36025e495b98e910b255d78",
+      "platform": {
+       "name": "BNB Smart Chain (BEP20)",
+       "coin": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb"
+       }
+      }
+     },
+     {
+      "contract_address": "HfsnTS5qtdStwec9DfBrunRqnAMYMMz1kjv9Hu9ondo",
+      "platform": {
+       "name": "Solana",
+       "coin": {
+        "id": "5426",
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana"
+       }
+      }
+     },
+     {
+      "contract_address": "0x039358AB6919159f6026Ea4428595a5AaF12A35C",
+      "platform": {
+       "name": "HyperEVM",
+       "coin": {
+        "id": "32196",
+        "name": "Hyperliquid",
+        "symbol": "HYPE",
+        "slug": "hyperliquid"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "40590": {
+    "id": 40590,
+    "name": "Palantir Tokenized bStocks",
+    "symbol": "PLTRB",
+    "category": "token",
+    "slug": "palantir-tokenized-bstocks",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "BNB Chain Ecosystem",
+     "Binance Ecosystem",
+     "Binance Listing",
+     "Tokenized Assets",
+     "bStocks"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "1839",
+     "name": "BNB",
+     "symbol": "BNB",
+     "slug": "bnb",
+     "token_address": "0x0ca5d51d0277bd006fd9607d3e560785ebad8222"
+    },
+    "twitter_username": "",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x0ca5d51d0277bd006fd9607d3e560785ebad8222",
+      "platform": {
+       "name": "BNB Smart Chain (BEP20)",
+       "coin": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "40655": {
+    "id": 40655,
+    "name": "Palantir Tokenized Stock (Reality)",
+    "symbol": "rPLTR",
+    "category": "token",
+    "slug": "palantir-tokenized-stock-reality",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Arbitrum Ecosystem",
+     "Tokenized Assets",
+     "Bitget Ecosystem",
+     "rTokens"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "11841",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "slug": "arbitrum",
+     "token_address": "0xdb1a79026ba57e67c0e769e8be8318fdcacbc909"
+    },
+    "twitter_username": "RealityFi_xyz",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0xdb1a79026ba57e67c0e769e8be8318fdcacbc909",
+      "platform": {
+       "name": "Arbitrum",
+       "coin": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "40689": {
+    "id": 40689,
+    "name": "Palantir Technologies Tokenized Stock (Robinhood)",
+    "symbol": "PLTR",
+    "category": "token",
+    "slug": "palantir-technologies-tokenized-stock-robinhood",
+    "subreddit": "",
+    "tag-names": [
+     "Tokenized Assets",
+     "Robinhood Ecosystem",
+     "Robinhood Stock"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "40670",
+     "name": "Robinhood",
+     "symbol": "-",
+     "slug": "robinhood-placeholder",
+     "token_address": "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A"
+    },
+    "twitter_username": "RobinhoodCrypto",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x894E1EC2D74FFE5AEF8Dc8A9e84686acCB964F2A",
+      "platform": {
+       "name": "Robinhood Chain",
+       "coin": {
+        "id": "40670",
+        "name": "Robinhood",
+        "symbol": "-",
+        "slug": "robinhood-placeholder"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "42462": {
+    "id": 42462,
+    "name": "Palantir Technologies Inc. Tokenized Stock (Coinbase)",
+    "symbol": "PLTRc",
+    "category": "token",
+    "slug": "palantir-technologies-inc-tokenized-stock-coinbase",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Base Ecosystem",
+     "Tokenized Assets",
+     "Coinbase Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "27716",
+     "name": "Base",
+     "symbol": "-",
+     "slug": "base",
+     "token_address": "0xb2000000000000000000007d16372840dF4dAbbe"
+    },
+    "twitter_username": "",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0xb2000000000000000000007d16372840dF4dAbbe",
+      "platform": {
+       "name": "Base",
+       "coin": {
+        "id": "27716",
+        "name": "Base",
+        "symbol": "-",
+        "slug": "base"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:06:55.859Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 8,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

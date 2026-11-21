@@ -1,0 +1,157 @@
+{
+ "receipt": {
+  "id": "r2",
+  "kind": "cmc",
+  "endpoint": "/v5/real-world-assets/quotes/latest",
+  "params": {
+   "rwa_id": "12"
+  },
+  "startedUtc": "2026-11-21T02:04:29.100Z",
+  "elapsedMs": 734,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": "",
+  "bodyBytes": 2933,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=12\""
+ },
+ "body": {
+  "data": {
+   "rwa_assets": [
+    {
+     "name": "Micron Technology Inc",
+     "symbol": "MU",
+     "slug": "micron-technology",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 609.0129721613617,
+       "tokenized_market_cap": 128812866.44038431,
+       "tokenized_volume_24h": 81546741.99691133,
+       "last_updated": "2026-11-21T02:03:02.000Z"
+      }
+     ],
+     "rwa_id": 12,
+     "asset_type": "stock",
+     "rwa_rank": 21,
+     "has_tokens": true,
+     "average_tokenized_price": 609.0129721613617,
+     "tokenized_market_cap": 128812866.44038431,
+     "tokenized_volume_24h": 81546741.99691133,
+     "last_updated": "2026-11-21T02:04:16.582Z",
+     "tokens": [
+      {
+       "symbol": "MUon",
+       "name": "Micron Technology Tokenized Stock (Ondo)",
+       "price": 610.3399385682688,
+       "crypto_id": 38014,
+       "issuer_id": "688ca4ccabae9b5b9fb3167a",
+       "issuer_name": "Ondo Assets",
+       "market_cap": 22161784.61999431,
+       "volume_24h": 9163971.486830536
+      },
+      {
+       "symbol": "MU",
+       "name": "Micron Technology Inc (Derivatives)",
+       "price": 609.2501937931215,
+       "crypto_id": 39469,
+       "issuer_id": "695e11f774b54210f3b95dc3",
+       "issuer_name": "NA (Derivatives)",
+       "market_cap": 0,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "MUx",
+       "name": "Micron Technology tokenized stock (xStock)",
+       "price": 608.8612475908818,
+       "crypto_id": 40175,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 21354594.102235377,
+       "volume_24h": 5124887.501230415
+      },
+      {
+       "symbol": "MUB",
+       "name": "Micron Technology Tokenized bStocks",
+       "price": 608.929947659973,
+       "crypto_id": 40212,
+       "issuer_id": "6a2aed5097c45356b1a5f710",
+       "issuer_name": "bStocks",
+       "market_cap": 73313784.13127916,
+       "volume_24h": 50428464.78374851
+      },
+      {
+       "symbol": "rMU",
+       "name": "Micron Tokenized Stock (Reality)",
+       "price": 608.1192024619086,
+       "crypto_id": 40616,
+       "issuer_id": "6a43600c282e7240b76c8bbb",
+       "issuer_name": "Reality",
+       "market_cap": 4560406.094984872,
+       "volume_24h": 6417716.928193109
+      },
+      {
+       "symbol": "MU",
+       "name": "Micron Technology Tokenized Stock (Robinhood)",
+       "price": 609.0064309971851,
+       "crypto_id": 40696,
+       "issuer_id": "6a465832fbe3004b1a0ea2dd",
+       "issuer_name": "Robinhood",
+       "market_cap": 3741647.309382258,
+       "volume_24h": 2102271.562070843
+      },
+      {
+       "symbol": "MU",
+       "name": "Micron Technology Inc tokenized stock (Backpack)",
+       "price": 608.5243380005792,
+       "crypto_id": 40817,
+       "issuer_id": "6a2d54b697c45356b1a634f4",
+       "issuer_name": "Backpack",
+       "market_cap": 2544001.592718009,
+       "volume_24h": 207749.70347383543
+      },
+      {
+       "symbol": "wMUx",
+       "name": "Wrapped Micron Technology Tokenized Stock (xStock)",
+       "price": 802.6730557306593,
+       "crypto_id": 41636,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 0,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "MUc",
+       "name": "Micron Technology Inc. Tokenized Stock (Coinbase)",
+       "price": 609.1060395986667,
+       "crypto_id": 42431,
+       "issuer_id": "6a72fe7072996604d45c6733",
+       "issuer_name": "Coinbase",
+       "market_cap": 1145040.619811304,
+       "volume_24h": 8105073.053884532
+      }
+     ],
+     "tradfi_markets": [
+      {
+       "exchange": {
+        "slug": "binance",
+        "name": "Binance",
+        "exchange_id": 270
+       },
+       "ticker": "MU",
+       "market_url": "https://www.binance.com/en/stocks/EQ_MU"
+      }
+     ]
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:04:29.708Z",
+   "error_code": "0",
+   "error_message": "",
+   "elapsed": 5,
+   "credit_count": 1
+  }
+ }
+}

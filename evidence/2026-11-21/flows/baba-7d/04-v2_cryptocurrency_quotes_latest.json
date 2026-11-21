@@ -1,0 +1,356 @@
+{
+ "receipt": {
+  "id": "r5",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "params": {
+   "id": "38076,40656,40739,40852"
+  },
+  "startedUtc": "2026-11-21T02:04:18.731Z",
+  "elapsedMs": 265,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 6766,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=38076%2C40656%2C40739%2C40852\""
+ },
+ "body": {
+  "data": {
+   "38076": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-alpha",
+      "name": "Binance Alpha",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperevm-ecosystem",
+      "name": "HyperEVM Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "ondo-stocks-ecosystem",
+      "name": "Ondo Stocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 38076,
+    "name": "Alibaba Tokenized Stock (Ondo)",
+    "symbol": "BABAon",
+    "slug": "alibaba-tokenized-stock-ondo",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 23698.79251629,
+    "total_supply": 23698.79251629,
+    "max_supply": null,
+    "date_added": "2025-09-03T10:55:04.000Z",
+    "num_market_pairs": 34,
+    "cmc_rank": 1519,
+    "last_updated": "2026-11-21T02:04:03.044Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1027,
+     "slug": "ethereum",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "token_address": "0x41765F0FCddC276309195166C7A62AE522FA09ef"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 1948097.18,
+    "quote": {
+     "USD": {
+      "price": 82.20238151781143,
+      "volume_24h": 2438113.7295064605,
+      "volume_change_24h": -6.03057290319,
+      "cex_volume_24h": 2385938.9362946814,
+      "dex_volume_24h": 52174.79321177877,
+      "percent_change_1h": 0.05269097389,
+      "percent_change_24h": -2.396234013833,
+      "percent_change_7d": -12.581830700796,
+      "percent_change_30d": -18.519145971869,
+      "percent_change_60d": -30.873379130269,
+      "percent_change_90d": -31.771161000689,
+      "market_cap": 1948097.183935525,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 1948097.18,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "40656": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bitget-ecosystem",
+      "name": "Bitget Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "rtokens",
+      "name": "rTokens",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40656,
+    "name": "Alibaba Tokenized Stock (Reality)",
+    "symbol": "rBABA",
+    "slug": "alibaba-tokenized-stock-reality",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 3444.54807042,
+    "total_supply": 3444.54807042,
+    "max_supply": null,
+    "date_added": "2026-07-02T07:39:25.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 2441,
+    "last_updated": "2026-11-21T02:04:03.128Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0x7d310a5f26e8e3184280799b6ac1e2e724cee37c"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 282143.54,
+    "quote": {
+     "USD": {
+      "price": 81.9101777840977,
+      "volume_24h": 34795.05452917471,
+      "volume_change_24h": -67.067082703436,
+      "cex_volume_24h": 34795.05452917471,
+      "dex_volume_24h": 0,
+      "percent_change_1h": 0.237122935987,
+      "percent_change_24h": -2.552458754923,
+      "percent_change_7d": -12.421582606378,
+      "percent_change_30d": -18.318787338139,
+      "percent_change_60d": -30.438624744166,
+      "percent_change_90d": -31.411752036374,
+      "market_cap": 282143.5448339729,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 282143.54,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "40739": {
+    "tags": [
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-ecosystem",
+      "name": "Robinhood Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-stock",
+      "name": "Robinhood Stock",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40739,
+    "name": "Alibaba Tokenized Stock (Robinhood)",
+    "symbol": "BABA",
+    "slug": "alibaba-tokenized-stock-robinhood",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 4947.11113,
+    "total_supply": 4947.11113,
+    "max_supply": null,
+    "date_added": "2026-08-04T07:31:46.000Z",
+    "num_market_pairs": 21,
+    "cmc_rank": 2272,
+    "last_updated": "2026-11-21T02:04:03.150Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 40670,
+     "slug": "robinhood-placeholder",
+     "name": "Robinhood Chain",
+     "symbol": "-",
+     "token_address": "0xad25Ac6C84D497db898fa1E8387bf6Af3532a1c4"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 405228.24,
+    "quote": {
+     "USD": {
+      "price": 81.91209501595434,
+      "volume_24h": 939.7310491994206,
+      "volume_change_24h": -95.858433324887,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 939.7310491994206,
+      "percent_change_1h": 0.213285621847,
+      "percent_change_24h": -2.854553781219,
+      "percent_change_7d": -12.376018938162,
+      "percent_change_30d": -18.222200046039,
+      "percent_change_60d": -30.552004981434,
+      "percent_change_90d": -31.136235347433,
+      "market_cap": 405228.2369350452,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 405228.24,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "40852": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-listing",
+      "name": "Binance Listing",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bstocks",
+      "name": "bStocks",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40852,
+    "name": "Alibaba Tokenized bStocks",
+    "symbol": "BABAB",
+    "slug": "alibaba-tokenized-bstocks",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 91971.98383351,
+    "total_supply": 91971.98383351,
+    "max_supply": null,
+    "date_added": "2026-07-13T10:56:44.000Z",
+    "num_market_pairs": 49,
+    "cmc_rank": 967,
+    "last_updated": "2026-11-21T02:04:03.077Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1839,
+     "slug": "bnb",
+     "name": "BNB Smart Chain (BEP20)",
+     "symbol": "BNB",
+     "token_address": "0x4ef9d3062c7f6eba4aae4990c5036598c6eff4ec"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 7539586.99,
+    "quote": {
+     "USD": {
+      "price": 81.9769964318177,
+      "volume_24h": 1920644.2546323412,
+      "volume_change_24h": -62.155788205268,
+      "cex_volume_24h": 1824220.20209512,
+      "dex_volume_24h": 96424.05253722129,
+      "percent_change_1h": 0.067382394114,
+      "percent_change_24h": -2.609696030448,
+      "percent_change_7d": -12.590369906906,
+      "percent_change_30d": -18.251236541961,
+      "percent_change_60d": -30.397925422812,
+      "percent_change_90d": -31.208156345278,
+      "market_cap": 7539586.990546845,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 7539586.99,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:04:18.873Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 4,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

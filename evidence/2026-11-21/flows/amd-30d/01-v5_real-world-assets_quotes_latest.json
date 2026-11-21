@@ -1,0 +1,157 @@
+{
+ "receipt": {
+  "id": "r2",
+  "kind": "cmc",
+  "endpoint": "/v5/real-world-assets/quotes/latest",
+  "params": {
+   "rwa_id": "25"
+  },
+  "startedUtc": "2026-11-21T02:06:46.393Z",
+  "elapsedMs": 599,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": "",
+  "bodyBytes": 2867,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=25\""
+ },
+ "body": {
+  "data": {
+   "rwa_assets": [
+    {
+     "name": "Advanced Micro Devices Inc",
+     "symbol": "AMD",
+     "slug": "amd",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 438.73300905561496,
+       "tokenized_market_cap": 11038926.57524943,
+       "tokenized_volume_24h": 23280887.75126725,
+       "last_updated": "2026-11-21T02:06:02.000Z"
+      }
+     ],
+     "rwa_id": 25,
+     "asset_type": "stock",
+     "rwa_rank": 20,
+     "has_tokens": true,
+     "average_tokenized_price": 438.73300905561496,
+     "tokenized_market_cap": 11038926.57524943,
+     "tokenized_volume_24h": 23280887.75126725,
+     "last_updated": "2026-11-21T02:06:11.132Z",
+     "tokens": [
+      {
+       "symbol": "AMD.D",
+       "name": "AMD tokenized stock (Dinari)",
+       "price": null,
+       "crypto_id": 28632,
+       "issuer_id": "688c6172abae9b5b9fb30359",
+       "issuer_name": "Dinari Assets",
+       "market_cap": null,
+       "volume_24h": null
+      },
+      {
+       "symbol": "AMDon",
+       "name": "AMD Tokenized Stock (Ondo)",
+       "price": 439.34692830574886,
+       "crypto_id": 38027,
+       "issuer_id": "688ca4ccabae9b5b9fb3167a",
+       "issuer_name": "Ondo Assets",
+       "market_cap": 2412704.8164246227,
+       "volume_24h": 3724701.6787863537
+      },
+      {
+       "symbol": "AMD",
+       "name": "Advanced Micro Devices Inc (Derivatives)",
+       "price": 438.75314526014944,
+       "crypto_id": 39489,
+       "issuer_id": "695e11f774b54210f3b95dc3",
+       "issuer_name": "NA (Derivatives)",
+       "market_cap": 0,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "AMDB",
+       "name": "Advanced Micro Devices Tokenized bStocks",
+       "price": 438.9940355279335,
+       "crypto_id": 40538,
+       "issuer_id": "6a2aed5097c45356b1a5f710",
+       "issuer_name": "bStocks",
+       "market_cap": 4344518.575259246,
+       "volume_24h": 8246692.894525799
+      },
+      {
+       "symbol": "rAMD",
+       "name": "AMD Tokenized Stock (Reality)",
+       "price": 437.96133704212116,
+       "crypto_id": 40601,
+       "issuer_id": "6a43600c282e7240b76c8bbb",
+       "issuer_name": "Reality",
+       "market_cap": 1827722.8524626244,
+       "volume_24h": 3235872.8006475195
+      },
+      {
+       "symbol": "AMD",
+       "name": "AMD Tokenized Stock (Robinhood)",
+       "price": 438.81877773369877,
+       "crypto_id": 40687,
+       "issuer_id": "6a465832fbe3004b1a0ea2dd",
+       "issuer_name": "Robinhood",
+       "market_cap": 1836400.6749150583,
+       "volume_24h": 2027727.716105801
+      },
+      {
+       "symbol": "wAMDx",
+       "name": "Wrapped AMD Tokenized Stock (xStock)",
+       "price": 438.57181189724446,
+       "crypto_id": 41115,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 0,
+       "volume_24h": 831.3534925848171
+      },
+      {
+       "symbol": "AMDc",
+       "name": "Advanced Micro Devices, Inc. Tokenized Stock (Coinbase)",
+       "price": 438.79809059207537,
+       "crypto_id": 42473,
+       "issuer_id": "6a72fe7072996604d45c6733",
+       "issuer_name": "Coinbase",
+       "market_cap": 620534.7374369105,
+       "volume_24h": 5360565.928828992
+      },
+      {
+       "symbol": "AMD",
+       "name": "Advanced Micro Devices tokenized stock (Backpack)",
+       "price": 438.48372886955684,
+       "crypto_id": 42659,
+       "issuer_id": "6a2d54b697c45356b1a634f4",
+       "issuer_name": "Backpack",
+       "market_cap": 0,
+       "volume_24h": 684707.1463252357
+      }
+     ],
+     "tradfi_markets": [
+      {
+       "exchange": {
+        "slug": "binance",
+        "name": "Binance",
+        "exchange_id": 270
+       },
+       "ticker": "AMD",
+       "market_url": "https://www.binance.com/en/stocks/EQ_AMD"
+      }
+     ]
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:06:46.874Z",
+   "error_code": "0",
+   "error_message": "",
+   "elapsed": 6,
+   "credit_count": 1
+  }
+ }
+}

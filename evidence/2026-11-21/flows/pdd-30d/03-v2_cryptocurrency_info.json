@@ -1,0 +1,275 @@
+{
+ "receipt": {
+  "id": "r4",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/info",
+  "params": {
+   "id": "39247,42383,42585,42895",
+   "aux": "platform"
+  },
+  "startedUtc": "2026-11-21T02:06:31.779Z",
+  "elapsedMs": 292,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 3880,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=39247%2C42383%2C42585%2C42895&aux=platform\""
+ },
+ "body": {
+  "data": {
+   "39247": {
+    "id": 39247,
+    "name": "PDD Holdings Tokenized Stock (Ondo)",
+    "symbol": "PDDon",
+    "category": "token",
+    "slug": "pdd-holdings-tokenized-stock-ondo",
+    "subreddit": "",
+    "tag-names": [
+     "Ethereum Ecosystem",
+     "Solana Ecosystem",
+     "BNB Chain Ecosystem",
+     "Binance Alpha",
+     "Binance Ecosystem",
+     "Tokenized Assets",
+     "Ondo Stocks Ecosystem"
+    ],
+    "tag-groups": [
+     "PLATFORM",
+     "PLATFORM",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "1027",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "slug": "ethereum",
+     "token_address": "0xcc40965d3621362c3ee1dd946ba98d6a708ea86b"
+    },
+    "twitter_username": "ondofinance",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0xcc40965d3621362c3ee1dd946ba98d6a708ea86b",
+      "platform": {
+       "name": "Ethereum",
+       "coin": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum"
+       }
+      }
+     },
+     {
+      "contract_address": "0xf3e82ea164cb344b2b11bad4c24b0ea4f7ba4714",
+      "platform": {
+       "name": "BNB Smart Chain (BEP20)",
+       "coin": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb"
+       }
+      }
+     },
+     {
+      "contract_address": "PnjETBCLC318DRejo9cMQKAmET9PvW8AEFGWMNtondo",
+      "platform": {
+       "name": "Solana",
+       "coin": {
+        "id": "5426",
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "42383": {
+    "id": 42383,
+    "name": "PDD Holdings Tokenized bStocks",
+    "symbol": "PDDB",
+    "category": "token",
+    "slug": "pdd-holdings-tokenized-bstocks",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "BNB Chain Ecosystem",
+     "Binance Ecosystem",
+     "Binance Listing",
+     "Tokenized Assets",
+     "bStocks"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "1839",
+     "name": "BNB",
+     "symbol": "BNB",
+     "slug": "bnb",
+     "token_address": "0x95b0409679b55c31772daa2fb4bee7b125b77521"
+    },
+    "twitter_username": "",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x95b0409679b55c31772daa2fb4bee7b125b77521",
+      "platform": {
+       "name": "BNB Smart Chain (BEP20)",
+       "coin": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "42585": {
+    "id": 42585,
+    "name": "PDD Holdings Inc. Tokenized Stock (Coinbase)",
+    "symbol": "PDDc",
+    "category": "token",
+    "slug": "pdd-holdings-inc-tokenized-stock-coinbase",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Base Ecosystem",
+     "Tokenized Assets",
+     "Coinbase Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "27716",
+     "name": "Base",
+     "symbol": "-",
+     "slug": "base",
+     "token_address": "0xb200000000000000000000c8a7223510467d8563"
+    },
+    "twitter_username": "",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0xb200000000000000000000c8a7223510467d8563",
+      "platform": {
+       "name": "Base",
+       "coin": {
+        "id": "27716",
+        "name": "Base",
+        "symbol": "-",
+        "slug": "base"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "42895": {
+    "id": 42895,
+    "name": "PDD Holdings Inc tokenized stock (xStock)",
+    "symbol": "PDDx",
+    "category": "token",
+    "slug": "pdd-holdings-inc-tokenized-stock-xstock",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Ethereum Ecosystem",
+     "Tokenized Stock",
+     "Solana Ecosystem",
+     "BNB Chain Ecosystem",
+     "Tokenized Assets",
+     "xStocks Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "PLATFORM",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "1027",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "slug": "ethereum",
+     "token_address": "0x5a0b3434151e0F2D23608c949505a62E436aaE86"
+    },
+    "twitter_username": "xStocksFi",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x5a0b3434151e0F2D23608c949505a62E436aaE86",
+      "platform": {
+       "name": "Ethereum",
+       "coin": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum"
+       }
+      }
+     },
+     {
+      "contract_address": "0x5a0b3434151e0F2D23608c949505a62E436aaE86",
+      "platform": {
+       "name": "BNB Smart Chain (BEP20)",
+       "coin": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb"
+       }
+      }
+     },
+     {
+      "contract_address": "XsSdwPGhuiTBir2bpJTiJkEhfMEn5bG75XevuePua1q",
+      "platform": {
+       "name": "Solana",
+       "coin": {
+        "id": "5426",
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:06:31.948Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 42,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

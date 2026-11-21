@@ -1,0 +1,356 @@
+{
+ "receipt": {
+  "id": "r4",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "params": {
+   "id": "39247,42383,42585,42895"
+  },
+  "startedUtc": "2026-11-21T02:03:53.536Z",
+  "elapsedMs": 295,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 6725,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=39247%2C42383%2C42585%2C42895\""
+ },
+ "body": {
+  "data": {
+   "39247": {
+    "tags": [
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-alpha",
+      "name": "Binance Alpha",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ondo-stocks-ecosystem",
+      "name": "Ondo Stocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 39247,
+    "name": "PDD Holdings Tokenized Stock (Ondo)",
+    "symbol": "PDDon",
+    "slug": "pdd-holdings-tokenized-stock-ondo",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 125201.7889716,
+    "total_supply": 125201.7889716,
+    "max_supply": null,
+    "date_added": "2026-01-08T15:44:36.000Z",
+    "num_market_pairs": 23,
+    "cmc_rank": 828,
+    "last_updated": "2026-11-21T02:03:48.366Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1027,
+     "slug": "ethereum",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "token_address": "0xcc40965d3621362c3ee1dd946ba98d6a708ea86b"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 10461048.78,
+    "quote": {
+     "USD": {
+      "price": 83.55350883910313,
+      "volume_24h": 2090365.9329735157,
+      "volume_change_24h": 70.052309650919,
+      "cex_volume_24h": 857084.3907985655,
+      "dex_volume_24h": 1233281.5421749502,
+      "percent_change_1h": 0.091164187091,
+      "percent_change_24h": -1.166591624731,
+      "percent_change_7d": 6.009086792587,
+      "percent_change_30d": 7.636928829381,
+      "percent_change_60d": 4.494267392097,
+      "percent_change_90d": -5.722566512592,
+      "market_cap": 10461048.781510105,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 10461048.78,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "42383": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-listing",
+      "name": "Binance Listing",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bstocks",
+      "name": "bStocks",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42383,
+    "name": "PDD Holdings Tokenized bStocks",
+    "symbol": "PDDB",
+    "slug": "pdd-holdings-tokenized-bstocks",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 43985.96815996,
+    "total_supply": 43985.96815996,
+    "max_supply": null,
+    "date_added": "2026-09-29T10:19:28.000Z",
+    "num_market_pairs": 20,
+    "cmc_rank": 1252,
+    "last_updated": "2026-11-21T02:03:48.466Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1839,
+     "slug": "bnb",
+     "name": "BNB Smart Chain (BEP20)",
+     "symbol": "BNB",
+     "token_address": "0x95b0409679b55c31772daa2fb4bee7b125b77521"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 3675870.37,
+    "quote": {
+     "USD": {
+      "price": 83.56915911863089,
+      "volume_24h": 2427622.509805944,
+      "volume_change_24h": -30.65492854093,
+      "cex_volume_24h": 2342541.931778261,
+      "dex_volume_24h": 85080.5780276828,
+      "percent_change_1h": 0.310794354989,
+      "percent_change_24h": -1.062977709301,
+      "percent_change_7d": 6.098016576369,
+      "percent_change_30d": 7.667909913765,
+      "percent_change_60d": 7.60913979542,
+      "percent_change_90d": 7.60913979542,
+      "market_cap": 3675870.3721467294,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 3675870.37,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "42585": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "base-ecosystem",
+      "name": "Base Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "coinbase-ecosystem",
+      "name": "Coinbase Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42585,
+    "name": "PDD Holdings Inc. Tokenized Stock (Coinbase)",
+    "symbol": "PDDc",
+    "slug": "pdd-holdings-inc-tokenized-stock-coinbase",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 400,
+    "total_supply": 400,
+    "max_supply": null,
+    "date_added": "2026-10-14T03:36:55.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 3375,
+    "last_updated": "2026-11-21T02:03:48.274Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 27716,
+     "slug": "base",
+     "name": "Base",
+     "symbol": "-",
+     "token_address": "0xb200000000000000000000c8a7223510467d8563"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 33616.48,
+    "quote": {
+     "USD": {
+      "price": 84.04120050159278,
+      "volume_24h": 0,
+      "volume_change_24h": -100,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 0,
+      "percent_change_1h": -0.000781887599,
+      "percent_change_24h": -3.236195005348,
+      "percent_change_7d": 6.789212321582,
+      "percent_change_30d": 5.7760947027,
+      "percent_change_60d": -0.681219091669,
+      "percent_change_90d": -0.681219091669,
+      "market_cap": 33616.48020063711,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 33616.48,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   },
+   "42895": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42895,
+    "name": "PDD Holdings Inc tokenized stock (xStock)",
+    "symbol": "PDDx",
+    "slug": "pdd-holdings-inc-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 2609.01541956,
+    "total_supply": 749756.30962955,
+    "max_supply": null,
+    "date_added": "2026-06-08T15:32:52.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 2555,
+    "last_updated": "2026-11-21T02:03:33.178Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1027,
+     "slug": "ethereum",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "token_address": "0x5a0b3434151e0F2D23608c949505a62E436aaE86"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 62555947.95,
+    "quote": {
+     "USD": {
+      "price": 83.43504035068217,
+      "volume_24h": 112316.8455815455,
+      "volume_change_24h": -53.549973488434,
+      "cex_volume_24h": 112316.8455815455,
+      "dex_volume_24h": 0,
+      "percent_change_1h": 0.030291517358,
+      "percent_change_24h": -1.388580456294,
+      "percent_change_7d": -3.71467024565,
+      "percent_change_30d": -3.71467024565,
+      "percent_change_60d": -3.71467024565,
+      "percent_change_90d": -3.71467024565,
+      "market_cap": 217683.30680654058,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 62555947.95,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:03:02.000Z"
+     }
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:03:53.701Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 9,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}
