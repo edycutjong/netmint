@@ -5,7 +5,7 @@
  * evidence/<date>/flows/<u>-<w>d/ (the repeated assets/list body is kept once, in flows/00-assets-list.json).
  */
 import { execSync } from 'node:child_process';
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { loadKeys, assertNoSecrets } from './_env';
 import { lookup, LookupFailure } from '../lib/lookup';
@@ -74,6 +74,7 @@ async function main() {
           if (r.errors.length) throw new Error(`chain read failed: ${r.errors.map((x) => x.message).join('; ').slice(0, 160)}`);
           const tag = `${a.symbol.toLowerCase()}-${w}d`;
           const dir = path.join(root, 'flows', tag);
+          rmSync(dir, { recursive: true, force: true }); // one run per folder: never leave an earlier run's bodies beside this one
           mkdirSync(dir, { recursive: true });
           r.receipts
             .filter((x) => x.kind === 'cmc' && !x.endpoint.endsWith('/assets/list'))
