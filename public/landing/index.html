@@ -425,6 +425,7 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
   .hero-copy .eyebrow { order: 1; margin-top: 24px; font-size: 12px; letter-spacing: .06em; }
   .mat .nm-proof { font-size: 14px; padding: 6px 0; gap: 2px 10px; }
   .mat .nm-scale { font-size: 12px; }
+  .nm-verdict-line .nw { white-space: normal; }
   .mat .nm-proof .dt { display: none; }
   .mat .nm-money { margin-top: 8px; padding-top: 8px; }
   .hero-copy h1 { order: 2; font-size: 29px; margin-bottom: 18px; }
@@ -491,7 +492,7 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
   <nav aria-label="Sections"><a href="#trial">The trial</a><a href="#how">How a verdict is struck</a><a href="#book">The book</a><a href="#errata">Errata</a><a href="#faq">FAQ</a></nav>
   <div class="act"><a class="btn quiet" href="/pitch">Pitch deck</a><a class="btn solid" href="/">Run it live</a></div>
 </div></header>
-<div class="dateline"><div class="wrap"><span>The trial of the pyx · for tokenised stocks</span><span>Sitting of <span class="nm-data">2026-11-21</span> · 30-day window · Real World Assets track</span></div></div>
+<div class="dateline"><div class="wrap"><span>The trial of the pyx · for tokenised stocks</span><span>Sitting of <span class="nm-data">2026-11-21</span> · Real World Assets track</span></div></div>
 <main id="main">
 <section class="hero"><div class="wrap">
   <div class="hero-copy">
@@ -525,7 +526,7 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
 
 <section class="s" id="trial"><div class="wrap">
   <div class="s-head"><p class="label">Sitting I · the trial, live</p><h2>Pick a stock. The jury sits on your click.</h2>
-  <p class="lede">Below, the recorded NVDA trial. Press a ticker: this page calls <code>/api/lookup</code>, which calls CoinMarketCap now, checks the chain’s daily supply and strikes each verdict. Beside it, the same flow’s terminal stdout.</p></div>
+  <p class="lede">Below, the recorded NVDA trial. Press a ticker: this page calls <code>/api/lookup</code>, which calls CoinMarketCap now, checks the chain’s daily supply and strikes each verdict. Beside it: the terminal.</p></div>
   <div class="trial">
     <div class="bench" id="bench">
       <div class="bench-top"><span class="pick">Put on trial</span>
@@ -542,7 +543,7 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
 <li class="row"><span class="nm-stamp is-pencil">Not verifiable</span><span class="who"><b>WNVDAX</b><span>Backed Assets</span></span><span class="amt nm-cr">+$1.58M<small>units ×2.86 · price −41.0%</small></span><p class="why">no contract on BNB Chain or Ethereum (listed on X Layer, Arbitrum); no historical supply source</p></li>
 <li class="row"><span class="nm-stamp is-pencil">No verdict</span><span class="who"><b>NVDA.D</b><span>Dinari Assets</span></span><span class="amt"></span><p class="why">CMC returned no daily history for this window</p></li>
 <li class="row"><span class="nm-stamp is-pencil">Derivative</span><span class="who"><b>NVDA</b><span>NA (Derivatives)</span></span><span class="amt"></span><p class="why">derivative listing: no supply to mint</p></li></ul>
-      <div class="bench-foot" id="bench-foot"><span>Recorded rows from evidence/2026-11-21/nvda-30d. Press a ticker to run it live.</span><a href="/u/NVDA">Every response, verbatim, in the app’s receipts →</a></div>
+      <div class="bench-foot" id="bench-foot"><span>Recorded rows: evidence/2026-11-21/nvda-30d.</span><a href="/u/NVDA">Every response, verbatim, in the app’s receipts →</a></div>
     </div>
     <div class="slip-wrap">
       <div class="nm-slip" id="slip"><p class="slip-label">Re-set from <code>npm run demo</code> stdout · live run 2026-11-21 04:46:38 UTC · lines in run order, ⋮ marks omitted lines</p><pre><span class="l cmd">$ npm run demo -- NVDA --from 2026-10-22 --to 2026-11-21</span><span class="l ">NetMint · Nvidia Corp (NVDA, rwa_id 2) · 2026-10-22 → 2026-11-21 (pinned)</span><span class="l ">fetched 2026-11-21T04:46:38.639Z · 5 CMC calls · 7 credits · 0 RPC reads · 1351 ms</span><span class="l gap">⋮</span><span class="l ok">REAL INFLOW     NVDAB    bStocks           +$202.83M units ×7.13  price −41.0%   cov 96.1%</span><span class="l ">                window endpoints and the largest step days (up to 5) verified (chain +1,216,792 · CMC +1,209,739 · +0.6% · within remedy ±10%)</span><span class="l nv">NOT VERIFIABLE  NVDAX    Backed Assets     +$104.10M units ×3.98  price −41.0%   cov 14.5%</span><span class="l ">                86% of supply sits outside BNB Chain + Ethereum (Solana), which has no historical supply source</span><span class="l gap">⋮</span><span class="l ">  step 2026-11-13: CMC 3d 522,505 · chain 3d 535,910 · ok</span><span class="l ">  step 2026-11-18: CMC 3d 400,526 · chain 3d 409,071 · ok</span><span class="l ">  step 2026-11-17: CMC 3d 386,252 · chain 3d 372,839 · ok</span><span class="l ">  step 2026-11-10: CMC 3d 294,447 · chain 3d 281,930 · ok</span><span class="l ">  step 2026-11-11: CMC 3d 430,435 · chain 3d 443,621 · ok</span><span class="l ">  mint tx 0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c → 0x5948602680fe4aea08d98302337a2715b3aadad1</span><span class="l ">&nbsp;</span></pre></div>
@@ -568,7 +569,7 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
 
 <section class="s" id="book"><div class="wrap">
   <div class="s-head"><p class="label">Sitting III · the trial book</p><h2>152 screened. 128 tried. Nine struck.</h2>
-  <p class="lede">The top 20 tokenised stocks, 30 days to 21 Nov 2026: 4 wrappers did not move and 20 had no usable history. A struck verdict needs the chain to agree; every other row names what stopped it.</p></div>
+  <p class="lede">Top 20 tokenised stocks, 30 days to 21 Nov 2026. 4 moved under $250K and were not tried; 20 had no usable history. Every other row names what stopped its trial.</p></div>
   <div class="key"><div class="kc"><span class="nm-stamp">Real Inflow</span><p class="cnt">6</p><p>The chain confirms the net creation.</p></div><div class="kc"><span class="nm-stamp is-out">Outflow</span><p class="cnt">3</p><p>The chain confirms the net redemption, in red ink.</p></div><div class="kc"><span class="nm-stamp is-pencil">Recount</span><p class="cnt">12</p><p>The chains’ move disagreed with CMC’s beyond the remedy.</p></div><div class="kc"><span class="nm-stamp is-pencil">Not verifiable</span><p class="cnt">107</p><p>The supply sits on chains NetMint cannot read, or the move may.</p></div></div>
   <div class="book">
     <div class=""><div class="ledger"><div class="lh"><span>Wrapper</span><span>Issuer</span><span>Net, 30 d</span><span>Units</span><span>Chain vs CMC</span></div><div class="lr"><span><b>NVDAB</b></span><span class="iss">bStocks</span><span class="nm-cr">+$202.83M</span><span>×7.13</span><span class="v">+0.6%</span></div>
@@ -606,7 +607,7 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
 
 <section class="s band-leaf" id="faq"><div class="wrap">
   <h2 class="">Questions a judge would ask</h2>
-  <div class="faq"><details><summary>Is the click really live?</summary><div class="a"><p>Yes. “Put it on trial” calls <code>/api/lookup</code> on this domain. The server calls CoinMarketCap with its own key (never sent to your browser) and returns every receipt. The panel prints the mode, credits and time; a repeat within 60 s is labelled cached.</p></div></details><details><summary>What is replayed, not live?</summary><div class="a"><p>The top leaf and the trial book replay committed captures (2026-11-21 01:40 UTC and 02:53 UTC). Chain values come from a committed daily <code>totalSupply</code> baseline read from archive RPC; a day it lacks is read live. A live re-run at 04:46 UTC printed the same +$202.83M.</p></div></details><details><summary>Is net creation money that buyers put in?</summary><div class="a"><p>No. It is units created minus redeemed, times that day’s market price, counted like an ETF flow table. A mint is a transfer from the zero address; every sampled NVDAB mint went to one address, consistent with issuer-level creation, not buyer data.</p></div></details><details><summary>What does “within remedy” mean?</summary><div class="a"><p>In the Trial of the Pyx, documented since 1248, a jury checks the Royal Mint’s coins within a legal tolerance called the remedy. Here the chain’s change must match CMC’s within ±10% (or 0.5% of supply for a small move) before a move is struck REAL INFLOW or OUTFLOW.</p></div></details><details><summary>Why are 107 wrappers not verifiable?</summary><div class="a"><p>Their supply sits on chains with no historical supply source we can read (Solana, Arbitrum, Base, Robinhood Chain), or the move may sit there. NetMint prints NOT VERIFIABLE instead of guessing.</p></div></details><details><summary>What happens when the event key reverts?</summary><div class="a"><p>It reverts to CMC’s free Basic tier when submissions close (9 Dec 2026, 23:59 UTC). If CMC then refuses on plan, the click answers <code>live-stored</code>: stored dated CMC bodies plus chain reads, labelled; outside them, CMC’s plan error with a note. Built and tested offline; not yet run against a Basic key.</p></div></details></div>
+  <div class="faq"><details><summary>Is the click really live?</summary><div class="a"><p>Yes. Each ticker button calls <code>/api/lookup</code> on this domain; the server calls CoinMarketCap with its own key (never sent to your browser) and returns every receipt. The panel prints mode, credits and time; a repeat within 60 s says cached.</p></div></details><details><summary>What is replayed, not live?</summary><div class="a"><p>The top leaf and the trial book replay committed captures (2026-11-21 01:40 UTC and 02:53 UTC). Chain values come from a committed daily <code>totalSupply</code> baseline read from archive RPC; a day it lacks is read live. A live re-run at 04:46 UTC printed the same +$202.83M.</p></div></details><details><summary>Is net creation money that buyers put in?</summary><div class="a"><p>No. It is units created minus redeemed, times that day’s market price, counted like an ETF flow table. A mint is a transfer from the zero address; every sampled NVDAB mint went to one address, consistent with issuer-level creation, not buyer data.</p></div></details><details><summary>What does “within remedy” mean?</summary><div class="a"><p>In the Trial of the Pyx, documented since 1248, a jury checks the Royal Mint’s coins within a legal tolerance called the remedy. Here the chain’s change must match CMC’s within ±10% (or 0.5% of supply for a small move) before a move is struck REAL INFLOW or OUTFLOW.</p></div></details><details><summary>Why are 107 wrappers not verifiable?</summary><div class="a"><p>Their supply sits on chains with no historical supply source we can read (for example Solana, Arbitrum, Base, Robinhood Chain, X Layer), or the move may sit there. NetMint prints NOT VERIFIABLE instead of guessing.</p></div></details><details><summary>What happens when the event key reverts?</summary><div class="a"><p>It reverts to CMC’s free Basic tier when submissions close (9 Dec 2026, 23:59 UTC). If CMC then refuses on plan, the click answers <code>live-stored</code>: stored dated CMC bodies plus chain reads, labelled. Tested offline; not yet run against a Basic key.</p></div></details></div>
 </div></section>
 
 <section class="close"><div class="wrap">
@@ -617,7 +618,7 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
 </main>
 <footer><div class="wrap">
   <div><a class="mark" href="/about"><span>NetMint</span></a><p>Net creation at market price, checked against the chain. Not investment advice.</p>
-    <p class="nm-data">page built from evidence at commit 4a1d81f · v1.0.0</p></div>
+    <p class="nm-data">page built from evidence at commit 0e54e85 · v1.0.0</p></div>
   <div><h4>Product</h4><ul><li><a href="/">Live app</a></li><li><a href="/flows">The trial book</a></li><li><a href="/pitch">Pitch deck</a></li><li><a href="/api/health">Service status</a></li></ul></div>
   <div><h4>Source</h4><ul><li><a href="https://github.com/edycutjong/netmint">GitHub repository</a></li><li><a href="https://github.com/edycutjong/netmint/blob/main/LICENSE">MIT licence</a></li><li><a href="https://dorahacks.io/hackathon/coinmarketcap-api-202611/detail">CoinMarketCap API Hackathon</a></li></ul></div>
 </div></footer>
