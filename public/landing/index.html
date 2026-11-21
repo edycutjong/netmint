@@ -148,6 +148,8 @@
 .g-key { display: inline-block; width: 8px; height: 8px; vertical-align: 1px; margin-right: 3px; }
 .g-key.d { background: var(--after); transform: rotate(45deg); }
 .g-key.w { width: 3px; height: 11px; background: var(--ink); vertical-align: -1px; }
+
+.nm-verdict-line .nw { white-space: nowrap; }
 /* landing (/about) */
 html { overflow-x: clip; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 var(--font-body); font-feature-settings: "kern"; }
@@ -219,7 +221,7 @@ h1 .hl { color: var(--after); text-decoration: underline double var(--after); te
 .replay { all: unset; white-space: nowrap; cursor: pointer; color: var(--bg); font: 500 13.5px var(--font-body); border: 1px solid #6f6a5e; padding: 6px 12px; transition: border-color .16s ease, background-color .16s ease; }
 .replay:hover { border-color: var(--bg); background: #2b2924; }
 .replay:focus-visible { outline: 2px solid var(--rule); }
-.hero-stamp { position: absolute; left: 7%; top: 37%; font-size: 30px; z-index: 2; }
+.hero-stamp { position: absolute; left: 3%; top: 41%; font-size: 25px; z-index: 2; --cut: 7px; }
 .nm-leaf .nm-figure { font-size: 54px; }
 
 /* hero animation states (default markup = settled; JS arms, plays, then removes) */
@@ -285,6 +287,7 @@ h2 { font: 400 clamp(32px, 3.3vw, 46px)/1.1 var(--font-display); margin: 0 0 16p
 .bench-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; padding: 12px 20px 14px; border-top: 3px double var(--rule); font-size: 13.5px; color: var(--muted); }
 .bench-foot a { color: var(--ink); text-underline-offset: 3px; }
 .bench-err { margin: 14px 20px; padding: 12px 14px; border: 1px dashed var(--before); color: var(--ink); font-size: 14.5px; }
+.slip-wrap { position: sticky; top: 90px; }
 .slip-wrap .nm-slip { max-height: 640px; overflow: auto; }
 .slip-ctl { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 10px; font-size: 13px; color: var(--muted); }
 .slip-ctl button { all: unset; cursor: pointer; color: var(--ink); border-bottom: 1px solid var(--rule); transition: border-color .16s ease; }
@@ -327,7 +330,7 @@ h2 { font: 400 clamp(32px, 3.3vw, 46px)/1.1 var(--font-display); margin: 0 0 16p
 .ledger .lr:last-of-type { border-bottom: 0; }
 .ledger .lr .v { color: var(--after); }
 .ledger-cap { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
-.book-side .shot { transform: rotate(.5deg); }
+
 
 /* sitting IV: the API, both ways (ink band) */
 .band-ink { background: var(--ink); color: var(--bg); }
@@ -421,7 +424,8 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
   .hero-copy { display: contents; }
   .hero-copy .eyebrow { order: 1; margin-top: 24px; font-size: 12px; letter-spacing: .06em; }
   .mat .nm-proof { font-size: 14px; padding: 6px 0; gap: 2px 10px; }
-  .mat .nm-scale { font-size: 11.5px; }
+  .mat .nm-scale { font-size: 12px; }
+  .mat .nm-proof .dt { display: none; }
   .mat .nm-money { margin-top: 8px; padding-top: 8px; }
   .hero-copy h1 { order: 2; font-size: 29px; margin-bottom: 18px; }
   .mat { order: 3; margin: 0 -20px; padding: 18px 14px 16px; }
@@ -432,7 +436,7 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
   .ctas .btn.solid { order: -1; flex-basis: 100%; }
   .mat .nm-leaf { padding: 14px 14px 12px; transform: none; }
   .mat .nm-leaf-head { flex-direction: column; gap: 2px; font-size: 12.5px; }
-  .hero-stamp { font-size: 20px; left: 6%; top: 34%; --cut: 6px; }
+  .hero-stamp { font-size: 17px; left: 3%; top: 40%; --cut: 5px; }
   .nm-leaf .nm-figure { font-size: 38px; }
   .nm-money { flex-wrap: wrap; }
   .nm-lab { font-size: 11px; }
@@ -491,11 +495,11 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
 <main id="main">
 <section class="hero"><div class="wrap">
   <div class="hero-copy">
-    <p class="eyebrow">CoinMarketCap API Hackathon<span class="sep">◆</span>NetMint</p>
+    <p class="eyebrow">CoinMarketCap API Hackathon<span class="sep">·</span>NetMint</p>
     <h1><span class="b">Price fell 41%.</span> <span class="b">Supply rose sevenfold.</span> <span class="b">The chain <span class="hl">signed for it.</span></span></h1>
     <p class="sub">CoinMarketCap records each tokenised stock’s supply every day but never shows the money behind it. NetMint puts each wrapper’s supply steps on trial against the chain: tokenised Nvidia, <b>+$202.83M</b> of net creation in 30 days, <b>5 of 5</b> step days within remedy.</p>
     <div class="ctas"><a class="btn" href="https://github.com/edycutjong/netmint"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M6 5L2 9l4 4M12 5l4 4-4 4"/></svg>GitHub</a><a class="btn" href="/pitch">Pitch deck</a><a class="btn solid" href="/">Run it live →</a></div>
-    <div class="proofline"><span>Live re-run: 5 CMC calls · 7 credits · 1.35 s</span>
+    <div class="proofline"><span>Live re-run, 04:46 UTC: 5 CMC calls · 7 credits · 1.35 s</span>
       <button class="copy" type="button" data-copy="npm run demo -- NVDA" aria-label="Copy the command npm run demo -- NVDA"><span>npm run demo -- NVDA</span><span class="st">copy</span></button></div>
   </div>
   <div class="mat">
@@ -503,10 +507,10 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
   <div class="nm-leaf-head"><b>NVDAB · bStocks · BNB Chain</b><span class="nm-data">2026-10-22 → 2026-11-21</span></div>
   <div style="position:relative"><div class="nm-chart" id="hero-chart"><svg viewBox="0 0 640 250" role="img" aria-labelledby="hero-chart-t"><title id="hero-chart-t">NVDAB, 22 Oct to 21 Nov 2026: price fell 41% while CMC supply rose ×7.1; the chain’s totalSupply line follows CMC’s; the five largest step days are marked.</title><line class="ln-axis" x1="0" y1="222" x2="544" y2="222"/><g class="draw"><polyline class="ln ln-price" points="0.0,16.0 18.1,32.0 36.3,34.2 54.4,32.1 72.5,32.2 90.7,22.6 108.8,19.1 126.9,28.1 145.1,37.3 163.2,47.6 181.3,50.3 199.5,47.0 217.6,51.0 235.7,41.5 253.9,56.7 272.0,102.7 290.1,85.9 308.3,87.5 326.4,105.2 344.5,103.7 362.7,125.8 380.8,146.5 398.9,130.2 417.1,146.4 435.2,148.8 453.3,135.8 471.5,156.5 489.6,145.1 507.7,165.9 525.9,179.4 544.0,216.0"/><polyline class="ln ln-pencil" points="0.0,214.7 18.1,213.2 36.3,210.8 54.4,211.8 72.5,212.0 90.7,210.8 108.8,211.3 126.9,211.2 145.1,211.9 163.2,211.9 181.3,211.9 199.5,211.9 217.6,206.9 235.7,206.9 253.9,206.5 272.0,205.9 290.1,201.9 308.3,203.5 326.4,203.5 344.5,179.2 362.7,155.1 380.8,132.8 398.9,66.1 417.1,69.2 435.2,87.5 453.3,86.0 471.5,55.5 489.6,24.0 507.7,20.2 525.9,24.5 544.0,16.0"/></g><g class="ink"><polyline class="ln ln-chain" points="0.0,216.0 18.1,213.2 36.3,212.1 54.4,212.0 72.5,212.0 90.7,211.8 108.8,212.7 126.9,213.2 145.1,211.9 163.2,211.9 181.3,211.9 199.5,211.9 217.6,207.6 235.7,208.8 253.9,207.5 272.0,207.4 290.1,203.6 308.3,203.7 326.4,203.8 344.5,183.5 362.7,157.4 380.8,130.9 398.9,66.2 417.1,69.3 435.2,88.0 453.3,87.6 471.5,57.3 489.6,26.7 507.7,20.3 525.9,23.4 544.0,16.1"/></g><g class="pm"><line class="tick" x1="344.5" y1="188.5" x2="344.5" y2="234.0"/><rect class="punch" x="340.0" y="234.0" width="9" height="9" transform="rotate(45 344.5 238.5)"/></g><g class="pm"><line class="tick" x1="362.7" y1="162.4" x2="362.7" y2="234.0"/><rect class="punch" x="358.2" y="234.0" width="9" height="9" transform="rotate(45 362.7 238.5)"/></g><g class="pm"><line class="tick" x1="398.9" y1="71.2" x2="398.9" y2="234.0"/><rect class="punch" x="394.4" y="234.0" width="9" height="9" transform="rotate(45 398.9 238.5)"/></g><g class="pm"><line class="tick" x1="471.5" y1="62.3" x2="471.5" y2="234.0"/><rect class="punch" x="467.0" y="234.0" width="9" height="9" transform="rotate(45 471.5 238.5)"/></g><g class="pm"><line class="tick" x1="489.6" y1="31.7" x2="489.6" y2="234.0"/><rect class="punch" x="485.1" y="234.0" width="9" height="9" transform="rotate(45 489.6 238.5)"/></g></svg><span class="nm-lab" style="left:86.6%;top:calc(6.4% - .62em)"><span class="w">CMC supply<br></span><b>×7.1</b></span><span class="nm-lab" style="left:86.6%;top:calc(86.4% - 1.1em)"><span class="w">price<br></span><b>−41%</b></span></div><span class="nm-stamp hero-stamp">Real Inflow</span></div>
   <p class="nm-scale"><svg width="22" height="8" aria-hidden="true"><line x1="0" y1="4" x2="22" y2="4" stroke="#6B6558" stroke-width="1.6"/></svg> price · <svg width="22" height="8" aria-hidden="true"><line x1="0" y1="4" x2="22" y2="4" stroke="#5E6166" stroke-width="2" stroke-dasharray="5 4"/></svg> CMC total supply, pencilled · <svg width="22" height="8" aria-hidden="true"><line x1="0" y1="4" x2="22" y2="4" stroke="#1D1B16" stroke-width="2.8"/></svg> chain totalSupply, inked · <svg width="10" height="10" aria-hidden="true"><rect x="2" y="2" width="6" height="6" fill="#1F6B55" transform="rotate(45 5 5)"/></svg> step day put on trial · each line on its own scale</p>
-  <div class="nm-proof"><span class="k">Proof I</span><span>CMC total supply, 12 → 13 Nov</span><span class="v">+406,140</span></div>
-  <div class="nm-proof"><span class="k">Proof II</span><span>chain totalSupply, 12 → 13 Nov, BNB Chain</span><span class="v">+393,976</span></div>
-  <div class="nm-money"><span class="money-lab"><b>Net creation, 30 days</b>units created − redeemed, at market price</span><span class="nm-figure nm-cr" id="hero-figure" data-value="202826522.82">+$202.83M</span></div>
-  <p class="nm-verdict-line">Found: within remedy (−3.0% against ±10%) · 5 of 5 step days · window +0.6%</p>
+  <div class="nm-proof"><span class="k">Proof I</span><span>CMC total supply<span class="dt">, 12 → 13 Nov</span></span><span class="v">+406,140</span></div>
+  <div class="nm-proof"><span class="k">Proof II</span><span>chain totalSupply<span class="dt">, 12 → 13 Nov, BNB Chain</span></span><span class="v">+393,976</span></div>
+  <div class="nm-money"><span class="money-lab"><b>Net creation, 30 days</b><span class="ms">units created − redeemed, at market price</span></span><span class="nm-figure nm-cr" id="hero-figure" data-value="202826522.82">+$202.83M</span></div>
+  <p class="nm-verdict-line"><span class="nw">Found: within remedy (−3.0% against ±10%)</span> · <span class="nw">5 of 5 step days</span> · <span class="nw">window +0.6%</span></p>
 </div>
     <div class="mat-foot"><span>Recorded <span class="nm-data">2026-11-21 01:40 UTC</span>, replayed from the committed CMC bodies. Re-run live at <span class="nm-data">04:46 UTC</span>: the same +$202.83M.</span><button class="replay" id="replay" type="button">Replay the trial ↻</button></div>
   </div>
@@ -515,13 +519,13 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
 <section class="receipts" aria-label="Receipts"><div class="wrap">
   <div class="rc"><p class="n" data-count="202826522.82" data-fmt="musd">+$202.83M</p><p class="t">NVDAB net creation in 30 days, at market price</p><p class="p">evidence/2026-11-21/nvda-30d/table.json</p></div>
   <div class="rc"><p class="n v" data-count="5" data-fmt="frac" data-of="5">5 / 5</p><p class="t">largest step days found within remedy (±10%)</p><p class="p">table.json · mint.step_days</p></div>
-  <div class="rc"><p class="n" data-count="152">152</p><p class="t">wrappers on trial, top 20 tokenised stocks</p><p class="p">evidence/2026-11-21/flows-30d.json</p></div>
+  <div class="rc"><p class="n" data-count="152">152</p><p class="t">wrappers screened across the top 20 tokenised stocks</p><p class="p">evidence/2026-11-21/flows-30d.json</p></div>
   <div class="rc"><p class="n" data-count="201">201</p><p class="t">tests passing; 304 stored rows re-derived, 0 diffs</p><p class="p">npm test · npm run verify:flows</p></div>
 </div></section>
 
 <section class="s" id="trial"><div class="wrap">
   <div class="s-head"><p class="label">Sitting I · the trial, live</p><h2>Pick a stock. The jury sits on your click.</h2>
-  <p class="lede">Below, the recorded NVDA trial. Press a ticker: this page calls <code>/api/lookup</code>, which calls CoinMarketCap now, reads the chain and strikes each verdict. Beside it, the same flow’s terminal stdout.</p></div>
+  <p class="lede">Below, the recorded NVDA trial. Press a ticker: this page calls <code>/api/lookup</code>, which calls CoinMarketCap now, checks the chain’s daily supply and strikes each verdict. Beside it, the same flow’s terminal stdout.</p></div>
   <div class="trial">
     <div class="bench" id="bench">
       <div class="bench-top"><span class="pick">Put on trial</span>
@@ -552,32 +556,32 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
   <div class="bento">
     <article class="cell c-big"><span class="step-no">What the click opens</span><h3>One verdict, two proving rows</h3>
       <p>The app’s first screen: the verdict, the dollars, and CMC’s step beside the chain’s.</p>
-      <div class="shot"><img src="/landing/img/app-hero-card.webp" width="1100" height="719" alt="The NetMint app hero card: REAL INFLOW stamp, +$202.8M net creation for NVDAB, Proof 1 CMC total supply +406,140, Proof 2 chain totalSupply +393,976, step −3.0% within remedy ±10%" loading="lazy" decoding="async"></div>
+      <div class="shot"><img src="/landing/img/app-hero-card.webp" width="1100" height="734" alt="The NetMint app hero card: REAL INFLOW stamp, +$202.8M net creation for NVDAB, Proof 1 CMC total supply +406,140, Proof 2 chain totalSupply +393,976, step −3.0% within remedy ±10%" loading="lazy" decoding="async"></div>
       <p class="shot-cap">netmint.edycu.dev, 2026-11-21 (recorded hero).</p></article>
     <article class="cell c-2"><svg class="nm-ico" viewBox="0 0 34 34" aria-hidden="true"><rect x="5" y="4" width="24" height="26"/><path d="M9 11h16M9 16h16M9 21h16M9 26h10"/><path class="acc" d="M22 26l3-4"/></svg><h3>The supply history</h3><p>CMC’s daily points give each wrapper’s supply. The day-on-day change, times that day’s price, is net creation in dollars.</p><span class="chip">/v2/cryptocurrency/quotes/historical</span></article>
     <article class="cell c-2"><svg class="nm-ico" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 29V14"/><path d="M17 14L7 5M17 14l-4-10M17 14l4-10M17 14l10-9"/><path class="acc" d="M11 29h12"/></svg><h3>One stock, every wrapper</h3><p>Nine NVDA listings sit under one <code>rwa_id</code>. Every join is by <code>crypto_id</code>, because one ticker maps to several ids.</p><span class="chip">/v5/real-world-assets/quotes/latest</span></article>
-    <article class="cell c-3"><svg class="nm-ico" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 5v24M9 29h16M6 10h22"/><path d="M6 10l-3 9h6zM28 10l-3 9h6z"/><path class="acc" d="M3 19a3 3 0 006 0M25 19a3 3 0 006 0"/></svg><h3>The trial, within remedy</h3><p>The chain’s <code>totalSupply</code> at day-boundary blocks, summed over BNB Chain and Ethereum, must match CMC’s change within ±10%, for the window and the largest step days (up to five).</p><div class="gauge" role="img" aria-label="Five step days at −4.3%, −3.5%, +2.1%, +2.6%, +3.1% and the window at +0.6%, all inside the ±10% remedy"><span class="g-band" style="left:8.33%;right:8.33%"></span><span class="g-zero" style="left:50%"></span><span class="g-m" style="left:32.29%" title="2026-11-10: -4.3%"></span><span class="g-m" style="left:35.53%" title="2026-11-17: -3.5%"></span><span class="g-m" style="left:58.89%" title="2026-11-18: +2.1%"></span><span class="g-m" style="left:60.69%" title="2026-11-13: +2.6%"></span><span class="g-m" style="left:62.76%" title="2026-11-11: +3.1%"></span><span class="g-w" style="left:52.43%"></span><span class="g-l" style="left:8.33%">−10%</span><span class="g-l" style="left:50%">0</span><span class="g-l" style="left:91.67%">+10%</span></div><p class="g-cap"><span class="g-key d"></span> step days (3-day sums): −4.3%, −3.5%, +2.1%, +2.6%, +3.1% · <span class="g-key w"></span> window +0.6%</p><span class="chip">totalSupply() at day-boundary blocks</span></article>
+    <article class="cell c-3"><svg class="nm-ico" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 5v24M9 29h16M6 10h22"/><path d="M6 10l-3 9h6zM28 10l-3 9h6z"/><path class="acc" d="M3 19a3 3 0 006 0M25 19a3 3 0 006 0"/></svg><h3>The trial, within remedy</h3><p>The chain’s <code>totalSupply</code> at the first block of each UTC day, summed over BNB Chain and Ethereum, must match CMC’s change within ±10%, for the window and the largest step days (up to five).</p><div class="gauge" role="img" aria-label="Five step days at −4.3%, −3.5%, +2.1%, +2.6%, +3.1% and the window at +0.6%, all inside the ±10% remedy"><span class="g-band" style="left:8.33%;right:8.33%"></span><span class="g-zero" style="left:50%"></span><span class="g-m" style="left:32.29%" title="2026-11-10: -4.3%"></span><span class="g-m" style="left:35.53%" title="2026-11-17: -3.5%"></span><span class="g-m" style="left:58.89%" title="2026-11-18: +2.1%"></span><span class="g-m" style="left:60.69%" title="2026-11-13: +2.6%"></span><span class="g-m" style="left:62.76%" title="2026-11-11: +3.1%"></span><span class="g-w" style="left:52.43%"></span><span class="g-l" style="left:8.33%">−10%</span><span class="g-l" style="left:50%">0</span><span class="g-l" style="left:91.67%">+10%</span></div><p class="g-cap"><span class="g-key d"></span> step days (3-day sums): −4.3%, −3.5%, +2.1%, +2.6%, +3.1% · <span class="g-key w"></span> window +0.6%</p><span class="chip">totalSupply() at day-boundary blocks</span></article>
     <article class="cell c-3"><svg class="nm-ico" viewBox="0 0 34 34" aria-hidden="true"><path d="M8 4h18v26l-3-2-3 2-3-2-3 2-3-2-3 2z"/><path d="M12 11h10M12 16h10"/><path class="acc" d="M12 21h6"/></svg><h3>Receipts, verbatim</h3><p>Every CMC call kept with params, status, credit count and a curl line.</p>
       <div class="shot"><img src="/landing/img/app-receipts.webp" width="900" height="643" alt="The app receipts drawer: 5 CMC calls, 7 credits charged; the verbatim body of GET /v5/real-world-assets/assets/list with HTTP 200 and credit_count 1" loading="lazy" decoding="async"></div><span class="chip">credit_count</span></article>
   </div>
 </div></section>
 
 <section class="s" id="book"><div class="wrap">
-  <div class="s-head"><p class="label">Sitting III · the trial book</p><h2>152 wrappers tried. Nine struck. The rest say why.</h2>
-  <p class="lede">The top 20 tokenised stocks, 30 days to 21 Nov 2026. A struck verdict needs the chain to agree; every other row names what stopped the trial.</p></div>
-  <div class="key"><div class="kc"><span class="nm-stamp">Real Inflow</span><p class="cnt">6</p><p>The chain confirms the net creation.</p></div><div class="kc"><span class="nm-stamp is-out">Outflow</span><p class="cnt">3</p><p>The chain confirms the net redemption, in red ink.</p></div><div class="kc"><span class="nm-stamp is-pencil">Recount</span><p class="cnt">12</p><p>CMC moved and the summed chains did not.</p></div><div class="kc"><span class="nm-stamp is-pencil">Not verifiable</span><p class="cnt">107</p><p>No readable supply history, or an ambiguous day alignment.</p></div></div>
+  <div class="s-head"><p class="label">Sitting III · the trial book</p><h2>152 screened. 128 tried. Nine struck.</h2>
+  <p class="lede">The top 20 tokenised stocks, 30 days to 21 Nov 2026: 4 wrappers did not move and 20 had no usable history. A struck verdict needs the chain to agree; every other row names what stopped it.</p></div>
+  <div class="key"><div class="kc"><span class="nm-stamp">Real Inflow</span><p class="cnt">6</p><p>The chain confirms the net creation.</p></div><div class="kc"><span class="nm-stamp is-out">Outflow</span><p class="cnt">3</p><p>The chain confirms the net redemption, in red ink.</p></div><div class="kc"><span class="nm-stamp is-pencil">Recount</span><p class="cnt">12</p><p>The chains’ move disagreed with CMC’s beyond the remedy.</p></div><div class="kc"><span class="nm-stamp is-pencil">Not verifiable</span><p class="cnt">107</p><p>The supply sits on chains NetMint cannot read, or the move may.</p></div></div>
   <div class="book">
     <div class=""><div class="ledger"><div class="lh"><span>Wrapper</span><span>Issuer</span><span>Net, 30 d</span><span>Units</span><span>Chain vs CMC</span></div><div class="lr"><span><b>NVDAB</b></span><span class="iss">bStocks</span><span class="nm-cr">+$202.83M</span><span>×7.13</span><span class="v">+0.6%</span></div>
 <div class="lr"><span><b>TSLAon</b></span><span class="iss">Ondo Assets</span><span class="nm-cr">+$9.32M</span><span>×1.51</span><span class="v">−5.7%</span></div>
 <div class="lr"><span><b>GOOGon</b></span><span class="iss">Ondo Assets</span><span class="nm-cr">+$6.03M</span><span>×56.97</span><span class="v">−0.5%</span></div>
 <div class="lr"><span><b>AMDon</b></span><span class="iss">Ondo Assets</span><span class="nm-db">−$5.34M</span><span>×0.34</span><span class="v">+0.2%</span></div>
 <div class="lr"><span><b>TSMon</b></span><span class="iss">Ondo Assets</span><span class="nm-cr">+$2.56M</span><span>×1.48</span><span class="v">+1.7%</span></div>
-<div class="lr"><span><b>PDDon</b></span><span class="iss">Ondo Assets</span><span class="nm-db">−$1.84M</span><span>×0.85</span><span class="v">−0.0%</span></div>
+<div class="lr"><span><b>PDDon</b></span><span class="iss">Ondo Assets</span><span class="nm-db">−$1.84M</span><span>×0.85</span><span class="v">0.0%</span></div>
 <div class="lr"><span><b>PLTRon</b></span><span class="iss">Ondo Assets</span><span class="nm-cr">+$1.48M</span><span>×1.63</span><span class="v">+0.6%</span></div>
 <div class="lr"><span><b>SNDKon</b></span><span class="iss">Ondo Assets</span><span class="nm-db">−$0.86M</span><span>×0.87</span><span class="v">+3.2%</span></div>
 <div class="lr"><span><b>AVGOon</b></span><span class="iss">Ondo Assets</span><span class="nm-cr">+$0.55M</span><span>×1.13</span><span class="v">+2.2%</span></div></div>
-      <p class="ledger-cap">The nine struck rows; with 4 flat and 20 without a verdict, 152. evidence/2026-11-21/flows-30d.json, 02:53 UTC, 129 credits. <a href="/flows">Open the full book →</a></p></div>
-    <figure class="book-side" style="margin:0"><div class="shot"><img src="/landing/img/app-flows.webp" width="1040" height="660" alt="The app /flows page: ranked rows with REAL INFLOW and OUTFLOW stamps, net creation, units, price and chain coverage" loading="lazy" decoding="async"></div><figcaption class="shot-cap">/flows in the live app.</figcaption></figure>
+      <p class="ledger-cap">The nine struck rows. evidence/2026-11-21/flows-30d.json, 02:53 UTC, 129 credits. <a href="/flows">Open the full book →</a></p></div>
+    <figure class="book-side" style="margin:0"><div class="shot"><img src="/landing/img/app-flows.webp" width="1100" height="521" alt="The app /flows page: ranked rows with REAL INFLOW and OUTFLOW stamps, net creation, units, price and chain coverage" loading="lazy" decoding="async"></div><figcaption class="shot-cap">/flows in the live app.</figcaption></figure>
   </div>
 </div></section>
 
@@ -585,7 +589,7 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
   <div class="s-head"><p class="label">Sitting IV · the API, both ways</p><h2>What CMC made possible, and where it got in the way.</h2></div>
   <div class="both">
     <div><h3>Made possible</h3><ol>
-      <li><code>quotes/historical</code> back-fills daily supply for every wrapper: the engine.<span class="src">lib/cmc/history.ts</span></li>
+      <li><code>quotes/historical</code> back-fills daily supply per wrapper: the engine.<span class="src">lib/cmc/history.ts</span></li>
       <li><code>v5/real-world-assets</code> ties wrappers to one stock: no scraping 12 issuers’ sites.<span class="src">lib/cmc/rwa.ts</span></li>
       <li><code>credit_count</code> puts each lookup’s cost in its receipts.<span class="src">lib/receipts.ts</span></li></ol></div>
     <div><h3>In the way</h3><ol>
@@ -602,7 +606,7 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
 
 <section class="s band-leaf" id="faq"><div class="wrap">
   <h2 class="">Questions a judge would ask</h2>
-  <div class="faq"><details><summary>Is the click really live?</summary><div class="a"><p>Yes. “Put it on trial” calls <code>/api/lookup</code> on this domain. The server calls CoinMarketCap with its own key (never sent to your browser) and returns every receipt. The panel prints the mode, credits and time; a repeat within 60 s is labelled cached.</p></div></details><details><summary>What is replayed, not live?</summary><div class="a"><p>The top leaf and the trial book replay committed captures (2026-11-21 01:40 UTC and 02:53 UTC). Chain values come from a committed daily <code>totalSupply</code> baseline read from archive RPC. A live re-run at 04:46 UTC printed the same +$202.83M.</p></div></details><details><summary>Is net creation money that buyers put in?</summary><div class="a"><p>No. It is units created minus redeemed, times that day’s market price, counted like an ETF flow table. A mint is executed by the token’s minter: issuer-level creation, not buyer data.</p></div></details><details><summary>What does “within remedy” mean?</summary><div class="a"><p>In the Trial of the Pyx, held since the 13th century, a jury checks the Royal Mint’s coins within a legal tolerance called the remedy. Here the chain’s change must match CMC’s within ±10% (or 0.5% of supply for a small move) before a move is struck REAL INFLOW or OUTFLOW.</p></div></details><details><summary>Why are 107 wrappers not verifiable?</summary><div class="a"><p>Mostly because their supply sits on chains with no historical supply source we can read (Solana, Arbitrum, Base, Robinhood Chain). NetMint prints NOT VERIFIABLE instead of guessing.</p></div></details><details><summary>What happens when the event key reverts?</summary><div class="a"><p>It reverts to CMC’s free Basic tier when submissions close (9 Dec 2026, 23:59 UTC). The click then answers <code>live-stored</code>: stored dated CMC bodies plus live chain reads, labelled. Outside them it shows CMC’s verbatim plan error.</p></div></details></div>
+  <div class="faq"><details><summary>Is the click really live?</summary><div class="a"><p>Yes. “Put it on trial” calls <code>/api/lookup</code> on this domain. The server calls CoinMarketCap with its own key (never sent to your browser) and returns every receipt. The panel prints the mode, credits and time; a repeat within 60 s is labelled cached.</p></div></details><details><summary>What is replayed, not live?</summary><div class="a"><p>The top leaf and the trial book replay committed captures (2026-11-21 01:40 UTC and 02:53 UTC). Chain values come from a committed daily <code>totalSupply</code> baseline read from archive RPC; a day it lacks is read live. A live re-run at 04:46 UTC printed the same +$202.83M.</p></div></details><details><summary>Is net creation money that buyers put in?</summary><div class="a"><p>No. It is units created minus redeemed, times that day’s market price, counted like an ETF flow table. A mint is a transfer from the zero address; every sampled NVDAB mint went to one address, consistent with issuer-level creation, not buyer data.</p></div></details><details><summary>What does “within remedy” mean?</summary><div class="a"><p>In the Trial of the Pyx, documented since 1248, a jury checks the Royal Mint’s coins within a legal tolerance called the remedy. Here the chain’s change must match CMC’s within ±10% (or 0.5% of supply for a small move) before a move is struck REAL INFLOW or OUTFLOW.</p></div></details><details><summary>Why are 107 wrappers not verifiable?</summary><div class="a"><p>Their supply sits on chains with no historical supply source we can read (Solana, Arbitrum, Base, Robinhood Chain), or the move may sit there. NetMint prints NOT VERIFIABLE instead of guessing.</p></div></details><details><summary>What happens when the event key reverts?</summary><div class="a"><p>It reverts to CMC’s free Basic tier when submissions close (9 Dec 2026, 23:59 UTC). If CMC then refuses on plan, the click answers <code>live-stored</code>: stored dated CMC bodies plus chain reads, labelled; outside them, CMC’s plan error with a note. Built and tested offline; not yet run against a Basic key.</p></div></details></div>
 </div></section>
 
 <section class="close"><div class="wrap">
@@ -613,7 +617,7 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
 </main>
 <footer><div class="wrap">
   <div><a class="mark" href="/about"><span>NetMint</span></a><p>Net creation at market price, checked against the chain. Not investment advice.</p>
-    <p class="nm-data">page built from evidence at commit e9a5608 · v1.0.0</p></div>
+    <p class="nm-data">page built from evidence at commit 311daa5 · v1.0.0</p></div>
   <div><h4>Product</h4><ul><li><a href="/">Live app</a></li><li><a href="/flows">The trial book</a></li><li><a href="/pitch">Pitch deck</a></li><li><a href="/api/health">Service status</a></li></ul></div>
   <div><h4>Source</h4><ul><li><a href="https://github.com/edycutjong/netmint">GitHub repository</a></li><li><a href="https://github.com/edycutjong/netmint/blob/main/LICENSE">MIT licence</a></li><li><a href="https://dorahacks.io/hackathon/coinmarketcap-api-202611/detail">CoinMarketCap API Hackathon</a></li></ul></div>
 </div></footer>

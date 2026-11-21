@@ -142,6 +142,8 @@
 .g-key { display: inline-block; width: 8px; height: 8px; vertical-align: 1px; margin-right: 3px; }
 .g-key.d { background: var(--after); transform: rotate(45deg); }
 .g-key.w { width: 3px; height: 11px; background: var(--ink); vertical-align: -1px; }
+
+.nm-verdict-line .nw { white-space: nowrap; }
 /* deck (/pitch): 1920×1080 stage, scaled to the viewport */
 html, body { margin: 0; height: 100%; background: #12110e; overflow: hidden; }
 body { font-family: var(--font-body); color: var(--ink); -webkit-text-size-adjust: 100%; }
@@ -176,10 +178,11 @@ h2.dh { font: 400 84px/1.06 var(--font-display); margin: 0 0 26px; }
 .deck-leaf .nm-scale { font-size: 17px; }
 .deck-leaf .nm-lab { font-size: 19px; }
 .deck-leaf .nm-figure { font-size: 78px; white-space: nowrap; }
-.deck-leaf .money-lab { font-size: 17px; max-width: 13em; }
+.deck-leaf .money-lab { font-size: 17px; }
+.deck-leaf .money-lab .ms { display: block; max-width: 12em; }
 .deck-leaf .money-lab b { font-size: 21px; }
 .deck-leaf .nm-verdict-line { font-size: 21px; }
-.deck-leaf .hero-stamp, .hook-stamp { position: absolute; left: 7%; top: 36%; font-size: 46px; z-index: 2; --cut: 12px; }
+.deck-leaf .hero-stamp, .hook-stamp { position: absolute; left: 3%; top: 41%; font-size: 34px; z-index: 2; --cut: 9px; }
 .cover-slip { font-size: 21px; padding: 24px 26px 18px; }
 .cover-slip .l.cmd { color: #8b857a; }
 .cover-meta { display: flex; align-items: center; gap: 26px; margin-top: 36px; }
@@ -201,23 +204,23 @@ h2.dh { font: 400 84px/1.06 var(--font-display); margin: 0 0 26px; }
 .hook-nums .t { font-size: 28px; color: var(--muted); margin: 6px 0 0; }
 
 /* problem */
-.lies { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin-top: 40px; flex: 1; max-height: 560px; }
+.lies { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin-top: 46px; flex: 1; max-height: 600px; }
 .lie { background: var(--card); border: 1px solid var(--rule); padding: 44px 40px 40px; border-top: 3px double var(--ink); display: flex; flex-direction: column; }
 .lie .nm-stamp { margin-top: auto; align-self: flex-start; }
 .lie .k { font: 400 24px var(--font-display); letter-spacing: .08em; color: var(--muted); }
-.lie h3 { font: 400 54px/1.12 var(--font-display); margin: 18px 0 22px; }
-.lie p { font-size: 33px; line-height: 1.42; margin: 0 0 24px; color: #3b3830; }
-.lie .nm-stamp { font-size: 34px; --cut: 10px; }
+.lie h3 { font: 400 64px/1.1 var(--font-display); margin: 22px 0 26px; }
+.lie p { font-size: 38px; line-height: 1.4; margin: 0 0 24px; color: #3b3830; }
+.lie .nm-stamp { font-size: 40px; --cut: 11px; }
 .rina { font-size: 36px; color: var(--ink); margin: 40px 0 0; max-width: 46em; font-family: var(--font-display); letter-spacing: .02em; }
 
 /* how */
-.flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-top: 50px; position: relative; flex: 1; max-height: 600px; }
+.flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-top: 50px; position: relative; flex: 1; max-height: 540px; }
 .st { position: relative; display: flex; flex-direction: column; padding: 40px 34px 34px; border: 1px solid var(--rule); background: var(--card); margin-right: 46px; }
 .st:last-child { margin-right: 0; }
 .st:not(:last-child)::after { content: "→"; position: absolute; right: -44px; top: 50%; transform: translateY(-50%); font: 40px var(--font-data); color: var(--muted); width: 42px; text-align: center; }
 .st .no { font: 400 30px var(--font-display); color: var(--muted); }
-.st h3 { font: 400 46px/1.12 var(--font-display); margin: 14px 0 18px; }
-.st p { font-size: 30px; line-height: 1.42; margin: 0 0 24px; color: #3b3830; }
+.st h3 { font: 400 52px/1.1 var(--font-display); margin: 14px 0 20px; }
+.st p { font-size: 34px; line-height: 1.4; margin: 0 0 24px; color: #3b3830; }
 .st .chip { margin-top: auto; align-self: flex-start; }
 .st .chip { font: 21px var(--font-data); border: 1px solid var(--rule); padding: 4px 10px; color: var(--muted); background: var(--bg); display: inline-block; overflow-wrap: anywhere; }
 .st .verdicts { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
@@ -246,7 +249,7 @@ h2.dh { font: 400 84px/1.06 var(--font-display); margin: 0 0 26px; }
 [data-step="3"] .signs-right .nm-figure { color: var(--ink); }
 [data-step="3"] .signs-right .pre3, [data-step="0"] .signs-right .post3, [data-step="1"] .signs-right .post3, [data-step="2"] .signs-right .post3 { visibility: hidden; }
 [data-step="3"] .signs-right .post3 { animation: nm-strike .16s cubic-bezier(.2, .9, .3, 1.2) both; }
-.signs-right .vl3 { min-height: 1.5em; }
+.signs-right .vl3 { min-height: 1.5em; color: var(--after); }
 [data-step="0"] .vl3, [data-step="1"] .vl3, [data-step="2"] .vl3 { visibility: hidden; }
 .signs-right .nm-verdict-line { font-size: 23px; margin-top: 22px; }
 [data-step="0"] .s1, [data-step="0"] .s2,
@@ -270,7 +273,7 @@ h2.dh { font: 400 84px/1.06 var(--font-display); margin: 0 0 26px; }
 .kk .nm-stamp { font-size: 36px; --cut: 10px; }
 .kk .cnt { font: 400 180px/1 var(--font-display); margin: 30px 0 10px; }
 .kk p { font-size: 30px; color: #3b3830; margin: 0; line-height: 1.4; }
-.book-strip { margin-top: auto; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; background: var(--card); border: 1px solid var(--rule); }
+.book-strip { margin-top: 56px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; background: var(--card); border: 1px solid var(--rule); }
 .book-strip div { padding: 22px 26px; border-left: 1px solid var(--rule); font-size: 26px; }
 .book-strip div:first-child { border-left: 0; }
 .book-strip b { display: block; font: 500 30px var(--font-data); margin-bottom: 4px; }
@@ -289,12 +292,12 @@ h2.dh { font: 400 84px/1.06 var(--font-display); margin: 0 0 26px; }
 .eps span { font: 23px var(--font-data); border: 1px solid #4a463d; background: #2a2823; color: #e4dfd2; padding: 6px 12px; }
 
 /* work */
-.work { display: grid; grid-template-columns: 1.3fr 1fr 1fr; grid-template-rows: auto auto; gap: 30px; margin-top: 34px; }
-.wk { background: var(--card); border: 1px solid var(--rule); padding: 34px 36px 30px; }
+.work { display: grid; grid-template-columns: 1.3fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 30px; margin-top: 34px; flex: 1; max-height: 720px; }
+.wk { background: var(--card); border: 1px solid var(--rule); padding: 40px 40px 34px; display: flex; flex-direction: column; justify-content: center; }
 .wk.tall { grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; }
-.wk .n { font: 400 104px/1 var(--font-display); margin: 0 0 14px; }
+.wk .n { font: 400 120px/1 var(--font-display); margin: 0 0 16px; white-space: nowrap; }
 .wk .n.v { color: var(--ink); }
-.wk p { font-size: 25px; line-height: 1.4; margin: 0; color: #3b3830; }
+.wk p { font-size: 28px; line-height: 1.4; margin: 0; color: #3b3830; }
 .wk .p { font: 18px var(--font-data); color: var(--muted); margin-top: 12px; }
 
 /* close */
@@ -354,61 +357,61 @@ h2.dh { font: 400 84px/1.06 var(--font-display); margin: 0 0 26px; }
   <div class="nm-leaf-head"><b>NVDAB · bStocks · BNB Chain</b><span class="nm-data">2026-10-22 → 2026-11-21</span></div>
   <div style="position:relative"><div class="nm-chart" id="deck-cover"><svg viewBox="0 0 640 250" role="img" aria-labelledby="deck-cover-t"><title id="deck-cover-t">NVDAB, 22 Oct to 21 Nov 2026: price fell 41% while CMC supply rose ×7.1; the chain’s totalSupply line follows CMC’s; the five largest step days are marked.</title><line class="ln-axis" x1="0" y1="222" x2="544" y2="222"/><g class="draw"><polyline class="ln ln-price" points="0.0,16.0 18.1,32.0 36.3,34.2 54.4,32.1 72.5,32.2 90.7,22.6 108.8,19.1 126.9,28.1 145.1,37.3 163.2,47.6 181.3,50.3 199.5,47.0 217.6,51.0 235.7,41.5 253.9,56.7 272.0,102.7 290.1,85.9 308.3,87.5 326.4,105.2 344.5,103.7 362.7,125.8 380.8,146.5 398.9,130.2 417.1,146.4 435.2,148.8 453.3,135.8 471.5,156.5 489.6,145.1 507.7,165.9 525.9,179.4 544.0,216.0"/><polyline class="ln ln-pencil" points="0.0,214.7 18.1,213.2 36.3,210.8 54.4,211.8 72.5,212.0 90.7,210.8 108.8,211.3 126.9,211.2 145.1,211.9 163.2,211.9 181.3,211.9 199.5,211.9 217.6,206.9 235.7,206.9 253.9,206.5 272.0,205.9 290.1,201.9 308.3,203.5 326.4,203.5 344.5,179.2 362.7,155.1 380.8,132.8 398.9,66.1 417.1,69.2 435.2,87.5 453.3,86.0 471.5,55.5 489.6,24.0 507.7,20.2 525.9,24.5 544.0,16.0"/></g><g class="ink"><polyline class="ln ln-chain" points="0.0,216.0 18.1,213.2 36.3,212.1 54.4,212.0 72.5,212.0 90.7,211.8 108.8,212.7 126.9,213.2 145.1,211.9 163.2,211.9 181.3,211.9 199.5,211.9 217.6,207.6 235.7,208.8 253.9,207.5 272.0,207.4 290.1,203.6 308.3,203.7 326.4,203.8 344.5,183.5 362.7,157.4 380.8,130.9 398.9,66.2 417.1,69.3 435.2,88.0 453.3,87.6 471.5,57.3 489.6,26.7 507.7,20.3 525.9,23.4 544.0,16.1"/></g><g class="pm"><line class="tick" x1="344.5" y1="188.5" x2="344.5" y2="234.0"/><rect class="punch" x="340.0" y="234.0" width="9" height="9" transform="rotate(45 344.5 238.5)"/></g><g class="pm"><line class="tick" x1="362.7" y1="162.4" x2="362.7" y2="234.0"/><rect class="punch" x="358.2" y="234.0" width="9" height="9" transform="rotate(45 362.7 238.5)"/></g><g class="pm"><line class="tick" x1="398.9" y1="71.2" x2="398.9" y2="234.0"/><rect class="punch" x="394.4" y="234.0" width="9" height="9" transform="rotate(45 398.9 238.5)"/></g><g class="pm"><line class="tick" x1="471.5" y1="62.3" x2="471.5" y2="234.0"/><rect class="punch" x="467.0" y="234.0" width="9" height="9" transform="rotate(45 471.5 238.5)"/></g><g class="pm"><line class="tick" x1="489.6" y1="31.7" x2="489.6" y2="234.0"/><rect class="punch" x="485.1" y="234.0" width="9" height="9" transform="rotate(45 489.6 238.5)"/></g></svg><span class="nm-lab" style="left:86.6%;top:calc(6.4% - .62em)"><span class="w">CMC supply<br></span><b>×7.1</b></span><span class="nm-lab" style="left:86.6%;top:calc(86.4% - 1.1em)"><span class="w">price<br></span><b>−41%</b></span></div><span class="nm-stamp hero-stamp">Real Inflow</span></div>
   <p class="nm-scale"><svg width="22" height="8" aria-hidden="true"><line x1="0" y1="4" x2="22" y2="4" stroke="#6B6558" stroke-width="1.6"/></svg> price · <svg width="22" height="8" aria-hidden="true"><line x1="0" y1="4" x2="22" y2="4" stroke="#5E6166" stroke-width="2" stroke-dasharray="5 4"/></svg> CMC total supply, pencilled · <svg width="22" height="8" aria-hidden="true"><line x1="0" y1="4" x2="22" y2="4" stroke="#1D1B16" stroke-width="2.8"/></svg> chain totalSupply, inked · <svg width="10" height="10" aria-hidden="true"><rect x="2" y="2" width="6" height="6" fill="#1F6B55" transform="rotate(45 5 5)"/></svg> step day put on trial · each line on its own scale</p>
-  <div class="nm-proof"><span class="k">Proof I</span><span>CMC total supply, 12 → 13 Nov</span><span class="v">+406,140</span></div>
-  <div class="nm-proof"><span class="k">Proof II</span><span>chain totalSupply, 12 → 13 Nov, BNB Chain</span><span class="v">+393,976</span></div>
-  <div class="nm-money"><span class="money-lab"><b>Net creation, 30 days</b>units created − redeemed, at market price</span><span class="nm-figure nm-cr" id="deck-fig" data-value="202826522.82">+$202.83M</span></div>
-  <p class="nm-verdict-line">Found: within remedy (−3.0% against ±10%) · 5 of 5 step days · window +0.6%</p>
+  <div class="nm-proof"><span class="k">Proof I</span><span>CMC total supply<span class="dt">, 12 → 13 Nov</span></span><span class="v">+406,140</span></div>
+  <div class="nm-proof"><span class="k">Proof II</span><span>chain totalSupply<span class="dt">, 12 → 13 Nov, BNB Chain</span></span><span class="v">+393,976</span></div>
+  <div class="nm-money"><span class="money-lab"><b>Net creation, 30 days</b><span class="ms">units created − redeemed, at market price</span></span><span class="nm-figure nm-cr" id="deck-fig" data-value="202826522.82">+$202.83M</span></div>
+  <p class="nm-verdict-line"><span class="nw">Found: within remedy (−3.0% against ±10%)</span> · <span class="nw">5 of 5 step days</span> · <span class="nw">window +0.6%</span></p>
 </div></div>
-</div><div class="foot"><span>NetMint · the trial of the pyx, for tokenised stocks</span><span class="nm-data">netmint.edycu.dev · v1.0.0 · 1 / 10</span></div></div></section><section class="frame" id="s2" aria-label="Slide 2 of 10" data-notes="CoinMarketCap records every tokenised stock’s circulating supply every day. That series is the only public trace of creation and redemption, and nothing on the page turns it into money. Same 30 days: price down 41%, supply up 7.1 times. Is that real money arriving, or a data artefact?"><div class="slide ">
+</div><div class="foot"><span>NetMint · the trial of the pyx, for tokenised stocks</span><span class="nm-data">netmint.edycu.dev · v1.0.0 · 1 / 10</span></div></div></section><section class="frame" id="s2" aria-label="Slide 2 of 10" data-notes="CoinMarketCap records each tokenised wrapper’s circulating supply every day. That series traces creation and redemption, and nothing on the page turns it into money. Same 30 days: price down 41%, supply up 7.1 times. Is that real money arriving, or a data artefact?"><div class="slide ">
 <p class="lab">The hook</p><h2 class="dh">CMC records the supply. Never the money.</h2>
 <div class="cols hook">
   <div class="hook-chart art"><div class="nm-chart" id="deck-hook"><svg viewBox="0 0 640 250" role="img" aria-labelledby="deck-hook-t"><title id="deck-hook-t">NVDAB, 22 Oct to 21 Nov 2026: price fell 41% while CMC supply rose ×7.1; the chain’s totalSupply line follows CMC’s; the five largest step days are marked.</title><line class="ln-axis" x1="0" y1="222" x2="544" y2="222"/><g class="draw"><polyline class="ln ln-price" points="0.0,16.0 18.1,32.0 36.3,34.2 54.4,32.1 72.5,32.2 90.7,22.6 108.8,19.1 126.9,28.1 145.1,37.3 163.2,47.6 181.3,50.3 199.5,47.0 217.6,51.0 235.7,41.5 253.9,56.7 272.0,102.7 290.1,85.9 308.3,87.5 326.4,105.2 344.5,103.7 362.7,125.8 380.8,146.5 398.9,130.2 417.1,146.4 435.2,148.8 453.3,135.8 471.5,156.5 489.6,145.1 507.7,165.9 525.9,179.4 544.0,216.0"/><polyline class="ln ln-pencil" points="0.0,214.7 18.1,213.2 36.3,210.8 54.4,211.8 72.5,212.0 90.7,210.8 108.8,211.3 126.9,211.2 145.1,211.9 163.2,211.9 181.3,211.9 199.5,211.9 217.6,206.9 235.7,206.9 253.9,206.5 272.0,205.9 290.1,201.9 308.3,203.5 326.4,203.5 344.5,179.2 362.7,155.1 380.8,132.8 398.9,66.1 417.1,69.2 435.2,87.5 453.3,86.0 471.5,55.5 489.6,24.0 507.7,20.2 525.9,24.5 544.0,16.0"/></g><g class="ink"><polyline class="ln ln-chain" points="0.0,216.0 18.1,213.2 36.3,212.1 54.4,212.0 72.5,212.0 90.7,211.8 108.8,212.7 126.9,213.2 145.1,211.9 163.2,211.9 181.3,211.9 199.5,211.9 217.6,207.6 235.7,208.8 253.9,207.5 272.0,207.4 290.1,203.6 308.3,203.7 326.4,203.8 344.5,183.5 362.7,157.4 380.8,130.9 398.9,66.2 417.1,69.3 435.2,88.0 453.3,87.6 471.5,57.3 489.6,26.7 507.7,20.3 525.9,23.4 544.0,16.1"/></g><g class="pm"><line class="tick" x1="344.5" y1="188.5" x2="344.5" y2="234.0"/><rect class="punch" x="340.0" y="234.0" width="9" height="9" transform="rotate(45 344.5 238.5)"/></g><g class="pm"><line class="tick" x1="362.7" y1="162.4" x2="362.7" y2="234.0"/><rect class="punch" x="358.2" y="234.0" width="9" height="9" transform="rotate(45 362.7 238.5)"/></g><g class="pm"><line class="tick" x1="398.9" y1="71.2" x2="398.9" y2="234.0"/><rect class="punch" x="394.4" y="234.0" width="9" height="9" transform="rotate(45 398.9 238.5)"/></g><g class="pm"><line class="tick" x1="471.5" y1="62.3" x2="471.5" y2="234.0"/><rect class="punch" x="467.0" y="234.0" width="9" height="9" transform="rotate(45 471.5 238.5)"/></g><g class="pm"><line class="tick" x1="489.6" y1="31.7" x2="489.6" y2="234.0"/><rect class="punch" x="485.1" y="234.0" width="9" height="9" transform="rotate(45 489.6 238.5)"/></g></svg><span class="nm-lab" style="left:86.6%;top:calc(6.4% - .62em)"><span class="w">CMC supply<br></span><b>×7.1</b></span><span class="nm-lab" style="left:86.6%;top:calc(86.4% - 1.1em)"><span class="w">price<br></span><b>−41%</b></span></div><p class="nm-scale"><svg width="22" height="8" aria-hidden="true"><line x1="0" y1="4" x2="22" y2="4" stroke="#6B6558" stroke-width="1.6"/></svg> price · <svg width="22" height="8" aria-hidden="true"><line x1="0" y1="4" x2="22" y2="4" stroke="#5E6166" stroke-width="2" stroke-dasharray="5 4"/></svg> CMC total supply, pencilled · <svg width="22" height="8" aria-hidden="true"><line x1="0" y1="4" x2="22" y2="4" stroke="#1D1B16" stroke-width="2.8"/></svg> chain totalSupply, inked · <svg width="10" height="10" aria-hidden="true"><rect x="2" y="2" width="6" height="6" fill="#1F6B55" transform="rotate(45 5 5)"/></svg> step day put on trial · each line on its own scale</p></div>
   <div class="hook-nums"><div><p class="n dn">−41%</p><p class="t">NVDAB price, 30 days</p></div><div><p class="n up">×7.1</p><p class="t">CMC supply, same 30 days</p></div></div>
-</div><div class="foot"><span>NetMint · the trial of the pyx, for tokenised stocks</span><span class="nm-data">netmint.edycu.dev · v1.0.0 · 2 / 10</span></div></div></section><section class="frame" id="s3" aria-label="Slide 3 of 10" data-notes="Three things look identical on a supply chart. Real creation by the issuer; a data artefact, like the 31 July CMC circulating/total split that hit at least four Backed wrappers at once; and supply on a chain with no historical source. The README keeps the July case under What we got wrong. NetMint stamps each case differently."><div class="slide ">
+</div><div class="foot"><span>NetMint · the trial of the pyx, for tokenised stocks</span><span class="nm-data">netmint.edycu.dev · v1.0.0 · 2 / 10</span></div></div></section><section class="frame" id="s3" aria-label="Slide 3 of 10" data-notes="Three things look identical on a supply chart. Real creation on chain; a data artefact, like the 31 July CMC circulating/total split that hit at least four Backed wrappers at once; and supply on a chain with no historical source. The README keeps the July case under What we got wrong. NetMint stamps each case differently."><div class="slide ">
 <h2 class="dh">A supply jump can lie.</h2>
 <div class="lies">
-  <div class="lie"><span class="k">I</span><h3>Creation</h3><p>The issuer mints new units.</p><span class="nm-stamp art">Real Inflow</span></div>
+  <div class="lie"><span class="k">I</span><h3>Creation</h3><p>New units minted on chain.</p><span class="nm-stamp art">Real Inflow</span></div>
   <div class="lie"><span class="k">II</span><h3>An artefact</h3><p>31 Jul 2026: a CMC circulating/total split.</p><span class="nm-stamp is-pencil art">Not a redemption</span></div>
-  <div class="lie"><span class="k">III</span><h3>An unread chain</h3><p>86% of NVDAX sits on Solana.</p><span class="nm-stamp is-pencil art">Not verifiable</span></div>
+  <div class="lie"><span class="k">III</span><h3>An unread chain</h3><p>86% of NVDAX sits off BNB Chain and Ethereum.</p><span class="nm-stamp is-pencil art">Not verifiable</span></div>
 </div>
-<p class="rina">Rina holds NVDAB. Which case is she looking at?</p><div class="foot"><span>NetMint · the trial of the pyx, for tokenised stocks</span><span class="nm-data">netmint.edycu.dev · v1.0.0 · 3 / 10</span></div></div></section><section class="frame" id="s4" aria-label="Slide 4 of 10" data-notes="Station one is CoinMarketCap: quotes/historical for the daily series, the real-world-assets endpoints to gather every wrapper of one stock. Station two turns supply changes into dollars at market price. Station three reads the chain: totalSupply at the block that closes each UTC day, summed over BNB Chain and Ethereum. Station four stamps. The hero run took 5 CMC calls and 7 credits."><div class="slide ">
+<p class="rina">Rina holds NVDAB. Which case is she looking at?</p><div class="foot"><span>NetMint · the trial of the pyx, for tokenised stocks</span><span class="nm-data">netmint.edycu.dev · v1.0.0 · 3 / 10</span></div></div></section><section class="frame" id="s4" aria-label="Slide 4 of 10" data-notes="Station one is CoinMarketCap: quotes/historical for the daily series, the real-world-assets endpoints to gather every wrapper of one stock. Station two turns supply changes into dollars at market price. Station three reads the chain: totalSupply at the first block of each UTC day, summed over BNB Chain and Ethereum. Station four stamps. The hero run took 5 CMC calls and 7 credits."><div class="slide ">
 <p class="lab">How it works</p><h2 class="dh">Four stations, one verdict.</h2>
 <div class="flow">
-  <div class="st"><span class="no">I</span><h3>Supply history</h3><p>Daily supply and price, every wrapper.</p><span class="chip art">quotes/historical · v5/rwa</span></div>
+  <div class="st"><span class="no">I</span><h3>Supply history</h3><p>Daily supply and price per wrapper.</p><span class="chip art">quotes/historical</span></div>
   <div class="st"><span class="no">II</span><h3>Net creation</h3><p>Units created − redeemed, × price.</p><span class="chip art">lib/flow/</span></div>
-  <div class="st"><span class="no">III</span><h3>The trial</h3><p>Chain totalSupply at day boundaries, ±10%.</p><span class="chip art">totalSupply() · BSC + ETH</span></div>
+  <div class="st"><span class="no">III</span><h3>The trial</h3><p>Chain totalSupply at day boundaries, ±10%.</p><span class="chip art">totalSupply()</span></div>
   <div class="st"><span class="no">IV</span><h3>The hallmark</h3><div class="verdicts art"><span class="nm-stamp">Real Inflow</span><span class="nm-stamp is-out">Outflow</span><span class="nm-stamp is-pencil">Recount</span><span class="nm-stamp is-pencil">Not verifiable</span></div></div>
 </div>
-<p class="how-note">One click: 5 CMC calls, 7 credits.</p><div class="foot"><span>NetMint · the trial of the pyx, for tokenised stocks</span><span class="nm-data">netmint.edycu.dev · v1.0.0 · 4 / 10</span></div></div></section><section class="frame" id="s5" aria-label="Slide 5 of 10" data-notes="Press one: the chain’s own totalSupply moved +393,976 across the same day boundary; CMC recorded +406,140; that is −3.0%, inside the ±10% remedy, and the other four step days and the window land inside it too. Press two: a mint on that day, a transfer from the zero address, which only the minter can execute. Press three: the hallmark strikes." data-steps="3"><div class="slide ">
+<p class="how-note">The hero lookup: 5 CMC calls, 7 credits.</p><div class="foot"><span>NetMint · the trial of the pyx, for tokenised stocks</span><span class="nm-data">netmint.edycu.dev · v1.0.0 · 4 / 10</span></div></div></section><section class="frame" id="s5" aria-label="Slide 5 of 10" data-notes="Press one: the chain’s own totalSupply moved +393,976 across the same day boundary; CMC recorded +406,140; that is −3.0%, inside the ±10% remedy, and the other four step days and the window land inside it too. Press two: a sampled mint inside that step, a transfer from the zero address on 12 November. Press three: the hallmark strikes." data-steps="3"><div class="slide ">
 <p class="lab">The frozen moment · 13 Nov 2026</p><h2 class="dh">The chain signs.</h2><span class="press">press → to step</span>
 <div class="signs" data-step="3">
   <div>
     <div class="trialrow pencil"><span class="k">CMC</span><span>total supply, 12 → 13 Nov</span><span class="v">+406,140</span></div>
     <div class="trialrow s1"><span class="k">Chain</span><span>totalSupply, BNB Chain, same days</span><span class="v">+393,976</span></div>
     <div class="gz art"><div class="gauge" role="img" aria-label="Five step days at −4.3%, −3.5%, +2.1%, +2.6%, +3.1% and the window at +0.6%, all inside the ±10% remedy"><span class="g-band" style="left:8.33%;right:8.33%"></span><span class="g-zero" style="left:50%"></span><span class="g-m" style="left:32.29%" title="2026-11-10: -4.3%"></span><span class="g-m" style="left:35.53%" title="2026-11-17: -3.5%"></span><span class="g-m" style="left:58.89%" title="2026-11-18: +2.1%"></span><span class="g-m" style="left:60.69%" title="2026-11-13: +2.6%"></span><span class="g-m" style="left:62.76%" title="2026-11-11: +3.1%"></span><span class="g-w" style="left:52.43%"></span><span class="g-l" style="left:8.33%">−10%</span><span class="g-l" style="left:50%">0</span><span class="g-l" style="left:91.67%">+10%</span></div><p class="g-cap"><span class="g-key d"></span> step days (3-day sums): −4.3%, −3.5%, +2.1%, +2.6%, +3.1% · <span class="g-key w"></span> window +0.6%</p></div>
-    <div class="trialrow s2"><span class="k">Mint</span><span>transfer from the zero address, block 133,127,844</span><span class="v">640.06 NVDAB</span><span class="sub nm-data art">0xa239f8…15266c · one of that day’s mints</span></div>
+    <div class="trialrow s2"><span class="k">Mint</span><span>from the zero address, block 133,127,844, 12 Nov</span><span class="v">640.06 NVDAB</span><span class="sub nm-data art">0xa239f8…15266c · a sampled mint inside the 12 → 13 Nov step</span></div>
   </div>
   <div class="signs-right"><div class="stamps art"><span class="nm-stamp is-pencil pre3">On trial</span><span class="nm-stamp post3">Real Inflow</span></div><p class="nm-figure">+$202.83M</p><p>net creation, 30 days, at market price</p><p class="nm-verdict-line vl3">Found: within remedy (−3.0% against ±10%)</p></div>
 </div><div class="foot"><span>NetMint · the trial of the pyx, for tokenised stocks</span><span class="nm-data">netmint.edycu.dev · v1.0.0 · 5 / 10</span></div></div></section><section class="frame" id="s6" aria-label="Slide 6 of 10" data-notes="This is the app as a judge opens it. The hero is a recorded capture so it matches the README and this deck; Run it live calls CoinMarketCap on the click, and the receipts drawer shows every response body with its credit count and a curl line."><div class="slide ">
 <p class="lab">Live demo · netmint.edycu.dev</p><h2 class="dh">One click, one verdict.</h2>
 <div class="demo">
-  <div class="shotbox art"><img src="/landing/img/app-hero-card.webp" width="1100" height="719" alt="The NetMint app hero card for NVDAB with the REAL INFLOW stamp, +$202.8M, and the two proving rows" decoding="async">
+  <div class="shotbox art"><img src="/landing/img/app-hero-card.webp" width="1100" height="734" alt="The NetMint app hero card for NVDAB with the REAL INFLOW stamp, +$202.8M, and the two proving rows" decoding="async">
     <span class="co" style="left:-2.6%;top:19%">1</span><span class="co" style="left:91%;top:21%">2</span><span class="co" style="left:-2.6%;top:50%">3</span><span class="co" style="left:-2.6%;top:91%">4</span></div>
   <div class="demo-side"><ol class="co-list"><li><span>1</span><span>The verdict, struck</span></li><li><span>2</span><span>Net creation in dollars</span></li><li><span>3</span><span>CMC’s step beside the chain’s</span></li><li><span>4</span><span>The jury’s line: within remedy</span></li></ol>
-    <p class="demo-cap">“Run it live” calls CMC on the click. Receipts keep every body:</p><div class="shotbox art"><img src="/landing/img/app-receipts-head.webp" width="1120" height="445" alt="The receipts drawer header: 5 CMC calls, 7 credits charged; GET /v5/real-world-assets/assets/list, HTTP 200, credit_count 1" loading="lazy" decoding="async"></div></div>
+    <p class="demo-cap">“Run it live” calls CMC on the click. Receipts keep every body:</p><div class="shotbox art"><img src="/landing/img/app-receipts-head.webp" width="990" height="445" alt="The receipts drawer header: 5 CMC calls, 7 credits charged; GET /v5/real-world-assets/assets/list, HTTP 200, credit_count 1" loading="lazy" decoding="async"></div></div>
 </div><div class="foot"><span>NetMint · the trial of the pyx, for tokenised stocks</span><span class="nm-data">netmint.edycu.dev · v1.0.0 · 6 / 10</span></div></div></section><section class="frame" id="s7" aria-label="Slide 7 of 10" data-notes="The leaderboard runs the same lookup for the top 20 tokenised stocks: 152 wrappers, 129 credits, captured 21 Nov at 02:53 UTC. Six real inflows and three outflows pass the chain check. Twelve are RECOUNT. 107 are NOT VERIFIABLE, mostly supply on chains with no historical source, and the page says so instead of guessing."><div class="slide ">
-<p class="lab">The trial book · top 20 tokenised stocks, 30 days</p><h2 class="dh">152 tried. Nine struck.</h2>
+<p class="lab">The trial book · top 20 stocks · 152 wrappers · 30 days</p><h2 class="dh">128 tried. Nine struck.</h2>
 <div class="keyrow">
   <div class="kk"><span class="nm-stamp">Real Inflow</span><p class="cnt">6</p><p>chain confirms creation</p></div>
   <div class="kk"><span class="nm-stamp is-out">Outflow</span><p class="cnt">3</p><p>chain confirms redemption</p></div>
-  <div class="kk"><span class="nm-stamp is-pencil">Recount</span><p class="cnt">12</p><p>CMC moved, chains did not</p></div>
-  <div class="kk"><span class="nm-stamp is-pencil">Not verifiable</span><p class="cnt">107</p><p>no readable supply history</p></div>
+  <div class="kk"><span class="nm-stamp is-pencil">Recount</span><p class="cnt">12</p><p>chains disagreed beyond ±10%</p></div>
+  <div class="kk"><span class="nm-stamp is-pencil">Not verifiable</span><p class="cnt">107</p><p>supply on chains we cannot read</p></div>
 </div>
 <div class="book-strip art"><div><b>NVDAB</b><span class="nm-cr">+$202.83M</span> · <span class="v">+0.6%</span></div><div><b>TSLAon</b><span class="nm-cr">+$9.32M</span> · <span class="v">−5.7%</span></div><div><b>GOOGon</b><span class="nm-cr">+$6.03M</span> · <span class="v">−0.5%</span></div><div><b>AMDon</b><span class="nm-db">−$5.34M</span> · <span class="v">+0.2%</span></div><div><b>TSMon</b><span class="nm-cr">+$2.56M</span> · <span class="v">+1.7%</span></div></div><div class="foot"><span>NetMint · the trial of the pyx, for tokenised stocks</span><span class="nm-data">netmint.edycu.dev · v1.0.0 · 7 / 10</span></div></div></section><section class="frame" id="s8" aria-label="Slide 8 of 10" data-notes="The history endpoint is the engine and the real-world-assets endpoints tie wrappers to one stock across 12 issuers. Three snags are documented in the README with the raw responses: convert on quotes/historical multiplies circulating supply by the exchange rate, so we always ask in USD; NVDA maps to two ids, so every join is by id; holders/list refused every shape we tried."><div class="slide dark ">
 <p class="lab">The API</p><h2 class="dh">Seven endpoints. Three snags.</h2>
 <div class="api2">
   <div><h3>Made possible</h3><ul><li><code>quotes/historical</code>: daily supply</li><li><code>v5/real-world-assets</code>: all wrappers</li><li><code>credit_count</code>: cost per receipt</li></ul></div>
-  <div><h3>In the way</h3><ul><li><code>convert=</code> multiplies supply by FX</li><li><code>NVDA</code> maps to 2 ids: join by id</li><li><code>holders/list</code>: 400 ×3, 405 ×1</li></ul></div>
+  <div><h3>In the way</h3><ul><li><code>convert=</code> multiplies supply by FX</li><li><code>NVDA</code> maps to 2 ids: join by id</li><li><code>holders/list</code> refused every shape</li></ul></div>
 </div>
 <div class="eps art"><span>/v5/real-world-assets/assets/list</span><span>/v5/real-world-assets/quotes/latest</span><span>/v2/cryptocurrency/quotes/historical</span><span>/v2/cryptocurrency/info</span><span>/v2/cryptocurrency/quotes/latest</span><span>/v1/dex/holders/count</span><span>/v1/key/info</span></div><div class="foot"><span>NetMint · the trial of the pyx, for tokenised stocks</span><span class="nm-data">netmint.edycu.dev · v1.0.0 · 8 / 10</span></div></div></section><section class="frame" id="s9" aria-label="Slide 9 of 10" data-notes="Every figure in this deck greps to a committed file. 201 tests; the stored leaderboard re-derives with zero diffs; a live lookup takes about two seconds at the median. The demo re-run at 04:46 UTC printed the same +$202.83M as the recorded capture. Unplug the network and the demo fails instead of printing a verdict."><div class="slide ">
 <h2 class="dh">Receipts behind every number.</h2>

@@ -1,0 +1,9 @@
+$ npm run verify:flows   # 2026-11-21T05:26:03Z, commit 311daa5
+flows-7d.json (2026-11-21): 20 underlyings replayed offline
+flows-30d.json (2026-11-21): 20 underlyings replayed offline
+304 rows, 0 differences
+
+$ npx vitest run   # same commit
+ Test Files  8 passed (8)
+      Tests  201 passed (201)
+   Duration  993ms (tests 75%, transform 14%, import 10%, worker 2%)
