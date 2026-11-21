@@ -286,7 +286,7 @@
    "symbol": "NVDAon",
    "issuer": "Ondo Assets",
    "verdict": "NOT_VERIFIABLE",
-   "reason": "the move may sit on Robinhood Chain (0.4% of supply outside the summed chains); step check failed at d = 0: step day 2026-11-21 (3-day sum) chain +15,483 vs CMC +17,903 (tolerance ±1,790); window chain +48,956 vs CMC +55,801 (tolerance ±5,580, outside)",
+   "reason": "the move may sit on Robinhood Chain (0.4% of supply outside the summed chains at the window start); step check failed at d = 0: step day 2026-11-21 (3-day sum) chain +15,483 vs CMC +17,903 (tolerance ±1,790); window chain +48,956 vs CMC +55,801 (tolerance ±5,580, outside)",
    "net_usd": 8882346.854327882,
    "gross_in_usd": 14211339.587521428,
    "gross_out_usd": -5328992.733193549,

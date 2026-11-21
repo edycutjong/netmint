@@ -14,7 +14,7 @@ export interface VerdictOut {
 export const SUBLINE: Record<Verdict, string> = {
   REAL_INFLOW: 'issuer-level net creation, not buyer data',
   OUTFLOW: 'issuer-level net redemption',
-  RECOUNT: 'CMC’s supply step and the chain’s disagree',
+  RECOUNT: 'CMC’s supply step and the summed chains’ step disagree beyond tolerance',
   NOT_VERIFIABLE: 'not put to a full trial',
   FLAT: 'below threshold, not put to trial',
 };
@@ -46,7 +46,9 @@ export function decideVerdict(metrics: FlowMetrics | null, mint: MintCheck | nul
     if (mint.unreadableLeg || u >= p.outsideRatio * move) {
       const where = mint.unreadableChains[0] ?? 'a chain outside BNB Chain + Ethereum';
       const share =
-        mint.coverageA !== null ? ` (${((1 - Math.min(mint.coverageA, 1)) * 100).toFixed(1)}% of supply outside the summed chains)` : '';
+        mint.coverageA !== null
+          ? ` (${((1 - Math.min(mint.coverageA, 1)) * 100).toFixed(1)}% of supply outside the summed chains at the window start)`
+          : '';
       return { verdict: 'NOT_VERIFIABLE', reason: `the move may sit on ${where}${share}; ${mint.reason}` };
     }
     return { verdict: 'RECOUNT', reason: `CMC's step and the summed chains' step disagree beyond tolerance: ${mint.reason}` };
