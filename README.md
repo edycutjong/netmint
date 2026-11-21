@@ -56,7 +56,7 @@ is investment advice.
 
 **The headline case, measured:** NVDAB's CMC supply rose +1,209,739 units; the chain's `totalSupply` rose +1,216,792 (+0.6%
 apart, tolerance ±10%). The 5 largest step days (3-day sums) all matched within remedy. For each of 7 step days we sampled the one mint at the block where on-chain supply
-crossed that day's halfway point; all 7 went to a single recipient, `0x5948…adad1`. The sampled 2026-11-13 mint (`0xa239f888…15266c`, 640 units) is
+crossed that day's halfway point; all 7 went to a single recipient, `0x5948…adad1`. The sampled mint for the 2026-11-13 step (`0xa239f888…15266c`, block 133,127,844, 2026-11-12 08:25 UTC; 640 units) is
 0.16% of that day's on-chain step, so it shows who receives mints, not how big the creation was; a single recipient is consistent with issuer-level creation rather than retail buying.
 
 ## 🏗️ Architecture & Tech Stack

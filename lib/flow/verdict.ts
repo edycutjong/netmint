@@ -49,7 +49,7 @@ export function decideVerdict(metrics: FlowMetrics | null, mint: MintCheck | nul
         mint.coverageA !== null ? ` (${((1 - Math.min(mint.coverageA, 1)) * 100).toFixed(1)}% of supply outside the summed chains)` : '';
       return { verdict: 'NOT_VERIFIABLE', reason: `the move may sit on ${where}${share}; ${mint.reason}` };
     }
-    return { verdict: 'RECOUNT', reason: `CMC moved and the summed chains did not: ${mint.reason}` };
+    return { verdict: 'RECOUNT', reason: `CMC's step and the summed chains' step disagree beyond tolerance: ${mint.reason}` };
   }
   // 4b. dollar net and supply move disagree
   if (Math.sign(metrics.net) !== Math.sign(metrics.supplyDelta)) {

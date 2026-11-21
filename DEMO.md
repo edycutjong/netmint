@@ -43,7 +43,7 @@ NOT VERIFIABLE  NVDAX    Backed Assets     +$104.10M (`net_usd` 104095763.06) un
 | Step 2026-11-10 (3 d) | 294,447 | 281,930 | ok |
 | Step 2026-11-11 (3 d) | 430,435 | 443,621 | ok |
 
-Sampled mint (2026-11-13, 640 units, 0.16% of that day's step; all 7 sampled mints went to this recipient): `0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c` → `0x5948602680fe4aea08d98302337a2715b3aadad1`.
+Sampled mint for the 2026-11-13 step (block 133,127,844, 2026-11-12 08:25 UTC, 640 units, 0.16% of that day's step; all 7 sampled mints went to this recipient): `0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c` → `0x5948602680fe4aea08d98302337a2715b3aadad1`.
 
 ## Limits
 
