@@ -31,9 +31,13 @@ export function ReceiptDrawer({ receipts, credits, onClose }: { receipts: Receip
         <header>
           <h2>Receipts</h2>
           <span className="capture">
-            {cmc.length && cmc.every((x) => x.stored)
-              ? `${cmc.length} recorded CMC responses, replayed (no CMC call, 0 credits)`
-              : `${cmc.length} CMC calls · ${credits} credits charged`}{' '}
+            {(() => {
+              const live = cmc.filter((x) => !x.stored);
+              const stored = cmc.length - live.length;
+              const refused = live.filter((x) => (x.errorCode ?? 0) !== 0 || x.httpStatus !== 200).length;
+              if (!live.length) return `${stored} recorded CMC responses, replayed (no CMC call, 0 credits)`;
+              return `${live.length} CMC calls${refused ? ` (${refused} refused)` : ''}${stored ? ` · ${stored} stored bodies` : ''} · ${credits} credits charged`;
+            })()}{' '}
             · {rpc.length ? `${rpc.length} live chain reads` : 'chain values from the committed baseline'}
           </span>
           <button ref={closeRef} className="btn quiet" onClick={onClose} aria-label="Close receipts (Esc)">

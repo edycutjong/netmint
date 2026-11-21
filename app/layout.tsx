@@ -8,7 +8,7 @@ const marcellus = Marcellus_SC({ weight: '400', subsets: ['latin'], variable: '-
 const albert = Albert_Sans({ subsets: ['latin'], variable: '--f-albert', display: 'swap' });
 const chivo = Chivo_Mono({ subsets: ['latin'], variable: '--f-chivo', display: 'swap' });
 
-const TITLE = 'NetMint: the money behind every tokenised stock, checked against the chain';
+const TITLE = 'NetMint: tokenised-stock creation and redemption, checked against the chain';
 const DESCRIPTION =
   'CMC lists each tokenised stock’s supply, not the dollars created or redeemed behind it. NetMint shows them, checked against the chain.';
 const OG_ALT =
@@ -47,7 +47,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <a href="/pitch">Pitch</a>
           </nav>
           <span className="tag">
-            A supply jump can be new tokens or a data change. NetMint shows which, and the dollars behind it, checked on chain.
+            A supply jump can be new tokens or a data change. NetMint checks which on chain, prices it, and says when it can’t.
           </span>
         </header>
         {children}

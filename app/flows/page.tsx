@@ -110,7 +110,7 @@ function FlowsBody({ t, all }: { t: NonNullable<ReturnType<typeof loadFlows>>; a
               <th scope="col">Units ×</th>
               <th scope="col">Price</th>
               <th scope="col" className="hide-sm">
-                Price vs money
+                Price vs creation
               </th>
               <th scope="col" className="hide-sm">
                 Chain coverage
@@ -145,13 +145,14 @@ function FlowsBody({ t, all }: { t: NonNullable<ReturnType<typeof loadFlows>>; a
                   ) : isVerified(r) ? (
                     usd(r.netUsd)
                   ) : (
-                    <span className="muted">CMC supply Δ {usd(r.netUsd)}, unproven</span>
+                    <span className="muted">
+                      CMC supply Δ {usd(r.netUsd)}, {r.verdict === 'FLAT' ? 'under threshold' : 'unproven'}
+                      {r.verdict === 'RECOUNT' && /window chain .*, within\)$/.test(r.reason) ? ' (window agrees; step days do not)' : ''}
+                    </span>
                   )}
                 </td>
                 <td className={`num ${isVerified(r) ? '' : 'muted'}`}>{r.unitsX === null ? '' : times(r.unitsX)}</td>
-                <td className={`num ${r.pricePct !== null && r.pricePct < 0 ? 'debit' : ''}`}>
-                  {r.pricePct === null ? '' : pct(r.pricePct)}
-                </td>
+                <td className="num">{r.pricePct === null ? '' : pct(r.pricePct)}</td>
                 <td className="hide-sm">
                   {r.divergence ? <span className="tag-div">{DIV_LABEL[r.divergence]}</span> : <span className="muted">—</span>}
                 </td>
@@ -164,12 +165,14 @@ function FlowsBody({ t, all }: { t: NonNullable<ReturnType<typeof loadFlows>>; a
       <p className="definition">
         Counted the way ETF flow tables count creations: units created or redeemed × price. REAL INFLOW and OUTFLOW are issuer-level net
         creation and redemption that the chain confirms within ±10% of the move (or 0.5% of supply for small moves), not buyer data; “price
-        vs money” marks only those. RECOUNT means CMC’s supply step and the summed chains’ step disagree beyond tolerance; NOT VERIFIABLE
+        vs creation” marks only those. RECOUNT means CMC’s supply step and the summed chains’ step disagree beyond tolerance; NOT VERIFIABLE
         means the move may sit on a chain NetMint does not read, or the check cannot certify it (
         {t.rows.filter((r) => r.verdict === 'NOT_VERIFIABLE').length} of {t.rows.length}; {t.rows.length - shown.length} of {t.rows.length}{' '}
-        rows are hidden in this view). Chain coverage is the on-chain supply summed over BNB Chain and Ethereum ÷ CMC’s supply at the window
-        start; a little over 100% means the chain read higher. On RECOUNT and NOT VERIFIABLE rows the dollar figure is CMC’s supply change ×
-        price and is shown only as unproven. Evidence: <span className="data">evidence/{t.generatedUtc.slice(0, 10)}/flows/</span>.
+        rows are hidden in this view: the NOT VERIFIABLE rows and {t.rows.filter((r) => r.verdict === null).length} with no usable daily
+        history). Chain coverage is the on-chain supply summed over BNB Chain and Ethereum ÷ CMC’s supply at the window start; a little over
+        100% means the chain read higher. On RECOUNT and NOT VERIFIABLE rows the dollar figure is CMC’s supply change × price and is shown
+        only as unproven; on FLAT rows it is under the threshold and was not tried. Evidence:{' '}
+        <span className="data">evidence/{t.generatedUtc.slice(0, 10)}/flows/</span>.
       </p>
     </>
   );
