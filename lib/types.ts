@@ -99,6 +99,18 @@ export interface FlowMetrics {
   flows: { date: string; deltaS: number; flow: number }[];
 }
 
+/** The proving rows: the window's largest step day, CMC's one-day step vs the summed chain's one-day step at d. */
+export interface ProofStep {
+  date: string;
+  prevDate: string;
+  field: 'total_supply' | 'circulating_supply';
+  cmcStep: number;
+  chainStep: number | null;
+  chainDates: [string, string];
+  errPct: number | null;
+  withinRemedy: boolean | null;
+}
+
 export interface MintReceipt {
   crypto_id: number;
   symbol: string;
@@ -128,6 +140,7 @@ export interface WrapperResult {
   reason: string;
   error?: string;
   mintReceipt?: MintReceipt;
+  proof?: ProofStep;
   today?: { price: number | null; supply: number | null; volume24h: number | null; capturedUtc: string };
 }
 

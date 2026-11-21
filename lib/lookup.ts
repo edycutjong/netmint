@@ -17,7 +17,7 @@ import { mintCheck } from './flow/mintCheck';
 import { decideVerdict } from './flow/verdict';
 import type { Offset } from './flow/params';
 import { chainLegs, legSupplies, sourceOf, summed } from './chain/supply';
-import type { LookupResult, LookupWindow, MintReceipt, RawDailyRow, WrapperResult } from './types';
+import type { LookupResult, LookupWindow, MintReceipt, ProofStep, RawDailyRow, WrapperResult } from './types';
 
 export class LookupFailure extends Error {
   constructor(
@@ -173,14 +173,37 @@ export function evaluateWrapper(
   });
   const v = decideVerdict(metrics, mint);
   const verified = v.verdict === 'REAL_INFLOW' || v.verdict === 'OUTFLOW';
-  const mintReceipt = verified ? pickMintReceipt(base.cryptoId, mint.stepDays.map((s) => s.date)) : undefined;
-  return { ...base, series: accepted, refused, metrics, mint, verdict: v.verdict, reason: v.reason, mintReceipt };
+  const proof = proofStep(accepted, metrics, summed(legs), d, mint.comparator);
+  const stepDates = [...(proof ? [proof.date] : []), ...mint.stepDays.map((s) => s.date)];
+  const mintReceipt = verified ? pickMintReceipt(base.cryptoId, stepDates) : undefined;
+  return { ...base, series: accepted, refused, metrics, mint, verdict: v.verdict, reason: v.reason, mintReceipt, proof };
+}
+
+/** Largest |flow| day in the window: CMC one-day step (comparator field) vs the chain's one-day step at the frozen d. */
+export function proofStep(
+  series: WrapperResult['series'],
+  metrics: NonNullable<WrapperResult['metrics']>,
+  chainAt: (date: string) => number | null,
+  d: Offset,
+  field: ProofStep['field'],
+): ProofStep | undefined {
+  const top = [...metrics.flows].sort((a, b) => Math.abs(b.flow) - Math.abs(a.flow))[0];
+  if (!top) return undefined;
+  const i = series.findIndex((p) => p.date === top.date);
+  if (i < 1) return undefined;
+  const val = (p: (typeof series)[number]) => (field === 'total_supply' ? (p.totalSupply ?? p.supply) : p.supply);
+  const cmcStep = val(series[i]) - val(series[i - 1]);
+  const cd: [string, string] = [addDays(series[i - 1].date, d), addDays(series[i].date, d)];
+  const c0 = chainAt(cd[0]), c1 = chainAt(cd[1]);
+  const chainStep = c0 !== null && c1 !== null ? c1 - c0 : null;
+  const errPct = chainStep !== null && cmcStep !== 0 ? (chainStep - cmcStep) / Math.abs(cmcStep) : null;
+  return { date: series[i].date, prevDate: series[i - 1].date, field, cmcStep, chainStep, chainDates: cd, errPct, withinRemedy: errPct === null ? null : Math.abs(errPct) <= 0.1 };
 }
 
 function pickMintReceipt(cryptoId: number, stepDates: string[]): MintReceipt | undefined {
   const mine = cachedMints().filter((m) => m.crypto_id === cryptoId);
   for (const d of stepDates) {
-    const hit = mine.find((m) => m.date === d || m.date === addDays(d, -1));
+    const hit = mine.find((m) => m.date === d); // mints.json date D = the chain step between block_at(D−1) and block_at(D)
     if (hit) return hit;
   }
   return undefined;
