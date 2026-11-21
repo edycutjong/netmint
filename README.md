@@ -1,8 +1,8 @@
 <div align="center">
   <img src="docs/assets/icon.svg" alt="NetMint icon" width="144">
   <h1>NetMint ⚖️</h1>
-  <p><em>CoinMarketCap records every tokenised stock's supply but never shows the money behind it: NVDAB's supply went ×7.1 in 30 days, +$202.83M of net creation, and the chain confirms it.</em></p>
-  <img src="docs/assets/readme-hero-animated.svg" alt="NetMint puts each tokenised-stock supply step on trial against the chain. A pencilled supply jump meets the chain, lands within remedy, and the hallmark REAL INFLOW strikes beside +$202.83M." width="100%">
+  <p><em>For a holder of a tokenised stock, a supply jump on CoinMarketCap can be new tokens or a data change. NetMint turns CMC's daily supply history into dollars created or redeemed per wrapper and checks the jump on chain: NVDAB's supply went ×7.1 in 30 days while the price fell 41%, +$202.83M of net creation, confirmed on BNB Chain.</em></p>
+  <img src="docs/assets/readme-hero-animated.svg" alt="NetMint puts tokenised-stock supply steps on trial against the chain. A pencilled supply jump meets the chain, lands within tolerance (the remedy), and the hallmark REAL INFLOW strikes beside +$202.83M." width="100%">
 
   <br/>
 
@@ -40,14 +40,16 @@ A holder sees prices that move together and supplies that move apart, and nothin
 data artefact, a listing change, or a move on a chain nobody reads.
 
 ### The Solution
-NetMint turns CMC's daily supply history into **net creation and redemption in USD per wrapper** (Δsupply × price) and puts every
-supply step it relies on **on trial against the chain**: the day's CMC move must match the on-chain `totalSupply` step within
-±10%, and a sampled mint is traced to its transaction. Then it stamps one verdict:
+NetMint turns CMC's daily supply history into **net creation and redemption in USD per wrapper** (Δsupply × price) and puts the
+window change and the largest step days (up to five, until they carry 80% of gross flow) **on trial against the chain**: each CMC
+move must match the on-chain `totalSupply` move within a ±10% tolerance (the app calls it the remedy), and a sampled mint is traced
+to its transaction. Dollars use CMC's `circulating_supply` × price; the trial compares CMC's `total_supply` with the chain's
+`totalSupply`, and a guard requires the circulating and total moves to agree, else NOT VERIFIABLE. Then it stamps one verdict:
 
 | Verdict | Meaning |
 |---|---|
 | **REAL INFLOW** / **OUTFLOW** | verified net creation / redemption at issuer level. Not buyer data. |
-| **RECOUNT** | CMC's supply moved and the chain did not |
+| **RECOUNT** | CMC's supply step and the summed chains' step disagree beyond tolerance (the chain may have moved, by a different amount) |
 | **NOT VERIFIABLE** | the move may sit on a chain NetMint cannot read (Solana, Arbitrum, Base, Robinhood Chain, X Layer), or the check cannot certify it |
 | **FLAT** | below the materiality threshold; not put to trial |
 
@@ -55,8 +57,9 @@ The verdict is computed by fixed code ([`lib/flow/verdict.ts`](lib/flow/verdict.
 is investment advice.
 
 **The headline case, measured:** NVDAB's CMC supply rose +1,209,739 units; the chain's `totalSupply` rose +1,216,792 (+0.6%
-apart, tolerance ±10%). The 5 largest step days (3-day sums) all matched within remedy. For each of 7 step days we sampled the one mint at the block where on-chain supply
-crossed that day's halfway point; all 7 went to a single recipient, `0x5948…adad1`. The sampled mint for the 2026-11-13 step (`0xa239f888…15266c`, block 133,127,844, 2026-11-12 08:25 UTC; 640 units) is
+apart, tolerance ±10%). The 5 largest step days (3-day sums) all matched within tolerance. On the hero card the 1-day step 2026-11-12 → 13 reads CMC +406,140 vs chain
++393,976 (−3.0%); the trial itself uses the 3-day sum for that day (CMC 522,505 vs chain 535,910, +2.6%). For 7 step days (the 5 checked plus
+2026-11-12 and 2026-11-19) we sampled the one mint at the block where on-chain supply crossed that day's halfway point; all 7 went to a single recipient, `0x5948…adad1`. The sampled mint for the 2026-11-13 step (`0xa239f888…15266c`, block 133,127,844, 2026-11-12 08:25 UTC; 640 units) is
 0.16% of that day's on-chain step, so it shows who receives mints, not how big the creation was; a single recipient is consistent with issuer-level creation rather than retail buying.
 
 ## 🏗️ Architecture & Tech Stack
@@ -67,13 +70,14 @@ crossed that day's halfway point; all 7 went to a single recipient, `0x5948…ad
 |---|---|
 | App | Next.js (App Router) + TypeScript on Vercel; one route handler, `/api/lookup`, runs the flow |
 | Sponsor data | CoinMarketCap Pro API, key server-side only (the key never reaches a response) |
-| Chain check | Alchemy archive JSON-RPC, `eth_call totalSupply` at day-boundary blocks on BNB Smart Chain + Ethereum; committed daily baseline in `data/chain-supply/` |
+| Chain check | `totalSupply` at day-boundary blocks on BNB Smart Chain + Ethereum: the committed daily baseline in `data/chain-supply/` (to 2026-11-21) answers first; a day it lacks is read live with Alchemy archive JSON-RPC `eth_call` |
 | Tests | Vitest, 201 tests in 8 files |
 | Routes | `/` hero · `/u/<ticker>` lookup · `/flows` leaderboard · `/api/lookup` · `/api/holders` · `/api/health` |
 
 ## 🏆 CoinMarketCap Integration
 
-Seven CMC endpoints are called live, with credits counted per lookup (`npm run demo -- NVDA` = 5 calls, 7 credits, 1.8 s).
+Seven CMC endpoints are called live: five on every lookup (`npm run demo -- NVDA` = 5 calls, 7 credits, 1.8 s), `/v1/dex/holders/count`
+for the holder panel on `/u/<ticker>`, and `/v1/key/info` for `/api/health`.
 Verbatim bodies for every call are committed in [`docs/proof/spike/`](docs/proof/spike/) and
 [`evidence/2026-11-21/nvda-30d/`](evidence/2026-11-21/nvda-30d/); the same bodies appear in the app's receipt drawer.
 
@@ -102,8 +106,12 @@ NOT VERIFIABLE  NVDAX    Backed Assets  cov 14.5%  86% of supply sits outside BN
 `quotes/historical` back-fills daily circulating supply for every tokenised wrapper, and `v5/real-world-assets` ties wrappers to
 one underlying stock. Together they make a cross-issuer flow table possible without scraping each issuer's site (12 issuers in the top-20 universe). The `/flows`
 page ranks the top 20 underlyings (152 wrappers): over 30 days the checks verified 6 REAL INFLOW + 3 OUTFLOW, flagged 12
-RECOUNT, and returned NOT VERIFIABLE for 107, mostly wrappers whose supply sits on chains with no historical supply source
-([`evidence/2026-11-21/flows-30d.json`](evidence/2026-11-21/flows-30d.json), 129 credits).
+RECOUNT, and returned NOT VERIFIABLE for 107, mostly wrappers whose supply sits on chains NetMint does not read yet
+([`evidence/2026-11-21/flows-30d.json`](evidence/2026-11-21/flows-30d.json), 129 credits). The full count: 152 = 9 verified + 12 RECOUNT + 107 NOT VERIFIABLE
++ 4 FLAT (moved under $250K, not tried) + 20 with no usable daily history. All 12 RECOUNT rows are bStocks: their wrappers sit on BNB Chain
+with summed chain coverage of 92–100%, so a failed step has nowhere else to sit; Ondo wrappers also list Robinhood Chain, so a failed
+step there routes to NOT VERIFIABLE (5 of Ondo's 11 NOT VERIFIABLE rows). The issuer day offset is not fitted to the hero: bStocks' d = 0 won 334 of 392 step-day votes across
+its wrappers ([`data/offsets.json`](data/offsets.json)).
 
 ### Where it got in the way
 - `quotes/historical` with `convert=<fiat>` multiplies `circulating_supply` by the exchange rate and scales `percent_change_24h`
@@ -114,8 +122,12 @@ RECOUNT, and returned NOT VERIFIABLE for 107, mostly wrappers whose supply sits 
   [`docs/proof/spike/`](docs/proof/spike/)), so the holder panel uses the count endpoint only.
 - Plan limits are real: CMC's pricing page lists daily `quotes/historical` for Basic at one year of depth ([`basic-tier.json`](docs/proof/spike/basic-tier.json));
   we could not test a Basic key. The one plan error we observed (1006, on `/v1/blockchain/statistics/latest`) is in
-  [`plan-errors.json`](docs/proof/spike/plan-errors.json). Our event key (2M credits/month, 750 req/min per `/v1/key/info`) reverts to the free Basic tier when submissions close (9 Dec 23:59 UTC), so after that the click falls back to `mode: "live-stored"`: stored dated CMC bodies plus live chain reads, labelled
-  as such in the receipts. A window outside the stored bodies then shows the verbatim plan error, not a guess.
+  [`plan-errors.json`](docs/proof/spike/plan-errors.json). Our event key (2M credits/month, 750 req/min per `/v1/key/info`) is expected to revert to the free Basic tier when submissions close (9 Dec 23:59 UTC).
+  The click still calls CMC live. If CMC refuses a call with a plan error, a stored dated CMC body answers that one call (`mode: "live-stored"`,
+  the receipt shows the refused call, then the stored body with its capture date), the verdict is re-run, and if no endpoint answered live the
+  click also calls `/v1/key/info` (0 credits) so a live CMC call stands behind every click. Chain supply comes from the committed baseline, as on
+  every click. A window outside the stored bodies shows the verbatim plan error, not a guess. The path is tested with a simulated plan refusal
+  (`tests/stored.test.ts`); it has not yet run against a real Basic key.
 - The daily point closes at 00:00 UTC, so one day offset is fixed per issuer from the step alignment; ambiguous alignment
   yields NOT VERIFIABLE, never RECOUNT.
 
@@ -215,8 +227,9 @@ The visual identity (`docs/assets/`) was generated for NetMint during the event.
 1. **We first called supply growth "inflow from holders".** Every sampled mint is a Transfer from the zero address, so a minter executed it, and all 7 NVDAB mints we sampled
    (one per step day) went to one address. It is issuer-level creation, so the wording is now "net creation", counted like an ETF flow.
 2. **We nearly called NVDAX's July–August fall a real redemption.** Most of it was one day, 2026-07-31, when at least 4 Backed/xStocks
-   wrappers (NVDAX, AAPLX, INTCX, MUx) dropped together: a CMC circulating/total split, not a redemption. `docs/proof/calibration/history-baseline.json` holds the series. Every figure now carries its window, and
-   unverified moves get NOT VERIFIABLE. (Observed during development; not part of the committed evidence.)
+   wrappers (NVDAX, AAPLX, INTCX, MUx) dropped together: a CMC circulating/total split, not a redemption. NVDAX's `circulating_supply`
+   went 659,169 → 178,276 that day while its `total_supply` went 659,169 → 953,133 (the CMC response is committed in
+   `docs/proof/calibration/history-baseline.json`). Every figure now carries its window, and unverified moves get NOT VERIFIABLE.
 3. **One chain showed 44% of NVDAon's CMC supply.** CMC's figure is the sum over chains, so the check sums legs too.
 4. **The hero scale note was wrong on first draft.** "Supply ×7.1" is CMC's ratio; the chain's own ratio is 7.42 and the start
    value read 3.9% lower. The page and this README say "CMC supply ×7.1".
