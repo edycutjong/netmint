@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-11-21T01:05:36.584Z",
+ "generated_utc": "2026-11-21T01:20:51.002Z",
  "command": "npm run spike",
  "rows": [
   {
@@ -12,7 +12,7 @@
    "error_code": 0,
    "error_message": null,
    "credit_count": 0,
-   "elapsed_ms": 319,
+   "elapsed_ms": 316,
    "ok": true
   },
   {
@@ -28,7 +28,7 @@
    "error_code": 0,
    "error_message": "",
    "credit_count": 1,
-   "elapsed_ms": 502,
+   "elapsed_ms": 487,
    "ok": true
   },
   {
@@ -44,7 +44,7 @@
    "error_code": 0,
    "error_message": "",
    "credit_count": 1,
-   "elapsed_ms": 734,
+   "elapsed_ms": 265,
    "ok": true
   },
   {
@@ -59,7 +59,7 @@
    "error_code": 0,
    "error_message": "",
    "credit_count": 1,
-   "elapsed_ms": 245,
+   "elapsed_ms": 727,
    "ok": true,
    "note": "rwa_id=2"
   },
@@ -78,7 +78,7 @@
    "error_code": 0,
    "error_message": null,
    "credit_count": 1,
-   "elapsed_ms": 268,
+   "elapsed_ms": 278,
    "ok": true
   },
   {
@@ -96,7 +96,7 @@
    "error_code": 0,
    "error_message": null,
    "credit_count": 1,
-   "elapsed_ms": 260,
+   "elapsed_ms": 731,
    "ok": true,
    "note": "depth probe"
   },
@@ -113,7 +113,7 @@
    "error_code": 0,
    "error_message": null,
    "credit_count": 1,
-   "elapsed_ms": 268,
+   "elapsed_ms": 271,
    "ok": true
   },
   {
@@ -129,7 +129,7 @@
    "error_code": 0,
    "error_message": "",
    "credit_count": 1,
-   "elapsed_ms": 425,
+   "elapsed_ms": 918,
    "ok": true
   },
   {
@@ -144,7 +144,7 @@
    "error_code": 0,
    "error_message": null,
    "credit_count": 1,
-   "elapsed_ms": 764,
+   "elapsed_ms": 759,
    "ok": true
   },
   {
@@ -157,7 +157,7 @@
    "error_code": 400,
    "error_message": "Parameter error",
    "credit_count": 0,
-   "elapsed_ms": 413,
+   "elapsed_ms": 894,
    "ok": false,
    "note": "body={\"platform\":\"bsc\",\"tokenAddress\":\"0x02fca66c1d1afb4e2a7884261eb00f63598a7436\",\"limit\":20}"
   },
@@ -175,7 +175,7 @@
    "error_code": 4002,
    "error_message": "Missing required parameter.",
    "credit_count": 0,
-   "elapsed_ms": 729,
+   "elapsed_ms": 272,
    "ok": false,
    "note": "query"
   },
@@ -193,7 +193,7 @@
    "error_code": 0,
    "error_message": null,
    "credit_count": null,
-   "elapsed_ms": 253,
+   "elapsed_ms": 248,
    "ok": false,
    "note": "query"
   },
@@ -207,7 +207,7 @@
    "error_code": 400,
    "error_message": "Parameter error",
    "credit_count": 0,
-   "elapsed_ms": 431,
+   "elapsed_ms": 407,
    "ok": false,
    "note": "body={\"network\":\"bsc\",\"address\":\"0x02fca66c1d1afb4e2a7884261eb00f63598a7436\",\"page\":1,\"pageSize\":20}"
   },
@@ -223,9 +223,26 @@
    "error_code": 1006,
    "error_message": "Your API Key subscription plan doesn't support this endpoint.",
    "credit_count": 0,
-   "elapsed_ms": 721,
+   "elapsed_ms": 248,
    "ok": false,
    "note": "plan probe"
+  },
+  {
+   "n": "E3",
+   "file": "validation-probe-rwa-list-limit-500.json",
+   "endpoint": "/v5/real-world-assets/assets/list",
+   "params": {
+    "start": "1",
+    "limit": "500"
+   },
+   "method": "GET",
+   "http": 400,
+   "error_code": 4001,
+   "error_message": "Invalid parameter.",
+   "credit_count": 0,
+   "elapsed_ms": 243,
+   "ok": false,
+   "note": "validation probe"
   },
   {
    "n": "E2",
@@ -237,9 +254,10 @@
    "error_code": 1001,
    "error_message": "This API Key is invalid.",
    "credit_count": 0,
-   "elapsed_ms": 237,
+   "elapsed_ms": 252,
    "ok": false,
    "note": "invalid key probe"
   }
- ]
+ ],
+ "holders_list_verdict": "POST /v1/dex/holders/list: 4 request shapes tried (8a JSON platform/tokenAddress/limit \u2192 400 Parameter error; 8b query params, no body \u2192 4002 body required; 8c GET \u2192 405; 8d JSON network/address/page/pageSize \u2192 400). A JSON POST body is required, but no accepted body was found. Treated as unavailable: the holder panel uses /v1/dex/holders/count per chain only. Do not re-probe without a documented body."
 }

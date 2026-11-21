@@ -8,12 +8,12 @@
    "limit": "20"
   },
   "http_status": 400,
-  "started_utc": "2026-11-21T01:05:34.208Z",
-  "elapsed_ms": 729
+  "started_utc": "2026-11-21T01:20:49.324Z",
+  "elapsed_ms": 272
  },
  "body": {
   "status": {
-   "timestamp": "2026-11-21T01:05:34.814Z",
+   "timestamp": "2026-11-21T01:20:49.474Z",
    "error_code": "4002",
    "error_message": "Missing required parameter.",
    "elapsed": 0,

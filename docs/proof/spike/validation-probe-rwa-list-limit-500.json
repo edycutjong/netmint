@@ -1,0 +1,24 @@
+{
+ "receipt": {
+  "endpoint": "/v5/real-world-assets/assets/list",
+  "method": "GET",
+  "params": {
+   "start": "1",
+   "limit": "500"
+  },
+  "http_status": 400,
+  "started_utc": "2026-11-21T01:20:50.505Z",
+  "elapsed_ms": 243
+ },
+ "body": {
+  "status": {
+   "timestamp": "2026-11-21T01:20:50.630Z",
+   "error_code": "4001",
+   "error_message": "Invalid parameter.",
+   "elapsed": 1,
+   "credit_count": 0,
+   "category": "VALIDATION",
+   "error_detail": "\"limit\" must be between 1 and 250"
+  }
+ }
+}

@@ -1,5 +1,5 @@
 /**
- * P1a spike: call every CMC endpoint the core flow uses, live, and save each
+ * Spike: call every CMC endpoint the core flow uses, live, and save each
  * verbatim response to docs/proof/spike/. Prints one line per endpoint with
  * HTTP status, CMC error_code, credit_count and latency.
  *
@@ -98,9 +98,12 @@ async function main() {
   // plan/entitlement error codes (for the revert classifier): endpoints outside a Growth-style plan
   // (listings/historical, market-pairs, price-performance-stats are all inside this key's plan; blockchain/statistics is not)
   save('E1', 'plan-error-probe-blockchain-statistics.json', await cmcFetch('/v1/blockchain/statistics/latest', { id: '1' }), 'plan probe');
+  save('E3', 'validation-probe-rwa-list-limit-500.json', await cmcFetch('/v5/real-world-assets/assets/list', { start: '1', limit: '500' }), 'validation probe');
   save('E2', 'plan-error-probe-bad-key.json', await cmcFetch('/v1/key/info', {}, { apiKey: '00000000-0000-0000-0000-000000000000' }), 'invalid key probe');
 
-  const summary = { generated_utc: new Date().toISOString(), command: 'npm run spike', rows };
+  const holders_list_verdict =
+    "POST /v1/dex/holders/list: 4 request shapes tried (8a JSON platform/tokenAddress/limit \u2192 400 Parameter error; 8b query params, no body \u2192 4002 body required; 8c GET \u2192 405; 8d JSON network/address/page/pageSize \u2192 400). A JSON POST body is required, but no accepted body was found. Treated as unavailable: the holder panel uses /v1/dex/holders/count per chain only. Do not re-probe without a documented body.";
+  const summary = { generated_utc: new Date().toISOString(), command: 'npm run spike', holders_list_verdict, rows };
   const text = JSON.stringify(summary, null, 1);
   assertNoSecrets(text);
   writeFileSync(path.join(OUT, 'summary.json'), text + '\n');

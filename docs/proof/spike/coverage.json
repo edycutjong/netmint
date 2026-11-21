@@ -1,20 +1,20 @@
 {
- "generated_utc": "2026-11-21T01:06:02.958Z",
+ "generated_utc": "2026-11-21T01:21:03.624Z",
  "command": "npm run coverage:supply",
  "underlying": "NVDA",
  "cmc_sources": [
   "docs/proof/spike/info-nvda-family.json",
   "docs/proof/spike/quotes-latest-nvda-family.json"
  ],
- "cmc_capture_utc": "2026-11-21T01:05:33.029Z",
+ "cmc_capture_utc": "2026-11-21T01:20:47.664Z",
  "chain_heads": {
   "bsc": {
-   "n": 134796232,
-   "ts": 1795223162
+   "n": 134798233,
+   "ts": 1795224062
   },
   "eth": {
-   "n": 26460077,
-   "ts": 1795223159
+   "n": 26460151,
+   "ts": 1795224059
   }
  },
  "note": "coverage = (sum of totalSupply on the Ethereum + BNB Smart Chain contracts CMC lists) / CMC total_supply (circulating if total is null). Chain reads at head; CMC values a few minutes older.",
@@ -49,16 +49,16 @@
     {
      "chain": "bsc",
      "address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
-     "block": 134796232,
-     "block_utc": "2026-11-21T01:06:02.000Z",
+     "block": 134798233,
+     "block_utc": "2026-11-21T01:21:02.000Z",
      "decimals": 18,
      "totalSupply": 65839.54938844431
     },
     {
      "chain": "eth",
      "address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
-     "block": 26460077,
-     "block_utc": "2026-11-21T01:05:59.000Z",
+     "block": 26460151,
+     "block_utc": "2026-11-21T01:20:59.000Z",
      "decimals": 18,
      "totalSupply": 110180.53870114523
     }
@@ -97,22 +97,22 @@
     {
      "chain": "eth",
      "address": "0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE",
-     "block": 26460077,
-     "block_utc": "2026-11-21T01:05:59.000Z",
+     "block": 26460151,
+     "block_utc": "2026-11-21T01:20:59.000Z",
      "decimals": 18,
-     "totalSupply": 111448.27467985547
+     "totalSupply": 111444.43491050533
     },
     {
      "chain": "bsc",
      "address": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
-     "block": 134796232,
-     "block_utc": "2026-11-21T01:06:02.000Z",
+     "block": 134798233,
+     "block_utc": "2026-11-21T01:21:02.000Z",
      "decimals": 18,
-     "totalSupply": 93050.253519419
+     "totalSupply": 93036.23652148843
     }
    ],
-   "eth_bsc_total_supply": 204498.52819927447,
-   "coverage_vs_cmc_total": 0.9644208463310114,
+   "eth_bsc_total_supply": 204480.67143199377,
+   "coverage_vs_cmc_total": 0.9643366333111661,
    "verifiable_on_eth_bsc": true
   },
   {
@@ -138,14 +138,14 @@
     {
      "chain": "bsc",
      "address": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
-     "block": 134796232,
-     "block_utc": "2026-11-21T01:06:02.000Z",
+     "block": 134798233,
+     "block_utc": "2026-11-21T01:21:02.000Z",
      "decimals": 18,
-     "totalSupply": 1548560.1918437
+     "totalSupply": 1548754.303817
     }
    ],
-   "eth_bsc_total_supply": 1548560.1918437,
-   "coverage_vs_cmc_total": 0.9996906414426984,
+   "eth_bsc_total_supply": 1548754.303817,
+   "coverage_vs_cmc_total": 0.9998159526344248,
    "verifiable_on_eth_bsc": true
   },
   {

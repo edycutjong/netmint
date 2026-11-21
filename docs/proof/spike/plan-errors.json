@@ -87,13 +87,22 @@
    "error_code": 4001,
    "endpoint": "/v5/real-world-assets/assets/list limit=500",
    "detail": "\"limit\" must be between 1 and 250",
+   "file": "validation-probe-rwa-list-limit-500.json",
    "note": "validation family (4xxx) on v5 endpoints; error_code is a string there"
   },
   {
    "http": 400,
    "error_code": 4002,
-   "endpoint": "POST /v1/dex/holders/list without body",
-   "detail": "'No request body' is required."
+   "endpoint": "POST /v1/dex/holders/list with query params and no JSON body",
+   "detail": "'No request body' is required.",
+   "file": "holders-list-try-8b.json"
+  },
+  {
+   "http": 400,
+   "error_code": 400,
+   "endpoint": "POST /v1/dex/holders/list with a JSON body",
+   "detail": "Parameter error",
+   "file": "holders-list-try-8a.json, holders-list-try-8d.json"
   }
  ],
  "classifier_recommendation": {

@@ -1,20 +1,29 @@
 {
- "captured_utc": "2026-11-21T01:06:59.094602+00:00",
- "question": "Can NetMint verify historical token supply on Solana (xStocks' main chain)?",
- "source": "live call to https://api.mainnet-beta.solana.com (public Solana RPC). The docs page https://solana.com/docs/rpc/http/gettokensupply answered HTTP 429 to our fetch on 2026-11-21, so this finding rests on the live calls below, not on the docs text.",
- "finding": "getTokenSupply returns the CURRENT supply with the current context slot. Passing a past slot (300000000) in the config is silently ignored: both calls return the same context.slot and amount. Standard Solana JSON-RPC gives NetMint no way to read a mint's supply at a past day boundary.",
- "consequence": "Solana legs are reported as 'not verifiable on chain' (NVDAX: 9.7% of CMC total supply sits on Ethereum + BNB Smart Chain, coverage.json); no NVDAX inflow verdict is issued from Solana supply.",
+ "captured_utc": "2026-11-21T01:20:43.273Z",
+ "command": "npm run spike:solana",
+ "question": "Can NetMint read a Solana mint's token supply at a past day boundary through standard JSON-RPC?",
+ "rpc": "https://api.mainnet-beta.solana.com",
+ "token": {
+  "symbol": "NVDAX",
+  "crypto_id": 36992,
+  "chain": "solana",
+  "mint": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh"
+ },
+ "observed": "getTokenSupply returned the current supply with the current context slot both times; the past `slot` passed in the config was ignored (same context.slot and amount).",
+ "docs_note": "The Solana docs page https://solana.com/docs/rpc/http/gettokensupply answered HTTP 429 to our fetch on 2026-11-21, so this records observed behaviour only, not the docs text.",
+ "consequence": "NetMint does not verify Solana legs historically. They are reported as not verifiable on chain; coverage.json gives the share of CMC supply on Ethereum + BNB Smart Chain per wrapper (NVDAX: see coverage.json).",
  "calls": [
   {
    "params": [
     "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh"
    ],
+   "http_status": 200,
    "response": {
     "jsonrpc": "2.0",
     "result": {
      "context": {
       "apiVersion": "4.4.0",
-      "slot": 471948917
+      "slot": 471952731
      },
      "value": {
       "amount": "52892980646244",
@@ -34,12 +43,13 @@
      "slot": 300000000
     }
    ],
+   "http_status": 200,
    "response": {
     "jsonrpc": "2.0",
     "result": {
      "context": {
       "apiVersion": "4.4.0",
-      "slot": 471948917
+      "slot": 471952731
      },
      "value": {
       "amount": "52892980646244",

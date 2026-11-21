@@ -17,7 +17,8 @@
     "blocks": "tsx scripts/build-block-index.ts",
     "chain-supply": "tsx scripts/build-chain-supply.ts",
     "coverage:supply": "tsx scripts/coverage.ts",
-    "spike:chain": "tsx scripts/spike-chain.ts"
+    "spike:chain": "tsx scripts/spike-chain.ts",
+    "spike:solana": "tsx scripts/spike-solana.ts"
   },
   "dependencies": {
     "next": "^15.5.29",

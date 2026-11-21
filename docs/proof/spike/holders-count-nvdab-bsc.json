@@ -7,8 +7,8 @@
    "tokenAddress": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436"
   },
   "http_status": 200,
-  "started_utc": "2026-11-21T01:05:32.603Z",
-  "elapsed_ms": 425
+  "started_utc": "2026-11-21T01:20:46.744Z",
+  "elapsed_ms": 918
  },
  "body": {
   "data": {
@@ -17,10 +17,10 @@
    "tokenAddress": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436"
   },
   "status": {
-   "timestamp": "2026-11-21T01:05:32.908Z",
+   "timestamp": "2026-11-21T01:20:47.535Z",
    "error_code": "0",
    "error_message": "",
-   "elapsed": 183,
+   "elapsed": 188,
    "credit_count": 1
   }
  }

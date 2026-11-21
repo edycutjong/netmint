@@ -9,8 +9,8 @@
    "count": "3"
   },
   "http_status": 200,
-  "started_utc": "2026-11-21T01:05:32.072Z",
-  "elapsed_ms": 260
+  "started_utc": "2026-11-21T01:20:45.736Z",
+  "elapsed_ms": 731
  },
  "body": {
   "data": {
@@ -74,10 +74,10 @@
    ]
   },
   "status": {
-   "timestamp": "2026-11-21T01:05:32.214Z",
+   "timestamp": "2026-11-21T01:20:46.337Z",
    "error_code": 0,
    "error_message": null,
-   "elapsed": 8,
+   "elapsed": 7,
    "credit_count": 1,
    "notice": null
   }

@@ -16,7 +16,7 @@ __pycache__/
 *.pem
 .vercel/
 
-# kitchen guard — private working material never enters this public repo
+# private working files — planning notes never enter this public repo
 specs/
 _ideas/
 _specs/

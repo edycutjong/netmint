@@ -11,7 +11,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { cmcFetch } from '../lib/cmc/client';
-import { rpcBatch, totalSupplyReq, chainFromPlatform, scaleUnits, SEL, hex, type ChainId } from '../lib/chain/rpc';
+import { rpcBatch, totalSupplyReq, chainFromPlatform, scaleUnits, isRevert, SEL, type ChainId } from '../lib/chain/rpc';
 import { loadKeys, assertNoSecrets } from './_env';
 
 loadKeys();
@@ -69,13 +69,24 @@ async function main() {
       const [d] = await rpcBatch(leg.chain, [{ method: 'eth_call', params: [{ to: leg.address, data: SEL.decimals }, 'latest'] }]);
       decimals = parseInt(d, 16);
     }
-    const todo = Object.entries(idx[leg.chain]).filter(([d]) => !(d in days));
+    // null days are re-fetched on every run (a null is only ever written for an empty result or a revert)
+    const todo = Object.entries(idx[leg.chain]).filter(([d]) => days[d] === undefined || days[d] === null);
     for (let i = 0; i < todo.length; i += 40) {
       const chunk = todo.slice(i, i + 40);
-      // one batch; a pre-deployment block returns 0x (no code yet) → null
+      // one batch; if any entry errors, retry singly: a revert (deterministic) → null,
+      // anything else (rate limit, timeout, network) aborts the run so no transient failure is stored
       const res = await rpcBatch<string>(leg.chain, chunk.map(([, b]) => totalSupplyReq(leg.address, b))).catch(async () => {
         const out: (string | null)[] = [];
-        for (const [, b] of chunk) out.push(await rpcBatch<string>(leg.chain, [totalSupplyReq(leg.address, b)]).then((r) => r[0]).catch(() => null));
+        for (const [, b] of chunk) {
+          out.push(
+            await rpcBatch<string>(leg.chain, [totalSupplyReq(leg.address, b)])
+              .then((r) => r[0])
+              .catch((e) => {
+                if (isRevert(e)) return null;
+                throw e;
+              }),
+          );
+        }
         return out;
       });
       chunk.forEach(([d], k) => {
@@ -84,7 +95,7 @@ async function main() {
       });
     }
     const sorted = Object.fromEntries(Object.entries(days).sort(([a], [b]) => a.localeCompare(b)));
-    const out = { chain: leg.chain, address: leg.address, crypto_id: leg.crypto_id, symbol: leg.symbol, decimals, generated_utc: new Date().toISOString(), rule: 'totalSupply at the first block >= 00:00 UTC (data/blocks); null = contract not deployed or call reverted', days: sorted };
+    const out = { chain: leg.chain, address: leg.address, crypto_id: leg.crypto_id, symbol: leg.symbol, decimals, generated_utc: new Date().toISOString(), rule: 'totalSupply at the first block >= 00:00 UTC (data/blocks); null = empty return data or a reverted call at that block (transport errors abort the build instead)', days: sorted };
     writeFileSync(file, JSON.stringify(out, null, 1) + '\n');
     const vals = Object.values(sorted).filter((v): v is number => v !== null);
     manifest.push({ crypto_id: leg.crypto_id, symbol: leg.symbol, chain: leg.chain, address: leg.address, days: vals.length, first: vals[0] ?? null, last: vals.at(-1) ?? null });

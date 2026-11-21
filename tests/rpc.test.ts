@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { chainFromPlatform, scaleUnits, totalSupplyReq, hex } from '@/lib/chain/rpc';
+import { chainFromPlatform, scaleUnits, totalSupplyReq, hex, isRevert, RpcError } from '@/lib/chain/rpc';
 import { cmcErrorCode } from '@/lib/cmc/client';
 
 describe('chain helpers', () => {
@@ -14,7 +14,13 @@ describe('chain helpers', () => {
   it('scales uint256 totalSupply by decimals without losing whole units', () => {
     expect(scaleUnits('0x' + (1_548_560n * 10n ** 18n + 5n * 10n ** 17n).toString(16), 18)).toBe(1_548_560.5);
     expect(scaleUnits('0x0', 18)).toBe(0);
-    expect(scaleUnits('0x', 8)).toBe(0);
+    expect(() => scaleUnits('0x', 8)).toThrow(/empty eth_call/);
+  });
+
+  it('tells a reverted call from a transport failure', () => {
+    expect(isRevert(new RpcError('bsc RPC: execution reverted', 3))).toBe(true);
+    expect(isRevert(new RpcError('bsc RPC HTTP 429'))).toBe(false);
+    expect(isRevert(new Error('fetch failed'))).toBe(false);
   });
 
   it('builds a totalSupply eth_call at a hex block', () => {

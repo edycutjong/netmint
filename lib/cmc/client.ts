@@ -65,6 +65,7 @@ export async function cmcFetch<T = unknown>(
   }
   const status =
     body && typeof body === 'object' && 'status' in body ? ((body as { status: CmcStatus }).status ?? null) : null;
-  const ok = res.ok && cmcErrorCode(status) === 0;
+  // a 200 without a CMC status object (HTML interstitial, proxy page) is not a success
+  const ok = res.ok && status !== null && cmcErrorCode(status) === 0;
   return { endpoint, params, method, httpStatus: res.status, ok, startedUtc, elapsedMs, status, body: body as T };
 }

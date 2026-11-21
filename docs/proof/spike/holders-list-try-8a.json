@@ -4,15 +4,15 @@
   "method": "POST",
   "params": {},
   "http_status": 400,
-  "started_utc": "2026-11-21T01:05:33.795Z",
-  "elapsed_ms": 413
+  "started_utc": "2026-11-21T01:20:48.428Z",
+  "elapsed_ms": 894
  },
  "body": {
   "status": {
-   "timestamp": "2026-11-21T01:05:34.088Z",
+   "timestamp": "2026-11-21T01:20:49.199Z",
    "error_code": "400",
    "error_message": "Parameter error",
-   "elapsed": 168,
+   "elapsed": 177,
    "credit_count": 0
   }
  }

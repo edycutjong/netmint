@@ -8,14 +8,14 @@
    "limit": "20"
   },
   "http_status": 405,
-  "started_utc": "2026-11-21T01:05:34.938Z",
-  "elapsed_ms": 253
+  "started_utc": "2026-11-21T01:20:49.598Z",
+  "elapsed_ms": 248
  },
  "body": {
-  "timestamp": 1795223135069,
+  "timestamp": 1795224049723,
   "path": "/v1/dex/holders/list",
   "status": 405,
   "error": "Method Not Allowed",
-  "requestId": "e07d04ea-1075668"
+  "requestId": "95d4c692-1092004"
  }
 }

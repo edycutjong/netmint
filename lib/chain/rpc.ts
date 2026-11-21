@@ -78,6 +78,11 @@ export async function rpc<T = string>(chain: ChainId, method: string, params: un
   return r;
 }
 
+/** JSON-RPC error that means the call itself reverted / hit no code (deterministic), vs. a transport failure. */
+export function isRevert(e: unknown): boolean {
+  return e instanceof RpcError && (e.code === 3 || /revert|execution reverted|invalid opcode/i.test(e.message));
+}
+
 export const hex = (n: number | bigint) => '0x' + n.toString(16);
 
 /** ERC-20 selectors */
@@ -90,7 +95,9 @@ export const totalSupplyReq = (token: string, block: number | 'latest'): RpcReq 
 
 /** Scale a uint256 hex string by `decimals` into a JS number (precision is fine for supply in units). */
 export function scaleUnits(raw: string, decimals: number): number {
-  const v = BigInt(raw === '0x' ? '0x0' : raw);
+  // '0x' = empty return data (no contract at that block, or not an ERC-20): never read it as zero supply
+  if (raw === '0x' || raw === '') throw new RpcError('empty eth_call result (no contract at this block?)');
+  const v = BigInt(raw);
   const base = 10n ** BigInt(decimals);
   const whole = v / base;
   const frac = v % base;

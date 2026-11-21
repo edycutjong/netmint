@@ -1,5 +1,5 @@
 {
- "captured_utc": "2026-11-21T01:10:00Z",
+ "captured_utc": "2026-11-21 (page read once; time not recorded to the second)",
  "source": "https://coinmarketcap.com/api/pricing/ (read 2026-11-21; page footer \u00a9 2026, no version shown)",
  "plans": {
   "Basic": {
@@ -52,7 +52,7 @@
   "3 /v2/cryptocurrency/quotes/historical (daily)": "listed for Basic at 1 year depth (Historical row 'Quotes Historical Daily (1d-1y)')",
   "4 /v2/cryptocurrency/info": "not determinable from the page (metadata listed, no per-plan marker)",
   "5 /v1/dex/holders/count": "not determinable from the page",
-  "6 /v2/cryptocurrency/quotes/latest": "FAQ: Basic includes 'latest pricing'",
+  "6 /v2/cryptocurrency/quotes/latest": "inferred from FAQ wording only (Basic 'includes ... latest pricing'); no per-plan marker",
   "7 /v1/key/info": "not listed on the pricing page"
  },
  "this_key_observed": {
@@ -63,5 +63,6 @@
   "source": "key-info.json"
  },
  "consequence": "If the event key reverts to Basic on 10 Dec, the pricing table says daily quotes/historical stays available with 1 year depth at 15,000 credits/month and 50 rpm, which covers NetMint's 2026-07-20+ window. The live-stored fallback remains for the case where the reverted key is refused anyway (classified 1006 plan error) or the credit cap is hit (1010).",
- "unverified": "Per-endpoint inclusion on Basic can only be confirmed by calling with a Basic key; none is available to this project."
+ "unverified": "Per-endpoint inclusion on Basic can only be confirmed by calling with a Basic key; none is available to this project.",
+ "transcription": "Plan table transcribed by hand from the page text; no copy of the page is stored."
 }

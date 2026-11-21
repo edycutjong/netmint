@@ -7,8 +7,8 @@
    "aux": "platform"
   },
   "http_status": 200,
-  "started_utc": "2026-11-21T01:05:32.333Z",
-  "elapsed_ms": 268
+  "started_utc": "2026-11-21T01:20:46.469Z",
+  "elapsed_ms": 271
  },
  "body": {
   "data": {
@@ -558,10 +558,10 @@
    }
   },
   "status": {
-   "timestamp": "2026-11-21T01:05:32.482Z",
+   "timestamp": "2026-11-21T01:20:46.610Z",
    "error_code": 0,
    "error_message": null,
-   "elapsed": 15,
+   "elapsed": 13,
    "credit_count": 1,
    "notice": null
   }
