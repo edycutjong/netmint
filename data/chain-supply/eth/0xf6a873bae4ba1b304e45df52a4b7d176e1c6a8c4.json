@@ -4,8 +4,8 @@
  "crypto_id": 40175,
  "symbol": "MUx",
  "decimals": 18,
- "generated_utc": "2026-11-21T01:12:24.166Z",
- "rule": "totalSupply at the first block >= 00:00 UTC (data/blocks); null = contract not deployed or call reverted",
+ "generated_utc": "2026-11-21T02:59:15.644Z",
+ "rule": "totalSupply at the first block >= 00:00 UTC (data/blocks); null = empty return data or a reverted call at that block (transport errors abort the build instead)",
  "days": {
   "2026-07-20": 35214.136271965566,
   "2026-07-21": 35214.136271965566,

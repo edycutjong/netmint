@@ -4,8 +4,8 @@
  "crypto_id": 40813,
  "symbol": "SKHYB",
  "decimals": 18,
- "generated_utc": "2026-11-21T01:11:54.756Z",
- "rule": "totalSupply at the first block >= 00:00 UTC (data/blocks); null = contract not deployed or call reverted",
+ "generated_utc": "2026-11-21T02:58:57.892Z",
+ "rule": "totalSupply at the first block >= 00:00 UTC (data/blocks); null = empty return data or a reverted call at that block (transport errors abort the build instead)",
  "days": {
   "2026-07-20": 50067.30370422,
   "2026-07-21": 56714.85626706,

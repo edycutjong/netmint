@@ -4,8 +4,8 @@
  "crypto_id": 40212,
  "symbol": "MUB",
  "decimals": 18,
- "generated_utc": "2026-11-21T01:11:46.693Z",
- "rule": "totalSupply at the first block >= 00:00 UTC (data/blocks); null = contract not deployed or call reverted",
+ "generated_utc": "2026-11-21T02:57:53.180Z",
+ "rule": "totalSupply at the first block >= 00:00 UTC (data/blocks); null = empty return data or a reverted call at that block (transport errors abort the build instead)",
  "days": {
   "2026-07-20": 83873.21108814,
   "2026-07-21": 85502.52550751,

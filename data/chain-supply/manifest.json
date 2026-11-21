@@ -1,26 +1,169 @@
 {
- "generated_utc": "2026-11-21T01:12:53.650Z",
+ "generated_utc": "2026-11-21T03:08:58.032Z",
  "wrappers": [
-  36992,
-  38093,
   40215,
-  28616,
-  37270,
-  40605,
-  40685,
-  42461,
-  40216,
+  36992,
   40217,
-  40212,
-  40813,
   40793,
+  40218,
+  40212,
+  37013,
+  37004,
+  40643,
   40540,
-  40536,
-  40175,
+  40216,
+  38093,
+  38029,
   37028,
-  36994
+  40813,
+  38014,
+  40175,
+  38001,
+  40685,
+  40214,
+  40232,
+  40668,
+  40238,
+  36994,
+  40613,
+  40605,
+  40786,
+  38065,
+  39247,
+  38083,
+  42421,
+  37014,
+  37055,
+  40846,
+  40882,
+  42461,
+  40757,
+  40852,
+  37056,
+  38037,
+  38075,
+  40845,
+  40848,
+  38035,
+  38086,
+  40780,
+  42272,
+  37021,
+  38089,
+  42440,
+  37050,
+  40927,
+  40592,
+  40616,
+  38062,
+  40538,
+  40691,
+  42487,
+  37059,
+  37656,
+  40696,
+  42383,
+  40929,
+  40618,
+  40703,
+  38073,
+  38009,
+  40607,
+  40589,
+  42425,
+  40817,
+  40833,
+  37062,
+  38027,
+  40037,
+  40718,
+  39788,
+  42490,
+  42478,
+  40614,
+  42427,
+  40624,
+  38076,
+  40604,
+  40687,
+  40601,
+  40590,
+  40689,
+  40697,
+  37270,
+  40695,
+  42494,
+  40769,
+  42431,
+  40648,
+  40609,
+  40823,
+  37227,
+  40700,
+  40602,
+  40654,
+  40018,
+  40815,
+  42473,
+  40603,
+  40598,
+  37121,
+  37269,
+  42462,
+  40739,
+  40655,
+  40773,
+  42432,
+  42469,
+  42557,
+  40656,
+  37211,
+  37214,
+  40705,
+  42895,
+  40723,
+  42505,
+  42419,
+  37202,
+  37213,
+  37129,
+  42585,
+  37112,
+  39618,
+  37218,
+  37220,
+  42659,
+  39624,
+  28624,
+  28632,
+  39619,
+  37126,
+  39622,
+  28634,
+  39615,
+  28621,
+  39616,
+  28618,
+  28616,
+  37068,
+  28626,
+  41115,
+  41636,
+  41523,
+  41493,
+  41610,
+  41688
  ],
  "legs": [
+  {
+   "crypto_id": 40215,
+   "symbol": "NVDAB",
+   "chain": "bsc",
+   "address": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+   "days": 125,
+   "first": 37792.38886162,
+   "last": 1406371.94093158
+  },
   {
    "crypto_id": 36992,
    "symbol": "NVDAX",
@@ -38,6 +181,105 @@
    "days": 125,
    "first": 110094.40055073447,
    "last": 110180.53870114523
+  },
+  {
+   "crypto_id": 40217,
+   "symbol": "SPCXB",
+   "chain": "bsc",
+   "address": "0xbe9d156892e55e7154bcd3cb0fea677f9d3103e1",
+   "days": 125,
+   "first": 650864.79808918,
+   "last": 840617.53089944
+  },
+  {
+   "crypto_id": 40793,
+   "symbol": "GOOGLB",
+   "chain": "bsc",
+   "address": "0x3f53de71c126bdabae20f9cd64848d317f6c3238",
+   "days": 125,
+   "first": 4934.23517909,
+   "last": 325010.46076326
+  },
+  {
+   "crypto_id": 40218,
+   "symbol": "SPCXx",
+   "chain": "eth",
+   "address": "0x68fa48b1c2fe52b3d776e1953e0e782b5044ce28",
+   "days": 125,
+   "first": 320000,
+   "last": 320000
+  },
+  {
+   "crypto_id": 40218,
+   "symbol": "SPCXx",
+   "chain": "bsc",
+   "address": "0x68fa48b1c2fe52b3d776e1953e0e782b5044ce28",
+   "days": 125,
+   "first": 30000,
+   "last": 45416.040390025824
+  },
+  {
+   "crypto_id": 40212,
+   "symbol": "MUB",
+   "chain": "bsc",
+   "address": "0xcdf2f3e0fa43c47a6662a91c9e4a7c5f69762699",
+   "days": 125,
+   "first": 83873.21108814,
+   "last": 120046.77256806
+  },
+  {
+   "crypto_id": 37013,
+   "symbol": "GOOGLX",
+   "chain": "bsc",
+   "address": "0xe92f673ca36c5e2efd2de7628f815f84807e803f",
+   "days": 125,
+   "first": 10019.26722393864,
+   "last": 15806.61797863518
+  },
+  {
+   "crypto_id": 37013,
+   "symbol": "GOOGLX",
+   "chain": "eth",
+   "address": "0xe92f673ca36c5e2efd2de7628f815f84807e803f",
+   "days": 125,
+   "first": 69072.99129878571,
+   "last": 69104.05074943356
+  },
+  {
+   "crypto_id": 37004,
+   "symbol": "TSLAX",
+   "chain": "bsc",
+   "address": "0x8ad3c73f833d3f9a523ab01476625f269aeb7cf0",
+   "days": 125,
+   "first": 20000,
+   "last": 20000
+  },
+  {
+   "crypto_id": 37004,
+   "symbol": "TSLAX",
+   "chain": "eth",
+   "address": "0x8ad3c73f833d3f9a523ab01476625f269aeb7cf0",
+   "days": 125,
+   "first": 45000,
+   "last": 45000
+  },
+  {
+   "crypto_id": 40540,
+   "symbol": "INTCB",
+   "chain": "bsc",
+   "address": "0xe614e2fc6c787035ff51f452e8e826bfd32d5283",
+   "days": 125,
+   "first": 139212.39423813,
+   "last": 933005.11454209
+  },
+  {
+   "crypto_id": 40216,
+   "symbol": "SNDKB",
+   "chain": "bsc",
+   "address": "0x3ee4df61bd4f867e349beae8bfe07bc31b4850fb",
+   "days": 125,
+   "first": 58801.32292073,
+   "last": 73240.74009952
   },
   {
    "crypto_id": 38093,
@@ -58,94 +300,22 @@
    "last": 93044.30454182097
   },
   {
-   "crypto_id": 40215,
-   "symbol": "NVDAB",
-   "chain": "bsc",
-   "address": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
-   "days": 125,
-   "first": 37792.38886162,
-   "last": 1406371.94093158
-  },
-  {
-   "crypto_id": 40216,
-   "symbol": "SNDKB",
-   "chain": "bsc",
-   "address": "0x3ee4df61bd4f867e349beae8bfe07bc31b4850fb",
-   "days": 125,
-   "first": 58801.32292073,
-   "last": 73240.74009952
-  },
-  {
-   "crypto_id": 40217,
-   "symbol": "SPCXB",
-   "chain": "bsc",
-   "address": "0xbe9d156892e55e7154bcd3cb0fea677f9d3103e1",
-   "days": 125,
-   "first": 650864.79808918,
-   "last": 840617.53089944
-  },
-  {
-   "crypto_id": 40212,
-   "symbol": "MUB",
-   "chain": "bsc",
-   "address": "0xcdf2f3e0fa43c47a6662a91c9e4a7c5f69762699",
-   "days": 125,
-   "first": 83873.21108814,
-   "last": 120046.77256806
-  },
-  {
-   "crypto_id": 40813,
-   "symbol": "SKHYB",
-   "chain": "bsc",
-   "address": "0xca750ef65f295bbecd685abf54e82caf297bdb61",
-   "days": 125,
-   "first": 50067.30370422,
-   "last": 230013.61949673
-  },
-  {
-   "crypto_id": 40793,
-   "symbol": "GOOGLB",
-   "chain": "bsc",
-   "address": "0x3f53de71c126bdabae20f9cd64848d317f6c3238",
-   "days": 125,
-   "first": 4934.23517909,
-   "last": 325010.46076326
-  },
-  {
-   "crypto_id": 40540,
-   "symbol": "INTCB",
-   "chain": "bsc",
-   "address": "0xe614e2fc6c787035ff51f452e8e826bfd32d5283",
-   "days": 125,
-   "first": 139212.39423813,
-   "last": 933005.11454209
-  },
-  {
-   "crypto_id": 40536,
-   "symbol": "MSTRB",
-   "chain": "bsc",
-   "address": "0xe87afb3076aeb0f9b14e368de8145ae6a2826a14",
-   "days": 125,
-   "first": 105513.08329705,
-   "last": 817528.26078021
-  },
-  {
-   "crypto_id": 40175,
-   "symbol": "MUx",
+   "crypto_id": 38029,
+   "symbol": "TSLAon",
    "chain": "eth",
-   "address": "0xf6a873bae4ba1b304e45df52a4b7d176e1c6a8c4",
+   "address": "0xf6b1117ec07684d3958cad8beb1b302bfd21103f",
    "days": 125,
-   "first": 35214.136271965566,
-   "last": 35218.015335221105
+   "first": 15862.341810432672,
+   "last": 46203.8602673504
   },
   {
-   "crypto_id": 40175,
-   "symbol": "MUx",
+   "crypto_id": 38029,
+   "symbol": "TSLAon",
    "chain": "bsc",
-   "address": "0xf6a873bae4ba1b304e45df52a4b7d176e1c6a8c4",
+   "address": "0x2494b603319d4d9f9715c9f4496d9e0364b59d93",
    "days": 125,
-   "first": 10398.741511528244,
-   "last": 10399.886999686456
+   "first": 23521.768530707646,
+   "last": 27567.10973916228
   },
   {
    "crypto_id": 37028,
@@ -166,6 +336,96 @@
    "last": 280000
   },
   {
+   "crypto_id": 40813,
+   "symbol": "SKHYB",
+   "chain": "bsc",
+   "address": "0xca750ef65f295bbecd685abf54e82caf297bdb61",
+   "days": 125,
+   "first": 50067.30370422,
+   "last": 230013.61949673
+  },
+  {
+   "crypto_id": 38014,
+   "symbol": "MUon",
+   "chain": "eth",
+   "address": "0x050362ab1072cb2ce74d74770e22a3203ad04ee5",
+   "days": 125,
+   "first": 15967.347919531787,
+   "last": 14712.984831260725
+  },
+  {
+   "crypto_id": 38014,
+   "symbol": "MUon",
+   "chain": "bsc",
+   "address": "0x8b6acf6041a81567f012ff6a4c6d96d5818d74bf",
+   "days": 125,
+   "first": 26386.230558963452,
+   "last": 13435.057241728238
+  },
+  {
+   "crypto_id": 40175,
+   "symbol": "MUx",
+   "chain": "eth",
+   "address": "0xf6a873bae4ba1b304e45df52a4b7d176e1c6a8c4",
+   "days": 125,
+   "first": 35214.136271965566,
+   "last": 35218.015335221105
+  },
+  {
+   "crypto_id": 40175,
+   "symbol": "MUx",
+   "chain": "bsc",
+   "address": "0xf6a873bae4ba1b304e45df52a4b7d176e1c6a8c4",
+   "days": 125,
+   "first": 10398.741511528244,
+   "last": 10399.886999686456
+  },
+  {
+   "crypto_id": 38001,
+   "symbol": "GOOGLon",
+   "chain": "eth",
+   "address": "0xba47214edd2bb43099611b208f75e4b42fdcfedc",
+   "days": 125,
+   "first": 30233.48619706809,
+   "last": 34493.5447780085
+  },
+  {
+   "crypto_id": 38001,
+   "symbol": "GOOGLon",
+   "chain": "bsc",
+   "address": "0x091fc7778e6932d4009b087b191d1ee3bac5729a",
+   "days": 125,
+   "first": 27808.465996439892,
+   "last": 41820.781609891295
+  },
+  {
+   "crypto_id": 40214,
+   "symbol": "TSLAB",
+   "chain": "bsc",
+   "address": "0x5b1910eaad6450e50f816082aa078c41f10c292f",
+   "days": 125,
+   "first": 9831.30242257,
+   "last": 49281.90462178
+  },
+  {
+   "crypto_id": 40232,
+   "symbol": "SPCXon",
+   "chain": "eth",
+   "address": "0xc9eef266834730340a55b6cc24621b31baf55581",
+   "days": 125,
+   "first": 38912.31967806105,
+   "last": 104487.07637135364
+  },
+  {
+   "crypto_id": 40232,
+   "symbol": "SPCXon",
+   "chain": "bsc",
+   "address": "0xd0a58bc9d88d3ff48c0294cb7e45937d0e41a928",
+   "days": 125,
+   "first": 23487.46908083999,
+   "last": 21649.084337082524
+  },
+  {
    "crypto_id": 36994,
    "symbol": "AAPLX",
    "chain": "eth",
@@ -182,6 +442,582 @@
    "days": 125,
    "first": 10018.808818972477,
    "last": 15863.189263531924
+  },
+  {
+   "crypto_id": 40786,
+   "symbol": "SKHYx",
+   "chain": "eth",
+   "address": "0x58100046a4afcd4ee4fadbd4244f3f895a341c56",
+   "days": 125,
+   "first": 30000,
+   "last": 45360.07395812913
+  },
+  {
+   "crypto_id": 40786,
+   "symbol": "SKHYx",
+   "chain": "bsc",
+   "address": "0x58100046a4afcd4ee4fadbd4244f3f895a341c56",
+   "days": 125,
+   "first": 30000,
+   "last": 45362.43283141401
+  },
+  {
+   "crypto_id": 38065,
+   "symbol": "METAon",
+   "chain": "eth",
+   "address": "0x59644165402b611b350645555b50afb581c71eb2",
+   "days": 125,
+   "first": 10026.937680792267,
+   "last": 8767.179135694847
+  },
+  {
+   "crypto_id": 38065,
+   "symbol": "METAon",
+   "chain": "bsc",
+   "address": "0xd7df5863a3e742f0c767768cdfcb63f09e0422f6",
+   "days": 125,
+   "first": 2505.9255614301887,
+   "last": 6290.297731555004
+  },
+  {
+   "crypto_id": 39247,
+   "symbol": "PDDon",
+   "chain": "eth",
+   "address": "0xcc40965d3621362c3ee1dd946ba98d6a708ea86b",
+   "days": 125,
+   "first": 28248.542775314698,
+   "last": 30353.964976984676
+  },
+  {
+   "crypto_id": 39247,
+   "symbol": "PDDon",
+   "chain": "bsc",
+   "address": "0xf3e82ea164cb344b2b11bad4c24b0ea4f7ba4714",
+   "days": 125,
+   "first": 128808.55593673553,
+   "last": 94704.27220806688
+  },
+  {
+   "crypto_id": 38083,
+   "symbol": "AMZNon",
+   "chain": "eth",
+   "address": "0xbb8774fb97436d23d74c1b882e8e9a69322cfd31",
+   "days": 125,
+   "first": 27728.15477800797,
+   "last": 14870.936121489078
+  },
+  {
+   "crypto_id": 38083,
+   "symbol": "AMZNon",
+   "chain": "bsc",
+   "address": "0x4553cfe1c09f37f38b12dc509f676964e392f8fc",
+   "days": 125,
+   "first": 14909.399468707872,
+   "last": 19075.573617066857
+  },
+  {
+   "crypto_id": 37014,
+   "symbol": "AMZNX",
+   "chain": "bsc",
+   "address": "0x3557ba345b01efa20a1bddc61f573bfd87195081",
+   "days": 125,
+   "first": 10000,
+   "last": 26492.03995419165
+  },
+  {
+   "crypto_id": 37014,
+   "symbol": "AMZNX",
+   "chain": "eth",
+   "address": "0x3557ba345b01efa20a1bddc61f573bfd87195081",
+   "days": 125,
+   "first": 86800,
+   "last": 86800
+  },
+  {
+   "crypto_id": 37055,
+   "symbol": "METAX",
+   "chain": "bsc",
+   "address": "0x96702be57cd9777f835117a809c7124fe4ec989a",
+   "days": 125,
+   "first": 10022.98265651938,
+   "last": 10028.515433272898
+  },
+  {
+   "crypto_id": 37055,
+   "symbol": "METAX",
+   "chain": "eth",
+   "address": "0x96702be57cd9777f835117a809c7124fe4ec989a",
+   "days": 125,
+   "first": 31049.177556249826,
+   "last": 31066.316982076063
+  },
+  {
+   "crypto_id": 40846,
+   "symbol": "TSMB",
+   "chain": "bsc",
+   "address": "0xab78b89b5bb00236be0b4b20704cbfa04efc711c",
+   "days": 125,
+   "first": 7547.09605699,
+   "last": 26553.14314895
+  },
+  {
+   "crypto_id": 40882,
+   "symbol": "ORCLB",
+   "chain": "bsc",
+   "address": "0x4684d9887fc1c71cba7bab8e88835cec217eb598",
+   "days": 125,
+   "first": 0,
+   "last": 82867.97500311
+  },
+  {
+   "crypto_id": 40852,
+   "symbol": "BABAB",
+   "chain": "bsc",
+   "address": "0x4ef9d3062c7f6eba4aae4990c5036598c6eff4ec",
+   "days": 125,
+   "first": 5746.25229181,
+   "last": 91961.98369634
+  },
+  {
+   "crypto_id": 37056,
+   "symbol": "MSFTX",
+   "chain": "bsc",
+   "address": "0x5621737f42dae558b81269fcb9e9e70c19aa6b35",
+   "days": 125,
+   "first": 10045.820905025637,
+   "last": 10072.609810787719
+  },
+  {
+   "crypto_id": 37056,
+   "symbol": "MSFTX",
+   "chain": "eth",
+   "address": "0x5621737f42dae558b81269fcb9e9e70c19aa6b35",
+   "days": 125,
+   "first": 21573.649088613383,
+   "last": 21631.178926925542
+  },
+  {
+   "crypto_id": 38037,
+   "symbol": "AAPLon",
+   "chain": "eth",
+   "address": "0x14c3abf95cb9c93a8b82c1cdcb76d72cb87b2d4c",
+   "days": 125,
+   "first": 16041.475253249651,
+   "last": 3695.628198064266
+  },
+  {
+   "crypto_id": 38037,
+   "symbol": "AAPLon",
+   "chain": "bsc",
+   "address": "0x390a684ef9cade28a7ad0dfa61ab1eb3842618c4",
+   "days": 125,
+   "first": 10685.47995537422,
+   "last": 15656.621542177742
+  },
+  {
+   "crypto_id": 38075,
+   "symbol": "TSMon",
+   "chain": "eth",
+   "address": "0x3cafdbfe682aec17d5ace2f97a2f3ab3dcf6a4a9",
+   "days": 125,
+   "first": 6018.8645926385025,
+   "last": 8872.498604062203
+  },
+  {
+   "crypto_id": 38075,
+   "symbol": "TSMon",
+   "chain": "bsc",
+   "address": "0xc37042a7a4fa510d8884a433762ab87257b91965",
+   "days": 125,
+   "first": 10841.053755416437,
+   "last": 12212.566173026102
+  },
+  {
+   "crypto_id": 40845,
+   "symbol": "AVGOB",
+   "chain": "bsc",
+   "address": "0x76682c454467b3a1150ad8b6a92fc5ee2c21d7ed",
+   "days": 125,
+   "first": 1864.5559832,
+   "last": 22896.68445862
+  },
+  {
+   "crypto_id": 40848,
+   "symbol": "MRVLB",
+   "chain": "bsc",
+   "address": "0x16cd4fe7e8880ecc3ba222795229e20489fc2c76",
+   "days": 125,
+   "first": 11553.00783926,
+   "last": 52593.34834274
+  },
+  {
+   "crypto_id": 38035,
+   "symbol": "INTCon",
+   "chain": "eth",
+   "address": "0xfda09936dbd717368de0835ba441d9e62069d36f",
+   "days": 125,
+   "first": 63636.20501468886,
+   "last": 25483.109736567956
+  },
+  {
+   "crypto_id": 38035,
+   "symbol": "INTCon",
+   "chain": "bsc",
+   "address": "0xa528caaa2f96090e379d43f90834c75df54d6e74",
+   "days": 125,
+   "first": 90201.67576219936,
+   "last": 87537.48184365088
+  },
+  {
+   "crypto_id": 38086,
+   "symbol": "MSFTon",
+   "chain": "eth",
+   "address": "0xb812837b81a3a6b81d7cd74cfb19a7f2784555e5",
+   "days": 125,
+   "first": 14063.230283844425,
+   "last": 2505.754437465706
+  },
+  {
+   "crypto_id": 38086,
+   "symbol": "MSFTon",
+   "chain": "bsc",
+   "address": "0x6bfe75d1ad432050ea973c3a3dcd88f02e2444c3",
+   "days": 125,
+   "first": 12913.966860601486,
+   "last": 9184.745674716174
+  },
+  {
+   "crypto_id": 42272,
+   "symbol": "GOOGon",
+   "chain": "eth",
+   "address": "0x36b90adcdc99be31bf39a3c031288baa0b457e10",
+   "days": 78,
+   "first": 0,
+   "last": 2612.8656968771875
+  },
+  {
+   "crypto_id": 42272,
+   "symbol": "GOOGon",
+   "chain": "bsc",
+   "address": "0x817f1f6780f99bcaac394a59cb0261962df5da8b",
+   "days": 78,
+   "first": 0,
+   "last": 18628.553946545606
+  },
+  {
+   "crypto_id": 37021,
+   "symbol": "AVGOX",
+   "chain": "bsc",
+   "address": "0x38bac69cbbd28156796e4163b2b6dcb81e336565",
+   "days": 125,
+   "first": 10048.837684862769,
+   "last": 15974.93404339893
+  },
+  {
+   "crypto_id": 37021,
+   "symbol": "AVGOX",
+   "chain": "eth",
+   "address": "0x38bac69cbbd28156796e4163b2b6dcb81e336565",
+   "days": 125,
+   "first": 29120.849094682002,
+   "last": 29157.900593074748
+  },
+  {
+   "crypto_id": 38089,
+   "symbol": "MRVLon",
+   "chain": "eth",
+   "address": "0xf404e5f887dbd5508e16a1198fcdd5de1a4296b8",
+   "days": 125,
+   "first": 24345.399165631417,
+   "last": 8486.727490410367
+  },
+  {
+   "crypto_id": 38089,
+   "symbol": "MRVLon",
+   "chain": "bsc",
+   "address": "0x1501ec83ffef405b4331cc4f73277a40fb0c627d",
+   "days": 125,
+   "first": 59505.89831222569,
+   "last": 35675.970716776865
+  },
+  {
+   "crypto_id": 37050,
+   "symbol": "MRVLX",
+   "chain": "bsc",
+   "address": "0xeaad46f4146ded5a47b55aa7f6c48c191deaec88",
+   "days": 125,
+   "first": 10014.851009567788,
+   "last": 37544.516589625186
+  },
+  {
+   "crypto_id": 37050,
+   "symbol": "MRVLX",
+   "chain": "eth",
+   "address": "0xeaad46f4146ded5a47b55aa7f6c48c191deaec88",
+   "days": 125,
+   "first": 116617.02975911635,
+   "last": 116634.86240767247
+  },
+  {
+   "crypto_id": 40927,
+   "symbol": "AAPLB",
+   "chain": "bsc",
+   "address": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a",
+   "days": 122,
+   "first": 0,
+   "last": 14263.81491143
+  },
+  {
+   "crypto_id": 40592,
+   "symbol": "METAB",
+   "chain": "bsc",
+   "address": "0x7425889fe94f9d693e8daefe88bcced6acfef4c0",
+   "days": 125,
+   "first": 1888.25428782,
+   "last": 8263.87781513
+  },
+  {
+   "crypto_id": 38062,
+   "symbol": "AVGOon",
+   "chain": "eth",
+   "address": "0x0d54d4279b9e8c54cd8547c2c75a8ee81a0bcae8",
+   "days": 125,
+   "first": 6381.027135235115,
+   "last": 7211.733605908752
+  },
+  {
+   "crypto_id": 38062,
+   "symbol": "AVGOon",
+   "chain": "bsc",
+   "address": "0x0ed2e3180edf393e6bf8db124bd15ddd54de150a",
+   "days": 125,
+   "first": 8165.670642985314,
+   "last": 7080.100609465256
+  },
+  {
+   "crypto_id": 40538,
+   "symbol": "AMDB",
+   "chain": "bsc",
+   "address": "0x75fd4cf6f8392e41e70391d60c90c0d5211603a1",
+   "days": 125,
+   "first": 4042.92337266,
+   "last": 9896.43314199
+  },
+  {
+   "crypto_id": 37059,
+   "symbol": "ORCLX",
+   "chain": "bsc",
+   "address": "0x548308e91ec9f285c7bff05295badbd56a6e4971",
+   "days": 125,
+   "first": 10078.64317816876,
+   "last": 51024.66583535716
+  },
+  {
+   "crypto_id": 37059,
+   "symbol": "ORCLX",
+   "chain": "eth",
+   "address": "0x548308e91ec9f285c7bff05295badbd56a6e4971",
+   "days": 125,
+   "first": 51867.370610316764,
+   "last": 52001.15777012639
+  },
+  {
+   "crypto_id": 42383,
+   "symbol": "PDDB",
+   "chain": "bsc",
+   "address": "0x95b0409679b55c31772daa2fb4bee7b125b77521",
+   "days": 67,
+   "first": 0,
+   "last": 43979.96815996
+  },
+  {
+   "crypto_id": 40929,
+   "symbol": "AMZNB",
+   "chain": "bsc",
+   "address": "0x1a4b499833a79a09ad7cf1d42d7dacf71e92eb00",
+   "days": 122,
+   "first": 0,
+   "last": 14410.2554985
+  },
+  {
+   "crypto_id": 38073,
+   "symbol": "PLTRon",
+   "chain": "eth",
+   "address": "0x0c666485b02f7a87d21add7aeb9f5e64975aa490",
+   "days": 125,
+   "first": 5703.166117045331,
+   "last": 15249.385299960757
+  },
+  {
+   "crypto_id": 38073,
+   "symbol": "PLTRon",
+   "chain": "bsc",
+   "address": "0x9351abd19f42101dd36025e495b98e910b255d78",
+   "days": 125,
+   "first": 14617.648967910482,
+   "last": 7535.369664501114
+  },
+  {
+   "crypto_id": 38009,
+   "symbol": "ORCLon",
+   "chain": "eth",
+   "address": "0x8a23c6baadb88512b30475c83df6a63881e33e1e",
+   "days": 125,
+   "first": 10938.399988886464,
+   "last": 7490.736550896038
+  },
+  {
+   "crypto_id": 38009,
+   "symbol": "ORCLon",
+   "chain": "bsc",
+   "address": "0x03e4bd1ea53f1da84513da0319d1f03dd1bbcf93",
+   "days": 125,
+   "first": 28412.224285843746,
+   "last": 23004.89204644827
+  },
+  {
+   "crypto_id": 40589,
+   "symbol": "MSFTB",
+   "chain": "bsc",
+   "address": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0",
+   "days": 125,
+   "first": 4519.23764828,
+   "last": 5515.85701233
+  },
+  {
+   "crypto_id": 37062,
+   "symbol": "PLTRX",
+   "chain": "bsc",
+   "address": "0x6d482cec5f9dd1f05ccee9fd3ff79b246170f8e2",
+   "days": 125,
+   "first": 10000,
+   "last": 28265.75490781101
+  },
+  {
+   "crypto_id": 37062,
+   "symbol": "PLTRX",
+   "chain": "eth",
+   "address": "0x6d482cec5f9dd1f05ccee9fd3ff79b246170f8e2",
+   "days": 125,
+   "first": 105500,
+   "last": 105500
+  },
+  {
+   "crypto_id": 38027,
+   "symbol": "AMDon",
+   "chain": "eth",
+   "address": "0x0c1f3412a44ff99e40bf14e06e5ea321ae7b3938",
+   "days": 125,
+   "first": 13098.165486535405,
+   "last": 1945.2733917070234
+  },
+  {
+   "crypto_id": 38027,
+   "symbol": "AMDon",
+   "chain": "bsc",
+   "address": "0x9f16e46c73b43bdb70861247d537bee4ea18f639",
+   "days": 125,
+   "first": 5350.657376832389,
+   "last": 3237.7169272518386
+  },
+  {
+   "crypto_id": 40037,
+   "symbol": "SNDKX",
+   "chain": "eth",
+   "address": "0xb63efbc28860c8097e341de1fcf59456161e9d98",
+   "days": 125,
+   "first": 9000,
+   "last": 250716.03697188015
+  },
+  {
+   "crypto_id": 39788,
+   "symbol": "SNDKon",
+   "chain": "eth",
+   "address": "0x71e2400cf1cb83204f33794ed326636a71a9aafc",
+   "days": 125,
+   "first": 1231.2235339362685,
+   "last": 1882.111100942386
+  },
+  {
+   "crypto_id": 39788,
+   "symbol": "SNDKon",
+   "chain": "bsc",
+   "address": "0x4fd67cb8cfedc718bac984b5936abe3330d0a2a4",
+   "days": 125,
+   "first": 3405.5049581856215,
+   "last": 1672.9359417161388
+  },
+  {
+   "crypto_id": 38076,
+   "symbol": "BABAon",
+   "chain": "eth",
+   "address": "0x41765f0fcddc276309195166c7a62ae522fa09ef",
+   "days": 125,
+   "first": 14691.755921810427,
+   "last": 14621.313954989939
+  },
+  {
+   "crypto_id": 38076,
+   "symbol": "BABAon",
+   "chain": "bsc",
+   "address": "0xd5964f3fcee8d649995ab88f04b8982539c282d2",
+   "days": 125,
+   "first": 11316.623264715152,
+   "last": 8438.304953339062
+  },
+  {
+   "crypto_id": 40590,
+   "symbol": "PLTRB",
+   "chain": "bsc",
+   "address": "0x0ca5d51d0277bd006fd9607d3e560785ebad8222",
+   "days": 125,
+   "first": 8323.14842363,
+   "last": 12456.99567787
+  },
+  {
+   "crypto_id": 40823,
+   "symbol": "SKHYon",
+   "chain": "eth",
+   "address": "0xc0fe36f4ffbdf1b38e192215073590a68f9a2af7",
+   "days": 125,
+   "first": 2430.426376360215,
+   "last": 3759.665346308
+  },
+  {
+   "crypto_id": 40823,
+   "symbol": "SKHYon",
+   "chain": "bsc",
+   "address": "0x4268f2bfb23a7496504aa5ed1ee325248586299f",
+   "days": 125,
+   "first": 4192.109632361013,
+   "last": 5714.503314010132
+  },
+  {
+   "crypto_id": 42895,
+   "symbol": "PDDx",
+   "chain": "eth",
+   "address": "0x5a0b3434151e0f2d23608c949505a62e436aae86",
+   "days": 64,
+   "first": 25287.726220476903,
+   "last": 62705.01613298617
+  },
+  {
+   "crypto_id": 42895,
+   "symbol": "PDDx",
+   "chain": "bsc",
+   "address": "0x5a0b3434151e0f2d23608c949505a62e436aae86",
+   "days": 64,
+   "first": 25201.680529099376,
+   "last": 62618.970441608646
+  },
+  {
+   "crypto_id": 37126,
+   "symbol": "AVGO.D",
+   "chain": "eth",
+   "address": "0x53aff1d59ea64f7f836670e33e99a0443f0ef25c",
+   "days": 125,
+   "first": 5.86e-7,
+   "last": 5.86e-7
   }
  ]
 }
