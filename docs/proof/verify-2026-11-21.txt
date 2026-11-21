@@ -7,3 +7,9 @@ $ npx vitest run   # same commit
  Test Files  8 passed (8)
       Tests  201 passed (201)
    Duration  993ms (tests 75%, transform 14%, import 10%, worker 2%)
+
+$ npm run test:coverage   # 2026-11-21T05:39:04Z, commit 8b04220, v8 over lib/
+Statements   : 85.02% ( 863/1015 )
+Branches     : 73.65% ( 713/968 )
+Functions    : 87.2% ( 184/211 )
+Lines        : 86.53% ( 694/802 )
