@@ -1,0 +1,21 @@
+{
+ "receipt": {
+  "endpoint": "/v1/blockchain/statistics/latest",
+  "method": "GET",
+  "params": {
+   "id": "1"
+  },
+  "http_status": 403,
+  "started_utc": "2026-11-21T01:20:50.256Z",
+  "elapsed_ms": 248
+ },
+ "body": {
+  "status": {
+   "timestamp": "2026-11-21T01:20:50.384Z",
+   "error_code": "1006",
+   "error_message": "Your API Key subscription plan doesn't support this endpoint.",
+   "elapsed": 0,
+   "credit_count": 0
+  }
+ }
+}

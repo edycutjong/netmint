@@ -1,0 +1,5784 @@
+{
+ "receipt": {
+  "id": "r1",
+  "kind": "cmc",
+  "endpoint": "/v5/real-world-assets/assets/list",
+  "params": {
+   "start": "1",
+   "limit": "250"
+  },
+  "startedUtc": "2026-11-21T01:40:10.119Z",
+  "elapsedMs": 538,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": "",
+  "bodyBytes": 119521,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/assets/list?start=1&limit=250\""
+ },
+ "body": {
+  "data": {
+   "total_size": 7942,
+   "has_more": true,
+   "rwa_assets": [
+    {
+     "name": "Gold",
+     "symbol": "GOLD",
+     "slug": "gold",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 3527.3172584818917,
+       "tokenized_market_cap": 4318422859.792108,
+       "tokenized_volume_24h": 817171299.2986425,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1,
+     "asset_type": "commodity",
+     "rwa_rank": 1,
+     "has_tokens": true,
+     "average_tokenized_price": 3527.3172584818917,
+     "tokenized_market_cap": 4318422859.792108,
+     "tokenized_volume_24h": 817171299.2986425,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Apple Inc.",
+     "symbol": "AAPL",
+     "slug": "apple",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 345.5991559175436,
+       "tokenized_market_cap": 31102378.309407502,
+       "tokenized_volume_24h": 41268466.94330216,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 3,
+     "asset_type": "stock",
+     "rwa_rank": 2,
+     "has_tokens": true,
+     "average_tokenized_price": 345.5991559175436,
+     "tokenized_market_cap": 31102378.309407502,
+     "tokenized_volume_24h": 41268466.94330216,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Microsoft Corp",
+     "symbol": "MSFT",
+     "slug": "microsoft",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 489.9846446216072,
+       "tokenized_market_cap": 20631695.83369585,
+       "tokenized_volume_24h": 19330606.88230029,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 7,
+     "asset_type": "stock",
+     "rwa_rank": 3,
+     "has_tokens": true,
+     "average_tokenized_price": 489.9846446216072,
+     "tokenized_market_cap": 20631695.83369585,
+     "tokenized_volume_24h": 19330606.88230029,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Alphabet Inc Class A",
+     "symbol": "GOOGL",
+     "slug": "google",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 270.08467645675165,
+       "tokenized_market_cap": 207451746.231795,
+       "tokenized_volume_24h": 105062752.15314808,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 4,
+     "asset_type": "stock",
+     "rwa_rank": 4,
+     "has_tokens": true,
+     "average_tokenized_price": 270.08467645675165,
+     "tokenized_market_cap": 207451746.231795,
+     "tokenized_volume_24h": 105062752.15314808,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Nvidia Corp",
+     "symbol": "NVDA",
+     "slug": "nvidia",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 130.36331178435037,
+       "tokenized_market_cap": 380328730.51925474,
+       "tokenized_volume_24h": 393597874.2475613,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 2,
+     "asset_type": "stock",
+     "rwa_rank": 5,
+     "has_tokens": true,
+     "average_tokenized_price": 130.36331178435037,
+     "tokenized_market_cap": 380328730.51925474,
+     "tokenized_volume_24h": 393597874.2475613,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Amazon.com Inc",
+     "symbol": "AMZN",
+     "slug": "amazon",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 250.87377081299633,
+       "tokenized_market_cap": 28655790.42919196,
+       "tokenized_volume_24h": 40006968.5196383,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 6,
+     "asset_type": "stock",
+     "rwa_rank": 6,
+     "has_tokens": true,
+     "average_tokenized_price": 250.87377081299633,
+     "tokenized_market_cap": 28655790.42919196,
+     "tokenized_volume_24h": 40006968.5196383,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Silver",
+     "symbol": "SILVER",
+     "slug": "silver",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 42.5279872038454,
+       "tokenized_market_cap": 0,
+       "tokenized_volume_24h": 463987.97412363,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 5,
+     "asset_type": "commodity",
+     "rwa_rank": 7,
+     "has_tokens": true,
+     "average_tokenized_price": 42.5279872038454,
+     "tokenized_market_cap": 0,
+     "tokenized_volume_24h": 463987.97412363,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "SpaceX",
+     "symbol": "SPCX",
+     "slug": "spacex",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 128.8895048254393,
+       "tokenized_market_cap": 297047192.650615,
+       "tokenized_volume_24h": 109395452.89414687,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 9,
+     "asset_type": "stock",
+     "rwa_rank": 8,
+     "has_tokens": true,
+     "average_tokenized_price": 128.8895048254393,
+     "tokenized_market_cap": 297047192.650615,
+     "tokenized_volume_24h": 109395452.89414687,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Taiwan Semiconductor Manufacturing Co Ltd",
+     "symbol": "TSM",
+     "slug": "tsm",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 328.9778498322788,
+       "tokenized_market_cap": 19965707.12762783,
+       "tokenized_volume_24h": 8434505.40477744,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 8,
+     "asset_type": "stock",
+     "rwa_rank": 9,
+     "has_tokens": true,
+     "average_tokenized_price": 328.9778498322788,
+     "tokenized_market_cap": 19965707.12762783,
+     "tokenized_volume_24h": 8434505.40477744,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Alphabet Inc.",
+     "symbol": "GOOG",
+     "slug": "alphabet-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": null,
+     "asset_type": "stock",
+     "rwa_rank": 9,
+     "has_tokens": null,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-06-18T02:42:37.000Z"
+    },
+    {
+     "name": "Broadcom Inc",
+     "symbol": "AVGO",
+     "slug": "broadcom",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 311.7508097912361,
+       "tokenized_market_cap": 19944238.336060174,
+       "tokenized_volume_24h": 18266604.86333802,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 13,
+     "asset_type": "stock",
+     "rwa_rank": 10,
+     "has_tokens": true,
+     "average_tokenized_price": 311.7508097912361,
+     "tokenized_market_cap": 19944238.336060174,
+     "tokenized_volume_24h": 18266604.86333802,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Meta Platforms, Inc.",
+     "symbol": "META",
+     "slug": "meta",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 569.2822949185513,
+       "tokenized_market_cap": 36542011.28730687,
+       "tokenized_volume_24h": 34216076.86068257,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 10,
+     "asset_type": "stock",
+     "rwa_rank": 11,
+     "has_tokens": true,
+     "average_tokenized_price": 569.2822949185513,
+     "tokenized_market_cap": 36542011.28730687,
+     "tokenized_volume_24h": 34216076.86068257,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Tesla, Inc.",
+     "symbol": "TSLA",
+     "slug": "tesla",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 351.57460451215417,
+       "tokenized_market_cap": 115143987.48710267,
+       "tokenized_volume_24h": 59018766.19090195,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 14,
+     "asset_type": "stock",
+     "rwa_rank": 12,
+     "has_tokens": true,
+     "average_tokenized_price": 351.57460451215417,
+     "tokenized_market_cap": 115143987.48710267,
+     "tokenized_volume_24h": 59018766.19090195,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Berkshire Hathaway Inc Class B",
+     "symbol": "BRK.B",
+     "slug": "berkshire-hathaway-inc-class-b",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 570.5081116445702,
+       "tokenized_market_cap": 2279080.0815053773,
+       "tokenized_volume_24h": 286182.6748692,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 15,
+     "asset_type": "stock",
+     "rwa_rank": 13,
+     "has_tokens": true,
+     "average_tokenized_price": 570.5081116445702,
+     "tokenized_market_cap": 2279080.0815053773,
+     "tokenized_volume_24h": 286182.6748692,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Berkshire Hathaway Inc.",
+     "symbol": "BRK.B",
+     "slug": "berkshire-hathaway",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": null,
+     "asset_type": "stock",
+     "rwa_rank": 14,
+     "has_tokens": null,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-05-18T15:21:16.000Z"
+    },
+    {
+     "name": "Eli Lilly And Co",
+     "symbol": "LLY",
+     "slug": "eli-lilly",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 1348.0141673066498,
+       "tokenized_market_cap": 3467485.703073643,
+       "tokenized_volume_24h": 4006387.2387439,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 11,
+     "asset_type": "stock",
+     "rwa_rank": 14,
+     "has_tokens": true,
+     "average_tokenized_price": 1348.0141673066498,
+     "tokenized_market_cap": 3467485.703073643,
+     "tokenized_volume_24h": 4006387.2387439,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Anthropic",
+     "symbol": "ANT",
+     "slug": "anthropic",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 87.6580871015053,
+       "tokenized_market_cap": 9411252.173434354,
+       "tokenized_volume_24h": 132686057.81193638,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 187,
+     "asset_type": "stock",
+     "rwa_rank": 15,
+     "has_tokens": true,
+     "average_tokenized_price": 87.6580871015053,
+     "tokenized_market_cap": 9411252.173434354,
+     "tokenized_volume_24h": 132686057.81193638,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Walmart Inc",
+     "symbol": "WMT",
+     "slug": "walmart",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 129.01930099538401,
+       "tokenized_market_cap": 2814775.1026586858,
+       "tokenized_volume_24h": 934308.17070802,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 17,
+     "asset_type": "stock",
+     "rwa_rank": 16,
+     "has_tokens": true,
+     "average_tokenized_price": 129.01930099538401,
+     "tokenized_market_cap": 2814775.1026586858,
+     "tokenized_volume_24h": 934308.17070802,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "JPmorgan Chase & Co",
+     "symbol": "JPM",
+     "slug": "jpmorgan",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 313.6958289108265,
+       "tokenized_market_cap": 3495238.7641524356,
+       "tokenized_volume_24h": 2762638.68821297,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 16,
+     "asset_type": "stock",
+     "rwa_rank": 17,
+     "has_tokens": true,
+     "average_tokenized_price": 313.6958289108265,
+     "tokenized_market_cap": 3495238.7641524356,
+     "tokenized_volume_24h": 2762638.68821297,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Visa Inc",
+     "symbol": "V",
+     "slug": "visa",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 407.36698314981174,
+       "tokenized_market_cap": 2626787.269949127,
+       "tokenized_volume_24h": 7307.72474398,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 18,
+     "asset_type": "stock",
+     "rwa_rank": 18,
+     "has_tokens": true,
+     "average_tokenized_price": 407.36698314981174,
+     "tokenized_market_cap": 2626787.269949127,
+     "tokenized_volume_24h": 7307.72474398,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "SK Hynix",
+     "symbol": "SKHY",
+     "slug": "sk-hynix",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 105.98698304632619,
+       "tokenized_market_cap": 38995335.00178431,
+       "tokenized_volume_24h": 18241118.81634086,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 8065,
+     "asset_type": "stock",
+     "rwa_rank": 19,
+     "has_tokens": true,
+     "average_tokenized_price": 105.98698304632619,
+     "tokenized_market_cap": 38995335.00178431,
+     "tokenized_volume_24h": 18241118.81634086,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Advanced Micro Devices Inc",
+     "symbol": "AMD",
+     "slug": "amd",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 438.43793029281267,
+       "tokenized_market_cap": 11026530.678353019,
+       "tokenized_volume_24h": 23517988.42459256,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 25,
+     "asset_type": "stock",
+     "rwa_rank": 20,
+     "has_tokens": true,
+     "average_tokenized_price": 438.43793029281267,
+     "tokenized_market_cap": 11026530.678353019,
+     "tokenized_volume_24h": 23517988.42459256,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Micron Technology Inc",
+     "symbol": "MU",
+     "slug": "micron-technology",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 608.3425459584572,
+       "tokenized_market_cap": 128662806.54984722,
+       "tokenized_volume_24h": 82291237.0162697,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 12,
+     "asset_type": "stock",
+     "rwa_rank": 21,
+     "has_tokens": true,
+     "average_tokenized_price": 608.3425459584572,
+     "tokenized_market_cap": 128662806.54984722,
+     "tokenized_volume_24h": 82291237.0162697,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Exxon Mobil Corp",
+     "symbol": "XOM",
+     "slug": "exxon",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 163.18663715821745,
+       "tokenized_market_cap": 809677.1613158141,
+       "tokenized_volume_24h": 1582082.24326104,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 27,
+     "asset_type": "stock",
+     "rwa_rank": 22,
+     "has_tokens": true,
+     "average_tokenized_price": 163.18663715821745,
+     "tokenized_market_cap": 809677.1613158141,
+     "tokenized_volume_24h": 1582082.24326104,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Johnson & Johnson",
+     "symbol": "JNJ",
+     "slug": "johnson-johnson",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 269.0784856893131,
+       "tokenized_market_cap": 632949.9396304112,
+       "tokenized_volume_24h": 32354.40597621,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 19,
+     "asset_type": "stock",
+     "rwa_rank": 23,
+     "has_tokens": true,
+     "average_tokenized_price": 269.0784856893131,
+     "tokenized_market_cap": 632949.9396304112,
+     "tokenized_volume_24h": 32354.40597621,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Mastercard Inc",
+     "symbol": "MA",
+     "slug": "mastercard",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 629.5365047168972,
+       "tokenized_market_cap": 1493716.6409253392,
+       "tokenized_volume_24h": 1285480.1541356,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 28,
+     "asset_type": "stock",
+     "rwa_rank": 24,
+     "has_tokens": true,
+     "average_tokenized_price": 629.5365047168972,
+     "tokenized_market_cap": 1493716.6409253392,
+     "tokenized_volume_24h": 1285480.1541356,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "AbbVie Inc",
+     "symbol": "ABBV",
+     "slug": "abbvie",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 286.3200050304268,
+       "tokenized_market_cap": 349300.1796865809,
+       "tokenized_volume_24h": 89675.54081568,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 21,
+     "asset_type": "stock",
+     "rwa_rank": 25,
+     "has_tokens": true,
+     "average_tokenized_price": 286.3200050304268,
+     "tokenized_market_cap": 349300.1796865809,
+     "tokenized_volume_24h": 89675.54081568,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "ASML Holding NV",
+     "symbol": "ASML",
+     "slug": "asml",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 1294.5552007268448,
+       "tokenized_market_cap": 5729012.069604639,
+       "tokenized_volume_24h": 3071947.22174586,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 26,
+     "asset_type": "stock",
+     "rwa_rank": 26,
+     "has_tokens": true,
+     "average_tokenized_price": 1294.5552007268448,
+     "tokenized_market_cap": 5729012.069604639,
+     "tokenized_volume_24h": 3071947.22174586,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Costco Wholesale Corp",
+     "symbol": "COST",
+     "slug": "costco-wholesale",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 1110.5116097595946,
+       "tokenized_market_cap": 1885064.1821507246,
+       "tokenized_volume_24h": 4578508.47091635,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 31,
+     "asset_type": "stock",
+     "rwa_rank": 27,
+     "has_tokens": true,
+     "average_tokenized_price": 1110.5116097595946,
+     "tokenized_market_cap": 1885064.1821507246,
+     "tokenized_volume_24h": 4578508.47091635,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Coca-Cola Co",
+     "symbol": "KO",
+     "slug": "coca-cola",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 98.93217818087344,
+       "tokenized_market_cap": 1376533.7291635536,
+       "tokenized_volume_24h": 6735709.76555393,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 34,
+     "asset_type": "stock",
+     "rwa_rank": 28,
+     "has_tokens": true,
+     "average_tokenized_price": 98.93217818087344,
+     "tokenized_market_cap": 1376533.7291635536,
+     "tokenized_volume_24h": 6735709.76555393,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Chevron Corp",
+     "symbol": "CVX",
+     "slug": "chevron",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 214.39176060848413,
+       "tokenized_market_cap": 3593128.169476012,
+       "tokenized_volume_24h": 1381039.07863373,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 51,
+     "asset_type": "stock",
+     "rwa_rank": 29,
+     "has_tokens": true,
+     "average_tokenized_price": 214.39176060848413,
+     "tokenized_market_cap": 3593128.169476012,
+     "tokenized_volume_24h": 1381039.07863373,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Procter & Gamble Co",
+     "symbol": "PG",
+     "slug": "procter-gamble",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 169.13298036206518,
+       "tokenized_market_cap": 3395245.245140279,
+       "tokenized_volume_24h": 256017.82404686,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 50,
+     "asset_type": "stock",
+     "rwa_rank": 30,
+     "has_tokens": true,
+     "average_tokenized_price": 169.13298036206518,
+     "tokenized_market_cap": 3395245.245140279,
+     "tokenized_volume_24h": 256017.82404686,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Cisco Systems Inc",
+     "symbol": "CSCO",
+     "slug": "cisco-systems",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 92.77326095225804,
+       "tokenized_market_cap": 2885929.49291097,
+       "tokenized_volume_24h": 1725677.43484597,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 29,
+     "asset_type": "stock",
+     "rwa_rank": 31,
+     "has_tokens": true,
+     "average_tokenized_price": 92.77326095225804,
+     "tokenized_market_cap": 2885929.49291097,
+     "tokenized_volume_24h": 1725677.43484597,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Palantir Technologies Inc",
+     "symbol": "PLTR",
+     "slug": "palantir-technologies",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 145.78086575407028,
+       "tokenized_market_cap": 10278461.055283673,
+       "tokenized_volume_24h": 9261260.79168119,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 53,
+     "asset_type": "stock",
+     "rwa_rank": 32,
+     "has_tokens": true,
+     "average_tokenized_price": 145.78086575407028,
+     "tokenized_market_cap": 10278461.055283673,
+     "tokenized_volume_24h": 9261260.79168119,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Home Depot Inc",
+     "symbol": "HD",
+     "slug": "home-depot",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 337.8341005288172,
+       "tokenized_market_cap": 93134.03612069383,
+       "tokenized_volume_24h": 45414.88208249,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 36,
+     "asset_type": "stock",
+     "rwa_rank": 33,
+     "has_tokens": true,
+     "average_tokenized_price": 337.8341005288172,
+     "tokenized_market_cap": 93134.03612069383,
+     "tokenized_volume_24h": 45414.88208249,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Merck & Co Inc",
+     "symbol": "MRK",
+     "slug": "merck",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 137.53042075273655,
+       "tokenized_market_cap": 199680.62748231733,
+       "tokenized_volume_24h": 2503.68943494,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 38,
+     "asset_type": "stock",
+     "rwa_rank": 34,
+     "has_tokens": true,
+     "average_tokenized_price": 137.53042075273655,
+     "tokenized_market_cap": 199680.62748231733,
+     "tokenized_volume_24h": 2503.68943494,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Bank of America Corp",
+     "symbol": "BAC",
+     "slug": "bank-of-america",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 47.8319112972243,
+       "tokenized_market_cap": 253395.2089473002,
+       "tokenized_volume_24h": 546223.22554895,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 23,
+     "asset_type": "stock",
+     "rwa_rank": 35,
+     "has_tokens": true,
+     "average_tokenized_price": 47.8319112972243,
+     "tokenized_market_cap": 253395.2089473002,
+     "tokenized_volume_24h": 546223.22554895,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "General Electric Co",
+     "symbol": "GE",
+     "slug": "general-electric",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 311.9353898417949,
+       "tokenized_market_cap": 1532748.377773521,
+       "tokenized_volume_24h": 501487.74435902,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 49,
+     "asset_type": "stock",
+     "rwa_rank": 36,
+     "has_tokens": true,
+     "average_tokenized_price": 311.9353898417949,
+     "tokenized_market_cap": 1532748.377773521,
+     "tokenized_volume_24h": 501487.74435902,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Oracle Corp",
+     "symbol": "ORCL",
+     "slug": "oracle",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 103.28060459390298,
+       "tokenized_market_cap": 17147885.822743528,
+       "tokenized_volume_24h": 12907981.90436966,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 24,
+     "asset_type": "stock",
+     "rwa_rank": 37,
+     "has_tokens": true,
+     "average_tokenized_price": 103.28060459390298,
+     "tokenized_market_cap": 17147885.822743528,
+     "tokenized_volume_24h": 12907981.90436966,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "UnitedHealth Group Inc",
+     "symbol": "UNH",
+     "slug": "unitedhealth",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 333.1689577703625,
+       "tokenized_market_cap": 1575894.1026929158,
+       "tokenized_volume_24h": 767660.33941007,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 33,
+     "asset_type": "stock",
+     "rwa_rank": 38,
+     "has_tokens": true,
+     "average_tokenized_price": 333.1689577703625,
+     "tokenized_market_cap": 1575894.1026929158,
+     "tokenized_volume_24h": 767660.33941007,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Philip Morris International Inc",
+     "symbol": "PM",
+     "slug": "philip-morris",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 184.1775321253092,
+       "tokenized_market_cap": 114210.00750389934,
+       "tokenized_volume_24h": 10105.79363292,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 56,
+     "asset_type": "stock",
+     "rwa_rank": 39,
+     "has_tokens": true,
+     "average_tokenized_price": 184.1775321253092,
+     "tokenized_market_cap": 114210.00750389934,
+     "tokenized_volume_24h": 10105.79363292,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Novartis Ag",
+     "symbol": "NVS",
+     "slug": "novartis-ag",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 55,
+     "asset_type": "stock",
+     "rwa_rank": 40,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Intel Corp",
+     "symbol": "INTC",
+     "slug": "intel",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 52.827936360698445,
+       "tokenized_market_cap": 86920093.00486135,
+       "tokenized_volume_24h": 50902720.51423977,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 20,
+     "asset_type": "stock",
+     "rwa_rank": 41,
+     "has_tokens": true,
+     "average_tokenized_price": 52.827936360698445,
+     "tokenized_market_cap": 86920093.00486135,
+     "tokenized_volume_24h": 50902720.51423977,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Palo Alto Networks Inc",
+     "symbol": "PANW",
+     "slug": "palo-alto-networks",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 336.42314993014384,
+       "tokenized_market_cap": 2378520.5954434895,
+       "tokenized_volume_24h": 507362.22957981,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 43,
+     "asset_type": "stock",
+     "rwa_rank": 42,
+     "has_tokens": true,
+     "average_tokenized_price": 336.42314993014384,
+     "tokenized_market_cap": 2378520.5954434895,
+     "tokenized_volume_24h": 507362.22957981,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "HSBC Holdings PLC",
+     "symbol": "HSBC",
+     "slug": "hsbc-holdings-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 52,
+     "asset_type": "stock",
+     "rwa_rank": 43,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "AstraZeneca PLC",
+     "symbol": "AZN",
+     "slug": "astrazeneca",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 175.97505155610202,
+       "tokenized_market_cap": 114146.42848686973,
+       "tokenized_volume_24h": 54257.73098623,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 40,
+     "asset_type": "stock",
+     "rwa_rank": 44,
+     "has_tokens": true,
+     "average_tokenized_price": 175.97505155610202,
+     "tokenized_market_cap": 114146.42848686973,
+     "tokenized_volume_24h": 54257.73098623,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Shell plc",
+     "symbol": "SHEL",
+     "slug": "shell-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 64,
+     "asset_type": "stock",
+     "rwa_rank": 45,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Morgan Stanley",
+     "symbol": "MS",
+     "slug": "morgan-stanley",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 168.65720482163647,
+       "tokenized_market_cap": 0,
+       "tokenized_volume_24h": 9542.39577824,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 35,
+     "asset_type": "stock",
+     "rwa_rank": 46,
+     "has_tokens": true,
+     "average_tokenized_price": 168.65720482163647,
+     "tokenized_market_cap": 0,
+     "tokenized_volume_24h": 9542.39577824,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Royal Bank of Canada",
+     "symbol": "RY",
+     "slug": "royal-bank-of-canada",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 41,
+     "asset_type": "stock",
+     "rwa_rank": 47,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Rtx Corp",
+     "symbol": "RTX",
+     "slug": "rtx",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 192.2446820425011,
+       "tokenized_market_cap": 43649.68280592857,
+       "tokenized_volume_24h": 128.80282345,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 59,
+     "asset_type": "stock",
+     "rwa_rank": 48,
+     "has_tokens": true,
+     "average_tokenized_price": 192.2446820425011,
+     "tokenized_market_cap": 43649.68280592857,
+     "tokenized_volume_24h": 128.80282345,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Thermo Fisher Scientific Inc",
+     "symbol": "TMO",
+     "slug": "thermo-fisher",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 664.01,
+       "tokenized_market_cap": 105976.71136800003,
+       "tokenized_volume_24h": 159.561603,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 104,
+     "asset_type": "stock",
+     "rwa_rank": 49,
+     "has_tokens": true,
+     "average_tokenized_price": 664.01,
+     "tokenized_market_cap": 105976.71136800003,
+     "tokenized_volume_24h": 159.561603,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Applied Materials",
+     "symbol": "AMAT",
+     "slug": "applied-materials",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 311.9609239619037,
+       "tokenized_market_cap": 2605846.6544502117,
+       "tokenized_volume_24h": 3487808.37154088,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 22,
+     "asset_type": "stock",
+     "rwa_rank": 50,
+     "has_tokens": true,
+     "average_tokenized_price": 311.9609239619037,
+     "tokenized_market_cap": 2605846.6544502117,
+     "tokenized_volume_24h": 3487808.37154088,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Texas Instruments Inc",
+     "symbol": "TXN",
+     "slug": "texas-instruments",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 270.8563182099419,
+       "tokenized_market_cap": 428926.5765496601,
+       "tokenized_volume_24h": 246159.04577511,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 45,
+     "asset_type": "stock",
+     "rwa_rank": 51,
+     "has_tokens": true,
+     "average_tokenized_price": 270.8563182099419,
+     "tokenized_market_cap": 428926.5765496601,
+     "tokenized_volume_24h": 246159.04577511,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Toyota Motor Corp",
+     "symbol": "TM",
+     "slug": "toyota-motor",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 213.3852860889937,
+       "tokenized_market_cap": 2185084.3881477444,
+       "tokenized_volume_24h": 13.53621171,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 97,
+     "asset_type": "stock",
+     "rwa_rank": 52,
+     "has_tokens": true,
+     "average_tokenized_price": 213.3852860889937,
+     "tokenized_market_cap": 2185084.3881477444,
+     "tokenized_volume_24h": 13.53621171,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Wells Fargo & Co",
+     "symbol": "WFC",
+     "slug": "wells-fargo",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 81.2575943115882,
+       "tokenized_market_cap": 1224004.1973270488,
+       "tokenized_volume_24h": 9.0633679,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 60,
+     "asset_type": "stock",
+     "rwa_rank": 53,
+     "has_tokens": true,
+     "average_tokenized_price": 81.2575943115882,
+     "tokenized_market_cap": 1224004.1973270488,
+     "tokenized_volume_24h": 9.0633679,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Amgen",
+     "symbol": "AMGN",
+     "slug": "amgen",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 447.5720021647958,
+       "tokenized_market_cap": 50993.49406780177,
+       "tokenized_volume_24h": 242873.03892837,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 101,
+     "asset_type": "stock",
+     "rwa_rank": 54,
+     "has_tokens": true,
+     "average_tokenized_price": 447.5720021647958,
+     "tokenized_market_cap": 50993.49406780177,
+     "tokenized_volume_24h": 242873.03892837,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Caterpillar",
+     "symbol": "CAT",
+     "slug": "caterpillar",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 520.4215820938196,
+       "tokenized_market_cap": 18327.57465890916,
+       "tokenized_volume_24h": 245150.19696001,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 30,
+     "asset_type": "stock",
+     "rwa_rank": 55,
+     "has_tokens": true,
+     "average_tokenized_price": 520.4215820938196,
+     "tokenized_market_cap": 18327.57465890916,
+     "tokenized_volume_24h": 245150.19696001,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Lam Research Corp",
+     "symbol": "LRCX",
+     "slug": "lam-research",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 189.1636875667184,
+       "tokenized_market_cap": 1174510.1753851983,
+       "tokenized_volume_24h": 977433.65946283,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 32,
+     "asset_type": "stock",
+     "rwa_rank": 56,
+     "has_tokens": true,
+     "average_tokenized_price": 189.1636875667184,
+     "tokenized_market_cap": 1174510.1753851983,
+     "tokenized_volume_24h": 977433.65946283,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Netflix",
+     "symbol": "NFLX",
+     "slug": "netflix",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 57.06898135155613,
+       "tokenized_market_cap": 5792342.514580974,
+       "tokenized_volume_24h": 8084328.06513933,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 37,
+     "asset_type": "stock",
+     "rwa_rank": 57,
+     "has_tokens": true,
+     "average_tokenized_price": 57.06898135155613,
+     "tokenized_market_cap": 5792342.514580974,
+     "tokenized_volume_24h": 8084328.06513933,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "SAP SE",
+     "symbol": "SAP",
+     "slug": "sap-se",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 202.21273886911888,
+       "tokenized_market_cap": 29927.485352629596,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 72,
+     "asset_type": "stock",
+     "rwa_rank": 58,
+     "has_tokens": true,
+     "average_tokenized_price": 202.21273886911888,
+     "tokenized_market_cap": 29927.485352629596,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Linde PLC",
+     "symbol": "LIN",
+     "slug": "linde-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 505.5069373643177,
+       "tokenized_market_cap": 1739809.598616358,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 61,
+     "asset_type": "stock",
+     "rwa_rank": 59,
+     "has_tokens": true,
+     "average_tokenized_price": 505.5069373643177,
+     "tokenized_market_cap": 1739809.598616358,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Goldman Sachs Group Inc",
+     "symbol": "GS",
+     "slug": "goldman-sachs",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 795.3888334185654,
+       "tokenized_market_cap": 2150356.351865098,
+       "tokenized_volume_24h": 1358538.84069627,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 39,
+     "asset_type": "stock",
+     "rwa_rank": 60,
+     "has_tokens": true,
+     "average_tokenized_price": 795.3888334185654,
+     "tokenized_market_cap": 2150356.351865098,
+     "tokenized_volume_24h": 1358538.84069627,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Crowdstrike Holdings Inc",
+     "symbol": "CRWD",
+     "slug": "crowdstrike",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 211.44046595825125,
+       "tokenized_market_cap": 874587.950129914,
+       "tokenized_volume_24h": 1940045.28807738,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 102,
+     "asset_type": "stock",
+     "rwa_rank": 61,
+     "has_tokens": true,
+     "average_tokenized_price": 211.44046595825125,
+     "tokenized_market_cap": 874587.950129914,
+     "tokenized_volume_24h": 1940045.28807738,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Arista Networks",
+     "symbol": "ANET",
+     "slug": "arista-networks",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 172.62976377506422,
+       "tokenized_market_cap": 1015219.2962365058,
+       "tokenized_volume_24h": 1108275.55249197,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 66,
+     "asset_type": "stock",
+     "rwa_rank": 62,
+     "has_tokens": true,
+     "average_tokenized_price": 172.62976377506422,
+     "tokenized_market_cap": 1015219.2962365058,
+     "tokenized_volume_24h": 1108275.55249197,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "IBM",
+     "symbol": "IBM",
+     "slug": "ibm",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 227.85231295802302,
+       "tokenized_market_cap": 4108645.8504202757,
+       "tokenized_volume_24h": 2631425.678122,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 42,
+     "asset_type": "stock",
+     "rwa_rank": 63,
+     "has_tokens": true,
+     "average_tokenized_price": 227.85231295802302,
+     "tokenized_market_cap": 4108645.8504202757,
+     "tokenized_volume_24h": 2631425.678122,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Mitsubishi UFJ Financial Group, Inc.",
+     "symbol": "MUFG",
+     "slug": "mitsubishi-ufj-financial-group-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 46,
+     "asset_type": "stock",
+     "rwa_rank": 64,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Gilead Sciences, Inc.",
+     "symbol": "GILD",
+     "slug": "gilead-sciences-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 168.79233669255277,
+       "tokenized_market_cap": 45105.153547825284,
+       "tokenized_volume_24h": 3.49062552,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 78,
+     "asset_type": "stock",
+     "rwa_rank": 65,
+     "has_tokens": true,
+     "average_tokenized_price": 168.79233669255277,
+     "tokenized_market_cap": 45105.153547825284,
+     "tokenized_volume_24h": 3.49062552,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Alibaba Group Holding Ltd",
+     "symbol": "BABA",
+     "slug": "alibaba",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 82.00046293340922,
+       "tokenized_market_cap": 10162938.721535914,
+       "tokenized_volume_24h": 4735360.21237504,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 63,
+     "asset_type": "stock",
+     "rwa_rank": 66,
+     "has_tokens": true,
+     "average_tokenized_price": 82.00046293340922,
+     "tokenized_market_cap": 10162938.721535914,
+     "tokenized_volume_24h": 4735360.21237504,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "American Express Co",
+     "symbol": "AXP",
+     "slug": "american-express",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 305.5497154409123,
+       "tokenized_market_cap": 852022.2435816828,
+       "tokenized_volume_24h": 230448.49414996,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 47,
+     "asset_type": "stock",
+     "rwa_rank": 67,
+     "has_tokens": true,
+     "average_tokenized_price": 305.5497154409123,
+     "tokenized_market_cap": 852022.2435816828,
+     "tokenized_volume_24h": 230448.49414996,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Walt Disney Co",
+     "symbol": "DIS",
+     "slug": "disney",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 119.38592298387707,
+       "tokenized_market_cap": 1110127.3652824198,
+       "tokenized_volume_24h": 256560.11481541,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 110,
+     "asset_type": "stock",
+     "rwa_rank": 68,
+     "has_tokens": true,
+     "average_tokenized_price": 119.38592298387707,
+     "tokenized_market_cap": 1110127.3652824198,
+     "tokenized_volume_24h": 256560.11481541,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Verizon Communications Inc",
+     "symbol": "VZ",
+     "slug": "verizon-communications",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 48.593610522251986,
+       "tokenized_market_cap": 3280.4057788595246,
+       "tokenized_volume_24h": 22.06361781,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 107,
+     "asset_type": "stock",
+     "rwa_rank": 69,
+     "has_tokens": true,
+     "average_tokenized_price": 48.593610522251986,
+     "tokenized_market_cap": 3280.4057788595246,
+     "tokenized_volume_24h": 22.06361781,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "McDonald's Corp",
+     "symbol": "MCD",
+     "slug": "mcdonald",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 276.9770756139791,
+       "tokenized_market_cap": 4713376.917898413,
+       "tokenized_volume_24h": 3429894.46628555,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 68,
+     "asset_type": "stock",
+     "rwa_rank": 70,
+     "has_tokens": true,
+     "average_tokenized_price": 276.9770756139791,
+     "tokenized_market_cap": 4713376.917898413,
+     "tokenized_volume_24h": 3429894.46628555,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "PepsiCo Inc",
+     "symbol": "PEP",
+     "slug": "pepsico",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 139.95165469756515,
+       "tokenized_market_cap": 2528065.1080931625,
+       "tokenized_volume_24h": 287735.00456782,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 69,
+     "asset_type": "stock",
+     "rwa_rank": 71,
+     "has_tokens": true,
+     "average_tokenized_price": 139.95165469756515,
+     "tokenized_market_cap": 2528065.1080931625,
+     "tokenized_volume_24h": 287735.00456782,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "GE Vernova Inc.",
+     "symbol": "GEV",
+     "slug": "ge-vernova-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 709.8999259089865,
+       "tokenized_market_cap": 1783629.37331401,
+       "tokenized_volume_24h": 574526.29917135,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 57,
+     "asset_type": "stock",
+     "rwa_rank": 72,
+     "has_tokens": true,
+     "average_tokenized_price": 709.8999259089865,
+     "tokenized_market_cap": 1783629.37331401,
+     "tokenized_volume_24h": 574526.29917135,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Toronto Dominion Bank",
+     "symbol": "TD",
+     "slug": "toronto-dominion-bank",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 99,
+     "asset_type": "stock",
+     "rwa_rank": 73,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "TotalEnergies SE",
+     "symbol": "TTE",
+     "slug": "totalenergies-se",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 77,
+     "asset_type": "stock",
+     "rwa_rank": 74,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Citigroup Inc",
+     "symbol": "C",
+     "slug": "citigroup",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 113.0104048386669,
+       "tokenized_market_cap": 7619.998545340001,
+       "tokenized_volume_24h": 1.93564673,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 62,
+     "asset_type": "stock",
+     "rwa_rank": 75,
+     "has_tokens": true,
+     "average_tokenized_price": 113.0104048386669,
+     "tokenized_market_cap": 7619.998545340001,
+     "tokenized_volume_24h": 1.93564673,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Dell Technologies Inc.",
+     "symbol": "DELL",
+     "slug": "dell-technologies-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 285.1464456641216,
+       "tokenized_market_cap": 2371149.853760107,
+       "tokenized_volume_24h": 3185141.69886792,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 44,
+     "asset_type": "stock",
+     "rwa_rank": 76,
+     "has_tokens": true,
+     "average_tokenized_price": 285.1464456641216,
+     "tokenized_market_cap": 2371149.853760107,
+     "tokenized_volume_24h": 3185141.69886792,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Abbott Laboratories",
+     "symbol": "ABT",
+     "slug": "abbott",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 103.79358611722449,
+       "tokenized_market_cap": 1549046.835542511,
+       "tokenized_volume_24h": 361407.99497833,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 112,
+     "asset_type": "stock",
+     "rwa_rank": 77,
+     "has_tokens": true,
+     "average_tokenized_price": 103.79358611722449,
+     "tokenized_market_cap": 1549046.835542511,
+     "tokenized_volume_24h": 361407.99497833,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Welltower Inc.",
+     "symbol": "WELL",
+     "slug": "welltower-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 80,
+     "asset_type": "stock",
+     "rwa_rank": 78,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Amphenol Corporation",
+     "symbol": "APH",
+     "slug": "amphenol-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 71,
+     "asset_type": "stock",
+     "rwa_rank": 79,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "T-Mobile Us Inc",
+     "symbol": "TMUS",
+     "slug": "t-mobile-us",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 166.81445723509455,
+       "tokenized_market_cap": 3020.0668567681373,
+       "tokenized_volume_24h": 10140.75397401,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 100,
+     "asset_type": "stock",
+     "rwa_rank": 80,
+     "has_tokens": true,
+     "average_tokenized_price": 166.81445723509455,
+     "tokenized_market_cap": 3020.0668567681373,
+     "tokenized_volume_24h": 10140.75397401,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "NextEra Energy Inc",
+     "symbol": "NEE",
+     "slug": "nextera-energy",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 85.90967921918285,
+       "tokenized_market_cap": 49149.97044370036,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 105,
+     "asset_type": "stock",
+     "rwa_rank": 81,
+     "has_tokens": true,
+     "average_tokenized_price": 85.90967921918285,
+     "tokenized_market_cap": 49149.97044370036,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "BHP Group Limited",
+     "symbol": "BHP",
+     "slug": "bhp-group-limited",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 67,
+     "asset_type": "stock",
+     "rwa_rank": 82,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Union Pacific Corp.",
+     "symbol": "UNP",
+     "slug": "union-pacific-corp",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 111,
+     "asset_type": "stock",
+     "rwa_rank": 83,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "BlackRock Inc",
+     "symbol": "BLK",
+     "slug": "blackrock",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 1133.063167979166,
+       "tokenized_market_cap": 1946146.3933594304,
+       "tokenized_volume_24h": 623288.11376679,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 139,
+     "asset_type": "stock",
+     "rwa_rank": 84,
+     "has_tokens": true,
+     "average_tokenized_price": 1133.063167979166,
+     "tokenized_market_cap": 1946146.3933594304,
+     "tokenized_volume_24h": 623288.11376679,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Analog Devices",
+     "symbol": "ADI",
+     "slug": "analog-devices",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 355.0895419376177,
+       "tokenized_market_cap": 46486.85099440532,
+       "tokenized_volume_24h": 244046.20745596,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 74,
+     "asset_type": "stock",
+     "rwa_rank": 85,
+     "has_tokens": true,
+     "average_tokenized_price": 355.0895419376177,
+     "tokenized_market_cap": 46486.85099440532,
+     "tokenized_volume_24h": 244046.20745596,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "KLA Corp",
+     "symbol": "KLAC",
+     "slug": "kla",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 920.3665003816576,
+       "tokenized_market_cap": 572877.3977613574,
+       "tokenized_volume_24h": 32501.69326346,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 58,
+     "asset_type": "stock",
+     "rwa_rank": 86,
+     "has_tokens": true,
+     "average_tokenized_price": 920.3665003816576,
+     "tokenized_market_cap": 572877.3977613574,
+     "tokenized_volume_24h": 32501.69326346,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Arm Holdings PLC - ADR",
+     "symbol": "ARM",
+     "slug": "arm-holdings-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 156.4619726566333,
+       "tokenized_market_cap": 3492354.7422328484,
+       "tokenized_volume_24h": 2900645.6608792,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 54,
+     "asset_type": "stock",
+     "rwa_rank": 87,
+     "has_tokens": true,
+     "average_tokenized_price": 156.4619726566333,
+     "tokenized_market_cap": 3492354.7422328484,
+     "tokenized_volume_24h": 2900645.6608792,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Novo Nordisk A/S",
+     "symbol": "NVO",
+     "slug": "novo-nordisk",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 38.87835293108497,
+       "tokenized_market_cap": 2512078.7823821753,
+       "tokenized_volume_24h": 848020.83403253,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 65,
+     "asset_type": "stock",
+     "rwa_rank": 88,
+     "has_tokens": true,
+     "average_tokenized_price": 38.87835293108497,
+     "tokenized_market_cap": 2512078.7823821753,
+     "tokenized_volume_24h": 848020.83403253,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Deere & Co",
+     "symbol": "DE",
+     "slug": "deere",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 631.5766254220275,
+       "tokenized_market_cap": 1286.7768187305355,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 81,
+     "asset_type": "stock",
+     "rwa_rank": 89,
+     "has_tokens": true,
+     "average_tokenized_price": 631.5766254220275,
+     "tokenized_market_cap": 1286.7768187305355,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Qualcomm Inc",
+     "symbol": "QCOM",
+     "slug": "qualcomm",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 153.4874772418976,
+       "tokenized_market_cap": 5537841.999341371,
+       "tokenized_volume_24h": 5587015.96985453,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 103,
+     "asset_type": "stock",
+     "rwa_rank": 90,
+     "has_tokens": true,
+     "average_tokenized_price": 153.4874772418976,
+     "tokenized_market_cap": 5537841.999341371,
+     "tokenized_volume_24h": 5587015.96985453,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Shopify Inc",
+     "symbol": "SHOP",
+     "slug": "shopify",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 125.66080122191767,
+       "tokenized_market_cap": 779700.0281751031,
+       "tokenized_volume_24h": 1464791.74569798,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 132,
+     "asset_type": "stock",
+     "rwa_rank": 91,
+     "has_tokens": true,
+     "average_tokenized_price": 125.66080122191767,
+     "tokenized_market_cap": 779700.0281751031,
+     "tokenized_volume_24h": 1464791.74569798,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "ConocoPhillips",
+     "symbol": "COP",
+     "slug": "conocophillips",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 138.53254487151978,
+       "tokenized_market_cap": 25117.53718407656,
+       "tokenized_volume_24h": 858395.07461643,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 223,
+     "asset_type": "stock",
+     "rwa_rank": 92,
+     "has_tokens": true,
+     "average_tokenized_price": 138.53254487151978,
+     "tokenized_market_cap": 25117.53718407656,
+     "tokenized_volume_24h": 858395.07461643,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Banco Santander S.A.",
+     "symbol": "SAN",
+     "slug": "banco-santander-s-a",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 11.407154729401649,
+       "tokenized_market_cap": 28715.601988329403,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 98,
+     "asset_type": "stock",
+     "rwa_rank": 93,
+     "has_tokens": true,
+     "average_tokenized_price": 11.407154729401649,
+     "tokenized_market_cap": 28715.601988329403,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Sony Group Corporation",
+     "symbol": "SONY",
+     "slug": "sony-group-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 27.306268103696855,
+       "tokenized_market_cap": 60525.839320026134,
+       "tokenized_volume_24h": 21162.64824517,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1577,
+     "asset_type": "stock",
+     "rwa_rank": 94,
+     "has_tokens": true,
+     "average_tokenized_price": 27.306268103696855,
+     "tokenized_market_cap": 60525.839320026134,
+     "tokenized_volume_24h": 21162.64824517,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Danaher Corp",
+     "symbol": "DHR",
+     "slug": "danaher",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 226.29995997811318,
+       "tokenized_market_cap": 170823.88223621066,
+       "tokenized_volume_24h": 56856.5101464,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 145,
+     "asset_type": "stock",
+     "rwa_rank": 95,
+     "has_tokens": true,
+     "average_tokenized_price": 226.29995997811318,
+     "tokenized_market_cap": 170823.88223621066,
+     "tokenized_volume_24h": 56856.5101464,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Charles Schwab Corporation",
+     "symbol": "SCHW",
+     "slug": "charles-schwab",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 92.32052303430162,
+       "tokenized_market_cap": 3952.2718491498767,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 76,
+     "asset_type": "stock",
+     "rwa_rank": 96,
+     "has_tokens": true,
+     "average_tokenized_price": 92.32052303430162,
+     "tokenized_market_cap": 3952.2718491498767,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Anheuser-Busch INBEV SA/NV",
+     "symbol": "BUD",
+     "slug": "anheuser-busch-inbev-sa-nv",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 79.74761572484775,
+       "tokenized_market_cap": 33334.50337298636,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1063,
+     "asset_type": "stock",
+     "rwa_rank": 97,
+     "has_tokens": true,
+     "average_tokenized_price": 79.74761572484775,
+     "tokenized_market_cap": 33334.50337298636,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Pfizer Inc",
+     "symbol": "PFE",
+     "slug": "pfizer",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 27.2544529829759,
+       "tokenized_market_cap": 384718.33858691074,
+       "tokenized_volume_24h": 313908.57268192,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 92,
+     "asset_type": "stock",
+     "rwa_rank": 98,
+     "has_tokens": true,
+     "average_tokenized_price": 27.2544529829759,
+     "tokenized_market_cap": 384718.33858691074,
+     "tokenized_volume_24h": 313908.57268192,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Tjx Companies, Inc.",
+     "symbol": "TJX",
+     "slug": "tjx-companies-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 109,
+     "asset_type": "stock",
+     "rwa_rank": 99,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "AT&T Inc",
+     "symbol": "T",
+     "slug": "att-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 22.99974523631139,
+       "tokenized_market_cap": 4103.9832233889,
+       "tokenized_volume_24h": 17.94770365,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 246,
+     "asset_type": "stock",
+     "rwa_rank": 100,
+     "has_tokens": true,
+     "average_tokenized_price": 22.99974523631139,
+     "tokenized_market_cap": 4103.9832233889,
+     "tokenized_volume_24h": 17.94770365,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Salesforce Inc",
+     "symbol": "CRM",
+     "slug": "salesforce",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 183.1482557036231,
+       "tokenized_market_cap": 1698011.6194533112,
+       "tokenized_volume_24h": 966878.08785041,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 198,
+     "asset_type": "stock",
+     "rwa_rank": 101,
+     "has_tokens": true,
+     "average_tokenized_price": 183.1482557036231,
+     "tokenized_market_cap": 1698011.6194533112,
+     "tokenized_volume_24h": 966878.08785041,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Chubb Limited",
+     "symbol": "CB",
+     "slug": "chubb-limited",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 258,
+     "asset_type": "stock",
+     "rwa_rank": 102,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "HDFC Bank Limited",
+     "symbol": "HDB",
+     "slug": "hdfc-bank-limited",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1576,
+     "asset_type": "stock",
+     "rwa_rank": 103,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Intuitive Surgical Inc",
+     "symbol": "ISRG",
+     "slug": "intuitive-surgical",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 401.92397429258256,
+       "tokenized_market_cap": 601243.1482027512,
+       "tokenized_volume_24h": 509087.41219847,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 166,
+     "asset_type": "stock",
+     "rwa_rank": 104,
+     "has_tokens": true,
+     "average_tokenized_price": 401.92397429258256,
+     "tokenized_market_cap": 601243.1482027512,
+     "tokenized_volume_24h": 509087.41219847,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Unilever plc",
+     "symbol": "UL",
+     "slug": "unilever-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 64.26875850817281,
+       "tokenized_market_cap": 36247.57979860946,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1065,
+     "asset_type": "stock",
+     "rwa_rank": 105,
+     "has_tokens": true,
+     "average_tokenized_price": 64.26875850817281,
+     "tokenized_market_cap": 36247.57979860946,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Progressive Corporation",
+     "symbol": "PGR",
+     "slug": "progressive-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 388,
+     "asset_type": "stock",
+     "rwa_rank": 106,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Lockheed Martin Corp",
+     "symbol": "LMT",
+     "slug": "lockheed-martin",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 568.2912213448781,
+       "tokenized_market_cap": 77696.73034170567,
+       "tokenized_volume_24h": 157398.26777693,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 137,
+     "asset_type": "stock",
+     "rwa_rank": 107,
+     "has_tokens": true,
+     "average_tokenized_price": 568.2912213448781,
+     "tokenized_market_cap": 77696.73034170567,
+     "tokenized_volume_24h": 157398.26777693,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Accenture Plc",
+     "symbol": "ACN",
+     "slug": "accenture",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 228.95504527518594,
+       "tokenized_market_cap": 1407623.3792052856,
+       "tokenized_volume_24h": 1202168.15499299,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 136,
+     "asset_type": "stock",
+     "rwa_rank": 108,
+     "has_tokens": true,
+     "average_tokenized_price": 228.95504527518594,
+     "tokenized_market_cap": 1407623.3792052856,
+     "tokenized_volume_24h": 1202168.15499299,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Uber Technologies Inc",
+     "symbol": "UBER",
+     "slug": "uber",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 63.87214197671961,
+       "tokenized_market_cap": 931536.4787954213,
+       "tokenized_volume_24h": 1136012.99589429,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 128,
+     "asset_type": "stock",
+     "rwa_rank": 109,
+     "has_tokens": true,
+     "average_tokenized_price": 63.87214197671961,
+     "tokenized_market_cap": 931536.4787954213,
+     "tokenized_volume_24h": 1136012.99589429,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "UBS Group AG",
+     "symbol": "UBS",
+     "slug": "ubs-group-ag",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 79,
+     "asset_type": "stock",
+     "rwa_rank": 110,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Vertex Pharmaceuticals Incorporated",
+     "symbol": "VRTX",
+     "slug": "vertex-pharmaceuticals-incorporated",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 262,
+     "asset_type": "stock",
+     "rwa_rank": 111,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Sumitomo Mitsui Financial Group, Inc",
+     "symbol": "SMFG",
+     "slug": "sumitomo-mitsui-financial-group-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 113,
+     "asset_type": "stock",
+     "rwa_rank": 112,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Banco Bilbao Vizcaya Argentaria, S.A.",
+     "symbol": "BBVA",
+     "slug": "banco-bilbao-vizcaya-argentaria-s-a",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1575,
+     "asset_type": "stock",
+     "rwa_rank": 113,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Medtronic PLC",
+     "symbol": "MDT",
+     "slug": "medtronic",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 99.27,
+       "tokenized_market_cap": 71404.5517071255,
+       "tokenized_volume_24h": 132.77422062,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 146,
+     "asset_type": "stock",
+     "rwa_rank": 114,
+     "has_tokens": true,
+     "average_tokenized_price": 99.27,
+     "tokenized_market_cap": 71404.5517071255,
+     "tokenized_volume_24h": 132.77422062,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "S&P Global Inc",
+     "symbol": "SPGI",
+     "slug": "spgi",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 467.19600099883434,
+       "tokenized_market_cap": 976538.4543594683,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 134,
+     "asset_type": "stock",
+     "rwa_rank": 115,
+     "has_tokens": true,
+     "average_tokenized_price": 467.19600099883434,
+     "tokenized_market_cap": 976538.4543594683,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "ICICI Bank Limited",
+     "symbol": "IBN",
+     "slug": "icici-bank-limited",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1070,
+     "asset_type": "stock",
+     "rwa_rank": 116,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Boeing Co",
+     "symbol": "BA",
+     "slug": "boeing",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 156.6826445521254,
+       "tokenized_market_cap": 1089945.2555986838,
+       "tokenized_volume_24h": 894553.12998797,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 106,
+     "asset_type": "stock",
+     "rwa_rank": 117,
+     "has_tokens": true,
+     "average_tokenized_price": 156.6826445521254,
+     "tokenized_market_cap": 1089945.2555986838,
+     "tokenized_volume_24h": 894553.12998797,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Altria Group, Inc.",
+     "symbol": "MO",
+     "slug": "altria-group-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 260,
+     "asset_type": "stock",
+     "rwa_rank": 118,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Mckesson Corporation",
+     "symbol": "MCK",
+     "slug": "mckesson-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 395,
+     "asset_type": "stock",
+     "rwa_rank": 119,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "British American Tobacco p.l.c.",
+     "symbol": "BTI",
+     "slug": "british-american-tobacco-p-l-c",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1064,
+     "asset_type": "stock",
+     "rwa_rank": 120,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Lowe's Companies Inc",
+     "symbol": "LOW",
+     "slug": "lowes-companies",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 226.50974639702068,
+       "tokenized_market_cap": 753.5809199111283,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 231,
+     "asset_type": "stock",
+     "rwa_rank": 121,
+     "has_tokens": true,
+     "average_tokenized_price": 226.50974639702068,
+     "tokenized_market_cap": 753.5809199111283,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Eaton Corporation, Plc",
+     "symbol": "ETN",
+     "slug": "eaton-corporation-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 314.84754021123973,
+       "tokenized_market_cap": 0,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 192,
+     "asset_type": "stock",
+     "rwa_rank": 122,
+     "has_tokens": true,
+     "average_tokenized_price": 314.84754021123973,
+     "tokenized_market_cap": 0,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Bristol-Myers Squibb Co.",
+     "symbol": "BMY",
+     "slug": "bristol-myers-squibb-co",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 389,
+     "asset_type": "stock",
+     "rwa_rank": 123,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Automatic Data Processing, Inc.",
+     "symbol": "ADP",
+     "slug": "automatic-data-processing-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 396,
+     "asset_type": "stock",
+     "rwa_rank": 124,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Spotify Technology SA",
+     "symbol": "SPOT",
+     "slug": "spotify",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 578.673582940731,
+       "tokenized_market_cap": 620722.555923154,
+       "tokenized_volume_24h": 876440.28438097,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 202,
+     "asset_type": "stock",
+     "rwa_rank": 125,
+     "has_tokens": true,
+     "average_tokenized_price": 578.673582940731,
+     "tokenized_market_cap": 620722.555923154,
+     "tokenized_volume_24h": 876440.28438097,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Rio Tinto plc",
+     "symbol": "RIO",
+     "slug": "rio-tinto-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1574,
+     "asset_type": "stock",
+     "rwa_rank": 126,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "PDD Holdings Inc",
+     "symbol": "PDD",
+     "slug": "pdd-holdings",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 83.45498156305577,
+       "tokenized_market_cap": 14379236.430950807,
+       "tokenized_volume_24h": 4558187.57346273,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 175,
+     "asset_type": "stock",
+     "rwa_rank": 127,
+     "has_tokens": true,
+     "average_tokenized_price": 83.45498156305577,
+     "tokenized_market_cap": 14379236.430950807,
+     "tokenized_volume_24h": 4558187.57346273,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Prologis Inc",
+     "symbol": "PLD",
+     "slug": "prologis",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 213,
+     "asset_type": "stock",
+     "rwa_rank": 128,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Stryker Corporation",
+     "symbol": "SYK",
+     "slug": "stryker-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 261,
+     "asset_type": "stock",
+     "rwa_rank": 129,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Starbucks Corp",
+     "symbol": "SBUX",
+     "slug": "starbucks",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 103.91636155911758,
+       "tokenized_market_cap": 2063366.3724738513,
+       "tokenized_volume_24h": 128585.56823048,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 129,
+     "asset_type": "stock",
+     "rwa_rank": 130,
+     "has_tokens": true,
+     "average_tokenized_price": 103.91636155911758,
+     "tokenized_market_cap": 2063366.3724738513,
+     "tokenized_volume_24h": 128585.56823048,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Applovin Corp",
+     "symbol": "APP",
+     "slug": "applovin",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 351.6843317210469,
+       "tokenized_market_cap": 3755120.9157619774,
+       "tokenized_volume_24h": 1462289.96537949,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 108,
+     "asset_type": "stock",
+     "rwa_rank": 131,
+     "has_tokens": true,
+     "average_tokenized_price": 351.6843317210469,
+     "tokenized_market_cap": 3755120.9157619774,
+     "tokenized_volume_24h": 1462289.96537949,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Southern Copper Corporation",
+     "symbol": "SCCO",
+     "slug": "southern-copper-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 385,
+     "asset_type": "stock",
+     "rwa_rank": 132,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Marvell Technology Inc",
+     "symbol": "MRVL",
+     "slug": "marvell-technology",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 125.46653476701204,
+       "tokenized_market_cap": 19631173.607976094,
+       "tokenized_volume_24h": 10836247.26490443,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 70,
+     "asset_type": "stock",
+     "rwa_rank": 133,
+     "has_tokens": true,
+     "average_tokenized_price": 125.46653476701204,
+     "tokenized_market_cap": 19631173.607976094,
+     "tokenized_volume_24h": 10836247.26490443,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Sanofi ADS",
+     "symbol": "SNY",
+     "slug": "sanofi-ads",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1579,
+     "asset_type": "stock",
+     "rwa_rank": 134,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Parker-Hannifin Corporation",
+     "symbol": "PH",
+     "slug": "parker-hannifin-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 390,
+     "asset_type": "stock",
+     "rwa_rank": 135,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "BP p.l.c.",
+     "symbol": "BP",
+     "slug": "bp-p-l-c",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1067,
+     "asset_type": "stock",
+     "rwa_rank": 136,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Cme Group Inc.",
+     "symbol": "CME",
+     "slug": "cme-group-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 267,
+     "asset_type": "stock",
+     "rwa_rank": 137,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Booking Holdings Inc.",
+     "symbol": "BKNG",
+     "slug": "booking-holdings-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 259,
+     "asset_type": "stock",
+     "rwa_rank": 138,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Bank of Montreal",
+     "symbol": "BMO",
+     "slug": "bank-of-montreal",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1578,
+     "asset_type": "stock",
+     "rwa_rank": 139,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Southern Co",
+     "symbol": "SO",
+     "slug": "southern",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 96.29555869294676,
+       "tokenized_market_cap": 849.3563210755069,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 180,
+     "asset_type": "stock",
+     "rwa_rank": 140,
+     "has_tokens": true,
+     "average_tokenized_price": 96.29555869294676,
+     "tokenized_market_cap": 849.3563210755069,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Capital One Financial Corp",
+     "symbol": "COF",
+     "slug": "capital-one-financial-corp",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 182.2339275921258,
+       "tokenized_market_cap": 3780.172381816067,
+       "tokenized_volume_24h": 5.54334104,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 159,
+     "asset_type": "stock",
+     "rwa_rank": 141,
+     "has_tokens": true,
+     "average_tokenized_price": 182.2339275921258,
+     "tokenized_market_cap": 3780.172381816067,
+     "tokenized_volume_24h": 5.54334104,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Mizuho Financial Group, Inc.",
+     "symbol": "MFG",
+     "slug": "mizuho-financial-group-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1066,
+     "asset_type": "stock",
+     "rwa_rank": 142,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Seagate Technology Holdings Plc",
+     "symbol": "STX",
+     "slug": "seagate-technology-holdings-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 466.1826387065497,
+       "tokenized_market_cap": 573160.6742150867,
+       "tokenized_volume_24h": 1990787.85849622,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 73,
+     "asset_type": "stock",
+     "rwa_rank": 143,
+     "has_tokens": true,
+     "average_tokenized_price": 466.1826387065497,
+     "tokenized_market_cap": 573160.6742150867,
+     "tokenized_volume_24h": 1990787.85849622,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Marriott International",
+     "symbol": "MAR",
+     "slug": "marriott-international",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 391,
+     "asset_type": "stock",
+     "rwa_rank": 144,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Petroleo Brasileiro SA Petrobras Preference Shares",
+     "symbol": "PBR",
+     "slug": "petrobras",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 16.965842496101605,
+       "tokenized_market_cap": 1967627.0464897994,
+       "tokenized_volume_24h": 881410.18573045,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 90,
+     "asset_type": "stock",
+     "rwa_rank": 145,
+     "has_tokens": true,
+     "average_tokenized_price": 16.965842496101605,
+     "tokenized_market_cap": 1967627.0464897994,
+     "tokenized_volume_24h": 881410.18573045,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Cvs Health Corporation",
+     "symbol": "CVS",
+     "slug": "cvs-health-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 386,
+     "asset_type": "stock",
+     "rwa_rank": 146,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Enbridge, Inc",
+     "symbol": "ENB",
+     "slug": "enbridge-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 387,
+     "asset_type": "stock",
+     "rwa_rank": 147,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Duke Energy Corporation",
+     "symbol": "DUK",
+     "slug": "duke-energy-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 394,
+     "asset_type": "stock",
+     "rwa_rank": 148,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Western Digital Corporation",
+     "symbol": "WDC",
+     "slug": "western-digital-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 267.6628755076484,
+       "tokenized_market_cap": 2646795.4105114923,
+       "tokenized_volume_24h": 3554755.31224471,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 75,
+     "asset_type": "stock",
+     "rwa_rank": 149,
+     "has_tokens": true,
+     "average_tokenized_price": 267.6628755076484,
+     "tokenized_market_cap": 2646795.4105114923,
+     "tokenized_volume_24h": 3554755.31224471,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Marathon Petroleum Corporation",
+     "symbol": "MPC",
+     "slug": "marathon-petroleum-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 410,
+     "asset_type": "stock",
+     "rwa_rank": 150,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Airbnb Inc",
+     "symbol": "ABNB",
+     "slug": "airbnb",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 169.71429380141493,
+       "tokenized_market_cap": 1510959.1140669433,
+       "tokenized_volume_24h": 514241.37594161,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 193,
+     "asset_type": "stock",
+     "rwa_rank": 151,
+     "has_tokens": true,
+     "average_tokenized_price": 169.71429380141493,
+     "tokenized_market_cap": 1510959.1140669433,
+     "tokenized_volume_24h": 514241.37594161,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Cloudflare, Inc.",
+     "symbol": "NET",
+     "slug": "cloudflare-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 280.66895802121167,
+       "tokenized_market_cap": 0,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 281,
+     "asset_type": "stock",
+     "rwa_rank": 152,
+     "has_tokens": true,
+     "average_tokenized_price": 280.66895802121167,
+     "tokenized_market_cap": 0,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Newmont Corporation",
+     "symbol": "NEM",
+     "slug": "newmont-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 393,
+     "asset_type": "stock",
+     "rwa_rank": 153,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Bank of New York Mellon Corporation",
+     "symbol": "BNY",
+     "slug": "bank-of-new-york-mellon-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1582,
+     "asset_type": "stock",
+     "rwa_rank": 154,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Hca Healthcare, Inc.",
+     "symbol": "HCA",
+     "slug": "hca-healthcare-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 404,
+     "asset_type": "stock",
+     "rwa_rank": 155,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Bank of Nova Scotia",
+     "symbol": "BNS",
+     "slug": "bank-of-nova-scotia",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1068,
+     "asset_type": "stock",
+     "rwa_rank": 156,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Marsh",
+     "symbol": "MRSH",
+     "slug": "marsh",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 406,
+     "asset_type": "stock",
+     "rwa_rank": 157,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Equinix Inc",
+     "symbol": "EQIX",
+     "slug": "equinix",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 995.6832746851622,
+       "tokenized_market_cap": 1592492.4365515101,
+       "tokenized_volume_24h": 246787.57105121,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 122,
+     "asset_type": "stock",
+     "rwa_rank": 158,
+     "has_tokens": true,
+     "average_tokenized_price": 995.6832746851622,
+     "tokenized_market_cap": 1592492.4365515101,
+     "tokenized_volume_24h": 246787.57105121,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "GSK plc",
+     "symbol": "GSK",
+     "slug": "gsk-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1580,
+     "asset_type": "stock",
+     "rwa_rank": 159,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Intercontinental Exchange Inc.",
+     "symbol": "ICE",
+     "slug": "intercontinental-exchange-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 171.70789140898415,
+       "tokenized_market_cap": 0,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 407,
+     "asset_type": "stock",
+     "rwa_rank": 160,
+     "has_tokens": true,
+     "average_tokenized_price": 171.70789140898415,
+     "tokenized_market_cap": 0,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Waste Management, Inc.",
+     "symbol": "WM",
+     "slug": "waste-management-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 397,
+     "asset_type": "stock",
+     "rwa_rank": 161,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Valero Energy Corporation",
+     "symbol": "VLO",
+     "slug": "valero-energy-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 411,
+     "asset_type": "stock",
+     "rwa_rank": 162,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Regeneron Pharmaceuticals, Inc.",
+     "symbol": "REGN",
+     "slug": "regeneron-pharmaceuticals-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 299,
+     "asset_type": "stock",
+     "rwa_rank": 163,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "General Dynamics Corporation",
+     "symbol": "GD",
+     "slug": "general-dynamics-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 269,
+     "asset_type": "stock",
+     "rwa_rank": 164,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Phillips 66",
+     "symbol": "PSX",
+     "slug": "phillips-66",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 415,
+     "asset_type": "stock",
+     "rwa_rank": 165,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Equinor ASA",
+     "symbol": "EQNR",
+     "slug": "equinor-asa",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1074,
+     "asset_type": "stock",
+     "rwa_rank": 166,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "SanDisk Corp",
+     "symbol": "SNDK",
+     "slug": "sandisk-corp",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 90.05502032848923,
+       "tokenized_market_cap": 56787573.36023268,
+       "tokenized_volume_24h": 38438901.8232935,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 48,
+     "asset_type": "stock",
+     "rwa_rank": 167,
+     "has_tokens": true,
+     "average_tokenized_price": 90.05502032848923,
+     "tokenized_market_cap": 56787573.36023268,
+     "tokenized_volume_24h": 38438901.8232935,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "3M Company",
+     "symbol": "MMM",
+     "slug": "3m-company",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 405,
+     "asset_type": "stock",
+     "rwa_rank": 168,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "ServiceNow Inc",
+     "symbol": "NOW",
+     "slug": "servicenow",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 426.27077328565247,
+       "tokenized_market_cap": 1163245.0926942606,
+       "tokenized_volume_24h": 539687.52674979,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 203,
+     "asset_type": "stock",
+     "rwa_rank": 169,
+     "has_tokens": true,
+     "average_tokenized_price": 426.27077328565247,
+     "tokenized_market_cap": 1163245.0926942606,
+     "tokenized_volume_24h": 539687.52674979,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Canadian Imperial Bank of Commerce",
+     "symbol": "CM",
+     "slug": "canadian-imperial-bank-of-commerce",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1069,
+     "asset_type": "stock",
+     "rwa_rank": 170,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Fortinet, Inc.",
+     "symbol": "FTNT",
+     "slug": "fortinet-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 264,
+     "asset_type": "stock",
+     "rwa_rank": 171,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Csx Corporation",
+     "symbol": "CSX",
+     "slug": "csx-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 402,
+     "asset_type": "stock",
+     "rwa_rank": 172,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Petroleo Brasileiro S.A.-Petrobras",
+     "symbol": "PBR.A",
+     "slug": "petroleo-brasileiro-s-a-petrobras",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1071,
+     "asset_type": "stock",
+     "rwa_rank": 173,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Snowflake Inc",
+     "symbol": "SNOW",
+     "slug": "snowflake",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 258.96032253563715,
+       "tokenized_market_cap": 1214313.614375512,
+       "tokenized_volume_24h": 823024.16594154,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 135,
+     "asset_type": "stock",
+     "rwa_rank": 174,
+     "has_tokens": true,
+     "average_tokenized_price": 258.96032253563715,
+     "tokenized_market_cap": 1214313.614375512,
+     "tokenized_volume_24h": 823024.16594154,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Canadian Natural Resources Limited",
+     "symbol": "CNQ",
+     "slug": "canadian-natural-resources-limited",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1583,
+     "asset_type": "stock",
+     "rwa_rank": 175,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "United Parcel Service, Inc.",
+     "symbol": "UPS",
+     "slug": "united-parcel-service-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 106.20549726505014,
+       "tokenized_market_cap": 123222.6575290455,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 401,
+     "asset_type": "stock",
+     "rwa_rank": 176,
+     "has_tokens": true,
+     "average_tokenized_price": 106.20549726505014,
+     "tokenized_market_cap": 123222.6575290455,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Comcast Corp",
+     "symbol": "CMCSA",
+     "slug": "comcast",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 25.2402648322131,
+       "tokenized_market_cap": 203863.55038847268,
+       "tokenized_volume_24h": 86944.17983427,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 208,
+     "asset_type": "stock",
+     "rwa_rank": 177,
+     "has_tokens": true,
+     "average_tokenized_price": 25.2402648322131,
+     "tokenized_market_cap": 203863.55038847268,
+     "tokenized_volume_24h": 86944.17983427,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "U.S. Bancorp",
+     "symbol": "USB",
+     "slug": "u-s-bancorp",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 399,
+     "asset_type": "stock",
+     "rwa_rank": 178,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Blackstone Inc.",
+     "symbol": "BX",
+     "slug": "blackstone-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 111.60368118234398,
+       "tokenized_market_cap": 105761.01092562462,
+       "tokenized_volume_24h": 5631.05822574,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 257,
+     "asset_type": "stock",
+     "rwa_rank": 179,
+     "has_tokens": true,
+     "average_tokenized_price": 111.60368118234398,
+     "tokenized_market_cap": 105761.01092562462,
+     "tokenized_volume_24h": 5631.05822574,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Waters Corp",
+     "symbol": "WAT",
+     "slug": "waters-corp",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 346,
+     "asset_type": "stock",
+     "rwa_rank": 180,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Cintas Corporation",
+     "symbol": "CTAS",
+     "slug": "cintas-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 289,
+     "asset_type": "stock",
+     "rwa_rank": 181,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Trane Technologies Plc",
+     "symbol": "TT",
+     "slug": "trane-technologies-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 265,
+     "asset_type": "stock",
+     "rwa_rank": 182,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Quanta Services, Inc.",
+     "symbol": "PWR",
+     "slug": "quanta-services-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 266,
+     "asset_type": "stock",
+     "rwa_rank": 183,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Motorola Solutions, Inc. New",
+     "symbol": "MSI",
+     "slug": "motorola-solutions-inc-new",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 422,
+     "asset_type": "stock",
+     "rwa_rank": 184,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Monster Beverage Corporation",
+     "symbol": "MNST",
+     "slug": "monster-beverage-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 271,
+     "asset_type": "stock",
+     "rwa_rank": 185,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "American Tower Corporation",
+     "symbol": "AMT",
+     "slug": "american-tower-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 270,
+     "asset_type": "stock",
+     "rwa_rank": 186,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Adobe Inc",
+     "symbol": "ADBE",
+     "slug": "adobe",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 219.86432106412988,
+       "tokenized_market_cap": 1580453.1811566772,
+       "tokenized_volume_24h": 1371884.36832675,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 138,
+     "asset_type": "stock",
+     "rwa_rank": 187,
+     "has_tokens": true,
+     "average_tokenized_price": 219.86432106412988,
+     "tokenized_market_cap": 1580453.1811566772,
+     "tokenized_volume_24h": 1371884.36832675,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Constellation Energy",
+     "symbol": "CEG",
+     "slug": "constellation-energy",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 243.3637715531233,
+       "tokenized_market_cap": 1254542.9722748562,
+       "tokenized_volume_24h": 655302.54167828,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 157,
+     "asset_type": "stock",
+     "rwa_rank": 188,
+     "has_tokens": true,
+     "average_tokenized_price": 243.3637715531233,
+     "tokenized_market_cap": 1254542.9722748562,
+     "tokenized_volume_24h": 655302.54167828,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Pnc Financial Services Group",
+     "symbol": "PNC",
+     "slug": "pnc-financial-services-group",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 268,
+     "asset_type": "stock",
+     "rwa_rank": 189,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Elevance Health, Inc.",
+     "symbol": "ELV",
+     "slug": "elevance-health-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 273,
+     "asset_type": "stock",
+     "rwa_rank": 190,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Howmet Aerospace Inc.",
+     "symbol": "HWM",
+     "slug": "howmet-aerospace-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 392,
+     "asset_type": "stock",
+     "rwa_rank": 191,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Brookfield Corporation",
+     "symbol": "BN",
+     "slug": "brookfield-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1581,
+     "asset_type": "stock",
+     "rwa_rank": 192,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Mondelez International, Inc.",
+     "symbol": "MDLZ",
+     "slug": "mondelez-international-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 277,
+     "asset_type": "stock",
+     "rwa_rank": 193,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Emerson Electric Co.",
+     "symbol": "EMR",
+     "slug": "emerson-electric-co",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 283,
+     "asset_type": "stock",
+     "rwa_rank": 194,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "ING Groep N.V.",
+     "symbol": "ING",
+     "slug": "ing-groep-n-v",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1072,
+     "asset_type": "stock",
+     "rwa_rank": 195,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Corning Incorporated",
+     "symbol": "GLW",
+     "slug": "corning-incorporated",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 96.28593689944469,
+       "tokenized_market_cap": 1568549.4855056754,
+       "tokenized_volume_24h": 2771885.58686238,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 256,
+     "asset_type": "stock",
+     "rwa_rank": 196,
+     "has_tokens": true,
+     "average_tokenized_price": 96.28593689944469,
+     "tokenized_market_cap": 1568549.4855056754,
+     "tokenized_volume_24h": 2771885.58686238,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Ecolab, Inc.",
+     "symbol": "ECL",
+     "slug": "ecolab-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 416,
+     "asset_type": "stock",
+     "rwa_rank": 197,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "The Sherwin-Williams Company",
+     "symbol": "SHW",
+     "slug": "the-sherwin-williams-company",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 285,
+     "asset_type": "stock",
+     "rwa_rank": 198,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Williams Companies Inc.",
+     "symbol": "WMB",
+     "slug": "williams-companies-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 272,
+     "asset_type": "stock",
+     "rwa_rank": 199,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "The Travelers Companies, Inc.",
+     "symbol": "TRV",
+     "slug": "the-travelers-companies-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 298,
+     "asset_type": "stock",
+     "rwa_rank": 200,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Moody'S Corporation",
+     "symbol": "MCO",
+     "slug": "moody-s-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 280,
+     "asset_type": "stock",
+     "rwa_rank": 201,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Royal Caribbean Group",
+     "symbol": "RCL",
+     "slug": "royal-caribbean-group",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 290,
+     "asset_type": "stock",
+     "rwa_rank": 202,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Moderna Inc",
+     "symbol": "MRNA",
+     "slug": "moderna",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 199.1741027176081,
+       "tokenized_market_cap": 2270638.8999551516,
+       "tokenized_volume_24h": 22800104.146399,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 232,
+     "asset_type": "stock",
+     "rwa_rank": 203,
+     "has_tokens": true,
+     "average_tokenized_price": 199.1741027176081,
+     "tokenized_market_cap": 2270638.8999551516,
+     "tokenized_volume_24h": 22800104.146399,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "National Grid PLC",
+     "symbol": "NGG",
+     "slug": "national-grid-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1586,
+     "asset_type": "stock",
+     "rwa_rank": 204,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Kkr & Co. Inc.",
+     "symbol": "KKR",
+     "slug": "kkr-co-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 275,
+     "asset_type": "stock",
+     "rwa_rank": 205,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Hilton Worldwide Holdings Inc.",
+     "symbol": "HLT",
+     "slug": "hilton-worldwide-holdings-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 282,
+     "asset_type": "stock",
+     "rwa_rank": 206,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Johnson Controls International Plc",
+     "symbol": "JCI",
+     "slug": "johnson-controls-international-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 403,
+     "asset_type": "stock",
+     "rwa_rank": 207,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Illinois Tool Works Inc.",
+     "symbol": "ITW",
+     "slug": "illinois-tool-works-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 418,
+     "asset_type": "stock",
+     "rwa_rank": 208,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Cadence Design Systems, Inc.",
+     "symbol": "CDNS",
+     "slug": "cadence-design-systems-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 263,
+     "asset_type": "stock",
+     "rwa_rank": 209,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Colgate-Palmolive Company",
+     "symbol": "CL",
+     "slug": "colgate-palmolive-company",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 16387,
+     "asset_type": "stock",
+     "rwa_rank": 210,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Agnico Eagle Mines Ltd.",
+     "symbol": "AEM",
+     "slug": "agnico-eagle-mines-ltd",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1584,
+     "asset_type": "stock",
+     "rwa_rank": 211,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Canadian Pacific Kansas City Limited",
+     "symbol": "CP",
+     "slug": "canadian-pacific-kansas-city-limited",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 279,
+     "asset_type": "stock",
+     "rwa_rank": 212,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Warner Bros. Discovery, Inc.",
+     "symbol": "WBD",
+     "slug": "warner-bros-discovery-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 424,
+     "asset_type": "stock",
+     "rwa_rank": 213,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Eog Resources, Inc.",
+     "symbol": "EOG",
+     "slug": "eog-resources-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 413,
+     "asset_type": "stock",
+     "rwa_rank": 214,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Brookfield Asset Management Ltd.",
+     "symbol": "BAM",
+     "slug": "brookfield-asset-management-ltd",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 287,
+     "asset_type": "stock",
+     "rwa_rank": 215,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Synopsys, Inc.",
+     "symbol": "SNPS",
+     "slug": "synopsys-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 400.451187097793,
+       "tokenized_market_cap": 0,
+       "tokenized_volume_24h": 0,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 400,
+     "asset_type": "stock",
+     "rwa_rank": 216,
+     "has_tokens": true,
+     "average_tokenized_price": 400.451187097793,
+     "tokenized_market_cap": 0,
+     "tokenized_volume_24h": 0,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Northrop Grumman Corp.",
+     "symbol": "NOC",
+     "slug": "northrop-grumman-corp",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 409,
+     "asset_type": "stock",
+     "rwa_rank": 217,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "ENI S.p.A.",
+     "symbol": "E",
+     "slug": "eni-s-p-a",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1077,
+     "asset_type": "stock",
+     "rwa_rank": 218,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Target Corporation",
+     "symbol": "TGT",
+     "slug": "target-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 307,
+     "asset_type": "stock",
+     "rwa_rank": 219,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Suncor Energy, Inc.",
+     "symbol": "SU",
+     "slug": "suncor-energy-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 414,
+     "asset_type": "stock",
+     "rwa_rank": 220,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Simon Property Group, Inc.",
+     "symbol": "SPG",
+     "slug": "simon-property-group-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 294,
+     "asset_type": "stock",
+     "rwa_rank": 221,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "O'Reilly Automotive, Inc.",
+     "symbol": "ORLY",
+     "slug": "o-reilly-automotive-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 412,
+     "asset_type": "stock",
+     "rwa_rank": 222,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Itau Unibanco Holding S.A.",
+     "symbol": "ITUB",
+     "slug": "itau-unibanco-holding-s-a",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1585,
+     "asset_type": "stock",
+     "rwa_rank": 223,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Republic Services Inc.",
+     "symbol": "RSG",
+     "slug": "republic-services-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 425,
+     "asset_type": "stock",
+     "rwa_rank": 224,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Intuit Inc",
+     "symbol": "INTU",
+     "slug": "intuit",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 276.19518323166307,
+       "tokenized_market_cap": 611480.9856906434,
+       "tokenized_volume_24h": 483218.40245718,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 201,
+     "asset_type": "stock",
+     "rwa_rank": 225,
+     "has_tokens": true,
+     "average_tokenized_price": 276.19518323166307,
+     "tokenized_market_cap": 611480.9856906434,
+     "tokenized_volume_24h": 483218.40245718,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Canadian National Railway",
+     "symbol": "CNI",
+     "slug": "canadian-national-railway",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1590,
+     "asset_type": "stock",
+     "rwa_rank": 226,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Honeywell International Inc",
+     "symbol": "HON",
+     "slug": "honeywell",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 235.58966813190696,
+       "tokenized_market_cap": 52472902.69030025,
+       "tokenized_volume_24h": 445972.0320832,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": null,
+     "asset_type": "stock",
+     "rwa_rank": 227,
+     "has_tokens": null,
+     "average_tokenized_price": 235.58966813190696,
+     "tokenized_market_cap": 52472902.69030025,
+     "tokenized_volume_24h": 445972.0320832,
+     "last_updated": "2026-06-29T09:37:52.000Z"
+    },
+    {
+     "name": "The Cigna Group",
+     "symbol": "CI",
+     "slug": "the-cigna-group",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 408,
+     "asset_type": "stock",
+     "rwa_rank": 227,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Fedex Corporation",
+     "symbol": "FDX",
+     "slug": "fedex-corporation",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 284,
+     "asset_type": "stock",
+     "rwa_rank": 228,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Arthur J. Gallagher & Co.",
+     "symbol": "AJG",
+     "slug": "arthur-j-gallagher-co",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 310,
+     "asset_type": "stock",
+     "rwa_rank": 229,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Carvana Co",
+     "symbol": "CVNA",
+     "slug": "carvana",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 64.09748693237354,
+       "tokenized_market_cap": 42193.54396736784,
+       "tokenized_volume_24h": 4068.65447441,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 161,
+     "asset_type": "stock",
+     "rwa_rank": 230,
+     "has_tokens": true,
+     "average_tokenized_price": 64.09748693237354,
+     "tokenized_market_cap": 42193.54396736784,
+     "tokenized_volume_24h": 4068.65447441,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Aon Plc",
+     "symbol": "AON",
+     "slug": "aon-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 419,
+     "asset_type": "stock",
+     "rwa_rank": 231,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "America Movil S.A.B de C.V",
+     "symbol": "AMX",
+     "slug": "america-movil-s-a-b-de-c-v",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1076,
+     "asset_type": "stock",
+     "rwa_rank": 232,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Norfolk Southern Corp.",
+     "symbol": "NSC",
+     "slug": "norfolk-southern-corp",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 421,
+     "asset_type": "stock",
+     "rwa_rank": 233,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Takeda Pharmaceutical Company Limited",
+     "symbol": "TAK",
+     "slug": "takeda-pharmaceutical-company-limited",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1085,
+     "asset_type": "stock",
+     "rwa_rank": 234,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Ferrari N.V.",
+     "symbol": "RACE",
+     "slug": "ferrari-n-v",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 396.72123919048846,
+       "tokenized_market_cap": 0,
+       "tokenized_volume_24h": 9177.0285681,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1081,
+     "asset_type": "stock",
+     "rwa_rank": 235,
+     "has_tokens": true,
+     "average_tokenized_price": 396.72123919048846,
+     "tokenized_market_cap": 0,
+     "tokenized_volume_24h": 9177.0285681,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "MercadoLibre Inc",
+     "symbol": "MELI",
+     "slug": "mercadolibre",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 1361.1325726406296,
+       "tokenized_market_cap": 1036647.2251342073,
+       "tokenized_volume_24h": 36385.39045676,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 142,
+     "asset_type": "stock",
+     "rwa_rank": 236,
+     "has_tokens": true,
+     "average_tokenized_price": 1361.1325726406296,
+     "tokenized_market_cap": 1036647.2251342073,
+     "tokenized_volume_24h": 36385.39045676,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Lloyds Banking Group PLC",
+     "symbol": "LYG",
+     "slug": "lloyds-banking-group-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1075,
+     "asset_type": "stock",
+     "rwa_rank": 237,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Ross Stores, Inc.",
+     "symbol": "ROST",
+     "slug": "ross-stores-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 286,
+     "asset_type": "stock",
+     "rwa_rank": 238,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Barclays PLC",
+     "symbol": "BCS",
+     "slug": "barclays-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1073,
+     "asset_type": "stock",
+     "rwa_rank": 239,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Slb Limited",
+     "symbol": "SLB",
+     "slug": "slb-limited",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 276,
+     "asset_type": "stock",
+     "rwa_rank": 240,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Air Products & Chemicals, Inc.",
+     "symbol": "APD",
+     "slug": "air-products-chemicals-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 429,
+     "asset_type": "stock",
+     "rwa_rank": 241,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "American Electric Power Company, Inc.",
+     "symbol": "AEP",
+     "slug": "american-electric-power-company-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 293,
+     "asset_type": "stock",
+     "rwa_rank": 242,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Kinder Morgan, Inc.",
+     "symbol": "KMI",
+     "slug": "kinder-morgan-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 420,
+     "asset_type": "stock",
+     "rwa_rank": 243,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "RELX PLC",
+     "symbol": "RELX",
+     "slug": "relx-plc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 1082,
+     "asset_type": "stock",
+     "rwa_rank": 244,
+     "has_tokens": false,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "Freeport-Mcmoran Inc.",
+     "symbol": "FCX",
+     "slug": "freeport-mcmoran-inc",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 398,
+     "asset_type": "stock",
+     "rwa_rank": 245,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "DoorDash Inc",
+     "symbol": "DASH",
+     "slug": "doordash",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 153.8105257838418,
+       "tokenized_market_cap": 725077.1426808902,
+       "tokenized_volume_24h": 76.02212404,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 199,
+     "asset_type": "stock",
+     "rwa_rank": 246,
+     "has_tokens": true,
+     "average_tokenized_price": 153.8105257838418,
+     "tokenized_market_cap": 725077.1426808902,
+     "tokenized_volume_24h": 76.02212404,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    },
+    {
+     "name": "General Motors Company",
+     "symbol": "GM",
+     "slug": "general-motors-company",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": null,
+       "tokenized_market_cap": null,
+       "tokenized_volume_24h": null,
+       "last_updated": "2026-11-21T01:39:02.000Z"
+      }
+     ],
+     "rwa_id": 292,
+     "asset_type": "stock",
+     "rwa_rank": 247,
+     "has_tokens": true,
+     "average_tokenized_price": null,
+     "tokenized_market_cap": null,
+     "tokenized_volume_24h": null,
+     "last_updated": "2026-11-21T01:39:13.000Z"
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-21T01:40:10.301Z",
+   "error_code": "0",
+   "error_message": "",
+   "elapsed": 13,
+   "credit_count": 1
+  }
+ }
+}
