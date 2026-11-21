@@ -17,7 +17,8 @@
 html, body { margin: 0; background: var(--bg); color: var(--ink); }
 body { font-family: var(--font-body); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
 a { color: var(--ink); text-decoration-color: var(--rule); text-underline-offset: 3px; }
-a:hover { text-decoration-color: var(--after); }
+a { transition: color 120ms ease, text-decoration-color 120ms ease; }
+a:hover { text-decoration-color: var(--after); color: var(--after); }
 :focus-visible { outline: 2px solid var(--after); outline-offset: 2px; }
 .data { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
 .muted { color: var(--muted); }
@@ -135,3 +136,18 @@ footer.foot { max-width: 1240px; margin: 40px auto 0; padding: 18px 28px 40px; b
 .masthead .nav { display: flex; gap: 6px; }
 .masthead .nav a { font-size: 15px; padding: 8px 12px; min-height: 40px; display: inline-flex; align-items: center; text-decoration: none; border: 1px solid transparent; transition: border-color 120ms ease, background 120ms ease; }
 .masthead .nav a:hover { border-color: var(--ink); background: var(--card); }
+
+/* interaction feedback: every interactive class gets a visible hover/press change (proved by specs/audit/hover-check.mjs) */
+.masthead .mark { transition: color 120ms ease; }
+.masthead .mark:hover { color: var(--after); }
+.ledger button.expand { transition: color 120ms ease, text-decoration-color 120ms ease; }
+.ledger button.expand:hover { color: var(--ink); text-decoration-color: var(--after); }
+.drawer .tabs button { transition: background 120ms ease, color 120ms ease; }
+.drawer .tabs button:hover { background: rgba(31, 107, 85, 0.08); color: var(--ink); }
+.search input { transition: border-color 120ms ease, box-shadow 120ms ease; }
+.search input:hover { border-color: var(--ink); }
+.search input:focus { border-color: var(--after); box-shadow: 0 0 0 3px rgba(31, 107, 85, 0.18); outline: none; }
+.btn.quiet:hover { border-color: var(--ink); }
+.seg a.segl:active, .seg button:active { background: rgba(31, 107, 85, 0.16); }
+.ledger tbody tr:not(.detail):hover td { background: rgba(31, 107, 85, 0.045); }
+@media (prefers-reduced-motion: reduce) { * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
