@@ -8,7 +8,7 @@ import path from 'node:path';
 import { Recorder, redact } from './receipts';
 import { committedStore } from './stored';
 import { resolveUnderlying, wrappersOf } from './cmc/rwa';
-import { addDays, dailyHistory, historyRows, lastHistoryDay } from './cmc/history';
+import { addDays, dailyHistory, historyRows, historySpan } from './cmc/history';
 import { contractMaps, type ContractMap } from './cmc/info';
 import { latestQuotes } from './cmc/quotes';
 import { CmcError } from './cmc/errors';
@@ -97,20 +97,22 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
     // live-stored: CMC refused quotes/historical (plan), a committed body answered. A rolling window ends on the
     // stored history's last day (never padded to today); a pinned window must sit inside the stored body.
     const histFb = rec.fallbacks.find((f) => f.endpoint === HIST);
-    if (histFb) {
-      const end = lastHistoryDay(histFb.body);
-      if (pinned && (end < to || addDays(histFb.storedParams.time_start, 1) > from)) {
-        throw new LookupFailure(503, `CMC refused ${HIST} (error_code ${histFb.liveError.code}: ${histFb.liveError.message}) and the stored daily bodies (${addDays(histFb.storedParams.time_start, 1)} → ${end}) do not contain ${from} → ${to}`, {
+    const span = histFb ? historySpan(histFb.body, ids) : null;
+    if (histFb && span) {
+      // a rolling window ends on the stored history's last day for these ids (never padded to today) …
+      if (!pinned && span.last && span.last < to) {
+        to = span.last;
+        from = addDays(to, -(window as number));
+      }
+      // … and every window, rolling or pinned, must sit inside the stored days: never priced on fewer days than it states
+      if (!span.last || span.last < to || span.first > from) {
+        throw new LookupFailure(503, `CMC refused ${HIST} (error_code ${histFb.liveError.code}: ${histFb.liveError.message}) and the stored daily bodies (${span.first || '—'} → ${span.last || '—'}) do not contain ${from} → ${to}${pinned ? '' : '; the 7 d and 30 d windows are stored'}`, {
           cmcError: { ...histFb.liveError, endpoint: HIST, class: 'entitlement' },
           receipts: rec.receipts,
           credits: rec.credits,
         });
       }
-      if (!pinned && end && end < to) {
-        to = end;
-        from = addDays(to, -(window as number));
-        hist = historyRows(histFb.body, from, to);
-      }
+      hist = historyRows(histFb.body, from, to);
     }
     // every CMC endpoint that answered live on this click; if a live-stored answer has none, /v1/key/info (0 credits)
     const liveOk = () => [...new Set(rec.receipts.filter((r) => r.kind === 'cmc' && !r.stored && r.errorCode === 0 && r.httpStatus === 200).map((r) => r.endpoint))];
@@ -146,7 +148,13 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
         today: tq ? { price: tq.price, supply: tq.supply, volume24h: tq.volume24h, capturedUtc: tq.capturedUtc } : undefined,
       };
       if (t.derivative) return { ...base, reason: 'derivative listing: no supply to mint' };
-      return evaluateWrapper(base, hist.get(t.crypto_id) ?? [], map, chain.legs);
+      const w = evaluateWrapper(base, hist.get(t.crypto_id) ?? [], map, chain.legs);
+      // a chain read that FAILED on this click (rate limit, timeout) is not "the chain cannot be read": no verdict
+      const failed = chain.errors.find((e) => map.legs.some((l) => e.startsWith(`${l.chain} RPC`)));
+      if (failed && w.verdict === 'NOT_VERIFIABLE' && /^chain check unavailable/.test(w.mint?.reason ?? '')) {
+        return { ...w, verdict: null, reason: `chain read failed on this click (${redact(failed).slice(0, 160)}); no verdict printed — run it again` };
+      }
+      return w;
     });
 
     return {
@@ -161,7 +169,7 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
       ...(rec.fallbacks.length
         ? {
             stored: rec.fallbacks.map((f) => ({ endpoint: f.endpoint, file: f.file, capturedUtc: f.capturedUtc, liveError: f.liveError })),
-            history: { source: 'stored' as const, lastDay: histFb ? lastHistoryDay(histFb.body) : null, capturedUtc: histFb?.capturedUtc ?? null },
+            history: { source: 'stored' as const, lastDay: span?.last || null, capturedUtc: histFb?.capturedUtc ?? null },
           }
         : {}),
       wrappers: sortWrappers(wrappers),

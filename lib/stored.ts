@@ -74,7 +74,8 @@ export function findStored(index: StoredBody[], endpoint: string, params: Record
     const ok = mine.filter((s) => covers(idSet(s.params), want) && sameExcept(s.params, params, ['id', 'time_start', 'time_end']));
     const full = ok.find((s) => s.params.time_start <= params.time_start && s.params.time_end >= params.time_end);
     if (full) return full;
-    return [...ok].sort((a, b) => (a.params.time_end < b.params.time_end ? 1 : -1))[0] ?? null;
+    // latest end first; at an equal end the widest body (earliest start), so a 30 d click never gets the 7 d file
+    return [...ok].sort((a, b) => b.params.time_end.localeCompare(a.params.time_end) || a.params.time_start.localeCompare(b.params.time_start))[0] ?? null;
   }
   if ('id' in params) {
     const want = idSet(params);
@@ -82,7 +83,7 @@ export function findStored(index: StoredBody[], endpoint: string, params: Record
   }
   if (endpoint === '/v5/real-world-assets/assets/list') {
     // stored captures hold one 250-row page; serve it for page 1 only, never as a fake later page
-    return (params.start ?? '1') === '1' ? (mine[0] ?? null) : null;
+    return (params.start ?? '1') === '1' ? (mine.find((s) => (s.params.start ?? '1') === '1') ?? null) : null;
   }
   return mine.find((s) => sameExcept(s.params, params, [])) ?? null;
 }

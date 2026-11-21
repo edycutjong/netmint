@@ -69,7 +69,8 @@ async function main() {
       while (next < list.length) {
         const a = list[next++];
         try {
-          const r = await lookup(String(a.rwaId), { window: w, nowMs: NOW_MS, rec: new Recorder(undefined, (c, q) => rpcBatch(c, q, RPC_SCRIPT)) });
+          const rec = new Recorder(undefined, (c, q) => rpcBatch(c, q, RPC_SCRIPT));
+          const r = await lookup(String(a.rwaId), { window: w, nowMs: NOW_MS, rec });
           // a chain read that failed would turn into "chain check unavailable" rows: a failed run, not a verdict
           if (r.errors.length) throw new Error(`chain read failed: ${r.errors.map((x) => x.message).join('; ').slice(0, 160)}`);
           const tag = `${a.symbol.toLowerCase()}-${w}d`;
@@ -78,7 +79,7 @@ async function main() {
           mkdirSync(dir, { recursive: true });
           r.receipts
             .filter((x) => x.kind === 'cmc' && !x.endpoint.endsWith('/assets/list'))
-            .forEach((x, i) => write(path.join(dir, `${String(i + 1).padStart(2, '0')}-${x.endpoint.replace(/^\//, '').replace(/\//g, '_')}.json`), { receipt: { ...x, body: undefined }, body: x.body }));
+            .forEach((x, i) => write(path.join(dir, `${String(i + 1).padStart(2, '0')}-${x.endpoint.replace(/^\//, '').replace(/\//g, '_')}.json`), { receipt: { ...x, body: undefined }, body: rec.archiveBody(x) }));
           rows.push(...rowsFromLookup(r, path.posix.join('evidence', date, 'flows', tag)));
           credits += r.credits;
           if (range.to && (range.from !== r.range.from || range.to !== r.range.to)) throw new Error(`range drift: ${r.range.from}→${r.range.to} vs ${range.from}→${range.to}`);

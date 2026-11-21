@@ -68,9 +68,17 @@ export function historyRows(body: unknown, from: string, to: string): Map<number
   return m;
 }
 
-/** Last UTC day with a row in a quotes/historical body ('' when empty). */
-export function lastHistoryDay(body: unknown): string {
-  let last = '';
-  for (const rows of parseHistoryBody(body).values()) for (const r of rows) if (r.timestamp && r.timestamp.slice(0, 10) > last) last = r.timestamp.slice(0, 10);
-  return last;
+/** Last / first UTC day with a row for any of `ids` in a quotes/historical body ('' when none). */
+export function historySpan(body: unknown, ids: number[]): { first: string; last: string } {
+  let first = '', last = '';
+  const want = new Set(ids);
+  for (const [id, rows] of parseHistoryBody(body))
+    if (want.has(id))
+      for (const r of rows) {
+        const d = r.timestamp?.slice(0, 10);
+        if (!d) continue;
+        if (d > last) last = d;
+        if (!first || d < first) first = d;
+      }
+  return { first, last };
 }

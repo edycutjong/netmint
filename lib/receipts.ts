@@ -38,6 +38,8 @@ export class Recorder {
   readonly receipts: Receipt[] = [];
   /** live calls refused with an ENTITLEMENT error and answered from a stored body (empty on a fully live run) */
   readonly fallbacks: Fallback[] = [];
+  /** full redacted bodies of receipts the drawer cap truncated (written to evidence/ by the capture scripts) */
+  private readonly fullBodies = new Map<string, unknown>();
   private n = 0;
   /**
    * @param cmcTransport test hook: replace the CMC transport
@@ -54,6 +56,11 @@ export class Recorder {
     return this.receipts.reduce((s, r) => s + (r.creditCount ?? 0), 0);
   }
 
+  /** the body to archive under evidence/: the full redacted body, never the drawer's truncation marker */
+  archiveBody(r: Receipt): unknown {
+    return this.fullBodies.get(r.id) ?? r.body;
+  }
+
   get storedEnabled(): boolean {
     return this.stored !== null;
   }
@@ -61,8 +68,10 @@ export class Recorder {
   private record(call: CmcCall<unknown>, stored?: Receipt['stored']): void {
     const text = redact(typeof call.body === 'string' ? call.body : JSON.stringify(call.body));
     const bodyBytes = Buffer.byteLength(text);
+    const id = `r${++this.n}`;
+    if (bodyBytes > BODY_CAP_BYTES) this.fullBodies.set(id, redactDeep(call.body));
     this.receipts.push({
-      id: `r${++this.n}`,
+      id,
       kind: 'cmc',
       endpoint: call.endpoint,
       params: call.params,

@@ -118,10 +118,12 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
   const stepDays: StepDay[] = [];
   let stepUnavailable: string | null = null;
   for (const D of material) {
-    const lo = clampDate(addDays(D, -2), A.date, B.date);
-    const hi = clampDate(addDays(D, 1), A.date, B.date);
-    const cLo = byDate.get(lo), cHi = byDate.get(hi);
-    const cmc3d = cLo && cHi ? tot(cHi) - tot(cLo) : 0;
+    // the 3-day span [D−2, D+1], snapped to the accepted CMC points at or before each end (a missing CMC day is never
+    // read as a zero delta); the chain is read on the same two days
+    const atOrBefore = (d: string) => [...series].reverse().find((pt) => pt.date <= d) ?? A;
+    const cLo = atOrBefore(clampDate(addDays(D, -2), A.date, B.date)), cHi = atOrBefore(clampDate(addDays(D, 1), A.date, B.date));
+    const lo = cLo.date, hi = cHi.date;
+    const cmc3d = tot(cHi) - tot(cLo);
     const chLo = chainAt(addDays(lo, offset)), chHi = chainAt(addDays(hi, offset));
     if (chLo === null || chHi === null) {
       stepUnavailable ??= chLo === null ? addDays(lo, offset) : addDays(hi, offset);

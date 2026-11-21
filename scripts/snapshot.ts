@@ -9,6 +9,8 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { loadKeys, assertNoSecrets } from './_env';
 import { lookup, heroOf } from '../lib/lookup';
+import { Recorder } from '../lib/receipts';
+import { rpcBatch, RPC_SCRIPT } from '../lib/chain/rpc';
 import type { LookupWindow } from '../lib/types';
 
 loadKeys();
@@ -21,7 +23,8 @@ const u = (args.find((a, i) => !a.startsWith('--') && !args[i - 1]?.startsWith('
 const win = Number(flag('window') ?? 30) as LookupWindow;
 
 async function main() {
-  const r = await lookup(u, { window: win, from: flag('from'), to: flag('to') });
+  const rec = new Recorder(undefined, (c, q) => rpcBatch(c, q, RPC_SCRIPT));
+  const r = await lookup(u, { window: win, from: flag('from'), to: flag('to'), rec });
   const date = flag('date') ?? r.fetchedUtc.slice(0, 10);
   const tag = r.range.pinned ? `${u.toLowerCase()}-${r.range.from}_${r.range.to}` : `${u.toLowerCase()}-${win}d`;
   const ev = path.join('evidence', date, tag);
@@ -35,7 +38,7 @@ async function main() {
   };
   r.receipts
     .filter((x) => x.kind === 'cmc')
-    .forEach((x, i) => write(path.join(ev, `${String(i + 1).padStart(2, '0')}-${x.endpoint.replace(/^\//, '').replace(/\//g, '_')}.json`), { receipt: { ...x, body: undefined }, body: x.body }));
+    .forEach((x, i) => write(path.join(ev, `${String(i + 1).padStart(2, '0')}-${x.endpoint.replace(/^\//, '').replace(/\//g, '_')}.json`), { receipt: { ...x, body: undefined }, body: rec.archiveBody(x) }));
   const table = {
     command: `npm run snapshot -- ${args.join(' ')}`.trim(),
     fetched_utc: r.fetchedUtc,
