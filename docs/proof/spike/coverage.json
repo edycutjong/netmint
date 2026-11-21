@@ -1,0 +1,191 @@
+{
+ "generated_utc": "2026-11-21T01:06:02.958Z",
+ "command": "npm run coverage:supply",
+ "underlying": "NVDA",
+ "cmc_sources": [
+  "docs/proof/spike/info-nvda-family.json",
+  "docs/proof/spike/quotes-latest-nvda-family.json"
+ ],
+ "cmc_capture_utc": "2026-11-21T01:05:33.029Z",
+ "chain_heads": {
+  "bsc": {
+   "n": 134796232,
+   "ts": 1795223162
+  },
+  "eth": {
+   "n": 26460077,
+   "ts": 1795223159
+  }
+ },
+ "note": "coverage = (sum of totalSupply on the Ethereum + BNB Smart Chain contracts CMC lists) / CMC total_supply (circulating if total is null). Chain reads at head; CMC values a few minutes older.",
+ "rows": [
+  {
+   "crypto_id": 28616,
+   "symbol": "NVDA.D",
+   "issuer_chain_list": [
+    "Arbitrum"
+   ],
+   "cmc_circulating_supply": 0,
+   "cmc_total_supply": 646.260894392,
+   "eth_bsc_legs": [],
+   "eth_bsc_total_supply": null,
+   "coverage_vs_cmc_total": null,
+   "verifiable_on_eth_bsc": false
+  },
+  {
+   "crypto_id": 36992,
+   "symbol": "NVDAX",
+   "issuer_chain_list": [
+    "Solana",
+    "BNB Smart Chain (BEP20)",
+    "Ethereum",
+    "Ink",
+    "TON",
+    "X Layer"
+   ],
+   "cmc_circulating_supply": 848310.50149163,
+   "cmc_total_supply": 1820063.13745739,
+   "eth_bsc_legs": [
+    {
+     "chain": "bsc",
+     "address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+     "block": 134796232,
+     "block_utc": "2026-11-21T01:06:02.000Z",
+     "decimals": 18,
+     "totalSupply": 65839.54938844431
+    },
+    {
+     "chain": "eth",
+     "address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+     "block": 26460077,
+     "block_utc": "2026-11-21T01:05:59.000Z",
+     "decimals": 18,
+     "totalSupply": 110180.53870114523
+    }
+   ],
+   "eth_bsc_total_supply": 176020.08808958955,
+   "coverage_vs_cmc_total": 0.09671097912322309,
+   "verifiable_on_eth_bsc": true
+  },
+  {
+   "crypto_id": 37270,
+   "symbol": "WNVDAX",
+   "issuer_chain_list": [
+    "X Layer",
+    "Arbitrum"
+   ],
+   "cmc_circulating_supply": 12974.16084924,
+   "cmc_total_supply": 12974.16084924,
+   "eth_bsc_legs": [],
+   "eth_bsc_total_supply": null,
+   "coverage_vs_cmc_total": null,
+   "verifiable_on_eth_bsc": false
+  },
+  {
+   "crypto_id": 38093,
+   "symbol": "NVDAon",
+   "issuer_chain_list": [
+    "Robinhood Chain",
+    "Solana",
+    "Ethereum",
+    "HyperEVM",
+    "BNB Smart Chain (BEP20)"
+   ],
+   "cmc_circulating_supply": 212042.83272936,
+   "cmc_total_supply": 212042.83272936,
+   "eth_bsc_legs": [
+    {
+     "chain": "eth",
+     "address": "0x2D1F7226Bd1F780AF6B9A49DCC0aE00E8Df4bDEE",
+     "block": 26460077,
+     "block_utc": "2026-11-21T01:05:59.000Z",
+     "decimals": 18,
+     "totalSupply": 111448.27467985547
+    },
+    {
+     "chain": "bsc",
+     "address": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+     "block": 134796232,
+     "block_utc": "2026-11-21T01:06:02.000Z",
+     "decimals": 18,
+     "totalSupply": 93050.253519419
+    }
+   ],
+   "eth_bsc_total_supply": 204498.52819927447,
+   "coverage_vs_cmc_total": 0.9644208463310114,
+   "verifiable_on_eth_bsc": true
+  },
+  {
+   "crypto_id": 38153,
+   "symbol": "NVDA",
+   "issuer_chain_list": [],
+   "cmc_circulating_supply": 0,
+   "cmc_total_supply": 0,
+   "eth_bsc_legs": [],
+   "eth_bsc_total_supply": null,
+   "coverage_vs_cmc_total": null,
+   "verifiable_on_eth_bsc": false
+  },
+  {
+   "crypto_id": 40215,
+   "symbol": "NVDAB",
+   "issuer_chain_list": [
+    "BNB Smart Chain (BEP20)"
+   ],
+   "cmc_circulating_supply": 1549039.4004378228,
+   "cmc_total_supply": 1549039.4004378228,
+   "eth_bsc_legs": [
+    {
+     "chain": "bsc",
+     "address": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+     "block": 134796232,
+     "block_utc": "2026-11-21T01:06:02.000Z",
+     "decimals": 18,
+     "totalSupply": 1548560.1918437
+    }
+   ],
+   "eth_bsc_total_supply": 1548560.1918437,
+   "coverage_vs_cmc_total": 0.9996906414426984,
+   "verifiable_on_eth_bsc": true
+  },
+  {
+   "crypto_id": 40605,
+   "symbol": "rNVDA",
+   "issuer_chain_list": [
+    "Arbitrum"
+   ],
+   "cmc_circulating_supply": 88542.68667627,
+   "cmc_total_supply": 88542.68667627,
+   "eth_bsc_legs": [],
+   "eth_bsc_total_supply": null,
+   "coverage_vs_cmc_total": null,
+   "verifiable_on_eth_bsc": false
+  },
+  {
+   "crypto_id": 40685,
+   "symbol": "NVDA",
+   "issuer_chain_list": [
+    "Robinhood Chain"
+   ],
+   "cmc_circulating_supply": 143326.22787534646,
+   "cmc_total_supply": 143326.22787534646,
+   "eth_bsc_legs": [],
+   "eth_bsc_total_supply": null,
+   "coverage_vs_cmc_total": null,
+   "verifiable_on_eth_bsc": false
+  },
+  {
+   "crypto_id": 42461,
+   "symbol": "NVDAc",
+   "issuer_chain_list": [
+    "Base"
+   ],
+   "cmc_circulating_supply": 62019.73777574,
+   "cmc_total_supply": 62019.73777574,
+   "eth_bsc_legs": [],
+   "eth_bsc_total_supply": null,
+   "coverage_vs_cmc_total": null,
+   "verifiable_on_eth_bsc": false
+  }
+ ]
+}

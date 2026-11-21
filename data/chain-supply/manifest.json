@@ -1,0 +1,187 @@
+{
+ "generated_utc": "2026-11-21T01:12:53.650Z",
+ "wrappers": [
+  36992,
+  38093,
+  40215,
+  28616,
+  37270,
+  40605,
+  40685,
+  42461,
+  40216,
+  40217,
+  40212,
+  40813,
+  40793,
+  40540,
+  40536,
+  40175,
+  37028,
+  36994
+ ],
+ "legs": [
+  {
+   "crypto_id": 36992,
+   "symbol": "NVDAX",
+   "chain": "bsc",
+   "address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+   "days": 125,
+   "first": 10009.180758490997,
+   "last": 65839.54938844431
+  },
+  {
+   "crypto_id": 36992,
+   "symbol": "NVDAX",
+   "chain": "eth",
+   "address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+   "days": 125,
+   "first": 110094.40055073447,
+   "last": 110180.53870114523
+  },
+  {
+   "crypto_id": 38093,
+   "symbol": "NVDAon",
+   "chain": "eth",
+   "address": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
+   "days": 125,
+   "first": 92375.70848796611,
+   "last": 111467.64026594836
+  },
+  {
+   "crypto_id": 38093,
+   "symbol": "NVDAon",
+   "chain": "bsc",
+   "address": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+   "days": 125,
+   "first": 90314.64772750603,
+   "last": 93044.30454182097
+  },
+  {
+   "crypto_id": 40215,
+   "symbol": "NVDAB",
+   "chain": "bsc",
+   "address": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+   "days": 125,
+   "first": 37792.38886162,
+   "last": 1406371.94093158
+  },
+  {
+   "crypto_id": 40216,
+   "symbol": "SNDKB",
+   "chain": "bsc",
+   "address": "0x3ee4df61bd4f867e349beae8bfe07bc31b4850fb",
+   "days": 125,
+   "first": 58801.32292073,
+   "last": 73240.74009952
+  },
+  {
+   "crypto_id": 40217,
+   "symbol": "SPCXB",
+   "chain": "bsc",
+   "address": "0xbe9d156892e55e7154bcd3cb0fea677f9d3103e1",
+   "days": 125,
+   "first": 650864.79808918,
+   "last": 840617.53089944
+  },
+  {
+   "crypto_id": 40212,
+   "symbol": "MUB",
+   "chain": "bsc",
+   "address": "0xcdf2f3e0fa43c47a6662a91c9e4a7c5f69762699",
+   "days": 125,
+   "first": 83873.21108814,
+   "last": 120046.77256806
+  },
+  {
+   "crypto_id": 40813,
+   "symbol": "SKHYB",
+   "chain": "bsc",
+   "address": "0xca750ef65f295bbecd685abf54e82caf297bdb61",
+   "days": 125,
+   "first": 50067.30370422,
+   "last": 230013.61949673
+  },
+  {
+   "crypto_id": 40793,
+   "symbol": "GOOGLB",
+   "chain": "bsc",
+   "address": "0x3f53de71c126bdabae20f9cd64848d317f6c3238",
+   "days": 125,
+   "first": 4934.23517909,
+   "last": 325010.46076326
+  },
+  {
+   "crypto_id": 40540,
+   "symbol": "INTCB",
+   "chain": "bsc",
+   "address": "0xe614e2fc6c787035ff51f452e8e826bfd32d5283",
+   "days": 125,
+   "first": 139212.39423813,
+   "last": 933005.11454209
+  },
+  {
+   "crypto_id": 40536,
+   "symbol": "MSTRB",
+   "chain": "bsc",
+   "address": "0xe87afb3076aeb0f9b14e368de8145ae6a2826a14",
+   "days": 125,
+   "first": 105513.08329705,
+   "last": 817528.26078021
+  },
+  {
+   "crypto_id": 40175,
+   "symbol": "MUx",
+   "chain": "eth",
+   "address": "0xf6a873bae4ba1b304e45df52a4b7d176e1c6a8c4",
+   "days": 125,
+   "first": 35214.136271965566,
+   "last": 35218.015335221105
+  },
+  {
+   "crypto_id": 40175,
+   "symbol": "MUx",
+   "chain": "bsc",
+   "address": "0xf6a873bae4ba1b304e45df52a4b7d176e1c6a8c4",
+   "days": 125,
+   "first": 10398.741511528244,
+   "last": 10399.886999686456
+  },
+  {
+   "crypto_id": 37028,
+   "symbol": "INTCX",
+   "chain": "bsc",
+   "address": "0xf8a80d1cb9cfd70d03d655d9df42339846f3b3c8",
+   "days": 125,
+   "first": 10000,
+   "last": 81171.40260338337
+  },
+  {
+   "crypto_id": 37028,
+   "symbol": "INTCX",
+   "chain": "eth",
+   "address": "0xf8a80d1cb9cfd70d03d655d9df42339846f3b3c8",
+   "days": 125,
+   "first": 280000,
+   "last": 280000
+  },
+  {
+   "crypto_id": 36994,
+   "symbol": "AAPLX",
+   "chain": "eth",
+   "address": "0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a",
+   "days": 125,
+   "first": 74100.02176993703,
+   "last": 74184.13058565241
+  },
+  {
+   "crypto_id": 36994,
+   "symbol": "AAPLX",
+   "chain": "bsc",
+   "address": "0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a",
+   "days": 125,
+   "first": 10018.808818972477,
+   "last": 15863.189263531924
+  }
+ ]
+}
