@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" role="img" aria-labelledby="t d" font-family="Georgia, 'Times New Roman', serif">
+  <title id="t">NetMint architecture</title>
+  <desc id="d">A visitor's request reaches /api/lookup on Vercel. The route pulls CoinMarketCap supply history, reads on-chain totalSupply from archive RPC, runs the verdict code, and returns a verdict with every CMC response attached as a receipt.</desc>
+  <rect width="960" height="440" fill="#F3EFE4"/>
+  <g fill="none" stroke="#1D1B16" stroke-width="1.5">
+    <rect x="24" y="150" width="170" height="120" fill="#FBF8EF"/>
+    <rect x="264" y="40" width="430" height="360" stroke-dasharray="4 4" stroke="#6B6558"/>
+    <rect x="290" y="150" width="170" height="120" fill="#FBF8EF"/>
+    <rect x="500" y="70" width="170" height="64" fill="#FBF8EF"/>
+    <rect x="500" y="306" width="170" height="64" fill="#FBF8EF"/>
+    <rect x="500" y="188" width="170" height="64" fill="#FBF8EF" stroke="#2F6F5E" stroke-width="2.5"/>
+    <rect x="754" y="70" width="182" height="64" fill="#FBF8EF"/>
+    <rect x="754" y="306" width="182" height="64" fill="#FBF8EF"/>
+  </g>
+  <g stroke="#1D1B16" stroke-width="1.5" fill="none" marker-end="url(#a)">
+    <path d="M194 210 H290"/>
+    <path d="M460 190 L500 110"/>
+    <path d="M460 230 L500 340"/>
+    <path d="M460 210 H500"/>
+    <path d="M670 102 H754"/>
+    <path d="M670 338 H754"/>
+  </g>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1D1B16"/></marker></defs>
+  <g fill="#1D1B16" font-size="15" text-anchor="middle">
+    <text x="109" y="198" font-weight="bold">Browser</text><text x="109" y="220" font-size="12.5" fill="#6B6558">/ · /u/NVDA · /flows</text><text x="109" y="238" font-size="12.5" fill="#6B6558">receipt drawer</text>
+    <text x="375" y="198" font-weight="bold">/api/lookup</text><text x="375" y="220" font-size="12.5" fill="#6B6558">lib/lookup.ts</text><text x="375" y="238" font-size="12.5" fill="#6B6558">force-dynamic · key stays here</text>
+    <text x="585" y="96" font-weight="bold">lib/cmc/*</text><text x="585" y="116" font-size="12.5" fill="#6B6558">client + verbatim receipts</text>
+    <text x="585" y="214" font-weight="bold" fill="#2F6F5E">lib/flow/*</text><text x="585" y="234" font-size="12.5" fill="#6B6558">net creation · mint check · verdict</text>
+    <text x="585" y="332" font-weight="bold">lib/chain/*</text><text x="585" y="352" font-size="12.5" fill="#6B6558">day-boundary block index</text>
+    <text x="845" y="96" font-weight="bold">CoinMarketCap Pro API</text><text x="845" y="116" font-size="12.5" fill="#6B6558">5 endpoints per lookup</text>
+    <text x="845" y="332" font-weight="bold">Alchemy archive RPC</text><text x="845" y="352" font-size="12.5" fill="#6B6558">totalSupply · BNB Chain + Ethereum</text>
+    <text x="479" y="64" font-size="12.5" fill="#6B6558">Vercel · Node runtime</text>
+    <text x="480" y="422" font-size="12.5" fill="#6B6558">Verdict = fixed code, no model. Response = verdict + proving rows + every CMC body, dated.</text>
+  </g>
+</svg>
