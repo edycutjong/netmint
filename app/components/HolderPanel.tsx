@@ -35,7 +35,7 @@ export function HolderPanel({ u }: { u: string }) {
   return (
     <section className="holders" aria-labelledby="holders-h" style={{ marginTop: 34 }}>
       <h2 id="holders-h" className="section-h">
-        Who holds each wrapper
+        Holder addresses per wrapper
       </h2>
       {busy ? <p className="capture">Asking CoinMarketCap for holder counts per chain…</p> : null}
       {err ? <ErrorBanner e={err} /> : null}
@@ -48,7 +48,7 @@ export function HolderPanel({ u }: { u: string }) {
             </button>
           </p>
           <div className="wrap-x">
-            <table className="ledger plain">
+            <table className="ledger plain" aria-label="Holder addresses per wrapper">
               <thead>
                 <tr>
                   <th scope="col">Wrapper</th>

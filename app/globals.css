@@ -80,7 +80,7 @@ a:hover { text-decoration-color: var(--after); color: var(--after); }
 /* rail */
 .rail h2, .section-h { font-family: var(--font-display); font-weight: 400; letter-spacing: 0.12em; font-size: 15px; margin: 0 0 10px; color: var(--muted); }
 .tickers { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 22px; padding: 0; list-style: none; }
-.tickers a { display: inline-block; padding: 8px 12px; min-height: 40px; border: 1px solid var(--rule); text-decoration: none; font-family: var(--font-data); font-size: 14px; transition: border-color 120ms ease, background 120ms ease; }
+.tickers a { display: inline-block; padding: 8px 12px; min-height: 44px; border: 1px solid var(--rule); text-decoration: none; font-family: var(--font-data); font-size: 14px; transition: border-color 120ms ease, background 120ms ease; }
 .tickers a:hover { border-color: var(--ink); background: var(--card); }
 .search { display: flex; gap: 8px; margin-bottom: 22px; }
 .search input { flex: 1; font: inherit; font-family: var(--font-data); padding: 10px 12px; min-height: 44px; border: 1px solid var(--rule); background: var(--card); color: var(--ink); text-transform: uppercase; }
@@ -134,7 +134,7 @@ footer.foot { max-width: 1240px; margin: 40px auto 0; padding: 18px 28px 40px; b
 .tag-div { font-size: 13px; border-bottom: 2px solid var(--after); }
 .ledger.flows td:nth-child(2) { max-width: 360px; }
 .masthead .nav { display: flex; gap: 6px; }
-.masthead .nav a { font-size: 15px; padding: 8px 12px; min-height: 40px; display: inline-flex; align-items: center; text-decoration: none; border: 1px solid transparent; transition: border-color 120ms ease, background 120ms ease; }
+.masthead .nav a { font-size: 15px; padding: 8px 12px; min-height: 44px; display: inline-flex; align-items: center; text-decoration: none; border: 1px solid transparent; transition: border-color 120ms ease, background 120ms ease; }
 .masthead .nav a:hover { border-color: var(--ink); background: var(--card); }
 
 /* interaction feedback: every interactive class gets a visible hover/press change (proved by specs/audit/hover-check.mjs) */

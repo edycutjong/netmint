@@ -69,7 +69,7 @@ function FlowsBody({ t, all }: { t: NonNullable<ReturnType<typeof loadFlows>>; a
         <CopyTable text={tsv(shown, head)} />
       </div>
       <div className="wrap-x">
-        <table className="ledger flows">
+        <table className="ledger flows" aria-label="Net creation per tokenised wrapper">
           <thead>
             <tr>
               <th scope="col">Verdict</th>
@@ -92,7 +92,7 @@ function FlowsBody({ t, all }: { t: NonNullable<ReturnType<typeof loadFlows>>; a
                 <td>
                   <strong className="data">{r.symbol}</strong> <span className="muted">· {r.issuer}</span>
                   <div className="reason">
-                    <a href={`/u/${encodeURIComponent(r.underlying)}?from=${t.range.from}&to=${t.range.to}`}>Open {r.underlying} live, same window</a>
+                    <a href={`/u/${encodeURIComponent(r.underlying)}?from=${t.range.from}&to=${t.range.to}`} aria-label={`Open ${r.underlying} live over the same window (row ${r.symbol})`}>Open {r.underlying} live, same window</a>
                   </div>
                 </td>
                 <td className={`num money ${r.netUsd !== null && r.netUsd < 0 && isVerified(r) ? 'debit' : ''}`} title={isVerified(r) ? 'Net creation, verified on chain' : 'CMC supply change × price; the chain does not confirm it, so it is not net creation'}>
