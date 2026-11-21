@@ -38,7 +38,7 @@
     "ci:full": "npm run ci && npm run build && npm run verify:offline && npm run e2e"
   },
   "dependencies": {
-    "next": "^15.5.29",
+    "next": "^16.4.6",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },
