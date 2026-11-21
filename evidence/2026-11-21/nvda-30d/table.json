@@ -1,0 +1,523 @@
+{
+ "command": "npm run snapshot -- NVDA --window 30",
+ "fetched_utc": "2026-11-21T01:40:10.118Z",
+ "underlying": {
+  "rwaId": 2,
+  "ticker": "NVDA",
+  "name": "Nvidia Corp"
+ },
+ "window": 30,
+ "range": {
+  "from": "2026-10-22",
+  "to": "2026-11-21",
+  "pinned": false
+ },
+ "credits": 7,
+ "elapsed_ms": 1843,
+ "hero": "NVDAB",
+ "wrappers": [
+  {
+   "crypto_id": 40215,
+   "symbol": "NVDAB",
+   "issuer": "bStocks",
+   "verdict": "REAL_INFLOW",
+   "reason": "window endpoints and the steps carrying ≥ 80% of the flow verified within remedy (chain +1,216,792 · CMC +1,209,739 · +0.6% · within remedy ±10%)",
+   "net_usd": 202826522.8240499,
+   "gross_in_usd": 232580861.81937176,
+   "gross_out_usd": -29754338.99532186,
+   "units_x": 7.133445533083188,
+   "price_pct": -0.4104508677930392,
+   "supply_a": 197236.40469522134,
+   "supply_b": 1406975.1500345147,
+   "price_a": 219.39510306851176,
+   "price_b": 129.34419262449782,
+   "exit_ratio": 0.8344609882054785,
+   "coverage_a": 0.9611795575004372,
+   "mint": {
+    "status": "pass",
+    "comparator": "total_supply",
+    "offset": 0,
+    "cmc_delta": 1209738.7453392935,
+    "chain_delta": 1216792.34074365,
+    "err_pct": 0.005830676608095391,
+    "chain_source": "baseline",
+    "chain_dates": [
+     "2026-10-22",
+     "2026-11-21"
+    ],
+    "step_days": [
+     {
+      "date": "2026-11-13",
+      "cmc3d": 522505.23978864145,
+      "chain3d": 535909.75414155,
+      "ok": true
+     },
+     {
+      "date": "2026-11-18",
+      "cmc3d": 400525.5361032641,
+      "chain3d": 409070.95077269,
+      "ok": true
+     },
+     {
+      "date": "2026-11-17",
+      "cmc3d": 386251.7365313448,
+      "chain3d": 372839.1192761101,
+      "ok": true
+     },
+     {
+      "date": "2026-11-10",
+      "cmc3d": 294447.25766178855,
+      "chain3d": 281929.56903001,
+      "ok": true
+     },
+     {
+      "date": "2026-11-11",
+      "cmc3d": 430434.99425398535,
+      "chain3d": 443621.07141449,
+      "ok": true
+     }
+    ],
+    "legs": [
+     {
+      "chain": "bsc",
+      "address": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+      "decimals": 18,
+      "supplyA": 189579.60018793,
+      "supplyB": 1406371.94093158,
+      "blocks": [
+       129030233,
+       134787429
+      ],
+      "source": "baseline"
+     }
+    ]
+   },
+   "proof": {
+    "date": "2026-11-13",
+    "prevDate": "2026-11-12",
+    "field": "total_supply",
+    "cmcStep": 406140.4123354114,
+    "chainStep": 393976.3713456901,
+    "chainDates": [
+     "2026-11-12",
+     "2026-11-13"
+    ],
+    "errPct": -0.02995033397384653,
+    "withinRemedy": true
+   },
+   "mint_receipt": {
+    "crypto_id": 40215,
+    "symbol": "NVDAB",
+    "chain": "bsc",
+    "date": "2026-11-13",
+    "tx": "0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c",
+    "block": 133127844,
+    "amount": 640.06068684,
+    "recipient": "0x5948602680fe4aea08d98302337a2715b3aadad1",
+    "explorer_url": "https://bscscan.com/tx/0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c"
+   },
+   "refused": []
+  },
+  {
+   "crypto_id": 36992,
+   "symbol": "NVDAX",
+   "issuer": "Backed Assets",
+   "verdict": "NOT_VERIFIABLE",
+   "reason": "86% of supply sits outside BNB Chain + Ethereum (Solana), which has no historical supply source",
+   "net_usd": 104095763.05827361,
+   "gross_in_usd": 104095883.10868825,
+   "gross_out_usd": -120.05041464683485,
+   "units_x": 3.981795315930322,
+   "price_pct": -0.41042487592387733,
+   "supply_a": 211104.46,
+   "supply_b": 840574.75,
+   "price_a": 219.81798827944533,
+   "price_b": 129.59921771401767,
+   "exit_ratio": 0.9748829617572429,
+   "coverage_a": 0.14475915574134168,
+   "mint": {
+    "status": "impossible",
+    "comparator": "total_supply",
+    "offset": 0,
+    "cmc_delta": 774366.6399999999,
+    "chain_delta": 24645.94558791365,
+    "err_pct": null,
+    "chain_source": "baseline",
+    "chain_dates": [
+     "2026-10-22",
+     "2026-11-21"
+    ],
+    "step_days": [],
+    "legs": [
+     {
+      "chain": "bsc",
+      "address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+      "decimals": 18,
+      "supplyA": 41193.60380053068,
+      "supplyB": 65839.54938844431,
+      "blocks": [
+       129030233,
+       134787429
+      ],
+      "source": "baseline"
+     },
+     {
+      "chain": "eth",
+      "address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+      "decimals": 18,
+      "supplyA": 110180.53870114523,
+      "supplyB": 110180.53870114523,
+      "blocks": [
+       26244425,
+       26459750
+      ],
+      "source": "baseline"
+     }
+    ]
+   },
+   "proof": {
+    "date": "2026-11-13",
+    "prevDate": "2026-11-12",
+    "field": "total_supply",
+    "cmcStep": 192288.93999999994,
+    "chainStep": 24645.94558791365,
+    "chainDates": [
+     "2026-11-12",
+     "2026-11-13"
+    ],
+    "errPct": -0.8718285846917995,
+    "withinRemedy": false
+   },
+   "mint_receipt": null,
+   "refused": []
+  },
+  {
+   "crypto_id": 40605,
+   "symbol": "rNVDA",
+   "issuer": "Reality",
+   "verdict": "NOT_VERIFIABLE",
+   "reason": "no contract on BNB Chain or Ethereum (listed on Arbitrum); no historical supply source",
+   "net_usd": 11841628.298345495,
+   "gross_in_usd": 14325106.189973257,
+   "gross_out_usd": -2483477.8916277597,
+   "units_x": 5.637719104435988,
+   "price_pct": -0.41162562972640826,
+   "supply_a": 15705.41,
+   "supply_b": 88542.69,
+   "price_a": 219.49495984199308,
+   "price_b": 129.14520877526,
+   "exit_ratio": 3.022509609530425,
+   "coverage_a": null,
+   "mint": {
+    "status": "impossible",
+    "comparator": "total_supply",
+    "offset": 0,
+    "cmc_delta": null,
+    "chain_delta": null,
+    "err_pct": null,
+    "chain_source": "none",
+    "chain_dates": null,
+    "step_days": [],
+    "legs": []
+   },
+   "proof": {
+    "date": "2026-11-12",
+    "prevDate": "2026-11-11",
+    "field": "total_supply",
+    "cmcStep": 28353.11,
+    "chainStep": 0,
+    "chainDates": [
+     "2026-11-11",
+     "2026-11-12"
+    ],
+    "errPct": -1,
+    "withinRemedy": false
+   },
+   "mint_receipt": null,
+   "refused": []
+  },
+  {
+   "crypto_id": 40685,
+   "symbol": "NVDA",
+   "issuer": "Robinhood",
+   "verdict": "NOT_VERIFIABLE",
+   "reason": "no contract on BNB Chain or Ethereum (listed on Robinhood Chain); no historical supply source",
+   "net_usd": 9747621.560724635,
+   "gross_in_usd": 13613031.25208974,
+   "gross_out_usd": -3865409.691365107,
+   "units_x": 1.6809896738099575,
+   "price_pct": -0.4110624141397087,
+   "supply_a": 85263.00120434267,
+   "supply_b": 143326.22458254598,
+   "price_a": 219.64696012135178,
+   "price_b": 129.3583504354206,
+   "exit_ratio": 2.1675631892727694,
+   "coverage_a": null,
+   "mint": {
+    "status": "impossible",
+    "comparator": "total_supply",
+    "offset": 0,
+    "cmc_delta": null,
+    "chain_delta": null,
+    "err_pct": null,
+    "chain_source": "none",
+    "chain_dates": null,
+    "step_days": [],
+    "legs": []
+   },
+   "proof": {
+    "date": "2026-11-13",
+    "prevDate": "2026-11-12",
+    "field": "total_supply",
+    "cmcStep": 9459.897246264809,
+    "chainStep": 0,
+    "chainDates": [
+     "2026-11-12",
+     "2026-11-13"
+    ],
+    "errPct": -1,
+    "withinRemedy": false
+   },
+   "mint_receipt": null,
+   "refused": []
+  },
+  {
+   "crypto_id": 38093,
+   "symbol": "NVDAon",
+   "issuer": "Ondo Assets",
+   "verdict": "NOT_VERIFIABLE",
+   "reason": "the move may sit on Robinhood Chain (0.4% of supply outside the summed chains); step check failed at d = 0: chain +48,956 vs CMC +55,801 (tolerance ±5,580)",
+   "net_usd": 8882346.854327882,
+   "gross_in_usd": 14211339.587521428,
+   "gross_out_usd": -5328992.733193549,
+   "units_x": 1.35714533498718,
+   "price_pct": -0.41144091368609415,
+   "supply_a": 156241.8,
+   "supply_b": 212042.83,
+   "price_a": 220.1335820308948,
+   "price_b": 129.56161990711067,
+   "exit_ratio": 0.409326415560106,
+   "coverage_a": 0.9956102177821212,
+   "mint": {
+    "status": "fail",
+    "comparator": "total_supply",
+    "offset": 0,
+    "cmc_delta": 55801.03,
+    "chain_delta": 48956.01228309871,
+    "err_pct": -0.12266830409584356,
+    "chain_source": "baseline",
+    "chain_dates": [
+     "2026-10-22",
+     "2026-11-21"
+    ],
+    "step_days": [
+     {
+      "date": "2026-11-07",
+      "cmc3d": -21423.669999999984,
+      "chain3d": -21354.698749187228,
+      "ok": true
+     },
+     {
+      "date": "2026-11-13",
+      "cmc3d": 23678.899999999994,
+      "chain3d": 22086.40417491697,
+      "ok": true
+     },
+     {
+      "date": "2026-11-10",
+      "cmc3d": 19463.570000000007,
+      "chain3d": 19319.679395993764,
+      "ok": true
+     },
+     {
+      "date": "2026-11-21",
+      "cmc3d": 17902.53999999998,
+      "chain3d": 15483.317978372506,
+      "ok": false
+     },
+     {
+      "date": "2026-11-11",
+      "cmc3d": 24582.429999999993,
+      "chain3d": 24911.795934334397,
+      "ok": true
+     }
+    ],
+    "legs": [
+     {
+      "chain": "eth",
+      "address": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
+      "decimals": 18,
+      "supplyA": 83771.25844423426,
+      "supplyB": 111467.64026594836,
+      "blocks": [
+       26244425,
+       26459750
+      ],
+      "source": "baseline"
+     },
+     {
+      "chain": "bsc",
+      "address": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+      "decimals": 18,
+      "supplyA": 71784.67408043637,
+      "supplyB": 93044.30454182097,
+      "blocks": [
+       129030233,
+       134787429
+      ],
+      "source": "baseline"
+     }
+    ]
+   },
+   "proof": {
+    "date": "2026-11-07",
+    "prevDate": "2026-11-06",
+    "field": "total_supply",
+    "cmcStep": -23288.330000000016,
+    "chainStep": -23043.494760126865,
+    "chainDates": [
+     "2026-11-06",
+     "2026-11-07"
+    ],
+    "errPct": 0.010513215841288368,
+    "withinRemedy": true
+   },
+   "mint_receipt": null,
+   "refused": []
+  },
+  {
+   "crypto_id": 42461,
+   "symbol": "NVDAc",
+   "issuer": "Coinbase",
+   "verdict": "NOT_VERIFIABLE",
+   "reason": "no contract on BNB Chain or Ethereum (listed on Base); no historical supply source",
+   "net_usd": 5244247.537110158,
+   "gross_in_usd": 5523010.311615474,
+   "gross_out_usd": -278762.7745053156,
+   "units_x": 2.029180802337919,
+   "price_pct": -0.4122931771410169,
+   "supply_a": 30563.93,
+   "supply_b": 62019.74,
+   "price_a": 220.27285969988108,
+   "price_b": 129.45586253627965,
+   "exit_ratio": 2.4878128781363706,
+   "coverage_a": null,
+   "mint": {
+    "status": "impossible",
+    "comparator": "total_supply",
+    "offset": 0,
+    "cmc_delta": null,
+    "chain_delta": null,
+    "err_pct": null,
+    "chain_source": "none",
+    "chain_dates": null,
+    "step_days": [],
+    "legs": []
+   },
+   "proof": {
+    "date": "2026-11-10",
+    "prevDate": "2026-11-09",
+    "field": "total_supply",
+    "cmcStep": 4072.8099999999977,
+    "chainStep": 0,
+    "chainDates": [
+     "2026-11-09",
+     "2026-11-10"
+    ],
+    "errPct": -1,
+    "withinRemedy": false
+   },
+   "mint_receipt": null,
+   "refused": []
+  },
+  {
+   "crypto_id": 37270,
+   "symbol": "WNVDAX",
+   "issuer": "Backed Assets",
+   "verdict": "NOT_VERIFIABLE",
+   "reason": "no contract on BNB Chain or Ethereum (listed on X Layer, Arbitrum); no historical supply source",
+   "net_usd": 1575591.4269912373,
+   "gross_in_usd": 2397429.8886522003,
+   "gross_out_usd": -821838.4616609626,
+   "units_x": 2.8597944075877257,
+   "price_pct": -0.40963716642733183,
+   "supply_a": 4553.67,
+   "supply_b": 13022.56,
+   "price_a": 220.01540525586677,
+   "price_b": 129.88891807649242,
+   "exit_ratio": 6.050317644743803,
+   "coverage_a": null,
+   "mint": {
+    "status": "impossible",
+    "comparator": "total_supply",
+    "offset": 0,
+    "cmc_delta": null,
+    "chain_delta": null,
+    "err_pct": null,
+    "chain_source": "none",
+    "chain_dates": null,
+    "step_days": [],
+    "legs": []
+   },
+   "proof": {
+    "date": "2026-10-29",
+    "prevDate": "2026-10-28",
+    "field": "total_supply",
+    "cmcStep": 2012.090000000001,
+    "chainStep": 0,
+    "chainDates": [
+     "2026-10-28",
+     "2026-10-29"
+    ],
+    "errPct": -1,
+    "withinRemedy": false
+   },
+   "mint_receipt": null,
+   "refused": []
+  },
+  {
+   "crypto_id": 28616,
+   "symbol": "NVDA.D",
+   "issuer": "Dinari Assets",
+   "verdict": null,
+   "reason": "CMC returned no daily history for this window",
+   "net_usd": null,
+   "gross_in_usd": null,
+   "gross_out_usd": null,
+   "units_x": null,
+   "price_pct": null,
+   "supply_a": null,
+   "supply_b": null,
+   "price_a": null,
+   "price_b": null,
+   "exit_ratio": null,
+   "coverage_a": null,
+   "mint": null,
+   "proof": null,
+   "mint_receipt": null,
+   "refused": []
+  },
+  {
+   "crypto_id": 38153,
+   "symbol": "NVDA",
+   "issuer": "NA (Derivatives)",
+   "verdict": null,
+   "reason": "derivative listing: no supply to mint",
+   "net_usd": null,
+   "gross_in_usd": null,
+   "gross_out_usd": null,
+   "units_x": null,
+   "price_pct": null,
+   "supply_a": null,
+   "supply_b": null,
+   "price_a": null,
+   "price_b": null,
+   "exit_ratio": null,
+   "coverage_a": null,
+   "mint": null,
+   "proof": null,
+   "mint_receipt": null,
+   "refused": []
+  }
+ ]
+}

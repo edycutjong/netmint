@@ -1,0 +1,92 @@
+[
+ {
+  "id": "r1",
+  "kind": "cmc",
+  "endpoint": "/v5/real-world-assets/assets/list",
+  "params": {
+   "start": "1",
+   "limit": "250"
+  },
+  "startedUtc": "2026-11-21T01:40:10.119Z",
+  "elapsedMs": 538,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": "",
+  "body": "(verbatim body in evidence/)",
+  "bodyBytes": 119521,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/assets/list?start=1&limit=250\""
+ },
+ {
+  "id": "r2",
+  "kind": "cmc",
+  "endpoint": "/v5/real-world-assets/quotes/latest",
+  "params": {
+   "rwa_id": "2"
+  },
+  "startedUtc": "2026-11-21T01:40:10.662Z",
+  "elapsedMs": 263,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": "",
+  "body": "(verbatim body in evidence/)",
+  "bodyBytes": 2848,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=2\""
+ },
+ {
+  "id": "r3",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "params": {
+   "id": "36992,28616,38093,40215,40605,40685,37270,42461"
+  },
+  "startedUtc": "2026-11-21T01:40:10.931Z",
+  "elapsedMs": 270,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "body": "(verbatim body in evidence/)",
+  "bodyBytes": 13311,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=36992%2C28616%2C38093%2C40215%2C40605%2C40685%2C37270%2C42461\""
+ },
+ {
+  "id": "r4",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/info",
+  "params": {
+   "id": "36992,28616,38093,40215,40605,40685,37270,42461",
+   "aux": "platform"
+  },
+  "startedUtc": "2026-11-21T01:40:10.927Z",
+  "elapsedMs": 764,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "body": "(verbatim body in evidence/)",
+  "bodyBytes": 8063,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=36992%2C28616%2C38093%2C40215%2C40605%2C40685%2C37270%2C42461&aux=platform\""
+ },
+ {
+  "id": "r5",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/historical",
+  "params": {
+   "id": "36992,28616,38093,40215,40605,40685,37270,42461",
+   "interval": "daily",
+   "time_start": "2026-10-21",
+   "time_end": "2026-11-21"
+  },
+  "startedUtc": "2026-11-21T01:40:10.925Z",
+  "elapsedMs": 1005,
+  "httpStatus": 200,
+  "creditCount": 3,
+  "errorCode": 0,
+  "errorMessage": null,
+  "body": "(verbatim body in evidence/)",
+  "bodyBytes": 84797,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/historical?id=36992%2C28616%2C38093%2C40215%2C40605%2C40685%2C37270%2C42461&interval=daily&time_start=2026-10-21&time_end=2026-11-21\""
+ }
+]
