@@ -48,5 +48,5 @@ Sampled mint for the 2026-11-13 step (block 133,127,844, 2026-11-12 08:25 UTC, 6
 ## Limits
 
 Wrappers whose supply sits on Solana, Arbitrum, Base, Robinhood Chain or X Layer return NOT VERIFIABLE (for example NVDAX: 86% of
-supply on Solana). Dollar figures are net creation at market price, not buyer data and not advice. After the event key reverts to Basic
+its CMC total supply sits outside BNB Chain + Ethereum, Solana among the unread chains). Dollar figures are net creation at market price, not buyer data and not advice. After the event key reverts to Basic
 (9 Dec 23:59 UTC) lookups run as `live-stored`: stored dated CMC bodies plus live chain reads, labelled in the receipts.
