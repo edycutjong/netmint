@@ -1,0 +1,17 @@
+{
+ "measured_utc": "2026-11-21T01:45Z",
+ "asset": "Bitcoin (id 1)",
+ "calls": [
+  "GET /v2/cryptocurrency/quotes/historical?id=1&interval=daily&time_start=2026-11-17&time_end=2026-11-20&convert=USD|EUR|IDR",
+  "GET /v2/cryptocurrency/quotes/latest?id=1 and &convert=IDR"
+ ],
+ "finding": "quotes/historical with convert=<fiat> multiplies circulating_supply by the exchange rate and returns percent_change_24h scaled the same way; quotes/latest with convert=IDR is correct",
+ "rows_2026_11_19": {
+  "USD": { "circulating_supply": 20113584, "percent_change_24h": -2.910973498084 },
+  "EUR": { "circulating_supply": 18331842.27, "percent_change_24h": -2.653107821729 },
+  "IDR": { "circulating_supply": 366849647208.91, "percent_change_24h": -53092.954532946 }
+ },
+ "latest": { "USD_percent_change_24h": -4.955400190483, "IDR_percent_change_24h": -4.955400190483 },
+ "consequence_for_netmint": "NetMint requests USD only and never sends convert= to quotes/historical (lib/cmc/history.ts)",
+ "files": ["hist-USD.json", "hist-EUR.json", "hist-IDR.json", "latest-USD.json", "latest-IDR.json"]
+}
