@@ -135,6 +135,10 @@ Read-only on-chain calls, no wallet and no transactions from us. Proof the chain
 | Tests | 201 passing, 8 files (`npm test`) |
 | Offline check | `npm run verify:offline` runs the demo with the network blocked and passes only if it fails and prints no verdict |
 | Stored-evidence replay | `npm run verify:flows`: 304 leaderboard rows re-derived from the stored bodies, 0 diffs |
+| Latency (measured 2026-11-21, commit 017db82) | One live lookup, NVDA 30 d, n=10: p50 1.8 s, p95 2.2 s. A top-20 leaderboard refresh (20 live lookups, 7 d, sequential): 38.8 s wall, per-lookup p50 2.0 s, p95 2.5 s, 87 credits. Deployed `/api/lookup` (cached repeat) p50 517 ms, p95 730 ms; `/flows` p50 346 ms. One machine, home broadband, not a load test; raw samples in [`docs/proof/bench.json`](docs/proof/bench.json) (`npm run bench`) |
+| E2E | 7 Playwright specs x 2 viewports against the live URL (`npm run e2e`), including the judged click: Run it live, verdict, receipts drawer |
+| Coverage | v8 line coverage over `lib/` 86.5% (floor 80, enforced by `npm run test:coverage`) |
+| Dependencies | `npm audit`: 0 vulnerabilities (a `postcss` override lifts the copy bundled in Next 15.5) |
 | Secrets | gitleaks clean on full history at HEAD (`gitleaks detect --log-opts=--all`, 2026-11-21) |
 
 ### Invariants (stated and tested)
@@ -144,8 +148,6 @@ Read-only on-chain calls, no wallet and no transactions from us. Proof the chain
 4. **Key never leaves the server.** A test sets a canary key and asserts it never appears in serialized output.
 5. **Keyed by id.** Symbol is display only.
 6. **Window honesty.** Every number carries its window and capture time.
-
-Latency and p50/p95 for the live path are not published yet; they land with the benchmark script.
 
 ## 🚀 Getting Started
 
@@ -164,14 +166,17 @@ npm run dev                   # the app at http://localhost:3000
 
 ```bash
 npm test                      # 201 tests
+npm run ci                    # audit + prettier + eslint + tsc + vitest coverage floor
+npm run bench                 # p50/p95 into docs/proof/bench.json
+npm run e2e                   # Playwright on the live URL
 npm run typecheck
 npm run verify:offline        # unplug the network: the demo must fail, not print a verdict
 npm run verify:flows          # recompute /flows from the stored bodies, expect 0 diffs
 npm run snapshot -- NVDA --window 30   # write a dated evidence folder
 ```
 
-A GitHub Actions workflow ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) is in the repo; Its runs have not started
-(GitHub billing/spending-limit error on the account), so no CI badge is shown; the commands above are the gate.
+The pipeline is in [`.github/workflows/ci.yml`](.github/workflows/ci.yml): quality (prettier, eslint, tsc, vitest coverage, stored-evidence replay) and security (gitleaks on full history, `npm audit`, dependency review) in parallel, then build with the unplug-must-fail check, deploy to Vercel, the Playwright E2E on the live URL and a Lighthouse budget; [`codeql.yml`](.github/workflows/codeql.yml) (security-and-quality, weekly), [`dependabot.yml`](.github/dependabot.yml) and a tagged-release workflow sit beside it.
+GitHub Actions has not started any job on this account yet (a billing/spending-limit error before the first step), so there is no CI badge. Stage 1 and the offline check were replayed in a Linux container (`act` and `docker`) and both passed; the commands above are the gate.
 
 ## 📁 Project Structure
 
@@ -193,7 +198,7 @@ tests/          Vitest suites
 - [x] Chain check on BNB Smart Chain + Ethereum, mint traced to a transaction
 - [x] Leaderboard of the top 20 tokenised stocks
 - [ ] Solana, Arbitrum, Base, Robinhood Chain and X Layer supply sources (those wrappers stay NOT VERIFIABLE)
-- [ ] Benchmark script with p50/p95
+- [x] Benchmark script with p50/p95 (`npm run bench`)
 
 ## 📽️ Demo Materials
 
