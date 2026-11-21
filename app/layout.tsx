@@ -11,7 +11,7 @@ const TITLE = 'NetMint: the money behind every tokenised stock, checked against 
 const DESCRIPTION =
   'CoinMarketCap records every tokenised stock’s supply every day but never shows the money behind it. NetMint turns that history into net creation and redemption per wrapper and puts each supply move on trial against the chain.';
 const OG_ALT =
-  'NetMint: NVDAB supply rose ×7.1 while the price fell 41% (22 Oct to 21 Nov 2026); the chain confirms +$202.83M of real inflow, struck REAL INFLOW.';
+  'NetMint: NVDAB supply rose ×7.1 while the price fell 41% (22 Oct to 21 Nov 2026); the chain confirms the supply steps within remedy, struck REAL INFLOW beside +$202.83M net creation at market price.';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://netmint.edycu.dev'),
