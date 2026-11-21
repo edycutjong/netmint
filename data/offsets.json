@@ -1,0 +1,24 @@
+{
+ "generated_utc": "2026-11-21T01:32:45.587Z",
+ "rule": "per issuer: the d in {-1,0,+1} under which the most CMC step days (|step| >= 1% of supply) match the summed chain step on day D+d within remedy (\u00b110%, floor 0.5%); ties -> 0; only wrappers whose summed legs reach 90% coverage vote",
+ "baseline": "2026-07-20 \u2192 2026-11-21",
+ "issuers": {
+  "Ondo Assets": {
+   "d": 0,
+   "votes": {
+    "0": 17,
+    "1": 1,
+    "-1": 1
+   }
+  },
+  "bStocks": {
+   "d": 0,
+   "votes": {
+    "0": 334,
+    "1": 28,
+    "-1": 30
+   }
+  }
+ },
+ "note": "MSTRB's issuer was not resolved in the 2026-11-21 run (its underlying sits beyond the issuer scan), so its votes were not counted"
+}
