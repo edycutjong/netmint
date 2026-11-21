@@ -168,10 +168,11 @@ function FlowsBody({ t, all }: { t: NonNullable<ReturnType<typeof loadFlows>>; a
         vs creation” marks only those. RECOUNT means CMC’s supply step and the summed chains’ step disagree beyond tolerance; NOT VERIFIABLE
         means the move may sit on a chain NetMint does not read, or the check cannot certify it (
         {t.rows.filter((r) => r.verdict === 'NOT_VERIFIABLE').length} of {t.rows.length}; {t.rows.length - shown.length} of {t.rows.length}{' '}
-        rows are hidden in this view: the NOT VERIFIABLE rows and {t.rows.filter((r) => r.verdict === null).length} with no usable daily
-        history). Chain coverage is the on-chain supply summed over BNB Chain and Ethereum ÷ CMC’s supply at the window start; a little over
-        100% means the chain read higher. On RECOUNT and NOT VERIFIABLE rows the dollar figure is CMC’s supply change × price and is shown
-        only as unproven; on FLAT rows it is under the threshold and was not tried. Evidence:{' '}
+        rows are hidden in this view
+        {all ? '' : `: the NOT VERIFIABLE rows and ${t.rows.filter((r) => r.verdict === null).length} with no usable daily history`}). Chain
+        coverage is the on-chain supply summed over BNB Chain and Ethereum ÷ CMC’s supply at the window start; a little over 100% means the
+        chain read higher. On RECOUNT and NOT VERIFIABLE rows the dollar figure is CMC’s supply change × price and is shown only as
+        unproven; on FLAT rows it is under the threshold and was not tried. Evidence:{' '}
         <span className="data">evidence/{t.generatedUtc.slice(0, 10)}/flows/</span>.
       </p>
     </>
