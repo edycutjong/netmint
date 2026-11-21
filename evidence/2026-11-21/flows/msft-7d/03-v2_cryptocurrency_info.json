@@ -1,0 +1,601 @@
+{
+ "receipt": {
+  "id": "r4",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/info",
+  "params": {
+   "id": "37056,28618,38086,39616,40589,40609,40695,37214,42494",
+   "aux": "platform"
+  },
+  "startedUtc": "2026-11-21T02:44:58.583Z",
+  "elapsedMs": 271,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 8965,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=37056%2C28618%2C38086%2C39616%2C40589%2C40609%2C40695%2C37214%2C42494&aux=platform\""
+ },
+ "body": {
+  "data": {
+   "28618": {
+    "id": 28618,
+    "name": "MSFT tokenized stock (Dinari)",
+    "symbol": "MSFT.D",
+    "category": "token",
+    "slug": "dinari-msft",
+    "subreddit": "dinari",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Arbitrum Ecosystem",
+     "Tokenized Assets"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "11841",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "slug": "arbitrum",
+     "token_address": "0x77308F8B63A99b24b262D930E0218ED2f49F8475"
+    },
+    "twitter_username": "DinariGlobal",
+    "is_hidden": 0,
+    "date_launched": "2021-10-31T00:00:00.000Z",
+    "contract_address": [
+     {
+      "contract_address": "0x77308F8B63A99b24b262D930E0218ED2f49F8475",
+      "platform": {
+       "name": "Arbitrum",
+       "coin": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum"
+       }
+      }
+     }
+    ],
+    "self_reported_circulating_supply": 1,
+    "infinite_supply": false
+   },
+   "37056": {
+    "id": 37056,
+    "name": "Microsoft tokenized stock (xStock)",
+    "symbol": "MSFTX",
+    "category": "token",
+    "slug": "microsoft-tokenized-stock-xstock",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Ethereum Ecosystem",
+     "Tokenized Stock",
+     "Solana Ecosystem",
+     "Arbitrum Ecosystem",
+     "BNB Chain Ecosystem",
+     "Toncoin Ecosystem",
+     "X Layer Ecosystem",
+     "Internet Capital Markets",
+     "Tokenized Assets",
+     "xStocks Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "PLATFORM",
+     "PLATFORM",
+     "PLATFORM",
+     "PLATFORM",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "5426",
+     "name": "Solana",
+     "symbol": "SOL",
+     "slug": "solana",
+     "token_address": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX"
+    },
+    "twitter_username": "xStocksFi",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+      "platform": {
+       "name": "Solana",
+       "coin": {
+        "id": "5426",
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana"
+       }
+      }
+     },
+     {
+      "contract_address": "0x5621737f42dae558b81269fcb9e9e70c19aa6b35",
+      "platform": {
+       "name": "Arbitrum",
+       "coin": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum"
+       }
+      }
+     },
+     {
+      "contract_address": "0x5621737f42dae558b81269fcb9e9e70c19aa6b35",
+      "platform": {
+       "name": "BNB Smart Chain (BEP20)",
+       "coin": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb"
+       }
+      }
+     },
+     {
+      "contract_address": "0x5621737f42dae558b81269fcb9e9e70c19aa6b35",
+      "platform": {
+       "name": "Ink",
+       "coin": {
+        "id": "36851",
+        "name": "INK",
+        "symbol": "INK",
+        "slug": "ink-token"
+       }
+      }
+     },
+     {
+      "contract_address": "0x5621737f42dae558b81269fcb9e9e70c19aa6b35",
+      "platform": {
+       "name": "Ethereum",
+       "coin": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum"
+       }
+      }
+     },
+     {
+      "contract_address": "EQDI9JwkYTEHM2TSFPSWFbwznBq07_I4Apy9TBhxsDlZaBvg",
+      "platform": {
+       "name": "TON",
+       "coin": {
+        "id": "11419",
+        "name": "Gram (prev. Toncoin)",
+        "symbol": "GRAM",
+        "slug": "gram"
+       }
+      }
+     },
+     {
+      "contract_address": "0x5621737f42dAE558b81269FcB9E9E70c19Aa6b35",
+      "platform": {
+       "name": "X Layer",
+       "coin": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "37214": {
+    "id": 37214,
+    "name": "Wrapped Microsoft Tokenized stock (xStock)",
+    "symbol": "WMSFTX",
+    "category": "token",
+    "slug": "wrapped-microsoft-tokenized-stock-xstock",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Arbitrum Ecosystem",
+     "X Layer Ecosystem",
+     "Tokenized Assets"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "PLATFORM",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "3897",
+     "name": "OKB",
+     "symbol": "OKB",
+     "slug": "okb",
+     "token_address": "0x166Fbe68274b6a47e025F4ba17388c539f1fa1d0"
+    },
+    "twitter_username": "xStocksFi",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x166Fbe68274b6a47e025F4ba17388c539f1fa1d0",
+      "platform": {
+       "name": "X Layer",
+       "coin": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb"
+       }
+      }
+     },
+     {
+      "contract_address": "0x63ad27614231767c8c489745b9145272de50d09b",
+      "platform": {
+       "name": "Arbitrum",
+       "coin": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "38086": {
+    "id": 38086,
+    "name": "Microsoft Tokenized Stock (Ondo)",
+    "symbol": "MSFTon",
+    "category": "token",
+    "slug": "microsoft-tokenized-stock-ondo",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Ethereum Ecosystem",
+     "Tokenized Stock",
+     "Solana Ecosystem",
+     "BNB Chain Ecosystem",
+     "Binance Alpha",
+     "Binance Ecosystem",
+     "Tokenized Assets",
+     "HyperEVM Ecosystem",
+     "Ondo Stocks Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "PLATFORM",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "1027",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "slug": "ethereum",
+     "token_address": "0xB812837b81a3a6b81d7CD74CfB19A7f2784555E5"
+    },
+    "twitter_username": "ondofinance",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0xB812837b81a3a6b81d7CD74CfB19A7f2784555E5",
+      "platform": {
+       "name": "Ethereum",
+       "coin": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum"
+       }
+      }
+     },
+     {
+      "contract_address": "0x6bfe75d1ad432050ea973c3a3dcd88f02e2444c3",
+      "platform": {
+       "name": "BNB Smart Chain (BEP20)",
+       "coin": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb"
+       }
+      }
+     },
+     {
+      "contract_address": "FRmH6iRkMr33DLG6zVLR7EM4LojBFAuq6NtFzG6ondo",
+      "platform": {
+       "name": "Solana",
+       "coin": {
+        "id": "5426",
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana"
+       }
+      }
+     },
+     {
+      "contract_address": "0xD53471f6D493f7eD766181D88Ba9c2Bfc371399A",
+      "platform": {
+       "name": "HyperEVM",
+       "coin": {
+        "id": "32196",
+        "name": "Hyperliquid",
+        "symbol": "HYPE",
+        "slug": "hyperliquid"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "39616": {
+    "id": 39616,
+    "name": "Microsoft Tokenized Stock (Hyperliquid)",
+    "symbol": "MSFT",
+    "category": "token",
+    "slug": "microsoft-tokenized-stock-hyperliquid",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Hyperliquid Ecosystem",
+     "Tokenized Assets",
+     "HyperEVM Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM"
+    ],
+    "platform": {
+     "id": "32196",
+     "name": "Hyperliquid",
+     "symbol": "HYPE",
+     "slug": "hyperliquid",
+     "token_address": "0x7ef4eba0c0200957e357627ced1884d6cb63e961"
+    },
+    "twitter_username": "HyperliquidX",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x7ef4eba0c0200957e357627ced1884d6cb63e961",
+      "platform": {
+       "name": "HyperEVM",
+       "coin": {
+        "id": "32196",
+        "name": "Hyperliquid",
+        "symbol": "HYPE",
+        "slug": "hyperliquid"
+       }
+      }
+     },
+     {
+      "contract_address": "0xf5559ee90ac19c61eb6379eb3b3dade8",
+      "platform": {
+       "name": "Hyperliquid",
+       "coin": {
+        "id": "32196",
+        "name": "Hyperliquid",
+        "symbol": "HYPE",
+        "slug": "hyperliquid"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "40589": {
+    "id": 40589,
+    "name": "Microsoft Tokenized bStocks",
+    "symbol": "MSFTB",
+    "category": "token",
+    "slug": "microsoft-tokenized-bstocks",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "BNB Chain Ecosystem",
+     "Binance Ecosystem",
+     "Binance Listing",
+     "Tokenized Assets",
+     "bStocks"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "1839",
+     "name": "BNB",
+     "symbol": "BNB",
+     "slug": "bnb",
+     "token_address": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0"
+    },
+    "twitter_username": "",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x80106cb3ead06659a5ad19df39d9b4733863b9b0",
+      "platform": {
+       "name": "BNB Smart Chain (BEP20)",
+       "coin": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "40609": {
+    "id": 40609,
+    "name": "Microsoft Tokenized Stock (Reality)",
+    "symbol": "rMSFT",
+    "category": "token",
+    "slug": "microsoft-tokenized-stock-reality",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Arbitrum Ecosystem",
+     "Tokenized Assets",
+     "Bitget Ecosystem",
+     "rTokens"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "11841",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "slug": "arbitrum",
+     "token_address": "0xda7c9549e87d4f96585701970acdcc90e8d35024"
+    },
+    "twitter_username": "RealityFi_xyz",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0xda7c9549e87d4f96585701970acdcc90e8d35024",
+      "platform": {
+       "name": "Arbitrum",
+       "coin": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "40695": {
+    "id": 40695,
+    "name": "Microsoft Tokenized Stock (Robinhood)",
+    "symbol": "MSFT",
+    "category": "token",
+    "slug": "microsoft-tokenized-stock-robinhood",
+    "subreddit": "",
+    "tag-names": [
+     "Tokenized Assets",
+     "Robinhood Ecosystem",
+     "Robinhood Stock"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "40670",
+     "name": "Robinhood",
+     "symbol": "-",
+     "slug": "robinhood-placeholder",
+     "token_address": "0xe93237C50D904957Cf27E7B1133b510C669c2e74"
+    },
+    "twitter_username": "RobinhoodCrypto",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0xe93237C50D904957Cf27E7B1133b510C669c2e74",
+      "platform": {
+       "name": "Robinhood Chain",
+       "coin": {
+        "id": "40670",
+        "name": "Robinhood",
+        "symbol": "-",
+        "slug": "robinhood-placeholder"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "42494": {
+    "id": 42494,
+    "name": "Microsoft Corporation Tokenized Stock (Coinbase)",
+    "symbol": "MSFTc",
+    "category": "token",
+    "slug": "microsoft-corporation-tokenized-stock-coinbase",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Base Ecosystem",
+     "Tokenized Assets",
+     "Coinbase Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "27716",
+     "name": "Base",
+     "symbol": "-",
+     "slug": "base",
+     "token_address": "0xB200000000000000000000Ab99cFa739E253872B"
+    },
+    "twitter_username": "",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0xB200000000000000000000Ab99cFa739E253872B",
+      "platform": {
+       "name": "Base",
+       "coin": {
+        "id": "27716",
+        "name": "Base",
+        "symbol": "-",
+        "slug": "base"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:44:58.729Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 20,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

@@ -1,0 +1,455 @@
+{
+ "receipt": {
+  "id": "r5",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/info",
+  "params": {
+   "id": "39788,40037,40216,40648,40700,40815,41493,42478",
+   "aux": "platform"
+  },
+  "startedUtc": "2026-11-21T02:51:51.344Z",
+  "elapsedMs": 521,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 6753,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=39788%2C40037%2C40216%2C40648%2C40700%2C40815%2C41493%2C42478&aux=platform\""
+ },
+ "body": {
+  "data": {
+   "39788": {
+    "id": 39788,
+    "name": "SanDisk Tokenized Stock (Ondo)",
+    "symbol": "SNDKon",
+    "category": "token",
+    "slug": "sandisk-tokenized-stock-ondo",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Ethereum Ecosystem",
+     "Tokenized Stock",
+     "Solana Ecosystem",
+     "BNB Chain Ecosystem",
+     "Tokenized Assets",
+     "HyperEVM Ecosystem",
+     "Ondo Stocks Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "PLATFORM",
+     "PLATFORM",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "5426",
+     "name": "Solana",
+     "symbol": "SOL",
+     "slug": "solana",
+     "token_address": "EJmUVvDqAdfH5zEohkdS4234bi3c6iunqEMobjmondo"
+    },
+    "twitter_username": "ondofinance",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "EJmUVvDqAdfH5zEohkdS4234bi3c6iunqEMobjmondo",
+      "platform": {
+       "name": "Solana",
+       "coin": {
+        "id": "5426",
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana"
+       }
+      }
+     },
+     {
+      "contract_address": "0x71E2400CF1Cb83204f33794eD326636A71a9AAfC",
+      "platform": {
+       "name": "Ethereum",
+       "coin": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum"
+       }
+      }
+     },
+     {
+      "contract_address": "0x4Fd67CB8CFEdc718BAc984b5936abE3330d0a2A4",
+      "platform": {
+       "name": "BNB Smart Chain (BEP20)",
+       "coin": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb"
+       }
+      }
+     },
+     {
+      "contract_address": "0xB8927cfF399E23328eEC0e457e75c709DCfcF382",
+      "platform": {
+       "name": "HyperEVM",
+       "coin": {
+        "id": "32196",
+        "name": "Hyperliquid",
+        "symbol": "HYPE",
+        "slug": "hyperliquid"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "40037": {
+    "id": 40037,
+    "name": "Sandisk Corporation tokenized stock(xstock)",
+    "symbol": "SNDKX",
+    "category": "token",
+    "slug": "sandisk-corporation-xstock",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Ethereum Ecosystem",
+     "Tokenized Stock",
+     "X Layer Ecosystem",
+     "Tokenized Assets",
+     "xStocks Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "1027",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "slug": "ethereum",
+     "token_address": "0xb63efbc28860c8097e341de1fcf59456161e9d98"
+    },
+    "twitter_username": "xStocksFi",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0xb63efbc28860c8097e341de1fcf59456161e9d98",
+      "platform": {
+       "name": "Ethereum",
+       "coin": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum"
+       }
+      }
+     },
+     {
+      "contract_address": "0xb63EFBc28860c8097e341DE1fCF59456161E9D98",
+      "platform": {
+       "name": "X Layer",
+       "coin": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb"
+       }
+      }
+     }
+    ],
+    "infinite_supply": true
+   },
+   "40216": {
+    "id": 40216,
+    "name": "SanDisk Tokenized bStocks",
+    "symbol": "SNDKB",
+    "category": "token",
+    "slug": "sandisk-tokenized-bstocks",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "BNB Chain Ecosystem",
+     "Binance Ecosystem",
+     "Binance Listing",
+     "Tokenized Assets",
+     "bStocks"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "1839",
+     "name": "BNB",
+     "symbol": "BNB",
+     "slug": "bnb",
+     "token_address": "0x3ee4df61bd4f867e349beae8bfe07bc31b4850fb"
+    },
+    "twitter_username": "",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x3ee4df61bd4f867e349beae8bfe07bc31b4850fb",
+      "platform": {
+       "name": "BNB Smart Chain (BEP20)",
+       "coin": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "40648": {
+    "id": 40648,
+    "name": "SanDisk Tokenized Stock (Reality)",
+    "symbol": "rSNDK",
+    "category": "token",
+    "slug": "sandisk-tokenized-stock-reality",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Arbitrum Ecosystem",
+     "Tokenized Assets",
+     "Bitget Ecosystem",
+     "rTokens"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "11841",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "slug": "arbitrum",
+     "token_address": "0xc78c5a7be0e8d72cdda205e53d1147aaacf5a075"
+    },
+    "twitter_username": "RealityFi_xyz",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0xc78c5a7be0e8d72cdda205e53d1147aaacf5a075",
+      "platform": {
+       "name": "Arbitrum",
+       "coin": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "40700": {
+    "id": 40700,
+    "name": "Sandisk Corporation Tokenized Stock (Robinhood)",
+    "symbol": "SNDK",
+    "category": "token",
+    "slug": "sandisk-corporation-tokenized-stock-robinhood",
+    "subreddit": "",
+    "tag-names": [
+     "Tokenized Assets",
+     "Robinhood Ecosystem",
+     "Robinhood Stock"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "40670",
+     "name": "Robinhood",
+     "symbol": "-",
+     "slug": "robinhood-placeholder",
+     "token_address": "0xB90A19fF0Af67f7779afF50A882A9CfF42446400"
+    },
+    "twitter_username": "RobinhoodCrypto",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0xB90A19fF0Af67f7779afF50A882A9CfF42446400",
+      "platform": {
+       "name": "Robinhood Chain",
+       "coin": {
+        "id": "40670",
+        "name": "Robinhood",
+        "symbol": "-",
+        "slug": "robinhood-placeholder"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "40815": {
+    "id": 40815,
+    "name": "SanDisk Corp tokenized stock (Backpack)",
+    "symbol": "SNDK",
+    "category": "token",
+    "slug": "sandisk-corp-tokenized-stock-backpack",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Solana Ecosystem",
+     "Tokenized Assets"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "5426",
+     "name": "Solana",
+     "symbol": "SOL",
+     "slug": "solana",
+     "token_address": "SNDKbwMUQvZhnLnxLduradgLHG5KrPuKwpnrkkGRhfH"
+    },
+    "twitter_username": "Backpack",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "SNDKbwMUQvZhnLnxLduradgLHG5KrPuKwpnrkkGRhfH",
+      "platform": {
+       "name": "Solana",
+       "coin": {
+        "id": "5426",
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "41493": {
+    "id": 41493,
+    "name": "Wrapped Sandisk Corporation Tokenized Stock (xStock)",
+    "symbol": "wSNDKx",
+    "category": "token",
+    "slug": "wrapped-sandisk-corporation-tokenized-stock-xstock",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "X Layer Ecosystem",
+     "Tokenized Assets",
+     "xStocks Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "3897",
+     "name": "OKB",
+     "symbol": "OKB",
+     "slug": "okb",
+     "token_address": "0x75e82E2884Ea10f72FCA777449B73377f4646219"
+    },
+    "twitter_username": "xstocksfi",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x75e82E2884Ea10f72FCA777449B73377f4646219",
+      "platform": {
+       "name": "X Layer",
+       "coin": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
+   "42478": {
+    "id": 42478,
+    "name": "Sandisk Corporation Tokenized Stock (Coinbase)",
+    "symbol": "SNDKc",
+    "category": "token",
+    "slug": "sandisk-corporation-tokenized-stock-coinbase",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Base Ecosystem",
+     "Tokenized Assets",
+     "Coinbase Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "27716",
+     "name": "Base",
+     "symbol": "-",
+     "slug": "base",
+     "token_address": "0xb200000000000000000000397293Cb8cda9a10c5"
+    },
+    "twitter_username": "",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0xb200000000000000000000397293Cb8cda9a10c5",
+      "platform": {
+       "name": "Base",
+       "coin": {
+        "id": "27716",
+        "name": "Base",
+        "symbol": "-",
+        "slug": "base"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:51:51.738Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 6,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

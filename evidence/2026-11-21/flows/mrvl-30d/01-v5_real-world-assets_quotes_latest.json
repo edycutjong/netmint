@@ -6,13 +6,13 @@
   "params": {
    "rwa_id": "70"
   },
-  "startedUtc": "2026-11-21T02:06:14.758Z",
-  "elapsedMs": 259,
+  "startedUtc": "2026-11-21T02:53:01.650Z",
+  "elapsedMs": 694,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": "",
-  "bodyBytes": 2494,
+  "bodyBytes": 2496,
   "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=70\""
  },
  "body": {
@@ -26,70 +26,70 @@
       {
        "symbol": "USD",
        "crypto_id": 2781,
-       "average_tokenized_price": 125.64753125143554,
-       "tokenized_market_cap": 19656532.414943546,
-       "tokenized_volume_24h": 10727837.68839453,
-       "last_updated": "2026-11-21T02:05:02.000Z"
+       "average_tokenized_price": 125.52999686980955,
+       "tokenized_market_cap": 19639955.615431912,
+       "tokenized_volume_24h": 10582584.87117465,
+       "last_updated": "2026-11-21T02:52:03.000Z"
       }
      ],
      "rwa_id": 70,
      "asset_type": "stock",
      "rwa_rank": 133,
      "has_tokens": true,
-     "average_tokenized_price": 125.64753125143554,
-     "tokenized_market_cap": 19656532.414943546,
-     "tokenized_volume_24h": 10727837.68839453,
-     "last_updated": "2026-11-21T02:06:11.140Z",
+     "average_tokenized_price": 125.52999686980955,
+     "tokenized_market_cap": 19639955.615431912,
+     "tokenized_volume_24h": 10582584.87117465,
+     "last_updated": "2026-11-21T02:52:16.184Z",
      "tokens": [
       {
        "symbol": "MRVLon",
        "name": "Marvell Technology Tokenized Stock (Ondo)",
-       "price": 126.00551939033781,
+       "price": 125.93872230603895,
        "crypto_id": 38089,
        "issuer_id": "688ca4ccabae9b5b9fb3167a",
        "issuer_name": "Ondo Assets",
-       "market_cap": 5669048.954489398,
-       "volume_24h": 1228544.6728312175
+       "market_cap": 5666043.721522306,
+       "volume_24h": 1221139.9444776818
       },
       {
        "symbol": "MRVLX",
        "name": "Marvell tokenized stock (xStock)",
-       "price": 125.69878993073229,
+       "price": 125.5677303658435,
        "crypto_id": 37050,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 4942023.344145911,
-       "volume_24h": 959243.5468581019
+       "market_cap": 4936870.554453099,
+       "volume_24h": 947436.6088047051
       },
       {
        "symbol": "rMRVL",
        "name": "Marvell Tokenized Stock (Reality)",
-       "price": 125.14321575236292,
+       "price": 125.07300823571536,
        "crypto_id": 40614,
        "issuer_id": "6a43600c282e7240b76c8bbb",
        "issuer_name": "Reality",
-       "market_cap": 2121435.875980467,
-       "volume_24h": 871949.121807707
+       "market_cap": 2120245.7136238087,
+       "volume_24h": 870664.9069506067
       },
       {
        "symbol": "MRVL",
        "name": "Marvell Technology Tokenized Stock (Robinhood)",
-       "price": 125.50047637079011,
+       "price": 125.40008966225328,
        "crypto_id": 40723,
        "issuer_id": "6a465832fbe3004b1a0ea2dd",
        "issuer_name": "Robinhood",
-       "market_cap": 176986.52221195638,
-       "volume_24h": 1282652.458779519
+       "market_cap": 176844.9522758571,
+       "volume_24h": 1254621.9776225952
       },
       {
        "symbol": "MRVLB",
        "name": "Marvell Technology Tokenized bStocks",
-       "price": 125.67035885982985,
+       "price": 125.52725343392767,
        "crypto_id": 40848,
        "issuer_id": "6a2aed5097c45356b1a5f710",
        "issuer_name": "bStocks",
-       "market_cap": 6613101.981192236,
-       "volume_24h": 6283602.84421515
+       "market_cap": 6605623.5747151105,
+       "volume_24h": 6196654.373047873
       },
       {
        "symbol": "WMRVLX",
@@ -104,12 +104,12 @@
       {
        "symbol": "MRVLc",
        "name": "Marvell Technology, Inc. Tokenized Stock (Coinbase)",
-       "price": 125.61834207343601,
+       "price": 125.82701398292865,
        "crypto_id": 42419,
        "issuer_id": "6a72fe7072996604d45c6733",
        "issuer_name": "Coinbase",
-       "market_cap": 133964.72124072845,
-       "volume_24h": 101815.60245947856
+       "market_cap": 134187.25780445422,
+       "volume_24h": 98147.46414475937
       }
      ],
      "tradfi_markets": [
@@ -127,7 +127,7 @@
    ]
   },
   "status": {
-   "timestamp": "2026-11-21T02:06:14.889Z",
+   "timestamp": "2026-11-21T02:53:02.228Z",
    "error_code": "0",
    "error_message": "",
    "elapsed": 5,

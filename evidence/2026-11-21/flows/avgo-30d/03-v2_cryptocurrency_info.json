@@ -7,8 +7,8 @@
    "id": "37021,38062,37126,40604,40705,40845,37129,42432",
    "aux": "platform"
   },
-  "startedUtc": "2026-11-21T02:06:11.561Z",
-  "elapsedMs": 741,
+  "startedUtc": "2026-11-21T02:52:56.124Z",
+  "elapsedMs": 298,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
@@ -528,10 +528,10 @@
    }
   },
   "status": {
-   "timestamp": "2026-11-21T02:06:12.178Z",
+   "timestamp": "2026-11-21T02:52:56.281Z",
    "error_code": 0,
    "error_message": null,
-   "elapsed": 8,
+   "elapsed": 5,
    "credit_count": 1,
    "notice": null
   }

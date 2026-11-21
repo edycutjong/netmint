@@ -6,13 +6,13 @@
   "params": {
    "rwa_id": "8065"
   },
-  "startedUtc": "2026-11-21T02:03:23.990Z",
-  "elapsedMs": 712,
+  "startedUtc": "2026-11-21T02:44:52.313Z",
+  "elapsedMs": 725,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": "",
-  "bodyBytes": 2266,
+  "bodyBytes": 2263,
   "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=8065\""
  },
  "body": {
@@ -26,55 +26,55 @@
       {
        "symbol": "USD",
        "crypto_id": 2781,
-       "average_tokenized_price": 106.16701226649133,
-       "tokenized_market_cap": 39065933.01408483,
-       "tokenized_volume_24h": 18023732.14685962,
-       "last_updated": "2026-11-21T02:02:03.000Z"
+       "average_tokenized_price": 105.90246548759066,
+       "tokenized_market_cap": 38963246.445059314,
+       "tokenized_volume_24h": 17667096.8251694,
+       "last_updated": "2026-11-21T02:44:02.000Z"
       }
      ],
      "rwa_id": 8065,
      "asset_type": "stock",
      "rwa_rank": 19,
      "has_tokens": true,
-     "average_tokenized_price": 106.16701226649133,
-     "tokenized_market_cap": 39065933.01408483,
-     "tokenized_volume_24h": 18023732.14685962,
-     "last_updated": "2026-11-21T02:03:11.004Z",
+     "average_tokenized_price": 105.90246548759066,
+     "tokenized_market_cap": 38963246.445059314,
+     "tokenized_volume_24h": 17667096.8251694,
+     "last_updated": "2026-11-21T02:44:11.077Z",
      "tokens": [
       {
        "symbol": "SKHYx",
        "name": "SK hynix tokenized stock (xStock)",
-       "price": 106.26181870650875,
+       "price": 105.7992488771821,
        "crypto_id": 40786,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 10865420.363931185,
-       "volume_24h": 3023112.4135929593
+       "market_cap": 10818121.948522095,
+       "volume_24h": 2960673.477961766
       },
       {
        "symbol": "SKHYB",
        "name": "SK Hynix Tokenized bStocks",
-       "price": 106.15177930744541,
+       "price": 105.9216438261606,
        "crypto_id": 40813,
        "issuer_id": "6a2aed5097c45356b1a5f710",
        "issuer_name": "bStocks",
-       "market_cap": 24419255.07932451,
-       "volume_24h": 13383218.183914682
+       "market_cap": 24366314.496915426,
+       "volume_24h": 12926450.187373992
       },
       {
        "symbol": "SKHYon",
        "name": "SK Hynix Tokenized Stock (Ondo)",
-       "price": 106.16344763240089,
+       "price": 106.01677788120377,
        "crypto_id": 40823,
        "issuer_id": "688ca4ccabae9b5b9fb3167a",
        "issuer_name": "Ondo Assets",
-       "market_cap": 1015541.2723682651,
-       "volume_24h": 1213272.7777238544
+       "market_cap": 1014138.2547659694,
+       "volume_24h": 1201463.747493077
       },
       {
        "symbol": "SKHY",
        "name": "SK Hynix (Derivatives)",
-       "price": 106.25220467954037,
+       "price": 105.83390877987318,
        "crypto_id": 40824,
        "issuer_id": "695e11f774b54210f3b95dc3",
        "issuer_name": "NA (Derivatives)",
@@ -84,12 +84,12 @@
       {
        "symbol": "SKHY",
        "name": "SK Hynix tokenized stock (Backpack)",
-       "price": 105.88601888482445,
+       "price": 105.94091081690894,
        "crypto_id": 40833,
        "issuer_id": "6a2d54b697c45356b1a634f4",
        "issuer_name": "Backpack",
-       "market_cap": 2479634.102035447,
-       "volume_24h": 114280.3980250664
+       "market_cap": 2480919.558870606,
+       "volume_24h": 287135.1000020337
       },
       {
        "symbol": "wSKHYx",
@@ -104,12 +104,12 @@
       {
        "symbol": "SKHYc",
        "name": "SK hynix Inc. Tokenized Stock (Coinbase)",
-       "price": 106.00724734661794,
+       "price": 106.14618257936642,
        "crypto_id": 42557,
        "issuer_id": "6a72fe7072996604d45c6733",
        "issuer_name": "Coinbase",
-       "market_cap": 286082.19642566313,
-       "volume_24h": 289848.37360306084
+       "market_cap": 286457.14151234797,
+       "volume_24h": 282069.53398214816
       }
      ],
      "tradfi_markets": []
@@ -117,10 +117,10 @@
    ]
   },
   "status": {
-   "timestamp": "2026-11-21T02:03:24.582Z",
+   "timestamp": "2026-11-21T02:44:52.916Z",
    "error_code": "0",
    "error_message": "",
-   "elapsed": 4,
+   "elapsed": 5,
    "credit_count": 1
   }
  }

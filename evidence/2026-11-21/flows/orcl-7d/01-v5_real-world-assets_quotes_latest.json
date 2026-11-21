@@ -6,13 +6,13 @@
   "params": {
    "rwa_id": "24"
   },
-  "startedUtc": "2026-11-21T02:03:40.388Z",
-  "elapsedMs": 721,
+  "startedUtc": "2026-11-21T02:45:09.885Z",
+  "elapsedMs": 247,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": "",
-  "bodyBytes": 2630,
+  "bodyBytes": 2633,
   "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=24\""
  },
  "body": {
@@ -26,45 +26,45 @@
       {
        "symbol": "USD",
        "crypto_id": 2781,
-       "average_tokenized_price": 103.26914844758693,
-       "tokenized_market_cap": 17162314.70949042,
-       "tokenized_volume_24h": 12732184.48116813,
-       "last_updated": "2026-11-21T02:02:03.000Z"
+       "average_tokenized_price": 103.07444707145909,
+       "tokenized_market_cap": 17112894.518598728,
+       "tokenized_volume_24h": 12656020.77893646,
+       "last_updated": "2026-11-21T02:44:02.000Z"
       }
      ],
      "rwa_id": 24,
      "asset_type": "stock",
      "rwa_rank": 37,
      "has_tokens": true,
-     "average_tokenized_price": 103.26914844758693,
-     "tokenized_market_cap": 17162314.70949042,
-     "tokenized_volume_24h": 12732184.48116813,
-     "last_updated": "2026-11-21T02:03:11.012Z",
+     "average_tokenized_price": 103.07444707145909,
+     "tokenized_market_cap": 17112894.518598728,
+     "tokenized_volume_24h": 12656020.77893646,
+     "last_updated": "2026-11-21T02:44:11.087Z",
      "tokens": [
       {
        "symbol": "ORCLon",
        "name": "Oracle Tokenized Stock (Ondo)",
-       "price": 104.44819245441555,
+       "price": 103.97825797280107,
        "crypto_id": 38009,
        "issuer_id": "688ca4ccabae9b5b9fb3167a",
        "issuer_name": "Ondo Assets",
-       "market_cap": 3218546.815577335,
-       "volume_24h": 871070.817864161
+       "market_cap": 3204065.8935643444,
+       "volume_24h": 869773.4297830898
       },
       {
        "symbol": "ORCLX",
        "name": "Oracle tokenized stock (xStock)",
-       "price": 103.29188609293516,
+       "price": 103.01326231609468,
        "crypto_id": 37059,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 3904559.4653591076,
-       "volume_24h": 465430.2509249795
+       "market_cap": 3894027.146255574,
+       "volume_24h": 460573.2237398748
       },
       {
        "symbol": "ORCL",
        "name": "Oracle Corp (Derivatives)",
-       "price": 103.37137445583046,
+       "price": 103.07283441076657,
        "crypto_id": 39482,
        "issuer_id": "695e11f774b54210f3b95dc3",
        "issuer_name": "NA (Derivatives)",
@@ -74,32 +74,32 @@
       {
        "symbol": "rORCL",
        "name": "Oracle Tokenized Stock (Reality)",
-       "price": 103.0463567006083,
+       "price": 103.04440995112027,
        "crypto_id": 40654,
        "issuer_id": "6a43600c282e7240b76c8bbb",
        "issuer_name": "Reality",
-       "market_cap": 740631.5877070104,
-       "volume_24h": 49816.21365528274
+       "market_cap": 740617.5957114625,
+       "volume_24h": 51022.00802269323
       },
       {
        "symbol": "ORCL",
        "name": "Oracle Tokenized Stock (Robinhood)",
-       "price": 102.30532269235928,
+       "price": 102.3053226728834,
        "crypto_id": 40773,
        "issuer_id": "6a465832fbe3004b1a0ea2dd",
        "issuer_name": "Robinhood",
-       "market_cap": 372264.5978413289,
+       "market_cap": 372264.5977704608,
        "volume_24h": 0
       },
       {
        "symbol": "ORCLB",
        "name": "Oracle Tokenized bStocks",
-       "price": 103.18169330306478,
+       "price": 102.88883539337795,
        "crypto_id": 40882,
        "issuer_id": "6a2aed5097c45356b1a5f710",
        "issuer_name": "bStocks",
-       "market_cap": 8576401.918942802,
-       "volume_24h": 8028854.380629801
+       "market_cap": 8552059.741002008,
+       "volume_24h": 8011614.879271541
       },
       {
        "symbol": "WORCLX",
@@ -114,12 +114,12 @@
       {
        "symbol": "ORCLc",
        "name": "Oracle Corporation Tokenized Stock (Coinbase)",
-       "price": 103.17279272918168,
+       "price": 103.32133343500753,
        "crypto_id": 42469,
        "issuer_id": "6a72fe7072996604d45c6733",
        "issuer_name": "Coinbase",
-       "market_cap": 348978.14558620896,
-       "volume_24h": 3314330.4372707997
+       "market_cap": 349480.57901552634,
+       "volume_24h": 3261881.2146239807
       }
      ],
      "tradfi_markets": [
@@ -137,7 +137,7 @@
    ]
   },
   "status": {
-   "timestamp": "2026-11-21T02:03:40.992Z",
+   "timestamp": "2026-11-21T02:45:10.009Z",
    "error_code": "0",
    "error_message": "",
    "elapsed": 4,

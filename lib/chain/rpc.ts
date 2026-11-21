@@ -38,20 +38,23 @@ export class RpcError extends Error {
 
 /** Request-path budget (the lookup route has maxDuration 60 s): 12 s per attempt, 3 retries (≤ ~4 s of backoff).
  * Capture scripts pass the long budget explicitly. */
-export const RPC_REQUEST = { timeoutMs: 12_000, maxRetries: 3 } as const;
-export const RPC_SCRIPT = { timeoutMs: 30_000, maxRetries: 8 } as const;
+export const RPC_REQUEST = { timeoutMs: 12_000, maxRetries: 6, maxBackoffMs: 4_000 } as const;
+export const RPC_SCRIPT = { timeoutMs: 30_000, maxRetries: 8, maxBackoffMs: 8_000 } as const;
 
 /** One JSON-RPC batch; returns results in request order. Throws if any entry errors. */
 export async function rpcBatch<T = string>(
   chain: ChainId,
   reqs: RpcReq[],
-  budget: { timeoutMs: number; maxRetries: number } = RPC_REQUEST,
+  budget: { timeoutMs: number; maxRetries: number; maxBackoffMs?: number } = RPC_REQUEST,
 ): Promise<T[]> {
   const { timeoutMs, maxRetries: MAX_RETRIES } = budget;
   if (reqs.length === 0) return [];
-  const payload = reqs.map((r, i) => ({ jsonrpc: '2.0', id: i, method: r.method, params: r.params }));
-  const backoff = (a: number) => new Promise((r) => setTimeout(r, Math.min(500 * 2 ** a, 8000) + Math.random() * 250));
+  const backoff = (a: number) => new Promise((r) => setTimeout(r, Math.min(500 * 2 ** a, budget.maxBackoffMs ?? 4_000) + Math.random() * 250));
+  type Entry = { id: number; result?: T; error?: { code: number; message: string } };
+  const done = new Map<number, Entry>();
+  let pending = reqs.map((_, i) => i);
   for (let attempt = 0; ; attempt++) {
+    const payload = pending.map((i) => ({ jsonrpc: '2.0', id: i, method: reqs[i].method, params: reqs[i].params }));
     const res = await fetch(rpcUrl(chain), {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
@@ -64,16 +67,17 @@ export async function rpcBatch<T = string>(
       continue;
     }
     if (!res.ok) throw new RpcError(`${chain} RPC HTTP ${res.status}`);
-    const out = (await res.json()) as Array<{ id: number; result?: T; error?: { code: number; message: string } }>;
-    const arr = Array.isArray(out) ? out : [out];
-    const byId = new Map(arr.map((o) => [o.id, o]));
-    const rateLimited = arr.some((o) => o.error?.code === 429);
-    if (rateLimited && attempt < MAX_RETRIES) {
+    const out = (await res.json()) as Entry[] | Entry;
+    for (const o of Array.isArray(out) ? out : [out]) done.set(o.id, o);
+    // keep the answered entries; re-send only the ones rate-limited (429) or missing from the reply
+    pending = pending.filter((i) => !done.has(i) || done.get(i)!.error?.code === 429);
+    if (pending.length && attempt < MAX_RETRIES) {
+      for (const i of pending) done.delete(i);
       await backoff(attempt);
       continue;
     }
     return reqs.map((_, i) => {
-      const o = byId.get(i);
+      const o = done.get(i);
       if (!o) throw new RpcError(`${chain} RPC: missing id ${i}`);
       if (o.error) throw new RpcError(`${chain} RPC: ${o.error.message}`, o.error.code);
       return o.result as T;

@@ -4,16 +4,16 @@
   "kind": "cmc",
   "endpoint": "/v2/cryptocurrency/quotes/latest",
   "params": {
-   "id": "37056,28618,38086,40589,40609,40695,37214,42494"
+   "id": "37056,28618,38086,39616,40589,40609,40695,37214,42494"
   },
-  "startedUtc": "2026-11-21T02:03:30.709Z",
-  "elapsedMs": 266,
+  "startedUtc": "2026-11-21T02:44:58.583Z",
+  "elapsedMs": 258,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": null,
-  "bodyBytes": 13172,
-  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=37056%2C28618%2C38086%2C40589%2C40609%2C40695%2C37214%2C42494\""
+  "bodyBytes": 14666,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=37056%2C28618%2C38086%2C39616%2C40589%2C40609%2C40695%2C37214%2C42494\""
  },
  "body": {
   "data": {
@@ -53,7 +53,7 @@
     "date_added": "2023-12-07T10:58:34.000Z",
     "num_market_pairs": null,
     "cmc_rank": null,
-    "last_updated": "2026-11-21T02:03:30.845Z",
+    "last_updated": "2026-11-21T02:44:58.722Z",
     "tvl_ratio": null,
     "platform": {
      "id": 11841,
@@ -82,7 +82,7 @@
       "market_cap_dominance": null,
       "fully_diluted_market_cap": 0,
       "tvl": null,
-      "last_updated": "2026-11-21T02:02:03.000Z"
+      "last_updated": "2026-11-21T02:44:02.000Z"
      }
     }
    },
@@ -156,8 +156,8 @@
     "max_supply": null,
     "date_added": "2025-07-01T18:40:23.000Z",
     "num_market_pairs": 20,
-    "cmc_rank": 973,
-    "last_updated": "2026-11-21T02:03:03.546Z",
+    "cmc_rank": 972,
+    "last_updated": "2026-11-21T02:44:33.082Z",
     "tvl_ratio": null,
     "platform": {
      "id": 5426,
@@ -168,25 +168,25 @@
     },
     "self_reported_circulating_supply": null,
     "self_reported_market_cap": null,
-    "minted_market_cap": 148242300.18,
+    "minted_market_cap": 148198722.93,
     "quote": {
      "USD": {
-      "price": 490.8544545345218,
-      "volume_24h": 1143615.0243480334,
-      "volume_change_24h": -12.156497403276,
-      "cex_volume_24h": 443653.30718090106,
-      "dex_volume_24h": 699961.7171671323,
-      "percent_change_1h": -0.019269889692,
-      "percent_change_24h": -1.33003828607,
-      "percent_change_7d": -6.55648404542,
-      "percent_change_30d": -7.881894495755,
-      "percent_change_60d": -2.298308207416,
-      "percent_change_90d": 1.469708138931,
-      "market_cap": 7387215.134318973,
+      "price": 490.71016314731907,
+      "volume_24h": 1058416.8831828167,
+      "volume_change_24h": -18.998646875007,
+      "cex_volume_24h": 433836.97765892907,
+      "dex_volume_24h": 624579.9055238875,
+      "percent_change_1h": -0.017518897679,
+      "percent_change_24h": -1.368783379832,
+      "percent_change_7d": -6.428503517347,
+      "percent_change_30d": -7.934531747454,
+      "percent_change_60d": -2.406490344558,
+      "percent_change_90d": 1.475032787553,
+      "market_cap": 7385043.591391229,
       "market_cap_dominance": 0,
-      "fully_diluted_market_cap": 148242300.18,
+      "fully_diluted_market_cap": 148198722.93,
       "tvl": null,
-      "last_updated": "2026-11-21T02:02:03.000Z"
+      "last_updated": "2026-11-21T02:44:02.000Z"
      }
     }
    },
@@ -231,7 +231,7 @@
     "date_added": "2025-07-06T11:16:36.000Z",
     "num_market_pairs": 1,
     "cmc_rank": 2489,
-    "last_updated": "2026-11-21T02:03:18.218Z",
+    "last_updated": "2026-11-21T02:44:48.166Z",
     "tvl_ratio": null,
     "platform": {
      "id": 3897,
@@ -242,25 +242,25 @@
     },
     "self_reported_circulating_supply": null,
     "self_reported_market_cap": null,
-    "minted_market_cap": 259605.9,
+    "minted_market_cap": 259457.97,
     "quote": {
      "USD": {
-      "price": 493.5573194253798,
-      "volume_24h": 655812.3491064806,
-      "volume_change_24h": 83.87793530377,
+      "price": 493.2760904447638,
+      "volume_24h": 645414.3037049213,
+      "volume_change_24h": 78.23239121143,
       "cex_volume_24h": 0,
-      "dex_volume_24h": 655812.3491064806,
-      "percent_change_1h": -0.048028212154,
-      "percent_change_24h": -1.243856817731,
-      "percent_change_7d": -6.075655350831,
-      "percent_change_30d": -7.8344139064,
-      "percent_change_60d": -1.689375999667,
-      "percent_change_90d": 1.840581075489,
-      "market_cap": 259605.89758569203,
+      "dex_volume_24h": 645414.3037049213,
+      "percent_change_1h": 0.201618650359,
+      "percent_change_24h": -0.814588242728,
+      "percent_change_7d": -5.881278422847,
+      "percent_change_30d": -7.686807427831,
+      "percent_change_60d": -1.745393397208,
+      "percent_change_90d": 1.782552308264,
+      "market_cap": 259457.974134724,
       "market_cap_dominance": 0,
-      "fully_diluted_market_cap": 259605.9,
+      "fully_diluted_market_cap": 259457.97,
       "tvl": null,
-      "last_updated": "2026-11-21T02:02:03.000Z"
+      "last_updated": "2026-11-21T02:44:02.000Z"
      }
     }
    },
@@ -329,8 +329,8 @@
     "max_supply": null,
     "date_added": "2025-09-03T10:55:38.000Z",
     "num_market_pairs": 38,
-    "cmc_rank": 1044,
-    "last_updated": "2026-11-21T02:03:18.054Z",
+    "cmc_rank": 1047,
+    "last_updated": "2026-11-21T02:44:48.015Z",
     "tvl_ratio": null,
     "platform": {
      "id": 1027,
@@ -341,25 +341,99 @@
     },
     "self_reported_circulating_supply": null,
     "self_reported_market_cap": null,
-    "minted_market_cap": 6256252.6,
+    "minted_market_cap": 6252104.59,
     "quote": {
      "USD": {
-      "price": 490.39491054014036,
-      "volume_24h": 7216510.765010733,
-      "volume_change_24h": 33.474331155068,
-      "cex_volume_24h": 6208485.55494165,
-      "dex_volume_24h": 1008025.210069084,
-      "percent_change_1h": 0.040315820027,
-      "percent_change_24h": -1.189715565624,
-      "percent_change_7d": -6.469684364216,
-      "percent_change_30d": -7.926523689847,
-      "percent_change_60d": -2.736615434233,
-      "percent_change_90d": 1.249645122338,
-      "market_cap": 6256252.597305539,
+      "price": 490.0697702880616,
+      "volume_24h": 7146967.7061763415,
+      "volume_change_24h": 29.687240000177,
+      "cex_volume_24h": 6138870.189486628,
+      "dex_volume_24h": 1008097.5166897129,
+      "percent_change_1h": -0.056961101049,
+      "percent_change_24h": -1.291429478419,
+      "percent_change_7d": -6.439581388703,
+      "percent_change_30d": -7.983246685315,
+      "percent_change_60d": -2.751261909547,
+      "percent_change_90d": 1.167241344616,
+      "market_cap": 6252104.594333168,
       "market_cap_dominance": 0,
-      "fully_diluted_market_cap": 6256252.6,
+      "fully_diluted_market_cap": 6252104.59,
       "tvl": null,
-      "last_updated": "2026-11-21T02:02:03.000Z"
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "39616": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperliquid-ecosystem",
+      "name": "Hyperliquid Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperevm-ecosystem",
+      "name": "HyperEVM Ecosystem",
+      "category": "PLATFORM"
+     }
+    ],
+    "id": 39616,
+    "name": "Microsoft Tokenized Stock (Hyperliquid)",
+    "symbol": "MSFT",
+    "slug": "microsoft-tokenized-stock-hyperliquid",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 0,
+    "total_supply": 0,
+    "max_supply": null,
+    "date_added": "2026-02-25T10:52:59.000Z",
+    "num_market_pairs": 2,
+    "cmc_rank": 5205,
+    "last_updated": "2026-11-21T02:44:48.129Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 32196,
+     "slug": "hyperliquid",
+     "name": "HyperEVM",
+     "symbol": "HYPE",
+     "token_address": "0x7ef4eba0c0200957e357627ced1884d6cb63e961"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 0,
+    "quote": {
+     "USD": {
+      "price": 489.9432928478408,
+      "volume_24h": 18.078907506085322,
+      "volume_change_24h": 0,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 18.078907506085322,
+      "percent_change_1h": -0.001408913666,
+      "percent_change_24h": -0.191314143213,
+      "percent_change_7d": -49.221809565936,
+      "percent_change_30d": -12.533344953194,
+      "percent_change_60d": 0.567006725107,
+      "percent_change_90d": 1.85150242572,
+      "market_cap": 0,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 0,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
      }
     }
    },
@@ -413,8 +487,8 @@
     "max_supply": null,
     "date_added": "2026-07-02T07:38:50.000Z",
     "num_market_pairs": 30,
-    "cmc_rank": 1378,
-    "last_updated": "2026-11-21T02:03:03.569Z",
+    "cmc_rank": 1379,
+    "last_updated": "2026-11-21T02:44:48.087Z",
     "tvl_ratio": null,
     "platform": {
      "id": 1839,
@@ -425,25 +499,25 @@
     },
     "self_reported_circulating_supply": null,
     "self_reported_market_cap": null,
-    "minted_market_cap": 2704515.91,
+    "minted_market_cap": 2701138.83,
     "quote": {
      "USD": {
-      "price": 488.92292887413106,
-      "volume_24h": 3799229.789758086,
-      "volume_change_24h": -5.679869053537,
-      "cex_volume_24h": 3696340.224793156,
-      "dex_volume_24h": 102889.56496493024,
-      "percent_change_1h": -0.005923061048,
-      "percent_change_24h": -1.229172733965,
-      "percent_change_7d": -6.263016536947,
-      "percent_change_30d": -7.717983945563,
-      "percent_change_60d": -2.252628893456,
-      "percent_change_90d": 1.637829411947,
-      "market_cap": 2704515.914304363,
+      "price": 488.3124188680953,
+      "volume_24h": 3650373.6792913177,
+      "volume_change_24h": -9.87492539102,
+      "cex_volume_24h": 3614508.5006403537,
+      "dex_volume_24h": 35865.17865096402,
+      "percent_change_1h": -0.104025744934,
+      "percent_change_24h": -1.374766916309,
+      "percent_change_7d": -6.219933231048,
+      "percent_change_30d": -7.811509470223,
+      "percent_change_60d": -2.347907248948,
+      "percent_change_90d": 1.462542382816,
+      "market_cap": 2701138.829840421,
       "market_cap_dominance": 0,
-      "fully_diluted_market_cap": 2704515.91,
+      "fully_diluted_market_cap": 2701138.83,
       "tvl": null,
-      "last_updated": "2026-11-21T02:02:03.000Z"
+      "last_updated": "2026-11-21T02:44:02.000Z"
      }
     }
    },
@@ -493,7 +567,7 @@
     "date_added": "2026-07-02T07:39:05.000Z",
     "num_market_pairs": 3,
     "cmc_rank": 1828,
-    "last_updated": "2026-11-21T02:03:03.626Z",
+    "last_updated": "2026-11-21T02:44:48.145Z",
     "tvl_ratio": null,
     "platform": {
      "id": 11841,
@@ -504,25 +578,25 @@
     },
     "self_reported_circulating_supply": null,
     "self_reported_market_cap": null,
-    "minted_market_cap": 1022412.25,
+    "minted_market_cap": 1021620.38,
     "quote": {
      "USD": {
-      "price": 489.046073646137,
-      "volume_24h": 744787.8185170618,
-      "volume_change_24h": 50.107129431211,
-      "cex_volume_24h": 744787.8185170618,
+      "price": 488.6672996616293,
+      "volume_24h": 732960.1559056558,
+      "volume_change_24h": 40.677398140858,
+      "cex_volume_24h": 732960.1559056558,
       "dex_volume_24h": 0,
-      "percent_change_1h": 0.190974764424,
-      "percent_change_24h": -1.168029721871,
-      "percent_change_7d": -6.260932531811,
-      "percent_change_30d": -7.808142913637,
-      "percent_change_60d": -2.444256604086,
-      "percent_change_90d": 1.533046909609,
-      "market_cap": 1022412.2503919606,
+      "percent_change_1h": -0.01425427219,
+      "percent_change_24h": -1.366266761987,
+      "percent_change_7d": -6.319924581208,
+      "percent_change_30d": -7.881363887469,
+      "percent_change_60d": -2.444619804127,
+      "percent_change_90d": 1.462935697878,
+      "market_cap": 1021620.3757961722,
       "market_cap_dominance": 0,
-      "fully_diluted_market_cap": 1022412.25,
+      "fully_diluted_market_cap": 1021620.38,
       "tvl": null,
-      "last_updated": "2026-11-21T02:02:03.000Z"
+      "last_updated": "2026-11-21T02:44:02.000Z"
      }
     }
    },
@@ -556,8 +630,8 @@
     "max_supply": null,
     "date_added": "2026-08-04T07:31:28.000Z",
     "num_market_pairs": 28,
-    "cmc_rank": 1587,
-    "last_updated": "2026-11-21T02:03:18.170Z",
+    "cmc_rank": 1589,
+    "last_updated": "2026-11-21T02:44:48.129Z",
     "tvl_ratio": null,
     "platform": {
      "id": 40670,
@@ -568,25 +642,25 @@
     },
     "self_reported_circulating_supply": null,
     "self_reported_market_cap": null,
-    "minted_market_cap": 1681226.48,
+    "minted_market_cap": 1676476.06,
     "quote": {
      "USD": {
-      "price": 489.76694691656104,
-      "volume_24h": 524238.5686933779,
-      "volume_change_24h": 8.854833080017,
+      "price": 488.38307802894263,
+      "volume_24h": 472105.1152627184,
+      "volume_change_24h": 16.492313427784,
       "cex_volume_24h": 0,
-      "dex_volume_24h": 524238.5686933779,
-      "percent_change_1h": 0.04606602681,
-      "percent_change_24h": -1.19029947864,
-      "percent_change_7d": -6.013415984109,
-      "percent_change_30d": -7.555097723644,
-      "percent_change_60d": -1.888481601413,
-      "percent_change_90d": 1.572767669537,
-      "market_cap": 1681226.476027914,
+      "dex_volume_24h": 472105.1152627184,
+      "percent_change_1h": -0.261832520233,
+      "percent_change_24h": -1.50385201869,
+      "percent_change_7d": -6.253595236004,
+      "percent_change_30d": -7.925047798997,
+      "percent_change_60d": -2.175292632403,
+      "percent_change_90d": 1.156582696843,
+      "market_cap": 1676476.0594719113,
       "market_cap_dominance": 0,
-      "fully_diluted_market_cap": 1681226.48,
+      "fully_diluted_market_cap": 1676476.06,
       "tvl": null,
-      "last_updated": "2026-11-21T02:02:03.000Z"
+      "last_updated": "2026-11-21T02:44:02.000Z"
      }
     }
    },
@@ -630,8 +704,8 @@
     "max_supply": null,
     "date_added": "2026-10-08T03:59:47.000Z",
     "num_market_pairs": 6,
-    "cmc_rank": 1704,
-    "last_updated": "2026-11-21T02:03:18.071Z",
+    "cmc_rank": 1702,
+    "last_updated": "2026-11-21T02:44:33.032Z",
     "tvl_ratio": null,
     "platform": {
      "id": 27716,
@@ -642,31 +716,31 @@
     },
     "self_reported_circulating_supply": null,
     "self_reported_market_cap": null,
-    "minted_market_cap": 1321351.9,
+    "minted_market_cap": 1323712.09,
     "quote": {
      "USD": {
-      "price": 488.89934898692803,
-      "volume_24h": 4971043.681532631,
-      "volume_change_24h": 15.680442712669,
+      "price": 489.77261984350247,
+      "volume_24h": 4922948.844060476,
+      "volume_change_24h": 11.950804942972,
       "cex_volume_24h": 0,
-      "dex_volume_24h": 4971043.681532631,
-      "percent_change_1h": -0.462475313965,
-      "percent_change_24h": -1.846908277853,
-      "percent_change_7d": -6.566861520037,
-      "percent_change_30d": -8.363368412898,
-      "percent_change_60d": -2.520909225994,
-      "percent_change_90d": -52.067843147724,
-      "market_cap": 1321351.8957200882,
+      "dex_volume_24h": 4922948.844060476,
+      "percent_change_1h": 0.028924151044,
+      "percent_change_24h": -1.299556662434,
+      "percent_change_7d": -6.329604386281,
+      "percent_change_30d": -7.966090122726,
+      "percent_change_60d": -2.248813186802,
+      "percent_change_90d": -51.98222684294,
+      "market_cap": 1323712.091339499,
       "market_cap_dominance": 0,
-      "fully_diluted_market_cap": 1321351.9,
+      "fully_diluted_market_cap": 1323712.09,
       "tvl": null,
-      "last_updated": "2026-11-21T02:02:03.000Z"
+      "last_updated": "2026-11-21T02:44:02.000Z"
      }
     }
    }
   },
   "status": {
-   "timestamp": "2026-11-21T02:03:30.848Z",
+   "timestamp": "2026-11-21T02:44:58.725Z",
    "error_code": 0,
    "error_message": null,
    "elapsed": 9,

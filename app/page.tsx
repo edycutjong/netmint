@@ -53,7 +53,7 @@ export default async function Home() {
           <p className="muted" style={{ fontSize: 15, marginTop: 0 }}>
             CMC’s daily supply history gives the units created or redeemed each day; times the wrapper’s price, that is net creation in dollars.
             Each supply move is then put on trial against the token’s on-chain <span className="data">totalSupply</span>, summed over BNB Chain and
-            Ethereum at day-boundary blocks, within a remedy of ±10%. Only a move the chain confirms is stamped REAL INFLOW or OUTFLOW.
+            Ethereum at day-boundary blocks, within ±10% of the move (or 0.5% of supply when the move is small; the reason names the bound used). Only a move the chain confirms is stamped REAL INFLOW or OUTFLOW.
           </p>
         </aside>
       </div>

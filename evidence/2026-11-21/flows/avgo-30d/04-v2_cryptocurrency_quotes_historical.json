@@ -9,13 +9,13 @@
    "time_start": "2026-10-21",
    "time_end": "2026-11-21"
   },
-  "startedUtc": "2026-11-21T02:06:11.560Z",
-  "elapsedMs": 1201,
+  "startedUtc": "2026-11-21T02:49:50.974Z",
+  "elapsedMs": 974,
   "httpStatus": 200,
   "creditCount": 3,
   "errorCode": 0,
   "errorMessage": null,
-  "bodyBytes": 83683,
+  "bodyBytes": 83682,
   "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/historical?id=37021%2C38062%2C37126%2C40604%2C40705%2C40845%2C37129%2C42432&interval=daily&time_start=2026-10-21&time_end=2026-11-21\""
  },
  "body": {
@@ -3782,10 +3782,10 @@
    }
   },
   "status": {
-   "timestamp": "2026-11-21T02:06:12.406Z",
+   "timestamp": "2026-11-21T02:49:51.590Z",
    "error_code": 0,
    "error_message": null,
-   "elapsed": 250,
+   "elapsed": 15,
    "credit_count": 3,
    "notice": null
   }

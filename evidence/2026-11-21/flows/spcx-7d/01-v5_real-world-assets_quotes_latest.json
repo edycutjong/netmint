@@ -6,13 +6,13 @@
   "params": {
    "rwa_id": "9"
   },
-  "startedUtc": "2026-11-21T02:03:08.231Z",
-  "elapsedMs": 706,
+  "startedUtc": "2026-11-21T02:44:48.936Z",
+  "elapsedMs": 695,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": "",
-  "bodyBytes": 3592,
+  "bodyBytes": 3591,
   "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=9\""
  },
  "body": {
@@ -26,20 +26,20 @@
       {
        "symbol": "USD",
        "crypto_id": 2781,
-       "average_tokenized_price": 128.8431107247754,
-       "tokenized_market_cap": 297125876.32872087,
-       "tokenized_volume_24h": 108625825.17022468,
-       "last_updated": "2026-11-21T02:02:03.000Z"
+       "average_tokenized_price": 128.69250829146557,
+       "tokenized_market_cap": 296740107.1907447,
+       "tokenized_volume_24h": 107495528.90954985,
+       "last_updated": "2026-11-21T02:44:02.000Z"
       }
      ],
      "rwa_id": 9,
      "asset_type": "stock",
      "rwa_rank": 8,
      "has_tokens": true,
-     "average_tokenized_price": 128.8431107247754,
-     "tokenized_market_cap": 297125876.32872087,
-     "tokenized_volume_24h": 108625825.17022468,
-     "last_updated": "2026-11-21T02:02:12.219Z",
+     "average_tokenized_price": 128.69250829146557,
+     "tokenized_market_cap": 296740107.1907447,
+     "tokenized_volume_24h": 107495528.90954985,
+     "last_updated": "2026-11-21T02:44:11.048Z",
      "tokens": [
       {
        "symbol": "SPACEX",
@@ -49,12 +49,12 @@
        "issuer_id": "689612983f270c6ff4781b96",
        "issuer_name": "PreStocks Assets",
        "market_cap": 3860402.9945381302,
-       "volume_24h": 27804.0080314314
+       "volume_24h": 26105.35994203362
       },
       {
        "symbol": "SPCX",
        "name": "SpaceX (Derivatives)",
-       "price": 129.34367564167195,
+       "price": 129.03387565156538,
        "crypto_id": 39501,
        "issuer_id": "695e11f774b54210f3b95dc3",
        "issuer_name": "NA (Derivatives)",
@@ -64,102 +64,102 @@
       {
        "symbol": "tSpaceX",
        "name": "T-SpaceX tokenized stock (Tessera)",
-       "price": 541.3748066761647,
+       "price": 541.43468375223,
        "crypto_id": 40018,
        "issuer_id": "6a0be4e680ee5978ec4455ce",
        "issuer_name": "Tessera Assets",
-       "market_cap": 643694.6451379599,
-       "volume_24h": 240805.82880866242
+       "market_cap": 643765.8389814015,
+       "volume_24h": 232294.97024398812
       },
       {
        "symbol": "SPCXB",
        "name": "SpaceX Tokenized bStocks",
-       "price": 129.34109630732138,
+       "price": 129.12825630337247,
        "crypto_id": 40217,
        "issuer_id": "6a2aed5097c45356b1a5f710",
        "issuer_name": "bStocks",
-       "market_cap": 108727284.28831561,
-       "volume_24h": 45445352.272112094
+       "market_cap": 108553530.96284814,
+       "volume_24h": 45020958.48287172
       },
       {
        "symbol": "SPCXx",
        "name": "SpaceX tokenized stock (xStock)",
-       "price": 129.33827006555376,
+       "price": 129.1063439800059,
        "crypto_id": 40218,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 73498128.43716119,
-       "volume_24h": 14990606.672465697
+       "market_cap": 73366333.46870457,
+       "volume_24h": 14691557.487632867
       },
       {
        "symbol": "SPCXon",
        "name": "SpaceX Tokenized Stock (Ondo)",
-       "price": 129.49181431238594,
+       "price": 129.31117428695475,
        "crypto_id": 40232,
        "issuer_id": "688ca4ccabae9b5b9fb3167a",
        "issuer_name": "Ondo Assets",
-       "market_cap": 16711082.196376286,
-       "volume_24h": 4799714.124892135
+       "market_cap": 16687770.372930413,
+       "volume_24h": 4730002.906086615
       },
       {
        "symbol": "SPCX",
        "name": "SpaceX tokenized stock (Backpack)",
-       "price": 129.6229279718197,
+       "price": 129.15418903623592,
        "crypto_id": 40238,
        "issuer_id": "6a2d54b697c45356b1a634f4",
        "issuer_name": "Backpack",
-       "market_cap": 13044725.339915164,
-       "volume_24h": 10687777.803558836
+       "market_cap": 12997553.356019353,
+       "volume_24h": 10634008.847535742
       },
       {
        "symbol": "preSPCX",
        "name": "SpaceX \nPre-IPO stock (Republic)",
-       "price": 128.62332863782106,
+       "price": 128.67074209067903,
        "crypto_id": 40643,
        "issuer_id": "6a436076282e7240b76c8bf9",
        "issuer_name": "Republic",
-       "market_cap": 61063925.270805545,
-       "volume_24h": 37620.34303287543
+       "market_cap": 61086434.80754987,
+       "volume_24h": 37432.33324164995
       },
       {
        "symbol": "rSPCX",
        "name": "SpaceX Tokenized Stock (Reality)",
-       "price": 129.192776727294,
+       "price": 128.87140780490768,
        "crypto_id": 40668,
        "issuer_id": "6a43600c282e7240b76c8bbb",
        "issuer_name": "Reality",
-       "market_cap": 15690536.358664202,
-       "volume_24h": 1912455.035207156
+       "market_cap": 15651505.919896785,
+       "volume_24h": 1953908.7400025446
       },
       {
        "symbol": "SPCX",
        "name": "SpaceX Tokenized Stock (Robinhood)",
-       "price": 126.31373289669492,
+       "price": 126.13122617343242,
        "crypto_id": 37068,
        "issuer_id": "6a465832fbe3004b1a0ea2dd",
        "issuer_name": "Robinhood",
        "market_cap": 0,
-       "volume_24h": 14637646.746483885
+       "volume_24h": 15599396.67745435
       },
       {
        "symbol": "wSPCXx",
        "name": "Wrapped SpaceX Tokenized ETF (xStock)",
-       "price": 129.41294314233056,
+       "price": 129.36723373101452,
        "crypto_id": 41610,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
        "market_cap": 0,
-       "volume_24h": 1645888.198668624
+       "volume_24h": 1624893.8823664596
       },
       {
        "symbol": "SPCXc",
        "name": "Space Exploration Technologies Corp. Tokenized Stock (Coinbase)",
-       "price": 129.1941255567972,
+       "price": 129.3642219508688,
        "crypto_id": 42487,
        "issuer_id": "6a72fe7072996604d45c6733",
        "issuer_name": "Coinbase",
-       "market_cap": 3890888.9509708034,
-       "volume_24h": 12929981.318319185
+       "market_cap": 3896011.677545567,
+       "volume_24h": 12948019.028986476
       }
      ],
      "tradfi_markets": [
@@ -177,10 +177,10 @@
    ]
   },
   "status": {
-   "timestamp": "2026-11-21T02:03:08.819Z",
+   "timestamp": "2026-11-21T02:44:49.513Z",
    "error_code": "0",
    "error_message": "",
-   "elapsed": 6,
+   "elapsed": 5,
    "credit_count": 1
   }
  }

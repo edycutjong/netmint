@@ -38,3 +38,27 @@ describe('cmcErrorCode', () => {
     expect(cmcErrorCode({ error_code: 'x' })).toBe(-1);
   });
 });
+
+describe('rpcBatch under a compute-units-per-second limit', () => {
+  it('keeps answered entries and re-sends only the rate-limited ones', async () => {
+    const { rpcBatch } = await import('@/lib/chain/rpc');
+    const sent: number[][] = [];
+    const real = globalThis.fetch;
+    process.env.ALCHEMY_API_KEY ??= 'test-key-not-real';
+    globalThis.fetch = (async (_u: string, init: { body: string }) => {
+      const body = JSON.parse(init.body) as { id: number }[];
+      sent.push(body.map((b) => b.id));
+      const first = sent.length === 1;
+      const out = body.map((b) => (first && b.id % 2 ? { id: b.id, error: { code: 429, message: 'exceeded its compute units per second capacity' } } : { id: b.id, result: `0x${b.id.toString(16)}` }));
+      return new Response(JSON.stringify(out), { status: 200 });
+    }) as unknown as typeof fetch;
+    try {
+      const reqs = Array.from({ length: 6 }, () => ({ method: 'eth_call', params: [{ to: '0x1', data: '0x' }, 'latest'] }));
+      const res = await rpcBatch('eth', reqs, { timeoutMs: 1000, maxRetries: 2 });
+      expect(res).toEqual(['0x0', '0x1', '0x2', '0x3', '0x4', '0x5']);
+      expect(sent).toEqual([[0, 1, 2, 3, 4, 5], [1, 3, 5]]);
+    } finally {
+      globalThis.fetch = real;
+    }
+  });
+});

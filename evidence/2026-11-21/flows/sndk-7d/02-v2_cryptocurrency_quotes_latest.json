@@ -1,0 +1,642 @@
+{
+ "receipt": {
+  "id": "r3",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "params": {
+   "id": "39788,40037,40216,40648,40700,40815,41493,42478"
+  },
+  "startedUtc": "2026-11-21T02:44:52.583Z",
+  "elapsedMs": 260,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 12718,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=39788%2C40037%2C40216%2C40648%2C40700%2C40815%2C41493%2C42478\""
+ },
+ "body": {
+  "data": {
+   "39788": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperevm-ecosystem",
+      "name": "HyperEVM Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "ondo-stocks-ecosystem",
+      "name": "Ondo Stocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 39788,
+    "name": "SanDisk Tokenized Stock (Ondo)",
+    "symbol": "SNDKon",
+    "slug": "sandisk-tokenized-stock-ondo",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 3626.06823549,
+    "total_supply": 3626.06823549,
+    "max_supply": null,
+    "date_added": "2026-03-24T02:56:16.000Z",
+    "num_market_pairs": 15,
+    "cmc_rank": 1446,
+    "last_updated": "2026-11-21T02:44:33.092Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "EJmUVvDqAdfH5zEohkdS4234bi3c6iunqEMobjmondo"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 2330317.13,
+    "quote": {
+     "USD": {
+      "price": 642.6567224509895,
+      "volume_24h": 299366.13551916584,
+      "volume_change_24h": -73.540560177331,
+      "cex_volume_24h": 289849.0686445532,
+      "dex_volume_24h": 9517.066874612623,
+      "percent_change_1h": -0.48112418946,
+      "percent_change_24h": -11.945982573599,
+      "percent_change_7d": -25.640223422292,
+      "percent_change_30d": -52.089407564166,
+      "percent_change_60d": -63.968363889132,
+      "percent_change_90d": -59.68865171482,
+      "market_cap": 2330317.1276036464,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 2330317.13,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "40037": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40037,
+    "name": "Sandisk Corporation tokenized stock(xstock)",
+    "symbol": "SNDKX",
+    "slug": "sandisk-corporation-xstock",
+    "is_active": 1,
+    "infinite_supply": true,
+    "is_fiat": 0,
+    "circulating_supply": 29422.54624925,
+    "total_supply": 109796.29068609,
+    "max_supply": null,
+    "date_added": "2026-07-17T05:27:55.000Z",
+    "num_market_pairs": 6,
+    "cmc_rank": 1438,
+    "last_updated": "2026-11-21T02:44:48.067Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1027,
+     "slug": "ethereum",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "token_address": "0xb63efbc28860c8097e341de1fcf59456161e9d98"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 8853656.72,
+    "quote": {
+     "USD": {
+      "price": 80.63712051971648,
+      "volume_24h": 9530958.260723993,
+      "volume_change_24h": 33.403249329228,
+      "cex_volume_24h": 9530958.260723993,
+      "dex_volume_24h": 0,
+      "percent_change_1h": -0.378517409846,
+      "percent_change_24h": -89.136576136813,
+      "percent_change_7d": -90.645089894712,
+      "percent_change_30d": -93.983978736043,
+      "percent_change_60d": -95.489595234723,
+      "percent_change_90d": -94.947834429402,
+      "market_cap": 2372549.4078977043,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 8853656.72,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "40216": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-listing",
+      "name": "Binance Listing",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bstocks",
+      "name": "bStocks",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40216,
+    "name": "SanDisk Tokenized bStocks",
+    "symbol": "SNDKB",
+    "slug": "sandisk-tokenized-bstocks",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 586264.4278868,
+    "total_supply": 586264.4278868,
+    "max_supply": null,
+    "date_added": "2026-06-11T03:04:22.000Z",
+    "num_market_pairs": 30,
+    "cmc_rank": 326,
+    "last_updated": "2026-11-21T02:44:33.082Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1839,
+     "slug": "bnb",
+     "name": "BNB Smart Chain (BEP20)",
+     "symbol": "BNB",
+     "token_address": "0x3ee4df61bd4f867e349beae8bfe07bc31b4850fb"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 47154288.13,
+    "quote": {
+     "USD": {
+      "price": 80.43177428184397,
+      "volume_24h": 8222882.707965359,
+      "volume_change_24h": -19.745375323781,
+      "cex_volume_24h": 8117414.306691579,
+      "dex_volume_24h": 105468.40127378025,
+      "percent_change_1h": -0.46377736859,
+      "percent_change_24h": -13.802864209004,
+      "percent_change_7d": -25.253987283472,
+      "percent_change_30d": -51.987619393373,
+      "percent_change_60d": -64.040802810519,
+      "percent_change_90d": -59.66224408371,
+      "market_cap": 47154288.133265495,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 47154288.13,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "40648": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bitget-ecosystem",
+      "name": "Bitget Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "rtokens",
+      "name": "rTokens",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40648,
+    "name": "SanDisk Tokenized Stock (Reality)",
+    "symbol": "rSNDK",
+    "slug": "sandisk-tokenized-stock-reality",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 12886.40678256,
+    "total_supply": 12886.40678256,
+    "max_supply": null,
+    "date_added": "2026-07-02T07:39:21.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 1818,
+    "last_updated": "2026-11-21T02:44:48.015Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0xc78c5a7be0e8d72cdda205e53d1147aaacf5a075"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 1048069.63,
+    "quote": {
+     "USD": {
+      "price": 81.33140940435737,
+      "volume_24h": 4182410.8105088496,
+      "volume_change_24h": 154.714563497676,
+      "cex_volume_24h": 4182410.8105088496,
+      "dex_volume_24h": 0,
+      "percent_change_1h": 0.040872374808,
+      "percent_change_24h": -88.951524457776,
+      "percent_change_7d": -90.567660293509,
+      "percent_change_30d": -93.934143949096,
+      "percent_change_60d": -95.452676087597,
+      "percent_change_90d": -94.894428943075,
+      "market_cap": 1048069.625783475,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 1048069.63,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "40700": {
+    "tags": [
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-ecosystem",
+      "name": "Robinhood Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-stock",
+      "name": "Robinhood Stock",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40700,
+    "name": "Sandisk Corporation Tokenized Stock (Robinhood)",
+    "symbol": "SNDK",
+    "slug": "sandisk-corporation-tokenized-stock-robinhood",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 10291.99805,
+    "total_supply": 10291.99805,
+    "max_supply": null,
+    "date_added": "2026-08-04T07:31:31.000Z",
+    "num_market_pairs": 26,
+    "cmc_rank": 1930,
+    "last_updated": "2026-11-21T02:44:33.015Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 40670,
+     "slug": "robinhood-placeholder",
+     "name": "Robinhood Chain",
+     "symbol": "-",
+     "token_address": "0xB90A19fF0Af67f7779afF50A882A9CfF42446400"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 822755.73,
+    "quote": {
+     "USD": {
+      "price": 79.94130257838712,
+      "volume_24h": 31982.97768428989,
+      "volume_change_24h": 10.571831195675,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 31982.97768428989,
+      "percent_change_1h": -2.179480927336,
+      "percent_change_24h": -14.073920407902,
+      "percent_change_7d": -25.683147449872,
+      "percent_change_30d": -52.248276676382,
+      "percent_change_60d": -63.821462999356,
+      "percent_change_90d": -59.966864865351,
+      "market_cap": 822755.7302512203,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 822755.73,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "40815": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40815,
+    "name": "SanDisk Corp tokenized stock (Backpack)",
+    "symbol": "SNDK",
+    "slug": "sandisk-corp-tokenized-stock-backpack",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 969.662864,
+    "total_supply": 969.662864,
+    "max_supply": null,
+    "date_added": "2026-06-13T13:02:26.000Z",
+    "num_market_pairs": 16,
+    "cmc_rank": 2072,
+    "last_updated": "2026-11-21T02:44:48.129Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "SNDKbwMUQvZhnLnxLduradgLHG5KrPuKwpnrkkGRhfH"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 625368.51,
+    "quote": {
+     "USD": {
+      "price": 644.93395978484,
+      "volume_24h": 254719.41821720224,
+      "volume_change_24h": 35.32403540759,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 254719.41821720224,
+      "percent_change_1h": -0.430747321059,
+      "percent_change_24h": 0.98224053023,
+      "percent_change_7d": -25.112651154587,
+      "percent_change_30d": -51.913257460179,
+      "percent_change_60d": -63.950142250259,
+      "percent_change_90d": -59.63338616712,
+      "market_cap": 625368.5105358288,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 625368.51,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "41493": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 41493,
+    "name": "Wrapped Sandisk Corporation Tokenized Stock (xStock)",
+    "symbol": "wSNDKx",
+    "slug": "wrapped-sandisk-corporation-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 0,
+    "total_supply": 0,
+    "max_supply": null,
+    "date_added": "2026-08-11T16:24:24.000Z",
+    "num_market_pairs": 1,
+    "cmc_rank": 7584,
+    "last_updated": "2026-11-21T02:44:48.029Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 3897,
+     "slug": "okb",
+     "name": "X Layer",
+     "symbol": "OKB",
+     "token_address": "0x75e82E2884Ea10f72FCA777449B73377f4646219"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 0,
+    "quote": {
+     "USD": {
+      "price": 1412.7300500153626,
+      "volume_24h": 0,
+      "volume_change_24h": 0,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 0,
+      "percent_change_1h": 0,
+      "percent_change_24h": 21.410600292864,
+      "percent_change_7d": 19.271736292455,
+      "percent_change_30d": 5.422906281633,
+      "percent_change_60d": -20.980122969453,
+      "percent_change_90d": -11.515176753166,
+      "market_cap": 0,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 0,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "42478": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "base-ecosystem",
+      "name": "Base Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "coinbase-ecosystem",
+      "name": "Coinbase Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42478,
+    "name": "Sandisk Corporation Tokenized Stock (Coinbase)",
+    "symbol": "SNDKc",
+    "slug": "sandisk-corporation-tokenized-stock-coinbase",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 26640.30829352,
+    "total_supply": 26640.30829352,
+    "max_supply": null,
+    "date_added": "2026-10-08T03:59:50.000Z",
+    "num_market_pairs": 9,
+    "cmc_rank": 1481,
+    "last_updated": "2026-11-21T02:44:33.124Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 27716,
+     "slug": "base",
+     "name": "Base",
+     "symbol": "-",
+     "token_address": "0xb200000000000000000000397293Cb8cda9a10c5"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 2146948.42,
+    "quote": {
+     "USD": {
+      "price": 80.59022436051863,
+      "volume_24h": 16527429.694068326,
+      "volume_change_24h": -43.654276252379,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 16527429.694068326,
+      "percent_change_1h": -0.341130439475,
+      "percent_change_24h": -11.866674689501,
+      "percent_change_7d": -25.347629584115,
+      "percent_change_30d": -51.979948996597,
+      "percent_change_60d": -63.971649956482,
+      "percent_change_90d": -58.707360055554,
+      "market_cap": 2146948.422408162,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 2146948.42,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:44:52.720Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 8,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

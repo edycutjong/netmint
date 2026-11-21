@@ -4,19 +4,19 @@
   "kind": "cmc",
   "endpoint": "/v2/cryptocurrency/quotes/historical",
   "params": {
-   "id": "39788,40037,40216,40648,40700,40815,42478",
+   "id": "39788,40037,40216,40648,40700,40815,41493,42478",
    "interval": "daily",
    "time_start": "2026-11-13",
    "time_end": "2026-11-21"
   },
-  "startedUtc": "2026-11-21T02:03:21.819Z",
-  "elapsedMs": 260,
+  "startedUtc": "2026-11-21T02:40:55.734Z",
+  "elapsedMs": 253,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": null,
-  "bodyBytes": 22182,
-  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/historical?id=39788%2C40037%2C40216%2C40648%2C40700%2C40815%2C42478&interval=daily&time_start=2026-11-13&time_end=2026-11-21\""
+  "bodyBytes": 24874,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/historical?id=39788%2C40037%2C40216%2C40648%2C40700%2C40815%2C41493%2C42478&interval=daily&time_start=2026-11-13&time_end=2026-11-21\""
  },
  "body": {
   "data": {
@@ -890,6 +890,151 @@
      }
     ]
    },
+   "41493": {
+    "id": 41493,
+    "name": "Wrapped Sandisk Corporation Tokenized Stock (xStock)",
+    "symbol": "wSNDKx",
+    "is_active": 1,
+    "is_fiat": 0,
+    "quotes": [
+     {
+      "timestamp": "2026-11-14T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 1184.4633891732242,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 7.151239936386,
+        "percent_change_30d": -12.792217394685,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-14T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-15T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 1387.552417312634,
+        "percent_change_1h": 0,
+        "percent_change_24h": 17.146078975153,
+        "percent_change_7d": 4.984971511346,
+        "percent_change_30d": 0.971941178757,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-15T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-16T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 1201.4854556696034,
+        "percent_change_1h": 0,
+        "percent_change_24h": -13.409724873919,
+        "percent_change_7d": 2.687216657715,
+        "percent_change_30d": -7.18139625786,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-16T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-17T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 1201.4854556696034,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 2.687216657715,
+        "percent_change_30d": -5.393068730352,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-17T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-18T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 1201.4854556696034,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 2.687216657715,
+        "percent_change_30d": -7.269871606606,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-18T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-19T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 1201.4854556696034,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 1.437112084001,
+        "percent_change_30d": -12.522267180015,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-19T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-20T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 1163.5969566146648,
+        "percent_change_1h": 0,
+        "percent_change_24h": -3.153471303057,
+        "percent_change_7d": -1.761678136217,
+        "percent_change_30d": -17.089087156529,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-20T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-21T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 1412.7300500153626,
+        "percent_change_1h": 0,
+        "percent_change_24h": 21.410600292864,
+        "percent_change_7d": 19.271736292455,
+        "percent_change_30d": 4.680707838266,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-21T00:00:00.000Z"
+       }
+      }
+     }
+    ]
+   },
    "42478": {
     "id": 42478,
     "name": "Sandisk Corporation Tokenized Stock (Coinbase)",
@@ -1037,7 +1182,7 @@
    }
   },
   "status": {
-   "timestamp": "2026-11-21T02:03:21.961Z",
+   "timestamp": "2026-11-21T02:40:55.870Z",
    "error_code": 0,
    "error_message": null,
    "elapsed": 10,

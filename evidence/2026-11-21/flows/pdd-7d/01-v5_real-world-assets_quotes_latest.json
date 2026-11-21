@@ -6,13 +6,13 @@
   "params": {
    "rwa_id": "175"
   },
-  "startedUtc": "2026-11-21T02:03:53.109Z",
-  "elapsedMs": 423,
+  "startedUtc": "2026-11-21T02:45:11.480Z",
+  "elapsedMs": 258,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": "",
-  "bodyBytes": 1961,
+  "bodyBytes": 1962,
   "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=175\""
  },
  "body": {
@@ -26,35 +26,35 @@
       {
        "symbol": "USD",
        "crypto_id": 2781,
-       "average_tokenized_price": 83.57040945984131,
-       "tokenized_market_cap": 14390896.456855705,
-       "tokenized_volume_24h": 4632143.21668057,
-       "last_updated": "2026-11-21T02:03:02.000Z"
+       "average_tokenized_price": 83.62270527327794,
+       "tokenized_market_cap": 14406539.994266767,
+       "tokenized_volume_24h": 4611464.14775683,
+       "last_updated": "2026-11-21T02:44:02.000Z"
       }
      ],
      "rwa_id": 175,
      "asset_type": "stock",
      "rwa_rank": 127,
      "has_tokens": true,
-     "average_tokenized_price": 83.57040945984131,
-     "tokenized_market_cap": 14390896.456855705,
-     "tokenized_volume_24h": 4632143.21668057,
-     "last_updated": "2026-11-21T02:03:10.998Z",
+     "average_tokenized_price": 83.62270527327794,
+     "tokenized_market_cap": 14406539.994266767,
+     "tokenized_volume_24h": 4611464.14775683,
+     "last_updated": "2026-11-21T02:45:11.049Z",
      "tokens": [
       {
        "symbol": "PDDon",
        "name": "PDD Holdings Tokenized Stock (Ondo)",
-       "price": 83.55350883910313,
+       "price": 83.70136636361177,
        "crypto_id": 39247,
        "issuer_id": "688ca4ccabae9b5b9fb3167a",
        "issuer_name": "Ondo Assets",
-       "market_cap": 10461048.78151047,
-       "volume_24h": 2090365.930675255
+       "market_cap": 10479560.808091864,
+       "volume_24h": 2083165.1666330714
       },
       {
        "symbol": "PDD",
        "name": "PDD Holdings Inc (Derivatives)",
-       "price": 83.63719393286725,
+       "price": 83.57929831563713,
        "crypto_id": 39861,
        "issuer_id": "695e11f774b54210f3b95dc3",
        "issuer_name": "NA (Derivatives)",
@@ -64,32 +64,32 @@
       {
        "symbol": "PDDB",
        "name": "PDD Holdings Tokenized bStocks",
-       "price": 83.57461896869803,
+       "price": 83.55908298313817,
        "crypto_id": 42383,
        "issuer_id": "6a2aed5097c45356b1a5f710",
        "issuer_name": "bStocks",
-       "market_cap": 3676110.5289379405,
-       "volume_24h": 2427609.4306330183
+       "market_cap": 3675427.163571771,
+       "volume_24h": 2418236.654355139
       },
       {
        "symbol": "PDDc",
        "name": "PDD Holdings Inc. Tokenized Stock (Coinbase)",
-       "price": 84.04120050159278,
+       "price": 84.04096315951722,
        "crypto_id": 42585,
        "issuer_id": "6a72fe7072996604d45c6733",
        "issuer_name": "Coinbase",
-       "market_cap": 33616.48020063711,
+       "market_cap": 33616.385263806886,
        "volume_24h": 0
       },
       {
        "symbol": "PDDx",
        "name": "PDD Holdings Inc tokenized stock (xStock)",
-       "price": 83.43504035068217,
+       "price": 83.53175519999206,
        "crypto_id": 42895,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 217683.30680690875,
-       "volume_24h": 112316.8455815455
+       "market_cap": 217935.6373400591,
+       "volume_24h": 110066.44520252717
       }
      ],
      "tradfi_markets": [
@@ -107,10 +107,10 @@
    ]
   },
   "status": {
-   "timestamp": "2026-11-21T02:03:53.404Z",
+   "timestamp": "2026-11-21T02:45:11.610Z",
    "error_code": "0",
    "error_message": "",
-   "elapsed": 6,
+   "elapsed": 4,
    "credit_count": 1
   }
  }

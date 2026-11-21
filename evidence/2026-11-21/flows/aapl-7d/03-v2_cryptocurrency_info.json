@@ -4,17 +4,17 @@
   "kind": "cmc",
   "endpoint": "/v2/cryptocurrency/info",
   "params": {
-   "id": "36994,28624,38037,40598,40703,40927,37269,42427",
+   "id": "36994,28624,38037,39624,40598,40703,40927,37269,42427",
    "aux": "platform"
   },
-  "startedUtc": "2026-11-21T02:03:29.504Z",
-  "elapsedMs": 273,
+  "startedUtc": "2026-11-21T02:44:54.478Z",
+  "elapsedMs": 728,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": null,
-  "bodyBytes": 8127,
-  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=36994%2C28624%2C38037%2C40598%2C40703%2C40927%2C37269%2C42427&aux=platform\""
+  "bodyBytes": 9045,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=36994%2C28624%2C38037%2C39624%2C40598%2C40703%2C40927%2C37269%2C42427&aux=platform\""
  },
  "body": {
   "data": {
@@ -358,6 +358,64 @@
     ],
     "infinite_supply": false
    },
+   "39624": {
+    "id": 39624,
+    "name": "Apple Tokenized Stock (Hyperliquid)",
+    "symbol": "AAPL",
+    "category": "token",
+    "slug": "apple-tokenized-stock-hyperliquid",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Hyperliquid Ecosystem",
+     "Tokenized Assets",
+     "HyperEVM Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM"
+    ],
+    "platform": {
+     "id": "32196",
+     "name": "Hyperliquid",
+     "symbol": "HYPE",
+     "slug": "hyperliquid",
+     "token_address": "0x499e347174f237ad28687b947b94c0d49570d1b7"
+    },
+    "twitter_username": "HyperliquidX",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x499e347174f237ad28687b947b94c0d49570d1b7",
+      "platform": {
+       "name": "HyperEVM",
+       "coin": {
+        "id": "32196",
+        "name": "Hyperliquid",
+        "symbol": "HYPE",
+        "slug": "hyperliquid"
+       }
+      }
+     },
+     {
+      "contract_address": "0xec340db435d4d90899e97655cb8e71f5",
+      "platform": {
+       "name": "Hyperliquid",
+       "coin": {
+        "id": "32196",
+        "name": "Hyperliquid",
+        "symbol": "HYPE",
+        "slug": "hyperliquid"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
    "40598": {
     "id": 40598,
     "name": "Apple Tokenized Stock (Reality)",
@@ -540,10 +598,10 @@
    }
   },
   "status": {
-   "timestamp": "2026-11-21T02:03:29.652Z",
+   "timestamp": "2026-11-21T02:44:55.080Z",
    "error_code": 0,
    "error_message": null,
-   "elapsed": 15,
+   "elapsed": 8,
    "credit_count": 1,
    "notice": null
   }

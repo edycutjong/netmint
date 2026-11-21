@@ -1,0 +1,430 @@
+{
+ "receipt": {
+  "id": "r3",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "params": {
+   "id": "38075,40607,40769,40846,41688"
+  },
+  "startedUtc": "2026-11-21T02:45:03.470Z",
+  "elapsedMs": 265,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 8217,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=38075%2C40607%2C40769%2C40846%2C41688\""
+ },
+ "body": {
+  "data": {
+   "38075": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-alpha",
+      "name": "Binance Alpha",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperevm-ecosystem",
+      "name": "HyperEVM Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "ondo-stocks-ecosystem",
+      "name": "Ondo Stocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 38075,
+    "name": "Taiwan Semiconductor Manufacturing Tokenized Stock (Ondo)",
+    "symbol": "TSMon",
+    "slug": "taiwan-semiconductor-manufacturing-tokenized-stock-ondo",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 21419.68745063,
+    "total_supply": 21419.68745063,
+    "max_supply": null,
+    "date_added": "2025-09-03T10:55:33.000Z",
+    "num_market_pairs": 22,
+    "cmc_rank": 993,
+    "last_updated": "2026-11-21T02:44:48.029Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1027,
+     "slug": "ethereum",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "token_address": "0x3Cafdbfe682aec17d5acE2f97A2f3ab3dCf6a4A9"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 7116382.56,
+    "quote": {
+     "USD": {
+      "price": 332.2355927313131,
+      "volume_24h": 2108654.6202213573,
+      "volume_change_24h": 20.390623525576,
+      "cex_volume_24h": 1566971.3064137225,
+      "dex_volume_24h": 541683.3138076349,
+      "percent_change_1h": -0.093935897229,
+      "percent_change_24h": -3.980620546345,
+      "percent_change_7d": -16.788131759069,
+      "percent_change_30d": -22.747355142006,
+      "percent_change_60d": -25.711417722525,
+      "percent_change_90d": -21.527193396812,
+      "market_cap": 7116382.556279527,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 7116382.56,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "40607": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bitget-ecosystem",
+      "name": "Bitget Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "rtokens",
+      "name": "rTokens",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40607,
+    "name": "TSMC Tokenized Stock (Reality)",
+    "symbol": "rTSM",
+    "slug": "tsmc-tokenized-stock-reality",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 8929.37852857,
+    "total_supply": 8929.37852857,
+    "max_supply": null,
+    "date_added": "2026-07-02T07:39:04.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 1346,
+    "last_updated": "2026-11-21T02:44:48.129Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0x5a313745bc19509ec7bc8b7e2937e9f0bf0e2dcc"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 2925012.69,
+    "quote": {
+     "USD": {
+      "price": 327.5718100877843,
+      "volume_24h": 1364580.796180985,
+      "volume_change_24h": 14.117709549256,
+      "cex_volume_24h": 1364580.796180985,
+      "dex_volume_24h": 0,
+      "percent_change_1h": 0.022669213833,
+      "percent_change_24h": -4.417216836903,
+      "percent_change_7d": -16.750229669364,
+      "percent_change_30d": -22.908381497575,
+      "percent_change_60d": -26.047567894948,
+      "percent_change_90d": -21.815046948453,
+      "market_cap": 2925012.687562671,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 2925012.69,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "40769": {
+    "tags": [
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-ecosystem",
+      "name": "Robinhood Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-stock",
+      "name": "Robinhood Stock",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40769,
+    "name": "TSMC Tokenized Stock (Robinhood)",
+    "symbol": "TSM",
+    "slug": "tsmc-tokenized-stock-robinhood",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 3646.2547801371393,
+    "total_supply": 3646.2547801371393,
+    "max_supply": null,
+    "date_added": "2026-08-04T07:31:59.000Z",
+    "num_market_pairs": 30,
+    "cmc_rank": 1756,
+    "last_updated": "2026-11-21T02:44:48.029Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 40670,
+     "slug": "robinhood-placeholder",
+     "name": "Robinhood Chain",
+     "symbol": "-",
+     "token_address": "0x58FfE4a942d3885bAa22D7520691F611EF09e7AA"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 1198873.01,
+    "quote": {
+     "USD": {
+      "price": 328.79573133086296,
+      "volume_24h": 405225.9487266344,
+      "volume_change_24h": -29.851510974171,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 405225.9487266344,
+      "percent_change_1h": 0.151409803655,
+      "percent_change_24h": -3.896151710124,
+      "percent_change_7d": -16.747932117603,
+      "percent_change_30d": -22.622203920285,
+      "percent_change_60d": -25.639149921408,
+      "percent_change_90d": -21.564372720053,
+      "market_cap": 1198873.0070538456,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 1198873.01,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "40846": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-listing",
+      "name": "Binance Listing",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bstocks",
+      "name": "bStocks",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40846,
+    "name": "TSMC Tokenized bStocks",
+    "symbol": "TSMB",
+    "slug": "tsmc-tokenized-bstocks",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 26613.535921095638,
+    "total_supply": 26613.535921095638,
+    "max_supply": null,
+    "date_added": "2026-07-13T10:34:40.000Z",
+    "num_market_pairs": 18,
+    "cmc_rank": 899,
+    "last_updated": "2026-11-21T02:44:48.166Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1839,
+     "slug": "bnb",
+     "name": "BNB Smart Chain (BEP20)",
+     "symbol": "BNB",
+     "token_address": "0xab78b89b5bb00236be0b4b20704cbfa04efc711c"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 8719137.28,
+    "quote": {
+     "USD": {
+      "price": 327.6203996964767,
+      "volume_24h": 4336359.989418758,
+      "volume_change_24h": -25.021147148745,
+      "cex_volume_24h": 4336359.989418758,
+      "dex_volume_24h": 0,
+      "percent_change_1h": -0.128133403064,
+      "percent_change_24h": -4.045407353696,
+      "percent_change_7d": -16.780217175331,
+      "percent_change_30d": -22.821064208012,
+      "percent_change_60d": -25.932014078158,
+      "percent_change_90d": -21.681889906313,
+      "market_cap": 8719137.275805892,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 8719137.28,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "41688": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 41688,
+    "name": "Wrapped TSMC Tokenized Stock (xStock)",
+    "symbol": "wTSMx",
+    "slug": "wrapped-tsmc-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 0,
+    "total_supply": 0,
+    "max_supply": null,
+    "date_added": "2026-08-11T16:26:33.000Z",
+    "num_market_pairs": 2,
+    "cmc_rank": 7589,
+    "last_updated": "2026-11-21T02:44:48.029Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 3897,
+     "slug": "okb",
+     "name": "X Layer",
+     "symbol": "OKB",
+     "token_address": "0x27D62249488fc66ECBb92C8da3F56f700B8e8501"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 0,
+    "quote": {
+     "USD": {
+      "price": 359.66260713992233,
+      "volume_24h": 0,
+      "volume_change_24h": 0,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 0,
+      "percent_change_1h": 0,
+      "percent_change_24h": 0,
+      "percent_change_7d": -10.569748110107,
+      "percent_change_30d": -16.659926374903,
+      "percent_change_60d": -19.448701461096,
+      "percent_change_90d": -14.32255152913,
+      "market_cap": 0,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 0,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:45:03.612Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 4,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

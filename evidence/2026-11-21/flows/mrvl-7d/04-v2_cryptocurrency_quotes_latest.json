@@ -1,0 +1,603 @@
+{
+ "receipt": {
+  "id": "r5",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "params": {
+   "id": "38089,37050,40614,40723,40848,37213,42419"
+  },
+  "startedUtc": "2026-11-21T02:41:19.773Z",
+  "elapsedMs": 524,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 11835,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=38089%2C37050%2C40614%2C40723%2C40848%2C37213%2C42419\""
+ },
+ "body": {
+  "data": {
+   "37050": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "toncoin-ecosystem",
+      "name": "Toncoin Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "internet-capital-markets",
+      "name": "Internet Capital Markets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 37050,
+    "name": "Marvell tokenized stock (xStock)",
+    "symbol": "MRVLX",
+    "slug": "marvell-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 39316.39554262,
+    "total_supply": 1119216.73719257,
+    "max_supply": null,
+    "date_added": "2025-07-01T18:39:58.000Z",
+    "num_market_pairs": 9,
+    "cmc_rank": 1132,
+    "last_updated": "2026-11-21T02:41:03.167Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "XsuxRGDzbLjnJ72v74b7p9VY6N66uYgTCyfwwRjVCJA"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 140176429.45,
+    "quote": {
+     "USD": {
+      "price": 125.24511543815171,
+      "volume_24h": 951392.5579038841,
+      "volume_change_24h": -3.674986357459,
+      "cex_volume_24h": 950855.3760889255,
+      "dex_volume_24h": 537.1818149586373,
+      "percent_change_1h": -0.174409010868,
+      "percent_change_24h": -7.799821584893,
+      "percent_change_7d": -17.928472458644,
+      "percent_change_30d": -46.939473872095,
+      "percent_change_60d": -51.886967789387,
+      "percent_change_90d": -46.63212695512,
+      "market_cap": 4924186.498347475,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 140176429.45,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:40:02.000Z"
+     }
+    }
+   },
+   "37213": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 37213,
+    "name": "Wrapped Marvell Tokenized stock (xStock)",
+    "symbol": "WMRVLX",
+    "slug": "wrapped-marvell-tokenized-stock-xstock",
+    "is_active": 0,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 189.47637384639333,
+    "total_supply": 189.47637384639333,
+    "max_supply": null,
+    "date_added": "2025-07-06T11:12:53.000Z",
+    "num_market_pairs": 2,
+    "cmc_rank": null,
+    "last_updated": "2026-11-08T23:31:00.000Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 3897,
+     "slug": "okb",
+     "name": "X Layer",
+     "symbol": "OKB",
+     "token_address": "0xB4eE60B6B817ca7386422Ef1A0F45EaddEa13275"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 45918.22,
+    "quote": {
+     "USD": {
+      "price": null,
+      "volume_24h": 0,
+      "volume_change_24h": 0,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 0,
+      "percent_change_1h": 0,
+      "percent_change_24h": 0,
+      "percent_change_7d": -8.04414504,
+      "percent_change_30d": -33.54461971,
+      "percent_change_60d": -22.76398636,
+      "percent_change_90d": -17.91402878,
+      "market_cap": null,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 45918.22,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:40:02.000Z"
+     }
+    }
+   },
+   "38089": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-alpha",
+      "name": "Binance Alpha",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ondo-stocks-ecosystem",
+      "name": "Ondo Stocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 38089,
+    "name": "Marvell Technology Tokenized Stock (Ondo)",
+    "symbol": "MRVLon",
+    "slug": "marvell-technology-tokenized-stock-ondo",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 44990.48122589,
+    "total_supply": 44990.48122589,
+    "max_supply": null,
+    "date_added": "2025-09-03T10:55:28.000Z",
+    "num_market_pairs": 22,
+    "cmc_rank": 1083,
+    "last_updated": "2026-11-21T02:41:03.059Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1027,
+     "slug": "ethereum",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "token_address": "0xF404E5f887dBd5508e16a1198fCDD5DE1A4296B8"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 5651653.63,
+    "quote": {
+     "USD": {
+      "price": 125.6188748439955,
+      "volume_24h": 1225398.3875945045,
+      "volume_change_24h": -6.82418283811,
+      "cex_volume_24h": 1059101.4423303714,
+      "dex_volume_24h": 166296.94526413325,
+      "percent_change_1h": -0.185377242031,
+      "percent_change_24h": -7.332001721813,
+      "percent_change_7d": -17.910219737981,
+      "percent_change_30d": -47.222547881536,
+      "percent_change_60d": -51.842886917734,
+      "percent_change_90d": -46.595120051296,
+      "market_cap": 5651653.630286206,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 5651653.63,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:40:02.000Z"
+     }
+    }
+   },
+   "40614": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bitget-ecosystem",
+      "name": "Bitget Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "rtokens",
+      "name": "rTokens",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40614,
+    "name": "Marvell Tokenized Stock (Reality)",
+    "symbol": "rMRVL",
+    "slug": "marvell-tokenized-stock-reality",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 16952.06458637,
+    "total_supply": 16952.06458637,
+    "max_supply": null,
+    "date_added": "2026-07-02T07:39:07.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 1489,
+    "last_updated": "2026-11-21T02:41:18.079Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0x0ee2b4c14e7d3016db60a25241d656a7cfb1d12b"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 2118133.8,
+    "quote": {
+     "USD": {
+      "price": 124.9484265875871,
+      "volume_24h": 870212.5483989811,
+      "volume_change_24h": 79.400296820428,
+      "cex_volume_24h": 870212.5483989811,
+      "dex_volume_24h": 0,
+      "percent_change_1h": -0.03501129519,
+      "percent_change_24h": -7.073227157039,
+      "percent_change_7d": -17.587052979909,
+      "percent_change_30d": -47.030016835784,
+      "percent_change_60d": -51.945101863548,
+      "percent_change_90d": -46.791570655657,
+      "market_cap": 2118133.7974780872,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 2118133.8,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:40:02.000Z"
+     }
+    }
+   },
+   "40723": {
+    "tags": [
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-ecosystem",
+      "name": "Robinhood Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-stock",
+      "name": "Robinhood Stock",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40723,
+    "name": "Marvell Technology Tokenized Stock (Robinhood)",
+    "symbol": "MRVL",
+    "slug": "marvell-technology-tokenized-stock-robinhood",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 1410.2458200162616,
+    "total_supply": 1410.2458200162616,
+    "max_supply": null,
+    "date_added": "2026-08-04T07:31:40.000Z",
+    "num_market_pairs": 11,
+    "cmc_rank": 2663,
+    "last_updated": "2026-11-21T02:41:03.107Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 40670,
+     "slug": "robinhood-placeholder",
+     "name": "Robinhood Chain",
+     "symbol": "-",
+     "token_address": "0x62fd0668e10D8B72339BE2DCF7643001688ff13B"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 176291.13,
+    "quote": {
+     "USD": {
+      "price": 125.00737539647666,
+      "volume_24h": 1255675.0485670455,
+      "volume_change_24h": -37.459100591623,
+      "cex_volume_24h": 1255650.091336043,
+      "dex_volume_24h": 24.957231002352994,
+      "percent_change_1h": -0.234215677204,
+      "percent_change_24h": -7.724994718666,
+      "percent_change_7d": -17.917672809292,
+      "percent_change_30d": -47.011521204344,
+      "percent_change_60d": -51.767178715857,
+      "percent_change_90d": -49.068629062992,
+      "market_cap": 176291.12862408487,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 176291.13,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:40:02.000Z"
+     }
+    }
+   },
+   "40848": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-listing",
+      "name": "Binance Listing",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bstocks",
+      "name": "bStocks",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40848,
+    "name": "Marvell Technology Tokenized bStocks",
+    "symbol": "MRVLB",
+    "slug": "marvell-technology-tokenized-bstocks",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 52623.02324006504,
+    "total_supply": 52623.02324006504,
+    "max_supply": null,
+    "date_added": "2026-07-13T11:01:03.000Z",
+    "num_market_pairs": 15,
+    "cmc_rank": 1024,
+    "last_updated": "2026-11-21T02:41:03.012Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1839,
+     "slug": "bnb",
+     "name": "BNB Smart Chain (BEP20)",
+     "symbol": "BNB",
+     "token_address": "0x16cd4fe7e8880ecc3ba222795229e20489fc2c76"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 6587821.93,
+    "quote": {
+     "USD": {
+      "price": 125.18896717272884,
+      "volume_24h": 6204001.786414182,
+      "volume_change_24h": -27.313363181563,
+      "cex_volume_24h": 6194882.664904341,
+      "dex_volume_24h": 9119.121509840526,
+      "percent_change_1h": -0.173052333686,
+      "percent_change_24h": -7.597850881065,
+      "percent_change_7d": -17.860007869461,
+      "percent_change_30d": -46.983594091885,
+      "percent_change_60d": -51.899552152946,
+      "percent_change_90d": -46.627120609589,
+      "market_cap": 6587821.92893025,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 6587821.93,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:40:02.000Z"
+     }
+    }
+   },
+   "42419": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "base-ecosystem",
+      "name": "Base Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "coinbase-ecosystem",
+      "name": "Coinbase Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42419,
+    "name": "Marvell Technology, Inc. Tokenized Stock (Coinbase)",
+    "symbol": "MRVLc",
+    "slug": "marvell-technology-inc-tokenized-stock-coinbase",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 1066.4423604827803,
+    "total_supply": 1066.4423604827803,
+    "max_supply": null,
+    "date_added": "2026-10-08T03:59:43.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 2791,
+    "last_updated": "2026-11-21T02:41:03.028Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 27716,
+     "slug": "base",
+     "name": "Base",
+     "symbol": "-",
+     "token_address": "0xB200000000000000000000eC3c4c7395Cc609813"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 134039.55,
+    "quote": {
+     "USD": {
+      "price": 125.6885111830653,
+      "volume_24h": 98561.64574554148,
+      "volume_change_24h": -41.287466497746,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 98561.64574554148,
+      "percent_change_1h": -0.103957888466,
+      "percent_change_24h": -7.20091520206,
+      "percent_change_7d": -17.818524898342,
+      "percent_change_30d": -54.474344396091,
+      "percent_change_60d": -80.037763098649,
+      "percent_change_90d": -80.037763098649,
+      "market_cap": 134039.55255163446,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 134039.55,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:40:02.000Z"
+     }
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:41:20.172Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 12,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

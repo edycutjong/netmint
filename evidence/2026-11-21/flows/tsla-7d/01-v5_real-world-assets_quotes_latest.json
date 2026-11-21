@@ -6,8 +6,8 @@
   "params": {
    "rwa_id": "14"
   },
-  "startedUtc": "2026-11-21T02:03:13.793Z",
-  "elapsedMs": 264,
+  "startedUtc": "2026-11-21T02:44:50.889Z",
+  "elapsedMs": 277,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
@@ -26,30 +26,30 @@
       {
        "symbol": "USD",
        "crypto_id": 2781,
-       "average_tokenized_price": 351.77627245470654,
-       "tokenized_market_cap": 115240488.75352485,
-       "tokenized_volume_24h": 58676533.93619076,
-       "last_updated": "2026-11-21T02:02:03.000Z"
+       "average_tokenized_price": 351.6794292370988,
+       "tokenized_market_cap": 115169950.7394938,
+       "tokenized_volume_24h": 58130723.81132344,
+       "last_updated": "2026-11-21T02:44:02.000Z"
       }
      ],
      "rwa_id": 14,
      "asset_type": "stock",
      "rwa_rank": 12,
      "has_tokens": true,
-     "average_tokenized_price": 351.77627245470654,
-     "tokenized_market_cap": 115240488.75352485,
-     "tokenized_volume_24h": 58676533.93619076,
-     "last_updated": "2026-11-21T02:03:11.008Z",
+     "average_tokenized_price": 351.6794292370988,
+     "tokenized_market_cap": 115169950.7394938,
+     "tokenized_volume_24h": 58130723.81132344,
+     "last_updated": "2026-11-21T02:44:11.083Z",
      "tokens": [
       {
        "symbol": "TSLAX",
        "name": "Tesla tokenized stock (xStock)",
-       "price": 351.8172917889714,
+       "price": 351.5233279770715,
        "crypto_id": 37004,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 61796918.14792073,
-       "volume_24h": 22240875.962828998
+       "market_cap": 61745283.18897466,
+       "volume_24h": 21900418.58627249
       },
       {
        "symbol": "TSLA.D",
@@ -64,17 +64,17 @@
       {
        "symbol": "TSLAon",
        "name": "Tesla Tokenized Stock (Ondo)",
-       "price": 351.9425591242304,
+       "price": 351.88652814033776,
        "crypto_id": 38029,
        "issuer_id": "688ca4ccabae9b5b9fb3167a",
        "issuer_name": "Ondo Assets",
-       "market_cap": 26479692.24356383,
-       "volume_24h": 10163405.08371881
+       "market_cap": 26475476.546510104,
+       "volume_24h": 10112441.809028879
       },
       {
        "symbol": "TSLA",
        "name": "Tesla (Derivatives)",
-       "price": 352.0457590032361,
+       "price": 351.5394732610443,
        "crypto_id": 38152,
        "issuer_id": "695e11f774b54210f3b95dc3",
        "issuer_name": "NA (Derivatives)",
@@ -94,52 +94,52 @@
       {
        "symbol": "TSLAB",
        "name": "Tesla Tokenized bStocks",
-       "price": 351.7867267790482,
+       "price": 351.50132790779804,
        "crypto_id": 40214,
        "issuer_id": "6a2aed5097c45356b1a5f710",
        "issuer_name": "bStocks",
-       "market_cap": 17350657.21700383,
-       "volume_24h": 12113479.543829275
+       "market_cap": 17336580.909945514,
+       "volume_24h": 12036737.534215234
       },
       {
        "symbol": "rTSLA",
        "name": "Tesla Tokenized Stock (Reality)",
-       "price": 351.3515520738928,
+       "price": 351.0717656220739,
        "crypto_id": 40624,
        "issuer_id": "6a43600c282e7240b76c8bbb",
        "issuer_name": "Reality",
-       "market_cap": 2063934.046244173,
-       "volume_24h": 668148.2874398585
+       "market_cap": 2062290.5049528985,
+       "volume_24h": 708428.006154096
       },
       {
        "symbol": "TSLA",
        "name": "Tesla Tokenized Stock (Robinhood)",
-       "price": 351.970438996551,
+       "price": 351.4283455667614,
        "crypto_id": 40691,
        "issuer_id": "6a465832fbe3004b1a0ea2dd",
        "issuer_name": "Robinhood",
-       "market_cap": 4254428.2083463585,
-       "volume_24h": 4981675.889862542
+       "market_cap": 4247875.676304659,
+       "volume_24h": 4957373.709663895
       },
       {
        "symbol": "WTSLAX",
        "name": "Wrapped Tesla Tokenized stock (xStock)",
-       "price": 351.42460398248784,
+       "price": 352.29676845784235,
        "crypto_id": 37227,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 997112.5170835444,
-       "volume_24h": 1953692.765597634
+       "market_cap": 999587.1477880437,
+       "volume_24h": 1920228.734897194
       },
       {
        "symbol": "TSLAc",
        "name": "Tesla Inc. Tokenized Stock (Coinbase)",
-       "price": 351.3366754262036,
+       "price": 352.2822177619883,
        "crypto_id": 42490,
        "issuer_id": "6a72fe7072996604d45c6733",
        "issuer_name": "Coinbase",
-       "market_cap": 2293288.2781011513,
-       "volume_24h": 6553546.313478973
+       "market_cap": 2299460.139187026,
+       "volume_24h": 6496042.306440248
       }
      ],
      "tradfi_markets": [
@@ -157,10 +157,10 @@
    ]
   },
   "status": {
-   "timestamp": "2026-11-21T02:03:13.931Z",
+   "timestamp": "2026-11-21T02:44:51.050Z",
    "error_code": "0",
    "error_message": "",
-   "elapsed": 4,
+   "elapsed": 34,
    "credit_count": 1
   }
  }

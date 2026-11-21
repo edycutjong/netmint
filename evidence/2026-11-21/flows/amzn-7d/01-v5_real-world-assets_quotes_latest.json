@@ -6,8 +6,8 @@
   "params": {
    "rwa_id": "6"
   },
-  "startedUtc": "2026-11-21T02:03:29.502Z",
-  "elapsedMs": 288,
+  "startedUtc": "2026-11-21T02:44:54.465Z",
+  "elapsedMs": 737,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
@@ -26,45 +26,45 @@
       {
        "symbol": "USD",
        "crypto_id": 2781,
-       "average_tokenized_price": 250.58468718398083,
-       "tokenized_market_cap": 28643617.8332419,
-       "tokenized_volume_24h": 39787603.36737408,
-       "last_updated": "2026-11-21T02:02:03.000Z"
+       "average_tokenized_price": 250.47398439220964,
+       "tokenized_market_cap": 28614669.20936462,
+       "tokenized_volume_24h": 39524046.16792166,
+       "last_updated": "2026-11-21T02:44:02.000Z"
       }
      ],
      "rwa_id": 6,
      "asset_type": "stock",
      "rwa_rank": 6,
      "has_tokens": true,
-     "average_tokenized_price": 250.58468718398083,
-     "tokenized_market_cap": 28643617.8332419,
-     "tokenized_volume_24h": 39787603.36737408,
-     "last_updated": "2026-11-21T02:03:10.993Z",
+     "average_tokenized_price": 250.47398439220964,
+     "tokenized_market_cap": 28614669.20936462,
+     "tokenized_volume_24h": 39524046.16792166,
+     "last_updated": "2026-11-21T02:44:11.063Z",
      "tokens": [
       {
        "symbol": "AMZNX",
        "name": "Amazon tokenized stock (xStock)",
-       "price": 250.8348998188556,
+       "price": 250.43963744806453,
        "crypto_id": 37014,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 9363565.9866461,
-       "volume_24h": 11151091.873755928
+       "market_cap": 9348811.001220973,
+       "volume_24h": 11078279.29356337
       },
       {
        "symbol": "AMZNon",
        "name": "Amazon Tokenized Stock (Ondo)",
-       "price": 250.6794065156483,
+       "price": 250.3947422858036,
        "crypto_id": 38083,
        "issuer_id": "688ca4ccabae9b5b9fb3167a",
        "issuer_name": "Ondo Assets",
-       "market_cap": 10072844.69357748,
-       "volume_24h": 7636625.700294822
+       "market_cap": 10061406.2646419,
+       "volume_24h": 7556152.588257234
       },
       {
        "symbol": "AMZN",
        "name": "Amazon.com Inc (Derivatives)",
-       "price": 250.78420323775225,
+       "price": 250.2700738942606,
        "crypto_id": 39471,
        "issuer_id": "695e11f774b54210f3b95dc3",
        "issuer_name": "NA (Derivatives)",
@@ -84,52 +84,52 @@
       {
        "symbol": "rAMZN",
        "name": "Amazon Tokenized Stock (Reality)",
-       "price": 250.32101602537853,
+       "price": 249.9041575572945,
        "crypto_id": 40603,
        "issuer_id": "6a43600c282e7240b76c8bbb",
        "issuer_name": "Reality",
-       "market_cap": 594470.2323489961,
-       "volume_24h": 499350.2171366207
+       "market_cap": 593480.2637306463,
+       "volume_24h": 505447.8755736215
       },
       {
        "symbol": "AMZN",
        "name": "Amazon Tokenized Stock (Robinhood)",
-       "price": 250.3052838666046,
+       "price": 250.5520751174769,
        "crypto_id": 40718,
        "issuer_id": "6a465832fbe3004b1a0ea2dd",
        "issuer_name": "Robinhood",
-       "market_cap": 2364457.5139168953,
-       "volume_24h": 1377411.6008278625
+       "market_cap": 2366788.776839035,
+       "volume_24h": 1356534.2542905894
       },
       {
        "symbol": "AMZNB",
        "name": "Amazon Tokenized bStocks",
-       "price": 250.65127902627086,
+       "price": 250.17931594338378,
        "crypto_id": 40929,
        "issuer_id": "6a2aed5097c45356b1a5f710",
        "issuer_name": "bStocks",
-       "market_cap": 3621467.018501023,
-       "volume_24h": 3849468.5741705396
+       "market_cap": 3614647.9879129264,
+       "volume_24h": 3798449.7946437444
       },
       {
        "symbol": "WAMZNX",
        "name": "Wrapped Amazon Tokenized stock (xStock)",
-       "price": 250.73291993360482,
+       "price": 251.17827521532936,
        "crypto_id": 37112,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 20471.225458966645,
-       "volume_24h": 672770.2309456035
+       "market_cap": 20507.586732882886,
+       "volume_24h": 683081.0953927126
       },
       {
        "symbol": "AMZNc",
        "name": "Amazon.com Inc. Tokenized Stock (Coinbase)",
-       "price": 250.36122937026244,
+       "price": 250.59562090010263,
        "crypto_id": 42425,
        "issuer_id": "6a72fe7072996604d45c6733",
        "issuer_name": "Coinbase",
-       "market_cap": 2606636.6789452555,
-       "volume_24h": 14597025.919419369
+       "market_cap": 2609077.0470503825,
+       "volume_24h": 14546141.701876115
       }
      ],
      "tradfi_markets": [
@@ -147,10 +147,10 @@
    ]
   },
   "status": {
-   "timestamp": "2026-11-21T02:03:29.665Z",
+   "timestamp": "2026-11-21T02:44:55.074Z",
    "error_code": "0",
    "error_message": "",
-   "elapsed": 35,
+   "elapsed": 4,
    "credit_count": 1
   }
  }

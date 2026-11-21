@@ -6,13 +6,13 @@
   "params": {
    "rwa_id": "20"
   },
-  "startedUtc": "2026-11-21T02:03:14.885Z",
-  "elapsedMs": 727,
+  "startedUtc": "2026-11-21T02:44:51.375Z",
+  "elapsedMs": 291,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": "",
-  "bodyBytes": 2607,
+  "bodyBytes": 2608,
   "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=20\""
  },
  "body": {
@@ -26,45 +26,45 @@
       {
        "symbol": "USD",
        "crypto_id": 2781,
-       "average_tokenized_price": 52.87881784942359,
-       "tokenized_market_cap": 87010155.43448274,
-       "tokenized_volume_24h": 50243425.97152957,
-       "last_updated": "2026-11-21T02:02:03.000Z"
+       "average_tokenized_price": 52.84091083264735,
+       "tokenized_market_cap": 86938567.04849577,
+       "tokenized_volume_24h": 49674158.34196827,
+       "last_updated": "2026-11-21T02:44:02.000Z"
       }
      ],
      "rwa_id": 20,
      "asset_type": "stock",
      "rwa_rank": 41,
      "has_tokens": true,
-     "average_tokenized_price": 52.87881784942359,
-     "tokenized_market_cap": 87010155.43448274,
-     "tokenized_volume_24h": 50243425.97152957,
-     "last_updated": "2026-11-21T02:03:10.990Z",
+     "average_tokenized_price": 52.84091083264735,
+     "tokenized_market_cap": 86938567.04849577,
+     "tokenized_volume_24h": 49674158.34196827,
+     "last_updated": "2026-11-21T02:44:11.059Z",
      "tokens": [
       {
        "symbol": "INTCon",
        "name": "Intel Tokenized Stock (Ondo)",
-       "price": 52.923508587085976,
+       "price": 52.893058857896946,
        "crypto_id": 38035,
        "issuer_id": "688ca4ccabae9b5b9fb3167a",
        "issuer_name": "Ondo Assets",
-       "market_cap": 6505601.924181492,
-       "volume_24h": 1572318.3101356097
+       "market_cap": 6501858.902940243,
+       "volume_24h": 1555725.0460388951
       },
       {
        "symbol": "INTCX",
        "name": "Intel tokenized stock (xStock)",
-       "price": 52.92967538639876,
+       "price": 52.90976746516744,
        "crypto_id": 37028,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 25667437.403899066,
-       "volume_24h": 3109323.36287869
+       "market_cap": 25657783.36165686,
+       "volume_24h": 3132440.1090588514
       },
       {
        "symbol": "INTC",
        "name": "Intel Corp (Derivatives)",
-       "price": 52.94542486354229,
+       "price": 52.867946370263866,
        "crypto_id": 39472,
        "issuer_id": "695e11f774b54210f3b95dc3",
        "issuer_name": "NA (Derivatives)",
@@ -74,32 +74,32 @@
       {
        "symbol": "INTCB",
        "name": "Intel Tokenized bStocks",
-       "price": 52.876801768408704,
+       "price": 52.8635092994037,
        "crypto_id": 40540,
        "issuer_id": "6a2aed5097c45356b1a5f710",
        "issuer_name": "bStocks",
-       "market_cap": 49340896.83508773,
-       "volume_24h": 34494364.96419635
+       "market_cap": 49328493.24183086,
+       "volume_24h": 34107136.06507321
       },
       {
        "symbol": "rINTC",
        "name": "Intel Tokenized Stock (Reality)",
-       "price": 52.790550740482075,
+       "price": 52.67024868263036,
        "crypto_id": 40618,
        "issuer_id": "6a43600c282e7240b76c8bbb",
        "issuer_name": "Reality",
-       "market_cap": 3594023.759676235,
-       "volume_24h": 2104217.304740498
+       "market_cap": 3585833.497438159,
+       "volume_24h": 2082433.7900388655
       },
       {
        "symbol": "INTC",
        "name": "Intel Tokenized Stock (Robinhood)",
-       "price": 52.88348439859277,
+       "price": 52.850687385944234,
        "crypto_id": 40697,
        "issuer_id": "6a465832fbe3004b1a0ea2dd",
        "issuer_name": "Robinhood",
-       "market_cap": 1744192.0715641002,
-       "volume_24h": 8637287.814225905
+       "market_cap": 1743110.367321592,
+       "volume_24h": 8481842.187049404
       },
       {
        "symbol": "WINTCX",
@@ -114,12 +114,12 @@
       {
        "symbol": "INTCc",
        "name": "Intel Corporation Tokenized Stock (Coinbase)",
-       "price": 52.83759803562596,
+       "price": 53.03915890995743,
        "crypto_id": 42505,
        "issuer_id": "6a72fe7072996604d45c6733",
        "issuer_name": "Coinbase",
-       "market_cap": 158003.4400739477,
-       "volume_24h": 325816.9189776996
+       "market_cap": 158606.17965168573,
+       "volume_24h": 316071.7516461149
       }
      ],
      "tradfi_markets": [
@@ -137,10 +137,10 @@
    ]
   },
   "status": {
-   "timestamp": "2026-11-21T02:03:15.492Z",
+   "timestamp": "2026-11-21T02:44:51.551Z",
    "error_code": "0",
    "error_message": "",
-   "elapsed": 6,
+   "elapsed": 4,
    "credit_count": 1
   }
  }

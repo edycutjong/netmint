@@ -6,13 +6,13 @@
   "params": {
    "rwa_id": "63"
   },
-  "startedUtc": "2026-11-21T02:06:58.134Z",
-  "elapsedMs": 688,
+  "startedUtc": "2026-11-21T02:53:42.620Z",
+  "elapsedMs": 739,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": "",
-  "bodyBytes": 1983,
+  "bodyBytes": 1980,
   "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=63\""
  },
  "body": {
@@ -26,70 +26,70 @@
       {
        "symbol": "USD",
        "crypto_id": 2781,
-       "average_tokenized_price": 82.10348502155233,
-       "tokenized_market_cap": 10175202.390805162,
-       "tokenized_volume_24h": 4436051.59115499,
-       "last_updated": "2026-11-21T02:06:02.000Z"
+       "average_tokenized_price": 81.9520220019662,
+       "tokenized_market_cap": 10164966.646259116,
+       "tokenized_volume_24h": 4294793.24675733,
+       "last_updated": "2026-11-21T02:53:02.000Z"
       }
      ],
      "rwa_id": 63,
      "asset_type": "stock",
      "rwa_rank": 66,
      "has_tokens": true,
-     "average_tokenized_price": 82.10348502155233,
-     "tokenized_market_cap": 10175202.390805162,
-     "tokenized_volume_24h": 4436051.59115499,
-     "last_updated": "2026-11-21T02:06:11.136Z",
+     "average_tokenized_price": 81.9520220019662,
+     "tokenized_market_cap": 10164966.646259116,
+     "tokenized_volume_24h": 4294793.24675733,
+     "last_updated": "2026-11-21T02:53:11.058Z",
      "tokens": [
       {
        "symbol": "BABAon",
        "name": "Alibaba Tokenized Stock (Ondo)",
-       "price": 82.27698686164388,
+       "price": 81.96766308698137,
        "crypto_id": 38076,
        "issuer_id": "688ca4ccabae9b5b9fb3167a",
        "issuer_name": "Ondo Assets",
-       "market_cap": 1949865.2404993698,
-       "volume_24h": 2436380.0565539696
+       "market_cap": 1942534.6405432883,
+       "volume_24h": 2347938.4792032326
       },
       {
        "symbol": "BABA",
        "name": "Alibaba Group Holding Limited (Derivatives)",
-       "price": 82.0758412456056,
+       "price": 81.99674312674861,
        "crypto_id": 39486,
        "issuer_id": "695e11f774b54210f3b95dc3",
        "issuer_name": "NA (Derivatives)",
        "market_cap": 0,
-       "volume_24h": 44092.85292551224
+       "volume_24h": 42597.23964291533
       },
       {
        "symbol": "rBABA",
        "name": "Alibaba Tokenized Stock (Reality)",
-       "price": 81.91192303791027,
+       "price": 81.932694318067,
        "crypto_id": 40656,
        "issuer_id": "6a43600c282e7240b76c8bbb",
        "issuer_name": "Reality",
-       "market_cap": 282149.55644462537,
-       "volume_24h": 34795.795904706036
+       "market_cap": 282221.1041176094,
+       "volume_24h": 22498.496657437827
       },
       {
        "symbol": "BABA",
        "name": "Alibaba Tokenized Stock (Robinhood)",
-       "price": 81.90461554400028,
+       "price": 81.79779631328104,
        "crypto_id": 40739,
        "issuer_id": "6a465832fbe3004b1a0ea2dd",
        "issuer_name": "Robinhood",
-       "market_cap": 405191.2351560948,
-       "volume_24h": 939.6450059546619
+       "market_cap": 404662.7885509056,
+       "volume_24h": 5637.495960169659
       },
       {
        "symbol": "BABAB",
        "name": "Alibaba Tokenized bStocks",
-       "price": 81.98032965227812,
+       "price": 81.93427199570604,
        "crypto_id": 40852,
        "issuer_id": "6a2aed5097c45356b1a5f710",
        "issuer_name": "bStocks",
-       "market_cap": 7539893.553445144,
-       "volume_24h": 1917543.721966252
+       "market_cap": 7535657.539399487,
+       "volume_24h": 1876148.6593000526
       }
      ],
      "tradfi_markets": [
@@ -107,7 +107,7 @@
    ]
   },
   "status": {
-   "timestamp": "2026-11-21T02:06:58.705Z",
+   "timestamp": "2026-11-21T02:53:43.226Z",
    "error_code": "0",
    "error_message": "",
    "elapsed": 5,

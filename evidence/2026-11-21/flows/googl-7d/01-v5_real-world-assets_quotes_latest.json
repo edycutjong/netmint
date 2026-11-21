@@ -6,13 +6,13 @@
   "params": {
    "rwa_id": "4"
   },
-  "startedUtc": "2026-11-21T02:03:07.731Z",
-  "elapsedMs": 348,
+  "startedUtc": "2026-11-21T02:44:48.946Z",
+  "elapsedMs": 696,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": "",
-  "bodyBytes": 3377,
+  "bodyBytes": 3371,
   "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=4\""
  },
  "body": {
@@ -26,30 +26,30 @@
       {
        "symbol": "USD",
        "crypto_id": 2781,
-       "average_tokenized_price": 270.46758087821155,
-       "tokenized_market_cap": 207794162.41721886,
-       "tokenized_volume_24h": 104470765.05590153,
-       "last_updated": "2026-11-21T02:02:03.000Z"
+       "average_tokenized_price": 269.8093594399379,
+       "tokenized_market_cap": 207270104.21906605,
+       "tokenized_volume_24h": 103808479.7606322,
+       "last_updated": "2026-11-21T02:44:02.000Z"
       }
      ],
      "rwa_id": 4,
      "asset_type": "stock",
      "rwa_rank": 4,
      "has_tokens": true,
-     "average_tokenized_price": 270.46758087821155,
-     "tokenized_market_cap": 207794162.41721886,
-     "tokenized_volume_24h": 104470765.05590153,
-     "last_updated": "2026-11-21T02:02:12.239Z",
+     "average_tokenized_price": 269.8093594399379,
+     "tokenized_market_cap": 207270104.21906605,
+     "tokenized_volume_24h": 103808479.7606322,
+     "last_updated": "2026-11-21T02:44:11.064Z",
      "tokens": [
       {
        "symbol": "GOOGLX",
        "name": "Alphabet tokenized stock (xStock)",
-       "price": 270.59651753018375,
+       "price": 270.10937945899553,
        "crypto_id": 37013,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 62620625.90184751,
-       "volume_24h": 27846880.206271376
+       "market_cap": 62507893.885941125,
+       "volume_24h": 27753301.77490328
       },
       {
        "symbol": "GOOGL.D",
@@ -64,17 +64,17 @@
       {
        "symbol": "GOOGLon",
        "name": "Alphabet Class A Tokenized Stock (Ondo)",
-       "price": 270.5037559718533,
+       "price": 269.83534431198547,
        "crypto_id": 38001,
        "issuer_id": "688ca4ccabae9b5b9fb3167a",
        "issuer_name": "Ondo Assets",
-       "market_cap": 21265376.308197092,
-       "volume_24h": 14102872.160486568
+       "market_cap": 21212829.808704663,
+       "volume_24h": 13894484.482138552
       },
       {
        "symbol": "GOOGL",
        "name": "Alphabet Inc (Derivatives)",
-       "price": 270.6854619633799,
+       "price": 269.6550553123334,
        "crypto_id": 39470,
        "issuer_id": "695e11f774b54210f3b95dc3",
        "issuer_name": "NA (Derivatives)",
@@ -84,72 +84,72 @@
       {
        "symbol": "GOOGL",
        "name": "Alphabet Tokenized Stock (Hyperliquid)",
-       "price": 269.9518005069942,
+       "price": 269.96324374791743,
        "crypto_id": 39622,
        "issuer_id": "699ed38db54c9320b15928e3",
        "issuer_name": "Hyperliquid Assets",
        "market_cap": 0,
-       "volume_24h": 89.08409416730808
+       "volume_24h": 89.08787043681274
       },
       {
        "symbol": "rGOOGL",
        "name": "Google Tokenized Stock (Reality)",
-       "price": 270.14990531107566,
+       "price": 269.3610026449455,
        "crypto_id": 40613,
        "issuer_id": "6a43600c282e7240b76c8bbb",
        "issuer_name": "Reality",
-       "market_cap": 12018973.22530653,
-       "volume_24h": 1766074.7304406178
+       "market_cap": 11983874.934190443,
+       "volume_24h": 1870174.4802934963
       },
       {
        "symbol": "GOOGL",
        "name": "Alphabet Class A Tokenized Stock (Robinhood)",
-       "price": 270.54890383502374,
+       "price": 269.6425568401834,
        "crypto_id": 40757,
        "issuer_id": "6a465832fbe3004b1a0ea2dd",
        "issuer_name": "Robinhood",
-       "market_cap": 7652178.890577184,
-       "volume_24h": 5050984.560154515
+       "market_cap": 7626543.860299313,
+       "volume_24h": 5061639.830714292
       },
       {
        "symbol": "GOOGLB",
        "name": "Alphabet Tokenized bStocks",
-       "price": 270.37542660755474,
+       "price": 269.5516158630487,
        "crypto_id": 40793,
        "issuer_id": "6a2aed5097c45356b1a5f710",
        "issuer_name": "bStocks",
-       "market_cap": 87928348.96597174,
-       "volume_24h": 43026447.56081203
+       "market_cap": 87660438.8251216,
+       "volume_24h": 42383376.50733887
       },
       {
        "symbol": "WGOOGLX",
        "name": "Wrapped Alphabet Tokenized stock (xStock)",
-       "price": 271.2464456350259,
+       "price": 271.30159265667487,
        "crypto_id": 37121,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 513483.68986563454,
-       "volume_24h": 876589.658918779
+       "market_cap": 513588.0860581639,
+       "volume_24h": 876929.8607268163
       },
       {
        "symbol": "GOOGon",
        "name": "Alphabet Class C Tokenized Stock (Ondo)",
-       "price": 268.4630886532566,
+       "price": 268.4417856360719,
        "crypto_id": 42272,
        "issuer_id": "688ca4ccabae9b5b9fb3167a",
        "issuer_name": "Ondo Assets",
-       "market_cap": 5729320.867710905,
-       "volume_24h": 7462.438886700632
+       "market_cap": 5728866.236046218,
+       "volume_24h": 7461.846729079857
       },
       {
        "symbol": "GOOGLc",
        "name": "Alphabet Inc. Tokenized Stock (Coinbase)",
-       "price": 270.2899890018192,
+       "price": 270.1980951629325,
        "crypto_id": 42421,
        "issuer_id": "6a72fe7072996604d45c6733",
        "issuer_name": "Coinbase",
-       "market_cap": 10055144.361211708,
-       "volume_24h": 11781113.171029244
+       "market_cap": 10051725.789109485,
+       "volume_24h": 11961701.42292402
       }
      ],
      "tradfi_markets": [
@@ -167,10 +167,10 @@
    ]
   },
   "status": {
-   "timestamp": "2026-11-21T02:03:07.951Z",
+   "timestamp": "2026-11-21T02:44:49.525Z",
    "error_code": "0",
    "error_message": "",
-   "elapsed": 45,
+   "elapsed": 5,
    "credit_count": 1
   }
  }

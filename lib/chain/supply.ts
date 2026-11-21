@@ -112,7 +112,11 @@ export async function legSupplies(
           reqs.push({ leg: l, date: d, block });
         }
       if (reqs.length) {
-        const res = await rec.rpc<string>(chain, reqs.map((r) => totalSupplyReq(r.leg.address, r.block)), { label: 'totalSupply' });
+        const res: string[] = [];
+        for (let i = 0; i < reqs.length; i += 40) {
+          const chunk = reqs.slice(i, i + 40);
+          res.push(...(await rec.rpc<string>(chain, chunk.map((r) => totalSupplyReq(r.leg.address, r.block)), { label: 'totalSupply' })));
+        }
         reqs.forEach((r, i) => {
           try {
             r.leg.values.set(r.date, scaleUnits(res[i], r.leg.decimals ?? 18));

@@ -6,13 +6,13 @@
   "params": {
    "rwa_id": "48"
   },
-  "startedUtc": "2026-11-21T02:04:50.711Z",
-  "elapsedMs": 251,
+  "startedUtc": "2026-11-21T02:51:50.619Z",
+  "elapsedMs": 723,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": "",
-  "bodyBytes": 2905,
+  "bodyBytes": 2918,
   "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=48\""
  },
  "body": {
@@ -26,25 +26,25 @@
       {
        "symbol": "USD",
        "crypto_id": 2781,
-       "average_tokenized_price": 89.82600415058901,
-       "tokenized_market_cap": 56821883.70106255,
-       "tokenized_volume_24h": 38504233.49902766,
-       "last_updated": "2026-11-21T02:04:02.000Z"
+       "average_tokenized_price": 88.70487922535756,
+       "tokenized_market_cap": 56532313.25149185,
+       "tokenized_volume_24h": 39133231.22488444,
+       "last_updated": "2026-11-21T02:51:02.000Z"
       }
      ],
      "rwa_id": 48,
      "asset_type": "stock",
      "rwa_rank": 167,
      "has_tokens": true,
-     "average_tokenized_price": 89.82600415058901,
-     "tokenized_market_cap": 56821883.70106255,
-     "tokenized_volume_24h": 38504233.49902766,
-     "last_updated": "2026-11-21T02:04:16.600Z",
+     "average_tokenized_price": 88.70487922535756,
+     "tokenized_market_cap": 56532313.25149185,
+     "tokenized_volume_24h": 39133231.22488444,
+     "last_updated": "2026-11-21T02:51:12.808Z",
      "tokens": [
       {
        "symbol": "SNDK",
        "name": "SanDisk Corporation (Derivatives)",
-       "price": 80.96417232514752,
+       "price": 80.36342676093703,
        "crypto_id": 39507,
        "issuer_id": "695e11f774b54210f3b95dc3",
        "issuer_name": "NA (Derivatives)",
@@ -54,62 +54,62 @@
       {
        "symbol": "SNDKon",
        "name": "SanDisk Tokenized Stock (Ondo)",
-       "price": 645.7700170465887,
+       "price": 642.6116926263543,
        "crypto_id": 39788,
        "issuer_id": "688ca4ccabae9b5b9fb3167a",
        "issuer_name": "Ondo Assets",
-       "market_cap": 2341606.1462435187,
-       "volume_24h": 330703.44030140736
+       "market_cap": 2330153.846385939,
+       "volume_24h": 299293.0971918598
       },
       {
        "symbol": "SNDKX",
        "name": "Sandisk Corporation tokenized stock(xstock)",
-       "price": 81.02683817302587,
+       "price": 80.68905114509855,
        "crypto_id": 40037,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 2384015.8935762835,
-       "volume_24h": 9481105.366196996
+       "market_cap": 2374077.339124696,
+       "volume_24h": 9537621.799470741
       },
       {
        "symbol": "SNDKB",
        "name": "SanDisk Tokenized bStocks",
-       "price": 80.93204102285289,
+       "price": 80.50020389814539,
        "crypto_id": 40216,
        "issuer_id": "6a2aed5097c45356b1a5f710",
        "issuer_name": "bStocks",
-       "market_cap": 47447576.72797388,
-       "volume_24h": 8033240.585539422
+       "market_cap": 47194405.983116955,
+       "volume_24h": 8246452.578363196
       },
       {
        "symbol": "rSNDK",
        "name": "SanDisk Tokenized Stock (Reality)",
-       "price": 81.31141917456483,
+       "price": 81.31592036520414,
        "crypto_id": 40648,
        "issuer_id": "6a43600c282e7240b76c8bbb",
        "issuer_name": "Reality",
-       "market_cap": 1047812.0235503662,
-       "volume_24h": 4179402.057726494
+       "market_cap": 1047870.0277239502,
+       "volume_24h": 4181614.297510079
       },
       {
        "symbol": "SNDK",
        "name": "Sandisk Corporation Tokenized Stock (Robinhood)",
-       "price": 81.72294006621463,
+       "price": 79.94130257838712,
        "crypto_id": 40700,
        "issuer_id": "6a465832fbe3004b1a0ea2dd",
        "issuer_name": "Robinhood",
-       "market_cap": 841092.3398017479,
-       "volume_24h": 0
+       "market_cap": 822755.7302512203,
+       "volume_24h": 31982.97768428989
       },
       {
        "symbol": "SNDK",
        "name": "SanDisk Corp tokenized stock (Backpack)",
-       "price": 648.5347811686315,
+       "price": 645.6973202791685,
        "crypto_id": 40815,
        "issuer_id": "6a2d54b697c45356b1a634f4",
        "issuer_name": "Backpack",
-       "market_cap": 628860.0933115885,
-       "volume_24h": 271343.81783378095
+       "market_cap": 626108.7128590238,
+       "volume_24h": 254956.86386167796
       },
       {
        "symbol": "wSNDKx",
@@ -124,12 +124,12 @@
       {
        "symbol": "SNDKc",
        "name": "Sandisk Corporation Tokenized Stock (Coinbase)",
-       "price": 80.91999244148195,
+       "price": 80.68110004901018,
        "crypto_id": 42478,
        "issuer_id": "6a72fe7072996604d45c6733",
        "issuer_name": "Coinbase",
-       "market_cap": 2155733.5457503875,
-       "volume_24h": 16208697.373327369
+       "market_cap": 2149369.378765963,
+       "volume_24h": 16582627.127818538
       }
      ],
      "tradfi_markets": [
@@ -147,10 +147,10 @@
    ]
   },
   "status": {
-   "timestamp": "2026-11-21T02:04:50.846Z",
+   "timestamp": "2026-11-21T02:51:51.221Z",
    "error_code": "0",
    "error_message": "",
-   "elapsed": 5,
+   "elapsed": 9,
    "credit_count": 1
   }
  }

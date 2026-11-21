@@ -6,13 +6,13 @@
   "params": {
    "rwa_id": "13"
   },
-  "startedUtc": "2026-11-21T02:06:11.309Z",
-  "elapsedMs": 251,
+  "startedUtc": "2026-11-21T02:52:55.386Z",
+  "elapsedMs": 731,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": "",
-  "bodyBytes": 2663,
+  "bodyBytes": 2665,
   "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=13\""
  },
  "body": {
@@ -26,40 +26,40 @@
       {
        "symbol": "USD",
        "crypto_id": 2781,
-       "average_tokenized_price": 312.14301031047717,
-       "tokenized_market_cap": 19969380.861364603,
-       "tokenized_volume_24h": 18100496.94282877,
-       "last_updated": "2026-11-21T02:05:02.000Z"
+       "average_tokenized_price": 310.74816902518734,
+       "tokenized_market_cap": 19882356.449503787,
+       "tokenized_volume_24h": 18579977.74283217,
+       "last_updated": "2026-11-21T02:52:03.000Z"
       }
      ],
      "rwa_id": 13,
      "asset_type": "stock",
      "rwa_rank": 10,
      "has_tokens": true,
-     "average_tokenized_price": 312.14301031047717,
-     "tokenized_market_cap": 19969380.861364603,
-     "tokenized_volume_24h": 18100496.94282877,
-     "last_updated": "2026-11-21T02:05:13.172Z",
+     "average_tokenized_price": 310.74816902518734,
+     "tokenized_market_cap": 19882356.449503787,
+     "tokenized_volume_24h": 18579977.74283217,
+     "last_updated": "2026-11-21T02:52:16.149Z",
      "tokens": [
       {
        "symbol": "AVGOX",
        "name": "Broadcom tokenized stock (xStock)",
-       "price": 312.2393825521573,
+       "price": 311.2813166683009,
        "crypto_id": 37021,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 5724920.70123138,
-       "volume_24h": 2748398.397221307
+       "market_cap": 5707354.527589858,
+       "volume_24h": 3230375.5508135245
       },
       {
        "symbol": "AVGOon",
        "name": "Broadcom Tokenized Stock (Ondo)",
-       "price": 313.083994380237,
+       "price": 311.6262710463884,
        "crypto_id": 38062,
        "issuer_id": "688ca4ccabae9b5b9fb3167a",
        "issuer_name": "Ondo Assets",
-       "market_cap": 4534502.305295315,
-       "volume_24h": 4484751.945588792
+       "market_cap": 4513389.600920553,
+       "volume_24h": 4434003.936403855
       },
       {
        "symbol": "AVGO.D",
@@ -74,52 +74,52 @@
       {
        "symbol": "rAVGO",
        "name": "Broadcom Tokenized Stock (Reality)",
-       "price": 310.5228310486862,
+       "price": 309.5035477614505,
        "crypto_id": 40604,
        "issuer_id": "6a43600c282e7240b76c8bbb",
        "issuer_name": "Reality",
-       "market_cap": 1936227.8997629383,
-       "volume_24h": 1011371.9198561625
+       "market_cap": 1929872.2809768966,
+       "volume_24h": 1014933.3261128596
       },
       {
        "symbol": "AVGO",
        "name": "Broadcom Tokenized Stock (Robinhood)",
-       "price": 311.6035374430055,
+       "price": 309.9646296484666,
        "crypto_id": 40705,
        "issuer_id": "6a465832fbe3004b1a0ea2dd",
        "issuer_name": "Robinhood",
-       "market_cap": 232594.06430404153,
-       "volume_24h": 1871516.3476029416
+       "market_cap": 231370.7141839515,
+       "volume_24h": 1890447.4819340452
       },
       {
        "symbol": "AVGOB",
        "name": "Broadcom Tokenized bStocks",
-       "price": 311.8834497574645,
+       "price": 310.4598825885701,
        "crypto_id": 40845,
        "issuer_id": "6a2aed5097c45356b1a5f710",
        "issuer_name": "bStocks",
-       "market_cap": 7150472.362138435,
-       "volume_24h": 7270414.867932582
+       "market_cap": 7117834.600485025,
+       "volume_24h": 7300613.27337914
       },
       {
        "symbol": "WAVGOX",
        "name": "Wrapped Broadcom Tokenized stock (xStock)",
-       "price": 313.56058446921963,
+       "price": 312.53199448007473,
        "crypto_id": 37129,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 38121.558610212654,
-       "volume_24h": 327854.645880951
+       "market_cap": 37996.50636991453,
+       "volume_24h": 329892.3542735165
       },
       {
        "symbol": "AVGOc",
        "name": "Broadcom Inc. Tokenized Stock (Coinbase)",
-       "price": 312.09731760379293,
+       "price": 311.461307284795,
        "crypto_id": 42432,
        "issuer_id": "6a72fe7072996604d45c6733",
        "issuer_name": "Coinbase",
-       "market_cap": 353777.649726859,
-       "volume_24h": 387255.0315233851
+       "market_cap": 353056.70076906384,
+       "volume_24h": 381323.49673158914
       }
      ],
      "tradfi_markets": [
@@ -137,10 +137,10 @@
    ]
   },
   "status": {
-   "timestamp": "2026-11-21T02:06:11.440Z",
+   "timestamp": "2026-11-21T02:52:55.977Z",
    "error_code": "0",
    "error_message": "",
-   "elapsed": 4,
+   "elapsed": 7,
    "credit_count": 1
   }
  }

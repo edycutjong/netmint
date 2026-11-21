@@ -4,17 +4,17 @@
   "kind": "cmc",
   "endpoint": "/v2/cryptocurrency/info",
   "params": {
-   "id": "40786,40813,40823,40833,42557",
+   "id": "40786,40813,40823,40833,41523,42557",
    "aux": "platform"
   },
-  "startedUtc": "2026-11-21T02:05:03.653Z",
-  "elapsedMs": 286,
+  "startedUtc": "2026-11-21T02:46:22.116Z",
+  "elapsedMs": 275,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": null,
-  "bodyBytes": 5887,
-  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=40786%2C40813%2C40823%2C40833%2C42557&aux=platform\""
+  "bodyBytes": 6603,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=40786%2C40813%2C40823%2C40833%2C41523%2C42557&aux=platform\""
  },
  "body": {
   "data": {
@@ -356,6 +356,52 @@
     ],
     "infinite_supply": false
    },
+   "41523": {
+    "id": 41523,
+    "name": "Wrapped SK hynix Tokenized Stock (xStock)",
+    "symbol": "wSKHYx",
+    "category": "token",
+    "slug": "wrapped-sk-hynix-tokenized-stock-xstock",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "X Layer Ecosystem",
+     "Tokenized Assets",
+     "xStocks Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "3897",
+     "name": "OKB",
+     "symbol": "OKB",
+     "slug": "okb",
+     "token_address": "0x6215a58ed045d71F2561AaAbe54f4C885C522998"
+    },
+    "twitter_username": "xstocksfi",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x6215a58ed045d71F2561AaAbe54f4C885C522998",
+      "platform": {
+       "name": "X Layer",
+       "coin": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
    "42557": {
     "id": 42557,
     "name": "SK hynix Inc. Tokenized Stock (Coinbase)",
@@ -404,10 +450,10 @@
    }
   },
   "status": {
-   "timestamp": "2026-11-21T02:05:03.810Z",
+   "timestamp": "2026-11-21T02:46:22.270Z",
    "error_code": 0,
    "error_message": null,
-   "elapsed": 6,
+   "elapsed": 7,
    "credit_count": 1,
    "notice": null
   }

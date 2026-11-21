@@ -9,8 +9,8 @@
    "time_start": "2026-11-13",
    "time_end": "2026-11-21"
   },
-  "startedUtc": "2026-11-21T02:04:18.730Z",
-  "elapsedMs": 264,
+  "startedUtc": "2026-11-21T02:41:35.841Z",
+  "elapsedMs": 710,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
@@ -602,10 +602,10 @@
    }
   },
   "status": {
-   "timestamp": "2026-11-21T02:04:18.866Z",
+   "timestamp": "2026-11-21T02:41:36.432Z",
    "error_code": 0,
    "error_message": null,
-   "elapsed": 10,
+   "elapsed": 11,
    "credit_count": 1,
    "notice": null
   }

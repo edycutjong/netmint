@@ -4,17 +4,17 @@
   "kind": "cmc",
   "endpoint": "/v2/cryptocurrency/info",
   "params": {
-   "id": "39788,40037,40216,40648,40700,40815,42478",
+   "id": "39788,40037,40216,40648,40700,40815,41493,42478",
    "aux": "platform"
   },
-  "startedUtc": "2026-11-21T02:03:21.820Z",
-  "elapsedMs": 508,
+  "startedUtc": "2026-11-21T02:44:52.582Z",
+  "elapsedMs": 507,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": null,
-  "bodyBytes": 6015,
-  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=39788%2C40037%2C40216%2C40648%2C40700%2C40815%2C42478&aux=platform\""
+  "bodyBytes": 6753,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=39788%2C40037%2C40216%2C40648%2C40700%2C40815%2C41493%2C42478&aux=platform\""
  },
  "body": {
   "data": {
@@ -350,6 +350,52 @@
     ],
     "infinite_supply": false
    },
+   "41493": {
+    "id": 41493,
+    "name": "Wrapped Sandisk Corporation Tokenized Stock (xStock)",
+    "symbol": "wSNDKx",
+    "category": "token",
+    "slug": "wrapped-sandisk-corporation-tokenized-stock-xstock",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "X Layer Ecosystem",
+     "Tokenized Assets",
+     "xStocks Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "3897",
+     "name": "OKB",
+     "symbol": "OKB",
+     "slug": "okb",
+     "token_address": "0x75e82E2884Ea10f72FCA777449B73377f4646219"
+    },
+    "twitter_username": "xstocksfi",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x75e82E2884Ea10f72FCA777449B73377f4646219",
+      "platform": {
+       "name": "X Layer",
+       "coin": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
    "42478": {
     "id": 42478,
     "name": "Sandisk Corporation Tokenized Stock (Coinbase)",
@@ -398,10 +444,10 @@
    }
   },
   "status": {
-   "timestamp": "2026-11-21T02:03:22.211Z",
+   "timestamp": "2026-11-21T02:44:52.975Z",
    "error_code": 0,
    "error_message": null,
-   "elapsed": 8,
+   "elapsed": 6,
    "credit_count": 1,
    "notice": null
   }

@@ -1,5 +1,5 @@
 /**
- * npm run flows -- [--top 20] [--windows 7,30] [--date YYYY-MM-DD] [--only NVDA,AAPL]
+ * npm run flows -- [--top 20] [--windows 7,30] [--date YYYY-MM-DD] [--only NVDA,AAPL] [--workers 1] [--allow-partial]
  * The leaderboard capture: the top tokenised stocks (CMC assets/list order = tokenised market cap), one live lookup per
  * underlying per window, rows flattened into evidence/<date>/flows-<w>d.json, every verbatim CMC body kept under
  * evidence/<date>/flows/<u>-<w>d/ (the repeated assets/list body is kept once, in flows/00-assets-list.json).
@@ -10,6 +10,7 @@ import path from 'node:path';
 import { loadKeys, assertNoSecrets } from './_env';
 import { lookup, LookupFailure } from '../lib/lookup';
 import { Recorder } from '../lib/receipts';
+import { rpcBatch, RPC_SCRIPT } from '../lib/chain/rpc';
 import { rowsFromLookup, sortFlows, type FlowRow, type FlowsTable } from '../lib/flows';
 import type { LookupResult } from '../lib/types';
 
@@ -25,6 +26,8 @@ const only = flag('only')?.split(',').map((s) => s.toUpperCase());
 // one clock for every lookup in the run: a capture that crosses 00:00 UTC still shares one window end
 const NOW_MS = Date.now();
 const ALLOW_PARTIAL = args.includes('--allow-partial');
+// parallel lookups; Alchemy's compute-units-per-second cap is the limit (3 hit it on 30 d windows, 2026-11-21)
+const WORKERS = Number(flag('workers') ?? 1);
 
 const write = (p: string, v: unknown) => {
   const s = typeof v === 'string' ? v : JSON.stringify(v, null, 1) + '\n';
@@ -66,7 +69,9 @@ async function main() {
       while (next < list.length) {
         const a = list[next++];
         try {
-          const r = await lookup(String(a.rwaId), { window: w, nowMs: NOW_MS });
+          const r = await lookup(String(a.rwaId), { window: w, nowMs: NOW_MS, rec: new Recorder(undefined, (c, q) => rpcBatch(c, q, RPC_SCRIPT)) });
+          // a chain read that failed would turn into "chain check unavailable" rows: a failed run, not a verdict
+          if (r.errors.length) throw new Error(`chain read failed: ${r.errors.map((x) => x.message).join('; ').slice(0, 160)}`);
           const tag = `${a.symbol.toLowerCase()}-${w}d`;
           const dir = path.join(root, 'flows', tag);
           mkdirSync(dir, { recursive: true });
@@ -86,7 +91,7 @@ async function main() {
         }
       }
     };
-    await Promise.all([worker(), worker(), worker()]);
+    await Promise.all(Array.from({ length: WORKERS }, () => worker()));
     const table: FlowsTable = {
       generatedUtc: new Date().toISOString(),
       command: `npm run flows -- ${args.join(' ')}`.trim() + ` (commit ${commit})`,

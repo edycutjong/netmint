@@ -4,19 +4,19 @@
   "kind": "cmc",
   "endpoint": "/v2/cryptocurrency/quotes/historical",
   "params": {
-   "id": "37056,28618,38086,40589,40609,40695,37214,42494",
+   "id": "37056,28618,38086,39616,40589,40609,40695,37214,42494",
    "interval": "daily",
    "time_start": "2026-10-21",
    "time_end": "2026-11-21"
   },
-  "startedUtc": "2026-11-21T02:05:44.248Z",
-  "elapsedMs": 512,
+  "startedUtc": "2026-11-21T02:52:35.476Z",
+  "elapsedMs": 516,
   "httpStatus": 200,
   "creditCount": 3,
   "errorCode": 0,
   "errorMessage": null,
-  "bodyBytes": 83591,
-  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/historical?id=37056%2C28618%2C38086%2C40589%2C40609%2C40695%2C37214%2C42494&interval=daily&time_start=2026-10-21&time_end=2026-11-21\""
+  "bodyBytes": 93565,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/historical?id=37056%2C28618%2C38086%2C39616%2C40589%2C40609%2C40695%2C37214%2C42494&interval=daily&time_start=2026-10-21&time_end=2026-11-21\""
  },
  "body": {
   "data": {
@@ -1630,6 +1630,542 @@
         "market_cap": 6225208.000457356,
         "circulating_supply": 12757.58,
         "total_supply": 12757.58,
+        "timestamp": "2026-11-21T00:00:00.000Z"
+       }
+      }
+     }
+    ]
+   },
+   "39616": {
+    "id": 39616,
+    "name": "Microsoft Tokenized Stock (Hyperliquid)",
+    "symbol": "MSFT",
+    "is_active": 1,
+    "is_fiat": 0,
+    "quotes": [
+     {
+      "timestamp": "2026-10-22T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 560.1486561772114,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 2.995390683495,
+        "percent_change_30d": 14.977538207321,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-10-22T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-10-23T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 560.1486561772114,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 2.995390683495,
+        "percent_change_30d": 14.977538207321,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-10-23T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-10-24T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 560.1486561772114,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 2.995390683495,
+        "percent_change_30d": 14.977538207321,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-10-24T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-10-25T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 560.1486561772114,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 2.995390683495,
+        "percent_change_30d": 14.977538207321,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-10-25T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-10-26T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 560.1486561772114,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 17.888319008552,
+        "percent_change_30d": 14.977538207321,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-10-26T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-10-27T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 560.1486561772114,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": -0.013841862159,
+        "percent_change_30d": 14.977538207321,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-10-27T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-10-28T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 560.1486561772114,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 0,
+        "percent_change_30d": 14.977538207321,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-10-28T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-10-29T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 479.9213966421948,
+        "percent_change_1h": -2.458193619353,
+        "percent_change_24h": -14.322494332582,
+        "percent_change_7d": -14.322494332582,
+        "percent_change_30d": -1.490113186165,
+        "volume_24h": 404.17,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-10-29T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-10-30T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 479.84709626871273,
+        "percent_change_1h": 0.003785169397,
+        "percent_change_24h": -0.015481779725,
+        "percent_change_7d": -14.335758735284,
+        "percent_change_30d": -1.505364269849,
+        "volume_24h": 20.26,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-10-30T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-10-31T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 471.03785798202927,
+        "percent_change_1h": -0.005142962869,
+        "percent_change_24h": -1.835842783083,
+        "percent_change_7d": -15.908419526225,
+        "percent_change_30d": -3.313570931625,
+        "volume_24h": 9.41,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-10-31T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-01T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 471.0372097613638,
+        "percent_change_1h": 0,
+        "percent_change_24h": -0.000137615407,
+        "percent_change_7d": -15.908535249196,
+        "percent_change_30d": -9.307949528556,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-01T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-02T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 471.0372097613638,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": -15.908535249196,
+        "percent_change_30d": -9.287580684418,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-02T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-03T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 471.0372097613638,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": -15.908535249196,
+        "percent_change_30d": -9.287580684418,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-03T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-04T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 471.0372097613638,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": -15.908535249196,
+        "percent_change_30d": -9.287580684418,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-04T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-05T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 471.0372097613638,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": -1.851175409763,
+        "percent_change_30d": -10.417752671269,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-05T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-06T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 471.0372097613638,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": -1.835977872088,
+        "percent_change_30d": -10.798868565583,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-06T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-07T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 471.0372097613638,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": -0.000137615407,
+        "percent_change_30d": -10.801645934202,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-07T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-08T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 471.0372097613638,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 0,
+        "percent_change_30d": -2.072209939683,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-08T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-09T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 471.0372097613638,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 0,
+        "percent_change_30d": -2.084061809371,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-09T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-10T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 471.0372097613638,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 0,
+        "percent_change_30d": -2.084061809371,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-10T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-11T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 471.0372097613638,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 0,
+        "percent_change_30d": -2.084061809371,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-11T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-12T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 964.7733293165874,
+        "percent_change_1h": -0.005825637355,
+        "percent_change_24h": 104.818920739905,
+        "percent_change_7d": 104.818920739905,
+        "percent_change_30d": 80.405665495816,
+        "volume_24h": 330.69,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-12T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-13T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 964.8695407608932,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0.009972440301,
+        "percent_change_7d": 104.839346184501,
+        "percent_change_30d": 77.419289667967,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-13T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-14T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 964.8695407608932,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 104.839346184501,
+        "percent_change_30d": 77.412039131686,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-14T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-15T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 964.8695407608932,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 104.839346184501,
+        "percent_change_30d": 77.412039131686,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-15T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-16T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 490.9557453344865,
+        "percent_change_1h": 0.014852352127,
+        "percent_change_24h": -49.116878024016,
+        "percent_change_7d": 4.228654373869,
+        "percent_change_30d": -9.727215728543,
+        "volume_24h": 13.55,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-16T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-17T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 490.8824203445066,
+        "percent_change_1h": 0,
+        "percent_change_24h": -0.014935152644,
+        "percent_change_7d": 4.213087665239,
+        "percent_change_30d": -9.74069810667,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-17T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-18T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 490.8824203445066,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": 4.213087665239,
+        "percent_change_30d": 3.310617149737,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-18T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-19T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 490.8824203445066,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": -49.119403964843,
+        "percent_change_30d": -12.377818340915,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-19T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-20T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 490.8824203445066,
+        "percent_change_1h": 0,
+        "percent_change_24h": 0,
+        "percent_change_7d": -49.124477495953,
+        "percent_change_30d": -12.365688120261,
+        "volume_24h": 0,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
+        "timestamp": "2026-11-20T00:00:00.000Z"
+       }
+      }
+     },
+     {
+      "timestamp": "2026-11-21T00:00:00.000Z",
+      "quote": {
+       "USD": {
+        "price": 489.97882189120685,
+        "percent_change_1h": -0.001322829487,
+        "percent_change_24h": -0.184076352269,
+        "percent_change_7d": -49.218127301976,
+        "percent_change_30d": -12.527002164905,
+        "volume_24h": 18.08,
+        "market_cap": 0,
+        "circulating_supply": 0,
+        "total_supply": 0,
         "timestamp": "2026-11-21T00:00:00.000Z"
        }
       }
@@ -3782,10 +4318,10 @@
    }
   },
   "status": {
-   "timestamp": "2026-11-21T02:05:44.403Z",
+   "timestamp": "2026-11-21T02:52:35.626Z",
    "error_code": 0,
    "error_message": null,
-   "elapsed": 28,
+   "elapsed": 24,
    "credit_count": 3,
    "notice": null
   }

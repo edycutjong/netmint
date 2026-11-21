@@ -4,20 +4,68 @@
   "kind": "cmc",
   "endpoint": "/v2/cryptocurrency/info",
   "params": {
-   "id": "37656,40018,40217,40218,40232,40238,40643,40668,42487",
+   "id": "37656,40018,40217,40218,40232,40238,40643,40668,37068,41610,42487",
    "aux": "platform"
   },
-  "startedUtc": "2026-11-21T02:04:27.523Z",
-  "elapsedMs": 275,
+  "startedUtc": "2026-11-21T02:51:22.358Z",
+  "elapsedMs": 265,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": null,
-  "bodyBytes": 8740,
-  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=37656%2C40018%2C40217%2C40218%2C40232%2C40238%2C40643%2C40668%2C42487&aux=platform\""
+  "bodyBytes": 10237,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=37656%2C40018%2C40217%2C40218%2C40232%2C40238%2C40643%2C40668%2C37068%2C41610%2C42487&aux=platform\""
  },
  "body": {
   "data": {
+   "37068": {
+    "id": 37068,
+    "name": "SpaceX Tokenized Stock (Robinhood)",
+    "symbol": "SPCX",
+    "category": "token",
+    "slug": "spacex-tokenized-stock-robinhood",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Arbitrum Ecosystem",
+     "Tokenized Assets",
+     "Robinhood Ecosystem",
+     "Robinhood Stock"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "40670",
+     "name": "Robinhood",
+     "symbol": "-",
+     "slug": "robinhood-placeholder",
+     "token_address": "0x4a0E65A3EcceC6dBe60AE065F2e7bb85Fae35eEa"
+    },
+    "twitter_username": "RobinhoodApp",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x4a0E65A3EcceC6dBe60AE065F2e7bb85Fae35eEa",
+      "platform": {
+       "name": "Robinhood Chain",
+       "coin": {
+        "id": "40670",
+        "name": "Robinhood",
+        "symbol": "-",
+        "slug": "robinhood-placeholder"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
    "37656": {
     "id": 37656,
     "name": "SpaceX tokenized stock (PreStocks)",
@@ -107,7 +155,7 @@
      }
     ],
     "self_reported_circulating_supply": 1189,
-    "self_reported_market_cap": 643694.6451379599,
+    "self_reported_market_cap": 643718.612024068,
     "infinite_supply": true
    },
    "40217": {
@@ -532,6 +580,52 @@
     ],
     "infinite_supply": false
    },
+   "41610": {
+    "id": 41610,
+    "name": "Wrapped SpaceX Tokenized ETF (xStock)",
+    "symbol": "wSPCXx",
+    "category": "token",
+    "slug": "wrapped-spacex-tokenized-etf-xstock",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "X Layer Ecosystem",
+     "Tokenized Assets",
+     "xStocks Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "3897",
+     "name": "OKB",
+     "symbol": "OKB",
+     "slug": "okb",
+     "token_address": "0x8e2eeD8b8B5E13Ea7BF38e50d7821d2C57309072"
+    },
+    "twitter_username": "xstocksfi",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x8e2eeD8b8B5E13Ea7BF38e50d7821d2C57309072",
+      "platform": {
+       "name": "X Layer",
+       "coin": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
    "42487": {
     "id": 42487,
     "name": "Space Exploration Technologies Corp. Tokenized Stock (Coinbase)",
@@ -580,10 +674,10 @@
    }
   },
   "status": {
-   "timestamp": "2026-11-21T02:04:27.666Z",
+   "timestamp": "2026-11-21T02:51:22.495Z",
    "error_code": 0,
    "error_message": null,
-   "elapsed": 8,
+   "elapsed": 10,
    "credit_count": 1,
    "notice": null
   }

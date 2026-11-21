@@ -1,0 +1,529 @@
+{
+ "receipt": {
+  "id": "r3",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "params": {
+   "id": "40786,40813,40823,40833,41523,42557"
+  },
+  "startedUtc": "2026-11-21T02:52:02.453Z",
+  "elapsedMs": 259,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 10145,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=40786%2C40813%2C40823%2C40833%2C41523%2C42557\""
+ },
+ "body": {
+  "data": {
+   "40786": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "optimism-ecosystem",
+      "name": "Optimism Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "toncoin-ecosystem",
+      "name": "Toncoin Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "mantle-ecosystem",
+      "name": "Mantle Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperevm-ecosystem",
+      "name": "HyperEVM Ecosystem",
+      "category": "PLATFORM"
+     }
+    ],
+    "id": 40786,
+    "name": "SK hynix tokenized stock (xStock)",
+    "symbol": "SKHYx",
+    "slug": "sk-hynix-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 102251.40597246,
+    "total_supply": 642745.8302945,
+    "max_supply": null,
+    "date_added": "2026-07-04T03:32:51.000Z",
+    "num_market_pairs": 5,
+    "cmc_rank": 813,
+    "last_updated": "2026-11-21T02:51:48.052Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "XsnhgGRQwhExfS2bmWzR6EYddKGPRGDEjeJsatkmKqU"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 68062511.13,
+    "quote": {
+     "USD": {
+      "price": 105.89335305321032,
+      "volume_24h": 2953885.0354212713,
+      "volume_change_24h": -24.232960595753,
+      "cex_volume_24h": 2944255.0038200966,
+      "dex_volume_24h": 9630.031601174647,
+      "percent_change_1h": -0.273687395228,
+      "percent_change_24h": -10.408640492358,
+      "percent_change_7d": -18.603668642233,
+      "percent_change_30d": -24.340427557473,
+      "percent_change_60d": -45.142500244898,
+      "percent_change_90d": -35.728571615843,
+      "market_cap": 10827744.232828844,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 68062511.13,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:51:02.000Z"
+     }
+    }
+   },
+   "40813": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-listing",
+      "name": "Binance Listing",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bstocks",
+      "name": "bStocks",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40813,
+    "name": "SK Hynix Tokenized bStocks",
+    "symbol": "SKHYB",
+    "slug": "sk-hynix-tokenized-bstocks",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 230040.9398565,
+    "total_supply": 230040.9398565,
+    "max_supply": null,
+    "date_added": "2026-07-09T01:45:56.000Z",
+    "num_market_pairs": 63,
+    "cmc_rank": 510,
+    "last_updated": "2026-11-21T02:51:48.094Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1839,
+     "slug": "bnb",
+     "name": "BNB Smart Chain (BEP20)",
+     "symbol": "BNB",
+     "token_address": "0xca750ef65f295bbecd685abf54e82caf297bdb61"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 24395585.78,
+    "quote": {
+     "USD": {
+      "price": 106.04888762554678,
+      "volume_24h": 12884318.204332178,
+      "volume_change_24h": -20.037087295556,
+      "cex_volume_24h": 11611074.406245997,
+      "dex_volume_24h": 1273243.7980861822,
+      "percent_change_1h": -0.101973627995,
+      "percent_change_24h": -10.268827509241,
+      "percent_change_7d": -18.361582137799,
+      "percent_change_30d": -24.168243539398,
+      "percent_change_60d": -45.057638742294,
+      "percent_change_90d": -35.609381268845,
+      "market_cap": 24395585.780117135,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 24395585.78,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:51:02.000Z"
+     }
+    }
+   },
+   "40823": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ondo-stocks-ecosystem",
+      "name": "Ondo Stocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40823,
+    "name": "SK Hynix Tokenized Stock (Ondo)",
+    "symbol": "SKHYon",
+    "slug": "sk-hynix-tokenized-stock-ondo",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 9565.82792869,
+    "total_supply": 9565.82792869,
+    "max_supply": null,
+    "date_added": "2026-06-12T09:35:08.000Z",
+    "num_market_pairs": 12,
+    "cmc_rank": 1834,
+    "last_updated": "2026-11-21T02:51:48.042Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1027,
+     "slug": "ethereum",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "token_address": "0xc0fE36F4FFBDf1B38E192215073590a68f9A2Af7"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 1014200.02,
+    "quote": {
+     "USD": {
+      "price": 106.0232346836547,
+      "volume_24h": 1201481.4492531342,
+      "volume_change_24h": -15.931704432396,
+      "cex_volume_24h": 1174428.6330208746,
+      "dex_volume_24h": 27052.816232259604,
+      "percent_change_1h": -0.19418369279,
+      "percent_change_24h": -10.533663815737,
+      "percent_change_7d": -18.510439489212,
+      "percent_change_30d": -24.223627486888,
+      "percent_change_60d": -44.872772212054,
+      "percent_change_90d": -35.577297986142,
+      "market_cap": 1014200.0194269584,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 1014200.02,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:51:02.000Z"
+     }
+    }
+   },
+   "40833": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40833,
+    "name": "SK Hynix tokenized stock (Backpack)",
+    "symbol": "SKHY",
+    "slug": "sk-hynix-tokenized-stock-backpack",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 23417.955724,
+    "total_supply": 23417.955724,
+    "max_supply": null,
+    "date_added": "2026-06-13T13:02:26.000Z",
+    "num_market_pairs": 30,
+    "cmc_rank": 1415,
+    "last_updated": "2026-11-21T02:51:48.173Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "SKHYhSjuRWHgikq8eRKbtBbpABgJSkd7ytQV14i9EQ3"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 2489001.14,
+    "quote": {
+     "USD": {
+      "price": 106.28601276565058,
+      "volume_24h": 287129.35325387045,
+      "volume_change_24h": -90.103989598237,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 287129.35325387045,
+      "percent_change_1h": 0.377939965285,
+      "percent_change_24h": -10.203593527304,
+      "percent_change_7d": -17.861908955627,
+      "percent_change_30d": -24.029474717485,
+      "percent_change_60d": -44.818843848132,
+      "percent_change_90d": -35.282259123393,
+      "market_cap": 2489001.141026504,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 2489001.14,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:51:02.000Z"
+     }
+    }
+   },
+   "41523": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 41523,
+    "name": "Wrapped SK hynix Tokenized Stock (xStock)",
+    "symbol": "wSKHYx",
+    "slug": "wrapped-sk-hynix-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 0,
+    "total_supply": 0,
+    "max_supply": null,
+    "date_added": "2026-08-11T16:24:42.000Z",
+    "num_market_pairs": 2,
+    "cmc_rank": 7585,
+    "last_updated": "2026-11-21T02:51:48.079Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 3897,
+     "slug": "okb",
+     "name": "X Layer",
+     "symbol": "OKB",
+     "token_address": "0x6215a58ed045d71F2561AaAbe54f4C885C522998"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 0,
+    "quote": {
+     "USD": {
+      "price": 110.29778220131624,
+      "volume_24h": 0,
+      "volume_change_24h": -100,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 0,
+      "percent_change_1h": 0,
+      "percent_change_24h": -9.225027212612,
+      "percent_change_7d": -16.024308332563,
+      "percent_change_30d": -21.111115759575,
+      "percent_change_60d": -42.890068311812,
+      "percent_change_90d": -33.228102861072,
+      "market_cap": 0,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 0,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:51:02.000Z"
+     }
+    }
+   },
+   "42557": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "base-ecosystem",
+      "name": "Base Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "coinbase-ecosystem",
+      "name": "Coinbase Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42557,
+    "name": "SK hynix Inc. Tokenized Stock (Coinbase)",
+    "symbol": "SKHYc",
+    "slug": "sk-hynix-inc-tokenized-stock-coinbase",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 2698.7041319,
+    "total_supply": 2698.7041319,
+    "max_supply": null,
+    "date_added": "2026-10-14T03:37:01.000Z",
+    "num_market_pairs": 4,
+    "cmc_rank": 2428,
+    "last_updated": "2026-11-21T02:51:48.070Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 27716,
+     "slug": "base",
+     "name": "Base",
+     "symbol": "-",
+     "token_address": "0xb200000000000000000000187f7071d6e321a7d2"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 286671.26,
+    "quote": {
+     "USD": {
+      "price": 106.22552238316888,
+      "volume_24h": 281507.4258096849,
+      "volume_change_24h": -21.640990005662,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 281507.4258096849,
+      "percent_change_1h": -0.018943346087,
+      "percent_change_24h": -10.216684464031,
+      "percent_change_7d": -18.3625056289,
+      "percent_change_30d": -24.28673920774,
+      "percent_change_60d": -40.730453004148,
+      "percent_change_90d": -40.730453004148,
+      "market_cap": 286671.25616869377,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 286671.26,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:51:02.000Z"
+     }
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:52:02.594Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 3,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

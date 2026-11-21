@@ -6,13 +6,13 @@
   "params": {
    "rwa_id": "7"
   },
-  "startedUtc": "2026-11-21T02:05:43.532Z",
-  "elapsedMs": 716,
+  "startedUtc": "2026-11-21T02:52:34.745Z",
+  "elapsedMs": 731,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": "",
-  "bodyBytes": 3132,
+  "bodyBytes": 3139,
   "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v5/real-world-assets/quotes/latest?rwa_id=7\""
  },
  "body": {
@@ -26,30 +26,30 @@
       {
        "symbol": "USD",
        "crypto_id": 2781,
-       "average_tokenized_price": 489.800101925095,
-       "tokenized_market_cap": 20632543.60556831,
-       "tokenized_volume_24h": 19141177.96315074,
-       "last_updated": "2026-11-21T02:05:02.000Z"
+       "average_tokenized_price": 489.46813503846386,
+       "tokenized_market_cap": 20613772.95367288,
+       "tokenized_volume_24h": 18702958.1971422,
+       "last_updated": "2026-11-21T02:51:02.000Z"
       }
      ],
      "rwa_id": 7,
      "asset_type": "stock",
      "rwa_rank": 3,
      "has_tokens": true,
-     "average_tokenized_price": 489.800101925095,
-     "tokenized_market_cap": 20632543.60556831,
-     "tokenized_volume_24h": 19141177.96315074,
-     "last_updated": "2026-11-21T02:05:13.171Z",
+     "average_tokenized_price": 489.46813503846386,
+     "tokenized_market_cap": 20613772.95367288,
+     "tokenized_volume_24h": 18702958.1971422,
+     "last_updated": "2026-11-21T02:52:16.148Z",
      "tokens": [
       {
        "symbol": "MSFTX",
        "name": "Microsoft tokenized stock (xStock)",
-       "price": 490.8081190969391,
+       "price": 490.67480887677004,
        "crypto_id": 37056,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 7386517.799616135,
-       "volume_24h": 1143671.3636110038
+       "market_cap": 7384511.520021655,
+       "volume_24h": 1056600.9441069565
       },
       {
        "symbol": "MSFT.D",
@@ -64,82 +64,82 @@
       {
        "symbol": "MSFTon",
        "name": "Microsoft Tokenized Stock (Ondo)",
-       "price": 490.4721141881451,
+       "price": 489.9189989241922,
        "crypto_id": 38086,
        "issuer_id": "688ca4ccabae9b5b9fb3167a",
        "issuer_name": "Ondo Assets",
-       "market_cap": 6257237.529067114,
-       "volume_24h": 7220604.674972604
+       "market_cap": 6250181.116505852,
+       "volume_24h": 7142372.438423557
       },
       {
        "symbol": "MSFT",
        "name": "Microsoft Corporation (Derivatives)",
-       "price": 489.5347706675211,
+       "price": 488.91447793470286,
        "crypto_id": 39495,
        "issuer_id": "695e11f774b54210f3b95dc3",
        "issuer_name": "NA (Derivatives)",
        "market_cap": 0,
-       "volume_24h": 95223.96707780643
+       "volume_24h": 93130.80847250538
       },
       {
        "symbol": "MSFT",
        "name": "Microsoft Tokenized Stock (Hyperliquid)",
-       "price": 489.9265106110944,
+       "price": 489.94257848401884,
        "crypto_id": 39616,
        "issuer_id": "699ed38db54c9320b15928e3",
        "issuer_name": "Hyperliquid Assets",
        "market_cap": 0,
-       "volume_24h": 18.07828824154938
+       "volume_24h": 18.078881146060297
       },
       {
        "symbol": "MSFTB",
        "name": "Microsoft Tokenized bStocks",
-       "price": 488.93275714327063,
+       "price": 488.17377877113097,
        "crypto_id": 40589,
        "issuer_id": "6a2aed5097c45356b1a5f710",
        "issuer_name": "bStocks",
-       "market_cap": 2704570.2801537197,
-       "volume_24h": 3794290.1884825155
+       "market_cap": 2700371.9311607783,
+       "volume_24h": 3636271.9097971553
       },
       {
        "symbol": "rMSFT",
        "name": "Microsoft Tokenized Stock (Reality)",
-       "price": 489.0564937129424,
+       "price": 488.4245198319952,
        "crypto_id": 40609,
        "issuer_id": "6a43600c282e7240b76c8bbb",
        "issuer_name": "Reality",
-       "market_cap": 1022434.0348515528,
-       "volume_24h": 744803.6876534132
+       "market_cap": 1021112.8140655614,
+       "volume_24h": 730657.8929968505
       },
       {
        "symbol": "MSFT",
        "name": "Microsoft Tokenized Stock (Robinhood)",
-       "price": 489.67297051130004,
+       "price": 488.3669191516712,
        "crypto_id": 40695,
        "issuer_id": "6a465832fbe3004b1a0ea2dd",
        "issuer_name": "Robinhood",
-       "market_cap": 1680903.8825543418,
-       "volume_24h": 524238.5686933779
+       "market_cap": 1676420.5907791737,
+       "volume_24h": 469371.63083815464
       },
       {
        "symbol": "WMSFTX",
        "name": "Wrapped Microsoft Tokenized stock (xStock)",
-       "price": 493.5573194253798,
+       "price": 493.2760904447638,
        "crypto_id": 37214,
        "issuer_id": "6878977dcbbf471de3366e85",
        "issuer_name": "Backed Assets",
-       "market_cap": 259605.89758788445,
-       "volume_24h": 655812.3491064806
+       "market_cap": 259457.9741369152,
+       "volume_24h": 643889.2177121337
       },
       {
        "symbol": "MSFTc",
        "name": "Microsoft Corporation Tokenized Stock (Coinbase)",
-       "price": 489.1021051464074,
+       "price": 489.3968536984287,
        "crypto_id": 42494,
        "issuer_id": "6a72fe7072996604d45c6733",
        "issuer_name": "Coinbase",
-       "market_cap": 1321899.88629576,
-       "volume_24h": 4965437.922859136
+       "market_cap": 1322696.5053928832,
+       "volume_24h": 4923841.308190871
       }
      ],
      "tradfi_markets": [
@@ -157,7 +157,7 @@
    ]
   },
   "status": {
-   "timestamp": "2026-11-21T02:05:44.123Z",
+   "timestamp": "2026-11-21T02:52:35.348Z",
    "error_code": "0",
    "error_message": "",
    "elapsed": 5,

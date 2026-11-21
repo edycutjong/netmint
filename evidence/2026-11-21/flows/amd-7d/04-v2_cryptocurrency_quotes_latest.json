@@ -1,0 +1,642 @@
+{
+ "receipt": {
+  "id": "r5",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "params": {
+   "id": "28632,38027,40538,40601,40687,41115,42473,42659"
+  },
+  "startedUtc": "2026-11-21T02:45:19.620Z",
+  "elapsedMs": 296,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 12553,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=28632%2C38027%2C40538%2C40601%2C40687%2C41115%2C42473%2C42659\""
+ },
+ "body": {
+  "data": {
+   "28632": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "real-world-assets-protocols",
+      "name": "Real World Assets Protocols",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 28632,
+    "name": "AMD tokenized stock (Dinari)",
+    "symbol": "AMD.D",
+    "slug": "dinari-amd",
+    "is_active": 0,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 0,
+    "total_supply": 95.941928795,
+    "max_supply": 0,
+    "date_added": "2023-12-07T11:21:20.000Z",
+    "num_market_pairs": null,
+    "cmc_rank": null,
+    "last_updated": "2026-11-21T02:45:19.787Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0xd8F728AdB72a46Ae2c92234AE8870D04907786C5"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": null,
+    "quote": {
+     "USD": {
+      "price": null,
+      "volume_24h": null,
+      "volume_change_24h": null,
+      "cex_volume_24h": null,
+      "dex_volume_24h": null,
+      "percent_change_1h": null,
+      "percent_change_24h": null,
+      "percent_change_7d": null,
+      "percent_change_30d": null,
+      "percent_change_60d": null,
+      "percent_change_90d": null,
+      "market_cap": null,
+      "market_cap_dominance": null,
+      "fully_diluted_market_cap": 0,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "38027": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-alpha",
+      "name": "Binance Alpha",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperevm-ecosystem",
+      "name": "HyperEVM Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "ondo-stocks-ecosystem",
+      "name": "Ondo Stocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 38027,
+    "name": "AMD Tokenized Stock (Ondo)",
+    "symbol": "AMDon",
+    "slug": "amd-tokenized-stock-ondo",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 5491.57092262,
+    "total_supply": 5491.57092262,
+    "max_supply": null,
+    "date_added": "2025-09-03T10:55:20.000Z",
+    "num_market_pairs": 29,
+    "cmc_rank": 1431,
+    "last_updated": "2026-11-21T02:45:03.036Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1027,
+     "slug": "ethereum",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "token_address": "0x0C1f3412A44Ff99E40bF14e06e5Ea321aE7B3938"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 2401427.02,
+    "quote": {
+     "USD": {
+      "price": 437.2932728041255,
+      "volume_24h": 3704285.1099894643,
+      "volume_change_24h": -13.293536509237,
+      "cex_volume_24h": 3398886.6609433494,
+      "dex_volume_24h": 305398.4490461143,
+      "percent_change_1h": -0.391677924287,
+      "percent_change_24h": -7.031405832369,
+      "percent_change_7d": -16.336586547555,
+      "percent_change_30d": -18.726452915024,
+      "percent_change_60d": -29.506106106717,
+      "percent_change_90d": -6.666105311948,
+      "market_cap": 2401427.021588471,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 2401427.02,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "40538": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-listing",
+      "name": "Binance Listing",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bstocks",
+      "name": "bStocks",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40538,
+    "name": "Advanced Micro Devices Tokenized bStocks",
+    "symbol": "AMDB",
+    "slug": "advanced-micro-devices-tokenized-bstocks",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 9896.53212494,
+    "total_supply": 9896.53212494,
+    "max_supply": null,
+    "date_added": "2026-06-21T05:23:03.000Z",
+    "num_market_pairs": 21,
+    "cmc_rank": 1183,
+    "last_updated": "2026-11-21T02:45:03.070Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1839,
+     "slug": "bnb",
+     "name": "BNB Smart Chain (BEP20)",
+     "symbol": "BNB",
+     "token_address": "0x75fd4cf6f8392e41e70391d60c90c0d5211603a1"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 4318926.67,
+    "quote": {
+     "USD": {
+      "price": 436.4080888958024,
+      "volume_24h": 8220806.273325623,
+      "volume_change_24h": -28.190422639819,
+      "cex_volume_24h": 8218852.510116217,
+      "dex_volume_24h": 1953.7632094058251,
+      "percent_change_1h": -0.398011076259,
+      "percent_change_24h": -7.269341424325,
+      "percent_change_7d": -16.532280980376,
+      "percent_change_30d": -18.803874154793,
+      "percent_change_60d": -29.696908937062,
+      "percent_change_90d": -6.978547533162,
+      "market_cap": 4318926.67134098,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 4318926.67,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "40601": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bitget-ecosystem",
+      "name": "Bitget Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "rtokens",
+      "name": "rTokens",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40601,
+    "name": "AMD Tokenized Stock (Reality)",
+    "symbol": "rAMD",
+    "slug": "amd-tokenized-stock-reality",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 4173.25160437,
+    "total_supply": 4173.25160437,
+    "max_supply": null,
+    "date_added": "2026-07-02T07:39:02.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 1550,
+    "last_updated": "2026-11-21T02:45:03.036Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0x3fde83d2d577f21f1c0f61c7a53f4f578f8d800f"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 1819650.38,
+    "quote": {
+     "USD": {
+      "price": 436.0269999452703,
+      "volume_24h": 3216894.7089930084,
+      "volume_change_24h": -25.905822884494,
+      "cex_volume_24h": 3216894.7089930084,
+      "dex_volume_24h": 0,
+      "percent_change_1h": -0.31203062965,
+      "percent_change_24h": -7.431956704736,
+      "percent_change_7d": -16.598212192085,
+      "percent_change_30d": -18.982552368931,
+      "percent_change_60d": -29.668424427842,
+      "percent_change_90d": -6.985533037296,
+      "market_cap": 1819650.3770702372,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 1819650.38,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "40687": {
+    "tags": [
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-ecosystem",
+      "name": "Robinhood Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-stock",
+      "name": "Robinhood Stock",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40687,
+    "name": "AMD Tokenized Stock (Robinhood)",
+    "symbol": "AMD",
+    "slug": "amd-tokenized-stock-robinhood",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 4184.87259,
+    "total_supply": 4184.87259,
+    "max_supply": null,
+    "date_added": "2026-08-04T07:31:25.000Z",
+    "num_market_pairs": 30,
+    "cmc_rank": 1548,
+    "last_updated": "2026-11-21T02:45:03.021Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 40670,
+     "slug": "robinhood-placeholder",
+     "name": "Robinhood Chain",
+     "symbol": "-",
+     "token_address": "0x86923f96303D656E4aa86D9d42D1e57ad2023fdC"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 1828518.25,
+    "quote": {
+     "USD": {
+      "price": 436.9352259448811,
+      "volume_24h": 2096664.758117384,
+      "volume_change_24h": -33.62753658324,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 2096664.758117384,
+      "percent_change_1h": -0.357786992789,
+      "percent_change_24h": -7.19956312232,
+      "percent_change_7d": -16.490763099695,
+      "percent_change_30d": -18.8223927014,
+      "percent_change_60d": -29.337490774819,
+      "percent_change_90d": -7.073030051032,
+      "market_cap": 1828518.2506621897,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 1828518.25,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "41115": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 41115,
+    "name": "Wrapped AMD Tokenized Stock (xStock)",
+    "symbol": "wAMDx",
+    "slug": "wrapped-amd-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 0,
+    "total_supply": 0,
+    "max_supply": null,
+    "date_added": "2026-08-11T16:20:22.000Z",
+    "num_market_pairs": 2,
+    "cmc_rank": 4889,
+    "last_updated": "2026-11-21T02:45:03.110Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 3897,
+     "slug": "okb",
+     "name": "X Layer",
+     "symbol": "OKB",
+     "token_address": "0xEe7CcB0d37A12862e7f92F6C92a93d9c2d304266"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 0,
+    "quote": {
+     "USD": {
+      "price": 429.83331839090835,
+      "volume_24h": 825.2256283852142,
+      "volume_change_24h": -37.267924215652,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 825.2256283852142,
+      "percent_change_1h": -1.992488634537,
+      "percent_change_24h": -9.022386464514,
+      "percent_change_7d": -17.435680135018,
+      "percent_change_30d": -19.981551766486,
+      "percent_change_60d": -30.720726936208,
+      "percent_change_90d": -8.377305520117,
+      "market_cap": 0,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 0,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "42473": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "base-ecosystem",
+      "name": "Base Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "coinbase-ecosystem",
+      "name": "Coinbase Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42473,
+    "name": "Advanced Micro Devices, Inc. Tokenized Stock (Coinbase)",
+    "symbol": "AMDc",
+    "slug": "advanced-micro-devices-inc-tokenized-stock-coinbase",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 1414.16918337,
+    "total_supply": 1414.16918337,
+    "max_supply": null,
+    "date_added": "2026-10-08T03:59:55.000Z",
+    "num_market_pairs": 5,
+    "cmc_rank": 2078,
+    "last_updated": "2026-11-21T02:45:03.110Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 27716,
+     "slug": "base",
+     "name": "Base",
+     "symbol": "-",
+     "token_address": "0xB2000000000000000000000d8ce462E99ee7A47B"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 619768.27,
+    "quote": {
+     "USD": {
+      "price": 438.2560960027962,
+      "volume_24h": 5279238.182767214,
+      "volume_change_24h": 15.537365258141,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 5279238.182767214,
+      "percent_change_1h": -0.117514009374,
+      "percent_change_24h": -6.920301167406,
+      "percent_change_7d": -16.3509794322,
+      "percent_change_30d": -20.204211344729,
+      "percent_change_60d": -32.537117097328,
+      "percent_change_90d": -32.537117097328,
+      "market_cap": 619768.2653911986,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 619768.27,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   },
+   "42659": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42659,
+    "name": "Advanced Micro Devices tokenized stock (Backpack)",
+    "symbol": "AMD",
+    "slug": "advanced-micro-devices-tokenized-stock-backpack",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 0,
+    "total_supply": 754.42,
+    "max_supply": null,
+    "date_added": "2026-06-13T13:02:26.000Z",
+    "num_market_pairs": 8,
+    "cmc_rank": 4120,
+    "last_updated": "2026-11-21T02:45:03.096Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "AMD8XwJXgQ9WV45Wyj9yFLejxzf2J6VM1PJY8bJEjeES"
+    },
+    "self_reported_circulating_supply": 754.42,
+    "self_reported_market_cap": 329318.46800411964,
+    "minted_market_cap": 329318.47,
+    "quote": {
+     "USD": {
+      "price": 436.5187402297389,
+      "volume_24h": 675792.5278808288,
+      "volume_change_24h": -51.078011184852,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 675792.5278808288,
+      "percent_change_1h": -0.344207797592,
+      "percent_change_24h": -7.352445385523,
+      "percent_change_7d": -16.439728458622,
+      "percent_change_30d": -18.80940733772,
+      "percent_change_60d": -29.438252517698,
+      "percent_change_90d": -16.562340466109,
+      "market_cap": 0,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 329318.47,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:44:02.000Z"
+     }
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:45:19.791Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 8,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

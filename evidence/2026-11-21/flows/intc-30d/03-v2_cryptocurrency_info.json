@@ -7,13 +7,13 @@
    "id": "38035,37028,40540,40618,40697,37202,42505",
    "aux": "platform"
   },
-  "startedUtc": "2026-11-21T02:04:47.792Z",
-  "elapsedMs": 310,
+  "startedUtc": "2026-11-21T02:51:48.479Z",
+  "elapsedMs": 414,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": null,
-  "bodyBytes": 7224,
+  "bodyBytes": 7225,
   "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=38035%2C37028%2C40540%2C40618%2C40697%2C37202%2C42505&aux=platform\""
  },
  "body": {
@@ -486,10 +486,10 @@
    }
   },
   "status": {
-   "timestamp": "2026-11-21T02:04:47.986Z",
+   "timestamp": "2026-11-21T02:51:48.769Z",
    "error_code": 0,
    "error_message": null,
-   "elapsed": 59,
+   "elapsed": 144,
    "credit_count": 1,
    "notice": null
   }

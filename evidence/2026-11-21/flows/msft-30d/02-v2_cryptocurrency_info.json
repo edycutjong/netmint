@@ -4,17 +4,17 @@
   "kind": "cmc",
   "endpoint": "/v2/cryptocurrency/info",
   "params": {
-   "id": "37056,28618,38086,40589,40609,40695,37214,42494",
+   "id": "37056,28618,38086,39616,40589,40609,40695,37214,42494",
    "aux": "platform"
   },
-  "startedUtc": "2026-11-21T02:05:44.250Z",
-  "elapsedMs": 262,
+  "startedUtc": "2026-11-21T02:52:35.478Z",
+  "elapsedMs": 271,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": null,
-  "bodyBytes": 8038,
-  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=37056%2C28618%2C38086%2C40589%2C40609%2C40695%2C37214%2C42494&aux=platform\""
+  "bodyBytes": 8964,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=37056%2C28618%2C38086%2C39616%2C40589%2C40609%2C40695%2C37214%2C42494&aux=platform\""
  },
  "body": {
   "data": {
@@ -344,6 +344,64 @@
     ],
     "infinite_supply": false
    },
+   "39616": {
+    "id": 39616,
+    "name": "Microsoft Tokenized Stock (Hyperliquid)",
+    "symbol": "MSFT",
+    "category": "token",
+    "slug": "microsoft-tokenized-stock-hyperliquid",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Hyperliquid Ecosystem",
+     "Tokenized Assets",
+     "HyperEVM Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM"
+    ],
+    "platform": {
+     "id": "32196",
+     "name": "Hyperliquid",
+     "symbol": "HYPE",
+     "slug": "hyperliquid",
+     "token_address": "0x7ef4eba0c0200957e357627ced1884d6cb63e961"
+    },
+    "twitter_username": "HyperliquidX",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x7ef4eba0c0200957e357627ced1884d6cb63e961",
+      "platform": {
+       "name": "HyperEVM",
+       "coin": {
+        "id": "32196",
+        "name": "Hyperliquid",
+        "symbol": "HYPE",
+        "slug": "hyperliquid"
+       }
+      }
+     },
+     {
+      "contract_address": "0xf5559ee90ac19c61eb6379eb3b3dade8",
+      "platform": {
+       "name": "Hyperliquid",
+       "coin": {
+        "id": "32196",
+        "name": "Hyperliquid",
+        "symbol": "HYPE",
+        "slug": "hyperliquid"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
    "40589": {
     "id": 40589,
     "name": "Microsoft Tokenized bStocks",
@@ -532,10 +590,10 @@
    }
   },
   "status": {
-   "timestamp": "2026-11-21T02:05:44.388Z",
+   "timestamp": "2026-11-21T02:52:35.625Z",
    "error_code": 0,
    "error_message": null,
-   "elapsed": 11,
+   "elapsed": 9,
    "credit_count": 1,
    "notice": null
   }

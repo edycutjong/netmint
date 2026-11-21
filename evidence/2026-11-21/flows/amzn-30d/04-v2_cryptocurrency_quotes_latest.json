@@ -1,0 +1,682 @@
+{
+ "receipt": {
+  "id": "r5",
+  "kind": "cmc",
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "params": {
+   "id": "37014,38083,39619,40603,40718,40929,37112,42425"
+  },
+  "startedUtc": "2026-11-21T02:46:42.142Z",
+  "elapsedMs": 519,
+  "httpStatus": 200,
+  "creditCount": 1,
+  "errorCode": 0,
+  "errorMessage": null,
+  "bodyBytes": 13248,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=37014%2C38083%2C39619%2C40603%2C40718%2C40929%2C37112%2C42425\""
+ },
+ "body": {
+  "data": {
+   "37014": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "toncoin-ecosystem",
+      "name": "Toncoin Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "internet-capital-markets",
+      "name": "Internet Capital Markets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 37014,
+    "name": "Amazon tokenized stock (xStock)",
+    "symbol": "AMZNX",
+    "slug": "amazon-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": true,
+    "is_fiat": 0,
+    "circulating_supply": 37329.59804799,
+    "total_supply": 556252.84631188,
+    "max_supply": null,
+    "date_added": "2025-07-01T14:12:20.000Z",
+    "num_market_pairs": 73,
+    "cmc_rank": 878,
+    "last_updated": "2026-11-21T02:46:33.224Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "Xs3eBt7uRfJX8QUs4suhyU8p2M6DoUDrJyWBa8LLZsg"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 139243954.81,
+    "quote": {
+     "USD": {
+      "price": 250.3249299937308,
+      "volume_24h": 11081913.451168686,
+      "volume_change_24h": 45.272988017799,
+      "cex_volume_24h": 10798914.147496056,
+      "dex_volume_24h": 282999.3036726309,
+      "percent_change_1h": -0.186528327225,
+      "percent_change_24h": -2.273738306715,
+      "percent_change_7d": -5.344308289189,
+      "percent_change_30d": -3.98675648844,
+      "percent_change_60d": -3.511507767161,
+      "percent_change_90d": -3.426225518019,
+      "market_cap": 9344529.018057207,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 139243954.81,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:46:02.000Z"
+     }
+    }
+   },
+   "37112": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 37112,
+    "name": "Wrapped Amazon Tokenized stock (xStock)",
+    "symbol": "WAMZNX",
+    "slug": "wrapped-amazon-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 81.64554325,
+    "total_supply": 81.64554325,
+    "max_supply": null,
+    "date_added": "2025-07-02T13:36:43.000Z",
+    "num_market_pairs": 2,
+    "cmc_rank": 3544,
+    "last_updated": "2026-11-21T02:46:33.241Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 3897,
+     "slug": "okb",
+     "name": "X Layer",
+     "symbol": "OKB",
+     "token_address": "0x910cabdE3EBa7Fc1Ce64fD14bD680b9f60fA0F90"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 20502.6,
+    "quote": {
+     "USD": {
+      "price": 251.11713743169088,
+      "volume_24h": 683361.9619343292,
+      "volume_change_24h": 24.45347941342,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 683361.9619343292,
+      "percent_change_1h": 0.152706319457,
+      "percent_change_24h": -1.597221386552,
+      "percent_change_7d": -4.790207834069,
+      "percent_change_30d": -3.923307546819,
+      "percent_change_60d": -2.871216246513,
+      "percent_change_90d": -4.118560960277,
+      "market_cap": 20502.59510499531,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 20502.6,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:46:02.000Z"
+     }
+    }
+   },
+   "38083": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-alpha",
+      "name": "Binance Alpha",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperevm-ecosystem",
+      "name": "HyperEVM Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "ondo-stocks-ecosystem",
+      "name": "Ondo Stocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 38083,
+    "name": "Amazon Tokenized Stock (Ondo)",
+    "symbol": "AMZNon",
+    "slug": "amazon-tokenized-stock-ondo",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 40182.17863839,
+    "total_supply": 40182.17863839,
+    "max_supply": null,
+    "date_added": "2025-09-03T10:55:12.000Z",
+    "num_market_pairs": 36,
+    "cmc_rank": 843,
+    "last_updated": "2026-11-21T02:46:33.211Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1027,
+     "slug": "ethereum",
+     "name": "Ethereum",
+     "symbol": "ETH",
+     "token_address": "0xbb8774FB97436d23d74C1b882E8E9A69322cFD31"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 10059530.19,
+    "quote": {
+     "USD": {
+      "price": 250.3480530395613,
+      "volume_24h": 7554691.091337257,
+      "volume_change_24h": 48.496012893572,
+      "cex_volume_24h": 4940579.012423303,
+      "dex_volume_24h": 2614112.078913955,
+      "percent_change_1h": -0.199782983593,
+      "percent_change_24h": -2.267321920079,
+      "percent_change_7d": -5.29602087621,
+      "percent_change_30d": -3.978167873958,
+      "percent_change_60d": -3.548965108295,
+      "percent_change_90d": -3.31066018911,
+      "market_cap": 10059530.189008787,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 10059530.19,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:46:02.000Z"
+     }
+    }
+   },
+   "39619": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperliquid-ecosystem",
+      "name": "Hyperliquid Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "hyperevm-ecosystem",
+      "name": "HyperEVM Ecosystem",
+      "category": "PLATFORM"
+     }
+    ],
+    "id": 39619,
+    "name": "Amazon Tokenized Stock (Hyperliquid)",
+    "symbol": "AMZN",
+    "slug": "amazon-tokenized-stock-hyperliquid",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 0,
+    "total_supply": 0,
+    "max_supply": null,
+    "date_added": "2026-02-25T10:53:00.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 7354,
+    "last_updated": "2026-11-21T02:46:33.224Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 32196,
+     "slug": "hyperliquid",
+     "name": "HyperEVM",
+     "symbol": "HYPE",
+     "token_address": "0xc304a9d52cf9165024ebc7814250ef3a5013f924"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 0,
+    "quote": {
+     "USD": {
+      "price": 202.95107230603483,
+      "volume_24h": 0,
+      "volume_change_24h": 0,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 0,
+      "percent_change_1h": 0,
+      "percent_change_24h": 0,
+      "percent_change_7d": 0,
+      "percent_change_30d": -24.687168132628,
+      "percent_change_60d": -7.725438116206,
+      "percent_change_90d": -27.934564975705,
+      "market_cap": 0,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 0,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:46:02.000Z"
+     }
+    }
+   },
+   "40603": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bitget-ecosystem",
+      "name": "Bitget Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "rtokens",
+      "name": "rTokens",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40603,
+    "name": "Amazon Tokenized Stock (Reality)",
+    "symbol": "rAMZN",
+    "slug": "amazon-tokenized-stock-reality",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 2374.83149353,
+    "total_supply": 2374.83149353,
+    "max_supply": null,
+    "date_added": "2026-07-02T07:39:03.000Z",
+    "num_market_pairs": 3,
+    "cmc_rank": 2100,
+    "last_updated": "2026-11-21T02:46:33.098Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 11841,
+     "slug": "arbitrum",
+     "name": "Arbitrum",
+     "symbol": "ARB",
+     "token_address": "0xfba9e358f9ad443236155e5c67f2aade032db7a1"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 593419.75,
+    "quote": {
+     "USD": {
+      "price": 249.87867697085662,
+      "volume_24h": 505396.3393830703,
+      "volume_change_24h": 231.385751422781,
+      "cex_volume_24h": 505396.3393830703,
+      "dex_volume_24h": 0,
+      "percent_change_1h": -0.148511841638,
+      "percent_change_24h": -2.402077546348,
+      "percent_change_7d": -5.33419300341,
+      "percent_change_30d": -4.089181649052,
+      "percent_change_60d": -3.724775365832,
+      "percent_change_90d": -3.756990245815,
+      "market_cap": 593419.7516319999,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 593419.75,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:46:02.000Z"
+     }
+    }
+   },
+   "40718": {
+    "tags": [
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-ecosystem",
+      "name": "Robinhood Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "robinhood-stock",
+      "name": "Robinhood Stock",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40718,
+    "name": "Amazon Tokenized Stock (Robinhood)",
+    "symbol": "AMZN",
+    "slug": "amazon-tokenized-stock-robinhood",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 9446.29485,
+    "total_supply": 9446.29485,
+    "max_supply": null,
+    "date_added": "2026-08-04T07:31:38.000Z",
+    "num_market_pairs": 36,
+    "cmc_rank": 1439,
+    "last_updated": "2026-11-21T02:46:33.048Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 40670,
+     "slug": "robinhood-placeholder",
+     "name": "Robinhood Chain",
+     "symbol": "-",
+     "token_address": "0x12f190a9F9d7D37a250758b26824B97CE941bF54"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 2366507.8,
+    "quote": {
+     "USD": {
+      "price": 250.52233008908235,
+      "volume_24h": 1357367.0403468674,
+      "volume_change_24h": 31.769089435256,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 1357367.0403468674,
+      "percent_change_1h": -0.137831220133,
+      "percent_change_24h": -2.098680891294,
+      "percent_change_7d": -5.180320402832,
+      "percent_change_30d": -3.918526045215,
+      "percent_change_60d": -3.388855670765,
+      "percent_change_90d": -3.452757670357,
+      "market_cap": 2366507.7965304987,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 2366507.8,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:46:02.000Z"
+     }
+    }
+   },
+   "40929": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "binance-ecosystem",
+      "name": "Binance Ecosystem",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "binance-listing",
+      "name": "Binance Listing",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "bstocks",
+      "name": "bStocks",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 40929,
+    "name": "Amazon Tokenized bStocks",
+    "symbol": "AMZNB",
+    "slug": "amazon-tokenized-bstocks",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 14448.22876057,
+    "total_supply": 14448.22876057,
+    "max_supply": null,
+    "date_added": "2026-07-28T07:16:57.000Z",
+    "num_market_pairs": 14,
+    "cmc_rank": 1257,
+    "last_updated": "2026-11-21T02:46:33.074Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 1839,
+     "slug": "bnb",
+     "name": "BNB Smart Chain (BEP20)",
+     "symbol": "BNB",
+     "token_address": "0x1a4b499833a79a09ad7cf1d42d7dacf71e92eb00"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 3614043.02,
+    "quote": {
+     "USD": {
+      "price": 250.13744430383468,
+      "volume_24h": 3797768.4520895183,
+      "volume_change_24h": -36.357661184085,
+      "cex_volume_24h": 3719075.775728149,
+      "dex_volume_24h": 78692.67636136948,
+      "percent_change_1h": -0.217694567177,
+      "percent_change_24h": -2.338887648059,
+      "percent_change_7d": -5.313230407122,
+      "percent_change_30d": -4.019888282826,
+      "percent_change_60d": -3.651362514176,
+      "percent_change_90d": -3.467664661639,
+      "market_cap": 3614043.0168861407,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 3614043.02,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:46:02.000Z"
+     }
+    }
+   },
+   "42425": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "base-ecosystem",
+      "name": "Base Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "coinbase-ecosystem",
+      "name": "Coinbase Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 42425,
+    "name": "Amazon.com Inc. Tokenized Stock (Coinbase)",
+    "symbol": "AMZNc",
+    "slug": "amazoncom-inc-tokenized-stock-coinbase",
+    "is_active": 1,
+    "infinite_supply": false,
+    "is_fiat": 0,
+    "circulating_supply": 10411.50295316,
+    "total_supply": 10411.50295316,
+    "max_supply": null,
+    "date_added": "2026-10-08T03:59:45.000Z",
+    "num_market_pairs": 8,
+    "cmc_rank": 1391,
+    "last_updated": "2026-11-21T02:46:33.116Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 27716,
+     "slug": "base",
+     "name": "Base",
+     "symbol": "-",
+     "token_address": "0xb200000000000000000000d9192b6B456483C2E8"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 2608204.88,
+    "quote": {
+     "USD": {
+      "price": 250.51185094860202,
+      "volume_24h": 14568084.327714052,
+      "volume_change_24h": 34.146544070357,
+      "cex_volume_24h": 0,
+      "dex_volume_24h": 14568084.327714052,
+      "percent_change_1h": -0.086908433427,
+      "percent_change_24h": -2.22220312744,
+      "percent_change_7d": -5.417951811162,
+      "percent_change_30d": -4.10266358426,
+      "percent_change_60d": -3.536242431846,
+      "percent_change_90d": -69.26008149203,
+      "market_cap": 2608204.875952948,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 2608204.88,
+      "tvl": null,
+      "last_updated": "2026-11-21T02:46:02.000Z"
+     }
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T02:46:42.541Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 8,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

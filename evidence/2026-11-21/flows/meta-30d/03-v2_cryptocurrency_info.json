@@ -4,17 +4,17 @@
   "kind": "cmc",
   "endpoint": "/v2/cryptocurrency/info",
   "params": {
-   "id": "37055,28621,38065,40592,40602,40780,37211,42440",
+   "id": "37055,28621,38065,39615,40592,40602,40780,37211,42440",
    "aux": "platform"
   },
-  "startedUtc": "2026-11-21T02:05:12.221Z",
-  "elapsedMs": 434,
+  "startedUtc": "2026-11-21T02:46:23.138Z",
+  "elapsedMs": 704,
   "httpStatus": 200,
   "creditCount": 1,
   "errorCode": 0,
   "errorMessage": null,
-  "bodyBytes": 8247,
-  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=37055%2C28621%2C38065%2C40592%2C40602%2C40780%2C37211%2C42440&aux=platform\""
+  "bodyBytes": 9184,
+  "curl": "curl -s -H \"X-CMC_PRO_API_KEY: $CMC_API_KEY\" \"https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=37055%2C28621%2C38065%2C39615%2C40592%2C40602%2C40780%2C37211%2C42440&aux=platform\""
  },
  "body": {
   "data": {
@@ -358,6 +358,64 @@
     ],
     "infinite_supply": false
    },
+   "39615": {
+    "id": 39615,
+    "name": "Meta Platforms Tokenized Stock (Hyperliquid)",
+    "symbol": "META",
+    "category": "token",
+    "slug": "meta-platforms-tokenized-stock-hyperliquid",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Tokenized Stock",
+     "Hyperliquid Ecosystem",
+     "Tokenized Assets",
+     "HyperEVM Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY",
+     "PLATFORM"
+    ],
+    "platform": {
+     "id": "32196",
+     "name": "Hyperliquid",
+     "symbol": "HYPE",
+     "slug": "hyperliquid",
+     "token_address": "0x5a9d2deee7d8782011695623f1c453f46b2b566e"
+    },
+    "twitter_username": "HyperliquidX",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "0x5a9d2deee7d8782011695623f1c453f46b2b566e",
+      "platform": {
+       "name": "HyperEVM",
+       "coin": {
+        "id": "32196",
+        "name": "Hyperliquid",
+        "symbol": "HYPE",
+        "slug": "hyperliquid"
+       }
+      }
+     },
+     {
+      "contract_address": "0x555659a2a856d42399cdde096eb998e9",
+      "platform": {
+       "name": "Hyperliquid",
+       "coin": {
+        "id": "32196",
+        "name": "Hyperliquid",
+        "symbol": "HYPE",
+        "slug": "hyperliquid"
+       }
+      }
+     }
+    ],
+    "infinite_supply": false
+   },
    "40592": {
     "id": 40592,
     "name": "Meta Tokenized bStocks",
@@ -546,10 +604,10 @@
    }
   },
   "status": {
-   "timestamp": "2026-11-21T02:05:12.539Z",
+   "timestamp": "2026-11-21T02:46:23.722Z",
    "error_code": 0,
    "error_message": null,
-   "elapsed": 49,
+   "elapsed": 12,
    "credit_count": 1,
    "notice": null
   }
