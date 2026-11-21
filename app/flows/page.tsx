@@ -6,12 +6,13 @@ import { pct, times, usd, utcStamp, VERDICT_LABEL } from '@/lib/format';
 export const dynamic = 'force-dynamic';
 export const metadata = { title: '/flows: net creation and redemption across tokenised stocks · NetMint' };
 
+const isVerified = (r: FlowRow) => r.verdict === 'REAL_INFLOW' || r.verdict === 'OUTFLOW';
 const DIV_LABEL = { price_down_money_in: 'price down, money in', price_up_money_out: 'price up, money out' } as const;
 
 function tsv(rows: FlowRow[], head: string): string {
-  const cols = ['verdict', 'wrapper', 'issuer', 'underlying', 'net_creation_usd', 'units_x', 'price_pct', 'divergence', 'coverage'];
+  const cols = ['verdict', 'wrapper', 'issuer', 'underlying', 'net_creation_usd_verified_only', 'cmc_supply_change_usd_unverified', 'units_x', 'price_pct', 'divergence', 'coverage'];
   const body = rows.map((r) =>
-    [r.verdict ? VERDICT_LABEL[r.verdict] : 'NO VERDICT', r.symbol, r.issuer, r.underlying, r.netUsd === null ? '' : Math.round(r.netUsd), r.unitsX === null ? '' : r.unitsX.toFixed(3), r.pricePct === null ? '' : (r.pricePct * 100).toFixed(1) + '%', r.divergence ? DIV_LABEL[r.divergence] : '', r.coverage === null ? '' : (r.coverage * 100).toFixed(1) + '%'].join('\t'),
+    [r.verdict ? VERDICT_LABEL[r.verdict] : 'NO VERDICT', r.symbol, r.issuer, r.underlying, isVerified(r) && r.netUsd !== null ? Math.round(r.netUsd) : '', !isVerified(r) && r.netUsd !== null ? Math.round(r.netUsd) : '', r.unitsX === null ? '' : r.unitsX.toFixed(3), r.pricePct === null ? '' : (r.pricePct * 100).toFixed(1) + '%', r.divergence ? DIV_LABEL[r.divergence] : '', r.coverage === null ? '' : (r.coverage * 100).toFixed(1) + '%'].join('\t'),
   );
   return [head, cols.join('\t'), ...body].join('\n');
 }
@@ -27,20 +28,20 @@ export default async function Flows({ searchParams }: { searchParams: Promise<{ 
       <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 400, fontSize: 40, margin: '0 0 12px', letterSpacing: '0.04em' }}>Flows</h1>
       <div className="actions" style={{ marginTop: 0, marginBottom: 14 }}>
         <div className="seg" role="group" aria-label="Window">
-          <a href="/flows?w=7" className="segl" aria-current={w === 7 ? 'true' : undefined}>
+          <a href={`/flows?w=7${all ? '&all=1' : ''}`} className="segl" aria-current={w === 7 ? 'true' : undefined}>
             7 d
           </a>
-          <a href="/flows?w=30" className="segl" aria-current={w === 30 ? 'true' : undefined}>
+          <a href={`/flows?w=30${all ? '&all=1' : ''}`} className="segl" aria-current={w === 30 ? 'true' : undefined}>
             30 d
           </a>
         </div>
         <a className="btn quiet" href={all ? `/flows?w=${w}` : `/flows?w=${w}&all=1`} style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
-          {all ? 'Hide not-verifiable rows' : 'Show every wrapper'}
+          {all ? 'Show only rows with a verdict' : 'Show all wrappers (incl. not verifiable)'}
         </a>
       </div>
       {!t ? (
         <div className="banner" role="alert">
-          No committed flows table for {w} d yet. Run <span className="data">npm run flows</span> and redeploy; nothing is invented in its place.
+          No captured flows table for {w} d is deployed, and nothing is invented in its place. Try the other window, or <a href="/">open a ticker</a> to run a live lookup.
         </div>
       ) : (
         <FlowsBody t={t} all={all} />
@@ -94,8 +95,10 @@ function FlowsBody({ t, all }: { t: NonNullable<ReturnType<typeof loadFlows>>; a
                     <a href={`/u/${encodeURIComponent(r.underlying)}?from=${t.range.from}&to=${t.range.to}`}>Open {r.underlying} live, same window</a>
                   </div>
                 </td>
-                <td className={`num money ${r.netUsd !== null && r.netUsd < 0 ? 'debit' : ''}`}>{r.netUsd === null ? '' : usd(r.netUsd)}</td>
-                <td className="num">{r.unitsX === null ? '' : times(r.unitsX)}</td>
+                <td className={`num money ${r.netUsd !== null && r.netUsd < 0 && isVerified(r) ? 'debit' : ''}`} title={isVerified(r) ? 'Net creation, verified on chain' : 'CMC supply change × price; the chain does not confirm it, so it is not net creation'}>
+                  {r.netUsd === null ? '' : isVerified(r) ? usd(r.netUsd) : <span className="muted">CMC supply Δ {usd(r.netUsd)}, unproven</span>}
+                </td>
+                <td className={`num ${isVerified(r) ? '' : 'muted'}`}>{r.unitsX === null ? '' : times(r.unitsX)}</td>
                 <td className={`num ${r.pricePct !== null && r.pricePct < 0 ? 'debit' : ''}`}>{r.pricePct === null ? '' : pct(r.pricePct)}</td>
                 <td className="hide-sm">{r.divergence ? <span className="tag-div">{DIV_LABEL[r.divergence]}</span> : <span className="muted">—</span>}</td>
                 <td className="num hide-sm">{r.coverage === null ? '—' : `${(r.coverage * 100).toFixed(1)}%`}</td>
@@ -105,7 +108,7 @@ function FlowsBody({ t, all }: { t: NonNullable<ReturnType<typeof loadFlows>>; a
         </table>
       </div>
       <p className="definition">
-        Counted the way ETF flow tables count creations: units created or redeemed × price. REAL INFLOW and OUTFLOW are issuer-level net creation and redemption that the chain confirms within ±10%, not buyer data; “price vs money” marks only those. RECOUNT means CMC’s supply moved but the chain disagrees; NOT VERIFIABLE means the chain cannot be read for that wrapper ({t.rows.filter((r) => r.verdict === 'NOT_VERIFIABLE').length} of {t.rows.length}, hidden unless you ask). Evidence: <span className="data">evidence/{t.generatedUtc.slice(0, 10)}/flows/</span>.
+        Counted the way ETF flow tables count creations: units created or redeemed × price. REAL INFLOW and OUTFLOW are issuer-level net creation and redemption that the chain confirms within ±10%, not buyer data; “price vs money” marks only those. RECOUNT means CMC’s supply moved but the chain disagrees; NOT VERIFIABLE means the chain cannot be read for that wrapper ({t.rows.filter((r) => r.verdict === 'NOT_VERIFIABLE').length} of {t.rows.length}; {t.rows.length - shown.length} of {t.rows.length} rows are hidden in this view). Chain coverage is the on-chain supply summed over BNB Chain and Ethereum ÷ CMC’s supply at the window start; a little over 100% means the chain read higher. On RECOUNT and NOT VERIFIABLE rows the dollar figure is CMC’s supply change × price and is shown only as unproven. Evidence: <span className="data">evidence/{t.generatedUtc.slice(0, 10)}/flows/</span>.
       </p>
     </>
   );
