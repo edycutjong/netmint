@@ -99,7 +99,7 @@ describe('mint check + verdict (one test per state)', () => {
     const { metrics, mint } = check(s, mirrorChain(s, 0.99));
     expect(mint.status).toBe('pass');
     expect(decideVerdict(metrics, mint).verdict).toBe('REAL_INFLOW');
-    expect(mint.reason).toMatch(/steps carrying ≥ 80% of the flow verified \(chain .* · within remedy ±10%\)/);
+    expect(mint.reason).toMatch(/largest step days \(up to 5\) verified \(chain .* · within remedy ±10%\)/);
     expect(mint.reason).not.toMatch(/every step verified/);
   });
 

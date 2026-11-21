@@ -104,7 +104,7 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
     };
   }
 
-  // step check: material step days (largest |flow| until ≥ 80% of gross, ≤ 5), 3-day sums; the chain side is read at
+  // step check: material step days (largest |flow| days, until ≥ 80% of gross or the 5-day cap, whichever binds first), 3-day sums; the chain side is read at
   // the frozen issuer offset d, the same alignment as the window check and the proof row
   const gross = flows.reduce((s, f) => s + Math.abs(f.flow), 0);
   const ranked = [...flows].sort((x, y) => Math.abs(y.flow) - Math.abs(x.flow));
@@ -160,7 +160,7 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
     return {
       ...out,
       status: 'pass',
-      reason: `window endpoints and the steps carrying ≥ 80% of the flow verified (chain ${signed(at.chainDelta)} · CMC ${signed(cmcDelta)} · ${errLine(out.errPct, at.tol, cmcDelta, p)})`,
+      reason: `window endpoints and the largest step days (up to 5) verified (chain ${signed(at.chainDelta)} · CMC ${signed(cmcDelta)} · ${errLine(out.errPct, at.tol, cmcDelta, p)})`,
     };
   }
   // failure routing (1): another single offset passes → ambiguous alignment, never RECOUNT

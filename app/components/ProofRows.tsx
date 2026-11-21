@@ -48,7 +48,7 @@ export function ProofRows({ w }: { w: WrapperResult }) {
         </div>
       ) : null}
       <p className={`verdict-line${m.status === 'pass' ? ' pass' : ''}`}>
-        Found: {m.status === 'pass' ? `window and material steps verified: ${w.reason.replace(/^window endpoints and the steps carrying ≥ 80% of the flow verified /, '')}` : w.reason}
+        Found: {m.status === 'pass' ? `window and material steps verified: ${w.reason.replace(/^window endpoints and the largest step days \(up to 5\) verified /, '')}` : w.reason}
       </p>
       {w.mintReceipt ? (
         <p className="capture" style={{ margin: '6px 0 0' }}>

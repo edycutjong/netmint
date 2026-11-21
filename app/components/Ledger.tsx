@@ -101,7 +101,7 @@ function Detail({ w }: { w: WrapperResult }) {
       {w.mint?.stepDays.length ? (
         <>
           <h3 className="section-h" style={{ marginTop: 18 }}>
-            Material step days (3-day sums, carrying ≥ 80% of the flow)
+            Material step days (3-day sums; the largest days, up to 5)
           </h3>
           <table className="ledger plain">
             <thead>

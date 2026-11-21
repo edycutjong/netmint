@@ -21,7 +21,7 @@
    "symbol": "NVDAB",
    "issuer": "bStocks",
    "verdict": "REAL_INFLOW",
-   "reason": "window endpoints and the steps carrying ≥ 80% of the flow verified within remedy (chain +1,216,792 · CMC +1,209,739 · +0.6% · within remedy ±10%)",
+   "reason": "window endpoints and the largest step days (up to 5) verified within remedy (chain +1,216,792 · CMC +1,209,739 · +0.6% · within remedy ±10%)",
    "net_usd": 202826522.8240499,
    "gross_in_usd": 232580861.81937176,
    "gross_out_usd": -29754338.99532186,
