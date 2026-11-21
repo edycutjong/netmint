@@ -22,7 +22,9 @@ const flag = (k: string) => {
 };
 const TOP = Number(flag('top') ?? 20);
 const WINDOWS = (flag('windows') ?? '7,30').split(',').map(Number) as (7 | 30)[];
-const only = flag('only')?.split(',').map((s) => s.toUpperCase());
+const only = flag('only')
+  ?.split(',')
+  .map((s) => s.toUpperCase());
 // one clock for every lookup in the run: a capture that crosses 00:00 UTC still shares one window end
 const NOW_MS = Date.now();
 const ALLOW_PARTIAL = args.includes('--allow-partial');
@@ -38,7 +40,9 @@ const write = (p: string, v: unknown) => {
 async function universe(rec: Recorder): Promise<{ symbol: string; rwaId: number }[]> {
   const call = await rec.cmc<any>('/v5/real-world-assets/assets/list', { start: '1', limit: '250' });
   if (!call.ok) throw new Error(`assets/list failed: ${call.status?.error_message}`);
-  const rows: any[] = (call.body?.data?.rwa_assets ?? []).filter((a: any) => a.has_tokens === true && a.rwa_id != null && a.asset_type === 'stock');
+  const rows: any[] = (call.body?.data?.rwa_assets ?? []).filter(
+    (a: any) => a.has_tokens === true && a.rwa_id != null && a.asset_type === 'stock',
+  );
   rows.sort((a, b) => (b.tokenized_market_cap ?? 0) - (a.tokenized_market_cap ?? 0));
   const picked = only ? rows.filter((a) => only.includes(String(a.symbol).toUpperCase())) : rows.slice(0, TOP);
   return picked.map((a) => ({ symbol: String(a.symbol), rwaId: Number(a.rwa_id) }));
@@ -62,7 +66,8 @@ async function main() {
   for (const w of WINDOWS) {
     const rows: FlowRow[] = [];
     const skipped: FlowsTable['skipped'] = [];
-    let credits = rec0.credits, range = { from: '', to: '' };
+    let credits = rec0.credits,
+      range = { from: '', to: '' };
     const results: LookupResult[] = [];
     let next = 0;
     const worker = async () => {
@@ -72,20 +77,34 @@ async function main() {
           const rec = new Recorder(undefined, (c, q) => rpcBatch(c, q, RPC_SCRIPT));
           const r = await lookup(String(a.rwaId), { window: w, nowMs: NOW_MS, rec });
           // a chain read that failed would turn into "chain check unavailable" rows: a failed run, not a verdict
-          if (r.errors.length) throw new Error(`chain read failed: ${r.errors.map((x) => x.message).join('; ').slice(0, 160)}`);
+          if (r.errors.length)
+            throw new Error(
+              `chain read failed: ${r.errors
+                .map((x) => x.message)
+                .join('; ')
+                .slice(0, 160)}`,
+            );
           const tag = `${a.symbol.toLowerCase()}-${w}d`;
           const dir = path.join(root, 'flows', tag);
           rmSync(dir, { recursive: true, force: true }); // one run per folder: never leave an earlier run's bodies beside this one
           mkdirSync(dir, { recursive: true });
           r.receipts
             .filter((x) => x.kind === 'cmc' && !x.endpoint.endsWith('/assets/list'))
-            .forEach((x, i) => write(path.join(dir, `${String(i + 1).padStart(2, '0')}-${x.endpoint.replace(/^\//, '').replace(/\//g, '_')}.json`), { receipt: { ...x, body: undefined }, body: rec.archiveBody(x) }));
+            .forEach((x, i) =>
+              write(path.join(dir, `${String(i + 1).padStart(2, '0')}-${x.endpoint.replace(/^\//, '').replace(/\//g, '_')}.json`), {
+                receipt: { ...x, body: undefined },
+                body: rec.archiveBody(x),
+              }),
+            );
           rows.push(...rowsFromLookup(r, path.posix.join('evidence', date, 'flows', tag)));
           credits += r.credits;
-          if (range.to && (range.from !== r.range.from || range.to !== r.range.to)) throw new Error(`range drift: ${r.range.from}→${r.range.to} vs ${range.from}→${range.to}`);
+          if (range.to && (range.from !== r.range.from || range.to !== r.range.to))
+            throw new Error(`range drift: ${r.range.from}→${r.range.to} vs ${range.from}→${range.to}`);
           range = { from: r.range.from, to: r.range.to };
           results.push(r);
-          console.log(`  ${w}d ${a.symbol.padEnd(6)} ${r.wrappers.filter((x) => !x.derivative).length} wrappers, ${r.credits} credits, ${r.elapsedMs} ms`);
+          console.log(
+            `  ${w}d ${a.symbol.padEnd(6)} ${r.wrappers.filter((x) => !x.derivative).length} wrappers, ${r.credits} credits, ${r.elapsedMs} ms`,
+          );
         } catch (e) {
           const msg = e instanceof LookupFailure ? `${e.httpStatus} ${e.message}` : (e as Error).message;
           skipped.push({ underlying: a.symbol, error: msg.slice(0, 200) });
@@ -99,7 +118,11 @@ async function main() {
       command: `npm run flows -- ${args.join(' ')}`.trim() + ` (commit ${commit})`,
       window: w,
       range,
-      universe: { underlyings: list.length - skipped.length, wrappers: rows.length, ranking: 'tokenised stocks by CMC assets/list tokenized_market_cap, top ' + list.length },
+      universe: {
+        underlyings: list.length - skipped.length,
+        wrappers: rows.length,
+        ranking: 'tokenised stocks by CMC assets/list tokenized_market_cap, top ' + list.length,
+      },
       credits,
       skipped,
       rows: sortFlows(rows),
@@ -108,11 +131,15 @@ async function main() {
     const complete = skipped.length === 0;
     write(path.join(root, complete || ALLOW_PARTIAL ? `flows-${w}d.json` : `flows-${w}d.partial.json`), table);
     if (!complete && !ALLOW_PARTIAL) {
-      console.error(`flows-${w}d: ${skipped.length} underlyings skipped → wrote flows-${w}d.partial.json; /flows keeps the last complete table (re-run, or pass --allow-partial)`);
+      console.error(
+        `flows-${w}d: ${skipped.length} underlyings skipped → wrote flows-${w}d.partial.json; /flows keeps the last complete table (re-run, or pass --allow-partial)`,
+      );
       process.exitCode = 2;
     }
     const v = table.rows.filter((r) => r.verdict === 'REAL_INFLOW' || r.verdict === 'OUTFLOW');
-    console.log(`flows-${w}d.json: ${rows.length} wrappers, ${v.length} verified, ${table.rows.filter((r) => r.divergence).length} divergent, ${skipped.length} skipped, ${credits} credits`);
+    console.log(
+      `flows-${w}d.json: ${rows.length} wrappers, ${v.length} verified, ${table.rows.filter((r) => r.divergence).length} divergent, ${skipped.length} skipped, ${credits} credits`,
+    );
   }
 }
 main().catch((e) => {

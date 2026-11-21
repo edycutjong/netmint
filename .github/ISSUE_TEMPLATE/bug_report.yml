@@ -1,0 +1,24 @@
+name: Bug report
+description: A wrong verdict, a broken page, a failing check
+labels: [bug]
+body:
+  - type: input
+    id: ticker
+    attributes:
+      label: Ticker and window
+      placeholder: NVDA, 30 d
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected and what you saw
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps or the /api/lookup response
+      description: Receipts included if you have them. Never paste an API key.
+    validations:
+      required: true

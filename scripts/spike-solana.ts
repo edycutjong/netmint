@@ -26,7 +26,9 @@ async function main() {
   const mint: string = info.body.data['36992'].contract_address.find((c: any) => c.platform?.name === 'Solana').contract_address;
   const a = await call([mint]);
   const b = await call([mint, { commitment: 'finalized', slot: 300000000 }]);
-  const same = JSON.stringify(a.response.result?.context) === JSON.stringify(b.response.result?.context) && a.response.result?.value?.amount === b.response.result?.value?.amount;
+  const same =
+    JSON.stringify(a.response.result?.context) === JSON.stringify(b.response.result?.context) &&
+    a.response.result?.value?.amount === b.response.result?.value?.amount;
   const out = {
     captured_utc: new Date().toISOString(),
     command: 'npm run spike:solana',
@@ -36,8 +38,10 @@ async function main() {
     observed: same
       ? 'getTokenSupply returned the current supply with the current context slot both times; the past `slot` passed in the config was ignored (same context.slot and amount).'
       : 'the two calls differed; inspect `calls` before drawing a conclusion.',
-    docs_note: 'The Solana docs page https://solana.com/docs/rpc/http/gettokensupply answered HTTP 429 to our fetch on 2026-11-21, so this records observed behaviour only, not the docs text.',
-    consequence: 'NetMint does not verify Solana legs historically. They are reported as not verifiable on chain; coverage.json gives the share of CMC supply on Ethereum + BNB Smart Chain per wrapper (NVDAX: see coverage.json).',
+    docs_note:
+      'The Solana docs page https://solana.com/docs/rpc/http/gettokensupply answered HTTP 429 to our fetch on 2026-11-21, so this records observed behaviour only, not the docs text.',
+    consequence:
+      'NetMint does not verify Solana legs historically. They are reported as not verifiable on chain; coverage.json gives the share of CMC supply on Ethereum + BNB Smart Chain per wrapper (NVDAX: see coverage.json).',
     calls: [a, b],
   };
   writeFileSync(path.join(DIR, 'solana-supply.json'), JSON.stringify(out, null, 1) + '\n');

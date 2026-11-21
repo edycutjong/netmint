@@ -12,7 +12,8 @@ import { loadFlows, rowsFromLookup } from '../lib/flows';
 
 async function main() {
   const index = loadStoredIndex();
-  let rows = 0, diffs = 0;
+  let rows = 0,
+    diffs = 0;
   for (const w of [7, 30] as const) {
     const t = loadFlows(w);
     if (!t) throw new Error(`no flows-${w}d.json`);
@@ -31,7 +32,9 @@ async function main() {
         const same = g && g.verdict === row.verdict && Math.round(g.netUsd ?? 0) === Math.round(row.netUsd ?? 0);
         if (!same) {
           diffs++;
-          console.log(`DIFF ${w}d ${row.symbol}: table ${row.verdict} ${Math.round(row.netUsd ?? 0)} · replay ${g?.verdict ?? 'missing'} ${Math.round(g?.netUsd ?? 0)} · ${g?.reason.slice(0, 120) ?? ''}`);
+          console.log(
+            `DIFF ${w}d ${row.symbol}: table ${row.verdict} ${Math.round(row.netUsd ?? 0)} · replay ${g?.verdict ?? 'missing'} ${Math.round(g?.netUsd ?? 0)} · ${g?.reason.slice(0, 120) ?? ''}`,
+          );
         }
       }
     }

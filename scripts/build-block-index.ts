@@ -49,7 +49,9 @@ async function build(chain: ChainId) {
     days: sorted,
   };
   writeFileSync(file, JSON.stringify(out, null, 1) + '\n');
-  console.log(`${chain}: ${Object.keys(sorted).length} days (${Object.keys(sorted)[0]} → ${Object.keys(sorted).at(-1)}), ${probes} new probes, ${((Date.now() - t0) / 1000).toFixed(1)} s`);
+  console.log(
+    `${chain}: ${Object.keys(sorted).length} days (${Object.keys(sorted)[0]} → ${Object.keys(sorted).at(-1)}), ${probes} new probes, ${((Date.now() - t0) / 1000).toFixed(1)} s`,
+  );
 }
 
 (async () => {

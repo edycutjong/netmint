@@ -38,7 +38,12 @@ async function main() {
   };
   r.receipts
     .filter((x) => x.kind === 'cmc')
-    .forEach((x, i) => write(path.join(ev, `${String(i + 1).padStart(2, '0')}-${x.endpoint.replace(/^\//, '').replace(/\//g, '_')}.json`), { receipt: { ...x, body: undefined }, body: rec.archiveBody(x) }));
+    .forEach((x, i) =>
+      write(path.join(ev, `${String(i + 1).padStart(2, '0')}-${x.endpoint.replace(/^\//, '').replace(/\//g, '_')}.json`), {
+        receipt: { ...x, body: undefined },
+        body: rec.archiveBody(x),
+      }),
+    );
   const table = {
     command: `npm run snapshot -- ${args.join(' ')}`.trim(),
     fetched_utc: r.fetchedUtc,
@@ -65,7 +70,20 @@ async function main() {
       price_b: w.metrics?.priceB ?? null,
       exit_ratio: w.exitRatio,
       coverage_a: w.mint?.coverageA ?? null,
-      mint: w.mint ? { status: w.mint.status, comparator: w.mint.comparator, offset: w.mint.offset, cmc_delta: w.mint.cmcDelta, chain_delta: w.mint.chainDelta, err_pct: w.mint.errPct, chain_source: w.mint.chainSource, chain_dates: w.mint.chainDates, step_days: w.mint.stepDays, legs: w.mint.legs } : null,
+      mint: w.mint
+        ? {
+            status: w.mint.status,
+            comparator: w.mint.comparator,
+            offset: w.mint.offset,
+            cmc_delta: w.mint.cmcDelta,
+            chain_delta: w.mint.chainDelta,
+            err_pct: w.mint.errPct,
+            chain_source: w.mint.chainSource,
+            chain_dates: w.mint.chainDates,
+            step_days: w.mint.stepDays,
+            legs: w.mint.legs,
+          }
+        : null,
       proof: w.proof ?? null,
       mint_receipt: w.mintReceipt ?? null,
       refused: w.refused.map((f) => ({ date: f.date, reason: f.reason, detail: f.detail })),
@@ -80,9 +98,13 @@ async function main() {
     path.join(ev, 'README.md'),
     `# Evidence: ${u} ${r.range.from} → ${r.range.to}\n\n- Command: \`${table.command}\`\n- Fetched: ${r.fetchedUtc}\n- Commit: ${commit}\n- CMC credits: ${r.credits}\n- Files: one verbatim CMC body per call (numbered in call order) + \`table.json\` (computed verdicts)\n- Chain values: the committed daily baseline in \`data/chain-supply/\` (chain source per wrapper in table.json)\n`,
   );
-  write(path.join(proof, `${tag}-receipts.json`), r.receipts.map((x) => ({ ...x, body: x.kind === 'cmc' ? '(verbatim body in evidence/)' : x.body })));
+  write(
+    path.join(proof, `${tag}-receipts.json`),
+    r.receipts.map((x) => ({ ...x, body: x.kind === 'cmc' ? '(verbatim body in evidence/)' : x.body })),
+  );
   console.log(`wrote ${ev} (${r.receipts.length} receipts, ${r.credits} credits); hero ${table.hero}`);
-  for (const w of table.wrappers) console.log(`${String(w.verdict).padEnd(15)} ${w.symbol.padEnd(8)} ${w.net_usd === null ? '' : (w.net_usd / 1e6).toFixed(2) + 'M'}`);
+  for (const w of table.wrappers)
+    console.log(`${String(w.verdict).padEnd(15)} ${w.symbol.padEnd(8)} ${w.net_usd === null ? '' : (w.net_usd / 1e6).toFixed(2) + 'M'}`);
 }
 main().catch((e) => {
   console.error(`snapshot failed: ${(e as Error).message}`);

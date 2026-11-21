@@ -22,7 +22,9 @@ async function main() {
   for (const chain of ['bsc', 'eth'] as ChainId[]) {
     const days = idx(chain);
     const keys = Object.keys(days);
-    const sample = [keys[0], keys[Math.floor(keys.length / 2)], '2026-11-13', keys.at(-1)!].filter((d, i, a) => days[d] && a.indexOf(d) === i);
+    const sample = [keys[0], keys[Math.floor(keys.length / 2)], '2026-11-13', keys.at(-1)!].filter(
+      (d, i, a) => days[d] && a.indexOf(d) === i,
+    );
     for (const d of sample) {
       const b = days[d];
       const [tsPrev, ts] = await blockTimestamps(chain, [b - 1, b]);
@@ -42,10 +44,27 @@ async function main() {
     const t0 = performance.now();
     const [raw] = await rpcBatch('bsc', [req], RPC_SCRIPT);
     const ms = Math.round(performance.now() - t0);
-    calls.push({ chain: 'bsc', day: d, block: bsc[d], block_url: `${EXPLORER.bsc}/block/${bsc[d]}`, request: { jsonrpc: '2.0', ...req }, raw_result: raw, decimals: 18, totalSupply: scaleUnits(raw, 18), elapsed_ms: ms });
+    calls.push({
+      chain: 'bsc',
+      day: d,
+      block: bsc[d],
+      block_url: `${EXPLORER.bsc}/block/${bsc[d]}`,
+      request: { jsonrpc: '2.0', ...req },
+      raw_result: raw,
+      decimals: 18,
+      totalSupply: scaleUnits(raw, 18),
+      elapsed_ms: ms,
+    });
     console.log(`eth_call totalSupply NVDAB @ ${d} block ${bsc[d]} = ${scaleUnits(raw, 18).toFixed(4)} (${ms} ms)`);
   }
-  const out = { generated_utc: new Date().toISOString(), command: 'npm run spike:chain', provider: 'Alchemy archive JSON-RPC (bnb-mainnet, eth-mainnet); URL withheld (key in path)', token: { symbol: 'NVDAB', crypto_id: 40215, chain: 'bsc', address: token }, block_index_checks: checks, total_supply_calls: calls };
+  const out = {
+    generated_utc: new Date().toISOString(),
+    command: 'npm run spike:chain',
+    provider: 'Alchemy archive JSON-RPC (bnb-mainnet, eth-mainnet); URL withheld (key in path)',
+    token: { symbol: 'NVDAB', crypto_id: 40215, chain: 'bsc', address: token },
+    block_index_checks: checks,
+    total_supply_calls: calls,
+  };
   const text = JSON.stringify(out, null, 1);
   assertNoSecrets(text);
   writeFileSync(path.join(ROOT, 'docs/proof/spike/chain-boundary.json'), text + '\n');

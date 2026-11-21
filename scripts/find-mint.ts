@@ -30,12 +30,14 @@ async function main() {
   const found: MintReceipt[] = [];
   const raw: unknown[] = [];
   for (const D of days) {
-    let lo = blocks[addDays(D, -1)], hi = blocks[D];
+    let lo = blocks[addDays(D, -1)],
+      hi = blocks[D];
     if (lo === undefined || hi === undefined) {
       console.log(`${D}: no block index`);
       continue;
     }
-    const s0 = await supplyAt(lo, dec), s1 = await supplyAt(hi, dec);
+    const s0 = await supplyAt(lo, dec),
+      s1 = await supplyAt(hi, dec);
     const step = s1 - s0;
     if (step <= 0) {
       console.log(`${D}: chain step ${step.toFixed(2)} ≤ 0, no mint to find`);
@@ -62,8 +64,20 @@ async function main() {
       console.log(`${D}: crossing at block ${hi} but no zero-address Transfer in the 10-block window`);
       continue;
     }
-    found.push({ crypto_id: Number(idArg), symbol, chain, date: D, tx: best.tx, block: best.block, amount: best.amount, recipient: best.recipient, explorer_url: `${EXPLORER[chain]}/tx/${best.tx}` });
-    console.log(`${D}: chain step +${step.toFixed(0)} · mint ${best.amount.toFixed(2)} in ${best.tx} (block ${best.block}) → ${best.recipient}`);
+    found.push({
+      crypto_id: Number(idArg),
+      symbol,
+      chain,
+      date: D,
+      tx: best.tx,
+      block: best.block,
+      amount: best.amount,
+      recipient: best.recipient,
+      explorer_url: `${EXPLORER[chain]}/tx/${best.tx}`,
+    });
+    console.log(
+      `${D}: chain step +${step.toFixed(0)} · mint ${best.amount.toFixed(2)} in ${best.tx} (block ${best.block}) → ${best.recipient}`,
+    );
   }
   const path = 'data/mints.json';
   const prev: MintReceipt[] = existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')) : [];
@@ -72,7 +86,18 @@ async function main() {
   );
   writeFileSync(path, JSON.stringify(merged, null, 1) + '\n');
   mkdirSync('docs/proof/mints', { recursive: true });
-  const out = JSON.stringify({ command: `npm run find-mint -- ${process.argv.slice(2).join(' ')}`, generated_utc: new Date().toISOString(), chain, address, decimals: dec, days: raw }, null, 1);
+  const out = JSON.stringify(
+    {
+      command: `npm run find-mint -- ${process.argv.slice(2).join(' ')}`,
+      generated_utc: new Date().toISOString(),
+      chain,
+      address,
+      decimals: dec,
+      days: raw,
+    },
+    null,
+    1,
+  );
   assertNoSecrets(out);
   writeFileSync(`docs/proof/mints/${symbol.toLowerCase()}-${chain}.json`, out + '\n');
 }

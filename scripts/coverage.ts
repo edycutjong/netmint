@@ -32,12 +32,20 @@ async function main() {
       if (!chain) continue;
       const addr: string = c.contract_address;
       const block = heads[chain].n;
-      const [dec, sup] = await rpcBatch(chain, [
-        { method: 'eth_call', params: [{ to: addr, data: SEL.decimals }, '0x' + block.toString(16)] },
-        totalSupplyReq(addr, block),
-      ], RPC_SCRIPT);
+      const [dec, sup] = await rpcBatch(
+        chain,
+        [{ method: 'eth_call', params: [{ to: addr, data: SEL.decimals }, '0x' + block.toString(16)] }, totalSupplyReq(addr, block)],
+        RPC_SCRIPT,
+      );
       const decimals = parseInt(dec, 16);
-      legs.push({ chain, address: addr, block, block_utc: new Date(heads[chain].ts * 1000).toISOString(), decimals, totalSupply: scaleUnits(sup, decimals) });
+      legs.push({
+        chain,
+        address: addr,
+        block,
+        block_utc: new Date(heads[chain].ts * 1000).toISOString(),
+        decimals,
+        totalSupply: scaleUnits(sup, decimals),
+      });
     }
     const onEthBsc = legs.reduce((s, l) => s + l.totalSupply, 0);
     const denom = cmcTotal ?? cmcCirc;
@@ -52,7 +60,9 @@ async function main() {
       coverage_vs_cmc_total: legs.length && denom ? onEthBsc / denom : null,
       verifiable_on_eth_bsc: legs.length > 0,
     });
-    console.log(`${meta.symbol.padEnd(8)} legs=${legs.map((l) => l.chain).join('+') || '-'} eth+bsc=${legs.length ? onEthBsc.toFixed(2) : '-'} cmcTotal=${cmcTotal ?? '-'} coverage=${legs.length && denom ? ((onEthBsc / denom) * 100).toFixed(1) + '%' : 'n/a'}`);
+    console.log(
+      `${meta.symbol.padEnd(8)} legs=${legs.map((l) => l.chain).join('+') || '-'} eth+bsc=${legs.length ? onEthBsc.toFixed(2) : '-'} cmcTotal=${cmcTotal ?? '-'} coverage=${legs.length && denom ? ((onEthBsc / denom) * 100).toFixed(1) + '%' : 'n/a'}`,
+    );
   }
   const out = {
     generated_utc: new Date().toISOString(),
