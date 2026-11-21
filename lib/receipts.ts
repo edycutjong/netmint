@@ -5,7 +5,7 @@
  */
 import { CMC_BASE, cmcErrorCode, cmcFetch, type CmcCall } from './cmc/client';
 import { classifyCmcError } from './cmc/errors';
-import { EXPLORER, rpcBatch, type ChainId, type RpcReq } from './chain/rpc';
+import { EXPLORER, RPC_REQUEST, rpcBatch, type ChainId, type RpcReq } from './chain/rpc';
 import type { StoredLookup } from './stored';
 import type { Receipt } from './types';
 
@@ -119,13 +119,13 @@ export class Recorder {
   }
 
   /** One JSON-RPC batch; each request gets its own receipt (method, block, raw hex result, explorer link). */
-  async rpc<T = string>(chain: ChainId, reqs: RpcReq[], meta: { label?: string; address?: string } = {}): Promise<T[]> {
+  async rpc<T = string>(chain: ChainId, reqs: RpcReq[], meta: { label?: string; address?: string; deadline?: number } = {}): Promise<T[]> {
     const startedUtc = new Date().toISOString();
     const t0 = performance.now();
     let results: T[] | null = null;
     let err: unknown = null;
     try {
-      results = await this.rpcTransport<T>(chain, reqs);
+      results = await this.rpcTransport<T>(chain, reqs, meta.deadline === undefined ? undefined : { ...RPC_REQUEST, deadline: meta.deadline });
     } catch (e) {
       err = e;
     }

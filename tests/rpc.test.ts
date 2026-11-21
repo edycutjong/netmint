@@ -71,7 +71,25 @@ describe('chain-read deadline', () => {
       throw new Error('no RPC may run after the deadline');
     }) as any);
     const out = await legSupplies(rec, [{ chain: 'bsc', address: '0x0000000000000000000000000000000000000001' }], ['2026-11-20'], { deadlineMs: Date.now() - 1 });
-    expect(out.errors).toEqual(['bsc RPC: bsc RPC: chain-read time budget exhausted']);
+    expect(out.errors).toEqual(['bsc RPC: bsc chain-read time budget exhausted']);
     expect(out.legs[0].values.get('2026-11-20')).toBeNull();
+  });
+});
+
+describe('rpcBatch deadline', () => {
+  it('an expired deadline throws before any request is sent', async () => {
+    const { rpcBatch, RPC_REQUEST } = await import('@/lib/chain/rpc');
+    const real = globalThis.fetch;
+    let calls = 0;
+    globalThis.fetch = (async () => {
+      calls++;
+      return new Response('[]');
+    }) as unknown as typeof fetch;
+    try {
+      await expect(rpcBatch('bsc', [{ method: 'eth_blockNumber', params: [] }], { ...RPC_REQUEST, deadline: Date.now() - 1 })).rejects.toThrow(/chain-read time budget exhausted/);
+      expect(calls).toBe(0);
+    } finally {
+      globalThis.fetch = real;
+    }
   });
 });

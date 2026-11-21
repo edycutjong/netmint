@@ -1,4 +1,4 @@
-import { rpcBatch, hex, type ChainId } from './rpc';
+import { RPC_REQUEST, rpcBatch, hex, type ChainId } from './rpc';
 
 /** Day-boundary block index: first block with timestamp >= 00:00 UTC of each day. */
 export interface BlockIndex {
@@ -10,15 +10,16 @@ export interface BlockIndex {
 
 type Block = { number: string; timestamp: string };
 
-export async function headBlock(chain: ChainId): Promise<{ n: number; ts: number }> {
-  const [b] = await rpcBatch<Block>(chain, [{ method: 'eth_getBlockByNumber', params: ['latest', false] }]);
+export async function headBlock(chain: ChainId, deadline?: number): Promise<{ n: number; ts: number }> {
+  const [b] = await rpcBatch<Block>(chain, [{ method: 'eth_getBlockByNumber', params: ['latest', false] }], { ...RPC_REQUEST, deadline });
   return { n: parseInt(b.number, 16), ts: parseInt(b.timestamp, 16) };
 }
 
-export async function blockTimestamps(chain: ChainId, ns: number[]): Promise<number[]> {
+export async function blockTimestamps(chain: ChainId, ns: number[], deadline?: number): Promise<number[]> {
   const res = await rpcBatch<Block>(
     chain,
     ns.map((n) => ({ method: 'eth_getBlockByNumber', params: [hex(n), false] })),
+    { ...RPC_REQUEST, deadline },
   );
   return res.map((b) => parseInt(b.timestamp, 16));
 }
@@ -33,11 +34,12 @@ export async function firstBlockAtOrAfter(
   head: { n: number; ts: number },
   cache: Map<number, number>,
   seed?: { lo: number; hi: number },
+  deadline?: number,
 ): Promise<number> {
   const ts = async (n: number) => {
     let v = cache.get(n);
     if (v === undefined) {
-      [v] = await blockTimestamps(chain, [n]);
+      [v] = await blockTimestamps(chain, [n], deadline); // every probe is bounded by the lookup's chain-read deadline
       cache.set(n, v);
     }
     return v;

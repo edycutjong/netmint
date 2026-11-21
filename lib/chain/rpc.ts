@@ -46,7 +46,7 @@ export const RPC_SCRIPT = { timeoutMs: 30_000, maxRetries: 8, maxBackoffMs: 8_00
 export async function rpcBatch<T = string>(
   chain: ChainId,
   reqs: RpcReq[],
-  budget: { timeoutMs: number; maxRetries: number; maxBackoffMs?: number } = RPC_REQUEST,
+  budget: { timeoutMs: number; maxRetries: number; maxBackoffMs?: number; deadline?: number } = RPC_REQUEST,
 ): Promise<T[]> {
   const { timeoutMs, maxRetries: MAX_RETRIES } = budget;
   if (reqs.length === 0) return [];
@@ -54,13 +54,15 @@ export async function rpcBatch<T = string>(
   type Entry = { id: number; result?: T; error?: { code: number; message: string } };
   const done = new Map<number, Entry>();
   let pending = reqs.map((_, i) => i);
+  const left = () => (budget.deadline === undefined ? Infinity : budget.deadline - Date.now());
   for (let attempt = 0; ; attempt++) {
+    if (left() <= 0) throw new RpcError(`${chain} chain-read time budget exhausted`);
     const payload = pending.map((i) => ({ jsonrpc: '2.0', id: i, method: reqs[i].method, params: reqs[i].params }));
     const res = await fetch(rpcUrl(chain), {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(payload),
-      signal: AbortSignal.timeout(timeoutMs),
+      signal: AbortSignal.timeout(Math.max(1, Math.min(timeoutMs, left()))),
       cache: 'no-store',
     });
     if (res.status === 429 && attempt < MAX_RETRIES) {

@@ -70,6 +70,8 @@ const HIST = '/v2/cryptocurrency/quotes/historical';
 
 export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupResult> {
   const t0 = performance.now();
+  // chain reads stop 45 s after the lookup starts (the route answers by 55 s whatever happens; Vercel kills at 60 s)
+  const chainDeadline = Date.now() + 45_000;
   const rec = opts.rec ?? new Recorder(undefined, undefined, opts.storedFallback ? committedStore : null);
   const fetchedUtc = new Date(opts.nowMs ?? Date.now()).toISOString();
   const pinned = Boolean(opts.from && opts.to);
@@ -124,7 +126,7 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
     const uniq = [...new Map(allLegs.map((l) => [`${l.chain}:${l.address}`, l])).values()];
     const dates: string[] = [];
     for (let d = addDays(from, -2); d <= addDays(to, 1); d = addDays(d, 1)) dates.push(d);
-    const chain = await legSupplies(rec, uniq, dates, { allowLive: opts.allowLiveChain ?? true, nowMs: opts.nowMs, deadlineMs: Date.now() + 40_000 });
+    const chain = await legSupplies(rec, uniq, dates, { allowLive: opts.allowLiveChain ?? true, nowMs: opts.nowMs, deadlineMs: chainDeadline });
 
     const wrappers: WrapperResult[] = tokens.map((t) => {
       const map: ContractMap = maps.get(t.crypto_id) ?? { legs: [], unreadable: [] };

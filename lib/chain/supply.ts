@@ -63,7 +63,7 @@ export async function legSupplies(
   const allowLive = opts.allowLive ?? true;
   // past the deadline every remaining read is a failure (→ "chain read failed … run it again"), never a 504 from the platform
   const inTime = (chain: string) => {
-    if (opts.deadlineMs !== undefined && Date.now() > opts.deadlineMs) throw new RpcError(`${chain} RPC: chain-read time budget exhausted`);
+    if (opts.deadlineMs !== undefined && Date.now() > opts.deadlineMs) throw new RpcError(`${chain} chain-read time budget exhausted`);
   };
   const now = opts.nowMs ?? Date.now();
   const errors: string[] = [];
@@ -93,18 +93,18 @@ export async function legSupplies(
         if (t * 1000 > now) continue;
         if (blockIndex(chain)[d] === undefined) {
           inTime(chain);
-          head ??= await headBlock(chain);
+          head ??= await headBlock(chain, opts.deadlineMs);
           if (t > head.ts) continue;
           // seed the search with the nearest known block before d (index or a day resolved earlier in this loop)
           const known = Object.entries(blockIndex(chain)).filter(([k]) => k < d).sort(([a], [b]) => (a < b ? 1 : -1))[0];
-          blockIndex(chain)[d] = await firstBlockAtOrAfter(chain, t, head, cache, known ? { lo: known[1], hi: head.n } : undefined);
+          blockIndex(chain)[d] = await firstBlockAtOrAfter(chain, t, head, cache, known ? { lo: known[1], hi: head.n } : undefined, opts.deadlineMs);
         }
       }
       // decimals for legs without a baseline
       inTime(chain);
       const noDec = mine.filter((l) => l.decimals === null);
       if (noDec.length) {
-        const res = await rec.rpc<string>(chain, noDec.map((l) => ({ method: 'eth_call', params: [{ to: l.address, data: SEL.decimals }, 'latest'] })), { label: 'decimals' });
+        const res = await rec.rpc<string>(chain, noDec.map((l) => ({ method: 'eth_call', params: [{ to: l.address, data: SEL.decimals }, 'latest'] })), { label: 'decimals', deadline: opts.deadlineMs });
         noDec.forEach((l, i) => (l.decimals = Number(BigInt(res[i]))));
       }
       const reqs: { leg: LegSupply; date: string; block: number }[] = [];
@@ -124,7 +124,7 @@ export async function legSupplies(
         for (let i = 0; i < reqs.length; i += 40) {
           inTime(chain);
           const chunk = reqs.slice(i, i + 40);
-          res.push(...(await rec.rpc<string>(chain, chunk.map((r) => totalSupplyReq(r.leg.address, r.block)), { label: 'totalSupply' })));
+          res.push(...(await rec.rpc<string>(chain, chunk.map((r) => totalSupplyReq(r.leg.address, r.block)), { label: 'totalSupply', deadline: opts.deadlineMs })));
         }
         reqs.forEach((r, i) => {
           try {

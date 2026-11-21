@@ -54,7 +54,7 @@ export async function cmcFetch<T = unknown>(
       ...(opts.jsonBody !== undefined ? { 'Content-Type': 'application/json' } : {}),
     },
     body: opts.jsonBody !== undefined ? JSON.stringify(opts.jsonBody) : undefined,
-    signal: AbortSignal.timeout(opts.timeoutMs ?? 15_000), // request path: 3 sequential CMC stages fit the 60 s route
+    signal: AbortSignal.timeout(opts.timeoutMs ?? 15_000), // per call; the route's 55 s budget bounds the whole lookup
     cache: 'no-store',
   });
   const text = await res.text();
