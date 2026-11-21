@@ -26,7 +26,7 @@ export async function GET() {
     {
       service: 'netmint',
       rendered_utc: new Date().toISOString(),
-      commit: process.env.VERCEL_GIT_COMMIT_SHA ?? null,
+      commit: process.env.COMMIT_SHA ?? process.env.VERCEL_GIT_COMMIT_SHA ?? null,
       capture_utc: f30?.generatedUtc ?? null,
       flows: {
         '30d': f30

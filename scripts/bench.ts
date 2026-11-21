@@ -1,5 +1,5 @@
 /**
- * npm run bench -- [--single 10] [--serve 20] [--url https://netmint.edycu.dev] [--skip-refresh]
+ * npm run bench -- [--single 20] [--serve 20] [--url https://netmint.edycu.dev] [--skip-refresh]
  * Measured, not modelled. Writes docs/proof/bench.json with raw samples AND p50/p95, so every figure in the README greps back here.
  *   single   : N sequential live lookups (NVDA, 30 d): real CMC calls + chain reads, no cache (lib/lookup.ts).
  *   refresh  : one leaderboard refresh = one live lookup for each of the top-20 underlyings (7 d window), run sequentially, i.e. the same
@@ -19,7 +19,7 @@ const flag = (k: string) => {
   const i = args.indexOf(`--${k}`);
   return i >= 0 ? args[i + 1] : undefined;
 };
-const SINGLE = Number(flag('single') ?? 10);
+const SINGLE = Number(flag('single') ?? 20);
 const SERVE = Number(flag('serve') ?? 20);
 const URL_BASE = flag('url') ?? 'https://netmint.edycu.dev';
 

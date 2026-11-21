@@ -59,8 +59,9 @@ jobs:
       - run: npm run audit
 
   dependency-review:
-    name: Stage 2 · dependency review
+    name: Stage 2 · dependency review (needs a public repo or GitHub Advanced Security)
     if: github.event_name == 'pull_request'
+    continue-on-error: true
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -116,7 +117,7 @@ jobs:
       - run: npm ci
       - run: npx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
       - run: npx vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-      - run: npx vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - run: npx vercel deploy --prebuilt --prod -e COMMIT_SHA=${{ github.sha }} --token=${{ secrets.VERCEL_TOKEN }}
 
   # ── Stage 5 · E2E against the LIVE URL, the judged click ────────────
   e2e:
@@ -132,13 +133,14 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - name: Wait for the new deployment to answer
+      - name: Wait until /api/health reports THIS commit (not the previous deployment)
         run: |
-          for _ in $(seq 1 12); do
-            code=$(curl -s -o /dev/null -w '%{http_code}' https://netmint.edycu.dev/api/health) && [ "$code" = 200 ] && exit 0
+          for _ in $(seq 1 24); do
+            sha=$(curl -s https://netmint.edycu.dev/api/health | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(JSON.parse(s).commit||"")}catch{console.log("")}})')
+            [ "$sha" = "$GITHUB_SHA" ] && exit 0
             sleep 5
           done
-          echo "::error::/api/health did not return 200"; exit 1
+          echo "::error::/api/health did not report commit $GITHUB_SHA"; exit 1
       - run: npm run e2e
         env:
           E2E_BASE_URL: https://netmint.edycu.dev

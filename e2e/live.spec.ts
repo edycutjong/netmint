@@ -15,7 +15,17 @@ test('health: names its commit and both clocks', async ({ request }) => {
 test('the judged click: Run it live returns a verdict with CMC receipts behind it', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('img', { name: /^Verdict: / }).first()).toBeVisible(); // the recorded hero is there before any click
+  const lookup = page.waitForResponse((r) => r.url().includes('/api/lookup'));
   await page.getByRole('button', { name: 'Run it live' }).click();
+  const res = await lookup; // the verdict on screen must come from this call, not from the recorded hero
+  expect(res.status()).toBe(200);
+  const body = await res.json();
+  expect(body.underlying.ticker).toBe('NVDA');
+  expect(['live', 'cached', 'live-stored']).toContain(body.mode);
+  const headline =
+    body.wrappers.find((w: { verdict: string }) => w.verdict === 'REAL_INFLOW' || w.verdict === 'OUTFLOW' || w.verdict === 'RECOUNT') ??
+    body.wrappers[0];
+  expect(headline.verdict).toBeTruthy();
   const receipts = page.getByRole('button', { name: /^Receipts \(\d+\)/ });
   await expect(receipts).toBeVisible({ timeout: 45_000 });
   const label = await page
@@ -63,7 +73,7 @@ test('leaderboard renders the captured table with its capture date', async ({ pa
   await expect(page.locator('body')).toContainText(/captured|capture/i);
 });
 
-test('per-underlying page lists every wrapper', async ({ page }) => {
+test('per-underlying page renders verdict stamps from a live lookup', async ({ page }) => {
   await page.goto('/u/NVDA');
   await expect(page.getByRole('img', { name: /^Verdict: / }).first()).toBeVisible({ timeout: 45_000 });
 });
