@@ -14,7 +14,7 @@ export interface VerdictOut {
 export const SUBLINE: Record<Verdict, string> = {
   REAL_INFLOW: 'issuer-level net creation, not buyer data',
   OUTFLOW: 'issuer-level net redemption',
-  RECOUNT: 'CMC supply moved; the chain did not',
+  RECOUNT: 'CMC’s supply step and the chain’s disagree',
   NOT_VERIFIABLE: 'not put to a full trial',
   FLAT: 'below threshold, not put to trial',
 };

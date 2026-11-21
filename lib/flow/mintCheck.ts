@@ -64,7 +64,7 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
   if (!A || !B || series.length < 2) return { ...base, reason: 'fewer than 2 accepted daily points' };
   if (legs.length === 0) {
     const where = unreadable.length ? unreadable.join(', ') : 'no listed chain';
-    return { ...base, reason: `no contract on BNB Chain or Ethereum (listed on ${where}); no historical supply source` };
+    return { ...base, reason: `no contract on BNB Chain or Ethereum (listed on ${where}); NetMint reads no other chain yet` };
   }
   const a = addDays(A.date, offset),
     b = addDays(B.date, offset);
@@ -93,7 +93,7 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
   if (coverageA < p.coverageMin) {
     return {
       ...out,
-      reason: `${pct(1 - coverageA, 0)} of supply sits outside BNB Chain + Ethereum (${firstUnread}), which has no historical supply source`,
+      reason: `${pct(1 - coverageA, 0)} of supply sits outside BNB Chain + Ethereum (${firstUnread}), a chain NetMint does not read yet`,
     };
   }
   if (coverageA > p.coverageMax) {
@@ -185,6 +185,21 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
     }
   }
   const what = !out.stepOk ? 'step check' : !at.windowOk ? 'window check' : 'direction check';
+  // a failed step check prints the failing step day's own numbers (the window may agree while one step does not)
+  const bad = stepDays.filter((s) => !s.ok);
+  if (!out.stepOk && bad.length && bad[0].chain3d !== null) {
+    const s = bad[0];
+    const tolS = Math.max(p.remedy * Math.abs(s.cmc3d), p.floorFrac * cmcB);
+    const more = bad.length > 1 ? `, ${bad.length} of ${stepDays.length} step days outside` : '';
+    return {
+      ...out,
+      status: 'fail',
+      reason:
+        `step check failed at d = ${offset}: step day ${s.date} (3-day sum) chain ${signed(s.chain3d as number)} vs CMC ${signed(s.cmc3d)} ` +
+        `(tolerance ±${fmt(tolS)})${more}; window chain ${signed(at.chainDelta)} vs CMC ${signed(cmcDelta)} ` +
+        `(tolerance ±${fmt(at.tol)}, ${at.windowOk ? 'within' : 'outside'})`,
+    };
+  }
   return {
     ...out,
     status: 'fail',

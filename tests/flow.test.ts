@@ -231,6 +231,10 @@ describe('mint check + verdict (one test per state)', () => {
     expect(mint.windowOk).toBe(true);
     expect(mint.stepOk).toBe(false);
     expect(mint.status).not.toBe('pass');
+    // the reason prints the failing step day's 3-day numbers, then the window (which agreed), never only the window
+    expect(mint.status).toBe('fail');
+    expect(mint.reason).toMatch(/^step check failed at d = 0: step day 2026-11-03 \(3-day sum\) chain \+0 vs CMC \+500,000/);
+    expect(mint.reason).toMatch(/; window chain \+500,000 vs CMC \+500,000 \(tolerance ±50,000, within\)$/);
   });
 
   it('direction check binds when the 0.005 floor passes the window but the chain moved < 75% of CMC', () => {
