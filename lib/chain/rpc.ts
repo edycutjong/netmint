@@ -36,9 +36,10 @@ export class RpcError extends Error {
   }
 }
 
-/** Request-path budget (the lookup route has maxDuration 60 s): 12 s per attempt, 3 retries (≤ ~4 s of backoff).
+/** Request-path budget (the lookup route has maxDuration 60 s): 8 s per attempt, 3 retries, backoff ≤ 0.5 + 1 + 2 s, so
+ * one batch is ≤ ~36 s worst case; the lookup also stops all chain reads at a 40 s deadline (lib/chain/supply.ts).
  * Capture scripts pass the long budget explicitly. */
-export const RPC_REQUEST = { timeoutMs: 12_000, maxRetries: 6, maxBackoffMs: 4_000 } as const;
+export const RPC_REQUEST = { timeoutMs: 8_000, maxRetries: 3, maxBackoffMs: 2_000 } as const;
 export const RPC_SCRIPT = { timeoutMs: 30_000, maxRetries: 8, maxBackoffMs: 8_000 } as const;
 
 /** One JSON-RPC batch; returns results in request order. Throws if any entry errors. */

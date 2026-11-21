@@ -1,7 +1,7 @@
 import { HeroCard } from './components/HeroCard';
 import type { LookupError } from './components/ErrorBanner';
 import { lookup, LookupFailure } from '@/lib/lookup';
-import { HERO_WINDOW } from '@/lib/hero';
+import { HERO_WINDOW, heroOf } from '@/lib/hero';
 import { Recorder } from '@/lib/receipts';
 import { storedTransport } from '@/lib/stored';
 import type { LookupResult } from '@/lib/types';
@@ -17,6 +17,10 @@ async function capture(): Promise<{ res: LookupResult | null; err: LookupError |
   try {
     const r = await lookup(HERO_U, { from: HERO_WINDOW.from, to: HERO_WINDOW.to, rec: new Recorder(storedTransport()), allowLiveChain: false });
     const recordedUtc = r.receipts.find((x) => x.endpoint === '/v2/cryptocurrency/quotes/historical')?.startedUtc ?? r.fetchedUtc;
+    const s = heroOf(r).wrapper?.series ?? [];
+    if (s[0]?.date !== HERO_WINDOW.from || s[s.length - 1]?.date !== HERO_WINDOW.to) {
+      throw new Error(`recorded hero does not span HERO_WINDOW ${HERO_WINDOW.from} → ${HERO_WINDOW.to} (got ${s[0]?.date} → ${s[s.length - 1]?.date}): re-run npm run snapshot`);
+    }
     return { res: { ...r, mode: 'recorded', live: false, recordedUtc, fetchedUtc: recordedUtc }, err: null };
   } catch (e) {
     const at = new Date().toISOString();

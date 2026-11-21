@@ -1,7 +1,7 @@
 /**
  * /flows leaderboard: one row per tokenised-stock wrapper, ranked by verified net creation.
  * Built by `npm run flows` from the same lookup() the click runs (rows are views of the core computation),
- * committed under evidence/<date>/flows-<w>d.json, read by the /flows page (cut-order item 0 form until the Blob cron lands).
+ * committed under evidence/<date>/flows-<w>d.json, read by the /flows page. No nightly job: `npm run flows` + redeploy refreshes it.
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';

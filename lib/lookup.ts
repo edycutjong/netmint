@@ -124,7 +124,7 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
     const uniq = [...new Map(allLegs.map((l) => [`${l.chain}:${l.address}`, l])).values()];
     const dates: string[] = [];
     for (let d = addDays(from, -2); d <= addDays(to, 1); d = addDays(d, 1)) dates.push(d);
-    const chain = await legSupplies(rec, uniq, dates, { allowLive: opts.allowLiveChain ?? true, nowMs: opts.nowMs });
+    const chain = await legSupplies(rec, uniq, dates, { allowLive: opts.allowLiveChain ?? true, nowMs: opts.nowMs, deadlineMs: Date.now() + 40_000 });
 
     const wrappers: WrapperResult[] = tokens.map((t) => {
       const map: ContractMap = maps.get(t.crypto_id) ?? { legs: [], unreadable: [] };

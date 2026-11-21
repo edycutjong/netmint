@@ -50,7 +50,7 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
   const hero = res ? heroOf(res) : { wrapper: null, verified: false };
   const w = hero.wrapper;
   const m = w?.metrics;
-  const ink = m && m.net < 0 ? 'debit' : 'credit';
+  const ink = !hero.verified ? '' : m && m.net < 0 ? 'debit' : 'credit';
 
   return (
     <section className="card" aria-live="polite">
@@ -74,7 +74,11 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
             </div>
           </div>
           <ProofRows w={w} />
-          <p className="definition">Counted the way ETF flow tables count creations: units created or redeemed × price ($ at wrapper market price).</p>
+          <p className="definition">
+            {hero.verified
+              ? 'Counted the way ETF flow tables count creations: units created or redeemed × price ($ at wrapper market price).'
+              : 'CMC supply change × price ($ at wrapper market price). It becomes net creation only when the chain confirms it.'}
+          </p>
         </>
       ) : null}
       <div className="actions">

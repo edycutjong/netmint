@@ -2,7 +2,7 @@
  * Summed on-chain supply per wrapper at day-boundary blocks.
  * Tier 1: committed baseline data/chain-supply/<chain>/<address>.json (daily totalSupply at the first block ≥ 00:00 UTC).
  * Tier 3: live tail over Alchemy for any day the baseline lacks (one JSON-RPC batch per chain).
- * (Tier 2, the nightly Blob refresh, arrives with the cron job.) Every live read is a receipt.
+ * There is no nightly job: `npm run chain-supply` refreshes the baseline before a deploy. Every live read is a receipt.
  */
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
@@ -58,9 +58,13 @@ export async function legSupplies(
   rec: Recorder | null,
   legs: { chain: ChainId; address: string }[],
   dates: string[],
-  opts: { allowLive?: boolean; nowMs?: number } = {},
+  opts: { allowLive?: boolean; nowMs?: number; deadlineMs?: number } = {},
 ): Promise<{ legs: LegSupply[]; errors: string[] }> {
   const allowLive = opts.allowLive ?? true;
+  // past the deadline every remaining read is a failure (→ "chain read failed … run it again"), never a 504 from the platform
+  const inTime = (chain: string) => {
+    if (opts.deadlineMs !== undefined && Date.now() > opts.deadlineMs) throw new RpcError(`${chain} RPC: chain-read time budget exhausted`);
+  };
   const now = opts.nowMs ?? Date.now();
   const errors: string[] = [];
   const out: LegSupply[] = legs.map((l) => {
@@ -88,12 +92,16 @@ export async function legSupplies(
         const t = Date.parse(`${d}T00:00:00Z`) / 1000;
         if (t * 1000 > now) continue;
         if (blockIndex(chain)[d] === undefined) {
+          inTime(chain);
           head ??= await headBlock(chain);
           if (t > head.ts) continue;
-          blockIndex(chain)[d] = await firstBlockAtOrAfter(chain, t, head, cache);
+          // seed the search with the nearest known block before d (index or a day resolved earlier in this loop)
+          const known = Object.entries(blockIndex(chain)).filter(([k]) => k < d).sort(([a], [b]) => (a < b ? 1 : -1))[0];
+          blockIndex(chain)[d] = await firstBlockAtOrAfter(chain, t, head, cache, known ? { lo: known[1], hi: head.n } : undefined);
         }
       }
       // decimals for legs without a baseline
+      inTime(chain);
       const noDec = mine.filter((l) => l.decimals === null);
       if (noDec.length) {
         const res = await rec.rpc<string>(chain, noDec.map((l) => ({ method: 'eth_call', params: [{ to: l.address, data: SEL.decimals }, 'latest'] })), { label: 'decimals' });
@@ -114,6 +122,7 @@ export async function legSupplies(
       if (reqs.length) {
         const res: string[] = [];
         for (let i = 0; i < reqs.length; i += 40) {
+          inTime(chain);
           const chunk = reqs.slice(i, i + 40);
           res.push(...(await rec.rpc<string>(chain, chunk.map((r) => totalSupplyReq(r.leg.address, r.block)), { label: 'totalSupply' })));
         }

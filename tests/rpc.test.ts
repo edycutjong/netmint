@@ -62,3 +62,16 @@ describe('rpcBatch under a compute-units-per-second limit', () => {
     }
   });
 });
+
+describe('chain-read deadline', () => {
+  it('past the lookup deadline every remaining read fails with a reason (never a platform 504)', async () => {
+    const { legSupplies } = await import('@/lib/chain/supply');
+    const { Recorder } = await import('@/lib/receipts');
+    const rec = new Recorder(undefined, (async () => {
+      throw new Error('no RPC may run after the deadline');
+    }) as any);
+    const out = await legSupplies(rec, [{ chain: 'bsc', address: '0x0000000000000000000000000000000000000001' }], ['2026-11-20'], { deadlineMs: Date.now() - 1 });
+    expect(out.errors).toEqual(['bsc RPC: bsc RPC: chain-read time budget exhausted']);
+    expect(out.legs[0].values.get('2026-11-20')).toBeNull();
+  });
+});
