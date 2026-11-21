@@ -21,7 +21,9 @@
     "spike:solana": "tsx scripts/spike-solana.ts",
     "demo": "tsx scripts/demo.ts",
     "calibrate": "tsx scripts/calibrate.ts",
-    "find-mint": "tsx scripts/find-mint.ts"
+    "find-mint": "tsx scripts/find-mint.ts",
+    "snapshot": "tsx scripts/snapshot.ts",
+    "verify:offline": "bash scripts/verify-offline.sh"
   },
   "dependencies": {
     "next": "^15.5.29",
