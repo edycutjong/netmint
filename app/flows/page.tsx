@@ -126,7 +126,7 @@ function FlowsBody({ t, all }: { t: NonNullable<ReturnType<typeof loadFlows>>; a
                   <div className="reason">
                     <a
                       href={`/u/${encodeURIComponent(r.underlying)}?from=${t.range.from}&to=${t.range.to}`}
-                      aria-label={`Open ${r.underlying} live over the same window (row ${r.symbol})`}
+                      aria-label={`Open ${r.underlying} live, same window (row ${r.symbol})`}
                     >
                       Open {r.underlying} live, same window
                     </a>

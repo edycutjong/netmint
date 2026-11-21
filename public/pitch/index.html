@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NetMint · pitch deck</title>
-<meta name="description" content="NetMint pitch deck: every tokenised stock’s supply step, put on trial against the chain. NVDAB +$202.83M net creation in 30 days, struck REAL INFLOW.">
+<meta name="description" content="NetMint pitch deck: each wrapper’s supply steps on trial against the chain. NVDAB +$202.83M net creation in 30 days, struck REAL INFLOW."><meta name="author" content="Edy Cu">
 <meta property="og:type" content="website"><meta property="og:site_name" content="NetMint"><meta property="og:url" content="https://netmint.edycu.dev/pitch">
 <meta property="og:title" content="NetMint · pitch deck"><meta property="og:image" content="https://netmint.edycu.dev/og-image.png">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://netmint.edycu.dev/og-image.png">
@@ -311,13 +311,13 @@ h2.dh { font: 400 84px/1.06 var(--font-display); margin: 0 0 26px; }
 .erratum-line cite { display: block; font-style: normal; font-size: 19px; color: #a9a293; margin-top: 8px; }
 
 /* chrome: nav, notes, overview */
-.ctrl { position: fixed; right: 14px; top: 12px; display: flex; gap: 6px; z-index: 5; opacity: .3; transition: opacity .2s ease; }
+.ctrl { position: fixed; right: 14px; top: 12px; display: flex; gap: 6px; z-index: 5; transition: opacity .2s ease, visibility .2s; }
 .ctrl:hover, .ctrl:focus-within, .touch .ctrl { opacity: 1; }
-.idle .ctrl:not(:hover):not(:focus-within) { opacity: 0; }
+.idle .ctrl:not(:focus-within) { opacity: 0; visibility: hidden; }
 .ctrl button { all: unset; cursor: pointer; font: 500 14px var(--font-body); color: #e9e3d4; background: rgba(29, 27, 22, .82); border: 1px solid #4a463d; padding: 8px 12px; transition: background-color .16s ease, border-color .16s ease; }
 .ctrl button:hover { background: #2e2c26; border-color: #cfc8b8; }
 .ctrl button:focus-visible { outline: 2px solid #ece6d8; outline-offset: 2px; }
-.ctrl .pos { color: #cfc8b8; font: 13px var(--font-data); align-self: center; padding: 0 8px; }
+.ctrl .pos { background: rgba(29, 27, 22, .82); color: #ece6d8; font: 13px var(--font-data); align-self: center; padding: 8px 10px; border: 1px solid #4a463d; }
 .notes { position: fixed; left: 0; right: 0; bottom: 0; z-index: 4; background: rgba(29, 27, 22, .95); color: #ece6d8; font: 17px/1.5 var(--font-body); padding: 16px 24px 60px; display: none; }
 .show-notes .notes { display: block; }
 .notes b { font-family: var(--font-display); font-weight: 400; letter-spacing: .06em; color: #cfc8b8; margin-right: 10px; }
@@ -346,6 +346,8 @@ h2.dh { font: 400 84px/1.06 var(--font-display); margin: 0 0 26px; }
 
 .lie .big { font: 400 92px/1 var(--font-display); margin: 0 0 6px; color: var(--ink); white-space: nowrap; }
 .lie .big.nm-cr { font-size: 80px; }
+
+#s1 .foot .nm-data { color: #cfc8b8; }
 </style>
 </head>
 <body>

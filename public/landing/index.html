@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NetMint · each tokenised stock’s supply steps, put on trial against the chain</title>
-<meta name="description" content="CoinMarketCap records each tokenised stock’s supply but never shows the money behind it. NetMint puts each wrapper’s supply steps on trial against the chain: NVDAB +$202.83M of net creation in 30 days, 5 of 5 step days within remedy.">
+<meta name="description" content="NetMint puts each tokenised stock wrapper’s supply steps on trial against the chain. NVDAB: +$202.83M net creation, 30 days.">
 <meta name="theme-color" content="#F3EFE4">
+<meta name="author" content="Edy Cu">
 <link rel="canonical" href="https://netmint.edycu.dev/about">
 <meta property="og:type" content="website"><meta property="og:site_name" content="NetMint"><meta property="og:url" content="https://netmint.edycu.dev/about">
 <meta property="og:title" content="Price fell 41%. Supply rose sevenfold. The chain signed for it.">
-<meta property="og:description" content="CoinMarketCap records each tokenised stock’s supply but never shows the money behind it. NetMint puts each wrapper’s supply steps on trial against the chain: NVDAB +$202.83M of net creation in 30 days, 5 of 5 step days within remedy.">
+<meta property="og:description" content="NetMint puts each tokenised stock wrapper’s supply steps on trial against the chain. NVDAB: +$202.83M net creation, 30 days.">
 <meta property="og:image" content="https://netmint.edycu.dev/og-image.png"><meta property="og:image:width" content="2400"><meta property="og:image:height" content="1260">
 <meta property="og:image:alt" content="NetMint: NVDAB supply rose ×7.1 while the price fell 41% (22 Oct to 21 Nov 2026); the chain confirms the supply steps within remedy, struck REAL INFLOW beside +$202.83M net creation at market price.">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://netmint.edycu.dev/og-image.png">
@@ -378,7 +379,7 @@ h2 { font: 400 clamp(32px, 3.3vw, 46px)/1.1 var(--font-display); margin: 0 0 16p
 footer { background: var(--ink); color: #cfc8b8; font-size: 14px; }
 footer .wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 30px; padding-top: 40px; padding-bottom: 40px; }
 footer .mark { color: var(--card); margin-bottom: 10px; }
-footer h4 { font: 400 14px var(--font-display); letter-spacing: .1em; color: #cfc8b8; margin: 0 0 10px; }
+footer .fh { font: 400 14px var(--font-display); letter-spacing: .1em; color: #cfc8b8; margin: 0 0 10px; }
 footer ul { list-style: none; margin: 0; padding: 0; }
 footer li { margin: 0 0 6px; }
 footer a { color: #ece6d8; text-underline-offset: 3px; text-decoration-color: #6f6a5e; transition: text-decoration-color .16s ease, color .16s ease; }
@@ -492,8 +493,8 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
   <nav aria-label="Sections"><a href="#trial">The trial</a><a href="#how">How a verdict is struck</a><a href="#book">The book</a><a href="#errata">Errata</a><a href="#faq">FAQ</a></nav>
   <div class="act"><a class="btn quiet" href="/pitch">Pitch deck</a><a class="btn solid" href="/">Run it live</a></div>
 </div></header>
-<div class="dateline"><div class="wrap"><span>The trial of the pyx · for tokenised stocks</span><span>Sitting of <span class="nm-data">2026-11-21</span> · Real World Assets track</span></div></div>
 <main id="main">
+<div class="dateline"><div class="wrap"><span>The trial of the pyx · for tokenised stocks</span><span>Sitting of <span class="nm-data">2026-11-21</span> · Real World Assets track</span></div></div>
 <section class="hero"><div class="wrap">
   <div class="hero-copy">
     <p class="eyebrow">CoinMarketCap API Hackathon<span class="sep">·</span>NetMint</p>
@@ -501,7 +502,7 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
     <p class="sub">CoinMarketCap records each tokenised stock’s supply every day but never shows the money behind it. NetMint puts each wrapper’s supply steps on trial against the chain: tokenised Nvidia, <b>+$202.83M</b> of net creation in 30 days, <b>5 of 5</b> step days within remedy.</p>
     <div class="ctas"><a class="btn" href="https://github.com/edycutjong/netmint"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M6 5L2 9l4 4M12 5l4 4-4 4"/></svg>GitHub</a><a class="btn" href="/pitch">Pitch deck</a><a class="btn solid" href="/">Run it live →</a></div>
     <div class="proofline"><span>Live re-run, 04:46 UTC: 5 CMC calls · 7 credits · 1.35 s</span>
-      <button class="copy" type="button" data-copy="npm run demo -- NVDA" aria-label="Copy the command npm run demo -- NVDA"><span>npm run demo -- NVDA</span><span class="st">copy</span></button></div>
+      <button class="copy" type="button" data-copy="npm run demo -- NVDA"><span>npm run demo -- NVDA</span><span class="st">copy</span></button></div>
   </div>
   <div class="mat">
     <div class="nm-leaf" id="trial-leaf">
@@ -546,7 +547,7 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
       <div class="bench-foot" id="bench-foot"><span>Recorded rows: evidence/2026-11-21/nvda-30d.</span><a href="/u/NVDA">Every response, verbatim, in the app’s receipts →</a></div>
     </div>
     <div class="slip-wrap">
-      <div class="nm-slip" id="slip"><p class="slip-label">Re-set from <code>npm run demo</code> stdout · live run 2026-11-21 04:46:38 UTC · lines in run order, ⋮ marks omitted lines</p><pre><span class="l cmd">$ npm run demo -- NVDA --from 2026-10-22 --to 2026-11-21</span><span class="l ">NetMint · Nvidia Corp (NVDA, rwa_id 2) · 2026-10-22 → 2026-11-21 (pinned)</span><span class="l ">fetched 2026-11-21T04:46:38.639Z · 5 CMC calls · 7 credits · 0 RPC reads · 1351 ms</span><span class="l gap">⋮</span><span class="l ok">REAL INFLOW     NVDAB    bStocks           +$202.83M units ×7.13  price −41.0%   cov 96.1%</span><span class="l ">                window endpoints and the largest step days (up to 5) verified (chain +1,216,792 · CMC +1,209,739 · +0.6% · within remedy ±10%)</span><span class="l nv">NOT VERIFIABLE  NVDAX    Backed Assets     +$104.10M units ×3.98  price −41.0%   cov 14.5%</span><span class="l ">                86% of supply sits outside BNB Chain + Ethereum (Solana), which has no historical supply source</span><span class="l gap">⋮</span><span class="l ">  step 2026-11-13: CMC 3d 522,505 · chain 3d 535,910 · ok</span><span class="l ">  step 2026-11-18: CMC 3d 400,526 · chain 3d 409,071 · ok</span><span class="l ">  step 2026-11-17: CMC 3d 386,252 · chain 3d 372,839 · ok</span><span class="l ">  step 2026-11-10: CMC 3d 294,447 · chain 3d 281,930 · ok</span><span class="l ">  step 2026-11-11: CMC 3d 430,435 · chain 3d 443,621 · ok</span><span class="l ">  mint tx 0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c → 0x5948602680fe4aea08d98302337a2715b3aadad1</span><span class="l ">&nbsp;</span></pre></div>
+      <div class="nm-slip" id="slip" tabindex="0" role="region" aria-label="Terminal transcript of npm run demo"><p class="slip-label">Re-set from <code>npm run demo</code> stdout · live run 2026-11-21 04:46:38 UTC · lines in run order, ⋮ marks omitted lines</p><pre><span class="l cmd">$ npm run demo -- NVDA --from 2026-10-22 --to 2026-11-21</span><span class="l ">NetMint · Nvidia Corp (NVDA, rwa_id 2) · 2026-10-22 → 2026-11-21 (pinned)</span><span class="l ">fetched 2026-11-21T04:46:38.639Z · 5 CMC calls · 7 credits · 0 RPC reads · 1351 ms</span><span class="l gap">⋮</span><span class="l ok">REAL INFLOW     NVDAB    bStocks           +$202.83M units ×7.13  price −41.0%   cov 96.1%</span><span class="l ">                window endpoints and the largest step days (up to 5) verified (chain +1,216,792 · CMC +1,209,739 · +0.6% · within remedy ±10%)</span><span class="l nv">NOT VERIFIABLE  NVDAX    Backed Assets     +$104.10M units ×3.98  price −41.0%   cov 14.5%</span><span class="l ">                86% of supply sits outside BNB Chain + Ethereum (Solana), which has no historical supply source</span><span class="l gap">⋮</span><span class="l ">  step 2026-11-13: CMC 3d 522,505 · chain 3d 535,910 · ok</span><span class="l ">  step 2026-11-18: CMC 3d 400,526 · chain 3d 409,071 · ok</span><span class="l ">  step 2026-11-17: CMC 3d 386,252 · chain 3d 372,839 · ok</span><span class="l ">  step 2026-11-10: CMC 3d 294,447 · chain 3d 281,930 · ok</span><span class="l ">  step 2026-11-11: CMC 3d 430,435 · chain 3d 443,621 · ok</span><span class="l ">  mint tx 0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c → 0x5948602680fe4aea08d98302337a2715b3aadad1</span><span class="l ">&nbsp;</span></pre></div>
       <div class="slip-ctl"><span>Full transcript: evidence/2026-11-21/demo-nvda-pinned.txt</span><button id="slip-replay" type="button">Re-type ↻</button></div>
     </div>
   </div>
@@ -572,7 +573,7 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
   <p class="lede">Top 20 tokenised stocks, 30 days to 21 Nov 2026. 4 moved under $250K and were not tried; 20 had no usable history. Every other row names what stopped its trial.</p></div>
   <div class="key"><div class="kc"><span class="nm-stamp">Real Inflow</span><p class="cnt">6</p><p>The chain confirms the net creation.</p></div><div class="kc"><span class="nm-stamp is-out">Outflow</span><p class="cnt">3</p><p>The chain confirms the net redemption, in red ink.</p></div><div class="kc"><span class="nm-stamp is-pencil">Recount</span><p class="cnt">12</p><p>The chains’ move disagreed with CMC’s beyond the remedy.</p></div><div class="kc"><span class="nm-stamp is-pencil">Not verifiable</span><p class="cnt">107</p><p>The supply sits on chains NetMint cannot read, or the move may.</p></div></div>
   <div class="book">
-    <div class=""><div class="ledger"><div class="lh"><span>Wrapper</span><span>Issuer</span><span>Net, 30 d</span><span>Units</span><span>Chain vs CMC</span></div><div class="lr"><span><b>NVDAB</b></span><span class="iss">bStocks</span><span class="nm-cr">+$202.83M</span><span>×7.13</span><span class="v">+0.6%</span></div>
+    <div class=""><div class="ledger" tabindex="0" role="region" aria-label="The nine struck rows"><div class="lh"><span>Wrapper</span><span>Issuer</span><span>Net, 30 d</span><span>Units</span><span>Chain vs CMC</span></div><div class="lr"><span><b>NVDAB</b></span><span class="iss">bStocks</span><span class="nm-cr">+$202.83M</span><span>×7.13</span><span class="v">+0.6%</span></div>
 <div class="lr"><span><b>TSLAon</b></span><span class="iss">Ondo Assets</span><span class="nm-cr">+$9.32M</span><span>×1.51</span><span class="v">−5.7%</span></div>
 <div class="lr"><span><b>GOOGon</b></span><span class="iss">Ondo Assets</span><span class="nm-cr">+$6.03M</span><span>×56.97</span><span class="v">−0.5%</span></div>
 <div class="lr"><span><b>AMDon</b></span><span class="iss">Ondo Assets</span><span class="nm-db">−$5.34M</span><span>×0.34</span><span class="v">+0.2%</span></div>
@@ -619,8 +620,8 @@ footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
 <footer><div class="wrap">
   <div><a class="mark" href="/about"><span>NetMint</span></a><p>Net creation at market price, checked against the chain. Not investment advice.</p>
     <p class="nm-data">page built from evidence at commit 0e54e85 · v1.0.0</p></div>
-  <div><h4>Product</h4><ul><li><a href="/">Live app</a></li><li><a href="/flows">The trial book</a></li><li><a href="/pitch">Pitch deck</a></li><li><a href="/api/health">Service status</a></li></ul></div>
-  <div><h4>Source</h4><ul><li><a href="https://github.com/edycutjong/netmint">GitHub repository</a></li><li><a href="https://github.com/edycutjong/netmint/blob/main/LICENSE">MIT licence</a></li><li><a href="https://dorahacks.io/hackathon/coinmarketcap-api-202611/detail">CoinMarketCap API Hackathon</a></li></ul></div>
+  <div><p class="fh">Product</p><ul><li><a href="/">Live app</a></li><li><a href="/flows">The trial book</a></li><li><a href="/pitch">Pitch deck</a></li><li><a href="/api/health">Service status</a></li></ul></div>
+  <div><p class="fh">Source</p><ul><li><a href="https://github.com/edycutjong/netmint">GitHub repository</a></li><li><a href="https://github.com/edycutjong/netmint/blob/main/LICENSE">MIT licence</a></li><li><a href="https://dorahacks.io/hackathon/coinmarketcap-api-202611/detail">CoinMarketCap API Hackathon</a></li></ul></div>
 </div></footer>
 <script>(() => {
   'use strict';
