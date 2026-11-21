@@ -108,7 +108,7 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
       </div>
       {res ? (
         <p className="capture">
-          {res.live ? 'live' : res.mode} capture {utcStamp(res.fetchedUtc)} · {res.credits} credits charged by CMC (status.credit_count) · {res.elapsedMs} ms
+          {res.live ? 'live' : res.mode} capture {utcStamp(res.fetchedUtc)} · {res.credits} credits charged by CMC for this lookup (status.credit_count; repeat identical calls are not charged) · {res.elapsedMs} ms
           {w?.mint ? ` · chain data: ${w.mint.chainSource === 'baseline' ? 'committed daily baseline' : w.mint.chainSource}` : ''}
         </p>
       ) : null}

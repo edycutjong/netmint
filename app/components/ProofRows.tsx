@@ -23,23 +23,30 @@ export function ProofRows({ w }: { w: WrapperResult }) {
             <span className="lbl">Proof 2</span>
             <span>
               chain totalSupply {p.chainDates[0]} → {p.chainDates[1]} · {m.legs.map((l) => (l.chain === 'bsc' ? 'BNB Chain' : 'Ethereum')).join(' + ') || 'no readable leg'}
-              {' · '}d = {m.offset}
+              {' · '}
+              <span style={{ whiteSpace: 'nowrap' }}>d = {m.offset}</span>
             </span>
             <span className="fig">{p.chainStep === null ? 'n/a' : units(p.chainStep)}</span>
           </div>
+          {p.errPct !== null ? (
+            <p className="verdict-line" style={{ margin: '6px 0 0' }}>
+              Step {p.date}: chain vs CMC {pct(p.errPct)}
+              {p.withinRemedy ? ' · within remedy ±10%' : ' · outside remedy ±10%'}
+            </p>
+          ) : null}
         </>
       ) : null}
       {m.cmcDelta !== null && m.chainDelta !== null && m.coverageA !== null ? (
         <div className="proof-row">
           <span className="lbl">Window</span>
           <span>
-            chain {units(m.chainDelta)} · CMC {units(m.cmcDelta)} · coverage {(m.coverageA * 100).toFixed(1)}% at the start
+            {w.series[0]?.date} → {w.series[w.series.length - 1]?.date}: chain {units(m.chainDelta)} · CMC {units(m.cmcDelta)} · coverage {(m.coverageA * 100).toFixed(1)}% at the start
           </span>
           <span className="fig">{m.errPct === null ? '' : `chain vs CMC ${pct(m.errPct)}`}</span>
         </div>
       ) : null}
       <p className={`verdict-line${m.status === 'pass' ? ' pass' : ''}`}>
-        Found: {m.status === 'pass' ? `within remedy (${m.errPct === null ? 'no move' : pct(m.errPct)} against ±10%)` : w.reason}
+        Found: {m.status === 'pass' ? `window within remedy (${m.errPct === null ? 'no move' : pct(m.errPct)} against ±10%), material steps within remedy` : w.reason}
       </p>
       {w.mintReceipt ? (
         <p className="capture" style={{ margin: '6px 0 0' }}>
