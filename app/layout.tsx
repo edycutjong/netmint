@@ -41,6 +41,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <nav className="nav" aria-label="Main">
             <Link href="/">Hero</Link>
             <Link href="/flows">Flows</Link>
+            <a href="/about">About</a>
+            <a href="/pitch">Pitch</a>
           </nav>
           <span className="tag">CMC records every tokenised stock’s supply. We show the money behind it, checked on chain.</span>
         </header>

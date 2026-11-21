@@ -1,0 +1,32 @@
+$ npm run demo -- NVDA --from 2026-10-22 --to 2026-11-21
+NetMint · Nvidia Corp (NVDA, rwa_id 2) · 2026-10-22 → 2026-11-21 (pinned)
+fetched 2026-11-21T04:46:38.639Z · 5 CMC calls · 7 credits · 0 RPC reads · 1351 ms
+
+REAL INFLOW     NVDAB    bStocks           +$202.83M units ×7.13  price −41.0%   cov 96.1%
+                window endpoints and the largest step days (up to 5) verified (chain +1,216,792 · CMC +1,209,739 · +0.6% · within remedy ±10%)
+NOT VERIFIABLE  NVDAX    Backed Assets     +$104.10M units ×3.98  price −41.0%   cov 14.5%
+                86% of supply sits outside BNB Chain + Ethereum (Solana), which has no historical supply source
+NOT VERIFIABLE  rNVDA    Reality            +$11.84M units ×5.64  price −41.2%
+                no contract on BNB Chain or Ethereum (listed on Arbitrum); no historical supply source
+NOT VERIFIABLE  NVDA     Robinhood           +$9.75M units ×1.68  price −41.1%
+                no contract on BNB Chain or Ethereum (listed on Robinhood Chain); no historical supply source
+NOT VERIFIABLE  NVDAon   Ondo Assets         +$8.88M units ×1.36  price −41.1%   cov 99.6%
+                the move may sit on Robinhood Chain (0.4% of supply outside the summed chains); step check failed at d = 0: chain +48,956 vs CMC +55,801 (tolerance ±5,580)
+NOT VERIFIABLE  NVDAc    Coinbase            +$5.24M units ×2.03  price −41.2%
+                no contract on BNB Chain or Ethereum (listed on Base); no historical supply source
+NOT VERIFIABLE  WNVDAX   Backed Assets       +$1.58M units ×2.86  price −41.0%
+                no contract on BNB Chain or Ethereum (listed on X Layer, Arbitrum); no historical supply source
+NO VERDICT      NVDA.D   Dinari Assets
+                CMC returned no daily history for this window
+DERIVATIVE      NVDA     NA (Derivatives)
+                derivative listing: no supply to mint
+
+HERO NVDAB: REAL_INFLOW +$202.83M · d = 0 (issuer) · chain 2026-10-22 → 2026-11-21
+  step 2026-11-13: CMC 3d 522,505 · chain 3d 535,910 · ok
+  step 2026-11-18: CMC 3d 400,526 · chain 3d 409,071 · ok
+  step 2026-11-17: CMC 3d 386,252 · chain 3d 372,839 · ok
+  step 2026-11-10: CMC 3d 294,447 · chain 3d 281,930 · ok
+  step 2026-11-11: CMC 3d 430,435 · chain 3d 443,621 · ok
+  mint tx 0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c → 0x5948602680fe4aea08d98302337a2715b3aadad1
+
+# captured 2026-11-21T04:46:38Z (live CMC, Growth key); wall time 1.70 s (zsh time); transcript verbatim, trailing spaces trimmed

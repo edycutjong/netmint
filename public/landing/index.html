@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NetMint · each tokenised stock’s supply steps, put on trial against the chain</title>
+<meta name="description" content="CoinMarketCap records each tokenised stock’s supply but never shows the money behind it. NetMint puts each wrapper’s supply steps on trial against the chain: NVDAB +$202.83M of net creation in 30 days, 5 of 5 step days within remedy.">
+<meta name="theme-color" content="#F3EFE4">
+<link rel="canonical" href="https://netmint.edycu.dev/about">
+<meta property="og:type" content="website"><meta property="og:site_name" content="NetMint"><meta property="og:url" content="https://netmint.edycu.dev/about">
+<meta property="og:title" content="Price fell 41%. Supply rose sevenfold. The chain signed for it.">
+<meta property="og:description" content="CoinMarketCap records each tokenised stock’s supply but never shows the money behind it. NetMint puts each wrapper’s supply steps on trial against the chain: NVDAB +$202.83M of net creation in 30 days, 5 of 5 step days within remedy.">
+<meta property="og:image" content="https://netmint.edycu.dev/og-image.png"><meta property="og:image:width" content="2400"><meta property="og:image:height" content="1260">
+<meta property="og:image:alt" content="NetMint: NVDAB supply rose ×7.1 while the price fell 41% (22 Oct to 21 Nov 2026); the chain confirms the supply steps within remedy, struck REAL INFLOW beside +$202.83M net creation at market price.">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://netmint.edycu.dev/og-image.png">
+<link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-icon.png">
+<link rel="preload" href="/landing/fonts/marcellus-sc.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/landing/fonts/albert-sans.woff2" as="font" type="font/woff2" crossorigin>
+<style>/* NetMint shared components: landing (/about) + deck (/pitch). Tokens: the assay-ledger design contract, verbatim. */
+:root {
+  --bg: #F3EFE4;
+  --card: #FBF8F1;
+  --ink: #1D1B16;
+  --muted: #6B6558;
+  --rule: #B4C2AE;
+  --before: #5E6166;
+  --after: #1F6B55;
+  --debit: #A3271B;
+  --font-display: "Marcellus SC", "Marcellus SC Fallback", Georgia, serif;
+  --font-body: "Albert Sans", "Albert Sans Fallback", "Helvetica Neue", Arial, sans-serif;
+  --font-data: "Chivo Mono", "Chivo Mono Fallback", Menlo, monospace;
+}
+@font-face { font-family: "Marcellus SC"; src: url(/landing/fonts/marcellus-sc.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Albert Sans"; src: url(/landing/fonts/albert-sans.woff2) format("woff2"); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: "Chivo Mono"; src: url(/landing/fonts/chivo-mono.woff2) format("woff2"); font-weight: 400 500; font-display: swap; }
+@font-face { font-family: "Marcellus SC Fallback"; src: local("Georgia"); size-adjust: 90.5%; ascent-override: 107.7%; descent-override: 30.9%; line-gap-override: 0.0%; }
+@font-face { font-family: "Albert Sans Fallback"; src: local("Arial"); size-adjust: 98.7%; ascent-override: 96.3%; descent-override: 25.3%; line-gap-override: 0.0%; }
+@font-face { font-family: "Chivo Mono Fallback"; src: local("Courier New"); size-adjust: 100.0%; ascent-override: 94.0%; descent-override: 25.0%; line-gap-override: 0.0%; }
+
+*, *::before, *::after { box-sizing: border-box; }
+::selection { background: var(--ink); color: var(--card); }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.nm-data { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+
+/* ---- hallmark stamp: clipped-corner cartouche, double keyline, Marcellus caps (design.md §3.1) ---- */
+.nm-stamp {
+  --c: var(--after);
+  --cut: 9px;
+  position: relative; display: inline-grid; place-items: center;
+  padding: .32em .9em .3em; color: var(--c); font-family: var(--font-display); letter-spacing: .06em; line-height: 1;
+  white-space: nowrap; transform: rotate(-2deg);
+  clip-path: polygon(var(--cut) 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, var(--cut) 100%, 0 calc(100% - var(--cut)), 0 var(--cut));
+  background:
+    linear-gradient(var(--c), var(--c)) top / 100% 2px no-repeat, linear-gradient(var(--c), var(--c)) bottom / 100% 2px no-repeat,
+    linear-gradient(var(--c), var(--c)) left / 2px 100% no-repeat, linear-gradient(var(--c), var(--c)) right / 2px 100% no-repeat,
+    var(--card);
+  text-shadow: 1px 1px 0 rgba(29, 27, 22, .12);
+}
+.nm-stamp::before {
+  content: ""; position: absolute; inset: 5px; pointer-events: none;
+  clip-path: polygon(calc(var(--cut) - 3px) 0, calc(100% - var(--cut) + 3px) 0, 100% calc(var(--cut) - 3px), 100% calc(100% - var(--cut) + 3px), calc(100% - var(--cut) + 3px) 100%, calc(var(--cut) - 3px) 100%, 0 calc(100% - var(--cut) + 3px), 0 calc(var(--cut) - 3px));
+  background:
+    linear-gradient(var(--c), var(--c)) top / 100% 1px no-repeat, linear-gradient(var(--c), var(--c)) bottom / 100% 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) left / 1px 100% no-repeat, linear-gradient(var(--c), var(--c)) right / 1px 100% no-repeat;
+}
+/* pencil ring = not verified (RECOUNT, NOT VERIFIABLE, no verdict): dashed graphite */
+.nm-stamp.is-pencil {
+  --c: var(--before);
+  background:
+    repeating-linear-gradient(90deg, var(--c) 0 6px, transparent 6px 10px) top / 100% 2px no-repeat,
+    repeating-linear-gradient(90deg, var(--c) 0 6px, transparent 6px 10px) bottom / 100% 2px no-repeat,
+    repeating-linear-gradient(180deg, var(--c) 0 6px, transparent 6px 10px) left / 2px 100% no-repeat,
+    repeating-linear-gradient(180deg, var(--c) 0 6px, transparent 6px 10px) right / 2px 100% no-repeat, var(--card);
+  text-shadow: none;
+}
+.nm-stamp.is-pencil::before { display: none; }
+.nm-stamp.is-out { color: var(--debit); }       /* OUTFLOW: verdigris ring (verified), red-ink word (direction) */
+.nm-stamp.is-flat { --c: var(--muted); }
+/* the hallmark strike (signature, 160 ms, 1.06 → 1.00 at −2°) */
+@keyframes nm-strike { from { opacity: 0; transform: rotate(-2deg) scale(1.06); } to { opacity: 1; transform: rotate(-2deg) scale(1); } }
+
+/* figures carry direction by ink (design.md §4) */
+.nm-cr { color: var(--ink); }
+.nm-db { color: var(--debit); }
+.nm-struck { text-decoration: line-through 2px var(--before); color: var(--before); }
+
+/* ---- the trial leaf (hero object, deck cover + frozen slide) ---- */
+.nm-leaf { position: relative; background: var(--card); color: var(--ink); border: 1px solid var(--rule); box-shadow: 0 1px 0 rgba(29, 27, 22, .14); }
+.nm-leaf-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; border-bottom: 1px solid var(--rule); padding-bottom: 10px; }
+.nm-leaf-head b { font-family: var(--font-display); font-weight: 400; letter-spacing: .04em; font-size: 1.12em; }
+.nm-leaf-head span { color: var(--muted); }
+.nm-chart { position: relative; }
+.nm-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.nm-chart .ln { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.nm-chart .ln-price { stroke: var(--muted); stroke-width: 1.6; }
+.nm-chart .ln-pencil { stroke: var(--before); stroke-width: 2; stroke-dasharray: 5 6; }
+.nm-chart .ln-chain { stroke: var(--ink); stroke-width: 2.8; }
+.nm-chart .ln-axis { stroke: var(--rule); stroke-width: 1; }
+.nm-chart .tick { stroke: var(--after); stroke-width: 1.2; stroke-dasharray: 2 3; }
+.nm-chart .punch { fill: var(--after); }
+.nm-chart .draw, .nm-chart .ink, .nm-chart .pm { transition: none; }
+.nm-lab { position: absolute; font-family: var(--font-body); font-size: 13px; line-height: 1.2; color: var(--muted); white-space: nowrap; pointer-events: none; }
+.nm-lab b { font-family: var(--font-data); font-weight: 500; color: var(--ink); }
+.nm-lab.is-chain b { color: var(--ink); }
+.nm-scale { font-size: 13px; color: var(--muted); margin: 4px 0 0; line-height: 1.5; }
+
+.nm-proof { display: grid; grid-template-columns: auto 1fr auto; gap: 4px 16px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--rule); }
+.nm-proof .k { font-family: var(--font-display); color: var(--muted); letter-spacing: .05em; font-size: .9em; }
+.nm-proof .v { font-family: var(--font-data); font-variant-numeric: tabular-nums; text-align: right; }
+.nm-money { display: flex; align-items: center; justify-content: space-between; gap: 18px; border-top: 3px double var(--ink); margin-top: 12px; padding-top: 12px; }
+.nm-figure { font-family: var(--font-display); font-weight: 400; line-height: 1; letter-spacing: .01em; font-variant-numeric: lining-nums; }
+.money-lab { font-size: 13.5px; color: var(--muted); line-height: 1.35; flex: 0 1 auto; min-width: 0; }
+.money-lab b { display: block; color: var(--ink); font-weight: 600; font-size: 15px; }
+.nm-leaf-head b { white-space: nowrap; }
+.nm-verdict-line { font-family: var(--font-data); color: var(--after); font-size: 14px; line-height: 1.5; margin: 10px 0 0; }
+
+/* ---- the print slip (re-set terminal output, Airlock lesson: label on the object) ---- */
+.nm-slip {
+  position: relative; background: var(--card); border: 1px solid var(--rule); color: var(--ink);
+  font-family: var(--font-data); font-size: 12.5px; line-height: 1.6; padding: 22px 20px 16px;
+  -webkit-mask: radial-gradient(circle 5px at 8px 0, transparent 98%, #000) -8px 0 / 16px 100% repeat-x;
+  mask: radial-gradient(circle 5px at 8px 0, transparent 98%, #000) -8px 0 / 16px 100% repeat-x;
+}
+.nm-slip .slip-label { font-family: var(--font-body); font-size: 12px; color: var(--muted); margin: 0 0 10px; border-bottom: 1px dashed var(--rule); padding-bottom: 8px; }
+.nm-slip pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: inherit; }
+.nm-slip .l { display: block; padding-left: 2ch; text-indent: -2ch; }
+.nm-slip .l.cmd { color: var(--muted); }
+.nm-slip .l.ok { color: var(--after); }
+.nm-slip .l.nv { color: var(--before); }
+.nm-slip .l.gap { color: var(--muted); }
+
+/* ---- icons (drawn, uncontained) ---- */
+.nm-ico { width: 34px; height: 34px; stroke: var(--ink); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.nm-ico .acc { stroke: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* remedy gauge (bento: the trial) */
+.gauge { position: relative; height: 54px; margin: 10px 0 0; border-bottom: 1px solid var(--ink); }
+.g-band { position: absolute; top: 10px; bottom: 0; background: repeating-linear-gradient(90deg, rgba(180, 194, 174, .55) 0 1px, transparent 1px 6px); border-left: 2px solid var(--ink); border-right: 2px solid var(--ink); }
+.g-zero { position: absolute; top: 4px; bottom: 0; border-left: 1px dashed var(--muted); }
+.g-m { position: absolute; bottom: 9px; width: 11px; height: 11px; margin-left: -5.5px; background: var(--after); transform: rotate(45deg); }
+.g-w { position: absolute; top: 2px; bottom: 0; width: 3px; margin-left: -1.5px; background: var(--ink); }
+.g-l { position: absolute; top: 100%; margin-top: 4px; transform: translateX(-50%); font: 12px var(--font-data); color: var(--muted); }
+.g-cap { font-size: 13px !important; color: var(--muted) !important; margin-top: 26px !important; }
+.g-key { display: inline-block; width: 8px; height: 8px; vertical-align: 1px; margin-right: 3px; }
+.g-key.d { background: var(--after); transform: rotate(45deg); }
+.g-key.w { width: 3px; height: 11px; background: var(--ink); vertical-align: -1px; }
+/* landing (/about) */
+html { overflow-x: clip; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 var(--font-body); font-feature-settings: "kern"; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 12px; top: 12px; background: var(--card); padding: 8px 12px; z-index: 9; }
+html { scrollbar-color: var(--rule) var(--bg); }
+
+/* buttons: ruled boxes, never pills */
+.btn { display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 20px; border: 1px solid var(--ink); background: transparent; color: var(--ink);
+  font: 500 16px/1 var(--font-body); text-decoration: none; cursor: pointer; transition: background-color .16s ease, color .16s ease, transform .16s ease, box-shadow .16s ease; }
+.btn:hover { background: var(--ink); color: var(--card); }
+.btn:active { transform: translateY(1px); }
+.btn.solid { background: var(--ink); color: var(--card); }
+.btn.solid:hover { background: #3b3830; border-color: #3b3830; }
+.btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.chip { font-family: var(--font-data); font-size: 12.5px; border: 1px solid var(--rule); padding: 2px 8px; color: var(--muted); background: var(--card); white-space: nowrap; }
+
+/* masthead */
+.mast { position: sticky; top: 0; z-index: 5; background: rgba(243, 239, 228, .94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--rule); }
+.mast .wrap { display: flex; align-items: center; gap: 28px; height: 66px; }
+.mark { display: flex; align-items: center; gap: 10px; font: 400 25px/1 var(--font-display); letter-spacing: .03em; text-decoration: none; }
+.mark img { width: 30px; height: 30px; transition: transform .2s ease; }
+.mark span { transition: color .16s ease; }
+.mark:hover span { color: var(--muted); }
+.mark:hover img { transform: rotate(-6deg); }
+main a:not(.btn):not(.tk) { transition: color .16s ease, text-decoration-color .16s ease; text-underline-offset: 3px; }
+main a:not(.btn):not(.tk):hover { color: var(--ink); text-decoration-thickness: 2px; text-decoration-color: var(--ink); }
+.mast nav { display: flex; gap: 22px; margin-left: 8px; }
+.mast nav a { font-size: 15px; color: var(--muted); text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; transition: color .16s ease, border-color .16s ease; }
+.mast nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.mast .act { margin-left: auto; display: flex; gap: 10px; }
+.mast .btn { min-height: 38px; padding: 0 14px; font-size: 14.5px; }
+
+/* dateline (from the broadsheet near-miss) */
+.dateline { border-bottom: 3px double var(--rule); }
+.dateline .wrap { display: flex; justify-content: space-between; gap: 20px; padding-top: 9px; padding-bottom: 8px; font: 400 13px/1.3 var(--font-display); letter-spacing: .08em; color: var(--muted); }
+.dateline .nm-data { letter-spacing: 0; font-size: 12.5px; }
+
+/* hero */
+.hero { position: relative; background:
+    linear-gradient(90deg, transparent 54px, var(--rule) 54px 55px, transparent 55px 59px, var(--rule) 59px 60px, transparent 60px) 0 0 / 100% 100% no-repeat,
+    repeating-linear-gradient(180deg, transparent 0 33px, rgba(180, 194, 174, .42) 33px 34px); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 5.6fr) minmax(0, 6.4fr); gap: 0; align-items: stretch; min-height: calc(100vh - 66px - 38px); max-height: 880px; }
+.hero-copy { padding: 44px 32px 40px 36px; display: flex; flex-direction: column; justify-content: center; }
+.eyebrow { font: 400 14px/1.4 var(--font-display); letter-spacing: .1em; color: var(--muted); margin: 0 0 16px; }
+.eyebrow .sep { color: var(--rule); margin: 0 8px; }
+h1 { font: 400 clamp(36px, 3.05vw, 46px)/1.1 var(--font-display); letter-spacing: .005em; margin: 0 0 22px; }
+h1 .b { display: block; }
+h1 .hl { color: var(--after); text-decoration: underline double var(--after); text-decoration-thickness: 1px; text-underline-offset: .16em; }
+.sub { font-size: 18.5px; line-height: 1.58; color: #3b3830; margin: 0 0 26px; max-width: 34em; }
+.sub b { color: var(--ink); font-weight: 650; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+.proofline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-size: 14px; color: var(--muted); }
+.copy { display: inline-flex; align-items: center; gap: 8px; font: 13px var(--font-data); color: var(--ink); background: var(--card); border: 1px solid var(--rule); padding: 6px 10px; cursor: pointer; transition: border-color .16s ease, background-color .16s ease; }
+.copy:hover { border-color: var(--ink); }
+.copy .st { font-family: var(--font-body); color: var(--muted); border-left: 1px solid var(--rule); padding-left: 8px; }
+.copy .ok { color: var(--ink); }
+
+/* the jury table: ink mat bleeding to the right edge */
+.mat { position: relative; background: var(--ink); color: var(--bg); padding: 38px 0 26px 44px; margin-right: calc(-1 * max(40px, (100vw - 1280px) / 2 + 40px)); padding-right: max(40px, calc((100vw - 1280px) / 2 + 40px)); display: flex; flex-direction: column; justify-content: center; }
+.mat .nm-leaf { padding: 22px 26px 18px; transform: rotate(-.6deg); max-width: 720px; }
+.mat .nm-leaf-head { font-size: 13.5px; }
+.mat .nm-proof { font-size: 16px; }
+.mat-foot { display: flex; justify-content: space-between; align-items: center; gap: 16px; max-width: 720px; margin-top: 16px; font-size: 14px; color: #cfc8b8; }
+.mat-foot .nm-data { color: #e9e3d4; }
+.replay { all: unset; white-space: nowrap; cursor: pointer; color: var(--bg); font: 500 13.5px var(--font-body); border: 1px solid #6f6a5e; padding: 6px 12px; transition: border-color .16s ease, background-color .16s ease; }
+.replay:hover { border-color: var(--bg); background: #2b2924; }
+.replay:focus-visible { outline: 2px solid var(--rule); }
+.hero-stamp { position: absolute; left: 7%; top: 37%; font-size: 30px; z-index: 2; }
+.nm-leaf .nm-figure { font-size: 54px; }
+
+/* hero animation states (default markup = settled; JS arms, plays, then removes) */
+.armed .draw { clip-path: inset(0 100% 0 0); }
+.armed .ink { clip-path: inset(0 100% 0 0); }
+.armed .pm { opacity: 0; transform: translateY(6px); }
+.armed .hero-stamp { opacity: 0; transform: rotate(-2deg) scale(1.06); }
+.armed .nm-verdict-line { clip-path: inset(0 100% 0 0); }
+.playing .draw { transition: clip-path 1.3s cubic-bezier(.3, .6, .3, 1); clip-path: inset(0 0 0 0); }
+.playing.inked .ink { transition: clip-path 1s cubic-bezier(.3, .6, .3, 1); clip-path: inset(0 0 0 0); }
+.playing .pm.on { transition: opacity .18s ease-out, transform .18s ease-out; opacity: 1; transform: none; }
+.playing.struck .hero-stamp { animation: nm-strike .16s cubic-bezier(.2, .9, .3, 1.2) forwards; }
+.playing.struck .nm-verdict-line { transition: clip-path .9s steps(40, end) .2s; clip-path: inset(0 0 0 0); }
+.nm-chart .pm { transform-box: fill-box; transform-origin: center; }
+
+/* receipts band */
+.receipts { background: var(--card); border-top: 3px double var(--rule); border-bottom: 3px double var(--rule); }
+.receipts .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.rc { padding: 30px 26px 26px; border-left: 1px solid var(--rule); }
+.rc:first-child { border-left: 0; padding-left: 0; }
+.rc .n { font: 400 48px/1 var(--font-display); white-space: nowrap; font-variant-numeric: lining-nums tabular-nums; }
+.rc .n.v { color: var(--after); }
+.rc .t { margin: 10px 0 8px; font-size: 15.5px; line-height: 1.4; }
+.rc .p { font: 12px/1.4 var(--font-data); color: var(--muted); overflow-wrap: anywhere; }
+
+/* sections */
+section.s { padding: 92px 0; }
+.s-head { max-width: 760px; margin-bottom: 42px; }
+.label { font: 400 14px/1.4 var(--font-display); letter-spacing: .1em; color: var(--muted); margin: 0 0 12px; }
+h2 { font: 400 clamp(32px, 3.3vw, 46px)/1.1 var(--font-display); margin: 0 0 16px; text-wrap: balance; }
+.lede { font-size: 18px; line-height: 1.6; color: #3b3830; margin: 0; max-width: 40em; }
+.lede code, p code, li code { font-family: var(--font-data); font-size: .86em; }
+
+/* sitting I: live trial */
+.trial { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 34px; align-items: start; }
+.bench { background: var(--card); border: 1px solid var(--rule); box-shadow: 0 1px 0 rgba(29, 27, 22, .14); }
+.bench-top { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 18px 20px; border-bottom: 3px double var(--rule); }
+.bench-top .pick { font: 400 15px var(--font-display); letter-spacing: .06em; color: var(--muted); margin-right: 4px; }
+.tk { all: unset; cursor: pointer; font: 500 14px var(--font-data); border: 1px solid var(--rule); padding: 7px 12px; background: var(--bg); color: var(--ink); transition: border-color .16s ease, background-color .16s ease, color .16s ease; }
+.tk:hover { border-color: var(--ink); }
+.tk[aria-pressed="true"] { background: var(--ink); color: var(--card); border-color: var(--ink); }
+.tk:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.bench-top form { display: flex; gap: 6px; margin-left: auto; }
+.bench-top input { width: 9.5em; font: 500 14px var(--font-data); text-transform: uppercase; border: 1px solid var(--rule); background: var(--bg); padding: 8px 10px; color: var(--ink); }
+.bench-top input::placeholder { color: var(--muted); text-transform: none; font-family: var(--font-body); }
+.bench-top input:focus-visible { outline: 2px solid var(--ink); outline-offset: 0; }
+.bench-top .btn { min-height: 38px; padding: 0 14px; font-size: 14.5px; }
+.bench-status { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; padding: 12px 20px; font-size: 13.5px; color: var(--muted); border-bottom: 1px solid var(--rule); min-height: 46px; }
+.bench-status .mode { font: 400 14px var(--font-display); letter-spacing: .06em; color: var(--ink); }
+.bench-status .mode.live { color: var(--ink); text-decoration: underline double var(--ink); text-underline-offset: 4px; }
+.bench-status.busy .mode::after { content: " · the jury is out"; color: var(--muted); }
+.rows { list-style: none; margin: 0; padding: 0 20px; }
+.row { display: grid; grid-template-columns: 158px minmax(0, 1fr) auto; gap: 4px 16px; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--rule); }
+.row:last-child { border-bottom: 0; }
+.row .nm-stamp { font-size: 15.5px; justify-self: start; --cut: 6px; }
+.row .who b { font: 500 15px var(--font-data); }
+.row .who span { color: var(--muted); font-size: 14px; margin-left: 6px; }
+.row .why { grid-column: 2 / 4; font-size: 13.5px; line-height: 1.45; color: var(--muted); margin: 0; }
+.row .amt { font: 500 15.5px var(--font-data); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.row .amt small { display: block; font-size: 12px; color: var(--muted); font-weight: 400; }
+.row.armed .nm-stamp { opacity: 0; transform: rotate(-2deg) scale(1.06); }
+.row.hit .nm-stamp { animation: nm-strike .16s cubic-bezier(.2, .9, .3, 1.2) forwards; }
+.bench-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; padding: 12px 20px 14px; border-top: 3px double var(--rule); font-size: 13.5px; color: var(--muted); }
+.bench-foot a { color: var(--ink); text-underline-offset: 3px; }
+.bench-err { margin: 14px 20px; padding: 12px 14px; border: 1px dashed var(--before); color: var(--ink); font-size: 14.5px; }
+.slip-wrap .nm-slip { max-height: 640px; overflow: auto; }
+.slip-ctl { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 10px; font-size: 13px; color: var(--muted); }
+.slip-ctl button { all: unset; cursor: pointer; color: var(--ink); border-bottom: 1px solid var(--rule); transition: border-color .16s ease; }
+.slip-ctl button:hover { border-color: var(--ink); }
+.slip-ctl button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.nm-slip.typing .l { visibility: hidden; }
+.nm-slip.typing .l.on { visibility: visible; }
+
+/* sitting II: bento */
+.band-leaf { background: var(--card); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.bento { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; }
+.cell { background: var(--bg); border: 1px solid var(--rule); padding: 24px 24px 22px; display: flex; flex-direction: column; gap: 10px; transition: border-color .16s ease, transform .16s ease; }
+.cell:hover { border-color: var(--muted); }
+.cell h3 { font: 400 22px/1.2 var(--font-display); margin: 4px 0 0; letter-spacing: .02em; }
+.cell p { margin: 0; font-size: 15.5px; line-height: 1.55; color: #3b3830; }
+.cell .chip { align-self: flex-start; margin-top: auto; }
+.cell.c-big { grid-column: span 4; grid-row: span 2; }
+.cell.c-2 { grid-column: span 2; }
+.cell.c-3 { grid-column: span 3; }
+.shot { border: 1px solid var(--rule); background: var(--card); overflow: hidden; }
+.shot img { width: 100%; height: auto; }
+.shot-cap { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+.c-big .shot { margin-top: 6px; }
+.step-no { font: 400 13px var(--font-display); letter-spacing: .1em; color: var(--muted); }
+
+/* sitting III: trial book */
+.key { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-bottom: 30px; }
+.kc { border-top: 3px double var(--ink); padding-top: 16px; }
+.kc .nm-stamp { font-size: 17px; }
+.kc .cnt { font: 400 44px/1 var(--font-display); margin: 16px 0 6px; font-variant-numeric: lining-nums; }
+.kc p { margin: 0; font-size: 14.5px; line-height: 1.5; color: #3b3830; }
+.book { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 34px; align-items: start; }
+.ledger { background: var(--card); border: 1px solid var(--rule); padding: 8px 22px 14px; }
+.ledger .lh, .ledger .lr { display: grid; grid-template-columns: 1.1fr 1.1fr .9fr .7fr .9fr; gap: 10px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--rule); }
+.ledger .lh { font: 400 12.5px var(--font-display); letter-spacing: .08em; color: var(--muted); border-bottom: 3px double var(--rule); }
+.ledger .lr span:nth-child(n+3) { text-align: right; font-family: var(--font-data); font-size: 14px; font-variant-numeric: tabular-nums; }
+.ledger .lh span:nth-child(n+3) { text-align: right; }
+.ledger .lr b { font: 500 14.5px var(--font-data); }
+.ledger .lr .iss { font-size: 14px; color: var(--muted); }
+.ledger .lr:last-of-type { border-bottom: 0; }
+.ledger .lr .v { color: var(--after); }
+.ledger-cap { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+.book-side .shot { transform: rotate(.5deg); }
+
+/* sitting IV: the API, both ways (ink band) */
+.band-ink { background: var(--ink); color: var(--bg); }
+.band-ink .label { color: #cfc8b8; }
+.band-ink .lede { color: #d9d3c4; }
+.both { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid #4a463d; }
+.both > div { padding: 26px 34px 6px 0; }
+.both > div + div { padding-left: 34px; border-left: 1px solid #4a463d; }
+.both h3 { font: 400 22px var(--font-display); letter-spacing: .04em; margin: 0 0 14px; color: var(--card); }
+.both ol { margin: 0; padding: 0; list-style: none; counter-reset: i; }
+.both li { counter-increment: i; position: relative; padding: 0 0 18px 40px; font-size: 15.5px; line-height: 1.55; color: #e4dfd2; }
+.both li::before { content: counter(i, upper-roman); position: absolute; left: 0; top: 0; font: 400 15px var(--font-display); color: #cfc8b8; }
+.both li code { color: var(--card); background: #2e2c26; padding: 1px 5px; }
+.both li .src { display: block; font: 12px var(--font-data); color: #a9a293; margin-top: 4px; }
+.endpoints { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+.endpoints .chip { background: #2a2823; border-color: #4a463d; color: #e4dfd2; }
+
+/* errata */
+.errata { max-width: 900px; background: var(--card); border: 1px solid var(--rule); padding: 30px 36px 18px; position: relative; transform: rotate(-.3deg); }
+.errata-h { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 3px double var(--ink); padding-bottom: 10px; margin-bottom: 6px; }
+.errata-h b { font: 400 26px var(--font-display); letter-spacing: .06em; font-weight: 400; }
+.errata-h span { font-size: 13px; color: var(--muted); }
+.erratum { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.erratum:last-child { border-bottom: 0; }
+.erratum .no { font: 400 24px/1.2 var(--font-display); color: var(--muted); }
+.erratum q { display: block; font-size: 18px; line-height: 1.55; quotes: "“" "”"; }
+.erratum cite { display: block; margin-top: 6px; font-style: normal; font-size: 13px; color: var(--muted); }
+
+/* FAQ */
+.faq { max-width: 900px; border-top: 3px double var(--ink); }
+.faq details { border-bottom: 1px solid var(--rule); }
+.faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 20px; padding: 20px 0; font: 400 21px/1.3 var(--font-display); letter-spacing: .02em; transition: color .16s ease; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: var(--font-data); color: var(--muted); transition: transform .2s ease; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq summary:hover { color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 5px; }
+.faq .a { padding: 0 0 22px; max-width: 46em; font-size: 16.5px; line-height: 1.62; color: #3b3830; }
+.faq .a p { margin: 0 0 10px; }
+
+/* closing + footer */
+.close { padding: 84px 0 70px; text-align: center; background: var(--card); border-top: 3px double var(--rule); }
+.close h2 { margin-bottom: 22px; }
+.close .ctas { justify-content: center; }
+.close .nm-stamp { font-size: 22px; margin-bottom: 22px; }
+footer { background: var(--ink); color: #cfc8b8; font-size: 14px; }
+footer .wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 30px; padding-top: 40px; padding-bottom: 40px; }
+footer .mark { color: var(--card); margin-bottom: 10px; }
+footer h4 { font: 400 14px var(--font-display); letter-spacing: .1em; color: #cfc8b8; margin: 0 0 10px; }
+footer ul { list-style: none; margin: 0; padding: 0; }
+footer li { margin: 0 0 6px; }
+footer a { color: #ece6d8; text-underline-offset: 3px; text-decoration-color: #6f6a5e; transition: text-decoration-color .16s ease, color .16s ease; }
+footer a:hover { color: var(--card); text-decoration-color: var(--card); }
+footer p { margin: 0 0 8px; line-height: 1.55; }
+footer .nm-data { font-size: 12.5px; color: #e4dfd2; }
+
+
+/* short laptops: keep the strike inside 1366×768 / 1280×720 */
+@media (min-width: 1081px) and (max-height: 820px) {
+  .hero .wrap { min-height: 0; }
+  .hero-copy { padding-top: 26px; padding-bottom: 22px; }
+  h1 { font-size: clamp(34px, 2.9vw, 42px); margin-bottom: 16px; }
+  .sub { font-size: 17px; margin-bottom: 18px; }
+  .mat { padding-top: 22px; padding-bottom: 16px; }
+  .mat .nm-leaf { padding: 16px 22px 14px; }
+  .nm-leaf .nm-figure { font-size: 44px; }
+  .mat .nm-proof { padding: 6px 0; }
+}
+
+@media (max-width: 1080px) {
+  .hero .wrap { grid-template-columns: 1fr; max-height: none; min-height: 0; }
+  .hero-copy { padding: 38px 0 30px 28px; }
+  .mat { margin: 0 -40px; padding: 30px 40px 24px; }
+  .mat .nm-leaf, .mat-foot { max-width: none; }
+  .trial, .book { grid-template-columns: 1fr; }
+  .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cell.c-big { grid-column: span 2; grid-row: auto; }
+  .cell.c-2 { grid-column: span 1; }
+  .cell.c-3 { grid-column: span 2; }
+  .receipts .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rc:nth-child(3) { border-left: 0; padding-left: 0; }
+  .rc { border-top: 1px solid var(--rule); }
+  .rc:nth-child(-n+2) { border-top: 0; }
+  .key { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mast nav { display: none; }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .wrap { padding: 0 20px; }
+  .hero { background: repeating-linear-gradient(180deg, transparent 0 33px, rgba(180, 194, 174, .22) 33px 34px); }
+  .hero .wrap { display: flex; flex-direction: column; }
+  .hero-copy { display: contents; }
+  .hero-copy .eyebrow { order: 1; margin-top: 24px; font-size: 12px; letter-spacing: .06em; }
+  .mat .nm-proof { font-size: 14px; padding: 6px 0; gap: 2px 10px; }
+  .mat .nm-scale { font-size: 11.5px; }
+  .mat .nm-money { margin-top: 8px; padding-top: 8px; }
+  .hero-copy h1 { order: 2; font-size: 29px; margin-bottom: 18px; }
+  .mat { order: 3; margin: 0 -20px; padding: 18px 14px 16px; }
+  .hero-copy .sub { order: 4; margin-top: 22px; }
+  .hero-copy .ctas { order: 5; }
+  .hero-copy .proofline { order: 6; margin-bottom: 30px; }
+  .ctas .btn { flex: 1 1 auto; justify-content: center; }
+  .ctas .btn.solid { order: -1; flex-basis: 100%; }
+  .mat .nm-leaf { padding: 14px 14px 12px; transform: none; }
+  .mat .nm-leaf-head { flex-direction: column; gap: 2px; font-size: 12.5px; }
+  .hero-stamp { font-size: 20px; left: 6%; top: 34%; --cut: 6px; }
+  .nm-leaf .nm-figure { font-size: 38px; }
+  .nm-money { flex-wrap: wrap; }
+  .nm-lab { font-size: 11px; }
+  .mat-foot { flex-direction: column; align-items: flex-start; }
+  .dateline .wrap > span:last-child { display: none; }
+  .mast .act .btn.quiet { display: none; }
+  .mast .wrap { gap: 12px; }
+  .sub { font-size: 16.5px; }
+  .receipts .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rc, .rc:first-child, .rc:nth-child(3) { padding: 18px 0 16px 14px; }
+  .rc:nth-child(odd) { padding-left: 0; padding-right: 10px; border-left: 0; }
+  .rc .n { font-size: 30px; }
+  .rc .t { font-size: 14px; margin: 8px 0 6px; }
+  section.s { padding: 64px 0; }
+  .bento { grid-template-columns: minmax(0, 1fr); }
+  .cell { min-width: 0; }
+  .chip { white-space: normal; overflow-wrap: anywhere; }
+  .nm-lab .w { display: none; }
+  .cell.c-big, .cell.c-2, .cell.c-3 { grid-column: auto; }
+  .row { grid-template-columns: minmax(0, 1fr) auto; }
+  .row .nm-stamp { grid-column: 1 / 3; }
+  .row .why { grid-column: 1 / 3; }
+  .bench-top form { margin-left: 0; width: 100%; }
+  .bench-top input { flex: 1; width: auto; min-width: 0; }
+  .key { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .kc .cnt { font-size: 36px; }
+  .ledger { padding: 6px 12px 10px; overflow-x: auto; }
+  .ledger .lh, .ledger .lr { grid-template-columns: 1fr .9fr .8fr; }
+  .ledger .lh span:nth-child(2), .ledger .lr span:nth-child(2), .ledger .lh span:nth-child(4), .ledger .lr span:nth-child(4) { display: none; }
+  .both { grid-template-columns: 1fr; }
+  .both > div + div { padding-left: 0; border-left: 0; border-top: 1px solid #4a463d; }
+  .both > div { padding-right: 0; }
+  .errata { padding: 22px 18px 10px; transform: none; }
+  .erratum { grid-template-columns: 30px minmax(0, 1fr); }
+  .erratum q { font-size: 16.5px; }
+  .faq summary { font-size: 18.5px; }
+  footer .wrap { grid-template-columns: 1fr; }
+}
+@media print {
+  .mast, .replay, .slip-ctl, .bench-top form { display: none; }
+  .mat { background: none; color: var(--ink); margin: 0; padding: 0; }
+  .armed * { opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none !important; }
+  .band-ink { background: none; color: var(--ink); }
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast"><div class="wrap">
+  <a class="mark" href="/about" aria-label="NetMint, about"><img src="/icon.svg" alt="" width="30" height="30"><span>NetMint</span></a>
+  <nav aria-label="Sections"><a href="#trial">The trial</a><a href="#how">How a verdict is struck</a><a href="#book">The book</a><a href="#errata">Errata</a><a href="#faq">FAQ</a></nav>
+  <div class="act"><a class="btn quiet" href="/pitch">Pitch deck</a><a class="btn solid" href="/">Run it live</a></div>
+</div></header>
+<div class="dateline"><div class="wrap"><span>The trial of the pyx · for tokenised stocks</span><span>Sitting of <span class="nm-data">2026-11-21</span> · 30-day window · Real World Assets track</span></div></div>
+<main id="main">
+<section class="hero"><div class="wrap">
+  <div class="hero-copy">
+    <p class="eyebrow">CoinMarketCap API Hackathon<span class="sep">◆</span>NetMint</p>
+    <h1><span class="b">Price fell 41%.</span> <span class="b">Supply rose sevenfold.</span> <span class="b">The chain <span class="hl">signed for it.</span></span></h1>
+    <p class="sub">CoinMarketCap records each tokenised stock’s supply every day but never shows the money behind it. NetMint puts each wrapper’s supply steps on trial against the chain: tokenised Nvidia, <b>+$202.83M</b> of net creation in 30 days, <b>5 of 5</b> step days within remedy.</p>
+    <div class="ctas"><a class="btn" href="https://github.com/edycutjong/netmint"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M6 5L2 9l4 4M12 5l4 4-4 4"/></svg>GitHub</a><a class="btn" href="/pitch">Pitch deck</a><a class="btn solid" href="/">Run it live →</a></div>
+    <div class="proofline"><span>Live re-run: 5 CMC calls · 7 credits · 1.35 s</span>
+      <button class="copy" type="button" data-copy="npm run demo -- NVDA" aria-label="Copy the command npm run demo -- NVDA"><span>npm run demo -- NVDA</span><span class="st">copy</span></button></div>
+  </div>
+  <div class="mat">
+    <div class="nm-leaf" id="trial-leaf">
+  <div class="nm-leaf-head"><b>NVDAB · bStocks · BNB Chain</b><span class="nm-data">2026-10-22 → 2026-11-21</span></div>
+  <div style="position:relative"><div class="nm-chart" id="hero-chart"><svg viewBox="0 0 640 250" role="img" aria-labelledby="hero-chart-t"><title id="hero-chart-t">NVDAB, 22 Oct to 21 Nov 2026: price fell 41% while CMC supply rose ×7.1; the chain’s totalSupply line follows CMC’s; the five largest step days are marked.</title><line class="ln-axis" x1="0" y1="222" x2="544" y2="222"/><g class="draw"><polyline class="ln ln-price" points="0.0,16.0 18.1,32.0 36.3,34.2 54.4,32.1 72.5,32.2 90.7,22.6 108.8,19.1 126.9,28.1 145.1,37.3 163.2,47.6 181.3,50.3 199.5,47.0 217.6,51.0 235.7,41.5 253.9,56.7 272.0,102.7 290.1,85.9 308.3,87.5 326.4,105.2 344.5,103.7 362.7,125.8 380.8,146.5 398.9,130.2 417.1,146.4 435.2,148.8 453.3,135.8 471.5,156.5 489.6,145.1 507.7,165.9 525.9,179.4 544.0,216.0"/><polyline class="ln ln-pencil" points="0.0,214.7 18.1,213.2 36.3,210.8 54.4,211.8 72.5,212.0 90.7,210.8 108.8,211.3 126.9,211.2 145.1,211.9 163.2,211.9 181.3,211.9 199.5,211.9 217.6,206.9 235.7,206.9 253.9,206.5 272.0,205.9 290.1,201.9 308.3,203.5 326.4,203.5 344.5,179.2 362.7,155.1 380.8,132.8 398.9,66.1 417.1,69.2 435.2,87.5 453.3,86.0 471.5,55.5 489.6,24.0 507.7,20.2 525.9,24.5 544.0,16.0"/></g><g class="ink"><polyline class="ln ln-chain" points="0.0,216.0 18.1,213.2 36.3,212.1 54.4,212.0 72.5,212.0 90.7,211.8 108.8,212.7 126.9,213.2 145.1,211.9 163.2,211.9 181.3,211.9 199.5,211.9 217.6,207.6 235.7,208.8 253.9,207.5 272.0,207.4 290.1,203.6 308.3,203.7 326.4,203.8 344.5,183.5 362.7,157.4 380.8,130.9 398.9,66.2 417.1,69.3 435.2,88.0 453.3,87.6 471.5,57.3 489.6,26.7 507.7,20.3 525.9,23.4 544.0,16.1"/></g><g class="pm"><line class="tick" x1="344.5" y1="188.5" x2="344.5" y2="234.0"/><rect class="punch" x="340.0" y="234.0" width="9" height="9" transform="rotate(45 344.5 238.5)"/></g><g class="pm"><line class="tick" x1="362.7" y1="162.4" x2="362.7" y2="234.0"/><rect class="punch" x="358.2" y="234.0" width="9" height="9" transform="rotate(45 362.7 238.5)"/></g><g class="pm"><line class="tick" x1="398.9" y1="71.2" x2="398.9" y2="234.0"/><rect class="punch" x="394.4" y="234.0" width="9" height="9" transform="rotate(45 398.9 238.5)"/></g><g class="pm"><line class="tick" x1="471.5" y1="62.3" x2="471.5" y2="234.0"/><rect class="punch" x="467.0" y="234.0" width="9" height="9" transform="rotate(45 471.5 238.5)"/></g><g class="pm"><line class="tick" x1="489.6" y1="31.7" x2="489.6" y2="234.0"/><rect class="punch" x="485.1" y="234.0" width="9" height="9" transform="rotate(45 489.6 238.5)"/></g></svg><span class="nm-lab" style="left:86.6%;top:calc(6.4% - .62em)"><span class="w">CMC supply<br></span><b>×7.1</b></span><span class="nm-lab" style="left:86.6%;top:calc(86.4% - 1.1em)"><span class="w">price<br></span><b>−41%</b></span></div><span class="nm-stamp hero-stamp">Real Inflow</span></div>
+  <p class="nm-scale"><svg width="22" height="8" aria-hidden="true"><line x1="0" y1="4" x2="22" y2="4" stroke="#6B6558" stroke-width="1.6"/></svg> price · <svg width="22" height="8" aria-hidden="true"><line x1="0" y1="4" x2="22" y2="4" stroke="#5E6166" stroke-width="2" stroke-dasharray="5 4"/></svg> CMC total supply, pencilled · <svg width="22" height="8" aria-hidden="true"><line x1="0" y1="4" x2="22" y2="4" stroke="#1D1B16" stroke-width="2.8"/></svg> chain totalSupply, inked · <svg width="10" height="10" aria-hidden="true"><rect x="2" y="2" width="6" height="6" fill="#1F6B55" transform="rotate(45 5 5)"/></svg> step day put on trial · each line on its own scale</p>
+  <div class="nm-proof"><span class="k">Proof I</span><span>CMC total supply, 12 → 13 Nov</span><span class="v">+406,140</span></div>
+  <div class="nm-proof"><span class="k">Proof II</span><span>chain totalSupply, 12 → 13 Nov, BNB Chain</span><span class="v">+393,976</span></div>
+  <div class="nm-money"><span class="money-lab"><b>Net creation, 30 days</b>units created − redeemed, at market price</span><span class="nm-figure nm-cr" id="hero-figure" data-value="202826522.82">+$202.83M</span></div>
+  <p class="nm-verdict-line">Found: within remedy (−3.0% against ±10%) · 5 of 5 step days · window +0.6%</p>
+</div>
+    <div class="mat-foot"><span>Recorded <span class="nm-data">2026-11-21 01:40 UTC</span>, replayed from the committed CMC bodies. Re-run live at <span class="nm-data">04:46 UTC</span>: the same +$202.83M.</span><button class="replay" id="replay" type="button">Replay the trial ↻</button></div>
+  </div>
+</div></section>
+
+<section class="receipts" aria-label="Receipts"><div class="wrap">
+  <div class="rc"><p class="n" data-count="202826522.82" data-fmt="musd">+$202.83M</p><p class="t">NVDAB net creation in 30 days, at market price</p><p class="p">evidence/2026-11-21/nvda-30d/table.json</p></div>
+  <div class="rc"><p class="n v" data-count="5" data-fmt="frac" data-of="5">5 / 5</p><p class="t">largest step days found within remedy (±10%)</p><p class="p">table.json · mint.step_days</p></div>
+  <div class="rc"><p class="n" data-count="152">152</p><p class="t">wrappers on trial, top 20 tokenised stocks</p><p class="p">evidence/2026-11-21/flows-30d.json</p></div>
+  <div class="rc"><p class="n" data-count="201">201</p><p class="t">tests passing; 304 stored rows re-derived, 0 diffs</p><p class="p">npm test · npm run verify:flows</p></div>
+</div></section>
+
+<section class="s" id="trial"><div class="wrap">
+  <div class="s-head"><p class="label">Sitting I · the trial, live</p><h2>Pick a stock. The jury sits on your click.</h2>
+  <p class="lede">Below, the recorded NVDA trial. Press a ticker: this page calls <code>/api/lookup</code>, which calls CoinMarketCap now, reads the chain and strikes each verdict. Beside it, the same flow’s terminal stdout.</p></div>
+  <div class="trial">
+    <div class="bench" id="bench">
+      <div class="bench-top"><span class="pick">Put on trial</span>
+        <button class="tk" type="button" data-t="NVDA" aria-pressed="false">NVDA</button><button class="tk" type="button" data-t="TSLA" aria-pressed="false">TSLA</button>
+        <button class="tk" type="button" data-t="GOOGL" aria-pressed="false">GOOGL</button><button class="tk" type="button" data-t="AMD" aria-pressed="false">AMD</button>
+        <form action="/u" method="get"><label for="tk-in" class="skip">Ticker</label><input id="tk-in" name="t" placeholder="any ticker" maxlength="12" autocomplete="off"><button class="btn" type="submit">Try</button></form></div>
+      <div class="bench-status" id="bench-status" aria-live="polite"><span class="mode">Recorded</span><span>Nvidia Corp · 2026-10-22 → 2026-11-21</span><span class="nm-data">7 credits · 2026-11-21 01:40 UTC</span></div>
+      <ul class="rows" id="rows"><li class="row"><span class="nm-stamp">Real Inflow</span><span class="who"><b>NVDAB</b><span>bStocks</span></span><span class="amt nm-cr">+$202.83M<small>units ×7.13 · price −41.0%</small></span><p class="why">window endpoints and the largest step days (up to 5) verified within remedy (chain +1,216,792 · CMC +1,209,739 · +0.6% · within remedy ±10%)</p></li>
+<li class="row"><span class="nm-stamp is-pencil">Not verifiable</span><span class="who"><b>NVDAX</b><span>Backed Assets</span></span><span class="amt nm-cr">+$104.10M<small>units ×3.98 · price −41.0%</small></span><p class="why">86% of supply sits outside BNB Chain + Ethereum (Solana), which has no historical supply source</p></li>
+<li class="row"><span class="nm-stamp is-pencil">Not verifiable</span><span class="who"><b>rNVDA</b><span>Reality</span></span><span class="amt nm-cr">+$11.84M<small>units ×5.64 · price −41.2%</small></span><p class="why">no contract on BNB Chain or Ethereum (listed on Arbitrum); no historical supply source</p></li>
+<li class="row"><span class="nm-stamp is-pencil">Not verifiable</span><span class="who"><b>NVDA</b><span>Robinhood</span></span><span class="amt nm-cr">+$9.75M<small>units ×1.68 · price −41.1%</small></span><p class="why">no contract on BNB Chain or Ethereum (listed on Robinhood Chain); no historical supply source</p></li>
+<li class="row"><span class="nm-stamp is-pencil">Not verifiable</span><span class="who"><b>NVDAon</b><span>Ondo Assets</span></span><span class="amt nm-cr">+$8.88M<small>units ×1.36 · price −41.1%</small></span><p class="why">the move may sit on Robinhood Chain (0.4% of supply outside the summed chains); step check failed at d = 0: chain +48,956 vs CMC +55,801 (tolerance ±5,580)</p></li>
+<li class="row"><span class="nm-stamp is-pencil">Not verifiable</span><span class="who"><b>NVDAc</b><span>Coinbase</span></span><span class="amt nm-cr">+$5.24M<small>units ×2.03 · price −41.2%</small></span><p class="why">no contract on BNB Chain or Ethereum (listed on Base); no historical supply source</p></li>
+<li class="row"><span class="nm-stamp is-pencil">Not verifiable</span><span class="who"><b>WNVDAX</b><span>Backed Assets</span></span><span class="amt nm-cr">+$1.58M<small>units ×2.86 · price −41.0%</small></span><p class="why">no contract on BNB Chain or Ethereum (listed on X Layer, Arbitrum); no historical supply source</p></li>
+<li class="row"><span class="nm-stamp is-pencil">No verdict</span><span class="who"><b>NVDA.D</b><span>Dinari Assets</span></span><span class="amt"></span><p class="why">CMC returned no daily history for this window</p></li>
+<li class="row"><span class="nm-stamp is-pencil">Derivative</span><span class="who"><b>NVDA</b><span>NA (Derivatives)</span></span><span class="amt"></span><p class="why">derivative listing: no supply to mint</p></li></ul>
+      <div class="bench-foot" id="bench-foot"><span>Recorded rows from evidence/2026-11-21/nvda-30d. Press a ticker to run it live.</span><a href="/u/NVDA">Every response, verbatim, in the app’s receipts →</a></div>
+    </div>
+    <div class="slip-wrap">
+      <div class="nm-slip" id="slip"><p class="slip-label">Re-set from <code>npm run demo</code> stdout · live run 2026-11-21 04:46:38 UTC · lines in run order, ⋮ marks omitted lines</p><pre><span class="l cmd">$ npm run demo -- NVDA --from 2026-10-22 --to 2026-11-21</span><span class="l ">NetMint · Nvidia Corp (NVDA, rwa_id 2) · 2026-10-22 → 2026-11-21 (pinned)</span><span class="l ">fetched 2026-11-21T04:46:38.639Z · 5 CMC calls · 7 credits · 0 RPC reads · 1351 ms</span><span class="l gap">⋮</span><span class="l ok">REAL INFLOW     NVDAB    bStocks           +$202.83M units ×7.13  price −41.0%   cov 96.1%</span><span class="l ">                window endpoints and the largest step days (up to 5) verified (chain +1,216,792 · CMC +1,209,739 · +0.6% · within remedy ±10%)</span><span class="l nv">NOT VERIFIABLE  NVDAX    Backed Assets     +$104.10M units ×3.98  price −41.0%   cov 14.5%</span><span class="l ">                86% of supply sits outside BNB Chain + Ethereum (Solana), which has no historical supply source</span><span class="l gap">⋮</span><span class="l ">  step 2026-11-13: CMC 3d 522,505 · chain 3d 535,910 · ok</span><span class="l ">  step 2026-11-18: CMC 3d 400,526 · chain 3d 409,071 · ok</span><span class="l ">  step 2026-11-17: CMC 3d 386,252 · chain 3d 372,839 · ok</span><span class="l ">  step 2026-11-10: CMC 3d 294,447 · chain 3d 281,930 · ok</span><span class="l ">  step 2026-11-11: CMC 3d 430,435 · chain 3d 443,621 · ok</span><span class="l ">  mint tx 0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c → 0x5948602680fe4aea08d98302337a2715b3aadad1</span><span class="l ">&nbsp;</span></pre></div>
+      <div class="slip-ctl"><span>Full transcript: evidence/2026-11-21/demo-nvda-pinned.txt</span><button id="slip-replay" type="button">Re-type ↻</button></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="s band-leaf" id="how"><div class="wrap">
+  <div class="s-head"><p class="label">Sitting II · how a verdict is struck</p><h2>From a pencilled jump to a hallmark.</h2></div>
+  <div class="bento">
+    <article class="cell c-big"><span class="step-no">What the click opens</span><h3>One verdict, two proving rows</h3>
+      <p>The app’s first screen: the verdict, the dollars, and CMC’s step beside the chain’s.</p>
+      <div class="shot"><img src="/landing/img/app-hero-card.webp" width="1100" height="719" alt="The NetMint app hero card: REAL INFLOW stamp, +$202.8M net creation for NVDAB, Proof 1 CMC total supply +406,140, Proof 2 chain totalSupply +393,976, step −3.0% within remedy ±10%" loading="lazy" decoding="async"></div>
+      <p class="shot-cap">netmint.edycu.dev, 2026-11-21 (recorded hero).</p></article>
+    <article class="cell c-2"><svg class="nm-ico" viewBox="0 0 34 34" aria-hidden="true"><rect x="5" y="4" width="24" height="26"/><path d="M9 11h16M9 16h16M9 21h16M9 26h10"/><path class="acc" d="M22 26l3-4"/></svg><h3>The supply history</h3><p>CMC’s daily points give each wrapper’s supply. The day-on-day change, times that day’s price, is net creation in dollars.</p><span class="chip">/v2/cryptocurrency/quotes/historical</span></article>
+    <article class="cell c-2"><svg class="nm-ico" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 29V14"/><path d="M17 14L7 5M17 14l-4-10M17 14l4-10M17 14l10-9"/><path class="acc" d="M11 29h12"/></svg><h3>One stock, every wrapper</h3><p>Nine NVDA listings sit under one <code>rwa_id</code>. Every join is by <code>crypto_id</code>, because one ticker maps to several ids.</p><span class="chip">/v5/real-world-assets/quotes/latest</span></article>
+    <article class="cell c-3"><svg class="nm-ico" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 5v24M9 29h16M6 10h22"/><path d="M6 10l-3 9h6zM28 10l-3 9h6z"/><path class="acc" d="M3 19a3 3 0 006 0M25 19a3 3 0 006 0"/></svg><h3>The trial, within remedy</h3><p>The chain’s <code>totalSupply</code> at day-boundary blocks, summed over BNB Chain and Ethereum, must match CMC’s change within ±10%, for the window and the largest step days (up to five).</p><div class="gauge" role="img" aria-label="Five step days at −4.3%, −3.5%, +2.1%, +2.6%, +3.1% and the window at +0.6%, all inside the ±10% remedy"><span class="g-band" style="left:8.33%;right:8.33%"></span><span class="g-zero" style="left:50%"></span><span class="g-m" style="left:32.29%" title="2026-11-10: -4.3%"></span><span class="g-m" style="left:35.53%" title="2026-11-17: -3.5%"></span><span class="g-m" style="left:58.89%" title="2026-11-18: +2.1%"></span><span class="g-m" style="left:60.69%" title="2026-11-13: +2.6%"></span><span class="g-m" style="left:62.76%" title="2026-11-11: +3.1%"></span><span class="g-w" style="left:52.43%"></span><span class="g-l" style="left:8.33%">−10%</span><span class="g-l" style="left:50%">0</span><span class="g-l" style="left:91.67%">+10%</span></div><p class="g-cap"><span class="g-key d"></span> step days (3-day sums): −4.3%, −3.5%, +2.1%, +2.6%, +3.1% · <span class="g-key w"></span> window +0.6%</p><span class="chip">totalSupply() at day-boundary blocks</span></article>
+    <article class="cell c-3"><svg class="nm-ico" viewBox="0 0 34 34" aria-hidden="true"><path d="M8 4h18v26l-3-2-3 2-3-2-3 2-3-2-3 2z"/><path d="M12 11h10M12 16h10"/><path class="acc" d="M12 21h6"/></svg><h3>Receipts, verbatim</h3><p>Every CMC call kept with params, status, credit count and a curl line.</p>
+      <div class="shot"><img src="/landing/img/app-receipts.webp" width="900" height="643" alt="The app receipts drawer: 5 CMC calls, 7 credits charged; the verbatim body of GET /v5/real-world-assets/assets/list with HTTP 200 and credit_count 1" loading="lazy" decoding="async"></div><span class="chip">credit_count</span></article>
+  </div>
+</div></section>
+
+<section class="s" id="book"><div class="wrap">
+  <div class="s-head"><p class="label">Sitting III · the trial book</p><h2>152 wrappers tried. Nine struck. The rest say why.</h2>
+  <p class="lede">The top 20 tokenised stocks, 30 days to 21 Nov 2026. A struck verdict needs the chain to agree; every other row names what stopped the trial.</p></div>
+  <div class="key"><div class="kc"><span class="nm-stamp">Real Inflow</span><p class="cnt">6</p><p>The chain confirms the net creation.</p></div><div class="kc"><span class="nm-stamp is-out">Outflow</span><p class="cnt">3</p><p>The chain confirms the net redemption, in red ink.</p></div><div class="kc"><span class="nm-stamp is-pencil">Recount</span><p class="cnt">12</p><p>CMC moved and the summed chains did not.</p></div><div class="kc"><span class="nm-stamp is-pencil">Not verifiable</span><p class="cnt">107</p><p>No readable supply history, or an ambiguous day alignment.</p></div></div>
+  <div class="book">
+    <div class=""><div class="ledger"><div class="lh"><span>Wrapper</span><span>Issuer</span><span>Net, 30 d</span><span>Units</span><span>Chain vs CMC</span></div><div class="lr"><span><b>NVDAB</b></span><span class="iss">bStocks</span><span class="nm-cr">+$202.83M</span><span>×7.13</span><span class="v">+0.6%</span></div>
+<div class="lr"><span><b>TSLAon</b></span><span class="iss">Ondo Assets</span><span class="nm-cr">+$9.32M</span><span>×1.51</span><span class="v">−5.7%</span></div>
+<div class="lr"><span><b>GOOGon</b></span><span class="iss">Ondo Assets</span><span class="nm-cr">+$6.03M</span><span>×56.97</span><span class="v">−0.5%</span></div>
+<div class="lr"><span><b>AMDon</b></span><span class="iss">Ondo Assets</span><span class="nm-db">−$5.34M</span><span>×0.34</span><span class="v">+0.2%</span></div>
+<div class="lr"><span><b>TSMon</b></span><span class="iss">Ondo Assets</span><span class="nm-cr">+$2.56M</span><span>×1.48</span><span class="v">+1.7%</span></div>
+<div class="lr"><span><b>PDDon</b></span><span class="iss">Ondo Assets</span><span class="nm-db">−$1.84M</span><span>×0.85</span><span class="v">−0.0%</span></div>
+<div class="lr"><span><b>PLTRon</b></span><span class="iss">Ondo Assets</span><span class="nm-cr">+$1.48M</span><span>×1.63</span><span class="v">+0.6%</span></div>
+<div class="lr"><span><b>SNDKon</b></span><span class="iss">Ondo Assets</span><span class="nm-db">−$0.86M</span><span>×0.87</span><span class="v">+3.2%</span></div>
+<div class="lr"><span><b>AVGOon</b></span><span class="iss">Ondo Assets</span><span class="nm-cr">+$0.55M</span><span>×1.13</span><span class="v">+2.2%</span></div></div>
+      <p class="ledger-cap">The nine struck rows; with 4 flat and 20 without a verdict, 152. evidence/2026-11-21/flows-30d.json, 02:53 UTC, 129 credits. <a href="/flows">Open the full book →</a></p></div>
+    <figure class="book-side" style="margin:0"><div class="shot"><img src="/landing/img/app-flows.webp" width="1040" height="660" alt="The app /flows page: ranked rows with REAL INFLOW and OUTFLOW stamps, net creation, units, price and chain coverage" loading="lazy" decoding="async"></div><figcaption class="shot-cap">/flows in the live app.</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="s band-ink" id="api"><div class="wrap">
+  <div class="s-head"><p class="label">Sitting IV · the API, both ways</p><h2>What CMC made possible, and where it got in the way.</h2></div>
+  <div class="both">
+    <div><h3>Made possible</h3><ol>
+      <li><code>quotes/historical</code> back-fills daily supply for every wrapper: the engine.<span class="src">lib/cmc/history.ts</span></li>
+      <li><code>v5/real-world-assets</code> ties wrappers to one stock: no scraping 12 issuers’ sites.<span class="src">lib/cmc/rwa.ts</span></li>
+      <li><code>credit_count</code> puts each lookup’s cost in its receipts.<span class="src">lib/receipts.ts</span></li></ol></div>
+    <div><h3>In the way</h3><ol>
+      <li><code>convert=&lt;fiat&gt;</code> on <code>quotes/historical</code> multiplies <code>circulating_supply</code> by the exchange rate; we ask in USD.<span class="src">docs/proof/spike/convert-bug/</span></li>
+      <li>One ticker, several ids (<code>NVDA</code> maps to 2): every join is by id.<span class="src">README · Where it got in the way</span></li>
+      <li><code>POST /v1/dex/holders/list</code> returned 400 for three POST shapes and 405 for a GET; we use the count endpoint.<span class="src">docs/proof/spike/</span></li></ol></div>
+  </div>
+  <div class="endpoints"><span class="chip">/v5/real-world-assets/assets/list</span><span class="chip">/v5/real-world-assets/quotes/latest</span><span class="chip">/v2/cryptocurrency/quotes/historical</span><span class="chip">/v2/cryptocurrency/info</span><span class="chip">/v2/cryptocurrency/quotes/latest</span><span class="chip">/v1/dex/holders/count</span><span class="chip">/v1/key/info</span></div>
+</div></section>
+
+<section class="s" id="errata"><div class="wrap">
+  <div class="errata"><div class="errata-h"><b>Errata</b><span>honest by design · kept in the record</span></div><div class="erratum"><span class="no">I</span><div><q>We first called supply growth “inflow from holders”. … It is issuer-level creation, so the wording is now “net creation”, counted like an ETF flow.</q><cite>README · What we got wrong, 1</cite></div></div><div class="erratum"><span class="no">II</span><div><q>We nearly called NVDAX’s July–August fall a real redemption. … a CMC circulating/total split, not a redemption.</q><cite>README · What we got wrong, 2</cite></div></div><div class="erratum"><span class="no">III</span><div><q>Dollars are net creation at market price, not money that changed hands.</q><cite>README · What we got wrong, 5</cite></div></div></div>
+</div></section>
+
+<section class="s band-leaf" id="faq"><div class="wrap">
+  <h2 class="">Questions a judge would ask</h2>
+  <div class="faq"><details><summary>Is the click really live?</summary><div class="a"><p>Yes. “Put it on trial” calls <code>/api/lookup</code> on this domain. The server calls CoinMarketCap with its own key (never sent to your browser) and returns every receipt. The panel prints the mode, credits and time; a repeat within 60 s is labelled cached.</p></div></details><details><summary>What is replayed, not live?</summary><div class="a"><p>The top leaf and the trial book replay committed captures (2026-11-21 01:40 UTC and 02:53 UTC). Chain values come from a committed daily <code>totalSupply</code> baseline read from archive RPC. A live re-run at 04:46 UTC printed the same +$202.83M.</p></div></details><details><summary>Is net creation money that buyers put in?</summary><div class="a"><p>No. It is units created minus redeemed, times that day’s market price, counted like an ETF flow table. A mint is executed by the token’s minter: issuer-level creation, not buyer data.</p></div></details><details><summary>What does “within remedy” mean?</summary><div class="a"><p>In the Trial of the Pyx, held since the 13th century, a jury checks the Royal Mint’s coins within a legal tolerance called the remedy. Here the chain’s change must match CMC’s within ±10% (or 0.5% of supply for a small move) before a move is struck REAL INFLOW or OUTFLOW.</p></div></details><details><summary>Why are 107 wrappers not verifiable?</summary><div class="a"><p>Mostly because their supply sits on chains with no historical supply source we can read (Solana, Arbitrum, Base, Robinhood Chain). NetMint prints NOT VERIFIABLE instead of guessing.</p></div></details><details><summary>What happens when the event key reverts?</summary><div class="a"><p>It reverts to CMC’s free Basic tier when submissions close (9 Dec 2026, 23:59 UTC). The click then answers <code>live-stored</code>: stored dated CMC bodies plus live chain reads, labelled. Outside them it shows CMC’s verbatim plan error.</p></div></details></div>
+</div></section>
+
+<section class="close"><div class="wrap">
+  <span class="nm-stamp">Real Inflow</span>
+  <h2>Put a stock on trial.</h2>
+  <div class="ctas"><a class="btn" href="https://github.com/edycutjong/netmint"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M6 5L2 9l4 4M12 5l4 4-4 4"/></svg>GitHub</a><a class="btn" href="/pitch">Pitch deck</a><a class="btn solid" href="/">Run it live →</a></div>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <div><a class="mark" href="/about"><span>NetMint</span></a><p>Net creation at market price, checked against the chain. Not investment advice.</p>
+    <p class="nm-data">page built from evidence at commit e9a5608 · v1.0.0</p></div>
+  <div><h4>Product</h4><ul><li><a href="/">Live app</a></li><li><a href="/flows">The trial book</a></li><li><a href="/pitch">Pitch deck</a></li><li><a href="/api/health">Service status</a></li></ul></div>
+  <div><h4>Source</h4><ul><li><a href="https://github.com/edycutjong/netmint">GitHub repository</a></li><li><a href="https://github.com/edycutjong/netmint/blob/main/LICENSE">MIT licence</a></li><li><a href="https://dorahacks.io/hackathon/coinmarketcap-api-202611/detail">CoinMarketCap API Hackathon</a></li></ul></div>
+</div></footer>
+<script>(() => {
+  'use strict';
+  const doc = document.documentElement;
+  doc.classList.add('js');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+
+  /* ---------- hero: the trial replays from the recorded capture (markup = settled state) ---------- */
+  const leaf = $('#trial-leaf');
+  const fig = $('#hero-figure');
+  let playing = false;
+  async function playHero() {
+    if (!leaf || reduce || playing) return;
+    playing = true;
+    const final = fig.textContent;
+    const target = Number(fig.dataset.value);
+    leaf.classList.remove('playing', 'inked', 'struck');
+    $$('.pm', leaf).forEach((p) => p.classList.remove('on'));
+    leaf.classList.add('armed');
+    fig.textContent = '+$0.00M';
+    void leaf.offsetWidth;
+    leaf.classList.add('playing');
+    await wait(1350);
+    leaf.classList.add('inked');
+    await wait(1050);
+    for (const p of $$('.pm', leaf)) { p.classList.add('on'); await wait(110); }
+    await wait(160);
+    leaf.classList.add('struck');
+    const t0 = performance.now();
+    await new Promise((res) => {
+      const tick = (t) => {
+        const k = Math.min(1, (t - t0) / 700);
+        const e = 1 - Math.pow(1 - k, 3);
+        fig.textContent = k < 1 ? `+$${((target * e) / 1e6).toFixed(2)}M` : final;
+        k < 1 ? requestAnimationFrame(tick) : res();
+      };
+      requestAnimationFrame(tick);
+    });
+    await wait(1200);
+    leaf.classList.remove('armed', 'playing', 'inked', 'struck');
+    $$('.pm', leaf).forEach((p) => p.classList.remove('on'));
+    playing = false;
+  }
+  const replayBtn = $('#replay');
+  if (replayBtn) replayBtn.addEventListener('click', playHero);
+  if (leaf && !reduce) {
+    const go = () => setTimeout(playHero, 250);
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(go);
+  }
+
+  /* ---------- count-ups (text already holds the final value) ---------- */
+  const counters = $$('[data-count]');
+  if (!reduce && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((es) => {
+      for (const e of es) {
+        if (!e.isIntersecting) continue;
+        io.unobserve(e.target);
+        const el = e.target;
+        const final = el.textContent;
+        const n = Number(el.dataset.count);
+        const fmt = el.dataset.fmt || 'int';
+        const t0 = performance.now();
+        const step = (t) => {
+          const k = Math.min(1, (t - t0) / 900);
+          const v = n * (1 - Math.pow(1 - k, 3));
+          if (k >= 1) { el.textContent = final; return; }
+          el.textContent = fmt === 'musd' ? `+$${(v / 1e6).toFixed(2)}M` : fmt === 'frac' ? `${Math.round(v)} / ${el.dataset.of}` : Math.round(v).toLocaleString('en-US');
+          requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+    }, { threshold: 0.6 });
+    counters.forEach((c) => io.observe(c));
+  }
+
+  /* ---------- print slip: re-types the committed transcript ---------- */
+  const slip = $('#slip');
+  let typing = false;
+  async function typeSlip() {
+    if (!slip || reduce || typing) return;
+    typing = true;
+    const lines = $$('.l', slip);
+    slip.classList.add('typing');
+    lines.forEach((l) => l.classList.remove('on'));
+    for (const l of lines) { l.classList.add('on'); await wait(l.classList.contains('cmd') ? 420 : 70); }
+    slip.classList.remove('typing');
+    lines.forEach((l) => l.classList.remove('on'));
+    typing = false;
+  }
+  const slipBtn = $('#slip-replay');
+  if (slipBtn) slipBtn.addEventListener('click', typeSlip);
+  if (slip && !reduce && 'IntersectionObserver' in window) {
+    const io3 = new IntersectionObserver((es) => {
+      if (es[0].intersectionRatio >= 0.35) { io3.disconnect(); typeSlip(); }
+    }, { threshold: [0.35] });
+    io3.observe(slip);
+  }
+
+  /* ---------- copy command ---------- */
+  $$('.copy').forEach((b) => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); } catch { /* clipboard blocked: the command stays visible */ }
+    const s = $('.st', b); if (!s) return;
+    const old = s.textContent; s.textContent = 'copied'; s.classList.add('ok');
+    setTimeout(() => { s.textContent = old; s.classList.remove('ok'); }, 1400);
+  }));
+
+  /* ---------- the live trial: /api/lookup on this origin ---------- */
+  const bench = $('#bench');
+  if (!bench) return;
+  const rowsEl = $('#rows', bench);
+  const statusEl = $('#bench-status', bench);
+  const footEl = $('#bench-foot', bench);
+  const LABEL = { REAL_INFLOW: 'Real Inflow', OUTFLOW: 'Outflow', RECOUNT: 'Recount', NOT_VERIFIABLE: 'Not verifiable', FLAT: 'Flat' };
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  const usd = (x) => `${x < 0 ? '−' : '+'}$${(Math.abs(x) / 1e6).toFixed(2)}M`;
+  const pct = (x) => `${x >= 0 ? '+' : '−'}${Math.abs(x * 100).toFixed(1)}%`;
+  const hhmm = (iso) => (iso ? iso.slice(0, 19).replace('T', ' ') + ' UTC' : '');
+  function stampClass(v, derivative) {
+    if (v === 'REAL_INFLOW') return 'nm-stamp';
+    if (v === 'OUTFLOW') return 'nm-stamp is-out';
+    if (v === 'FLAT') return 'nm-stamp is-flat';
+    return 'nm-stamp is-pencil';
+  }
+  function rowHtml(w) {
+    const v = w.verdict;
+    const label = v ? LABEL[v] : w.derivative ? 'Derivative' : 'No verdict';
+    const m = w.metrics;
+    const ink = m ? (m.net < 0 ? 'nm-db' : 'nm-cr') : '';
+    const struck = v === 'RECOUNT' ? ' nm-struck' : '';
+    const amt = m ? `<span class="amt ${ink}${struck}">${usd(m.net)}<small>units ×${m.unitsX.toFixed(2)} · price ${pct(m.pricePct)}</small></span>` : '<span class="amt"></span>';
+    const why = w.error ? `error: ${w.error}` : w.reason || '';
+    return `<li class="row armed"><span class="${stampClass(v, w.derivative)}">${label}</span><span class="who"><b>${esc(w.symbol)}</b><span>${esc(w.issuer)}</span></span>${amt}<p class="why">${esc(why)}</p></li>`;
+  }
+  async function strike() {
+    const rows = $$('.row.armed', rowsEl);
+    if (reduce) { rows.forEach((r) => r.classList.remove('armed')); return; }
+    void rowsEl.offsetWidth;
+    for (const r of rows) { r.classList.add('hit'); await wait(60); }
+    await wait(200);
+    rows.forEach((r) => r.classList.remove('armed', 'hit'));
+  }
+  let busy = false;
+  async function run(t) {
+    t = String(t || '').trim().toUpperCase().slice(0, 12);
+    if (!t || busy) return;
+    busy = true;
+    $$('.tk', bench).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.t === t)));
+    statusEl.classList.add('busy');
+    statusEl.innerHTML = `<span class="mode">${esc(t)} · 30 days</span><span>calling CoinMarketCap now …</span>`;
+    const t0 = performance.now();
+    try {
+      const r = await fetch(`/api/lookup?u=${encodeURIComponent(t)}&window=30`, { cache: 'no-store' });
+      const j = await r.json();
+      const wall = ((performance.now() - t0) / 1000).toFixed(2);
+      if (!r.ok || !j.wrappers) {
+        rowsEl.innerHTML = '';
+        statusEl.innerHTML = `<span class="mode">${esc(t)} · no verdict printed</span><span>HTTP ${r.status}</span>`;
+        rowsEl.insertAdjacentHTML('beforebegin', '');
+        rowsEl.innerHTML = `<li class="bench-err">${esc(j.error || 'the lookup failed')}</li>`;
+        footEl.innerHTML = `<span>Nothing is stamped on an error.</span><a href="/u/${encodeURIComponent(t)}">Try it in the app →</a>`;
+        return;
+      }
+      const cmc = (j.receipts || []).filter((x) => x.kind === 'cmc').length;
+      const modeTxt = { live: 'Live', cached: 'Cached · a repeat within 60 s', 'live-stored': 'Live-stored · CMC refused on plan, stored dated bodies answered', recorded: 'Recorded' }[j.mode] || j.mode;
+      statusEl.innerHTML = `<span class="mode ${j.mode === 'live' ? 'live' : ''}">${esc(modeTxt)}</span><span>${esc(j.underlying.name)} · ${esc(j.range.from)} → ${esc(j.range.to)}</span><span class="nm-data">${cmc} CMC calls · ${j.credits} credits · server ${(j.elapsedMs / 1000).toFixed(2)} s · your wait ${wall} s</span>`;
+      const ws = j.wrappers.slice(0, 9);
+      rowsEl.innerHTML = ws.map(rowHtml).join('');
+      const more = j.wrappers.length - ws.length;
+      footEl.innerHTML = `<span>fetched ${esc(hhmm(j.fetchedUtc))}${more > 0 ? ` · ${more} more wrapper${more > 1 ? 's' : ''} in the app` : ''}</span><a href="/u/${encodeURIComponent(t)}">Every response, verbatim, in the app's receipts →</a>`;
+      await strike();
+    } catch (e) {
+      statusEl.innerHTML = `<span class="mode">${esc(t)} · no verdict printed</span><span>${esc(e.message)}</span>`;
+    } finally {
+      statusEl.classList.remove('busy');
+      busy = false;
+    }
+  }
+  $$('.tk', bench).forEach((b) => b.addEventListener('click', () => run(b.dataset.t)));
+  const form = $('form', bench);
+  if (form) form.addEventListener('submit', (e) => { e.preventDefault(); run(new FormData(form).get('t')); });
+})();
+</script>
+</body>
+</html>
