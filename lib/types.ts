@@ -162,6 +162,8 @@ export interface Receipt {
   explorerUrl?: string;
   chain?: ChainId;
   block?: number;
+  /** set when CMC refused the live call (entitlement) and this body is the committed capture that answered it */
+  stored?: { file: string; capturedUtc: string };
 }
 
 export type LookupWindow = 7 | 30 | 90;
@@ -180,4 +182,9 @@ export interface LookupResult {
   elapsedMs: number;
   errors: { source: string; message: string }[];
   cmcError?: { code: number; message: string; endpoint: string; httpStatus: number };
+  /** every CMC endpoint that answered live on this click (empty if CMC answered nothing live) */
+  liveCmcCalls?: string[];
+  /** live-stored only: every refused call and the committed body that answered it */
+  stored?: { endpoint: string; file: string; capturedUtc: string; liveError: { code: number; message: string; httpStatus: number } }[];
+  history?: { source: 'stored'; lastDay: string | null; capturedUtc: string | null };
 }

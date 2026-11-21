@@ -23,7 +23,7 @@ export async function GET(req: Request) {
     return NextResponse.json({ ...hit.result, live: false, cacheHit: true, mode: 'cached' satisfies LookupResult['mode'] });
   }
   try {
-    const result = await lookup(p.u, { window: p.window, from: p.from, to: p.to });
+    const result = await lookup(p.u, { window: p.window, from: p.from, to: p.to, storedFallback: true });
     recent.set(p.key, { at: Date.now(), result });
     for (const [k, v] of recent) if (Date.now() - v.at > DEDUPE_MS) recent.delete(k);
     return NextResponse.json(result, { headers: { 'cache-control': 'no-store' } });

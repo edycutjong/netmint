@@ -58,8 +58,19 @@ export async function dailyHistory(
   if (!call.ok) {
     throw new CmcError(call.endpoint, cmcErrorCode(call.status), call.httpStatus, String(call.status?.error_message ?? 'no CMC status object'));
   }
-  const m = parseHistoryBody(call.body);
-  // keep only rows inside [from, to]
+  return historyRows(call.body, from, to);
+}
+
+/** Parse a quotes/historical body and keep only rows inside [from, to] (inclusive UTC days). */
+export function historyRows(body: unknown, from: string, to: string): Map<number, RawDailyRow[]> {
+  const m = parseHistoryBody(body);
   for (const [id, rows] of m) m.set(id, rows.filter((r) => r.timestamp && r.timestamp.slice(0, 10) >= from && r.timestamp.slice(0, 10) <= to));
   return m;
+}
+
+/** Last UTC day with a row in a quotes/historical body ('' when empty). */
+export function lastHistoryDay(body: unknown): string {
+  let last = '';
+  for (const rows of parseHistoryBody(body).values()) for (const r of rows) if (r.timestamp && r.timestamp.slice(0, 10) > last) last = r.timestamp.slice(0, 10);
+  return last;
 }

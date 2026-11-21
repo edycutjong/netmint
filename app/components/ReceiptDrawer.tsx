@@ -50,7 +50,7 @@ export function ReceiptDrawer({ receipts, credits, onClose }: { receipts: Receip
                 <br />
                 params {JSON.stringify(r.params)}
                 <br />
-                HTTP {r.httpStatus} · credit_count {r.creditCount ?? 0} · error_code {r.errorCode ?? 0} · {r.elapsedMs} ms · {r.startedUtc}
+                {r.stored ? `stored: CMC body captured ${r.startedUtc}, committed at ${r.stored.file} (answers the refused call above)` : `HTTP ${r.httpStatus} · credit_count ${r.creditCount ?? 0} · error_code ${r.errorCode ?? 0} · ${r.elapsedMs} ms · ${r.startedUtc}`}
               </p>
             ) : (
               <p className="meta">{r.params.label}</p>

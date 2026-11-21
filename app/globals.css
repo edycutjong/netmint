@@ -105,6 +105,8 @@ a:hover { text-decoration-color: var(--after); color: var(--after); }
 /* banners */
 .banner { border: 1px solid var(--debit); color: var(--debit); background: #fbf3ef; padding: 14px 16px; margin: 0 0 18px; }
 .banner .data { font-size: 13px; }
+.notice { border: 1px solid var(--rule); border-left-width: 4px; background: var(--card); padding: 14px 16px; margin: 0 0 18px; }
+.notice .data { font-size: 13px; color: var(--muted); }
 .note { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 8px 0; font-size: 14px; color: var(--muted); margin: 0 0 16px; }
 
 /* receipt drawer */

@@ -6,6 +6,7 @@ import { HolderPanel } from './HolderPanel';
 import { ErrorBanner, type LookupError } from './ErrorBanner';
 import { utcStamp } from '@/lib/format';
 import type { LookupResult, LookupWindow } from '@/lib/types';
+import { StoredNotice } from './StoredNotice';
 
 /** S2: a click fires /api/lookup live; every wrapper of the stock gets a verdict row. */
 export function LookupView({ u, from, to, initialWindow }: { u: string; from?: string; to?: string; initialWindow: LookupWindow }) {
@@ -77,6 +78,7 @@ export function LookupView({ u, from, to, initialWindow }: { u: string; from?: s
       {busy && !res ? <p className="capture">Calling CoinMarketCap and reading the chain…</p> : null}
       {res ? (
         <>
+          <StoredNotice res={res} />
           <p className="capture">
             {res.underlying.name} · {res.range.from} → {res.range.to} UTC {res.range.pinned ? '· pinned window' : `· ${res.window} d`} ·{' '}
             {res.live ? 'live' : res.mode} {utcStamp(res.fetchedUtc)} · {res.credits} credits charged by CMC for this lookup (status.credit_count; repeat identical calls are not charged) · {res.elapsedMs} ms

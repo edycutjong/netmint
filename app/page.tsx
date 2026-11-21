@@ -11,7 +11,7 @@ const RAIL = ['NVDA', 'GOOGL', 'INTC', 'SPCX', 'MSTR', 'SNDK', 'MU', 'SKHY', 'AA
 
 async function capture(): Promise<{ res: LookupResult | null; err: LookupError | null }> {
   try {
-    return { res: await lookup(HERO_U, { window: 30 }), err: null };
+    return { res: await lookup(HERO_U, { window: 30, storedFallback: true }), err: null };
   } catch (e) {
     const at = new Date().toISOString();
     if (e instanceof LookupFailure) return { res: null, err: { status: e.httpStatus, error: e.message, at, ...(e.extra as object) } };

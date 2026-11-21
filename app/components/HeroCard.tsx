@@ -8,6 +8,7 @@ import { pct, times, usd, utcStamp } from '@/lib/format';
 import { citeLine } from '@/lib/cite';
 import { heroOf } from '@/lib/hero';
 import type { LookupResult, LookupWindow, WrapperResult } from '@/lib/types';
+import { StoredNotice } from './StoredNotice';
 
 const chainNames = (w: WrapperResult) => w.chains.slice(0, 2).join(' + ');
 
@@ -106,6 +107,7 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
           Every {u} wrapper →
         </a>
       </div>
+      {res ? <StoredNotice res={res} /> : null}
       {res ? (
         <p className="capture">
           {res.live ? 'live' : res.mode} capture {utcStamp(res.fetchedUtc)} · {res.credits} credits charged by CMC for this lookup (status.credit_count; repeat identical calls are not charged) · {res.elapsedMs} ms

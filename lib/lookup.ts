@@ -6,8 +6,9 @@
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { Recorder, redact } from './receipts';
+import { committedStore } from './stored';
 import { resolveUnderlying, wrappersOf } from './cmc/rwa';
-import { addDays, dailyHistory } from './cmc/history';
+import { addDays, dailyHistory, historyRows, lastHistoryDay } from './cmc/history';
 import { contractMaps, type ContractMap } from './cmc/info';
 import { latestQuotes } from './cmc/quotes';
 import { CmcError } from './cmc/errors';
@@ -61,19 +62,23 @@ export interface LookupOpts {
   rec?: Recorder;
   nowMs?: number;
   allowLiveChain?: boolean;
+  /** answer CMC entitlement refusals from the committed evidence (the judged URL only; never in capture scripts) */
+  storedFallback?: boolean;
 }
+
+const HIST = '/v2/cryptocurrency/quotes/historical';
 
 export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupResult> {
   const t0 = performance.now();
-  const rec = opts.rec ?? new Recorder();
+  const rec = opts.rec ?? new Recorder(undefined, undefined, opts.storedFallback ? committedStore : null);
   const fetchedUtc = new Date(opts.nowMs ?? Date.now()).toISOString();
   const pinned = Boolean(opts.from && opts.to);
   if (pinned && (!DATE_RE.test(opts.from!) || !DATE_RE.test(opts.to!) || opts.from! >= opts.to!)) {
     throw new LookupFailure(400, 'from/to must be YYYY-MM-DD with from < to');
   }
   const window: LookupWindow | null = pinned ? null : (opts.window ?? 30);
-  const to = pinned ? opts.to! : todayUtc(opts.nowMs);
-  const from = pinned ? opts.from! : addDays(to, -(window as number));
+  let to = pinned ? opts.to! : todayUtc(opts.nowMs);
+  let from = pinned ? opts.from! : addDays(to, -(window as number));
 
   try {
     const { asset, suggestions } = await resolveUnderlying(rec, u);
@@ -82,11 +87,35 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
     const live = tokens.filter((t) => !t.derivative);
     const ids = live.map((t) => t.crypto_id);
 
-    const [hist, maps, today] = await Promise.all([
+    const [hist0, maps, today] = await Promise.all([
       dailyHistory(rec, ids, from, to),
       contractMaps(rec, ids),
       latestQuotes(rec, ids),
     ]);
+    let hist = hist0;
+
+    // live-stored: CMC refused quotes/historical (plan), a committed body answered. A rolling window ends on the
+    // stored history's last day (never padded to today); a pinned window must sit inside the stored body.
+    const histFb = rec.fallbacks.find((f) => f.endpoint === HIST);
+    if (histFb) {
+      const end = lastHistoryDay(histFb.body);
+      if (pinned && (end < to || addDays(histFb.storedParams.time_start, 1) > from)) {
+        throw new LookupFailure(503, `CMC refused ${HIST} (error_code ${histFb.liveError.code}: ${histFb.liveError.message}) and the stored daily bodies (${addDays(histFb.storedParams.time_start, 1)} → ${end}) do not contain ${from} → ${to}`, {
+          cmcError: { ...histFb.liveError, endpoint: HIST, class: 'entitlement' },
+          receipts: rec.receipts,
+          credits: rec.credits,
+        });
+      }
+      if (!pinned && end && end < to) {
+        to = end;
+        from = addDays(to, -(window as number));
+        hist = historyRows(histFb.body, from, to);
+      }
+    }
+    // every CMC endpoint that answered live on this click; if a live-stored answer has none, /v1/key/info (0 credits)
+    const liveOk = () => [...new Set(rec.receipts.filter((r) => r.kind === 'cmc' && !r.stored && r.errorCode === 0 && r.httpStatus === 200).map((r) => r.endpoint))];
+    if (rec.fallbacks.length && liveOk().length === 0) await rec.cmc('/v1/key/info', {});
+    const liveCmcCalls = liveOk();
 
     // chain supply for every readable leg over [from−2, to+1] (endpoint ±1 and 3-day step sums)
     const allLegs = [...maps.values()].flatMap((m) => m.legs);
@@ -125,9 +154,16 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
       window,
       range: { from, to, pinned },
       fetchedUtc,
-      mode: 'live',
-      live: true,
+      mode: rec.fallbacks.length ? 'live-stored' : 'live',
+      live: rec.fallbacks.length === 0,
       cacheHit: false,
+      liveCmcCalls,
+      ...(rec.fallbacks.length
+        ? {
+            stored: rec.fallbacks.map((f) => ({ endpoint: f.endpoint, file: f.file, capturedUtc: f.capturedUtc, liveError: f.liveError })),
+            history: { source: 'stored' as const, lastDay: histFb ? lastHistoryDay(histFb.body) : null, capturedUtc: histFb?.capturedUtc ?? null },
+          }
+        : {}),
       wrappers: sortWrappers(wrappers),
       receipts: rec.receipts,
       credits: rec.credits,
@@ -136,7 +172,9 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
     };
   } catch (e) {
     if (e instanceof CmcError) {
-      throw new LookupFailure(e.kind === 'transient' ? 503 : 502, redact(e.message), {
+      // after the plan revert, a refusal no committed body can answer = a ticker outside the stored universe
+      const outside = e.kind === 'entitlement' && rec.storedEnabled;
+      throw new LookupFailure(e.kind === 'transient' || outside ? 503 : 502, redact(outside ? `${e.message} — outside the stored universe: no committed CMC body answers this request` : e.message), {
         cmcError: { code: e.code, message: redact(e.cmcMessage), endpoint: e.endpoint, httpStatus: e.httpStatus, class: e.kind },
         receipts: rec.receipts,
         credits: rec.credits,
