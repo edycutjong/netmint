@@ -5,7 +5,7 @@
   "description": "NetMint: net creation and redemption behind every tokenised stock, from CoinMarketCap supply history, checked against the chain.",
   "license": "MIT",
   "engines": {
-    "node": ">=20"
+    "node": "22.x"
   },
   "scripts": {
     "dev": "next dev",
