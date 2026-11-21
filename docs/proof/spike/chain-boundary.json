@@ -1,0 +1,129 @@
+{
+ "generated_utc": "2026-11-21T01:09:10.982Z",
+ "command": "npm run spike:chain",
+ "provider": "Alchemy archive JSON-RPC (bnb-mainnet, eth-mainnet); URL withheld (key in path)",
+ "token": {
+  "symbol": "NVDAB",
+  "crypto_id": 40215,
+  "chain": "bsc",
+  "address": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436"
+ },
+ "block_index_checks": [
+  {
+   "chain": "bsc",
+   "day": "2026-07-20",
+   "block": 110991367,
+   "ts_block": 1784505600,
+   "ts_prev_block": 1784505599,
+   "day_start": 1784505600,
+   "ok": true
+  },
+  {
+   "chain": "bsc",
+   "day": "2026-09-20",
+   "block": 122889520,
+   "ts_block": 1789862400,
+   "ts_prev_block": 1789862399,
+   "day_start": 1789862400,
+   "ok": true
+  },
+  {
+   "chain": "bsc",
+   "day": "2026-11-13",
+   "block": 133252160,
+   "ts_block": 1794528000,
+   "ts_prev_block": 1794527999,
+   "day_start": 1794528000,
+   "ok": true
+  },
+  {
+   "chain": "bsc",
+   "day": "2026-11-21",
+   "block": 134787429,
+   "ts_block": 1795219200,
+   "ts_prev_block": 1795219199,
+   "day_start": 1795219200,
+   "ok": true
+  },
+  {
+   "chain": "eth",
+   "day": "2026-07-20",
+   "block": 25570201,
+   "ts_block": 1784505611,
+   "ts_prev_block": 1784505599,
+   "day_start": 1784505600,
+   "ok": true
+  },
+  {
+   "chain": "eth",
+   "day": "2026-09-20",
+   "block": 26014998,
+   "ts_block": 1789862411,
+   "ts_prev_block": 1789862399,
+   "day_start": 1789862400,
+   "ok": true
+  },
+  {
+   "chain": "eth",
+   "day": "2026-11-13",
+   "block": 26402310,
+   "ts_block": 1794528011,
+   "ts_prev_block": 1794527999,
+   "day_start": 1794528000,
+   "ok": true
+  },
+  {
+   "chain": "eth",
+   "day": "2026-11-21",
+   "block": 26459750,
+   "ts_block": 1795219211,
+   "ts_prev_block": 1795219199,
+   "day_start": 1795219200,
+   "ok": true
+  }
+ ],
+ "total_supply_calls": [
+  {
+   "chain": "bsc",
+   "day": "2026-11-13",
+   "block": 133252160,
+   "block_url": "https://bscscan.com/block/133252160",
+   "request": {
+    "jsonrpc": "2.0",
+    "method": "eth_call",
+    "params": [
+     {
+      "to": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+      "data": "0x18160ddd"
+     },
+     "0x7f14440"
+    ]
+   },
+   "raw_result": "0x00000000000000000000000000000000000000000000e94084ad17854c329c00",
+   "decimals": 18,
+   "totalSupply": 1101501.54245279,
+   "elapsed_ms": 41
+  },
+  {
+   "chain": "bsc",
+   "day": "2026-11-14",
+   "block": 133443969,
+   "block_url": "https://bscscan.com/block/133443969",
+   "request": {
+    "jsonrpc": "2.0",
+    "method": "eth_call",
+    "params": [
+     {
+      "to": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+      "data": "0x18160ddd"
+     },
+     "0x7f43181"
+    ]
+   },
+   "raw_result": "0x00000000000000000000000000000000000000000000e52fc75ebfda95e65800",
+   "decimals": 18,
+   "totalSupply": 1082303.28767942,
+   "elapsed_ms": 28
+  }
+ ]
+}
