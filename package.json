@@ -18,7 +18,9 @@
     "chain-supply": "tsx scripts/build-chain-supply.ts",
     "coverage:supply": "tsx scripts/coverage.ts",
     "spike:chain": "tsx scripts/spike-chain.ts",
-    "spike:solana": "tsx scripts/spike-solana.ts"
+    "spike:solana": "tsx scripts/spike-solana.ts",
+    "demo": "tsx scripts/demo.ts",
+    "calibrate": "tsx scripts/calibrate.ts"
   },
   "dependencies": {
     "next": "^15.5.29",
