@@ -1,0 +1,13 @@
+# Extend the default rules. Public on-chain token addresses (EVM 0x… and Solana
+# base58 mints) in CMC responses trip `generic-api-key` because the field is named
+# token/tokenAddress; they are public identifiers, not credentials.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "public token contract addresses"
+regexTarget = "match"
+regexes = [
+  '''(?i)token(_?address)?["']?\s*[:=]\s*["']0x[0-9a-f]{40}["']''',
+  '''(?i)token_address["']?\s*:\s*["'][1-9A-HJ-NP-Za-km-z]{32,44}["']''',
+]
