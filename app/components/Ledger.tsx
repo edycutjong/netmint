@@ -103,7 +103,7 @@ function Detail({ w }: { w: WrapperResult }) {
           <h3 className="section-h" style={{ marginTop: 18 }}>
             Material step days (3-day sums, carrying ≥ 80% of the flow)
           </h3>
-          <table className="ledger">
+          <table className="ledger plain">
             <thead>
               <tr>
                 <th>Day</th>
@@ -130,7 +130,7 @@ function Detail({ w }: { w: WrapperResult }) {
           <h3 className="section-h" style={{ marginTop: 18 }}>
             Largest supply steps (CMC circulating, $ at wrapper market price)
           </h3>
-          <table className="ledger">
+          <table className="ledger plain">
             <thead>
               <tr>
                 <th>Day</th>

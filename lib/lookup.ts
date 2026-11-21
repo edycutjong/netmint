@@ -5,7 +5,7 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
-import { Recorder } from './receipts';
+import { Recorder, redact } from './receipts';
 import { resolveUnderlying, wrappersOf } from './cmc/rwa';
 import { addDays, dailyHistory } from './cmc/history';
 import { contractMaps, type ContractMap } from './cmc/info';
@@ -132,17 +132,18 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
       receipts: rec.receipts,
       credits: rec.credits,
       elapsedMs: Math.round(performance.now() - t0),
-      errors: chain.errors.map((m) => ({ source: 'rpc', message: m })),
+      errors: chain.errors.map((m) => ({ source: 'rpc', message: redact(m) })),
     };
   } catch (e) {
     if (e instanceof CmcError) {
-      throw new LookupFailure(e.kind === 'transient' ? 503 : 502, e.message, {
-        cmcError: { code: e.code, message: e.cmcMessage, endpoint: e.endpoint, httpStatus: e.httpStatus, class: e.kind },
+      throw new LookupFailure(e.kind === 'transient' ? 503 : 502, redact(e.message), {
+        cmcError: { code: e.code, message: redact(e.cmcMessage), endpoint: e.endpoint, httpStatus: e.httpStatus, class: e.kind },
         receipts: rec.receipts,
         credits: rec.credits,
       });
     }
-    throw e;
+    if (e instanceof LookupFailure) throw e;
+    throw new LookupFailure(500, redact(`lookup failed: ${(e as Error)?.message ?? String(e)}`), { receipts: rec.receipts, credits: rec.credits });
   }
 }
 
@@ -219,11 +220,4 @@ export function sortWrappers(ws: WrapperResult[]): WrapperResult[] {
   });
 }
 
-/** The hero rule: largest |net| among REAL INFLOW / OUTFLOW; else the largest |net| with its actual verdict. */
-export function heroOf(r: LookupResult): { wrapper: WrapperResult | null; verified: boolean } {
-  const scored = r.wrappers.filter((w) => w.metrics && w.verdict);
-  const verified = scored.filter((w) => w.verdict === 'REAL_INFLOW' || w.verdict === 'OUTFLOW');
-  const pick = (xs: WrapperResult[]) => xs.sort((a, b) => Math.abs(b.metrics!.net) - Math.abs(a.metrics!.net))[0] ?? null;
-  if (verified.length) return { wrapper: pick(verified), verified: true };
-  return { wrapper: pick(scored), verified: false };
-}
+export { heroOf } from './hero';

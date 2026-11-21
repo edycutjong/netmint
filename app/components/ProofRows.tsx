@@ -35,7 +35,7 @@ export function ProofRows({ w }: { w: WrapperResult }) {
           <span>
             chain {units(m.chainDelta)} · CMC {units(m.cmcDelta)} · coverage {(m.coverageA * 100).toFixed(1)}% at the start
           </span>
-          <span className="fig">{m.errPct === null ? '' : pct(m.errPct)}</span>
+          <span className="fig">{m.errPct === null ? '' : `chain vs CMC ${pct(m.errPct)}`}</span>
         </div>
       ) : null}
       <p className={`verdict-line${m.status === 'pass' ? ' pass' : ''}`}>
@@ -43,11 +43,12 @@ export function ProofRows({ w }: { w: WrapperResult }) {
       </p>
       {w.mintReceipt ? (
         <p className="capture" style={{ margin: '6px 0 0' }}>
-          A mint in that day’s step:{' '}
+          One of the day’s mints ({plain(w.mintReceipt.amount)} units
+          {p?.chainStep ? ` of the ${units(p.chainStep)} chain step that day` : ''}):{' '}
           <a className="data" href={w.mintReceipt.explorer_url} target="_blank" rel="noreferrer">
             {short(w.mintReceipt.tx, 8, 6)}
           </a>{' '}
-          ({plain(w.mintReceipt.amount)} units, block <span className="data">{w.mintReceipt.block}</span>) → one recipient address{' '}
+          (block <span className="data">{w.mintReceipt.block}</span>) → recipient{' '}
           <span className="data">{short(w.mintReceipt.recipient, 6, 5)}</span>. A mint can only be executed by the token’s minter.
         </p>
       ) : null}

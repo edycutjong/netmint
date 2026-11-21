@@ -25,6 +25,28 @@ describe('recorded replay of the 2026-11-21 NVDA 30 d capture (the critical test
     expect(h.wrapper!.metrics!.net / 1e6).toBeCloseTo(202.83, 2);
   });
 
+  it('the hero figure equals an independent trapezoid sum over the raw recorded rows (not the code under test)', async () => {
+    const rows = fixture('recorded/hist-nvda-wrappers-30d.json').body.data['40215'].quotes
+      .map((q: any) => ({ d: q.timestamp.slice(0, 10), s: q.quote.USD.circulating_supply, p: q.quote.USD.price }))
+      .filter((r: any) => r.d >= '2026-10-22' && r.d <= '2026-11-21');
+    let net = 0;
+    for (let i = 1; i < rows.length; i++) net += (rows[i].s - rows[i - 1].s) * ((rows[i].p + rows[i - 1].p) / 2);
+    const h = heroOf(await replay());
+    expect(Math.abs(h.wrapper!.metrics!.net - net)).toBeLessThan(1);
+  });
+
+  it('an RPC/transport error that quotes a secret is redacted before it reaches a response', async () => {
+    const secret = ['alchemy', 'path', 'value', String(Date.now())].join('-');
+    process.env.ALCHEMY_API_KEY = secret;
+    const failing = (async () => {
+      throw new Error(`fetch failed for https://bnb-mainnet.g.alchemy.com/v2/${secret}`);
+    }) as any;
+    const rec = new Recorder(recordedTransport(), failing);
+    await rec.rpc('bsc', [{ method: 'eth_call', params: [{ to: '0x1', data: '0x18160ddd' }, '0x1'] }]).catch(() => null);
+    expect(JSON.stringify(rec.receipts)).not.toContain(secret);
+    expect(JSON.stringify(rec.receipts)).toContain('[REDACTED]');
+  });
+
   it('reproduces every verdict in the captured table', async () => {
     const r = await replay();
     for (const t of table.wrappers) {

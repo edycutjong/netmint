@@ -23,8 +23,8 @@ const fmt = (x: number) => Math.round(x).toLocaleString('en-US');
 const pct = (x: number, dp = 1) => `${(x * 100).toFixed(dp)}%`;
 
 export function comparatorOf(series: DailyPoint[]): 'total_supply' | 'circulating_supply' {
-  const A = series[0], B = series[series.length - 1];
-  return A?.totalSupply != null && B?.totalSupply != null ? 'total_supply' : 'circulating_supply';
+  // total_supply only when every point in the window carries it; one null day (CMC sent 0 or nothing) → circulating for all
+  return series.length > 0 && series.every((p) => p.totalSupply != null) ? 'total_supply' : 'circulating_supply';
 }
 
 export function mintCheck(input: MintInput, p = PARAMS): MintCheck {

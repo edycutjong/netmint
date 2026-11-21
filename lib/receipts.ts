@@ -73,7 +73,7 @@ export class Recorder {
       const blockHex = r.params[1];
       const block = typeof blockHex === 'string' && blockHex.startsWith('0x') ? parseInt(blockHex, 16) : undefined;
       const to = (r.params[0] as { to?: string } | undefined)?.to ?? meta.address;
-      const body = results ? results[i] : { error: String((err as Error)?.message ?? err) };
+      const body = results ? results[i] : { error: redact(String((err as Error)?.message ?? err)) };
       const text = JSON.stringify(body);
       this.receipts.push({
         id: `r${++this.n}`,

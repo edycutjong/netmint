@@ -221,6 +221,33 @@ describe('mint check + verdict (one test per state)', () => {
     expect(mint.status).not.toBe('pass');
   });
 
+  it('uses circulating supply for the whole window when any day lacks total_supply (no NaN step sums)', () => {
+    const s = big();
+    s[4] = { ...s[4], totalSupply: null };
+    const { mint } = check(s, mirrorChain(s));
+    expect(mint.comparator).toBe('circulating_supply');
+    expect(mint.stepDays.every((d) => Number.isFinite(d.cmc3d))).toBe(true);
+    expect(mint.status).toBe('pass');
+  });
+
+  it('NOT VERIFIABLE (never RECOUNT) when the chain is missing on a material step day', () => {
+    const s = big();
+    const full = mirrorChain(s);
+    const holed = (d: string) => (d === s[6].date ? null : full(d)); // D+1 of the step day
+    const { metrics, mint } = check(s, holed);
+    expect(mint.status).toBe('impossible');
+    expect(decideVerdict(metrics, mint).verdict).toBe('NOT_VERIFIABLE');
+  });
+
+  it('a step-check failure is never rescued by another offset (steps are not shifted by d)', () => {
+    const s = series([1e6, 1e6, 1.5e6, 1.5e6, 1.5e6, 1.5e6, 1.5e6, 1.5e6], 100);
+    const m: Record<string, number> = {};
+    for (let i = -3; i < 12; i++) m[addDays('2026-11-01', i)] = i >= 6 ? 1.5e6 : 1e6;
+    const { metrics, mint } = check(s, chainFrom(m));
+    expect(mint.altOffsetPasses).toBe(false);
+    expect(decideVerdict(metrics, mint).verdict).toBe('RECOUNT');
+  });
+
   it('invariant: REAL INFLOW / OUTFLOW only with a passed mint check, over many random chains', () => {
     let seed = 7;
     const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);

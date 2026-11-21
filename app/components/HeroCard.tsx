@@ -6,14 +6,8 @@ import { ReceiptDrawer } from './ReceiptDrawer';
 import { ErrorBanner, type LookupError } from './ErrorBanner';
 import { pct, times, usd, utcStamp } from '@/lib/format';
 import { citeLine } from '@/lib/cite';
+import { heroOf } from '@/lib/hero';
 import type { LookupResult, LookupWindow, WrapperResult } from '@/lib/types';
-
-function heroOf(r: LookupResult): { wrapper: WrapperResult | null; verified: boolean } {
-  const scored = r.wrappers.filter((w) => w.metrics && w.verdict);
-  const verified = scored.filter((w) => w.verdict === 'REAL_INFLOW' || w.verdict === 'OUTFLOW');
-  const pick = (xs: WrapperResult[]) => [...xs].sort((a, b) => Math.abs(b.metrics!.net) - Math.abs(a.metrics!.net))[0] ?? null;
-  return verified.length ? { wrapper: pick(verified), verified: true } : { wrapper: pick(scored), verified: false };
-}
 
 const chainNames = (w: WrapperResult) => w.chains.slice(0, 2).join(' + ');
 
