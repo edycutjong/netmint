@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/readme-hero-animated.svg" alt="NetMint — puts each tokenised-stock supply step on trial against the chain. A pencilled supply jump meets the chain, lands within remedy, and the hallmark REAL INFLOW strikes beside +$202.83M." width="100%">
+</p>
+
 # NetMint
 
 CoinMarketCap records every tokenised stock's circulating supply every day. NetMint turns that history into net creation and

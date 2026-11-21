@@ -7,10 +7,26 @@ const marcellus = Marcellus_SC({ weight: '400', subsets: ['latin'], variable: '-
 const albert = Albert_Sans({ subsets: ['latin'], variable: '--f-albert', display: 'swap' });
 const chivo = Chivo_Mono({ subsets: ['latin'], variable: '--f-chivo', display: 'swap' });
 
+const TITLE = 'NetMint: the money behind every tokenised stock, checked against the chain';
+const DESCRIPTION =
+  'CoinMarketCap records every tokenised stock’s supply every day but never shows the money behind it. NetMint turns that history into net creation and redemption per wrapper and puts each supply move on trial against the chain.';
+const OG_ALT =
+  'NetMint: NVDAB supply rose ×7.1 while the price fell 41% (22 Oct to 21 Nov 2026); the chain confirms +$202.83M of real inflow, struck REAL INFLOW.';
+
 export const metadata: Metadata = {
-  title: 'NetMint: the money behind every tokenised stock, checked against the chain',
-  description:
-    'CoinMarketCap records every tokenised stock’s supply every day but never shows the money behind it. NetMint turns that history into net creation and redemption per wrapper and puts each supply move on trial against the chain.',
+  metadataBase: new URL('https://netmint.edycu.dev'),
+  title: TITLE,
+  description: DESCRIPTION,
+  icons: { icon: '/icon.svg', apple: '/apple-icon.png' },
+  openGraph: {
+    type: 'website',
+    siteName: 'NetMint',
+    url: '/',
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [{ url: '/og-image.png', width: 2400, height: 1260, alt: OG_ALT }],
+  },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [{ url: '/og-image.png', alt: OG_ALT }] },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
