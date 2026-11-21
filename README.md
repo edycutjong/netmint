@@ -22,7 +22,8 @@
 
 > **Window and date.** Every figure below is NVDAB (bStocks) over 2026-10-22 → 2026-11-21 (30 days), captured 2026-11-21 in
 > [`evidence/2026-11-21/nvda-30d/`](evidence/2026-11-21/nvda-30d/). The window sat inside a market stress period (price −41%), so
-> read the ×7.1 as a measurement of that window, not a trend. "×7.1" is CMC's supply ratio; the chain's own ratio is 7.42. +$202.83M is `net_usd` 202826522.82 in `table.json`.
+> read the ×7.1 as a measurement of that window, not a trend. The app's hero replays the newest stored copy of the same request
+> (02:51 UTC, [`evidence/2026-11-21/flows/nvda-30d/`](evidence/2026-11-21/flows/nvda-30d/)), which gives the same `net_usd`. "×7.1" is CMC's supply ratio; the chain's own ratio is 7.42. +$202.83M is `net_usd` 202826522.82 in `table.json`.
 
 ## 📸 See it in Action
 
@@ -91,15 +92,19 @@ Verbatim bodies for every call are committed in [`docs/proof/spike/`](docs/proof
 | 6 | `GET /v1/dex/holders/count` | holder count per chain (holder panel) | [`lib/cmc/holders.ts`](lib/cmc/holders.ts) |
 | 7 | `GET /v1/key/info` | plan and credits for `/api/health` | [`lib/cmc/key.ts`](lib/cmc/key.ts) |
 
-**Code and response, side by side** (from `npm run demo -- NVDA`, fetched 2026-11-21T01:40Z, `evidence/2026-11-21/nvda-30d/table.json`):
+**Code and response, side by side** (from `npm run demo -- NVDA --from 2026-10-22 --to 2026-11-21`, live on 2026-11-21T06:47Z; full
+transcript [`evidence/2026-11-21/demo-nvda-pinned.txt`](evidence/2026-11-21/demo-nvda-pinned.txt); the 01:40Z run in `nvda-30d/table.json` gives the
+same figures; ⋮ marks omitted lines):
 
 ```text
-REAL INFLOW     NVDAB    bStocks   +$202.83M  units ×7.13  price −41.0%  cov 96.1%
-                window endpoints and the 5 largest steps (68% of gross flow, capped at 5 days) verified
-                (chain +1,216,792 · CMC +1,209,739 · +0.6% · within remedy ±10%)
+REAL INFLOW     NVDAB    bStocks           +$202.83M units ×7.13  price −41.0%   cov 96.1%
+                window endpoints and the largest step days (up to 5) verified (chain +1,216,792 · CMC +1,209,739 · +0.6% · within remedy ±10%)
+NOT VERIFIABLE  NVDAX    Backed Assets     +$104.10M units ×3.98  price −41.0%   cov 14.5%
+                86% of supply sits outside BNB Chain + Ethereum (Solana), a chain NetMint does not read yet
+⋮
   step 2026-11-13: CMC 3d 522,505 · chain 3d 535,910 · ok
-  mint tx 0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c → 0x5948…adad1
-NOT VERIFIABLE  NVDAX    Backed Assets  cov 14.5%  86% of supply sits outside BNB Chain + Ethereum (Solana), ...   (excerpt)
+⋮
+  mint tx 0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c → 0x5948602680fe4aea08d98302337a2715b3aadad1
 ```
 
 ### What the API made possible
@@ -109,7 +114,7 @@ page ranks the top 20 underlyings (152 wrappers): over 30 days the checks verifi
 RECOUNT, and returned NOT VERIFIABLE for 107, mostly wrappers whose supply sits on chains NetMint does not read yet
 ([`evidence/2026-11-21/flows-30d.json`](evidence/2026-11-21/flows-30d.json), 129 credits). The full count: 152 = 9 verified + 12 RECOUNT + 107 NOT VERIFIABLE
 + 4 FLAT (moved under $250K, not tried) + 20 with no usable daily history. All 12 RECOUNT rows are bStocks: their wrappers sit on BNB Chain
-with summed chain coverage of 92–100%, so a failed step has nowhere else to sit; Ondo wrappers also list Robinhood Chain, so a failed
+with summed chain coverage of 92–100.2%, so a failed step has nowhere else to sit; Ondo wrappers also list Robinhood Chain, so a failed
 step there routes to NOT VERIFIABLE (5 of Ondo's 11 NOT VERIFIABLE rows). The issuer day offset is not fitted to the hero: bStocks' d = 0 won 334 of 392 step-day votes across
 its wrappers ([`data/offsets.json`](data/offsets.json)).
 
@@ -125,8 +130,8 @@ its wrappers ([`data/offsets.json`](data/offsets.json)).
   [`plan-errors.json`](docs/proof/spike/plan-errors.json). Our event key (2M credits/month, 750 req/min per `/v1/key/info`) is expected to revert to the free Basic tier when submissions close (9 Dec 23:59 UTC).
   The click still calls CMC live. If CMC refuses a call with a plan error, a stored dated CMC body answers that one call (`mode: "live-stored"`,
   the receipt shows the refused call, then the stored body with its capture date), the verdict is re-run, and if no endpoint answered live the
-  click also calls `/v1/key/info` (0 credits) so a live CMC call stands behind every click. Chain supply comes from the committed baseline, as on
-  every click. A window outside the stored bodies shows the verbatim plan error, not a guess. The path is tested with a simulated plan refusal
+  click also calls `/v1/key/info` (0 credits) so a live CMC call stands behind every click. Chain supply comes from the committed baseline, and a day it
+  lacks is read live, as on every click. A window outside the stored bodies shows the verbatim plan error, not a guess. The path is tested with a simulated plan refusal
   (`tests/stored.test.ts`); it has not yet run against a real Basic key.
 - The daily point closes at 00:00 UTC, so one day offset is fixed per issuer from the step alignment; ambiguous alignment
   yields NOT VERIFIABLE, never RECOUNT.
@@ -147,7 +152,7 @@ Read-only on-chain calls, no wallet and no transactions from us. Proof the chain
 | Tests | 201 passing, 8 files (`npm test`) |
 | Offline check | `npm run verify:offline` runs the demo with the network blocked and passes only if it fails on a transport error and prints no verdict; a control run with the network allowed must reach CMC (HTTP 401 for the dummy key), so it cannot pass for the wrong reason |
 | Stored-evidence replay | `npm run verify:flows`: 304 leaderboard rows re-derived from the stored bodies, 0 diffs |
-| Latency (measured 2026-11-21 on `lib/` as of commit 848c00e; unchanged since) | One live lookup, NVDA 30 d, n=20: p50 2.0 s, p95 2.6 s (nearest-rank; credits per call 7 or 0, see the note in bench.json). A top-20 leaderboard refresh (20 live lookups, 7 d, sequential): 38.4 s wall, per-lookup p50 1950 ms, p95 2537 ms (n=20, so p95 is the 2nd-largest of 20), 85 credits. Deployed `/api/lookup` (cached repeat, n=20) p50 500 ms, p95 782 ms; `/flows` p50 306 ms, p95 515 ms. One machine, home broadband, not a load test; raw samples in [`docs/proof/bench.json`](docs/proof/bench.json) (`npm run bench`) |
+| Latency (measured 2026-11-21 at commit 848c00e; later `lib/` commits change only verdict reason strings in `lib/flow/`) | One live lookup, NVDA 30 d, n=20: p50 2.0 s, p95 2.6 s (nearest-rank; credits per call 7 or 0, see the note in bench.json). A top-20 leaderboard refresh (20 live lookups, 7 d, sequential): 38.4 s wall, per-lookup p50 1950 ms, p95 2537 ms (n=20, so p95 is the 2nd-largest of 20), 85 credits. Deployed `/api/lookup` (cached repeat, n=20) p50 500 ms, p95 782 ms; `/flows` p50 306 ms, p95 515 ms. One machine, home broadband, not a load test; raw samples in [`docs/proof/bench.json`](docs/proof/bench.json) (`npm run bench`) |
 | E2E | 7 Playwright specs x 2 viewports against the live URL (`npm run e2e`), including the judged click: Run it live, verdict, receipts drawer |
 | Coverage | v8 line coverage over `lib/` 86.6% (floor 80, enforced by `npm run test:coverage`) |
 | Dependencies | `npm audit`: 0 vulnerabilities (a `postcss` override lifts the copy bundled in Next 15.5) |
@@ -164,7 +169,7 @@ Read-only on-chain calls, no wallet and no transactions from us. Proof the chain
 ## 🚀 Getting Started
 
 ### Prerequisites
-Node 22, a CMC Pro API key, an Alchemy key for BNB Smart Chain and Ethereum archive reads (only for refreshing the baseline).
+Node 22, a CMC Pro API key, an Alchemy key for BNB Smart Chain and Ethereum archive reads (for refreshing the baseline, and for any day after it ends: 2026-11-21 today).
 
 ### Installation
 ```bash
@@ -232,7 +237,7 @@ The visual identity (`docs/assets/`) was generated for NetMint during the event.
    `docs/proof/calibration/history-baseline.json`). Every figure now carries its window, and unverified moves get NOT VERIFIABLE.
 3. **One chain showed 44% of NVDAon's CMC supply.** CMC's figure is the sum over chains, so the check sums legs too.
 4. **The hero scale note was wrong on first draft.** "Supply ×7.1" is CMC's ratio; the chain's own ratio is 7.42 and the start
-   value read 3.9% lower. The page and this README say "CMC supply ×7.1".
+   value read 3.9% lower. This README says "CMC supply ×7.1"; the app prints the same ratio as ×7.13.
 5. **Dollars are net creation at market price, not money that changed hands.** Every dollar caption says "at market price".
 
 ## 📄 License

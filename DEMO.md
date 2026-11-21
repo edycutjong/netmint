@@ -5,7 +5,7 @@ All figures: NVDAB (bStocks), 2026-10-22 → 2026-11-21, captured 2026-11-21 (a 
 
 ## Click path on the live app
 
-1. Open <https://netmint.edycu.dev>. The hero shows NVDAB: **REAL INFLOW +$202.83M**, with the two proving rows beside it (CMC supply on
+1. Open <https://netmint.edycu.dev>. The hero shows NVDAB: **REAL INFLOW +$202.8M** (`net_usd` 202,826,522.82), with the two proving rows beside it (CMC supply on
    the first and last day, and the on-chain step with its mint transaction).
 2. Open `/u/NVDA` and run it. The page calls `/api/lookup?u=NVDA&window=30`; the receipt drawer lists every CMC call verbatim
    (endpoint, params, status, body) and the credit count. Below the result, the holder panel shows holder addresses per wrapper from
@@ -18,7 +18,7 @@ All figures: NVDAB (bStocks), 2026-10-22 → 2026-11-21, captured 2026-11-21 (a 
 ```bash
 npm ci
 export CMC_API_KEY=...
-npm run demo -- NVDA          # 5 CMC calls, 7 credits, ~2 s, 0 RPC reads (uses the committed chain baseline)
+npm run demo -- NVDA --from 2026-10-22 --to 2026-11-21   # pinned: 5 CMC calls, 7 credits, ~2 s, 0 RPC reads (the committed baseline covers it)
 npm test                      # 201 passing
 npm run verify:offline        # network blocked: exits non-zero, prints no verdict
 npm run verify:flows          # 304 stored leaderboard rows re-derived, 0 diffs
@@ -28,7 +28,7 @@ Expected output (excerpt) of the demo (live CMC, so figures drift with the marke
 `evidence/2026-11-21/nvda-30d/table.json`):
 
 ```text
-NetMint · Nvidia Corp (NVDA, rwa_id 2) · 2026-10-22 → 2026-11-21 (30 d)
+NetMint · Nvidia Corp (NVDA, rwa_id 2) · 2026-10-22 → 2026-11-21 (pinned)
 REAL INFLOW     NVDAB    bStocks           +$202.83M units ×7.13  price −41.0%   cov 96.1%
 NOT VERIFIABLE  NVDAX    Backed Assets     +$104.10M (`net_usd` 104095763.06) units ×3.98  price −41.0%   cov 14.5%
 ```
