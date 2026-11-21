@@ -22,17 +22,13 @@ test('the judged click: Run it live returns a verdict with CMC receipts behind i
   const body = await res.json();
   expect(body.underlying.ticker).toBe('NVDA');
   expect(['live', 'cached', 'live-stored']).toContain(body.mode);
-  const headline =
-    body.wrappers.find((w: { verdict: string }) => w.verdict === 'REAL_INFLOW' || w.verdict === 'OUTFLOW' || w.verdict === 'RECOUNT') ??
-    body.wrappers[0];
-  expect(headline.verdict).toBeTruthy();
+  const verdicts = new Set(body.wrappers.map((w: { verdict: string }) => w.verdict).filter(Boolean));
+  expect(verdicts.size).toBeGreaterThan(0);
   const receipts = page.getByRole('button', { name: /^Receipts \(\d+\)/ });
   await expect(receipts).toBeVisible({ timeout: 45_000 });
-  const label = await page
-    .getByRole('img', { name: /^Verdict: / })
-    .first()
-    .getAttribute('aria-label');
-  expect(VERDICTS.some((v) => label?.includes(v))).toBe(true);
+  // the stamp on screen must carry a verdict that the click's own response returned for one of its wrappers
+  const names = [...verdicts].map((v) => (v as string).replace('_', ' ')); // letters and spaces only, safe in a RegExp
+  await expect(page.getByRole('img', { name: /^Verdict: / }).first()).toHaveAttribute('aria-label', new RegExp(names.join('|')));
   expect(Number((await receipts.innerText()).match(/\((\d+)\)/)?.[1])).toBeGreaterThanOrEqual(3);
   await receipts.click();
   const drawer = page.getByRole('dialog', { name: 'Receipts' });

@@ -117,6 +117,8 @@ jobs:
       - run: npm ci
       - run: npx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
       - run: npx vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          COMMIT_SHA: ${{ github.sha }}
       - run: npx vercel deploy --prebuilt --prod -e COMMIT_SHA=${{ github.sha }} --token=${{ secrets.VERCEL_TOKEN }}
 
   # ── Stage 5 · E2E against the LIVE URL, the judged click ────────────
