@@ -48,5 +48,5 @@ Sampled mint (2026-11-13, 640 units, 0.16% of that day's step; all 7 sampled min
 ## Limits
 
 Wrappers whose supply sits on Solana, Arbitrum, Base, Robinhood Chain or X Layer return NOT VERIFIABLE (for example NVDAX: 86% of
-supply on Solana). Dollar figures are net creation at market price, not buyer data and not advice. After the Growth grant ends
-(10 Dec) lookups run as `live-stored`: stored dated CMC bodies plus live chain reads, labelled in the receipts.
+supply on Solana). Dollar figures are net creation at market price, not buyer data and not advice. After the event key reverts to Basic
+(9 Dec 23:59 UTC) lookups run as `live-stored`: stored dated CMC bodies plus live chain reads, labelled in the receipts.

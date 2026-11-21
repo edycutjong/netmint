@@ -35,7 +35,7 @@ whole flow behind that click and shows each CMC response verbatim in a receipt d
 
 ### The Problem
 CMC lists tokenised stocks with a daily circulating supply. That supply is the only public trace of primary-market creation and
-redemption (issuers mint on creation and burn on redemption), yet nobody counts it the way an ETF flow table counts creations.
+redemption (issuers mint on creation and burn on redemption), yet CMC does not show it the way an ETF flow table shows creations.
 A holder sees prices that move together and supplies that move apart, and nothing joins the two. A supply jump can also be a
 data artefact, a listing change, or a move on a chain nobody reads.
 
@@ -57,7 +57,7 @@ is investment advice.
 **The headline case, measured:** NVDAB's CMC supply rose +1,209,739 units; the chain's `totalSupply` rose +1,216,792 (+0.6%
 apart, tolerance ±10%). The 5 largest step days (3-day sums) all matched within remedy. For each of 7 step days we sampled the one mint at the block where on-chain supply
 crossed that day's halfway point; all 7 went to a single recipient, `0x5948…adad1`. The sampled 2026-11-13 mint (`0xa239f888…15266c`, 640 units) is
-0.16% of that day's on-chain step, so it shows who receives mints, not how big the creation was; one recipient points to issuer-level creation, not retail buying.
+0.16% of that day's on-chain step, so it shows who receives mints, not how big the creation was; a single recipient is consistent with issuer-level creation rather than retail buying.
 
 ## 🏗️ Architecture & Tech Stack
 
@@ -91,7 +91,7 @@ Verbatim bodies for every call are committed in [`docs/proof/spike/`](docs/proof
 
 ```text
 REAL INFLOW     NVDAB    bStocks   +$202.83M  units ×7.13  price −41.0%  cov 96.1%
-                window endpoints and the steps carrying ≥ 80% of the flow verified
+                window endpoints and the 5 largest steps (68% of gross flow, capped at 5 days) verified
                 (chain +1,216,792 · CMC +1,209,739 · +0.6% · within remedy ±10%)
   step 2026-11-13: CMC 3d 522,505 · chain 3d 535,910 · ok
   mint tx 0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c → 0x5948…adad1
@@ -114,7 +114,7 @@ RECOUNT, and returned NOT VERIFIABLE for 107, mostly wrappers whose supply sits 
   [`docs/proof/spike/`](docs/proof/spike/)), so the holder panel uses the count endpoint only.
 - Plan limits are real: CMC's pricing page lists daily `quotes/historical` for Basic at one year of depth ([`basic-tier.json`](docs/proof/spike/basic-tier.json));
   we could not test a Basic key. The one plan error we observed (1006, on `/v1/blockchain/statistics/latest`) is in
-  [`plan-errors.json`](docs/proof/spike/plan-errors.json). Our Growth grant reverts when submissions close (9 Dec 23:59 UTC), so after that the click falls back to `mode: "live-stored"`: stored dated CMC bodies plus live chain reads, labelled
+  [`plan-errors.json`](docs/proof/spike/plan-errors.json). Our event key (2M credits/month, 750 req/min per `/v1/key/info`) reverts to the free Basic tier when submissions close (9 Dec 23:59 UTC), so after that the click falls back to `mode: "live-stored"`: stored dated CMC bodies plus live chain reads, labelled
   as such in the receipts. A window outside the stored bodies then shows the verbatim plan error, not a guess.
 - The daily point closes at 00:00 UTC, so one day offset is fixed per issuer from the step alignment; ambiguous alignment
   yields NOT VERIFIABLE, never RECOUNT.
@@ -170,8 +170,8 @@ npm run verify:flows          # recompute /flows from the stored bodies, expect 
 npm run snapshot -- NVDA --window 30   # write a dated evidence folder
 ```
 
-A GitHub Actions workflow ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) is in the repo; No CI badge is shown
-because Actions have not run on the repo yet; the commands above are the gate.
+A GitHub Actions workflow ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) is in the repo; Its runs have not started
+(GitHub billing/spending-limit error on the account), so no CI badge is shown; the commands above are the gate.
 
 ## 📁 Project Structure
 
@@ -201,13 +201,13 @@ Live: <https://netmint.edycu.dev> · Walkthrough with the exact click path and c
 
 ## 🧾 Pre-existing work and what is new
 
-Everything in this repository was written for this hackathon: the repo was created on 2026-11-21 and no code, HTML or assets
+Everything in this repository was written for this hackathon: the first commit is dated 2026-11-21 (the empty GitHub repository was created on 2026-11-20 UTC) and no code, HTML or assets
 come from any earlier CMC-hackathon repository. Third-party code is limited to npm dependencies in `package-lock.json`.
 The visual identity (`docs/assets/`) was generated for NetMint during the event.
 
 ## 🙈 What we got wrong
 
-1. **We first called supply growth "inflow from holders".** A mint can only be executed by the token's minter, and all 7 NVDAB mints we sampled
+1. **We first called supply growth "inflow from holders".** Every sampled mint is a Transfer from the zero address, so a minter executed it, and all 7 NVDAB mints we sampled
    (one per step day) went to one address. It is issuer-level creation, so the wording is now "net creation", counted like an ETF flow.
 2. **We nearly called NVDAX's July–August fall a real redemption.** Most of it was one day, 2026-07-31, when at least 4 Backed/xStocks
    wrappers (NVDAX, AAPLX, INTCX, MUx) dropped together: a CMC circulating/total split, not a redemption. `docs/proof/calibration/history-baseline.json` holds the series. Every figure now carries its window, and
