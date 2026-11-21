@@ -1,0 +1,79 @@
+[
+ {
+  "crypto_id": 40215,
+  "symbol": "NVDAB",
+  "chain": "bsc",
+  "date": "2026-11-10",
+  "tx": "0x378ddc7930dce9e798a190b5849a1897960d787e35e2ac67849c6cc3672feb83",
+  "block": 132603411,
+  "amount": 920.22457829,
+  "recipient": "0x5948602680fe4aea08d98302337a2715b3aadad1",
+  "explorer_url": "https://bscscan.com/tx/0x378ddc7930dce9e798a190b5849a1897960d787e35e2ac67849c6cc3672feb83"
+ },
+ {
+  "crypto_id": 40215,
+  "symbol": "NVDAB",
+  "chain": "bsc",
+  "date": "2026-11-11",
+  "tx": "0x3097204605f5c6bb7b2baf0c76803ec05c90e0b1e7a1e631bc4f61b89b8a6288",
+  "block": 132807270,
+  "amount": 2944.97057845,
+  "recipient": "0x5948602680fe4aea08d98302337a2715b3aadad1",
+  "explorer_url": "https://bscscan.com/tx/0x3097204605f5c6bb7b2baf0c76803ec05c90e0b1e7a1e631bc4f61b89b8a6288"
+ },
+ {
+  "crypto_id": 40215,
+  "symbol": "NVDAB",
+  "chain": "bsc",
+  "date": "2026-11-12",
+  "tx": "0x4a5b85e3b6b3dc8a8b71f44b2042a78da12c04c3ccea08d31ead0f14eadd0111",
+  "block": 132987246,
+  "amount": 546.18877274,
+  "recipient": "0x5948602680fe4aea08d98302337a2715b3aadad1",
+  "explorer_url": "https://bscscan.com/tx/0x4a5b85e3b6b3dc8a8b71f44b2042a78da12c04c3ccea08d31ead0f14eadd0111"
+ },
+ {
+  "crypto_id": 40215,
+  "symbol": "NVDAB",
+  "chain": "bsc",
+  "date": "2026-11-13",
+  "tx": "0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c",
+  "block": 133127844,
+  "amount": 640.06068684,
+  "recipient": "0x5948602680fe4aea08d98302337a2715b3aadad1",
+  "explorer_url": "https://bscscan.com/tx/0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c"
+ },
+ {
+  "crypto_id": 40215,
+  "symbol": "NVDAB",
+  "chain": "bsc",
+  "date": "2026-11-17",
+  "tx": "0xeb9f014c001a422df51b2cedf47c2b01e65a5e2a1e9600876b2b3a5a83b15f92",
+  "block": 133917220,
+  "amount": 1890.71591523,
+  "recipient": "0x5948602680fe4aea08d98302337a2715b3aadad1",
+  "explorer_url": "https://bscscan.com/tx/0xeb9f014c001a422df51b2cedf47c2b01e65a5e2a1e9600876b2b3a5a83b15f92"
+ },
+ {
+  "crypto_id": 40215,
+  "symbol": "NVDAB",
+  "chain": "bsc",
+  "date": "2026-11-18",
+  "tx": "0x350cfe7b68277d529a02e0789180d3dac0a796a59a46bd60371ea38b37341c99",
+  "block": 134088501,
+  "amount": 680.18151472,
+  "recipient": "0x5948602680fe4aea08d98302337a2715b3aadad1",
+  "explorer_url": "https://bscscan.com/tx/0x350cfe7b68277d529a02e0789180d3dac0a796a59a46bd60371ea38b37341c99"
+ },
+ {
+  "crypto_id": 40215,
+  "symbol": "NVDAB",
+  "chain": "bsc",
+  "date": "2026-11-19",
+  "tx": "0xe8aabb1885e04157d62015ae741927ff3c506a9076cee04e1821ee5ee4814dbf",
+  "block": 134337074,
+  "amount": 2003.57425649,
+  "recipient": "0x5948602680fe4aea08d98302337a2715b3aadad1",
+  "explorer_url": "https://bscscan.com/tx/0xe8aabb1885e04157d62015ae741927ff3c506a9076cee04e1821ee5ee4814dbf"
+ }
+]
