@@ -1,17 +1,23 @@
 import { HeroCard } from './components/HeroCard';
 import type { LookupError } from './components/ErrorBanner';
 import { lookup, LookupFailure } from '@/lib/lookup';
+import { HERO_WINDOW } from '@/lib/hero';
+import { Recorder } from '@/lib/receipts';
+import { storedTransport } from '@/lib/stored';
 import type { LookupResult } from '@/lib/types';
 
-// ISR: the hero is a real lookup, re-captured at most hourly; "Run it live" re-runs it on click.
-export const revalidate = 3600;
+// The hero is a deterministic replay of one committed capture (labelled "recorded" with its capture time); the live
+// CMC call is the "Run it live" click. Static: nothing on this page calls CMC at request time.
+export const dynamic = 'force-static';
 
-const HERO_U = 'NVDA';
+const HERO_U = HERO_WINDOW.u;
 const RAIL = ['NVDA', 'GOOGL', 'INTC', 'SPCX', 'MSTR', 'SNDK', 'MU', 'SKHY', 'AAPL', 'TSLA', 'MSFT', 'AMZN', 'META', 'COIN', 'HOOD', 'CRCL'];
 
 async function capture(): Promise<{ res: LookupResult | null; err: LookupError | null }> {
   try {
-    return { res: await lookup(HERO_U, { window: 30, storedFallback: true }), err: null };
+    const r = await lookup(HERO_U, { from: HERO_WINDOW.from, to: HERO_WINDOW.to, rec: new Recorder(storedTransport()), allowLiveChain: false });
+    const recordedUtc = r.receipts.find((x) => x.endpoint === '/v2/cryptocurrency/quotes/historical')?.startedUtc ?? r.fetchedUtc;
+    return { res: { ...r, mode: 'recorded', live: false, recordedUtc, fetchedUtc: recordedUtc }, err: null };
   } catch (e) {
     const at = new Date().toISOString();
     if (e instanceof LookupFailure) return { res: null, err: { status: e.httpStatus, error: e.message, at, ...(e.extra as object) } };

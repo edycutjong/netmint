@@ -22,12 +22,14 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
   const [drawer, setDrawer] = useState(false);
   const [copied, setCopied] = useState(false);
 
+  // "Run it live" re-runs the window on screen (the pinned hero window, or the chosen rolling one); chips pick a rolling window
   const run = useCallback(
-    async (w: LookupWindow) => {
+    async (w: LookupWindow, pin?: { from: string; to: string }) => {
       setBusy(true);
       setWin(w);
       try {
-        const r = await fetch(`/api/lookup?u=${encodeURIComponent(u)}&window=${w}`, { cache: 'no-store' });
+        const q = pin ? `from=${pin.from}&to=${pin.to}` : `window=${w}`;
+        const r = await fetch(`/api/lookup?u=${encodeURIComponent(u)}&${q}`, { cache: 'no-store' });
         const j = await r.json();
         if (!r.ok) {
           setErr({ status: r.status, at: new Date().toISOString(), ...j });
@@ -67,7 +69,7 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
               </p>
               <p className={`hero-figure ${ink}`}>{usd(m.net)}</p>
               <p className="hero-sub">
-                net {m.net >= 0 ? 'creation' : 'redemption'} · units {times(m.unitsX)} · price {pct(m.pricePct)}
+                {hero.verified ? `net ${m.net >= 0 ? 'creation' : 'redemption'}` : 'CMC supply change × price, unproven'} · units {times(m.unitsX)} · price {pct(m.pricePct)}
               </p>
             </div>
           </div>
@@ -76,7 +78,7 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
         </>
       ) : null}
       <div className="actions">
-        <button className="btn" onClick={() => run(win)} disabled={busy}>
+        <button className="btn" onClick={() => run(win, res?.range.pinned ? { from: res.range.from, to: res.range.to } : undefined)} disabled={busy}>
           {busy ? 'Running live…' : 'Run it live'}
         </button>
         <div className="seg" role="group" aria-label="Window">
@@ -110,7 +112,12 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
       {res ? <StoredNotice res={res} /> : null}
       {res ? (
         <p className="capture">
-          {res.live ? 'live' : res.mode} capture {utcStamp(res.fetchedUtc)} · {res.credits} credits charged by CMC for this lookup (status.credit_count; repeat identical calls are not charged) · {res.elapsedMs} ms
+          {res.mode === 'recorded'
+            ? `recorded capture ${utcStamp(res.recordedUtc ?? res.fetchedUtc)} · replayed from the committed CMC responses (no CMC call on page load) · Run it live calls CMC now`
+            : `${res.live ? 'live' : res.mode} capture ${utcStamp(res.fetchedUtc)} · ${res.credits} credits charged by CMC for this lookup (status.credit_count; repeat identical calls are not charged) · ${res.elapsedMs} ms`}
+          {w && w.series.length > 1 && (w.series[0].date !== res.range.from || w.series[w.series.length - 1].date !== res.range.to)
+            ? ` · math over ${w.series[0].date} → ${w.series[w.series.length - 1].date} (accepted CMC days)`
+            : ''}
           {w?.mint ? ` · chain data: ${w.mint.chainSource === 'baseline' ? 'committed daily baseline' : w.mint.chainSource}` : ''}
         </p>
       ) : null}

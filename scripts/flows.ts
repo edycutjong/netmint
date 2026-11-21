@@ -22,6 +22,9 @@ const flag = (k: string) => {
 const TOP = Number(flag('top') ?? 20);
 const WINDOWS = (flag('windows') ?? '7,30').split(',').map(Number) as (7 | 30)[];
 const only = flag('only')?.split(',').map((s) => s.toUpperCase());
+// one clock for every lookup in the run: a capture that crosses 00:00 UTC still shares one window end
+const NOW_MS = Date.now();
+const ALLOW_PARTIAL = args.includes('--allow-partial');
 
 const write = (p: string, v: unknown) => {
   const s = typeof v === 'string' ? v : JSON.stringify(v, null, 1) + '\n';
@@ -39,7 +42,7 @@ async function universe(rec: Recorder): Promise<{ symbol: string; rwaId: number 
 }
 
 async function main() {
-  const date = flag('date') ?? new Date().toISOString().slice(0, 10);
+  const date = flag('date') ?? new Date(NOW_MS).toISOString().slice(0, 10);
   const root = path.join('evidence', date);
   mkdirSync(path.join(root, 'flows'), { recursive: true });
   const rec0 = new Recorder();
@@ -63,7 +66,7 @@ async function main() {
       while (next < list.length) {
         const a = list[next++];
         try {
-          const r = await lookup(String(a.rwaId), { window: w });
+          const r = await lookup(String(a.rwaId), { window: w, nowMs: NOW_MS });
           const tag = `${a.symbol.toLowerCase()}-${w}d`;
           const dir = path.join(root, 'flows', tag);
           mkdirSync(dir, { recursive: true });
@@ -72,6 +75,7 @@ async function main() {
             .forEach((x, i) => write(path.join(dir, `${String(i + 1).padStart(2, '0')}-${x.endpoint.replace(/^\//, '').replace(/\//g, '_')}.json`), { receipt: { ...x, body: undefined }, body: x.body }));
           rows.push(...rowsFromLookup(r, path.posix.join('evidence', date, 'flows', tag)));
           credits += r.credits;
+          if (range.to && (range.from !== r.range.from || range.to !== r.range.to)) throw new Error(`range drift: ${r.range.from}→${r.range.to} vs ${range.from}→${range.to}`);
           range = { from: r.range.from, to: r.range.to };
           results.push(r);
           console.log(`  ${w}d ${a.symbol.padEnd(6)} ${r.wrappers.filter((x) => !x.derivative).length} wrappers, ${r.credits} credits, ${r.elapsedMs} ms`);
@@ -93,7 +97,13 @@ async function main() {
       skipped,
       rows: sortFlows(rows),
     };
-    write(path.join(root, `flows-${w}d.json`), table);
+    // only a complete run becomes the table /flows reads; a partial one is kept beside it for inspection, never served
+    const complete = skipped.length === 0;
+    write(path.join(root, complete || ALLOW_PARTIAL ? `flows-${w}d.json` : `flows-${w}d.partial.json`), table);
+    if (!complete && !ALLOW_PARTIAL) {
+      console.error(`flows-${w}d: ${skipped.length} underlyings skipped → wrote flows-${w}d.partial.json; /flows keeps the last complete table (re-run, or pass --allow-partial)`);
+      process.exitCode = 2;
+    }
     const v = table.rows.filter((r) => r.verdict === 'REAL_INFLOW' || r.verdict === 'OUTFLOW');
     console.log(`flows-${w}d.json: ${rows.length} wrappers, ${v.length} verified, ${table.rows.filter((r) => r.divergence).length} divergent, ${skipped.length} skipped, ${credits} credits`);
   }
