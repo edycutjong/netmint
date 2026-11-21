@@ -124,7 +124,7 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
       {res ? (
         <p className="capture">
           {res.mode === 'recorded'
-            ? `recorded capture ${utcStamp(res.recordedUtc ?? res.fetchedUtc)} · replayed from the committed CMC responses (no CMC call on page load) · Run it live calls CMC now`
+            ? `recorded capture ${utcStamp(res.recordedUtc ?? res.fetchedUtc)} · replayed from the committed CMC responses (no CMC call on page load) · Run it live calls CMC now; if CMC’s plan refuses a call (expected after 9 Dec 23:59 UTC), a stored dated CMC body answers it, labelled`
             : `${res.live ? 'live' : res.mode} capture ${utcStamp(res.fetchedUtc)} · ${res.credits} credits charged by CMC for this lookup (status.credit_count; repeat identical calls are not charged) · ${res.elapsedMs} ms`}
           {w && w.series.length > 1 && (w.series[0].date !== res.range.from || w.series[w.series.length - 1].date !== res.range.to)
             ? ` · math over ${w.series[0].date} → ${w.series[w.series.length - 1].date} (accepted CMC days)`

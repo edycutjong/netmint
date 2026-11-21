@@ -31,8 +31,10 @@ export function ReceiptDrawer({ receipts, credits, onClose }: { receipts: Receip
         <header>
           <h2>Receipts</h2>
           <span className="capture">
-            {cmc.length} CMC calls · {credits} credits charged ·{' '}
-            {rpc.length ? `${rpc.length} live chain reads` : 'chain values from the committed baseline'}
+            {cmc.length && cmc.every((x) => x.stored)
+              ? `${cmc.length} recorded CMC responses, replayed (no CMC call, 0 credits)`
+              : `${cmc.length} CMC calls · ${credits} credits charged`}{' '}
+            · {rpc.length ? `${rpc.length} live chain reads` : 'chain values from the committed baseline'}
           </span>
           <button ref={closeRef} className="btn quiet" onClick={onClose} aria-label="Close receipts (Esc)">
             Close
@@ -67,7 +69,11 @@ export function ReceiptDrawer({ receipts, credits, onClose }: { receipts: Receip
                 params {JSON.stringify(r.params)}
                 <br />
                 {r.stored
-                  ? `stored: CMC body captured ${r.startedUtc}, committed at ${r.stored.file} (answers the refused call above)`
+                  ? `stored: CMC body captured ${r.startedUtc}, committed at ${r.stored.file}${
+                      cmc.some((x) => !x.stored && x.endpoint === r.endpoint && ((x.errorCode ?? 0) !== 0 || x.httpStatus !== 200))
+                        ? ' (answers the refused call above)'
+                        : ' (recorded replay)'
+                    }`
                   : `HTTP ${r.httpStatus} · credit_count ${r.creditCount ?? 0} · error_code ${r.errorCode ?? 0} · ${r.elapsedMs} ms · ${r.startedUtc}`}
               </p>
             ) : (

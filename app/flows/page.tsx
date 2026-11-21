@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 export const metadata = { title: '/flows: net creation and redemption across tokenised stocks · NetMint' };
 
 const isVerified = (r: FlowRow) => r.verdict === 'REAL_INFLOW' || r.verdict === 'OUTFLOW';
-const DIV_LABEL = { price_down_money_in: 'price down, money in', price_up_money_out: 'price up, money out' } as const;
+const DIV_LABEL = { price_down_money_in: 'price down, units created', price_up_money_out: 'price up, units redeemed' } as const;
 
 function tsv(rows: FlowRow[], head: string): string {
   const cols = [
@@ -90,7 +90,7 @@ function FlowsBody({ t, all }: { t: NonNullable<ReturnType<typeof loadFlows>>; a
       <p className="capture">
         {t.range.from} → {t.range.to} UTC · captured {utcStamp(t.generatedUtc)} · {t.universe.underlyings} underlyings, {t.rows.length}{' '}
         wrappers (top by CMC tokenised market cap) · {t.credits} CMC credits for the capture · <strong>{verified.length}</strong>{' '}
-        chain-verified moves, <strong>{div.length}</strong> where the price and the money disagree
+        chain-verified moves, <strong>{div.length}</strong> where price and net creation disagree
       </p>
       <p className="note">
         A table captured at the time above, not a live feed: every row came from the same lookup a click runs, with its CMC bodies
@@ -164,12 +164,12 @@ function FlowsBody({ t, all }: { t: NonNullable<ReturnType<typeof loadFlows>>; a
       <p className="definition">
         Counted the way ETF flow tables count creations: units created or redeemed × price. REAL INFLOW and OUTFLOW are issuer-level net
         creation and redemption that the chain confirms within ±10% of the move (or 0.5% of supply for small moves), not buyer data; “price
-        vs money” marks only those. RECOUNT means CMC’s supply moved but the chain disagrees; NOT VERIFIABLE means the chain cannot be read
-        for that wrapper ({t.rows.filter((r) => r.verdict === 'NOT_VERIFIABLE').length} of {t.rows.length}; {t.rows.length - shown.length}{' '}
-        of {t.rows.length} rows are hidden in this view). Chain coverage is the on-chain supply summed over BNB Chain and Ethereum ÷ CMC’s
-        supply at the window start; a little over 100% means the chain read higher. On RECOUNT and NOT VERIFIABLE rows the dollar figure is
-        CMC’s supply change × price and is shown only as unproven. Evidence:{' '}
-        <span className="data">evidence/{t.generatedUtc.slice(0, 10)}/flows/</span>.
+        vs money” marks only those. RECOUNT means CMC’s supply step and the summed chains’ step disagree beyond tolerance; NOT VERIFIABLE
+        means the move may sit on a chain NetMint does not read, or the check cannot certify it (
+        {t.rows.filter((r) => r.verdict === 'NOT_VERIFIABLE').length} of {t.rows.length}; {t.rows.length - shown.length} of {t.rows.length}{' '}
+        rows are hidden in this view). Chain coverage is the on-chain supply summed over BNB Chain and Ethereum ÷ CMC’s supply at the window
+        start; a little over 100% means the chain read higher. On RECOUNT and NOT VERIFIABLE rows the dollar figure is CMC’s supply change ×
+        price and is shown only as unproven. Evidence: <span className="data">evidence/{t.generatedUtc.slice(0, 10)}/flows/</span>.
       </p>
     </>
   );

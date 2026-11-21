@@ -9,7 +9,8 @@ const albert = Albert_Sans({ subsets: ['latin'], variable: '--f-albert', display
 const chivo = Chivo_Mono({ subsets: ['latin'], variable: '--f-chivo', display: 'swap' });
 
 const TITLE = 'NetMint: the money behind every tokenised stock, checked against the chain';
-const DESCRIPTION = 'CMC records each tokenised stock’s supply but never shows the money behind it. NetMint shows it, checked against the chain.';
+const DESCRIPTION =
+  'CMC lists each tokenised stock’s supply, not the dollars created or redeemed behind it. NetMint shows them, checked against the chain.';
 const OG_ALT =
   'NetMint: NVDAB supply rose ×7.1 while the price fell 41% (22 Oct to 21 Nov 2026); the chain confirms the supply steps within remedy, struck REAL INFLOW beside +$202.83M net creation at market price.';
 
@@ -45,7 +46,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <a href="/about">About</a>
             <a href="/pitch">Pitch</a>
           </nav>
-          <span className="tag">CMC records every tokenised stock’s supply. We show the money behind it, checked on chain.</span>
+          <span className="tag">
+            A supply jump can be new tokens or a data change. NetMint shows which, and the dollars behind it, checked on chain.
+          </span>
         </header>
         {children}
         <footer className="foot">

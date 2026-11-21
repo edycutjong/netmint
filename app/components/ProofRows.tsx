@@ -31,12 +31,12 @@ export function ProofRows({ w }: { w: WrapperResult }) {
           </div>
           {p.errPct !== null ? (
             <p className="verdict-line" style={{ margin: '6px 0 0' }}>
-              Step {p.date}: chain vs CMC {pct(p.errPct)}
+              1-day step {p.date}: chain vs CMC {pct(p.errPct)}
               {p.boundKind === 'floor'
                 ? `${p.withinRemedy ? ' · within' : ' · outside'} the floor ±${units(p.bound ?? 0)} (0.5% of supply, larger than ±10% of this step)`
                 : p.withinRemedy
-                  ? ' · within remedy ±10%'
-                  : ' · outside remedy ±10%'}
+                  ? ' · within remedy (tolerance ±10%)'
+                  : ' · outside remedy (tolerance ±10%)'}
             </p>
           ) : null}
         </>
