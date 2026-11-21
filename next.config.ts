@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     '/api/lookup': ['./data/**/*.json', './evidence/**/*.json'],
     '/': ['./data/**/*.json', './evidence/**/*.json'],
     '/api/holders': ['./data/mints.json'],
-    '/api/health': ['./evidence/*/flows-*d.json', './data/chain-supply/manifest.json'],
+    '/api/health': ['./evidence/**/*.json', './data/chain-supply/manifest.json'],
     '/flows': ['./evidence/*/flows-*d.json'],
   },
 };

@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { keyPlan } from '@/lib/cmc/key';
 import { loadFlows } from '@/lib/flows';
+import { storedSummary } from '@/lib/stored';
 
 export const dynamic = 'force-dynamic';
 
@@ -32,7 +33,9 @@ export async function GET() {
         '7d': f7 ? { generated_utc: f7.generatedUtc, from: f7.range.from, to: f7.range.to, wrappers: f7.rows.length, underlyings: f7.universe.underlyings } : null,
       },
       chain: { rpc_configured: Boolean(process.env.ALCHEMY_API_KEY), baseline_generated_utc: baselineGenerated() },
-      cron_last_ok_utc: null, // the nightly Blob refresh lands in P1d; until then `npm run flows` + redeploy refreshes /flows
+      cron_last_ok_utc: null, // no nightly job runs: `npm run flows` + redeploy refreshes /flows and the stored bodies
+      // what a click falls back to if CMC refuses quotes/historical (plan revert): committed verbatim bodies
+      stored: storedSummary(),
       cmc: plan ?? { ok: false, error: 'CMC_API_KEY not configured' },
     },
     { headers: { 'cache-control': 'no-store' } },

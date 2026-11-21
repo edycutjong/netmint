@@ -97,3 +97,11 @@ export const committedStore: StoredLookup = (endpoint, params) => {
 export function storeFrom(bodies: StoredBody[]): StoredLookup {
   return (endpoint, params) => findStored(bodies, endpoint, params);
 }
+
+/** For /api/health: how far the committed history reaches if CMC starts refusing quotes/historical. */
+export function storedSummary(): { bodies: number; history_bodies: number; history_end: string | null; newest_capture_utc: string | null } {
+  memo ??= loadStoredIndex();
+  const hist = memo.filter((s) => s.endpoint === HIST);
+  const end = hist.reduce<string | null>((m, s) => (m === null || s.params.time_end > m ? s.params.time_end : m), null);
+  return { bodies: memo.length, history_bodies: hist.length, history_end: end, newest_capture_utc: memo[0]?.capturedUtc ?? null };
+}
