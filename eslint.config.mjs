@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const compat = new FlatCompat({ baseDirectory: path.dirname(fileURLToPath(import.meta.url)) });
 
 export default [
-  { ignores: ['.next/**', 'node_modules/**', 'coverage/**', 'playwright-report/**', 'test-results/**', 'next-env.d.ts'] },
+  { ignores: ['.vercel/**', '.next/**', 'node_modules/**', 'coverage/**', 'playwright-report/**', 'test-results/**', 'next-env.d.ts'] },
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
     // CMC and JSON-RPC bodies are parsed from untyped JSON and narrowed at the boundary (lib/cmc/*, lib/stored.ts);
