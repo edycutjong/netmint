@@ -4,6 +4,8 @@
 set -u
 cd "$(dirname "$0")/.."
 out=$(mktemp)
+# dummy keys: the failure must come from the unplugged network, never from a missing key (CI has none)
+export CMC_API_KEY=offline-check-dummy ALCHEMY_API_KEY=offline-check-dummy
 if command -v sandbox-exec >/dev/null 2>&1; then
   sandbox-exec -p '(version 1)(allow default)(deny network-outbound)(allow network-outbound (local unix))(deny network-outbound (remote unix-socket (path-literal "/private/var/run/mDNSResponder")))' npx tsx scripts/demo.ts NVDA >"$out" 2>&1
 elif command -v unshare >/dev/null 2>&1; then
@@ -15,4 +17,5 @@ code=$?
 cat "$out"
 if [ "$code" -eq 0 ]; then echo "FAIL: demo exited 0 with the network unplugged"; exit 1; fi
 if grep -qE 'REAL INFLOW|OUTFLOW|RECOUNT|NOT VERIFIABLE|FLAT ' "$out"; then echo "FAIL: a verdict was printed offline"; exit 1; fi
+if ! grep -qiE 'transport error|fetch failed' "$out"; then echo "FAIL: it failed, but not on the network (expected a transport error)"; exit 1; fi
 echo "PASS: offline demo exited $code and printed no verdict"
