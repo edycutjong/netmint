@@ -73,6 +73,7 @@ export interface MintCheck {
   stepOk: boolean;
   directionOk: boolean;
   guardOk: boolean;
+  coverageOk: boolean; // cov(A) in [0.90, 1.10] (FLAT needs only this + the guard)
   cmcDelta: number | null; // ΔcmcTot over [A, B]
   chainDelta: number | null; // ΔchainS over [A+d, B+d]
   errPct: number | null; // (chainDelta − cmcDelta) / |cmcDelta|

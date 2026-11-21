@@ -15,14 +15,14 @@ export function ProofRows({ w }: { w: WrapperResult }) {
           <div className="proof-row">
             <span className="lbl">Proof 1</span>
             <span>
-              CMC {field} {p.prevDate.slice(5)} → {p.date.slice(5)}
+              CMC {field} {p.prevDate} → {p.date}
             </span>
             <span className={`fig${recount ? ' struck' : ''}`}>{units(p.cmcStep)}</span>
           </div>
           <div className="proof-row">
             <span className="lbl">Proof 2</span>
             <span>
-              chain totalSupply {p.chainDates[0].slice(5)} → {p.chainDates[1].slice(5)} · {m.legs.map((l) => (l.chain === 'bsc' ? 'BNB Chain' : 'Ethereum')).join(' + ') || 'no readable leg'}
+              chain totalSupply {p.chainDates[0]} → {p.chainDates[1]} · {m.legs.map((l) => (l.chain === 'bsc' ? 'BNB Chain' : 'Ethereum')).join(' + ') || 'no readable leg'}
               {' · '}d = {m.offset}
             </span>
             <span className="fig">{p.chainStep === null ? 'n/a' : units(p.chainStep)}</span>
@@ -44,7 +44,7 @@ export function ProofRows({ w }: { w: WrapperResult }) {
       {w.mintReceipt ? (
         <p className="capture" style={{ margin: '6px 0 0' }}>
           One of the day’s mints ({plain(w.mintReceipt.amount)} units
-          {p?.chainStep ? ` of the ${units(p.chainStep)} chain step that day` : ''}):{' '}
+          {p?.chainStep && w.mintReceipt.date === p.chainDates[1] ? ` of the ${units(p.chainStep)} chain step that day` : ` on ${w.mintReceipt.date}`}):{' '}
           <a className="data" href={w.mintReceipt.explorer_url} target="_blank" rel="noreferrer">
             {short(w.mintReceipt.tx, 8, 6)}
           </a>{' '}

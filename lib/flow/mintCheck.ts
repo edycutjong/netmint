@@ -50,6 +50,7 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
     stepOk: false,
     directionOk: false,
     guardOk: true,
+    coverageOk: false,
     cmcDelta: null,
     chainDelta: null,
     errPct: null,
@@ -93,6 +94,7 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
   if (coverageA > p.coverageMax) {
     return { ...out, reason: `chain and CMC disagree on the level (${pct(coverageA, 0)} of CMC ${comparator.replace('_', ' ')})` };
   }
+  out.coverageOk = true;
   if (!out.guardOk) {
     return {
       ...out,

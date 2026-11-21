@@ -29,7 +29,7 @@ export function ReceiptDrawer({ receipts, credits, onClose }: { receipts: Receip
         <header>
           <h2>Receipts</h2>
           <span className="capture">
-            {cmc.length} CMC calls · {credits} credits · {rpc.length} chain reads
+            {cmc.length} CMC calls · {credits} credits charged · {rpc.length ? `${rpc.length} live chain reads` : 'chain values from the committed baseline'}
           </span>
           <button ref={closeRef} className="btn quiet" onClick={onClose} aria-label="Close receipts (Esc)">
             Close

@@ -173,10 +173,11 @@ export function evaluateWrapper(
     chainSource: sourceOf(legs),
   });
   const v = decideVerdict(metrics, mint);
-  const verified = v.verdict === 'REAL_INFLOW' || v.verdict === 'OUTFLOW';
+  // a zero-address mint can only illustrate creation: never shown under OUTFLOW (a redemption is a burn)
   const proof = proofStep(accepted, metrics, summed(legs), d, mint.comparator);
-  const stepDates = [...(proof ? [proof.date] : []), ...mint.stepDays.map((s) => s.date)];
-  const mintReceipt = verified ? pickMintReceipt(base.cryptoId, stepDates) : undefined;
+  // mints.json `date` is the chain day (the step between block_at(date−1) and block_at(date)) → match CMC day D at D+d
+  const chainDays = [...(proof ? [proof.date] : []), ...mint.stepDays.map((s) => s.date)].map((x) => addDays(x, d));
+  const mintReceipt = v.verdict === 'REAL_INFLOW' ? pickMintReceipt(base.cryptoId, chainDays) : undefined;
   return { ...base, series: accepted, refused, metrics, mint, verdict: v.verdict, reason: v.reason, mintReceipt, proof };
 }
 

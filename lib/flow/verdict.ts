@@ -27,11 +27,13 @@ export function decideVerdict(metrics: FlowMetrics | null, mint: MintCheck | nul
   // 1. error or < 2 accepted points → no verdict
   if (!metrics || !mint) return { verdict: null, reason: 'fewer than 2 accepted daily points: no verdict' };
   // 2. mint check impossible or the circulating guard failed → NOT VERIFIABLE (before FLAT)
-  if (mint.status === 'impossible' || !mint.guardOk) return { verdict: 'NOT_VERIFIABLE', reason: mint.reason };
+  if ((mint.status === 'impossible' && !mint.coverageOk) || !mint.guardOk) return { verdict: 'NOT_VERIFIABLE', reason: mint.reason };
   // 3. immaterial → FLAT (decided on CMC's own net, which already sums every chain; certifies nothing)
   if (Math.abs(metrics.net) < flatThreshold(metrics, p)) {
     return { verdict: 'FLAT', reason: `below threshold, not put to trial (|net| < $${Math.round(flatThreshold(metrics, p)).toLocaleString('en-US')})` };
   }
+  // 2b. coverage held but a step day had no chain data: material moves cannot be tried → NOT VERIFIABLE (after FLAT)
+  if (mint.status === 'impossible') return { verdict: 'NOT_VERIFIABLE', reason: mint.reason };
   // 4. mint check failed → routing
   if (mint.status === 'ambiguous') return { verdict: 'NOT_VERIFIABLE', reason: mint.reason };
   if (mint.status === 'fail') {

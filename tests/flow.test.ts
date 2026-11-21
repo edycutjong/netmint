@@ -221,6 +221,29 @@ describe('mint check + verdict (one test per state)', () => {
     expect(mint.status).not.toBe('pass');
   });
 
+  it('direction check binds when the 0.005 floor passes the window but the chain moved < 75% of CMC', () => {
+    // CMC +0.4% of a 1e8 supply; chain +0.2%: |err| = 200k ≤ floor 502k, but 0.2 < 0.75 × 0.4
+    const s = series([1e8, 1e8, 1.004e8, 1.004e8], 100);
+    const m: Record<string, number> = {};
+    for (let i = -3; i < 8; i++) m[addDays('2026-11-01', i)] = i >= 2 ? 1.002e8 : 1e8;
+    const { metrics, mint } = check(s, chainFrom(m));
+    expect(mint.windowOk).toBe(true);
+    expect(mint.directionOk).toBe(false);
+    expect(mint.status).not.toBe('pass');
+    // a move inside the 0.5% floor is under the 2%-of-market-cap FLAT bar, so the stamp is FLAT (never REAL INFLOW)
+    expect(decideVerdict(metrics, mint).verdict).toBe('FLAT');
+  });
+
+  it('FLAT wins over a step-day data hole when coverage is in bounds (FLAT needs no step match)', () => {
+    const s = series([10000, 10000, 10100, 10100, 10100, 10100], 20); // net $2,000, step on day 2
+    const full = mirrorChain(s);
+    const holed = (d: string) => (d === s[3].date ? null : full(d)); // D+1 of the step day; endpoints intact
+    const { metrics, mint } = check(s, holed);
+    expect(mint.status).toBe('impossible');
+    expect(mint.coverageOk).toBe(true);
+    expect(decideVerdict(metrics, mint).verdict).toBe('FLAT');
+  });
+
   it('uses circulating supply for the whole window when any day lacks total_supply (no NaN step sums)', () => {
     const s = big();
     s[4] = { ...s[4], totalSupply: null };

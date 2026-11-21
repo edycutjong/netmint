@@ -49,7 +49,7 @@ export class Recorder {
       httpStatus: call.httpStatus,
       creditCount: call.status?.credit_count ?? 0,
       errorCode: cmcErrorCode(call.status),
-      errorMessage: call.status?.error_message ?? null,
+      errorMessage: call.status?.error_message != null ? redact(String(call.status.error_message)) : null,
       body: bodyBytes <= BODY_CAP_BYTES ? JSON.parse(JSON.stringify(redactDeep(call.body))) : { truncated: true, bodyBytes },
       bodyBytes,
       curl: curlFor(endpoint, params),

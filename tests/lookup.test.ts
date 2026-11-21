@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { lookup, LookupFailure, heroOf } from '@/lib/lookup';
+import { lookup, LookupFailure, heroOf, evaluateWrapper } from '@/lib/lookup';
+import { addDays } from '@/lib/cmc/history';
 import { Recorder, curlFor, redact, BODY_CAP_BYTES } from '@/lib/receipts';
 import { parseLookupParams } from '@/lib/lookupParams';
 import { parseHistoryBody } from '@/lib/cmc/history';
@@ -135,6 +136,30 @@ describe('recorded replay of the 2026-11-21 NVDA 30 d capture (the critical test
     expect(line).toMatch(/NVDAB \(bStocks\) REAL INFLOW/);
     expect(line).toMatch(/\$ at wrapper market price/);
     expect(line).toContain('/u/NVDA?from=2026-10-22&to=2026-11-21');
+  });
+});
+
+describe('mint receipts', () => {
+  const leg = (vals: number[], start: string) => ({
+    chain: 'bsc' as const, address: '0xabc', decimals: 18, source: 'baseline' as const, baselineUtc: null,
+    values: new Map(Array.from({ length: vals.length + 6 }, (_, i) => [addDays(start, i - 3), vals[Math.min(Math.max(i - 3, 0), vals.length - 1)]])),
+    blocks: new Map<string, number | null>(),
+  });
+  const base = (id: number) => ({ cryptoId: id, symbol: 'NVDAB', name: 'x', issuer: 'bStocks', chains: ['BNB Chain'], derivative: false, marketCap: null, exitRatio: null, metrics: null, series: [], refused: [], mint: null, verdict: null, reason: '' });
+  const rows = (sup: number[], start: string) => sup.map((v, i) => ({ timestamp: `${addDays(start, i)}T00:00:00.000Z`, price: 150, circulating_supply: v, total_supply: v, volume_24h: 1, market_cap: v * 150 }));
+
+  it('an OUTFLOW never shows a zero-address mint, even on a day data/mints.json covers', () => {
+    const sup = [1.4e6, 1.4e6, 1.4e6, 0.9e6, 0.9e6]; // step down on 2026-11-13
+    const w = evaluateWrapper(base(40215), rows(sup, '2026-11-10'), { legs: [{ chain: 'bsc', address: '0xabc' }], unreadable: [] }, [leg(sup, '2026-11-10')]);
+    expect(w.verdict).toBe('OUTFLOW');
+    expect(w.mintReceipt).toBeUndefined();
+  });
+
+  it('a REAL INFLOW shows the mint whose chain day is the proof day', () => {
+    const sup = [0.9e6, 0.9e6, 0.9e6, 1.4e6, 1.4e6];
+    const w = evaluateWrapper(base(40215), rows(sup, '2026-11-10'), { legs: [{ chain: 'bsc', address: '0xabc' }], unreadable: [] }, [leg(sup, '2026-11-10')]);
+    expect(w.verdict).toBe('REAL_INFLOW');
+    expect(w.mintReceipt?.date).toBe(w.proof!.chainDates[1]);
   });
 });
 
