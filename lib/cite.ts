@@ -2,7 +2,11 @@
 import { pct, times, usd, utcStamp, VERDICT_LABEL } from './format';
 import type { LookupResult, WrapperResult } from './types';
 
-export function citeLine(r: Pick<LookupResult, 'range' | 'fetchedUtc' | 'underlying'>, w: WrapperResult, origin = 'https://netmint.edycu.dev'): string {
+export function citeLine(
+  r: Pick<LookupResult, 'range' | 'fetchedUtc' | 'underlying'>,
+  w: WrapperResult,
+  origin = 'https://netmint.edycu.dev',
+): string {
   const v = w.verdict ? VERDICT_LABEL[w.verdict] : 'NO VERDICT';
   const m = w.metrics;
   const proved = w.verdict === 'REAL_INFLOW' || w.verdict === 'OUTFLOW';

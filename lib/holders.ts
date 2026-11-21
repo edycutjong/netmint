@@ -47,12 +47,23 @@ export async function holders(u: string, opts: { rec?: Recorder } = {}): Promise
     if (!asset) throw new LookupFailure(404, `No tokenised wrappers on CMC for '${u}'`, { receipts: rec.receipts, credits: rec.credits });
     const { asset: full, tokens } = await wrappersOf(rec, asset.rwa_id);
     const live = tokens.filter((t) => !t.derivative);
-    const maps = await contractMaps(rec, live.map((t) => t.crypto_id));
+    const maps = await contractMaps(
+      rec,
+      live.map((t) => t.crypto_id),
+    );
     const rows: HolderRow[] = [];
     for (const t of live) {
       const map = maps.get(t.crypto_id) ?? { legs: [], unreadable: [] };
       const legs = await Promise.all(map.legs.map((l) => holderCount(rec, l.chain, l.address)));
-      rows.push({ cryptoId: t.crypto_id, symbol: t.symbol, issuer: t.issuer_name, legs, unreadable: map.unreadable, total: sumHolders(legs), mintRecipient: mintRecipientOf(t.crypto_id) });
+      rows.push({
+        cryptoId: t.crypto_id,
+        symbol: t.symbol,
+        issuer: t.issuer_name,
+        legs,
+        unreadable: map.unreadable,
+        total: sumHolders(legs),
+        mintRecipient: mintRecipientOf(t.crypto_id),
+      });
     }
     rows.sort((a, b) => (b.total ?? -1) - (a.total ?? -1));
     return {
@@ -65,7 +76,11 @@ export async function holders(u: string, opts: { rec?: Recorder } = {}): Promise
     };
   } catch (e) {
     if (e instanceof LookupFailure) throw e;
-    if (e instanceof CmcError) throw new LookupFailure(e.kind === 'transient' ? 503 : 502, redact(e.message), { receipts: rec.receipts, credits: rec.credits });
-    throw new LookupFailure(500, redact(`holders failed: ${(e as Error)?.message ?? String(e)}`), { receipts: rec.receipts, credits: rec.credits });
+    if (e instanceof CmcError)
+      throw new LookupFailure(e.kind === 'transient' ? 503 : 502, redact(e.message), { receipts: rec.receipts, credits: rec.credits });
+    throw new LookupFailure(500, redact(`holders failed: ${(e as Error)?.message ?? String(e)}`), {
+      receipts: rec.receipts,
+      credits: rec.credits,
+    });
   }
 }

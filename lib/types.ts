@@ -11,14 +11,7 @@ export interface DailyPoint {
   marketCap: number;
 }
 
-export type RefusedReason =
-  | 'price_missing'
-  | 'price_nonpositive'
-  | 'supply_missing'
-  | 'magnitude'
-  | 'duplicate'
-  | 'gap'
-  | 'spike_revert';
+export type RefusedReason = 'price_missing' | 'price_nonpositive' | 'supply_missing' | 'magnitude' | 'duplicate' | 'gap' | 'spike_revert';
 
 export interface RefusedRow {
   date: string;

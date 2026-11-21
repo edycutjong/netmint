@@ -36,7 +36,12 @@ export async function contractMaps(rec: Recorder, ids: number[]): Promise<Map<nu
   if (ids.length === 0) return out;
   const call = await rec.cmc<any>('/v2/cryptocurrency/info', { id: ids.join(','), aux: 'platform' });
   if (!call.ok) {
-    throw new CmcError(call.endpoint, cmcErrorCode(call.status), call.httpStatus, String(call.status?.error_message ?? 'no CMC status object'));
+    throw new CmcError(
+      call.endpoint,
+      cmcErrorCode(call.status),
+      call.httpStatus,
+      String(call.status?.error_message ?? 'no CMC status object'),
+    );
   }
   const data = call.body?.data ?? {};
   for (const e of Object.values<any>(data)) out.set(Number(e.id), contractMapFrom(e));

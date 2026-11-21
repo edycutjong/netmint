@@ -30,7 +30,8 @@ export function sanityGuard(raw: RawDailyRow[], p = PARAMS): GuardResult {
     seen.add(date);
     if (price === null) refused.push({ date, reason: 'price_missing', detail: 'price missing', raw: r });
     else if (price <= 0) refused.push({ date, reason: 'price_nonpositive', detail: `price ${price}`, raw: r });
-    else if (supply === null || supply <= 0) refused.push({ date, reason: 'supply_missing', detail: `circulating supply ${supply ?? 'missing'}`, raw: r });
+    else if (supply === null || supply <= 0)
+      refused.push({ date, reason: 'supply_missing', detail: `circulating supply ${supply ?? 'missing'}`, raw: r });
     else if (price > p.maxPrice) refused.push({ date, reason: 'magnitude', detail: `price ${price.toExponential(2)}`, raw: r });
     else if (supply > p.maxSupply || (tot !== null && tot > p.maxSupply))
       refused.push({ date, reason: 'magnitude', detail: `supply ${Math.max(supply, tot ?? 0).toExponential(2)}`, raw: r });
@@ -56,7 +57,11 @@ export function sanityGuard(raw: RawDailyRow[], p = PARAMS): GuardResult {
     if (prev && next && dayDiff(prev.date, cur.date) === 1 && dayDiff(cur.date, next.date) === 1) {
       const up = cur.supply - prev.supply;
       const back = next.supply - cur.supply;
-      if (Math.abs(up) >= p.spikeMinFrac * prev.supply && Math.sign(back) === -Math.sign(up) && Math.abs(back) >= p.spikeRevertFrac * Math.abs(up)) {
+      if (
+        Math.abs(up) >= p.spikeMinFrac * prev.supply &&
+        Math.sign(back) === -Math.sign(up) &&
+        Math.abs(back) >= p.spikeRevertFrac * Math.abs(up)
+      ) {
         refused.push({
           date: cur.date,
           reason: 'spike_revert',

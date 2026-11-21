@@ -21,33 +21,39 @@ describe('sanity guard', () => {
   });
 
   it('refuses a spike that reverts the next day (synthetic-spike-revert: +500% then −83%)', () => {
-    const g = sanityGuard(raw([
-      { date: '2026-11-01', price: 10, circulating_supply: 1000 },
-      { date: '2026-11-02', price: 10, circulating_supply: 6000 },
-      { date: '2026-11-03', price: 10, circulating_supply: 1020 },
-    ]));
+    const g = sanityGuard(
+      raw([
+        { date: '2026-11-01', price: 10, circulating_supply: 1000 },
+        { date: '2026-11-02', price: 10, circulating_supply: 6000 },
+        { date: '2026-11-03', price: 10, circulating_supply: 1020 },
+      ]),
+    );
     expect(g.refused).toHaveLength(1);
     expect(g.refused[0]).toMatchObject({ date: '2026-11-02', reason: 'spike_revert' });
   });
 
   it('keeps a one-way step (that is a chain-check case, not a guard case: the Backed 2026-07-31 drop)', () => {
-    const g = sanityGuard(raw([
-      { date: '2026-07-30', price: 170, circulating_supply: 659169 },
-      { date: '2026-07-31', price: 170, circulating_supply: 178275 },
-      { date: '2026-08-01', price: 170, circulating_supply: 178323 },
-    ]));
+    const g = sanityGuard(
+      raw([
+        { date: '2026-07-30', price: 170, circulating_supply: 659169 },
+        { date: '2026-07-31', price: 170, circulating_supply: 178275 },
+        { date: '2026-08-01', price: 170, circulating_supply: 178323 },
+      ]),
+    );
     expect(g.refused).toHaveLength(0);
     expect(g.accepted).toHaveLength(3);
   });
 
   it('refuses duplicates, missing price, missing supply and lists unexplained gaps', () => {
-    const g = sanityGuard(raw([
-      { date: '2026-11-01', price: 1, circulating_supply: 10 },
-      { date: '2026-11-01', price: 1, circulating_supply: 10 },
-      { date: '2026-11-02', price: undefined, circulating_supply: 10 },
-      { date: '2026-11-03', price: 1, circulating_supply: 0 },
-      { date: '2026-11-06', price: 1, circulating_supply: 11 },
-    ]));
+    const g = sanityGuard(
+      raw([
+        { date: '2026-11-01', price: 1, circulating_supply: 10 },
+        { date: '2026-11-01', price: 1, circulating_supply: 10 },
+        { date: '2026-11-02', price: undefined, circulating_supply: 10 },
+        { date: '2026-11-03', price: 1, circulating_supply: 0 },
+        { date: '2026-11-06', price: 1, circulating_supply: 11 },
+      ]),
+    );
     const reasons = g.refused.map((r) => r.reason);
     expect(reasons).toContain('duplicate');
     expect(reasons).toContain('price_missing');
@@ -56,7 +62,13 @@ describe('sanity guard', () => {
   });
 
   it('never drops silently: accepted + refused raw rows = raw rows', () => {
-    const rows = raw(Array.from({ length: 20 }, (_, i) => ({ date: addDays('2026-10-01', i), price: i % 7 === 3 ? 0 : 10 + i, circulating_supply: i === 9 ? 2e13 : 1000 + i })));
+    const rows = raw(
+      Array.from({ length: 20 }, (_, i) => ({
+        date: addDays('2026-10-01', i),
+        price: i % 7 === 3 ? 0 : 10 + i,
+        circulating_supply: i === 9 ? 2e13 : 1000 + i,
+      })),
+    );
     const g = sanityGuard(rows);
     expect(g.accepted.length + g.refused.filter((r) => r.raw !== null).length).toBe(rows.length);
   });
@@ -273,11 +285,14 @@ describe('mint check + verdict (one test per state)', () => {
 
   it('invariant: REAL INFLOW / OUTFLOW only with a passed mint check, over many random chains', () => {
     let seed = 7;
-    const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+    const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
     for (let n = 0; n < 300; n++) {
       const sup = [1e6];
       for (let i = 1; i < 10; i++) sup.push(sup[i - 1] * (1 + (rnd() - 0.4) * 0.3));
-      const s = series(sup, sup.map(() => 50 + rnd() * 100));
+      const s = series(
+        sup,
+        sup.map(() => 50 + rnd() * 100),
+      );
       const k = 0.85 + rnd() * 0.3;
       const noise: Record<string, number> = {};
       for (let i = -3; i < 13; i++) noise[addDays('2026-11-01', i)] = sup[Math.min(Math.max(i, 0), 9)] * k * (1 + (rnd() - 0.5) * 0.2);

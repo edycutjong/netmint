@@ -8,7 +8,10 @@ import { Recorder, BODY_CAP_BYTES } from '@/lib/receipts';
 import { check, fixture, mirrorChain, series, recordedTransport, NOW } from './helpers';
 
 const HIST = '/v2/cryptocurrency/quotes/historical';
-const PLAN = { httpStatus: 403, body: { status: { error_code: 1006, error_message: "Your API Key subscription plan doesn't support this endpoint.", credit_count: 0 } } };
+const PLAN = {
+  httpStatus: 403,
+  body: { status: { error_code: 1006, error_message: "Your API Key subscription plan doesn't support this endpoint.", credit_count: 0 } },
+};
 const asStored = (name: string): StoredBody => {
   const f = fixture(`recorded/${name}.json`);
   return { endpoint: f.receipt.endpoint, params: f.receipt.params, capturedUtc: f.receipt.startedUtc, file: name, body: f.body };
@@ -17,7 +20,9 @@ const hist30 = asStored('hist-nvda-wrappers-30d');
 
 describe('stored history: the window is never wider than the stored days', () => {
   it('a 90 d rolling click after the revert, against 30 d of stored days, is a 503 — not 30 days labelled 90', async () => {
-    const store = storeFrom(['hist-nvda-wrappers-30d', 'rwa-quotes-nvda', 'quotes-latest-nvda', 'info-nvda-wrappers', 'rwa-assets-list-p1'].map(asStored));
+    const store = storeFrom(
+      ['hist-nvda-wrappers-30d', 'rwa-quotes-nvda', 'quotes-latest-nvda', 'info-nvda-wrappers', 'rwa-assets-list-p1'].map(asStored),
+    );
     const rec = new Recorder(recordedTransport({ [HIST]: PLAN } as any), undefined, store);
     const e = (await lookup('NVDA', { window: 90, nowMs: NOW, allowLiveChain: false, rec }).catch((x) => x)) as LookupFailure;
     expect(e).toBeInstanceOf(LookupFailure);
@@ -33,15 +38,26 @@ describe('stored history: the window is never wider than the stored days', () =>
   });
 
   it('the stored span is computed over the requested ids only', () => {
-    const body = { data: { '1': { id: 1, quotes: [{ timestamp: '2026-11-20T00:00:00.000Z', quote: { USD: {} } }] }, '2': { id: 2, quotes: [{ timestamp: '2026-11-25T00:00:00.000Z', quote: { USD: {} } }] } } };
+    const body = {
+      data: {
+        '1': { id: 1, quotes: [{ timestamp: '2026-11-20T00:00:00.000Z', quote: { USD: {} } }] },
+        '2': { id: 2, quotes: [{ timestamp: '2026-11-25T00:00:00.000Z', quote: { USD: {} } }] },
+      },
+    };
     expect(historySpan(body, [1])).toEqual({ first: '2026-11-20', last: '2026-11-20' });
     expect(historySpan(body, [1, 2]).last).toBe('2026-11-25');
   });
 
   it('a page-1 assets/list request is answered only by a stored page-1 body', () => {
-    const p2: StoredBody = { ...asStored('rwa-assets-list-p1'), params: { start: '251', limit: '250' }, capturedUtc: '2099-01-01T00:00:00Z' };
+    const p2: StoredBody = {
+      ...asStored('rwa-assets-list-p1'),
+      params: { start: '251', limit: '250' },
+      capturedUtc: '2099-01-01T00:00:00Z',
+    };
     expect(findStored([p2], '/v5/real-world-assets/assets/list', { start: '1', limit: '250' })).toBeNull();
-    expect(findStored([p2, asStored('rwa-assets-list-p1')], '/v5/real-world-assets/assets/list', { start: '1', limit: '250' })?.params.start).toBe('1');
+    expect(
+      findStored([p2, asStored('rwa-assets-list-p1')], '/v5/real-world-assets/assets/list', { start: '1', limit: '250' })?.params.start,
+    ).toBe('1');
   });
 });
 
@@ -58,7 +74,17 @@ describe('step check across a missing CMC day', () => {
 describe('evidence archive keeps the full body', () => {
   it('a body over the drawer cap is archived whole while the receipt carries the truncation marker', async () => {
     const big = { status: { error_code: 0, credit_count: 1 }, data: { blob: 'x'.repeat(BODY_CAP_BYTES + 10) } };
-    const rec = new Recorder((async (e: string, p: Record<string, string>) => ({ endpoint: e, params: p, method: 'GET', httpStatus: 200, ok: true, startedUtc: 't', elapsedMs: 1, status: big.status, body: big })) as any);
+    const rec = new Recorder((async (e: string, p: Record<string, string>) => ({
+      endpoint: e,
+      params: p,
+      method: 'GET',
+      httpStatus: 200,
+      ok: true,
+      startedUtc: 't',
+      elapsedMs: 1,
+      status: big.status,
+      body: big,
+    })) as any);
     await rec.cmc('/v2/cryptocurrency/quotes/historical', { id: '1' });
     expect((rec.receipts[0].body as any).truncated).toBe(true);
     expect((rec.archiveBody(rec.receipts[0]) as any).data.blob.length).toBe(BODY_CAP_BYTES + 10);

@@ -30,3 +30,9 @@ CLAUDE.md
 graphify-out/
 PRODUCT.md
 .impeccable/
+
+# test output
+playwright-report/
+test-results/
+.lighthouseci/
+lh.json

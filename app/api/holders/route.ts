@@ -13,7 +13,8 @@ export const maxDuration = 60;
 
 export async function GET(req: Request) {
   const u = (new URL(req.url).searchParams.get('u') ?? '').trim();
-  if (!u || u.length > 20 || !/^[A-Za-z0-9.\-]+$/.test(u)) return NextResponse.json({ error: 'u must be a ticker or rwa_id (letters, digits, . or -)' }, { status: 400 });
+  if (!u || u.length > 20 || !/^[A-Za-z0-9.\-]+$/.test(u))
+    return NextResponse.json({ error: 'u must be a ticker or rwa_id (letters, digits, . or -)' }, { status: 400 });
   try {
     return NextResponse.json(await holders(u), { headers: { 'cache-control': 'no-store' } });
   } catch (e) {

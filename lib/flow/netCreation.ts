@@ -7,9 +7,12 @@ import type { DailyPoint, FlowMetrics } from '../types';
 export function netCreation(series: DailyPoint[]): FlowMetrics | null {
   if (series.length < 2) return null;
   const flows: FlowMetrics['flows'] = [];
-  let net = 0, grossIn = 0, grossOut = 0;
+  let net = 0,
+    grossIn = 0,
+    grossOut = 0;
   for (let i = 1; i < series.length; i++) {
-    const a = series[i - 1], b = series[i];
+    const a = series[i - 1],
+      b = series[i];
     const deltaS = b.supply - a.supply;
     const flow = deltaS * ((a.price + b.price) / 2);
     flows.push({ date: b.date, deltaS, flow });
@@ -17,7 +20,8 @@ export function netCreation(series: DailyPoint[]): FlowMetrics | null {
     if (flow > 0) grossIn += flow;
     else grossOut += flow;
   }
-  const A = series[0], B = series[series.length - 1];
+  const A = series[0],
+    B = series[series.length - 1];
   return {
     net,
     grossIn,

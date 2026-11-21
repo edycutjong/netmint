@@ -1,11 +1,12 @@
 /** Validation for /api/lookup query params (kept out of the route file: Next.js allows only handler exports there). */
 import type { LookupWindow } from './types';
 
-export function parseLookupParams(sp: URLSearchParams):
-  | { ok: true; u: string; window: LookupWindow; from?: string; to?: string; key: string }
-  | { ok: false; error: string } {
+export function parseLookupParams(
+  sp: URLSearchParams,
+): { ok: true; u: string; window: LookupWindow; from?: string; to?: string; key: string } | { ok: false; error: string } {
   const u = (sp.get('u') ?? '').trim();
-  if (!u || u.length > 20 || !/^[A-Za-z0-9.\-]+$/.test(u)) return { ok: false, error: 'u must be a ticker or rwa_id (letters, digits, . or -)' };
+  if (!u || u.length > 20 || !/^[A-Za-z0-9.\-]+$/.test(u))
+    return { ok: false, error: 'u must be a ticker or rwa_id (letters, digits, . or -)' };
   const w = sp.get('window');
   const window = (w === null ? 30 : Number(w)) as LookupWindow;
   if (![7, 30, 90].includes(window)) return { ok: false, error: 'window must be 7, 30 or 90' };
@@ -13,8 +14,10 @@ export function parseLookupParams(sp: URLSearchParams):
   const to = sp.get('to') ?? undefined;
   if ((from && !to) || (!from && to)) return { ok: false, error: 'from and to go together' };
   const re = /^\d{4}-\d{2}-\d{2}$/;
-  if (from && to && (!re.test(from) || !re.test(to) || from >= to)) return { ok: false, error: 'from/to must be YYYY-MM-DD with from < to' };
-  if (from && to && (Date.parse(to) - Date.parse(from)) / 86_400_000 > 120) return { ok: false, error: 'a pinned window is at most 120 days' };
+  if (from && to && (!re.test(from) || !re.test(to) || from >= to))
+    return { ok: false, error: 'from/to must be YYYY-MM-DD with from < to' };
+  if (from && to && (Date.parse(to) - Date.parse(from)) / 86_400_000 > 120)
+    return { ok: false, error: 'a pinned window is at most 120 days' };
   const key = `${u.toUpperCase()}|${from ? `${from}..${to}` : `w${window}`}`;
   return { ok: true, u, window, from, to, key };
 }

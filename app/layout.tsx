@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import Link from 'next/link';
 import { Albert_Sans, Chivo_Mono, Marcellus_SC } from 'next/font/google';
 import './globals.css';
 
@@ -34,22 +35,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" className={`${marcellus.variable} ${albert.variable} ${chivo.variable}`}>
       <body>
         <header className="masthead">
-          <a className="mark" href="/">
+          <Link className="mark" href="/">
             NetMint
-          </a>
+          </Link>
           <nav className="nav" aria-label="Main">
-            <a href="/">Hero</a>
-            <a href="/flows">Flows</a>
+            <Link href="/">Hero</Link>
+            <Link href="/flows">Flows</Link>
           </nav>
           <span className="tag">CMC records every tokenised stock’s supply. We show the money behind it, checked on chain.</span>
         </header>
         {children}
         <footer className="foot">
           Data: CoinMarketCap API (<span className="data">/v5/real-world-assets/assets/list</span>,{' '}
-          <span className="data">/v5/real-world-assets/quotes/latest</span>, <span className="data">/v2/cryptocurrency/quotes/historical</span>,{' '}
-          <span className="data">/v2/cryptocurrency/info</span>, <span className="data">/v2/cryptocurrency/quotes/latest</span>) and BNB Chain /
-          Ethereum archive RPC. Dollar figures are at the wrapper’s market price. Not investment advice. ·{' '}
-          <a href="/api/health">service status</a>
+          <span className="data">/v5/real-world-assets/quotes/latest</span>,{' '}
+          <span className="data">/v2/cryptocurrency/quotes/historical</span>, <span className="data">/v2/cryptocurrency/info</span>,{' '}
+          <span className="data">/v2/cryptocurrency/quotes/latest</span>) and BNB Chain / Ethereum archive RPC. Dollar figures are at the
+          wrapper’s market price. Not investment advice. · <a href="/api/health">service status</a>
         </footer>
       </body>
     </html>

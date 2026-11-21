@@ -24,7 +24,10 @@ describe('chain helpers', () => {
   });
 
   it('builds a totalSupply eth_call at a hex block', () => {
-    expect(totalSupplyReq('0xabc', 133252160)).toEqual({ method: 'eth_call', params: [{ to: '0xabc', data: '0x18160ddd' }, hex(133252160)] });
+    expect(totalSupplyReq('0xabc', 133252160)).toEqual({
+      method: 'eth_call',
+      params: [{ to: '0xabc', data: '0x18160ddd' }, hex(133252160)],
+    });
     expect(totalSupplyReq('0xabc', 'latest').params[1]).toBe('latest');
   });
 });
@@ -49,14 +52,21 @@ describe('rpcBatch under a compute-units-per-second limit', () => {
       const body = JSON.parse(init.body) as { id: number }[];
       sent.push(body.map((b) => b.id));
       const first = sent.length === 1;
-      const out = body.map((b) => (first && b.id % 2 ? { id: b.id, error: { code: 429, message: 'exceeded its compute units per second capacity' } } : { id: b.id, result: `0x${b.id.toString(16)}` }));
+      const out = body.map((b) =>
+        first && b.id % 2
+          ? { id: b.id, error: { code: 429, message: 'exceeded its compute units per second capacity' } }
+          : { id: b.id, result: `0x${b.id.toString(16)}` },
+      );
       return new Response(JSON.stringify(out), { status: 200 });
     }) as unknown as typeof fetch;
     try {
       const reqs = Array.from({ length: 6 }, () => ({ method: 'eth_call', params: [{ to: '0x1', data: '0x' }, 'latest'] }));
       const res = await rpcBatch('eth', reqs, { timeoutMs: 1000, maxRetries: 2 });
       expect(res).toEqual(['0x0', '0x1', '0x2', '0x3', '0x4', '0x5']);
-      expect(sent).toEqual([[0, 1, 2, 3, 4, 5], [1, 3, 5]]);
+      expect(sent).toEqual([
+        [0, 1, 2, 3, 4, 5],
+        [1, 3, 5],
+      ]);
     } finally {
       globalThis.fetch = real;
     }
@@ -70,7 +80,9 @@ describe('chain-read deadline', () => {
     const rec = new Recorder(undefined, (async () => {
       throw new Error('no RPC may run after the deadline');
     }) as any);
-    const out = await legSupplies(rec, [{ chain: 'bsc', address: '0x0000000000000000000000000000000000000001' }], ['2026-11-20'], { deadlineMs: Date.now() - 1 });
+    const out = await legSupplies(rec, [{ chain: 'bsc', address: '0x0000000000000000000000000000000000000001' }], ['2026-11-20'], {
+      deadlineMs: Date.now() - 1,
+    });
     expect(out.errors).toEqual(['bsc RPC: bsc chain-read time budget exhausted']);
     expect(out.legs[0].values.get('2026-11-20')).toBeNull();
   });
@@ -86,7 +98,9 @@ describe('rpcBatch deadline', () => {
       return new Response('[]');
     }) as unknown as typeof fetch;
     try {
-      await expect(rpcBatch('bsc', [{ method: 'eth_blockNumber', params: [] }], { ...RPC_REQUEST, deadline: Date.now() - 1 })).rejects.toThrow(/chain-read time budget exhausted/);
+      await expect(
+        rpcBatch('bsc', [{ method: 'eth_blockNumber', params: [] }], { ...RPC_REQUEST, deadline: Date.now() - 1 }),
+      ).rejects.toThrow(/chain-read time budget exhausted/);
       expect(calls).toBe(0);
     } finally {
       globalThis.fetch = real;

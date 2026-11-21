@@ -22,11 +22,15 @@ async function main() {
   try {
     const r = await lookup(u, { window: [7, 30, 90].includes(w) ? w : 30, from: flag('from'), to: flag('to') });
     if (args.includes('--json')) {
-      console.log(JSON.stringify({ ...r, receipts: r.receipts.map(({ body, ...x }) => x) }, null, 1));
+      console.log(JSON.stringify({ ...r, receipts: r.receipts.map(({ body: _body, ...x }) => x) }, null, 1));
       return;
     }
-    console.log(`NetMint · ${r.underlying.name} (${r.underlying.ticker}, rwa_id ${r.underlying.rwaId}) · ${r.range.from} → ${r.range.to}${r.range.pinned ? ' (pinned)' : ` (${r.window} d)`}`);
-    console.log(`fetched ${r.fetchedUtc} · ${r.receipts.filter((x) => x.kind === 'cmc').length} CMC calls · ${r.credits} credits · ${r.receipts.filter((x) => x.kind === 'rpc').length} RPC reads · ${r.elapsedMs} ms`);
+    console.log(
+      `NetMint · ${r.underlying.name} (${r.underlying.ticker}, rwa_id ${r.underlying.rwaId}) · ${r.range.from} → ${r.range.to}${r.range.pinned ? ' (pinned)' : ` (${r.window} d)`}`,
+    );
+    console.log(
+      `fetched ${r.fetchedUtc} · ${r.receipts.filter((x) => x.kind === 'cmc').length} CMC calls · ${r.credits} credits · ${r.receipts.filter((x) => x.kind === 'rpc').length} RPC reads · ${r.elapsedMs} ms`,
+    );
     console.log('');
     for (const x of r.wrappers) {
       const m = x.metrics;
@@ -36,14 +40,25 @@ async function main() {
         `${v.padEnd(15)} ${x.symbol.padEnd(8)} ${x.issuer.slice(0, 16).padEnd(16)} ${m ? usd(m.net).padStart(10) : ''.padStart(10)} ${m ? `units ×${m.unitsX.toFixed(2)}`.padEnd(12) : ''.padEnd(12)} ${m ? `price ${pct(m.pricePct)}`.padEnd(14) : ''.padEnd(14)} ${cov}`,
       );
       console.log(`${''.padEnd(16)}${x.reason}`);
-      if (x.refused.length) console.log(`${''.padEnd(16)}${x.refused.length} rows refused: ${x.refused.slice(0, 3).map((f) => `${f.reason} ${f.date}`).join(', ')}`);
+      if (x.refused.length)
+        console.log(
+          `${''.padEnd(16)}${x.refused.length} rows refused: ${x.refused
+            .slice(0, 3)
+            .map((f) => `${f.reason} ${f.date}`)
+            .join(', ')}`,
+        );
     }
     const h = heroOf(r);
     if (h.wrapper?.mint) {
       const mc = h.wrapper.mint;
       console.log('');
-      console.log(`HERO ${h.wrapper.symbol}: ${h.wrapper.verdict} ${usd(h.wrapper.metrics!.net)} · d = ${mc.offset} (${mc.offsetSource}) · chain ${mc.chainDates?.join(' → ')}`);
-      for (const s of mc.stepDays) console.log(`  step ${s.date}: CMC 3d ${Math.round(s.cmc3d).toLocaleString('en-US')} · chain 3d ${s.chain3d === null ? 'n/a' : Math.round(s.chain3d).toLocaleString('en-US')} · ${s.ok ? 'ok' : 'FAIL'}`);
+      console.log(
+        `HERO ${h.wrapper.symbol}: ${h.wrapper.verdict} ${usd(h.wrapper.metrics!.net)} · d = ${mc.offset} (${mc.offsetSource}) · chain ${mc.chainDates?.join(' → ')}`,
+      );
+      for (const s of mc.stepDays)
+        console.log(
+          `  step ${s.date}: CMC 3d ${Math.round(s.cmc3d).toLocaleString('en-US')} · chain 3d ${s.chain3d === null ? 'n/a' : Math.round(s.chain3d).toLocaleString('en-US')} · ${s.ok ? 'ok' : 'FAIL'}`,
+        );
       if (h.wrapper.mintReceipt) console.log(`  mint tx ${h.wrapper.mintReceipt.tx} → ${h.wrapper.mintReceipt.recipient}`);
     }
     if (r.errors.length) console.log('errors:', r.errors);

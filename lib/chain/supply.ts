@@ -7,7 +7,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { firstBlockAtOrAfter, headBlock } from './blockIndex';
-import { RpcError, SEL, hex, scaleUnits, totalSupplyReq, type ChainId } from './rpc';
+import { RpcError, SEL, scaleUnits, totalSupplyReq, type ChainId } from './rpc';
 import type { Recorder } from '../receipts';
 import type { ChainLeg } from '../types';
 
@@ -75,7 +75,15 @@ export async function legSupplies(
       if (b && d in b.days) values.set(d, b.days[d]);
       blocks.set(d, blockIndex(l.chain)[d] ?? null);
     }
-    return { chain: l.chain, address: l.address, decimals: b?.decimals ?? null, values, blocks, source: b ? 'baseline' : 'none', baselineUtc: b?.generated_utc ?? null };
+    return {
+      chain: l.chain,
+      address: l.address,
+      decimals: b?.decimals ?? null,
+      values,
+      blocks,
+      source: b ? 'baseline' : 'none',
+      baselineUtc: b?.generated_utc ?? null,
+    };
   });
   if (!allowLive || !rec) return { legs: out, errors };
 
@@ -96,15 +104,28 @@ export async function legSupplies(
           head ??= await headBlock(chain, opts.deadlineMs);
           if (t > head.ts) continue;
           // seed the search with the nearest known block before d (index or a day resolved earlier in this loop)
-          const known = Object.entries(blockIndex(chain)).filter(([k]) => k < d).sort(([a], [b]) => (a < b ? 1 : -1))[0];
-          blockIndex(chain)[d] = await firstBlockAtOrAfter(chain, t, head, cache, known ? { lo: known[1], hi: head.n } : undefined, opts.deadlineMs);
+          const known = Object.entries(blockIndex(chain))
+            .filter(([k]) => k < d)
+            .sort(([a], [b]) => (a < b ? 1 : -1))[0];
+          blockIndex(chain)[d] = await firstBlockAtOrAfter(
+            chain,
+            t,
+            head,
+            cache,
+            known ? { lo: known[1], hi: head.n } : undefined,
+            opts.deadlineMs,
+          );
         }
       }
       // decimals for legs without a baseline
       inTime(chain);
       const noDec = mine.filter((l) => l.decimals === null);
       if (noDec.length) {
-        const res = await rec.rpc<string>(chain, noDec.map((l) => ({ method: 'eth_call', params: [{ to: l.address, data: SEL.decimals }, 'latest'] })), { label: 'decimals', deadline: opts.deadlineMs });
+        const res = await rec.rpc<string>(
+          chain,
+          noDec.map((l) => ({ method: 'eth_call', params: [{ to: l.address, data: SEL.decimals }, 'latest'] })),
+          { label: 'decimals', deadline: opts.deadlineMs },
+        );
         noDec.forEach((l, i) => (l.decimals = Number(BigInt(res[i]))));
       }
       const reqs: { leg: LegSupply; date: string; block: number }[] = [];
@@ -124,7 +145,13 @@ export async function legSupplies(
         for (let i = 0; i < reqs.length; i += 40) {
           inTime(chain);
           const chunk = reqs.slice(i, i + 40);
-          res.push(...(await rec.rpc<string>(chain, chunk.map((r) => totalSupplyReq(r.leg.address, r.block)), { label: 'totalSupply', deadline: opts.deadlineMs })));
+          res.push(
+            ...(await rec.rpc<string>(
+              chain,
+              chunk.map((r) => totalSupplyReq(r.leg.address, r.block)),
+              { label: 'totalSupply', deadline: opts.deadlineMs },
+            )),
+          );
         }
         reqs.forEach((r, i) => {
           try {

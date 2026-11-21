@@ -42,12 +42,7 @@ export function parseHistoryBody(body: any): Map<number, RawDailyRow[]> {
 }
 
 /** Daily rows for every id over [from, to] (inclusive UTC days). */
-export async function dailyHistory(
-  rec: Recorder,
-  ids: number[],
-  from: string,
-  to: string,
-): Promise<Map<number, RawDailyRow[]>> {
+export async function dailyHistory(rec: Recorder, ids: number[], from: string, to: string): Promise<Map<number, RawDailyRow[]>> {
   if (ids.length === 0) return new Map();
   const call = await rec.cmc<any>('/v2/cryptocurrency/quotes/historical', {
     id: ids.join(','),
@@ -56,7 +51,12 @@ export async function dailyHistory(
     time_end: to,
   });
   if (!call.ok) {
-    throw new CmcError(call.endpoint, cmcErrorCode(call.status), call.httpStatus, String(call.status?.error_message ?? 'no CMC status object'));
+    throw new CmcError(
+      call.endpoint,
+      cmcErrorCode(call.status),
+      call.httpStatus,
+      String(call.status?.error_message ?? 'no CMC status object'),
+    );
   }
   return historyRows(call.body, from, to);
 }
@@ -64,13 +64,18 @@ export async function dailyHistory(
 /** Parse a quotes/historical body and keep only rows inside [from, to] (inclusive UTC days). */
 export function historyRows(body: unknown, from: string, to: string): Map<number, RawDailyRow[]> {
   const m = parseHistoryBody(body);
-  for (const [id, rows] of m) m.set(id, rows.filter((r) => r.timestamp && r.timestamp.slice(0, 10) >= from && r.timestamp.slice(0, 10) <= to));
+  for (const [id, rows] of m)
+    m.set(
+      id,
+      rows.filter((r) => r.timestamp && r.timestamp.slice(0, 10) >= from && r.timestamp.slice(0, 10) <= to),
+    );
   return m;
 }
 
 /** Last / first UTC day with a row for any of `ids` in a quotes/historical body ('' when none). */
 export function historySpan(body: unknown, ids: number[]): { first: string; last: string } {
-  let first = '', last = '';
+  let first = '',
+    last = '';
   const want = new Set(ids);
   for (const [id, rows] of parseHistoryBody(body))
     if (want.has(id))

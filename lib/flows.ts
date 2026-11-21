@@ -72,7 +72,8 @@ const RANK: Record<string, number> = { REAL_INFLOW: 0, OUTFLOW: 0, RECOUNT: 1, N
 /** Verified moves first by |net|, then RECOUNT, NOT VERIFIABLE, FLAT, no verdict. */
 export function sortFlows(rows: FlowRow[]): FlowRow[] {
   return [...rows].sort((a, b) => {
-    const ra = a.verdict ? RANK[a.verdict] : 4, rb = b.verdict ? RANK[b.verdict] : 4;
+    const ra = a.verdict ? RANK[a.verdict] : 4,
+      rb = b.verdict ? RANK[b.verdict] : 4;
     if (ra !== rb) return ra - rb;
     const d = Math.abs(b.netUsd ?? 0) - Math.abs(a.netUsd ?? 0);
     return d !== 0 ? d : a.symbol.localeCompare(b.symbol);
@@ -83,7 +84,10 @@ export function sortFlows(rows: FlowRow[]): FlowRow[] {
 export function loadFlows(window: 7 | 30, root = process.cwd()): FlowsTable | null {
   const base = path.join(root, 'evidence');
   if (!existsSync(base)) return null;
-  const dirs = readdirSync(base).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d)).sort().reverse();
+  const dirs = readdirSync(base)
+    .filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d))
+    .sort()
+    .reverse();
   for (const d of dirs) {
     const p = path.join(base, d, `flows-${window}d.json`);
     if (existsSync(p)) return JSON.parse(readFileSync(p, 'utf8')) as FlowsTable;

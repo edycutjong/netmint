@@ -1,0 +1,15 @@
+.next
+node_modules
+coverage
+evidence
+data
+docs
+public
+tests/fixtures
+package-lock.json
+*.md
+*.json
+*.svg
+*.css
+playwright-report
+test-results

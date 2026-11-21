@@ -22,7 +22,8 @@ export function ProofRows({ w }: { w: WrapperResult }) {
           <div className="proof-row">
             <span className="lbl">Proof 2</span>
             <span>
-              chain totalSupply {p.chainDates[0]} → {p.chainDates[1]} · {m.legs.map((l) => (l.chain === 'bsc' ? 'BNB Chain' : 'Ethereum')).join(' + ') || 'no readable leg'}
+              chain totalSupply {p.chainDates[0]} → {p.chainDates[1]} ·{' '}
+              {m.legs.map((l) => (l.chain === 'bsc' ? 'BNB Chain' : 'Ethereum')).join(' + ') || 'no readable leg'}
               {' · '}
               <span style={{ whiteSpace: 'nowrap' }}>d = {m.offset}</span>
             </span>
@@ -33,7 +34,9 @@ export function ProofRows({ w }: { w: WrapperResult }) {
               Step {p.date}: chain vs CMC {pct(p.errPct)}
               {p.boundKind === 'floor'
                 ? `${p.withinRemedy ? ' · within' : ' · outside'} the floor ±${units(p.bound ?? 0)} (0.5% of supply, larger than ±10% of this step)`
-                : p.withinRemedy ? ' · within remedy ±10%' : ' · outside remedy ±10%'}
+                : p.withinRemedy
+                  ? ' · within remedy ±10%'
+                  : ' · outside remedy ±10%'}
             </p>
           ) : null}
         </>
@@ -42,18 +45,25 @@ export function ProofRows({ w }: { w: WrapperResult }) {
         <div className="proof-row">
           <span className="lbl">Window</span>
           <span>
-            {w.series[0]?.date} → {w.series[w.series.length - 1]?.date}: chain {units(m.chainDelta)} · CMC {units(m.cmcDelta)} · coverage {(m.coverageA * 100).toFixed(1)}% at the start
+            {w.series[0]?.date} → {w.series[w.series.length - 1]?.date}: chain {units(m.chainDelta)} · CMC {units(m.cmcDelta)} · coverage{' '}
+            {(m.coverageA * 100).toFixed(1)}% at the start
           </span>
           <span className="fig">{m.errPct === null ? '' : `chain vs CMC ${pct(m.errPct)}`}</span>
         </div>
       ) : null}
       <p className={`verdict-line${m.status === 'pass' ? ' pass' : ''}`}>
-        Found: {m.status === 'pass' ? `window and material steps verified: ${w.reason.replace(/^window endpoints and the largest step days \(up to 5\) verified /, '')}` : w.reason}
+        Found:{' '}
+        {m.status === 'pass'
+          ? `window and material steps verified: ${w.reason.replace(/^window endpoints and the largest step days \(up to 5\) verified /, '')}`
+          : w.reason}
       </p>
       {w.mintReceipt ? (
         <p className="capture" style={{ margin: '6px 0 0' }}>
           One of the day’s mints ({plain(w.mintReceipt.amount)} units
-          {p?.chainStep && w.mintReceipt.date === p.chainDates[1] ? ` of the ${units(p.chainStep)} chain step that day` : ` on ${w.mintReceipt.date}`}):{' '}
+          {p?.chainStep && w.mintReceipt.date === p.chainDates[1]
+            ? ` of the ${units(p.chainStep)} chain step that day`
+            : ` on ${w.mintReceipt.date}`}
+          ):{' '}
           <a className="data" href={w.mintReceipt.explorer_url} target="_blank" rel="noreferrer">
             {short(w.mintReceipt.tx, 8, 6)}
           </a>{' '}

@@ -45,7 +45,11 @@ export function Ledger({ res, strikeKey }: { res: LookupResult; strikeKey: numbe
               <Fragment key={w.cryptoId}>
                 <tr className={w.derivative ? 'derivative' : undefined}>
                   <td>
-                    {w.verdict ? <VerdictStamp key={`${strikeKey}-${w.cryptoId}`} verdict={w.verdict} animate height={26} delayMs={i * 60} /> : <span className="muted">{w.derivative ? 'derivative' : 'no verdict'}</span>}
+                    {w.verdict ? (
+                      <VerdictStamp key={`${strikeKey}-${w.cryptoId}`} verdict={w.verdict} animate height={26} delayMs={i * 60} />
+                    ) : (
+                      <span className="muted">{w.derivative ? 'derivative' : 'no verdict'}</span>
+                    )}
                   </td>
                   <td>
                     <strong className="data">{w.symbol}</strong> <span className="muted">· {w.issuer}</span>
@@ -152,8 +156,12 @@ function Detail({ w }: { w: WrapperResult }) {
       ) : null}
       <p className="capture" style={{ marginTop: 12 }}>
         {w.series.length} accepted daily points · supply {m ? `${plain(m.supplyA)} → ${plain(m.supplyB)}` : 'n/a'} ·{' '}
-        {w.refused.length ? `${w.refused.length} rows refused: ${w.refused.map((r) => `${r.reason.replace('_', ' ')} on ${r.date} (${r.detail})`).join('; ')}` : 'no rows refused'}
-        {w.mint ? ` · comparator: CMC ${w.mint.comparator.replace('_', ' ')} · d = ${w.mint.offset} (${w.mint.offsetSource === 'issuer' ? 'measured per issuer' : 'default'})` : ''}
+        {w.refused.length
+          ? `${w.refused.length} rows refused: ${w.refused.map((r) => `${r.reason.replace('_', ' ')} on ${r.date} (${r.detail})`).join('; ')}`
+          : 'no rows refused'}
+        {w.mint
+          ? ` · comparator: CMC ${w.mint.comparator.replace('_', ' ')} · d = ${w.mint.offset} (${w.mint.offsetSource === 'issuer' ? 'measured per issuer' : 'default'})`
+          : ''}
       </p>
     </div>
   );

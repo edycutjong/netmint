@@ -28,16 +28,33 @@ export async function GET(req: Request) {
   try {
     let timer: ReturnType<typeof setTimeout> | undefined;
     const budget = new Promise<never>((_, reject) => {
-      timer = setTimeout(() => reject(new LookupFailure(503, `lookup ran past its ${BUDGET_MS / 1000} s budget (slow CMC or chain RPC); no verdict printed — run it again`)), BUDGET_MS);
+      timer = setTimeout(
+        () =>
+          reject(
+            new LookupFailure(
+              503,
+              `lookup ran past its ${BUDGET_MS / 1000} s budget (slow CMC or chain RPC); no verdict printed — run it again`,
+            ),
+          ),
+        BUDGET_MS,
+      );
     });
-    const result = await Promise.race([lookup(p.u, { window: p.window, from: p.from, to: p.to, storedFallback: true }), budget]).finally(() => clearTimeout(timer));
+    const result = await Promise.race([lookup(p.u, { window: p.window, from: p.from, to: p.to, storedFallback: true }), budget]).finally(
+      () => clearTimeout(timer),
+    );
     recent.set(p.key, { at: Date.now(), result });
     for (const [k, v] of recent) if (Date.now() - v.at > DEDUPE_MS) recent.delete(k);
     return NextResponse.json(result, { headers: { 'cache-control': 'no-store' } });
   } catch (e) {
     if (e instanceof LookupFailure) {
-      return NextResponse.json({ error: e.message, ...e.extra, verdict: null }, { status: e.httpStatus, headers: { 'cache-control': 'no-store' } });
+      return NextResponse.json(
+        { error: e.message, ...e.extra, verdict: null },
+        { status: e.httpStatus, headers: { 'cache-control': 'no-store' } },
+      );
     }
-    return NextResponse.json({ error: `lookup failed: ${(e as Error).message}`, verdict: null }, { status: 500, headers: { 'cache-control': 'no-store' } });
+    return NextResponse.json(
+      { error: `lookup failed: ${(e as Error).message}`, verdict: null },
+      { status: 500, headers: { 'cache-control': 'no-store' } },
+    );
   }
 }

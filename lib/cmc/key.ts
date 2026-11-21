@@ -26,6 +26,14 @@ export async function keyPlan(): Promise<KeyPlan> {
       checked_utc,
     };
   } catch {
-    return { ok: false, credit_limit_monthly: null, rate_limit_minute: null, credits_used_month: null, credits_left_month: null, error_code: null, checked_utc };
+    return {
+      ok: false,
+      credit_limit_monthly: null,
+      rate_limit_minute: null,
+      credits_used_month: null,
+      credits_left_month: null,
+      error_code: null,
+      checked_utc,
+    };
   }
 }

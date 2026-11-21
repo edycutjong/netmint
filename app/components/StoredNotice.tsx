@@ -17,10 +17,13 @@ export function StoredNotice({ res }: { res: LookupResult }) {
           : 'CMC no longer lets this key make some of its calls, so those answers below are CMC’s own saved responses; the daily history itself was read live.'}
       </strong>{' '}
       The on-chain check and the verdict were re-run on your click; saved answers were captured {captured} UTC
-      {res.liveCmcCalls?.length ? `, and ${res.liveCmcCalls.join(', ')} answered live by CMC just now` : ' (CMC answered nothing live on this click)'}.
-      Refused: {res.stored.map((s) => s.endpoint).join(', ')}.
+      {res.liveCmcCalls?.length
+        ? `, and ${res.liveCmcCalls.join(', ')} answered live by CMC just now`
+        : ' (CMC answered nothing live on this click)'}
+      . Refused: {res.stored.map((s) => s.endpoint).join(', ')}.
       <div className="data" style={{ marginTop: 6 }}>
-        CMC {first.endpoint} → HTTP {first.liveError.httpStatus} · status.error_code {first.liveError.code} · “{first.liveError.message}”. Each stored body sits in Receipts beside the refusal.
+        CMC {first.endpoint} → HTTP {first.liveError.httpStatus} · status.error_code {first.liveError.code} · “{first.liveError.message}”.
+        Each stored body sits in Receipts beside the refusal.
       </div>
     </div>
   );

@@ -5,7 +5,13 @@ const M = '−';
 export const usd = (x: number, dp = 1): string => {
   const a = Math.abs(x);
   const s =
-    a >= 1e9 ? `$${(a / 1e9).toFixed(dp)}B` : a >= 1e6 ? `$${(a / 1e6).toFixed(dp)}M` : a >= 1e3 ? `$${(a / 1e3).toFixed(0)}k` : `$${a.toFixed(0)}`;
+    a >= 1e9
+      ? `$${(a / 1e9).toFixed(dp)}B`
+      : a >= 1e6
+        ? `$${(a / 1e6).toFixed(dp)}M`
+        : a >= 1e3
+          ? `$${(a / 1e3).toFixed(0)}k`
+          : `$${a.toFixed(0)}`;
   return `${x < 0 ? M : '+'}${s}`;
 };
 export const units = (x: number): string => `${x < 0 ? M : '+'}${Math.round(Math.abs(x)).toLocaleString('en-US')}`;

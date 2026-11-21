@@ -11,15 +11,39 @@ import type { LookupResult } from '@/lib/types';
 export const dynamic = 'force-static';
 
 const HERO_U = HERO_WINDOW.u;
-const RAIL = ['NVDA', 'GOOGL', 'INTC', 'SPCX', 'MSTR', 'SNDK', 'MU', 'SKHY', 'AAPL', 'TSLA', 'MSFT', 'AMZN', 'META', 'COIN', 'HOOD', 'CRCL'];
+const RAIL = [
+  'NVDA',
+  'GOOGL',
+  'INTC',
+  'SPCX',
+  'MSTR',
+  'SNDK',
+  'MU',
+  'SKHY',
+  'AAPL',
+  'TSLA',
+  'MSFT',
+  'AMZN',
+  'META',
+  'COIN',
+  'HOOD',
+  'CRCL',
+];
 
 async function capture(): Promise<{ res: LookupResult | null; err: LookupError | null }> {
   try {
-    const r = await lookup(HERO_U, { from: HERO_WINDOW.from, to: HERO_WINDOW.to, rec: new Recorder(storedTransport()), allowLiveChain: false });
+    const r = await lookup(HERO_U, {
+      from: HERO_WINDOW.from,
+      to: HERO_WINDOW.to,
+      rec: new Recorder(storedTransport()),
+      allowLiveChain: false,
+    });
     const recordedUtc = r.receipts.find((x) => x.endpoint === '/v2/cryptocurrency/quotes/historical')?.startedUtc ?? r.fetchedUtc;
     const s = heroOf(r).wrapper?.series ?? [];
     if (s[0]?.date !== HERO_WINDOW.from || s[s.length - 1]?.date !== HERO_WINDOW.to) {
-      throw new Error(`recorded hero does not span HERO_WINDOW ${HERO_WINDOW.from} → ${HERO_WINDOW.to} (got ${s[0]?.date} → ${s[s.length - 1]?.date}): re-run npm run snapshot`);
+      throw new Error(
+        `recorded hero does not span HERO_WINDOW ${HERO_WINDOW.from} → ${HERO_WINDOW.to} (got ${s[0]?.date} → ${s[s.length - 1]?.date}): re-run npm run snapshot`,
+      );
     }
     return { res: { ...r, mode: 'recorded', live: false, recordedUtc, fetchedUtc: recordedUtc }, err: null };
   } catch (e) {
@@ -55,9 +79,10 @@ export default async function Home() {
           </ul>
           <h2>How a verdict is reached</h2>
           <p className="muted" style={{ fontSize: 15, marginTop: 0 }}>
-            CMC’s daily supply history gives the units created or redeemed each day; times the wrapper’s price, that is net creation in dollars.
-            Each supply move is then put on trial against the token’s on-chain <span className="data">totalSupply</span>, summed over BNB Chain and
-            Ethereum at day-boundary blocks, within ±10% of the move (or 0.5% of supply when the move is small; the reason names the bound used). Only a move the chain confirms is stamped REAL INFLOW or OUTFLOW.
+            CMC’s daily supply history gives the units created or redeemed each day; times the wrapper’s price, that is net creation in
+            dollars. Each supply move is then put on trial against the token’s on-chain <span className="data">totalSupply</span>, summed
+            over BNB Chain and Ethereum at day-boundary blocks, within ±10% of the move (or 0.5% of supply when the move is small; the
+            reason names the bound used). Only a move the chain confirms is stamped REAL INFLOW or OUTFLOW.
           </p>
         </aside>
       </div>

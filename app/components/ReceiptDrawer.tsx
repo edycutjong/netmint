@@ -21,7 +21,9 @@ export function ReceiptDrawer({ receipts, credits, onClose }: { receipts: Receip
   const r = tabs[i];
   const json = r ? JSON.stringify(r.body, null, 2) : '';
   const lines = json.split('\n');
-  const shown = full ? json : lines.slice(0, MAX_LINES).join('\n') + (lines.length > MAX_LINES ? `\n… ${lines.length - MAX_LINES} more lines` : '');
+  const shown = full
+    ? json
+    : lines.slice(0, MAX_LINES).join('\n') + (lines.length > MAX_LINES ? `\n… ${lines.length - MAX_LINES} more lines` : '');
   return (
     <>
       <div className="drawer-scrim" onClick={onClose} />
@@ -29,7 +31,8 @@ export function ReceiptDrawer({ receipts, credits, onClose }: { receipts: Receip
         <header>
           <h2>Receipts</h2>
           <span className="capture">
-            {cmc.length} CMC calls · {credits} credits charged · {rpc.length ? `${rpc.length} live chain reads` : 'chain values from the committed baseline'}
+            {cmc.length} CMC calls · {credits} credits charged ·{' '}
+            {rpc.length ? `${rpc.length} live chain reads` : 'chain values from the committed baseline'}
           </span>
           <button ref={closeRef} className="btn quiet" onClick={onClose} aria-label="Close receipts (Esc)">
             Close
@@ -37,8 +40,21 @@ export function ReceiptDrawer({ receipts, credits, onClose }: { receipts: Receip
         </header>
         <div className="tabs" role="tablist">
           {tabs.map((t, k) => (
-            <button key={t.id} role="tab" aria-selected={k === i} onClick={() => { setI(k); setFull(false); }}>
-              {t.kind === 'cmc' ? t.endpoint.replace(/^\/v\d\//, '').replace('cryptocurrency/', '').replace('real-world-assets/', 'rwa/') : 'chain reads'}
+            <button
+              key={t.id}
+              role="tab"
+              aria-selected={k === i}
+              onClick={() => {
+                setI(k);
+                setFull(false);
+              }}
+            >
+              {t.kind === 'cmc'
+                ? t.endpoint
+                    .replace(/^\/v\d\//, '')
+                    .replace('cryptocurrency/', '')
+                    .replace('real-world-assets/', 'rwa/')
+                : 'chain reads'}
             </button>
           ))}
         </div>
@@ -50,7 +66,9 @@ export function ReceiptDrawer({ receipts, credits, onClose }: { receipts: Receip
                 <br />
                 params {JSON.stringify(r.params)}
                 <br />
-                {r.stored ? `stored: CMC body captured ${r.startedUtc}, committed at ${r.stored.file} (answers the refused call above)` : `HTTP ${r.httpStatus} · credit_count ${r.creditCount ?? 0} · error_code ${r.errorCode ?? 0} · ${r.elapsedMs} ms · ${r.startedUtc}`}
+                {r.stored
+                  ? `stored: CMC body captured ${r.startedUtc}, committed at ${r.stored.file} (answers the refused call above)`
+                  : `HTTP ${r.httpStatus} · credit_count ${r.creditCount ?? 0} · error_code ${r.errorCode ?? 0} · ${r.elapsedMs} ms · ${r.startedUtc}`}
               </p>
             ) : (
               <p className="meta">{r.params.label}</p>
@@ -84,7 +102,9 @@ function rpcSummary(rpc: Receipt[]): Receipt {
     id: 'rpc-all',
     kind: 'rpc',
     endpoint: 'chain reads',
-    params: { label: `${rpc.length} eth_call reads (totalSupply 0x18160ddd at day-boundary blocks, live tail beyond the committed baseline)` },
+    params: {
+      label: `${rpc.length} eth_call reads (totalSupply 0x18160ddd at day-boundary blocks, live tail beyond the committed baseline)`,
+    },
     startedUtc: rpc[0].startedUtc,
     elapsedMs: rpc.reduce((s, r) => Math.max(s, r.elapsedMs), 0),
     httpStatus: 200,

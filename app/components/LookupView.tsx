@@ -81,10 +81,14 @@ export function LookupView({ u, from, to, initialWindow }: { u: string; from?: s
           <StoredNotice res={res} />
           <p className="capture">
             {res.underlying.name} · {res.range.from} → {res.range.to} UTC {res.range.pinned ? '· pinned window' : `· ${res.window} d`} ·{' '}
-            {res.live ? 'live' : res.mode} {utcStamp(res.fetchedUtc)} · {res.credits} credits charged by CMC for this lookup (status.credit_count; repeat identical calls are not charged) · {res.elapsedMs} ms
+            {res.live ? 'live' : res.mode} {utcStamp(res.fetchedUtc)} · {res.credits} credits charged by CMC for this lookup
+            (status.credit_count; repeat identical calls are not charged) · {res.elapsedMs} ms
           </p>
           <Ledger res={res} strikeKey={strikeKey} />
-          <p className="definition">Counted the way ETF flow tables count creations: units created or redeemed × price ($ at wrapper market price). REAL INFLOW and OUTFLOW are issuer-level net creation and redemption verified on chain, not buyer data.</p>
+          <p className="definition">
+            Counted the way ETF flow tables count creations: units created or redeemed × price ($ at wrapper market price). REAL INFLOW and
+            OUTFLOW are issuer-level net creation and redemption verified on chain, not buyer data.
+          </p>
         </>
       ) : null}
       {res ? <HolderPanel u={u} /> : null}

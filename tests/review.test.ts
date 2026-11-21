@@ -29,7 +29,9 @@ describe('the reason names the bound that fired', () => {
     expect(errLine(-0.01, 50_000, 500_000)).toBe('−1.0% · within remedy ±10%');
   });
   it('the 0.5%-of-supply floor when the move is small', () => {
-    expect(errLine(0.2, 5_500, 10_000)).toMatch(/^\+20\.0% · within the floor ±5,500 units \(0\.5% of supply, larger than ±10% of this move\)$/);
+    expect(errLine(0.2, 5_500, 10_000)).toMatch(
+      /^\+20\.0% · within the floor ±5,500 units \(0\.5% of supply, larger than ±10% of this move\)$/,
+    );
   });
 });
 
@@ -93,7 +95,12 @@ describe('transport errors', () => {
   });
 
   it('a display-only quotes/latest timeout no longer aborts the verdict', async () => {
-    const r = await lookup('NVDA', { window: 30, nowMs: NOW, allowLiveChain: false, rec: new Recorder(throwingFor('/v2/cryptocurrency/quotes/latest')) });
+    const r = await lookup('NVDA', {
+      window: 30,
+      nowMs: NOW,
+      allowLiveChain: false,
+      rec: new Recorder(throwingFor('/v2/cryptocurrency/quotes/latest')),
+    });
     expect(heroOf(r).wrapper!.verdict).toBe('REAL_INFLOW');
     expect(r.receipts.some((x) => x.endpoint === '/v2/cryptocurrency/quotes/latest' && x.httpStatus === 0)).toBe(true);
   });

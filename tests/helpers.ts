@@ -75,7 +75,17 @@ export function recordedTransport(over: Record<string, { body: any; httpStatus?:
     const status = hit.body?.status ?? null;
     const code = Number(status?.error_code ?? 0);
     const httpStatus = hit.httpStatus ?? 200;
-    return { endpoint, params, method: 'GET', httpStatus, ok: httpStatus < 300 && code === 0 && status !== null, startedUtc: '2026-11-21T01:40:00.000Z', elapsedMs: 1, status, body: hit.body as T };
+    return {
+      endpoint,
+      params,
+      method: 'GET',
+      httpStatus,
+      ok: httpStatus < 300 && code === 0 && status !== null,
+      startedUtc: '2026-11-21T01:40:00.000Z',
+      elapsedMs: 1,
+      status,
+      body: hit.body as T,
+    };
   };
 }
 

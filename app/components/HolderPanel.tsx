@@ -63,7 +63,11 @@ export function HolderPanel({ u }: { u: string }) {
                   <tr key={r.cryptoId}>
                     <td className="data">{r.symbol}</td>
                     <td>{r.issuer}</td>
-                    <td className="num">{r.total === null ? 'n/a' : `${r.unreadable.length || r.legs.some((l) => l.count === null) ? '≥ ' : ''}${plain(r.total)}`}</td>
+                    <td className="num">
+                      {r.total === null
+                        ? 'n/a'
+                        : `${r.unreadable.length || r.legs.some((l) => l.count === null) ? '≥ ' : ''}${plain(r.total)}`}
+                    </td>
                     <td>
                       {r.legs.map((l) => (
                         <div key={`${l.chain}-${l.address}`} className="data" style={{ fontSize: 13 }}>
@@ -85,7 +89,11 @@ export function HolderPanel({ u }: { u: string }) {
                       ) : (
                         <span className="muted">none checked</span>
                       )}
-                      {r.mintRecipient ? <div className="muted" style={{ fontSize: 12 }}>one sampled mint, {plain(r.mintRecipient.amount)} units, {r.mintRecipient.date} (committed, not live)</div> : null}
+                      {r.mintRecipient ? (
+                        <div className="muted" style={{ fontSize: 12 }}>
+                          one sampled mint, {plain(r.mintRecipient.amount)} units, {r.mintRecipient.date} (committed, not live)
+                        </div>
+                      ) : null}
                     </td>
                   </tr>
                 ))}
@@ -93,8 +101,11 @@ export function HolderPanel({ u }: { u: string }) {
             </table>
           </div>
           <p className="definition">
-            A holder count is addresses, not people: an exchange or omnibus account is one address. Counts are CMC’s <span className="data">/v1/dex/holders/count</span>{' '}
-            per chain; “≥” means other chains the endpoint is not asked about (or a failed leg) are not included. The mint recipient is one on-chain mint sampled on a step day by <span className="data">scripts/find-mint.ts</span> and committed in <span className="data">data/mints.json</span>; it is not every mint and not a live read.
+            A holder count is addresses, not people: an exchange or omnibus account is one address. Counts are CMC’s{' '}
+            <span className="data">/v1/dex/holders/count</span> per chain; “≥” means other chains the endpoint is not asked about (or a
+            failed leg) are not included. The mint recipient is one on-chain mint sampled on a step day by{' '}
+            <span className="data">scripts/find-mint.ts</span> and committed in <span className="data">data/mints.json</span>; it is not
+            every mint and not a live read.
           </p>
         </>
       ) : null}

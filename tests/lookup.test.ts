@@ -27,8 +27,8 @@ describe('recorded replay of the 2026-11-21 NVDA 30 d capture (the critical test
   });
 
   it('the hero figure equals an independent trapezoid sum over the raw recorded rows (not the code under test)', async () => {
-    const rows = fixture('recorded/hist-nvda-wrappers-30d.json').body.data['40215'].quotes
-      .map((q: any) => ({ d: q.timestamp.slice(0, 10), s: q.quote.USD.circulating_supply, p: q.quote.USD.price }))
+    const rows = fixture('recorded/hist-nvda-wrappers-30d.json')
+      .body.data['40215'].quotes.map((q: any) => ({ d: q.timestamp.slice(0, 10), s: q.quote.USD.circulating_supply, p: q.quote.USD.price }))
       .filter((r: any) => r.d >= '2026-10-22' && r.d <= '2026-11-21');
     let net = 0;
     for (let i = 1; i < rows.length; i++) net += (rows[i].s - rows[i - 1].s) * ((rows[i].p + rows[i - 1].p) / 2);
@@ -105,25 +105,44 @@ describe('recorded replay of the 2026-11-21 NVDA 30 d capture (the critical test
     await expect(p).rejects.toBeInstanceOf(LookupFailure);
     const e = (await p.catch((x) => x)) as LookupFailure;
     expect(e.httpStatus).toBe(502);
-    expect(e.extra.cmcError).toMatchObject({ code: 1006, httpStatus: 403, message: "Your API Key subscription plan doesn't support this endpoint.", class: 'entitlement' });
+    expect(e.extra.cmcError).toMatchObject({
+      code: 1006,
+      httpStatus: 403,
+      message: "Your API Key subscription plan doesn't support this endpoint.",
+      class: 'entitlement',
+    });
     expect(JSON.stringify(e.extra)).not.toMatch(/REAL_INFLOW|OUTFLOW|RECOUNT/);
   });
 
   it('a 5xx is a failed run (503, transient), never a plan revert', async () => {
-    const e = (await replay({ '/v2/cryptocurrency/quotes/historical': { body: { status: { error_code: 500, error_message: 'Internal' } }, httpStatus: 500 } }).catch((x) => x)) as LookupFailure;
+    const e = (await replay({
+      '/v2/cryptocurrency/quotes/historical': { body: { status: { error_code: 500, error_message: 'Internal' } }, httpStatus: 500 },
+    }).catch((x) => x)) as LookupFailure;
     expect(e.httpStatus).toBe(503);
     expect((e.extra.cmcError as any).class).toBe('transient');
   });
 
   it('an unknown ticker is a 404 with the nearest underlyings', async () => {
     const one = fixture('recorded/rwa-assets-list-p1.json').body;
-    const e = (await lookup('ZZZQ', { nowMs: NOW, allowLiveChain: false, rec: new Recorder(recordedTransport({ '/v5/real-world-assets/assets/list': { body: { ...one, data: { ...one.data, has_more: false } } } })) }).catch((x) => x)) as LookupFailure;
+    const e = (await lookup('ZZZQ', {
+      nowMs: NOW,
+      allowLiveChain: false,
+      rec: new Recorder(
+        recordedTransport({ '/v5/real-world-assets/assets/list': { body: { ...one, data: { ...one.data, has_more: false } } } }),
+      ),
+    }).catch((x) => x)) as LookupFailure;
     expect(e.httpStatus).toBe(404);
     expect((e.extra.suggestions as string[]).length).toBe(5);
   });
 
   it('a pinned window is honoured and labelled', async () => {
-    const r = await lookup('NVDA', { from: '2026-11-07', to: '2026-11-14', nowMs: NOW, allowLiveChain: false, rec: new Recorder(recordedTransport()) });
+    const r = await lookup('NVDA', {
+      from: '2026-11-07',
+      to: '2026-11-14',
+      nowMs: NOW,
+      allowLiveChain: false,
+      rec: new Recorder(recordedTransport()),
+    });
     expect(r.range).toEqual({ from: '2026-11-07', to: '2026-11-14', pinned: true });
     const w = r.wrappers.find((x) => x.symbol === 'NVDAB')!;
     expect(w.series[0].date).toBe('2026-11-07');
@@ -141,23 +160,56 @@ describe('recorded replay of the 2026-11-21 NVDA 30 d capture (the critical test
 
 describe('mint receipts', () => {
   const leg = (vals: number[], start: string) => ({
-    chain: 'bsc' as const, address: '0xabc', decimals: 18, source: 'baseline' as const, baselineUtc: null,
-    values: new Map(Array.from({ length: vals.length + 6 }, (_, i) => [addDays(start, i - 3), vals[Math.min(Math.max(i - 3, 0), vals.length - 1)]])),
+    chain: 'bsc' as const,
+    address: '0xabc',
+    decimals: 18,
+    source: 'baseline' as const,
+    baselineUtc: null,
+    values: new Map(
+      Array.from({ length: vals.length + 6 }, (_, i) => [addDays(start, i - 3), vals[Math.min(Math.max(i - 3, 0), vals.length - 1)]]),
+    ),
     blocks: new Map<string, number | null>(),
   });
-  const base = (id: number) => ({ cryptoId: id, symbol: 'NVDAB', name: 'x', issuer: 'bStocks', chains: ['BNB Chain'], derivative: false, marketCap: null, exitRatio: null, metrics: null, series: [], refused: [], mint: null, verdict: null, reason: '' });
-  const rows = (sup: number[], start: string) => sup.map((v, i) => ({ timestamp: `${addDays(start, i)}T00:00:00.000Z`, price: 150, circulating_supply: v, total_supply: v, volume_24h: 1, market_cap: v * 150 }));
+  const base = (id: number) => ({
+    cryptoId: id,
+    symbol: 'NVDAB',
+    name: 'x',
+    issuer: 'bStocks',
+    chains: ['BNB Chain'],
+    derivative: false,
+    marketCap: null,
+    exitRatio: null,
+    metrics: null,
+    series: [],
+    refused: [],
+    mint: null,
+    verdict: null,
+    reason: '',
+  });
+  const rows = (sup: number[], start: string) =>
+    sup.map((v, i) => ({
+      timestamp: `${addDays(start, i)}T00:00:00.000Z`,
+      price: 150,
+      circulating_supply: v,
+      total_supply: v,
+      volume_24h: 1,
+      market_cap: v * 150,
+    }));
 
   it('an OUTFLOW never shows a zero-address mint, even on a day data/mints.json covers', () => {
     const sup = [1.4e6, 1.4e6, 1.4e6, 0.9e6, 0.9e6]; // step down on 2026-11-13
-    const w = evaluateWrapper(base(40215), rows(sup, '2026-11-10'), { legs: [{ chain: 'bsc', address: '0xabc' }], unreadable: [] }, [leg(sup, '2026-11-10')]);
+    const w = evaluateWrapper(base(40215), rows(sup, '2026-11-10'), { legs: [{ chain: 'bsc', address: '0xabc' }], unreadable: [] }, [
+      leg(sup, '2026-11-10'),
+    ]);
     expect(w.verdict).toBe('OUTFLOW');
     expect(w.mintReceipt).toBeUndefined();
   });
 
   it('a REAL INFLOW shows the mint whose chain day is the proof day', () => {
     const sup = [0.9e6, 0.9e6, 0.9e6, 1.4e6, 1.4e6];
-    const w = evaluateWrapper(base(40215), rows(sup, '2026-11-10'), { legs: [{ chain: 'bsc', address: '0xabc' }], unreadable: [] }, [leg(sup, '2026-11-10')]);
+    const w = evaluateWrapper(base(40215), rows(sup, '2026-11-10'), { legs: [{ chain: 'bsc', address: '0xabc' }], unreadable: [] }, [
+      leg(sup, '2026-11-10'),
+    ]);
     expect(w.verdict).toBe('REAL_INFLOW');
     expect(w.mintReceipt?.date).toBe(w.proof!.chainDates[1]);
   });
@@ -175,7 +227,8 @@ describe('route contract (/api/lookup params)', () => {
     expect(q('u=NVDA&from=2026-01-01&to=2026-11-01').ok).toBe(false);
   });
   it('a pinned and a rolling request never share a de-dupe key', () => {
-    const a = q('u=NVDA&window=30') as any, b = q('u=NVDA&from=2026-10-22&to=2026-11-21') as any;
+    const a = q('u=NVDA&window=30') as any,
+      b = q('u=NVDA&from=2026-10-22&to=2026-11-21') as any;
     expect(a.key).not.toBe(b.key);
     expect((q('u=nvda') as any).key).toBe((q('u=NVDA&window=30') as any).key);
   });
@@ -185,7 +238,12 @@ describe('CMC parsing + receipts', () => {
   it('parses single-id and multi-id history bodies', () => {
     const multi = parseHistoryBody(fixture('recorded/hist-nvda-wrappers-30d.json').body);
     expect(multi.get(40215)!.length).toBeGreaterThan(25);
-    const single = parseHistoryBody({ data: { id: 1, quotes: [{ timestamp: '2026-11-01T00:00:00Z', quote: { USD: { price: 1, circulating_supply: 2, total_supply: 2 } } }] } });
+    const single = parseHistoryBody({
+      data: {
+        id: 1,
+        quotes: [{ timestamp: '2026-11-01T00:00:00Z', quote: { USD: { price: 1, circulating_supply: 2, total_supply: 2 } } }],
+      },
+    });
     expect(single.get(1)![0].circulating_supply).toBe(2);
   });
   it('maps contracts to readable legs and lists the rest as unreadable (NVDAX)', () => {
@@ -199,7 +257,12 @@ describe('CMC parsing + receipts', () => {
     expect(isDerivative({ issuer_name: 'bStocks', market_cap: 2e8 })).toBe(false);
   });
   it('suggests nearest tickers', () => {
-    expect(nearest('NVDQ', [{ rwa_id: 2, symbol: 'NVDA', name: '' }, { rwa_id: 3, symbol: 'AAPL', name: '' }])[0]).toBe('NVDA');
+    expect(
+      nearest('NVDQ', [
+        { rwa_id: 2, symbol: 'NVDA', name: '' },
+        { rwa_id: 3, symbol: 'AAPL', name: '' },
+      ])[0],
+    ).toBe('NVDA');
   });
   it('classifies CMC errors: entitlement vs transient vs config', () => {
     expect(classifyCmcError(1006, 403)).toBe('entitlement');
@@ -210,7 +273,9 @@ describe('CMC parsing + receipts', () => {
   });
   it('redacts secrets and builds a curl with the $CMC_API_KEY placeholder', () => {
     expect(redact('a SECRETSECRET b', ['SECRETSECRET'])).toBe('a [REDACTED] b');
-    expect(curlFor('/v1/key/info', {})).toBe('curl -s -H "X-CMC_PRO_API_KEY: $CMC_API_KEY" "https://pro-api.coinmarketcap.com/v1/key/info"');
+    expect(curlFor('/v1/key/info', {})).toBe(
+      'curl -s -H "X-CMC_PRO_API_KEY: $CMC_API_KEY" "https://pro-api.coinmarketcap.com/v1/key/info"',
+    );
     expect(BODY_CAP_BYTES).toBeLessThan(1_000_000);
   });
 });

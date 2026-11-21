@@ -96,7 +96,17 @@ export class Recorder {
       const msg = (e as Error)?.message ?? String(e);
       if (/CMC_API_KEY is not set/.test(msg)) throw e; // configuration, not a network failure
       // timeout / DNS / reset: keep a receipt; httpStatus 0 classifies as transient (a failed run, never a fallback)
-      call = { endpoint, params, method: 'GET', httpStatus: 0, ok: false, startedUtc: new Date().toISOString(), elapsedMs: 0, status: { error_code: 0, error_message: redact(`transport error: ${(e as Error)?.name ?? 'Error'}: ${msg}`) }, body: { transportError: redact(msg) } as T };
+      call = {
+        endpoint,
+        params,
+        method: 'GET',
+        httpStatus: 0,
+        ok: false,
+        startedUtc: new Date().toISOString(),
+        elapsedMs: 0,
+        status: { error_code: 0, error_message: redact(`transport error: ${(e as Error)?.name ?? 'Error'}: ${msg}`) },
+        body: { transportError: redact(msg) } as T,
+      };
     }
     this.record(call, call.stored);
     if (call.ok || !this.stored) return call;
@@ -113,7 +123,17 @@ export class Recorder {
       liveError: { code, message: redact(String(call.status?.error_message ?? '')), httpStatus: call.httpStatus },
       body: s.body,
     });
-    const answered: CmcCall<T> = { endpoint, params: s.params, method: 'GET', httpStatus: 200, ok: true, startedUtc: s.capturedUtc, elapsedMs: 0, status, body: s.body as T };
+    const answered: CmcCall<T> = {
+      endpoint,
+      params: s.params,
+      method: 'GET',
+      httpStatus: 200,
+      ok: true,
+      startedUtc: s.capturedUtc,
+      elapsedMs: 0,
+      status,
+      body: s.body as T,
+    };
     this.record(answered, { file: s.file, capturedUtc: s.capturedUtc });
     return answered;
   }
@@ -125,7 +145,11 @@ export class Recorder {
     let results: T[] | null = null;
     let err: unknown = null;
     try {
-      results = await this.rpcTransport<T>(chain, reqs, meta.deadline === undefined ? undefined : { ...RPC_REQUEST, deadline: meta.deadline });
+      results = await this.rpcTransport<T>(
+        chain,
+        reqs,
+        meta.deadline === undefined ? undefined : { ...RPC_REQUEST, deadline: meta.deadline },
+      );
     } catch (e) {
       err = e;
     }
@@ -140,7 +164,12 @@ export class Recorder {
         id: `r${++this.n}`,
         kind: 'rpc',
         endpoint: `${chain}:${r.method}`,
-        params: { to: String(to ?? ''), data: String((r.params[0] as { data?: string } | undefined)?.data ?? ''), block: String(block ?? blockHex ?? '') , ...(meta.label ? { label: meta.label } : {}) },
+        params: {
+          to: String(to ?? ''),
+          data: String((r.params[0] as { data?: string } | undefined)?.data ?? ''),
+          block: String(block ?? blockHex ?? ''),
+          ...(meta.label ? { label: meta.label } : {}),
+        },
         startedUtc,
         elapsedMs,
         httpStatus: err ? 0 : 200,

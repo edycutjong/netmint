@@ -54,7 +54,12 @@ export function loadStoredIndex(root = process.cwd()): StoredBody[] {
   return out.sort((a, b) => (a.capturedUtc < b.capturedUtc ? 1 : a.capturedUtc > b.capturedUtc ? -1 : 0));
 }
 
-const idSet = (p: Record<string, string>) => new Set(String(p.id ?? '').split(',').filter(Boolean));
+const idSet = (p: Record<string, string>) =>
+  new Set(
+    String(p.id ?? '')
+      .split(',')
+      .filter(Boolean),
+  );
 const covers = (have: Set<string>, want: Set<string>) => [...want].every((x) => have.has(x));
 const sameExcept = (a: Record<string, string>, b: Record<string, string>, skip: string[]) => {
   const keys = new Set([...Object.keys(a), ...Object.keys(b)].filter((k) => !skip.includes(k)));
@@ -75,7 +80,11 @@ export function findStored(index: StoredBody[], endpoint: string, params: Record
     const full = ok.find((s) => s.params.time_start <= params.time_start && s.params.time_end >= params.time_end);
     if (full) return full;
     // latest end first; at an equal end the widest body (earliest start), so a 30 d click never gets the 7 d file
-    return [...ok].sort((a, b) => b.params.time_end.localeCompare(a.params.time_end) || a.params.time_start.localeCompare(b.params.time_start))[0] ?? null;
+    return (
+      [...ok].sort(
+        (a, b) => b.params.time_end.localeCompare(a.params.time_end) || a.params.time_start.localeCompare(b.params.time_start),
+      )[0] ?? null
+    );
   }
   if ('id' in params) {
     const want = idSet(params);
@@ -116,9 +125,30 @@ export function storedTransport(find: StoredLookup = committedStore) {
   return async function <T>(endpoint: string, params: Record<string, string> = {}): Promise<CmcCall<T>> {
     const s = find(endpoint, params);
     if (!s) {
-      return { endpoint, params, method: 'GET', httpStatus: 404, ok: false, startedUtc: new Date(0).toISOString(), elapsedMs: 0, status: { error_code: -1, error_message: `no committed CMC body answers ${endpoint}` }, body: null as T };
+      return {
+        endpoint,
+        params,
+        method: 'GET',
+        httpStatus: 404,
+        ok: false,
+        startedUtc: new Date(0).toISOString(),
+        elapsedMs: 0,
+        status: { error_code: -1, error_message: `no committed CMC body answers ${endpoint}` },
+        body: null as T,
+      };
     }
     const status = (s.body as { status?: CmcCall['status'] } | null)?.status ?? null;
-    return { endpoint, params: s.params, method: 'GET', httpStatus: 200, ok: true, startedUtc: s.capturedUtc, elapsedMs: 0, status, body: s.body as T, stored: { file: s.file, capturedUtc: s.capturedUtc } };
+    return {
+      endpoint,
+      params: s.params,
+      method: 'GET',
+      httpStatus: 200,
+      ok: true,
+      startedUtc: s.capturedUtc,
+      elapsedMs: 0,
+      status,
+      body: s.body as T,
+      stored: { file: s.file, capturedUtc: s.capturedUtc },
+    };
   };
 }

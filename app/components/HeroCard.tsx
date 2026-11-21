@@ -55,7 +55,9 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
   return (
     <section className="card" aria-live="polite">
       {err ? <ErrorBanner e={err} /> : null}
-      {res && !hero.verified ? <p className="note">No wrapper passed the mint check in this window. Largest move shown with its actual verdict.</p> : null}
+      {res && !hero.verified ? (
+        <p className="note">No wrapper passed the mint check in this window. Largest move shown with its actual verdict.</p>
+      ) : null}
       {res && w && m && w.verdict ? (
         <>
           <p className="eyebrow">
@@ -69,7 +71,8 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
               </p>
               <p className={`hero-figure ${ink}`}>{usd(m.net)}</p>
               <p className="hero-sub">
-                {hero.verified ? `net ${m.net >= 0 ? 'creation' : 'redemption'}` : 'CMC supply change × price, unproven'} · units {times(m.unitsX)} · price {pct(m.pricePct)}
+                {hero.verified ? `net ${m.net >= 0 ? 'creation' : 'redemption'}` : 'CMC supply change × price, unproven'} · units{' '}
+                {times(m.unitsX)} · price {pct(m.pricePct)}
               </p>
             </div>
           </div>
@@ -82,7 +85,11 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
         </>
       ) : null}
       <div className="actions">
-        <button className="btn" onClick={() => run(win, res?.range.pinned ? { from: res.range.from, to: res.range.to } : undefined)} disabled={busy}>
+        <button
+          className="btn"
+          onClick={() => run(win, res?.range.pinned ? { from: res.range.from, to: res.range.to } : undefined)}
+          disabled={busy}
+        >
           {busy ? 'Running live…' : 'Run it live'}
         </button>
         <div className="seg" role="group" aria-label="Window">

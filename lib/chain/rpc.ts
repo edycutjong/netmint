@@ -50,7 +50,8 @@ export async function rpcBatch<T = string>(
 ): Promise<T[]> {
   const { timeoutMs, maxRetries: MAX_RETRIES } = budget;
   if (reqs.length === 0) return [];
-  const backoff = (a: number) => new Promise((r) => setTimeout(r, Math.min(500 * 2 ** a, budget.maxBackoffMs ?? 4_000) + Math.random() * 250));
+  const backoff = (a: number) =>
+    new Promise((r) => setTimeout(r, Math.min(500 * 2 ** a, budget.maxBackoffMs ?? 4_000) + Math.random() * 250));
   type Entry = { id: number; result?: T; error?: { code: number; message: string } };
   const done = new Map<number, Entry>();
   let pending = reqs.map((_, i) => i);

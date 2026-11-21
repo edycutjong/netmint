@@ -7,11 +7,26 @@ import { lookup } from '@/lib/lookup';
 import { Recorder } from '@/lib/receipts';
 import { holders, mintRecipientOf, sumHolders } from '@/lib/holders';
 import { HOLDER_PLATFORM } from '@/lib/cmc/holders';
-import { fixture, NOW, recordedTransport } from './helpers';
+import { NOW, recordedTransport } from './helpers';
 import type { CmcCall } from '@/lib/cmc/client';
 
 const row = (o: Partial<FlowRow>): FlowRow => ({
-  underlying: 'X', rwaId: 1, cryptoId: 1, symbol: 'X', issuer: 'I', verdict: 'FLAT', reason: '', netUsd: 0, unitsX: 1, pricePct: 0, coverage: 1, marketCap: 1, exitRatio: 0, divergence: null, evidence: 'e', ...o,
+  underlying: 'X',
+  rwaId: 1,
+  cryptoId: 1,
+  symbol: 'X',
+  issuer: 'I',
+  verdict: 'FLAT',
+  reason: '',
+  netUsd: 0,
+  unitsX: 1,
+  pricePct: 0,
+  coverage: 1,
+  marketCap: 1,
+  exitRatio: 0,
+  divergence: null,
+  evidence: 'e',
+  ...o,
 });
 
 describe('/flows leaderboard (views of the same lookup)', () => {
@@ -51,8 +66,21 @@ describe('/flows leaderboard (views of the same lookup)', () => {
   it('loadFlows reads the newest committed table for the window and returns null when none exists', () => {
     const root = mkdtempSync(path.join(os.tmpdir(), 'nm-flows-'));
     expect(loadFlows(30, root)).toBeNull();
-    const t = (d: string, w: 7 | 30): FlowsTable => ({ generatedUtc: `${d}T00:00:00Z`, command: 'c', window: w, range: { from: 'a', to: 'b' }, universe: { underlyings: 1, wrappers: 0, ranking: 'r' }, credits: 0, skipped: [], rows: [] });
-    for (const [d, w] of [['2026-11-21', 30], ['2026-11-25', 30], ['2026-11-25', 7]] as const) {
+    const t = (d: string, w: 7 | 30): FlowsTable => ({
+      generatedUtc: `${d}T00:00:00Z`,
+      command: 'c',
+      window: w,
+      range: { from: 'a', to: 'b' },
+      universe: { underlyings: 1, wrappers: 0, ranking: 'r' },
+      credits: 0,
+      skipped: [],
+      rows: [],
+    });
+    for (const [d, w] of [
+      ['2026-11-21', 30],
+      ['2026-11-25', 30],
+      ['2026-11-25', 7],
+    ] as const) {
       mkdirSync(path.join(root, 'evidence', d), { recursive: true });
       writeFileSync(path.join(root, 'evidence', d, `flows-${w}d.json`), JSON.stringify(t(d, w)));
     }
@@ -62,20 +90,39 @@ describe('/flows leaderboard (views of the same lookup)', () => {
 });
 
 describe('holder panel', () => {
-  const countBody = (n: number) => ({ data: { platformId: 1, count: String(n), tokenAddress: '0x' }, status: { timestamp: 't', error_code: '0', error_message: '', elapsed: 1, credit_count: 1 } });
+  const countBody = (n: number) => ({
+    data: { platformId: 1, count: String(n), tokenAddress: '0x' },
+    status: { timestamp: 't', error_code: '0', error_message: '', elapsed: 1, credit_count: 1 },
+  });
 
   it('uses CMC platform names (eth is rejected by CMC, ethereum works)', () => {
     expect(HOLDER_PLATFORM).toEqual({ bsc: 'bsc', eth: 'ethereum' });
   });
 
   it('sums the answering legs only and says n/a when none answered', () => {
-    expect(sumHolders([{ chain: 'bsc', address: 'a', count: 10, error: null }, { chain: 'eth', address: 'b', count: null, error: 'x' }, { chain: 'eth', address: 'c', count: 5, error: null }])).toBe(15);
+    expect(
+      sumHolders([
+        { chain: 'bsc', address: 'a', count: 10, error: null },
+        { chain: 'eth', address: 'b', count: null, error: 'x' },
+        { chain: 'eth', address: 'c', count: 5, error: null },
+      ]),
+    ).toBe(15);
     expect(sumHolders([{ chain: 'bsc', address: 'a', count: null, error: 'x' }])).toBeNull();
     expect(sumHolders([])).toBeNull();
   });
 
   it('mint recipient is the latest committed receipt of that wrapper, else null', () => {
-    const m = (date: string, recipient: string) => ({ crypto_id: 7, symbol: 'S', chain: 'bsc' as const, date, tx: '0x', block: 1, amount: 1, recipient, explorer_url: 'u' });
+    const m = (date: string, recipient: string) => ({
+      crypto_id: 7,
+      symbol: 'S',
+      chain: 'bsc' as const,
+      date,
+      tx: '0x',
+      block: 1,
+      amount: 1,
+      recipient,
+      explorer_url: 'u',
+    });
     expect(mintRecipientOf(7, [m('2026-11-01', 'old'), m('2026-11-13', 'new')])!.recipient).toBe('new');
     expect(mintRecipientOf(8, [m('2026-11-01', 'old')])).toBeNull();
   });
@@ -86,7 +133,17 @@ describe('holder panel', () => {
       if (endpoint !== '/v1/dex/holders/count') return base<T>(endpoint, params);
       const bad = params.platform === 'ethereum';
       const body = bad ? { status: { timestamp: 't', error_code: '1006', error_message: 'plan', credit_count: 0 } } : countBody(1234);
-      return { endpoint, params, method: 'GET', httpStatus: bad ? 403 : 200, ok: !bad, startedUtc: 't', elapsedMs: 1, status: (body as any).status, body: body as T };
+      return {
+        endpoint,
+        params,
+        method: 'GET',
+        httpStatus: bad ? 403 : 200,
+        ok: !bad,
+        startedUtc: 't',
+        elapsedMs: 1,
+        status: (body as any).status,
+        body: body as T,
+      };
     };
     const r = await holders('NVDA', { rec: new Recorder(t as any) });
     const calls = r.receipts.filter((x) => x.endpoint === '/v1/dex/holders/count');
@@ -100,6 +157,9 @@ describe('holder panel', () => {
       expect(eth.count).toBeNull();
       expect(eth.error).toMatch(/1006/);
     }
-    expect(r.credits).toBe(calls.filter((c) => c.httpStatus === 200).length * 1 + r.receipts.filter((x) => x.endpoint !== '/v1/dex/holders/count').reduce((s, x) => s + (x.creditCount ?? 0), 0));
+    expect(r.credits).toBe(
+      calls.filter((c) => c.httpStatus === 200).length * 1 +
+        r.receipts.filter((x) => x.endpoint !== '/v1/dex/holders/count').reduce((s, x) => s + (x.creditCount ?? 0), 0),
+    );
   });
 });

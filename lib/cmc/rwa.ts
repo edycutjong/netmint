@@ -38,10 +38,7 @@ function ensureOk(call: { ok: boolean; status: any; httpStatus: number; endpoint
 }
 
 /** Resolve a ticker (or a numeric rwa_id) to an underlying, paging the ranked list until it is found. */
-export async function resolveUnderlying(
-  rec: Recorder,
-  u: string,
-): Promise<{ asset: RwaAsset | null; suggestions: string[] }> {
+export async function resolveUnderlying(rec: Recorder, u: string): Promise<{ asset: RwaAsset | null; suggestions: string[] }> {
   const want = u.trim().toUpperCase();
   const byId = /^\d+$/.test(want) ? Number(want) : null;
   const seen: RwaAsset[] = [];
@@ -63,7 +60,8 @@ export async function resolveUnderlying(
 /** Five nearest tickers by a cheap edit distance (for the unknown-ticker state). */
 export function nearest(want: string, assets: RwaAsset[], k = 5): string[] {
   const d = (a: string, b: string) => {
-    const m = a.length, n = b.length;
+    const m = a.length,
+      n = b.length;
     const dp = Array.from({ length: m + 1 }, (_, i) => [i, ...Array(n).fill(0)]);
     for (let j = 1; j <= n; j++) dp[0][j] = j;
     for (let i = 1; i <= m; i++)

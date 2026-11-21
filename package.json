@@ -1,6 +1,6 @@
 {
   "name": "netmint",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "NetMint: net creation and redemption behind every tokenised stock, from CoinMarketCap supply history, checked against the chain.",
   "license": "MIT",
@@ -25,7 +25,17 @@
     "snapshot": "tsx scripts/snapshot.ts",
     "verify:offline": "bash scripts/verify-offline.sh",
     "flows": "tsx scripts/flows.ts",
-    "verify:flows": "tsx scripts/verify-flows.ts"
+    "verify:flows": "tsx scripts/verify-flows.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:coverage": "vitest run --coverage",
+    "audit": "npm audit --audit-level=high",
+    "bench": "tsx scripts/bench.ts",
+    "e2e": "playwright test",
+    "ci": "npm run audit && npm run format:check && npm run lint && npm run typecheck && npm run test:coverage",
+    "ci:full": "npm run ci && npm run build && npm run verify:offline && npm run e2e"
   },
   "dependencies": {
     "next": "^15.5.29",
@@ -33,11 +43,19 @@
     "react-dom": "^19.3.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.1",
     "@types/node": "^22.20.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "@vitest/coverage-v8": "^5.1.1",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^15.5.29",
+    "prettier": "^3.10.1",
     "tsx": "^4.23.15",
     "typescript": "^5.9.3",
     "vitest": "^5.1.1"
+  },
+  "overrides": {
+    "postcss": "^8.5.33"
   }
 }

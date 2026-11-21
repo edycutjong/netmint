@@ -46,7 +46,12 @@ export function VerdictStamp({
       ? 'Verdict: FLAT — below threshold, not put to trial'
       : `Verdict: ${label} — not verified on chain`;
   return (
-    <span className={`stamp${animate ? ' strike' : ''}`} style={animate ? { animationDelay: `${delayMs}ms` } : undefined} role="img" aria-label={aria}>
+    <span
+      className={`stamp${animate ? ' strike' : ''}`}
+      style={animate ? { animationDelay: `${delayMs}ms` } : undefined}
+      role="img"
+      aria-label={aria}
+    >
       <svg viewBox={`-1 -1 ${w + 2} ${h + 2}`} height={height} width={(height * (w + 2)) / (h + 2)}>
         <polygon points={poly(0.75)} fill="none" stroke={ring} strokeWidth={1.5} strokeDasharray={dash} />
         <polygon points={poly(5)} fill="none" stroke={ring} strokeWidth={1} strokeDasharray={dash} />

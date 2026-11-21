@@ -29,8 +29,24 @@ export async function GET() {
       commit: process.env.VERCEL_GIT_COMMIT_SHA ?? null,
       capture_utc: f30?.generatedUtc ?? null,
       flows: {
-        '30d': f30 ? { generated_utc: f30.generatedUtc, from: f30.range.from, to: f30.range.to, wrappers: f30.rows.length, underlyings: f30.universe.underlyings } : null,
-        '7d': f7 ? { generated_utc: f7.generatedUtc, from: f7.range.from, to: f7.range.to, wrappers: f7.rows.length, underlyings: f7.universe.underlyings } : null,
+        '30d': f30
+          ? {
+              generated_utc: f30.generatedUtc,
+              from: f30.range.from,
+              to: f30.range.to,
+              wrappers: f30.rows.length,
+              underlyings: f30.universe.underlyings,
+            }
+          : null,
+        '7d': f7
+          ? {
+              generated_utc: f7.generatedUtc,
+              from: f7.range.from,
+              to: f7.range.to,
+              wrappers: f7.rows.length,
+              underlyings: f7.universe.underlyings,
+            }
+          : null,
       },
       chain: { rpc_configured: Boolean(process.env.ALCHEMY_API_KEY), baseline_generated_utc: baselineGenerated() },
       cron_last_ok_utc: null, // no nightly job runs: `npm run flows` + redeploy refreshes /flows and the stored bodies

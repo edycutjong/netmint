@@ -29,10 +29,10 @@ export function comparatorOf(series: DailyPoint[]): 'total_supply' | 'circulatin
 
 export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
   const { series, flows, chainAt, legs, unreadable, offset, offsetSource, chainSource } = input;
-  const A = series[0], B = series[series.length - 1];
+  const A = series[0],
+    B = series[series.length - 1];
   const comparator = comparatorOf(series);
   const tot = (pt: DailyPoint) => (comparator === 'total_supply' ? (pt.totalSupply as number) : pt.supply);
-  const byDate = new Map(series.map((pt) => [pt.date, pt]));
   const base: MintCheck = {
     status: 'impossible',
     comparator,
@@ -66,9 +66,12 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
     const where = unreadable.length ? unreadable.join(', ') : 'no listed chain';
     return { ...base, reason: `no contract on BNB Chain or Ethereum (listed on ${where}); no historical supply source` };
   }
-  const a = addDays(A.date, offset), b = addDays(B.date, offset);
-  const chainA = chainAt(a), chainB = chainAt(b);
-  const cmcA = tot(A), cmcB = tot(B);
+  const a = addDays(A.date, offset),
+    b = addDays(B.date, offset);
+  const chainA = chainAt(a),
+    chainB = chainAt(b);
+  const cmcA = tot(A),
+    cmcB = tot(B);
   const cmcDelta = cmcB - cmcA;
   const out: MintCheck = { ...base, cmcDelta, chainDates: [a, b] };
   if (chainA === null || chainB === null) {
@@ -121,10 +124,13 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
     // the 3-day span [D−2, D+1], snapped to the accepted CMC points at or before each end (a missing CMC day is never
     // read as a zero delta); the chain is read on the same two days
     const atOrBefore = (d: string) => [...series].reverse().find((pt) => pt.date <= d) ?? A;
-    const cLo = atOrBefore(clampDate(addDays(D, -2), A.date, B.date)), cHi = atOrBefore(clampDate(addDays(D, 1), A.date, B.date));
-    const lo = cLo.date, hi = cHi.date;
+    const cLo = atOrBefore(clampDate(addDays(D, -2), A.date, B.date)),
+      cHi = atOrBefore(clampDate(addDays(D, 1), A.date, B.date));
+    const lo = cLo.date,
+      hi = cHi.date;
     const cmc3d = tot(cHi) - tot(cLo);
-    const chLo = chainAt(addDays(lo, offset)), chHi = chainAt(addDays(hi, offset));
+    const chLo = chainAt(addDays(lo, offset)),
+      chHi = chainAt(addDays(hi, offset));
     if (chLo === null || chHi === null) {
       stepUnavailable ??= chLo === null ? addDays(lo, offset) : addDays(hi, offset);
       stepDays.push({ date: D, cmc3d, chain3d: null, ok: false });
@@ -139,7 +145,8 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
   out.stepOk = stepDays.every((s) => s.ok);
 
   const evalAt = (d: Offset) => {
-    const ca = chainAt(addDays(A.date, d)), cb = chainAt(addDays(B.date, d));
+    const ca = chainAt(addDays(A.date, d)),
+      cb = chainAt(addDays(B.date, d));
     if (ca === null || cb === null) return null;
     const chainDelta = cb - ca;
     const tol = Math.max(p.remedy * Math.abs(cmcDelta), p.floorFrac * cmcB);
