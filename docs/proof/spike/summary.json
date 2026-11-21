@@ -1,0 +1,245 @@
+{
+ "generated_utc": "2026-11-21T01:05:36.584Z",
+ "command": "npm run spike",
+ "rows": [
+  {
+   "n": "7",
+   "file": "key-info.json",
+   "endpoint": "/v1/key/info",
+   "params": {},
+   "method": "GET",
+   "http": 200,
+   "error_code": 0,
+   "error_message": null,
+   "credit_count": 0,
+   "elapsed_ms": 319,
+   "ok": true
+  },
+  {
+   "n": "1",
+   "file": "rwa-assets-list-p1.json",
+   "endpoint": "/v5/real-world-assets/assets/list",
+   "params": {
+    "start": "1",
+    "limit": "250"
+   },
+   "method": "GET",
+   "http": 200,
+   "error_code": 0,
+   "error_message": "",
+   "credit_count": 1,
+   "elapsed_ms": 502,
+   "ok": true
+  },
+  {
+   "n": "1.2",
+   "file": "rwa-assets-list-p2.json",
+   "endpoint": "/v5/real-world-assets/assets/list",
+   "params": {
+    "start": "251",
+    "limit": "250"
+   },
+   "method": "GET",
+   "http": 200,
+   "error_code": 0,
+   "error_message": "",
+   "credit_count": 1,
+   "elapsed_ms": 734,
+   "ok": true
+  },
+  {
+   "n": "2",
+   "file": "rwa-quotes-latest-nvda.json",
+   "endpoint": "/v5/real-world-assets/quotes/latest",
+   "params": {
+    "rwa_id": "2"
+   },
+   "method": "GET",
+   "http": 200,
+   "error_code": 0,
+   "error_message": "",
+   "credit_count": 1,
+   "elapsed_ms": 245,
+   "ok": true,
+   "note": "rwa_id=2"
+  },
+  {
+   "n": "3",
+   "file": "quotes-historical-nvdab-90d.json",
+   "endpoint": "/v2/cryptocurrency/quotes/historical",
+   "params": {
+    "id": "40215",
+    "interval": "daily",
+    "time_start": "2026-08-23",
+    "time_end": "2026-11-21"
+   },
+   "method": "GET",
+   "http": 200,
+   "error_code": 0,
+   "error_message": null,
+   "credit_count": 1,
+   "elapsed_ms": 268,
+   "ok": true
+  },
+  {
+   "n": "3b",
+   "file": "quotes-historical-oldest-probe.json",
+   "endpoint": "/v2/cryptocurrency/quotes/historical",
+   "params": {
+    "id": "1",
+    "interval": "daily",
+    "time_start": "2013-04-28",
+    "count": "3"
+   },
+   "method": "GET",
+   "http": 200,
+   "error_code": 0,
+   "error_message": null,
+   "credit_count": 1,
+   "elapsed_ms": 260,
+   "ok": true,
+   "note": "depth probe"
+  },
+  {
+   "n": "4",
+   "file": "info-nvda-family.json",
+   "endpoint": "/v2/cryptocurrency/info",
+   "params": {
+    "id": "36992,28616,38093,38153,40215,40605,40685,37270,42461",
+    "aux": "platform"
+   },
+   "method": "GET",
+   "http": 200,
+   "error_code": 0,
+   "error_message": null,
+   "credit_count": 1,
+   "elapsed_ms": 268,
+   "ok": true
+  },
+  {
+   "n": "5",
+   "file": "holders-count-nvdab-bsc.json",
+   "endpoint": "/v1/dex/holders/count",
+   "params": {
+    "platform": "bsc",
+    "tokenAddress": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436"
+   },
+   "method": "GET",
+   "http": 200,
+   "error_code": 0,
+   "error_message": "",
+   "credit_count": 1,
+   "elapsed_ms": 425,
+   "ok": true
+  },
+  {
+   "n": "6",
+   "file": "quotes-latest-nvda-family.json",
+   "endpoint": "/v2/cryptocurrency/quotes/latest",
+   "params": {
+    "id": "36992,28616,38093,38153,40215,40605,40685,37270,42461"
+   },
+   "method": "GET",
+   "http": 200,
+   "error_code": 0,
+   "error_message": null,
+   "credit_count": 1,
+   "elapsed_ms": 764,
+   "ok": true
+  },
+  {
+   "n": "8a",
+   "file": "holders-list-try-8a.json",
+   "endpoint": "/v1/dex/holders/list",
+   "params": {},
+   "method": "POST",
+   "http": 400,
+   "error_code": 400,
+   "error_message": "Parameter error",
+   "credit_count": 0,
+   "elapsed_ms": 413,
+   "ok": false,
+   "note": "body={\"platform\":\"bsc\",\"tokenAddress\":\"0x02fca66c1d1afb4e2a7884261eb00f63598a7436\",\"limit\":20}"
+  },
+  {
+   "n": "8b",
+   "file": "holders-list-try-8b.json",
+   "endpoint": "/v1/dex/holders/list",
+   "params": {
+    "platform": "bsc",
+    "tokenAddress": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+    "limit": "20"
+   },
+   "method": "POST",
+   "http": 400,
+   "error_code": 4002,
+   "error_message": "Missing required parameter.",
+   "credit_count": 0,
+   "elapsed_ms": 729,
+   "ok": false,
+   "note": "query"
+  },
+  {
+   "n": "8c",
+   "file": "holders-list-try-8c.json",
+   "endpoint": "/v1/dex/holders/list",
+   "params": {
+    "platform": "bsc",
+    "tokenAddress": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+    "limit": "20"
+   },
+   "method": "GET",
+   "http": 405,
+   "error_code": 0,
+   "error_message": null,
+   "credit_count": null,
+   "elapsed_ms": 253,
+   "ok": false,
+   "note": "query"
+  },
+  {
+   "n": "8d",
+   "file": "holders-list-try-8d.json",
+   "endpoint": "/v1/dex/holders/list",
+   "params": {},
+   "method": "POST",
+   "http": 400,
+   "error_code": 400,
+   "error_message": "Parameter error",
+   "credit_count": 0,
+   "elapsed_ms": 431,
+   "ok": false,
+   "note": "body={\"network\":\"bsc\",\"address\":\"0x02fca66c1d1afb4e2a7884261eb00f63598a7436\",\"page\":1,\"pageSize\":20}"
+  },
+  {
+   "n": "E1",
+   "file": "plan-error-probe-blockchain-statistics.json",
+   "endpoint": "/v1/blockchain/statistics/latest",
+   "params": {
+    "id": "1"
+   },
+   "method": "GET",
+   "http": 403,
+   "error_code": 1006,
+   "error_message": "Your API Key subscription plan doesn't support this endpoint.",
+   "credit_count": 0,
+   "elapsed_ms": 721,
+   "ok": false,
+   "note": "plan probe"
+  },
+  {
+   "n": "E2",
+   "file": "plan-error-probe-bad-key.json",
+   "endpoint": "/v1/key/info",
+   "params": {},
+   "method": "GET",
+   "http": 401,
+   "error_code": 1001,
+   "error_message": "This API Key is invalid.",
+   "credit_count": 0,
+   "elapsed_ms": 237,
+   "ok": false,
+   "note": "invalid key probe"
+  }
+ ]
+}

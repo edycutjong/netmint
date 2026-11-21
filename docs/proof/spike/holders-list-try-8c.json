@@ -1,0 +1,21 @@
+{
+ "receipt": {
+  "endpoint": "/v1/dex/holders/list",
+  "method": "GET",
+  "params": {
+   "platform": "bsc",
+   "tokenAddress": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+   "limit": "20"
+  },
+  "http_status": 405,
+  "started_utc": "2026-11-21T01:05:34.938Z",
+  "elapsed_ms": 253
+ },
+ "body": {
+  "timestamp": 1795223135069,
+  "path": "/v1/dex/holders/list",
+  "status": 405,
+  "error": "Method Not Allowed",
+  "requestId": "e07d04ea-1075668"
+ }
+}

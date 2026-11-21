@@ -1,0 +1,67 @@
+{
+ "captured_utc": "2026-11-21T01:10:00Z",
+ "source": "https://coinmarketcap.com/api/pricing/ (read 2026-11-21; page footer \u00a9 2026, no version shown)",
+ "plans": {
+  "Basic": {
+   "price": "Free",
+   "monthly_credits": 15000,
+   "rpm": 50,
+   "quotes_historical_daily": "1 year",
+   "quotes_historical_intraday": "1 month"
+  },
+  "Builder": {
+   "price": "$29/mo",
+   "monthly_credits": 150000,
+   "rpm": 300,
+   "quotes_historical_daily": "3 years",
+   "quotes_historical_intraday": "1 month"
+  },
+  "Startup": {
+   "price": "$79/mo",
+   "monthly_credits": 450000,
+   "rpm": 600,
+   "quotes_historical_daily": "from 2010",
+   "quotes_historical_intraday": "1 month"
+  },
+  "Growth": {
+   "price": "$299/mo",
+   "monthly_credits": 2000000,
+   "rpm": 750,
+   "quotes_historical_daily": "from 2010",
+   "quotes_historical_intraday": "3 months"
+  },
+  "Professional": {
+   "price": "$699/mo",
+   "monthly_credits": 5000000,
+   "rpm": 1200,
+   "quotes_historical_daily": "from 2010",
+   "quotes_historical_intraday": "12 months"
+  },
+  "Enterprise": {
+   "price": "Custom",
+   "monthly_credits": "Custom",
+   "rpm": "1600+",
+   "quotes_historical_daily": "from 2010",
+   "quotes_historical_intraday": "from 2010"
+  }
+ },
+ "basic_faq_quote": "includes essential market data such as rankings, latest pricing, and listings",
+ "netmint_endpoints_on_basic": {
+  "1 /v5/real-world-assets/assets/list": "not determinable from the page (group listed, no per-plan marker)",
+  "2 /v5/real-world-assets/quotes/latest": "not determinable from the page",
+  "3 /v2/cryptocurrency/quotes/historical (daily)": "listed for Basic at 1 year depth (Historical row 'Quotes Historical Daily (1d-1y)')",
+  "4 /v2/cryptocurrency/info": "not determinable from the page (metadata listed, no per-plan marker)",
+  "5 /v1/dex/holders/count": "not determinable from the page",
+  "6 /v2/cryptocurrency/quotes/latest": "FAQ: Basic includes 'latest pricing'",
+  "7 /v1/key/info": "not listed on the pricing page"
+ },
+ "this_key_observed": {
+  "plan_credit_limit_monthly": 2000000,
+  "rate_limit_minute": 750,
+  "matches": "Growth row",
+  "oldest_quotes_historical_daily": "2013-04-29 (BTC, id=1; quotes-historical-oldest-probe.json)",
+  "source": "key-info.json"
+ },
+ "consequence": "If the event key reverts to Basic on 10 Dec, the pricing table says daily quotes/historical stays available with 1 year depth at 15,000 credits/month and 50 rpm, which covers NetMint's 2026-07-20+ window. The live-stored fallback remains for the case where the reverted key is refused anyway (classified 1006 plan error) or the credit cap is hit (1010).",
+ "unverified": "Per-endpoint inclusion on Basic can only be confirmed by calling with a Basic key; none is available to this project."
+}

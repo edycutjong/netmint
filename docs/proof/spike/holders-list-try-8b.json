@@ -1,0 +1,25 @@
+{
+ "receipt": {
+  "endpoint": "/v1/dex/holders/list",
+  "method": "POST",
+  "params": {
+   "platform": "bsc",
+   "tokenAddress": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+   "limit": "20"
+  },
+  "http_status": 400,
+  "started_utc": "2026-11-21T01:05:34.208Z",
+  "elapsed_ms": 729
+ },
+ "body": {
+  "status": {
+   "timestamp": "2026-11-21T01:05:34.814Z",
+   "error_code": "4002",
+   "error_message": "Missing required parameter.",
+   "elapsed": 0,
+   "credit_count": 0,
+   "category": "VALIDATION",
+   "error_detail": "'No request body' is required."
+  }
+ }
+}

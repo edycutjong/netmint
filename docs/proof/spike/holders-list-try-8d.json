@@ -1,0 +1,19 @@
+{
+ "receipt": {
+  "endpoint": "/v1/dex/holders/list",
+  "method": "POST",
+  "params": {},
+  "http_status": 400,
+  "started_utc": "2026-11-21T01:05:35.192Z",
+  "elapsed_ms": 431
+ },
+ "body": {
+  "status": {
+   "timestamp": "2026-11-21T01:05:35.500Z",
+   "error_code": "400",
+   "error_message": "Parameter error",
+   "elapsed": 174,
+   "credit_count": 0
+  }
+ }
+}

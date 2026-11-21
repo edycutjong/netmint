@@ -1,0 +1,121 @@
+{
+ "captured_utc": "2026-11-21T01:10:00Z",
+ "documented_source": "https://coinmarketcap.com/api/documentation/guides/errors-and-rate-limits (read 2026-11-21)",
+ "documented": [
+  [
+   401,
+   1001,
+   "API_KEY_INVALID",
+   "This API Key is invalid."
+  ],
+  [
+   401,
+   1002,
+   "API_KEY_MISSING",
+   "API key missing."
+  ],
+  [
+   402,
+   1003,
+   "API_KEY_PLAN_REQUIRES_PAYEMENT",
+   "Your API Key must be activated."
+  ],
+  [
+   402,
+   1004,
+   "API_KEY_PLAN_PAYMENT_EXPIRED",
+   "Your API Key's subscription plan has expired."
+  ],
+  [
+   403,
+   1005,
+   "API_KEY_REQUIRED",
+   "An API Key is required for this call."
+  ],
+  [
+   403,
+   1006,
+   "API_KEY_PLAN_NOT_AUTHORIZED",
+   "Your API Key subscription plan doesn't support this endpoint."
+  ],
+  [
+   403,
+   1007,
+   "API_KEY_DISABLED",
+   "This API Key has been disabled."
+  ],
+  [
+   429,
+   1008,
+   "API_KEY_PLAN_MINUTE_RATE_LIMIT_REACHED",
+   "You've exceeded your API Key's HTTP request rate limit."
+  ],
+  [
+   429,
+   1009,
+   "API_KEY_PLAN_DAILY_RATE_LIMIT_REACHED",
+   "You've exceeded your API Key's daily rate limit."
+  ],
+  [
+   429,
+   1010,
+   "API_KEY_PLAN_MONTHLY_RATE_LIMIT_REACHED",
+   "You've exceeded your API Key's monthly rate limit."
+  ],
+  [
+   429,
+   1011,
+   "IP_RATE_LIMIT_REACHED",
+   "You've hit an IP rate limit."
+  ]
+ ],
+ "observed_live": [
+  {
+   "http": 403,
+   "error_code": 1006,
+   "endpoint": "/v1/blockchain/statistics/latest",
+   "file": "plan-error-probe-blockchain-statistics.json"
+  },
+  {
+   "http": 401,
+   "error_code": 1001,
+   "endpoint": "/v1/key/info (invalid key)",
+   "file": "plan-error-probe-bad-key.json"
+  },
+  {
+   "http": 400,
+   "error_code": 4001,
+   "endpoint": "/v5/real-world-assets/assets/list limit=500",
+   "detail": "\"limit\" must be between 1 and 250",
+   "note": "validation family (4xxx) on v5 endpoints; error_code is a string there"
+  },
+  {
+   "http": 400,
+   "error_code": 4002,
+   "endpoint": "POST /v1/dex/holders/list without body",
+   "detail": "'No request body' is required."
+  }
+ ],
+ "classifier_recommendation": {
+  "revert_or_entitlement (\u2192 live-stored)": [
+   1003,
+   1004,
+   1006,
+   1007,
+   1010
+  ],
+  "transient (\u2192 failed run, retry; never a revert)": [
+   1008,
+   1009,
+   1011,
+   "HTTP 5xx",
+   "timeout"
+  ],
+  "config (\u2192 502 with verbatim error)": [
+   1001,
+   1002,
+   1005
+  ],
+  "note": "error_code arrives as a number on v1/v2 and as a string on v5; parse with Number()."
+ }
+}

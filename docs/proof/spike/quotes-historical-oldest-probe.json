@@ -1,0 +1,85 @@
+{
+ "receipt": {
+  "endpoint": "/v2/cryptocurrency/quotes/historical",
+  "method": "GET",
+  "params": {
+   "id": "1",
+   "interval": "daily",
+   "time_start": "2013-04-28",
+   "count": "3"
+  },
+  "http_status": 200,
+  "started_utc": "2026-11-21T01:05:32.072Z",
+  "elapsed_ms": 260
+ },
+ "body": {
+  "data": {
+   "id": 1,
+   "name": "Bitcoin",
+   "symbol": "BTC",
+   "is_active": 1,
+   "is_fiat": 0,
+   "quotes": [
+    {
+     "timestamp": "2013-04-29T00:00:00.000Z",
+     "quote": {
+      "USD": {
+       "price": 134.44444274902344,
+       "percent_change_1h": 0.707436241414,
+       "percent_change_24h": -0.632343151099,
+       "percent_change_7d": -0.632343151099,
+       "percent_change_30d": -0.632343151099,
+       "volume_24h": 0,
+       "market_cap": 1491167008.9733124,
+       "circulating_supply": 11091325,
+       "total_supply": 11091325,
+       "timestamp": "2013-04-29T00:00:00.000Z"
+      }
+     }
+    },
+    {
+     "timestamp": "2013-04-30T00:00:00.000Z",
+     "quote": {
+      "USD": {
+       "price": 143.99990844726562,
+       "percent_change_1h": 0.839569482891,
+       "percent_change_24h": 7.107371270139,
+       "percent_change_7d": 6.43008514359,
+       "percent_change_30d": 6.43008514359,
+       "volume_24h": 0,
+       "market_cap": 1597776184.160614,
+       "circulating_supply": 11095675,
+       "total_supply": 11095675,
+       "timestamp": "2013-04-30T00:00:00.000Z"
+      }
+     }
+    },
+    {
+     "timestamp": "2013-05-01T00:00:00.000Z",
+     "quote": {
+      "USD": {
+       "price": 139.0000457763672,
+       "percent_change_1h": -1.144614157183,
+       "percent_change_24h": -3.472129062311,
+       "percent_change_7d": 2.734695226277,
+       "percent_change_30d": 2.734695226277,
+       "volume_24h": 0,
+       "market_cap": 1542817108.0902102,
+       "circulating_supply": 11099400,
+       "total_supply": 11099400,
+       "timestamp": "2013-05-01T00:00:00.000Z"
+      }
+     }
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-21T01:05:32.214Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 8,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

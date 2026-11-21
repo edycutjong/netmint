@@ -1,0 +1,41 @@
+{
+ "receipt": {
+  "endpoint": "/v1/key/info",
+  "method": "GET",
+  "params": {},
+  "http_status": 200,
+  "started_utc": "2026-11-21T01:05:29.997Z",
+  "elapsed_ms": 319
+ },
+ "body": {
+  "data": {
+   "plan": {
+    "credit_limit_monthly": 2000000,
+    "credit_limit_monthly_reset": "In 2 days, 1 hours, 55 minutes",
+    "credit_limit_monthly_reset_timestamp": "2026-11-23T03:00:37.000Z",
+    "rate_limit_minute": 750
+   },
+   "usage": {
+    "current_minute": {
+     "requests_made": 47,
+     "requests_left": 703
+    },
+    "current_day": {
+     "credits_used": 66
+    },
+    "current_month": {
+     "credits_used": 12398,
+     "credits_left": 1987602
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-21T01:05:30.182Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 26,
+   "credit_count": 0,
+   "notice": null
+  }
+ }
+}
