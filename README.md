@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="docs/assets/icon.svg" alt="NetMint icon" width="144">
+  <img src="docs/assets/icon-animated.svg" alt="NetMint icon: a supply staircase put on trial, struck with the REAL INFLOW hallmark" width="144">
   <h1>NetMint ⚖️</h1>
   <p><em>For a holder of a tokenised stock, a supply jump on CoinMarketCap can be new tokens or a data change. NetMint turns CMC's daily supply history into dollars created or redeemed per wrapper and checks the jump on chain: NVDAB's supply went ×7.1 in 30 days while the price fell 41%, +$202.83M of net creation, confirmed on BNB Chain.</em></p>
   <img src="docs/assets/readme-hero-animated.svg" alt="NetMint puts tokenised-stock supply steps on trial against the chain. A pencilled supply jump meets the chain, lands within tolerance (the remedy), and the hallmark REAL INFLOW strikes beside +$202.83M." width="100%">
@@ -66,7 +66,9 @@ apart, tolerance ±10%). The 5 largest step days (3-day sums) all matched within
 
 ## 🏗️ Architecture & Tech Stack
 
-<p align="center"><img src="docs/assets/architecture.svg" alt="Architecture: browser calls /api/lookup on Vercel; lib/cmc reads CoinMarketCap, lib/chain reads Alchemy archive RPC, lib/flow computes the verdict" width="100%"></p>
+<p align="center"><a href="docs/architecture.html"><img src="docs/assets/architecture.png" alt="NetMint architecture: the browser calls /api/lookup; lookup() reads seven CoinMarketCap endpoints in lib/cmc (five per lookup, with a live-stored fallback to committed bodies on a plan refusal), reads on-chain totalSupply on BNB Smart Chain and Ethereum in lib/chain (committed baseline, live eth_call for missing days), and lib/flow runs the sanity guard, net creation, the mint check and fixed verdict code that stamps REAL INFLOW, OUTFLOW, RECOUNT, NOT VERIFIABLE or FLAT; the response carries every call as a receipt" width="100%"></a></p>
+
+<sub>Source: <a href="docs/architecture.html"><code>docs/architecture.html</code></a> (HTML + SVG, every box traced to <code>lib/</code>).</sub>
 
 | Layer | Choice |
 |---|---|
