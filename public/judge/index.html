@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NetMint · for judges: the 30-second path</title>
+<meta name="description" content="Judge NetMint in 30 seconds: one button opens the NVDAB 30-day lookup live, then five things to look at and how to verify each.">
+<meta name="theme-color" content="#0D0B09">
+<meta name="color-scheme" content="dark">
+<meta name="author" content="Edy Cu">
+<link rel="canonical" href="https://netmint.edycu.dev/judge">
+<meta property="og:type" content="website"><meta property="og:site_name" content="NetMint"><meta property="og:url" content="https://netmint.edycu.dev/judge">
+<meta property="og:title" content="NetMint · for judges">
+<meta property="og:description" content="Judge NetMint in 30 seconds: one button opens the NVDAB 30-day lookup live, then five things to look at and how to verify each.">
+<meta property="og:image" content="https://netmint.edycu.dev/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NetMint: NVDAB supply rose ×7.1 while the price fell 41% (22 Oct to 21 Nov 2026); the chain confirms the window and the five largest step days within remedy, struck REAL INFLOW beside +$202.83M net creation at market price.">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://netmint.edycu.dev/og-image.png">
+<link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-icon.png">
+<link rel="preload" href="/landing/fonts/marcellus-sc.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/landing/fonts/albert-sans.woff2" as="font" type="font/woff2" crossorigin>
+<style>/* NetMint presentation surfaces (/about, /pitch, /judge): the fire-assay chamber. Leaves keep the ledger tokens; the stage is soot. */
+:root {
+  --bg: #F3EFE4;
+  --card: #FBF8F1;
+  --ink: #1D1B16;
+  --muted: #6B6558;
+  --rule: #B4C2AE;
+  --before: #5E6166;
+  --after: #1F6B55;
+  --debit: #A3271B;
+  --soot: #0D0B09;
+  --ember: #E0782F;
+  --paper-ink: #F3EFE4;
+  --ash: #A79F90;
+  --after-lit: #7CC4A6;
+  --debit-lit: #E8796B;
+  --hair: rgba(243, 239, 228, .15);
+  --hair-2: rgba(243, 239, 228, .28);
+  --glow: rgba(224, 120, 47, .34);
+  --font-display: "Marcellus SC", "Marcellus SC Fallback", Georgia, serif;
+  --font-body: "Albert Sans", "Albert Sans Fallback", "Helvetica Neue", Arial, sans-serif;
+  --font-data: "Chivo Mono", "Chivo Mono Fallback", Menlo, monospace;
+}
+@font-face { font-family: "Marcellus SC"; src: url(/landing/fonts/marcellus-sc.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Albert Sans"; src: url(/landing/fonts/albert-sans.woff2) format("woff2"); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: "Chivo Mono"; src: url(/landing/fonts/chivo-mono.woff2) format("woff2"); font-weight: 400 500; font-display: swap; }
+@font-face { font-family: "Marcellus SC Fallback"; src: local("Georgia"); size-adjust: 90.5%; ascent-override: 107.7%; descent-override: 30.9%; line-gap-override: 0.0%; }
+@font-face { font-family: "Albert Sans Fallback"; src: local("Arial"); size-adjust: 98.7%; ascent-override: 96.3%; descent-override: 25.3%; line-gap-override: 0.0%; }
+@font-face { font-family: "Chivo Mono Fallback"; src: local("Courier New"); size-adjust: 100.0%; ascent-override: 94.0%; descent-override: 25.0%; line-gap-override: 0.0%; }
+
+*, *::before, *::after { box-sizing: border-box; }
+::selection { background: var(--paper-ink); color: var(--soot); }
+.nm-leaf ::selection, .paper ::selection { background: var(--ink); color: var(--card); }
+:focus-visible { outline: 2px solid var(--paper-ink); outline-offset: 3px; }
+.nm-leaf :focus-visible, .paper :focus-visible, .nm-slip:focus-visible { outline-color: var(--ink); }
+.nm-data { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+
+/* ---- hallmark stamp: clipped-corner cartouche, double keyline, Marcellus caps ---- */
+.nm-stamp {
+  --c: var(--after);
+  --fill: var(--card);
+  --cut: 9px;
+  position: relative; display: inline-grid; place-items: center;
+  padding: .32em .9em .3em; color: var(--c); font-family: var(--font-display); letter-spacing: .06em; line-height: 1;
+  white-space: nowrap; transform: rotate(-2deg);
+  clip-path: polygon(var(--cut) 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, var(--cut) 100%, 0 calc(100% - var(--cut)), 0 var(--cut));
+  background:
+    linear-gradient(var(--c), var(--c)) top / 100% 2px no-repeat, linear-gradient(var(--c), var(--c)) bottom / 100% 2px no-repeat,
+    linear-gradient(var(--c), var(--c)) left / 2px 100% no-repeat, linear-gradient(var(--c), var(--c)) right / 2px 100% no-repeat,
+    var(--fill);
+  text-shadow: 1px 1px 0 rgba(29, 27, 22, .12);
+}
+.nm-stamp::before {
+  content: ""; position: absolute; inset: 5px; pointer-events: none;
+  clip-path: polygon(calc(var(--cut) - 3px) 0, calc(100% - var(--cut) + 3px) 0, 100% calc(var(--cut) - 3px), 100% calc(100% - var(--cut) + 3px), calc(100% - var(--cut) + 3px) 100%, calc(var(--cut) - 3px) 100%, 0 calc(100% - var(--cut) + 3px), 0 calc(var(--cut) - 3px));
+  background:
+    linear-gradient(var(--c), var(--c)) top / 100% 1px no-repeat, linear-gradient(var(--c), var(--c)) bottom / 100% 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) left / 1px 100% no-repeat, linear-gradient(var(--c), var(--c)) right / 1px 100% no-repeat;
+}
+/* pencil ring = not verified (RECOUNT, NOT VERIFIABLE, no verdict): dashed graphite */
+.nm-stamp.is-pencil {
+  --c: var(--before);
+  background:
+    repeating-linear-gradient(90deg, var(--c) 0 6px, transparent 6px 10px) top / 100% 2px no-repeat,
+    repeating-linear-gradient(90deg, var(--c) 0 6px, transparent 6px 10px) bottom / 100% 2px no-repeat,
+    repeating-linear-gradient(180deg, var(--c) 0 6px, transparent 6px 10px) left / 2px 100% no-repeat,
+    repeating-linear-gradient(180deg, var(--c) 0 6px, transparent 6px 10px) right / 2px 100% no-repeat, var(--fill);
+  text-shadow: none;
+}
+.nm-stamp.is-pencil::before { display: none; }
+.nm-stamp.is-out { color: var(--debit); }       /* OUTFLOW: verdigris ring (verified), red-ink word (direction) */
+.nm-stamp.is-flat { --c: var(--muted); }
+/* the same stamp set straight on soot: lit verdigris, ash for the pencil ring */
+.nm-stamp.lit { --c: var(--after-lit); --fill: transparent; text-shadow: none; }
+.nm-stamp.lit.is-pencil { --c: var(--ash); }
+.nm-stamp.lit.is-out { color: var(--debit-lit); }
+@keyframes nm-strike {
+  0% { opacity: 0; transform: rotate(-2deg) scale(1.06); filter: drop-shadow(1px 1px 0 rgba(29, 27, 22, .4)); }
+  100% { opacity: 1; transform: rotate(-2deg) scale(1); filter: none; }
+}
+
+/* figures carry direction by ink */
+.nm-cr { color: var(--ink); }
+.nm-db { color: var(--debit); }
+.nm-struck { text-decoration: line-through 2px var(--before); color: var(--before); }
+
+/* ---- the assay leaf: a ledger leaf laid on the soot, lit from below by the cupel ---- */
+.nm-leaf {
+  position: relative; color: var(--ink);
+  background: linear-gradient(0deg, rgba(224, 120, 47, .10), rgba(224, 120, 47, 0) 34%), var(--card);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .55), 0 1px 0 rgba(255, 255, 255, .6) inset, 0 46px 90px -34px var(--glow);
+}
+.nm-leaf-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; border-bottom: 1px solid var(--rule); padding-bottom: 10px; flex-wrap: wrap; }
+.nm-leaf-head b { font-family: var(--font-display); font-weight: 400; letter-spacing: .05em; font-size: 1.08em; white-space: nowrap; }
+.nm-leaf-head span { color: var(--muted); }
+.nm-chart { position: relative; }
+.nm-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.nm-chart .ln { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.nm-chart .ln-price { stroke: var(--muted); stroke-width: 1.5; opacity: .75; }
+.nm-chart .ln-pencil { stroke: var(--before); stroke-width: 2; stroke-dasharray: 5 6; }
+.nm-chart .ln-chain { stroke: var(--ink); stroke-width: 2.8; }
+.nm-chart .ln-axis { stroke: var(--rule); stroke-width: 1; }
+.nm-chart .tick { stroke: var(--after); stroke-width: 1.2; stroke-dasharray: 2 3; }
+.nm-chart .punch { fill: var(--after); }
+.nm-lab { position: absolute; font-family: var(--font-body); font-size: 12.5px; line-height: 1.2; color: var(--muted); white-space: nowrap; pointer-events: none; }
+.nm-lab b { font-family: var(--font-data); font-weight: 500; color: var(--ink); }
+.nm-scale { font-size: 12.5px; color: var(--muted); margin: 6px 0 0; line-height: 1.5; }
+.nm-scale svg { vertical-align: middle; }
+.nm-proof { display: grid; grid-template-columns: auto 1fr auto; gap: 4px 16px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.nm-proof .k { font-family: var(--font-display); color: var(--muted); letter-spacing: .05em; font-size: .9em; }
+.nm-proof .v { font-family: var(--font-data); font-variant-numeric: tabular-nums; text-align: right; }
+.nm-money { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; border-top: 3px double var(--ink); margin-top: 10px; padding-top: 12px; }
+.nm-figure { font-family: var(--font-display); font-weight: 400; line-height: 1; letter-spacing: .01em; font-variant-numeric: lining-nums; margin: 0; white-space: nowrap; }
+.money-lab { font-size: 13px; color: var(--muted); line-height: 1.35; flex: 0 1 auto; min-width: 0; }
+.money-lab b { display: block; color: var(--ink); font-weight: 600; font-size: 14.5px; }
+.nm-verdict-line { font-family: var(--font-data); color: var(--after); font-size: 13px; line-height: 1.55; margin: 10px 0 0; min-height: 3.1em; }
+.nm-verdict-line .nw { white-space: nowrap; }
+
+/* ---- the print slip (re-set terminal output; the label sits on the object) ---- */
+.nm-slip {
+  position: relative; background: var(--card); color: var(--ink);
+  font-family: var(--font-data); font-size: 12.5px; line-height: 1.6; padding: 22px 20px 16px;
+  -webkit-mask: radial-gradient(circle 5px at 8px 0, transparent 98%, #000) -8px 0 / 16px 100% repeat-x;
+  mask: radial-gradient(circle 5px at 8px 0, transparent 98%, #000) -8px 0 / 16px 100% repeat-x;
+}
+.nm-slip .slip-label { font-family: var(--font-body); font-size: 12px; color: var(--muted); margin: 0 0 10px; border-bottom: 1px dashed var(--rule); padding-bottom: 8px; }
+.nm-slip pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: inherit; }
+.nm-slip .l { display: block; padding-left: 2ch; text-indent: -2ch; }
+.nm-slip .l.cmd { color: var(--muted); }
+.nm-slip .l.ok { color: var(--after); }
+.nm-slip .l.nv { color: var(--before); }
+.nm-slip .l.gap { color: var(--muted); }
+
+/* ---- drawn icons, uncontained ---- */
+.nm-ico { width: 34px; height: 34px; stroke: var(--paper-ink); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.nm-ico .acc { stroke: var(--ash); }
+
+/* ---- remedy gauge, on soot ---- */
+.gauge { position: relative; height: 54px; margin: 12px 0 0; border-bottom: 1px solid var(--hair-2); }
+.g-band { position: absolute; top: 10px; bottom: 0; background: repeating-linear-gradient(90deg, rgba(243, 239, 228, .16) 0 1px, transparent 1px 6px); border-left: 2px solid var(--paper-ink); border-right: 2px solid var(--paper-ink); }
+.g-zero { position: absolute; top: 4px; bottom: 0; border-left: 1px dashed var(--ash); }
+.g-m { position: absolute; bottom: 9px; width: 11px; height: 11px; margin-left: -5.5px; background: var(--after-lit); transform: rotate(45deg); }
+.g-w { position: absolute; top: 2px; bottom: 0; width: 3px; margin-left: -1.5px; background: var(--paper-ink); }
+.g-l { position: absolute; top: 100%; margin-top: 4px; transform: translateX(-50%); font: 12px var(--font-data); color: var(--ash); }
+.g-cap { font-size: 13px; color: var(--ash); margin: 26px 0 0; }
+.g-key { display: inline-block; width: 8px; height: 8px; vertical-align: 1px; margin-right: 3px; }
+.g-key.d { background: var(--after-lit); transform: rotate(45deg); }
+.g-key.w { width: 3px; height: 11px; background: var(--paper-ink); vertical-align: -1px; }
+
+/* ---- cross-check row (reading order: CMC | chain | Δ | tolerance | verdict) ---- */
+.xc { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr) minmax(0, .8fr) minmax(0, .8fr) minmax(0, 1.25fr); border-top: 1px solid var(--hair-2); border-bottom: 1px solid var(--hair-2); }
+.xc > div { padding: 12px 12px 12px 0; position: relative; min-width: 0; }
+.xc > div + div { padding-left: 12px; border-left: 1px solid var(--hair); }
+.xc .k { display: block; font: 600 10.5px/1.3 var(--font-body); letter-spacing: .1em; white-space: nowrap; text-transform: uppercase; color: var(--ash); }
+.xc .v { display: block; font: 400 16.5px/1.35 var(--font-data); color: var(--paper-ink); margin-top: 4px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.xc .v small { font-size: 12px; color: var(--ash); }
+.xc .vd { font-family: var(--font-display); letter-spacing: .05em; color: var(--after-lit); font-size: 17px; }
+.xc .vd::before { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--after-lit); transform: rotate(45deg); margin: 0 9px 2px 1px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ================= /judge: the 30-second path, same chamber ================= */
+html { background: var(--soot); overflow-x: clip; scrollbar-color: rgba(243, 239, 228, .28) var(--soot); }
+body { margin: 0; font: 400 16.5px/1.6 var(--font-body); color: var(--paper-ink); -webkit-text-size-adjust: 100%;
+  background: radial-gradient(46% 60% at 80% 18%, rgba(224, 120, 47, .2), rgba(224, 120, 47, .04) 60%, transparent 78%), var(--soot); background-repeat: no-repeat; }
+h1, h2 { font-family: var(--font-display); font-weight: 400; margin: 0; }
+p { margin: 0; }
+a { color: inherit; text-decoration-color: var(--hair-2); text-underline-offset: 3px; transition: color .16s ease, text-decoration-color .16s ease, background-color .16s ease, border-color .16s ease, box-shadow .16s ease; }
+a:hover { text-decoration-color: currentColor; }
+code { font-family: var(--font-data); font-size: .88em; background: rgba(243, 239, 228, .08); padding: .05em .32em; border-radius: 2px; overflow-wrap: anywhere; }
+.nm-leaf code { background: rgba(29, 27, 22, .07); }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+.skip { position: absolute; left: 12px; top: -60px; z-index: 80; background: var(--paper-ink); color: var(--soot); padding: 8px 14px; text-decoration: none; }
+.skip:focus { top: 10px; }
+
+.jm { border-bottom: 1px solid var(--hair); }
+.jm .wrap { display: flex; align-items: center; gap: 18px; height: 60px; }
+.mark { display: inline-flex; align-items: center; gap: 10px; font: 400 22px var(--font-display); letter-spacing: .04em; text-decoration: none; }
+.mark:hover span { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
+.tag { font: 400 12.5px/1 var(--font-display); letter-spacing: .14em; border: 1px solid var(--paper-ink); padding: 5px 8px 4px; }
+.jm nav { margin-left: auto; display: flex; gap: 20px; font-size: 14.5px; color: var(--ash); }
+.jm nav a { text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; }
+.jm nav a:hover { color: var(--paper-ink); border-bottom-color: var(--paper-ink); }
+
+.first { padding: 46px 0 50px; }
+.first-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 56px; align-items: start; }
+.eyebrow { font: 400 13px/1.4 var(--font-display); letter-spacing: .16em; color: var(--ash); }
+.intro h1 { font-size: clamp(32px, 3.7vw, 52px); line-height: 1.08; margin: 16px 0 20px; }
+.one { font-size: 18.5px; line-height: 1.6; color: var(--ash); max-width: 32em; }
+.go { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 4px 18px; margin-top: 30px; padding: 18px 22px; background: var(--paper-ink); color: var(--soot); text-decoration: none; max-width: 520px;
+  box-shadow: 0 30px 60px -30px var(--glow); transition: background-color .16s ease, box-shadow .16s ease, transform .16s ease; }
+.go-k { grid-row: span 2; font: 400 13px/1 var(--font-display); letter-spacing: .12em; border: 1.5px solid currentColor; padding: 7px 9px 6px; }
+.go-t { font: 600 19px/1.25 var(--font-body); }
+.go-t small { display: block; font: 400 12.5px/1.3 var(--font-body); color: var(--muted); margin-top: 3px; }
+.go-a { grid-row: span 2; grid-column: 3; font: 400 26px var(--font-body); transition: transform .16s ease; }
+.go:hover { background: var(--card); box-shadow: 0 0 0 4px rgba(243, 239, 228, .2), 0 30px 60px -26px var(--glow); }
+.go:hover .go-a { transform: translateX(4px); }
+.go:active { transform: translateY(1px); }
+.go:focus-visible { outline: 2px solid var(--paper-ink); outline-offset: 4px; }
+.go-note { font-size: 13.5px; color: var(--ash); margin-top: 12px; max-width: 40em; }
+
+.docket { padding: 22px 26px 12px; transform: rotate(-.5deg); }
+.docket h2 { font-size: 20px; letter-spacing: .06em; padding-bottom: 10px; border-bottom: 3px double var(--ink); }
+.order { list-style: none; margin: 0; padding: 0; }
+.order li { display: grid; grid-template-columns: 2em 1fr; gap: 8px; padding: 11px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.order li > div { display: grid; grid-template-columns: 8.4em minmax(0, 1fr); gap: 4px 12px; align-items: baseline; }
+.kbd { display: inline-block; font: 500 12.5px/1.5 var(--font-body); color: var(--ink); background: var(--card); border: 1px solid var(--ink); padding: 0 7px; white-space: nowrap; box-shadow: 0 1px 0 rgba(29, 27, 22, .25); }
+.order li:last-child { border-bottom: 0; }
+.order .no { font: 400 24px/1 var(--font-display); color: var(--muted); padding-top: 2px; }
+.order .t { display: flex; align-items: center; gap: 8px; font: 400 15px var(--font-display); letter-spacing: .08em; }
+.order .gl { width: 20px; height: 20px; flex: none; fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.order .gl .a { stroke: var(--muted); }
+.order p { font-size: 14.5px; line-height: 1.5; color: var(--muted); margin: 0; }
+.order p b { color: var(--ink); font-weight: 600; }
+.order a { color: var(--ink); text-decoration-color: var(--rule); }
+.order a:hover { text-decoration-color: var(--ink); }
+
+.more { padding: 54px 0 70px; border-top: 1px solid var(--hair); }
+.more-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 40px 56px; }
+.blk h2 { font-size: 24px; margin-bottom: 14px; }
+.note { font-size: 14px; color: var(--ash); margin-bottom: 10px; }
+.cmd { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 14px; align-items: center; padding: 12px 0; border-top: 1px solid var(--hair); }
+.cmd .ck { grid-column: 1 / -1; font-size: 12.5px; color: var(--ash); letter-spacing: .02em; }
+.cmd code { font-size: 13px; background: none; padding: 0; color: var(--paper-ink); }
+.cmd .res { font: 400 13px var(--font-data); color: var(--ash); white-space: nowrap; }
+.cmd a { text-decoration-color: var(--hair-2); }
+.cmd a:hover code { text-decoration: underline; }
+.copy { all: unset; cursor: pointer; font: 600 11.5px var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--paper-ink); border: 1px dashed var(--hair-2); padding: 6px 10px; transition: border-color .16s ease, background-color .16s ease; }
+.copy:hover { border-color: var(--paper-ink); background: rgba(243, 239, 228, .07); }
+.copy:focus-visible { outline: 2px solid var(--paper-ink); outline-offset: 3px; }
+.ep { margin: 0; padding: 0; list-style: none; counter-reset: ep; }
+.ep li { display: grid; grid-template-columns: 1.6em 1fr; gap: 0 8px; padding: 7px 0; border-top: 1px solid var(--hair); counter-increment: ep; }
+.ep li::before { content: counter(ep); grid-row: span 2; font: 400 15px var(--font-display); color: var(--ash); }
+.ep code { background: none; padding: 0; font-size: 12.5px; color: var(--paper-ink); }
+.ep span { font-size: 13px; color: var(--ash); }
+.limits ul { margin: 0; padding: 0; list-style: none; }
+.limits li { padding: 10px 0; border-top: 1px solid var(--hair); font-size: 15px; color: var(--ash); }
+.limits b { color: var(--paper-ink); font-weight: 600; }
+.links ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+.links a { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 9px 16px; border: 1px solid var(--hair-2); text-decoration: none; font-weight: 500; font-size: 15px; }
+.links a:hover { border-color: var(--paper-ink); background: rgba(243, 239, 228, .07); }
+.links a:focus-visible { outline: 2px solid var(--paper-ink); outline-offset: 3px; }
+.links svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+.jf { border-top: 1px solid var(--hair); padding: 22px 0 34px; font-size: 13px; color: var(--ash); }
+.jf .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; }
+.jf .nm-data { font-size: 12px; }
+
+@media (max-width: 980px) {
+  .first-grid, .more-grid { grid-template-columns: 1fr; gap: 30px; }
+  .docket { transform: none; }
+}
+@media (max-width: 640px) {
+  .wrap { padding: 0 18px; }
+  .jm nav { display: none; }
+  .first { padding: 26px 0 36px; }
+  .intro h1 { font-size: 31px; margin: 12px 0 14px; }
+  .one { font-size: 16.5px; }
+  .go { margin-top: 20px; padding: 15px 16px; gap: 4px 12px; }
+  .go-t { font-size: 17px; }
+  .docket { padding: 16px 16px 6px; }
+  .order li > div { grid-template-columns: 1fr; }
+  .cmd { grid-template-columns: 1fr; }
+  .cmd .res { white-space: normal; }
+}
+@media print {
+  body { background: var(--card); color: var(--ink); }
+  .go, .copy { box-shadow: none; }
+  .one, .go-note, .note, .limits li, .ep span, .cmd .ck, .cmd .res, .eyebrow, .jf { color: var(--muted); }
+  .cmd code, .ep code, .limits b { color: var(--ink); }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="jm"><div class="wrap">
+  <a class="mark" href="/about" aria-label="NetMint, about"><img src="/icon.svg" alt="" width="26" height="26"><span>NetMint</span></a>
+  <span class="tag">For judges</span>
+  <nav aria-label="Other pages"><a href="/about">Landing</a><a href="/pitch">Pitch deck</a><a href="https://github.com/edycutjong/netmint">Source</a></nav>
+</div></header>
+<main id="main">
+<section class="first"><div class="wrap first-grid">
+  <div class="intro">
+    <p class="eyebrow">The 30-second path · no login, no wallet</p>
+    <h1>One click. One verdict. The two rows that prove it.</h1>
+    <p class="one">NetMint turns CoinMarketCap’s daily supply history for tokenised stocks into net creation per wrapper, at market price, and puts each wrapper’s window and its largest step days on trial against the chain before it stamps a verdict.</p>
+    <a class="go" href="/u/NVDA?from=2026-10-22&to=2026-11-21" id="go" target="_blank" rel="noopener"><span class="go-k">Run it live</span><span class="go-t">Open the NVDAB 30-day lookup <small>opens in a new tab</small></span><span class="go-a" aria-hidden="true">↗</span></a>
+    <p class="go-note">Opens <code>/u/NVDA?from=2026-10-22&amp;to=2026-11-21</code> in the app. The page calls <code>/api/lookup</code> on load (cold: 5 CMC calls, 7 credits; median about 2.0 s over all 20 bench runs (21 Nov, one machine); a repeat within 60 s is labelled cached). The holder panel makes its own <code>/api/holders</code> request.</p>
+  </div>
+  <div class="nm-leaf docket" aria-labelledby="look">
+    <h2 id="look">What to look at, in order</h2>
+    <ol class="order"><li><span class="no">1</span><div><b class="t"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 8h22l2 2v8l-2 2H5l-2-2v-8z"/><path class="a" d="M8 14h16"/></svg>The verdict</b><p>NVDAB is struck <b>REAL INFLOW</b>: <b>+$202.8M</b> net creation at market price.</p></div></li><li><span class="no">2</span><div><b class="t"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 10h26M3 18h26"/><path class="a" d="M21 7v6M21 15v6"/></svg>Proof 1</b><p><span class="kbd">proof + detail</span> on NVDAB: CMC <b>+406,140</b> vs chain <b>+393,976</b>, <b>−3.0%</b>, within remedy (±10%).</p></div></li><li><span class="no">3</span><div><b class="t"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><path d="M8 3h16v26l-3-2-2.5 2-2.5-2-2.5 2-2.5-2-3 2z"/><path class="a" d="M12 10h8M12 15h8"/></svg>Receipts</b><p><span class="kbd">Receipts (5)</span>: each CMC body, verbatim, with its curl line.</p></div></li><li><span class="no">4</span><div><b class="t"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 16a5 5 0 0 1 5-5h4M26 16a5 5 0 0 1-5 5h-4"/><path class="a" d="M14 6l4 20"/></svg>The contrast</b><p>NVDAX: <b>NOT VERIFIABLE</b>, 86% of its supply sits off BNB Chain + Ethereum; its dollars read “CMC Δ”, unproven.</p></div></li><li><span class="no">5</span><div><b class="t"><svg class="gl" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="4" width="22" height="24"/><path class="a" d="M9 10h14M9 15h14M9 20h9"/></svg>The book</b><p><a href="/flows">/flows</a>: a stored capture (21 Nov, 02:53 UTC) of the same trial on the top 20 stocks: 152 wrappers, 9 struck, 107 NOT VERIFIABLE.</p></div></li></ol>
+  </div>
+</div></section>
+
+<section class="more"><div class="wrap more-grid">
+  <div class="blk verify">
+    <h2>Verify it yourself</h2>
+    <div class="cmd"><span class="ck">The same call, from a terminal</span><code>curl -s &quot;https://netmint.edycu.dev/api/lookup?u=NVDA&amp;from=2026-10-22&amp;to=2026-11-21&quot;</code><button class="copy" type="button" data-copy="curl -s &quot;https://netmint.edycu.dev/api/lookup?u=NVDA&amp;from=2026-10-22&amp;to=2026-11-21&quot;">copy</button></div>
+    <div class="cmd"><span class="ck">Re-derive /flows from the stored bodies</span><code>npm run verify:flows</code><span class="res">304 rows, 0 diffs</span></div>
+    <div class="cmd"><span class="ck">The test suite</span><code>npm test</code><span class="res">201 passing</span></div>
+    <div class="cmd"><span class="ck">One sampled mint (640 units), on BscScan</span><a href="https://bscscan.com/tx/0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c"><code>0xa239f888…15266c</code></a><span class="res">block 133,127,844</span></div>
+  </div>
+  <div class="blk eps">
+    <h2>The 7 CMC endpoints</h2>
+    <p class="note">Five on every lookup; the holder count serves the holder panel on <code>/u/&lt;ticker&gt;</code>, the key info serves <code>/api/health</code>.</p>
+    <ol class="ep"><li><code>GET /v5/real-world-assets/assets/list</code><span>the universe: underlyings → rwa_id</span></li><li><code>GET /v5/real-world-assets/quotes/latest</code><span>every wrapper of one stock: crypto id, issuer, price</span></li><li><code>GET /v2/cryptocurrency/quotes/historical</code><span>the daily supply, price and volume series: the engine</span></li><li><code>GET /v2/cryptocurrency/info</code><span>contract addresses per chain, for the mint check</span></li><li><code>GET /v2/cryptocurrency/quotes/latest</code><span>today’s point (shown apart, never in the window) + volume</span></li><li><code>GET /v1/dex/holders/count</code><span>holder count per chain (holder panel)</span></li><li><code>GET /v1/key/info</code><span>plan and credits for /api/health</span></li></ol>
+  </div>
+  <div class="blk limits">
+    <h2>Honest limits</h2>
+    <ul>
+      <li><b>After 9 Dec 23:59 UTC</b> the event key is expected to revert to CMC’s free Basic tier. A click still calls CMC live; if CMC refuses a call on plan, a stored dated body answers it: the result line says <code>live-stored</code>, and the receipt shows the stored body with its capture date. Tested with a simulated plan refusal only; it has not yet run against a real Basic key.</li>
+      <li><b>Unread chains.</b> NetMint reads BNB Chain and Ethereum. Supply on other chains (Solana, Arbitrum, Base, Robinhood Chain, X Layer and more) stays NOT VERIFIABLE.</li>
+      <li><b>Dollars</b> are net creation at market price, not money that changed hands.</li>
+    </ul>
+  </div>
+  <div class="blk links">
+    <h2>Everything else</h2>
+    <ul><li><a href="https://github.com/edycutjong/netmint"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M6 5L2 9l4 4M12 5l4 4-4 4"/></svg>Repository</a></li><li><a href="/pitch">Pitch deck</a></li><li><a href="/about">Landing page</a></li><li><a href="/">The app’s front page</a></li></ul>
+  </div>
+</div></section>
+</main>
+<footer class="jf"><div class="wrap"><span>NetMint · not investment advice</span><span class="nm-data">built from evidence at commit 4beb7b8 · v1.1.0</span></div></footer>
+<script>document.querySelectorAll('.copy').forEach(function (b) { b.addEventListener('click', function () { var t = b.textContent; (navigator.clipboard ? navigator.clipboard.writeText(b.dataset.copy) : Promise.reject()).catch(function () {}); b.textContent = 'copied'; setTimeout(function () { b.textContent = t; }, 1400); }); });</script>
+</body>
+</html>

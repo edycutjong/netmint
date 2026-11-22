@@ -14,12 +14,13 @@ const nextConfig: NextConfig = {
     '/api/health': ['./evidence/**/*.json', './data/chain-supply/manifest.json'],
     '/flows': ['./evidence/*/flows-*d.json'],
   },
-  // the landing (/about) and the pitch deck (/pitch) are static single files in public/, generated from the committed evidence
+  // the landing (/about), the pitch deck (/pitch) and the judges' path (/judge) are static single files in public/, generated from the committed evidence
   async rewrites() {
     return {
       beforeFiles: [
         { source: '/about', destination: '/landing/index.html' },
         { source: '/pitch', destination: '/pitch/index.html' },
+        { source: '/judge', destination: '/judge/index.html' },
       ],
       afterFiles: [],
       fallback: [],
