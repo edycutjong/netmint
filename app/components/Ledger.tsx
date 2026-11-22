@@ -88,7 +88,7 @@ export function Ledger({ res, strikeKey }: { res: LookupResult; strikeKey: numbe
                     {m ? (proven ? usd(m.grossOut) : '—') : ''}
                   </td>
                   <td className="num">{m ? times(m.unitsX) : ''}</td>
-                  <td className={`num ${m && m.pricePct < 0 ? 'debit' : ''}`}>{m ? pct(m.pricePct) : ''}</td>
+                  <td className="num">{m ? pct(m.pricePct) : ''}</td>
                   <td className="num hide-sm">{w.mint?.coverageA != null ? `${(w.mint.coverageA * 100).toFixed(1)}%` : '—'}</td>
                   <td className="num hide-sm">{w.exitRatio != null ? `${(w.exitRatio * 100).toFixed(1)}%` : '—'}</td>
                 </tr>
@@ -145,7 +145,7 @@ function Detail({ w }: { w: WrapperResult }) {
                   <td className="num">{s.date}</td>
                   <td className="num">{units(s.cmc3d)}</td>
                   <td className="num">{s.chain3d === null ? 'n/a' : units(s.chain3d)}</td>
-                  <td className={s.ok ? '' : 'debit'}>{s.ok ? 'within remedy' : 'outside remedy'}</td>
+                  <td className={s.ok ? '' : 'muted'}>{s.ok ? 'within remedy' : 'outside remedy'}</td>
                 </tr>
               ))}
             </tbody>
