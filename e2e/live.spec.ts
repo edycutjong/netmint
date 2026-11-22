@@ -55,6 +55,32 @@ test('/api/lookup: live NVDA flow answers with per-wrapper verdicts, endpoints a
   expect(JSON.stringify(j)).not.toMatch(/X-CMC_PRO_API_KEY:\s*[0-9a-f]{8}-/i); // receipts carry the header name with a $CMC_API_KEY placeholder, never a value
 });
 
+test('/api/lookup: an uncached lookup reaches CMC live (a successful, non-stored CMC receipt)', async ({ request }, info) => {
+  test.skip(info.project.name !== 'desktop', 'one upstream provenance gate per run (7 CMC credits)');
+  test.setTimeout(240_000);
+  type GateReceipt = { kind: string; stored?: unknown; httpStatus: number; errorCode?: number; endpoint: string };
+  type GateResult = { cacheHit: boolean; mode: string; receipts: GateReceipt[] };
+  let fresh: GateResult | undefined;
+  // window=7 is not used by the other specs, so the 60 s de-dupe rarely answers it; poll past it if it does
+  await expect
+    .poll(
+      async () => {
+        const res = await request.get('/api/lookup?u=NVDA&window=7', { timeout: 60_000 });
+        expect(res.status()).toBe(200);
+        const body = (await res.json()) as GateResult;
+        if (body.cacheHit !== false) return false;
+        fresh = body;
+        return true;
+      },
+      { timeout: 180_000, intervals: [5_000, 20_000, 30_000] },
+    )
+    .toBe(true);
+  // after the plan revert quotes/historical may be refused and answered from a stored body (live-stored); that is allowed,
+  // but at least one CMC call in this response must have succeeded live: a refusal plus its stored answer is not enough
+  const live = fresh!.receipts.filter((r) => r.kind === 'cmc' && !r.stored && r.httpStatus === 200 && (r.errorCode ?? 0) === 0);
+  expect(live.length, `successful live CMC receipt (mode ${fresh!.mode})`).toBeGreaterThan(0);
+});
+
 test('/api/lookup: an unknown ticker is refused, not invented', async ({ request }) => {
   const res = await request.get('/api/lookup?u=NOTATICKER99&window=30');
   expect(res.status()).toBeGreaterThanOrEqual(400);
@@ -75,9 +101,10 @@ test('per-underlying page renders verdict stamps from a live lookup', async ({ p
 });
 
 test('performance gate: first paint and transfer budget on the landing page', async ({ page }) => {
-  const sizes: number[] = [];
-  page.on('response', async (r) => {
-    if (r.request().resourceType() === 'script') sizes.push((await r.body().catch(() => Buffer.alloc(0))).length);
+  // every script body read is tracked and awaited before the sum; a failed read fails the gate instead of counting as 0
+  const reads: Promise<number>[] = [];
+  page.on('response', (r) => {
+    if (r.request().resourceType() === 'script') reads.push(r.body().then((b) => b.length));
   });
   const t0 = Date.now();
   await page.goto('/', { waitUntil: 'load' });
@@ -89,6 +116,8 @@ test('performance gate: first paint and transfer budget on the landing page', as
       ),
   );
   expect(fcp, 'first paint under 2.5 s').toBeLessThan(2500);
+  const sizes = await Promise.all(reads);
+  expect(sizes.length, 'scripts observed').toBeGreaterThan(0);
   expect(
     sizes.reduce((a, b) => a + b, 0),
     'JS under 600 KB (decoded)',
