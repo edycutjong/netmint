@@ -41,6 +41,8 @@ export function Ledger({ res, strikeKey }: { res: LookupResult; strikeKey: numbe
           {res.wrappers.map((w, i) => {
             const m = w.metrics;
             const isOpen = open === w.cryptoId;
+            // only a chain-confirmed move is net creation; otherwise the figure is CMC's supply change × price, shown as unproven (as on /flows)
+            const proven = w.verdict === 'REAL_INFLOW' || w.verdict === 'OUTFLOW';
             return (
               <Fragment key={w.cryptoId}>
                 <tr className={w.derivative ? 'derivative' : undefined}>
@@ -61,9 +63,19 @@ export function Ledger({ res, strikeKey }: { res: LookupResult; strikeKey: numbe
                     ) : null}
                   </td>
                   <td className="hide-sm">{w.chains.join(', ') || '—'}</td>
-                  <td className={`num money ${m && m.net < 0 ? 'debit' : ''}`}>{m ? usd(m.net) : ''}</td>
-                  <td className="num hide-sm">{m ? usd(m.grossIn) : ''}</td>
-                  <td className="num hide-sm debit">{m ? usd(m.grossOut) : ''}</td>
+                  {m && !proven ? (
+                    <td
+                      className="num money muted"
+                      title="CMC supply change × price; the chain does not confirm it, so it is not net creation"
+                    >
+                      CMC Δ {usd(m.net)}
+                      <div className="unproven">{w.verdict === 'FLAT' ? 'under threshold' : 'unproven'}</div>
+                    </td>
+                  ) : (
+                    <td className={`num money ${m && m.net < 0 ? 'debit' : ''}`}>{m ? usd(m.net) : ''}</td>
+                  )}
+                  <td className={`num hide-sm ${proven ? '' : 'muted'}`}>{m ? usd(m.grossIn) : ''}</td>
+                  <td className={`num hide-sm ${proven ? 'debit' : 'muted'}`}>{m ? usd(m.grossOut) : ''}</td>
                   <td className="num">{m ? times(m.unitsX) : ''}</td>
                   <td className={`num ${m && m.pricePct < 0 ? 'debit' : ''}`}>{m ? pct(m.pricePct) : ''}</td>
                   <td className="num hide-sm">{w.mint?.coverageA != null ? `${(w.mint.coverageA * 100).toFixed(1)}%` : '—'}</td>

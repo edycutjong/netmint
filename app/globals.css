@@ -94,6 +94,7 @@ a:hover { text-decoration-color: var(--after); color: var(--after); }
 .ledger td.num { font-family: var(--font-data); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .ledger td.money { border-left: 3px double var(--rule); }
 .ledger tr.derivative td { color: var(--muted); }
+.ledger td.money .unproven { font-size: 12px; font-family: var(--font-body); }
 .ledger .reason { font-size: 13px; color: var(--muted); margin-top: 4px; max-width: 520px; }
 .ledger .stamp svg { height: 26px; }
 .ledger button.expand { font: inherit; font-size: 13px; background: none; border: 0; padding: 4px 0; color: var(--muted); cursor: pointer; text-decoration: underline; text-decoration-color: var(--rule); }
