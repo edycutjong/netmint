@@ -5,7 +5,7 @@ Each file is the `/api/lookup` response body the browser received during a take,
 
 | File | Take | Request | CMC calls · credits · ms | fetchedUtc |
 |---|---|---|---|---|
-| `seg05-NVDA-1.json` | "Run it live" on the hero, then the receipt drawer | `/api/lookup?u=NVDA&from=2026-10-22&to=2026-11-21` | 5 · 7 · 184 | 2026-11-22T00:56:05Z |
+| `seg05-NVDA-1.json` | "Run it live" on the hero, then the receipt drawer | `/api/lookup?u=NVDA&from=2026-10-22&to=2026-11-21` | 5 · 7 · 239 | 2026-11-22T01:12:10Z |
 | `seg07-NVDA-1.json` | `/u/NVDA` pinned window (NVDAX NOT VERIFIABLE) | same query | 5 · 7 · 204 | 2026-11-22T01:04:45Z |
 | `seg08-GOOGL-1.json` | `/u/GOOGL` pinned window (GOOGon REAL INFLOW, GOOGLB RECOUNT) | `/api/lookup?u=GOOGL&from=2026-10-22&to=2026-11-21` | 5 · 7 · 272 | 2026-11-22T01:04:19Z |
 
@@ -22,7 +22,7 @@ The app formats raw values (`lib/format.ts`: one decimal for $M, Unicode minus).
 | NVDAX "CMC Δ +$104.1M unproven" · coverage 14.5% · NOT VERIFIABLE | net 104095763.06 · coverageA 0.14476 | `seg07-NVDA-1.json` (wrapper NVDAX) |
 | GOOGon REAL INFLOW +$6.0M · coverage 100.0% · chain vs CMC −0.5% | net 6034628.55 · coverageA 0.99950 · reason "chain +20,867 · CMC +20,967 · −0.5%" | `seg08-GOOGL-1.json` (wrapper GOOGon) |
 | GOOGLB RECOUNT "CMC Δ +$62.3M unproven" · "2 of 5 step days outside" | net 62287838.29 · reason string | `seg08-GOOGL-1.json` (wrapper GOOGLB) |
-| "live capture 2026-11-22 00:56 UTC · 7 credits charged · 184 ms" | fetchedUtc 2026-11-22T00:56:05.096Z · credits 7 · elapsedMs 184 | `seg05-NVDA-1.json` |
+| "live capture 2026-11-22 01:12 UTC · 7 credits charged · 239 ms" (callout "LIVE CALL · 5 CMC calls · 7 credits · 2026-11-22 01:12 UTC") | fetchedUtc 2026-11-22T01:12:10.383Z · credits 7 · elapsedMs 239 | `seg05-NVDA-1.json` |
 | Receipts: "5 CMC calls · 7 credits charged · 5 live chain reads"; quotes/historical "HTTP 200 · credit_count 3" | liveCmcCalls (5) · receipts r1–r10 | `seg05-NVDA-1.json` |
 | /flows "20 underlyings, 152 wrappers · 129 CMC credits · 9 chain-verified moves"; 6 × "price down, units created" | 20 · 152 rows · credits 129 · 6 REAL_INFLOW + 3 OUTFLOW · 6 `price_down_money_in` | `evidence/2026-11-21/flows-30d.json` |
 | Proof 1 +406,140 · Proof 2 +393,976 · 1-day step −3.0% · window chain +1,216,792 / CMC +1,209,739 · +0.6% | cmcStep 406140.41 · chainStep 393976.37 · errPct −0.02995 | `evidence/2026-11-21/nvda-30d/table.json` (NVDAB `proof`, `mint`) |
