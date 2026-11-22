@@ -1,6 +1,6 @@
 {
   "name": "netmint",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": true,
   "description": "NetMint: net creation and redemption behind every tokenised stock, from CoinMarketCap supply history, checked against the chain.",
   "license": "MIT",
