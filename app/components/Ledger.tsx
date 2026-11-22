@@ -74,8 +74,13 @@ export function Ledger({ res, strikeKey }: { res: LookupResult; strikeKey: numbe
                   ) : (
                     <td className={`num money ${m && m.net < 0 ? 'debit' : ''}`}>{m ? usd(m.net) : ''}</td>
                   )}
-                  <td className={`num hide-sm ${proven ? '' : 'muted'}`}>{m ? usd(m.grossIn) : ''}</td>
-                  <td className={`num hide-sm ${proven ? 'debit' : 'muted'}`}>{m ? usd(m.grossOut) : ''}</td>
+                  {/* gross creation/redemption is only shown when the chain confirms the moves; otherwise it would read as inflow */}
+                  <td className={`num hide-sm ${proven ? '' : 'muted'}`} title={proven ? undefined : 'not shown: the chain does not confirm this wrapper\'s moves'}>
+                    {m ? (proven ? usd(m.grossIn) : '—') : ''}
+                  </td>
+                  <td className={`num hide-sm ${proven ? 'debit' : 'muted'}`} title={proven ? undefined : 'not shown: the chain does not confirm this wrapper\'s moves'}>
+                    {m ? (proven ? usd(m.grossOut) : '—') : ''}
+                  </td>
                   <td className="num">{m ? times(m.unitsX) : ''}</td>
                   <td className={`num ${m && m.pricePct < 0 ? 'debit' : ''}`}>{m ? pct(m.pricePct) : ''}</td>
                   <td className="num hide-sm">{w.mint?.coverageA != null ? `${(w.mint.coverageA * 100).toFixed(1)}%` : '—'}</td>
