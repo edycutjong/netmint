@@ -2,11 +2,12 @@
   <img src="docs/assets/icon-animated.svg" alt="NetMint icon: a supply staircase put on trial, struck with the REAL INFLOW hallmark" width="144">
   <h1>NetMint ⚖️</h1>
   <p><em>For a holder of a tokenised stock, a supply jump on CoinMarketCap can be new tokens or a data change. NetMint turns CMC's daily supply history into dollars created or redeemed per wrapper and checks the jump on chain: NVDAB's supply went ×7.1 in 30 days while the price fell 41%, +$202.83M of net creation, confirmed on BNB Chain.</em></p>
-  <img src="docs/assets/readme-hero-animated.svg" alt="NetMint puts tokenised-stock supply steps on trial against the chain. A pencilled supply jump meets the chain, lands within tolerance (the remedy), and the hallmark REAL INFLOW strikes beside +$202.83M." width="100%">
+  <img src="docs/assets/readme-hero-animated.svg" alt="NetMint puts each tokenised stock's window and largest step days on trial against the chain. A pencilled supply jump meets the chain, lands within tolerance (the remedy), and the hallmark REAL INFLOW strikes beside +$202.83M." width="100%">
 
   <br/>
 
   [![Live Demo](https://img.shields.io/badge/🚀_Live-Demo-06b6d4?style=for-the-badge)](https://netmint.edycu.dev)
+  [![For judges: the 30-second path](https://img.shields.io/badge/⚖️_For_judges-30--second_path-1F6B55?style=for-the-badge)](https://netmint.edycu.dev/judge)
   [![Built for CoinMarketCap API Hackathon](https://img.shields.io/badge/DoraHacks-CMC_API_Hackathon-8b5cf6?style=for-the-badge)](https://dorahacks.io/hackathon/coinmarketcap-api-202611/detail)
 
   <br/>
@@ -179,8 +180,8 @@ Read-only on-chain calls, no wallet and no transactions from us. Proof the chain
 | Tests | 201 passing, 8 files (`npm test`) |
 | Offline check | `npm run verify:offline` runs the demo with the network blocked and passes only if it fails on a transport error and prints no verdict; a control run with the network allowed must reach CMC (HTTP 401 for the dummy key), so it cannot pass for the wrong reason |
 | Stored-evidence replay | `npm run verify:flows`: 304 leaderboard rows re-derived from the stored bodies, 0 diffs |
-| Latency (measured 2026-11-21 at commit 848c00e; later `lib/` commits change only verdict reason strings in `lib/flow/`) | One live lookup, NVDA 30 d, n=20: p50 2.0 s, p95 2.6 s (nearest-rank; credits per call 7 or 0, see the note in bench.json). A top-20 leaderboard refresh (20 live lookups, 7 d, sequential): 38.4 s wall, per-lookup p50 1950 ms, p95 2537 ms (n=20, so p95 is the 2nd-largest of 20), 85 credits. Deployed `/api/lookup` (cached repeat, n=20) p50 500 ms, p95 782 ms; `/flows` p50 306 ms, p95 515 ms. One machine, home broadband, not a load test; raw samples in [`docs/proof/bench.json`](docs/proof/bench.json) (`npm run bench`) |
-| E2E | 7 Playwright specs x 2 viewports against the live URL (`npm run e2e`), including the judged click: Run it live, verdict, receipts drawer |
+| Latency (measured 2026-11-21 at commit 848c00e; later `lib/` commits change only verdict reason strings in `lib/flow/`) | One live lookup, NVDA 30 d, n=20: p50 2.0 s, p95 2.6 s (nearest-rank; credits per call 0 to 7 (7 on the first, uncached run; see the note in bench.json)). A top-20 leaderboard refresh (20 live lookups, 7 d, sequential): 38.4 s wall, per-lookup p50 1950 ms, p95 2537 ms (n=20, so p95 is the 2nd-largest of 20), 85 credits. Deployed `/api/lookup` (cached repeat, n=20) p50 500 ms, p95 782 ms; `/flows` p50 306 ms, p95 515 ms. One machine, home broadband, not a load test; raw samples in [`docs/proof/bench.json`](docs/proof/bench.json) (`npm run bench`) |
+| E2E | 10 Playwright tests in 2 specs, each on 2 viewports (one, the uncached-CMC provenance gate, on desktop only) against the live URL (`npm run e2e`), including the judged click: Run it live, verdict, receipts drawer; and the `/judge` path to a live REAL INFLOW verdict |
 | Coverage | v8 line coverage over `lib/` 86.6% (floor 80, enforced by `npm run test:coverage`) |
 | Dependencies | `npm audit`: 0 vulnerabilities (a `postcss` override lifts the copy bundled in Next 15.5) |
 | Secrets | gitleaks clean on full history at HEAD (`gitleaks detect --log-opts=--all`, 2026-11-21) |
