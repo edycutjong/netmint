@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NetMint architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Chivo+Mono:wght@400;500;600&family=Marcellus+SC&display=swap" rel="stylesheet">
+<meta name="description" content="How NetMint turns CoinMarketCap supply history into a chain-verified verdict: every box traced to the code in lib/.">
+<style>
+:root { --bg: #F3EFE4; --ink: #1D1B16; --muted: #6B6558; --rule: #B4C2AE; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg); color: var(--ink); }
+body { font-family: 'Albert Sans', 'Helvetica Neue', Arial, sans-serif; padding: 24px 16px 40px; }
+.frame { max-width: 1280px; margin: 0 auto; }
+.diagram-container { width: 100%; overflow-x: auto; }
+svg { width: 100%; min-width: 1280px; display: block; }
+.note { max-width: 1136px; margin: 16px auto 0; font-size: 13px; line-height: 1.55; color: var(--muted); }
+.note a { color: var(--ink); }
+.note code { font-family: 'Chivo Mono', Menlo, monospace; font-size: 12px; color: var(--ink); }
+/* the hallmark strike (design.md §5): 160 ms punch, scale 1.06 → 1, ink from 0, staggered 60 ms */
+.hallmark { transform-box: fill-box; transform-origin: 50% 60%; animation: strike 160ms cubic-bezier(0.2, 0.9, 0.3, 1.2) both; }
+@keyframes strike { from { opacity: 0; scale: 1.06; } to { opacity: 1; scale: 1; } }
+@media (prefers-reduced-motion: reduce) { .hallmark { animation: none; } }
+@media print { .diagram-container { overflow-x: visible; } svg { min-width: 0; } }
+</style>
+</head>
+<body>
+<main class="frame">
+<div class="diagram-container">
+<svg id="architecture" viewBox="0 0 1280 1304" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="architecture-title architecture-desc">
+<title id="architecture-title">NetMint architecture: from a CMC supply step to a verdict</title>
+<desc id="architecture-desc">A click on /u/&lt;ticker&gt; calls /api/lookup; lookup() reads seven CoinMarketCap endpoints (five per lookup), falls back to committed verbatim bodies on a plan refusal, reads on-chain totalSupply on BNB Smart Chain and Ethereum from a committed baseline or live eth_call, and runs a sanity guard, net creation, a mint check and fixed verdict code that stamps REAL INFLOW, OUTFLOW, RECOUNT, NOT VERIFIABLE or FLAT, returned with every call as a receipt.</desc>
+<defs>
+<marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1D1B16"/></marker>
+<marker id="arrow-pencil" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#5E6166"/></marker>
+</defs>
+<rect width="1280" height="1304" fill="#F3EFE4"/>
+<g stroke="#B4C2AE" stroke-opacity="0.32" stroke-width="1">
+<line x1="0" y1="184.5" x2="1280" y2="184.5"/>
+<line x1="0" y1="208.5" x2="1280" y2="208.5"/>
+<line x1="0" y1="232.5" x2="1280" y2="232.5"/>
+<line x1="0" y1="256.5" x2="1280" y2="256.5"/>
+<line x1="0" y1="280.5" x2="1280" y2="280.5"/>
+<line x1="0" y1="304.5" x2="1280" y2="304.5"/>
+<line x1="0" y1="328.5" x2="1280" y2="328.5"/>
+<line x1="0" y1="352.5" x2="1280" y2="352.5"/>
+<line x1="0" y1="376.5" x2="1280" y2="376.5"/>
+<line x1="0" y1="400.5" x2="1280" y2="400.5"/>
+<line x1="0" y1="424.5" x2="1280" y2="424.5"/>
+<line x1="0" y1="448.5" x2="1280" y2="448.5"/>
+<line x1="0" y1="472.5" x2="1280" y2="472.5"/>
+<line x1="0" y1="496.5" x2="1280" y2="496.5"/>
+<line x1="0" y1="520.5" x2="1280" y2="520.5"/>
+<line x1="0" y1="544.5" x2="1280" y2="544.5"/>
+<line x1="0" y1="568.5" x2="1280" y2="568.5"/>
+<line x1="0" y1="592.5" x2="1280" y2="592.5"/>
+<line x1="0" y1="616.5" x2="1280" y2="616.5"/>
+<line x1="0" y1="640.5" x2="1280" y2="640.5"/>
+<line x1="0" y1="664.5" x2="1280" y2="664.5"/>
+<line x1="0" y1="688.5" x2="1280" y2="688.5"/>
+<line x1="0" y1="712.5" x2="1280" y2="712.5"/>
+<line x1="0" y1="736.5" x2="1280" y2="736.5"/>
+<line x1="0" y1="760.5" x2="1280" y2="760.5"/>
+<line x1="0" y1="784.5" x2="1280" y2="784.5"/>
+<line x1="0" y1="808.5" x2="1280" y2="808.5"/>
+<line x1="0" y1="832.5" x2="1280" y2="832.5"/>
+<line x1="0" y1="856.5" x2="1280" y2="856.5"/>
+<line x1="0" y1="880.5" x2="1280" y2="880.5"/>
+<line x1="0" y1="904.5" x2="1280" y2="904.5"/>
+<line x1="0" y1="928.5" x2="1280" y2="928.5"/>
+<line x1="0" y1="952.5" x2="1280" y2="952.5"/>
+<line x1="0" y1="976.5" x2="1280" y2="976.5"/>
+<line x1="0" y1="1000.5" x2="1280" y2="1000.5"/>
+<line x1="0" y1="1024.5" x2="1280" y2="1024.5"/>
+<line x1="0" y1="1048.5" x2="1280" y2="1048.5"/>
+<line x1="0" y1="1072.5" x2="1280" y2="1072.5"/>
+<line x1="0" y1="1096.5" x2="1280" y2="1096.5"/>
+<line x1="0" y1="1120.5" x2="1280" y2="1120.5"/>
+<line x1="0" y1="1144.5" x2="1280" y2="1144.5"/>
+<line x1="0" y1="1168.5" x2="1280" y2="1168.5"/>
+<line x1="0" y1="1192.5" x2="1280" y2="1192.5"/>
+<line x1="0" y1="1216.5" x2="1280" y2="1216.5"/>
+<line x1="0" y1="1240.5" x2="1280" y2="1240.5"/>
+</g>
+<text x="72" y="54" font-size="13" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#6B6558" letter-spacing="0.14em">NetMint · system architecture</text>
+<text x="1208" y="54" font-size="11.5" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="end">github.com/edycutjong/netmint</text>
+<text x="72" y="98" font-size="36" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#1D1B16" letter-spacing="0.01em">From a CMC supply step to a struck verdict</text>
+<text x="72" y="128" font-size="15"><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">CoinMarketCap’s daily supply history, put on trial against on-chain </tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16">totalSupply</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">. Fixed code stamps the verdict; every external call is kept as a receipt.</tspan></text>
+<line x1="72" y1="148" x2="1208" y2="148" stroke="#1D1B16" stroke-width="1"/>
+<line x1="72" y1="151.5" x2="1208" y2="151.5" stroke="#1D1B16" stroke-width="1"/>
+<rect x="72" y="280" width="464" height="520" rx="6" fill="#FBF8F1" stroke="#B4C2AE" stroke-width="1"/>
+<text x="92" y="322" font-size="30" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#1D1B16">I</text>
+<text x="122" y="308" font-size="19" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#1D1B16" letter-spacing="0.02em">CMC supply history</text>
+<text x="122" y="327" font-size="11.5"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">lib/cmc/*</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558"> · CoinMarketCap Pro API, key in a header</tspan></text>
+<line x1="84" y1="340" x2="524" y2="340" stroke="#B4C2AE" stroke-width="1"/>
+<line x1="84" y1="343" x2="524" y2="343" stroke="#B4C2AE" stroke-width="1"/>
+<rect x="568" y="280" width="296" height="520" rx="6" fill="#FBF8F1" stroke="#B4C2AE" stroke-width="1"/>
+<text x="588" y="322" font-size="30" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#1D1B16">II</text>
+<text x="632" y="308" font-size="19" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#1D1B16" letter-spacing="0.02em">Chain trial</text>
+<text x="632" y="327" font-size="11.5"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">lib/chain/*</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558"> · read-only, no transactions</tspan></text>
+<line x1="580" y1="340" x2="852" y2="340" stroke="#B4C2AE" stroke-width="1"/>
+<line x1="580" y1="343" x2="852" y2="343" stroke="#B4C2AE" stroke-width="1"/>
+<rect x="896" y="280" width="312" height="520" rx="6" fill="#FBF8F1" stroke="#B4C2AE" stroke-width="1"/>
+<text x="916" y="322" font-size="30" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#1D1B16">III</text>
+<text x="974" y="308" font-size="19" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#1D1B16" letter-spacing="0.02em">Verdict, fixed code</text>
+<text x="974" y="327" font-size="11.5"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">lib/flow/*</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558"> · no model decides</tspan></text>
+<line x1="908" y1="340" x2="1196" y2="340" stroke="#B4C2AE" stroke-width="1"/>
+<line x1="908" y1="343" x2="1196" y2="343" stroke="#B4C2AE" stroke-width="1"/>
+<path d="M 280 210 H 374" fill="none" stroke="#1D1B16" stroke-width="1.3" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="285.6" y="190" width="84.9" height="13" rx="2" fill="#F3EFE4"/>
+<text x="328" y="200" font-size="9" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle" letter-spacing="0.06em">GET u, window</text>
+<path d="M 856 210 H 894" fill="none" stroke="#6B6558" stroke-width="1.1" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 456 240 V 278" fill="none" stroke="#1D1B16" stroke-width="1.3" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 520 473 H 544 Q 552 473 552 465 V 380 Q 552 372 560 372 H 910" fill="none" stroke="#1D1B16" stroke-width="1.6" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="676.4" y="378" width="79.1" height="13" rx="2" fill="#F3EFE4"/>
+<text x="716" y="388" font-size="9" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle" letter-spacing="0.06em">DAILY SERIES</text>
+<path d="M 520 515 H 582" fill="none" stroke="#1D1B16" stroke-width="1.3" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="535.5" y="494" width="33.0" height="13" rx="2" fill="#F3EFE4"/>
+<text x="552" y="504" font-size="9" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle" letter-spacing="0.06em">LEGS</text>
+<path d="M 120 578 V 602" fill="none" stroke="#5E6166" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#arrow-pencil)" stroke-linejoin="round"/>
+<rect x="136.4" y="583" width="79.1" height="13" rx="2" fill="#FBF8F1"/>
+<text x="176" y="593" font-size="9" font-family="'Chivo Mono', Menlo, monospace" fill="#5E6166" text-anchor="middle" letter-spacing="0.06em">PLAN REFUSAL</text>
+<path d="M 848 584 H 910" fill="none" stroke="#1D1B16" stroke-width="1.6" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="852.0" y="563" width="56.1" height="13" rx="2" fill="#F3EFE4"/>
+<text x="880" y="573" font-size="9" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle" letter-spacing="0.06em">Σ SUPPLY</text>
+<path d="M 716 640 V 678" fill="none" stroke="#5E6166" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#arrow-pencil)" stroke-linejoin="round"/>
+<rect x="733.7" y="652" width="44.6" height="13" rx="2" fill="#FBF8F1"/>
+<text x="756" y="662" font-size="9" font-family="'Chivo Mono', Menlo, monospace" fill="#5E6166" text-anchor="middle" letter-spacing="0.06em">TIER 3</text>
+<path d="M 1052 404 V 426" fill="none" stroke="#1D1B16" stroke-width="1.6" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 1052 488 V 506" fill="none" stroke="#1D1B16" stroke-width="1.6" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 1052 664 V 686" fill="none" stroke="#1D1B16" stroke-width="1.6" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 1052 736 V 830" fill="none" stroke="#1D1B16" stroke-width="1.6" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="1043.8" y="802" width="96.4" height="13" rx="2" fill="#F3EFE4"/>
+<text x="1092" y="812" font-size="9" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle" letter-spacing="0.06em">ONE PER WRAPPER</text>
+<path d="M 232 1056 V 1086" fill="none" stroke="#1D1B16" stroke-width="1.3" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 400 1128 H 438" fill="none" stroke="#1D1B16" stroke-width="1.3" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 1000 1128 H 1038" fill="none" stroke="#1D1B16" stroke-width="1.3" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 360 1168 V 1186 Q 360 1194 368 1194 H 888 Q 896 1194 896 1186 V 1170" fill="none" stroke="#5E6166" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#arrow-pencil)" stroke-linejoin="round"/>
+<rect x="585.6" y="1200" width="84.9" height="13" rx="2" fill="#F3EFE4"/>
+<text x="628" y="1210" font-size="9" font-family="'Chivo Mono', Menlo, monospace" fill="#5E6166" text-anchor="middle" letter-spacing="0.06em">NPM RUN FLOWS</text>
+<path d="M 72 1128 H 52 Q 44 1128 44 1120 V 218 Q 44 210 52 210 H 70" fill="none" stroke="#5E6166" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#arrow-pencil)" stroke-linejoin="round"/>
+<rect x="72" y="180" width="208" height="60" rx="4" fill="#F3EFE4"/>
+<rect x="72" y="180" width="208" height="60" rx="4" fill="#FFFDF8" stroke="#1D1B16" stroke-width="1"/>
+<rect x="84" y="188" width="50" height="14" rx="2" fill="none" stroke="#6B6558" stroke-opacity="0.55" stroke-width="0.8"/>
+<text x="109.2" y="198.5" font-size="8.5" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle" letter-spacing="0.08em">READER</text>
+<text x="84" y="220" font-size="16" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#1D1B16" font-weight="600">Browser</text>
+<text x="84" y="234" font-size="11" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">/ · /u/&lt;ticker&gt; · /flows</text>
+<rect x="376" y="180" width="480" height="60" rx="4" fill="#F3EFE4"/>
+<rect x="376" y="180" width="480" height="60" rx="4" fill="#FFFDF8" stroke="#1D1B16" stroke-width="1.4"/>
+<text x="392" y="205" font-size="15"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" font-weight="600">/api/lookup</tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16">  →  lookup(u, window)</tspan></text>
+<text x="392" y="228" font-size="11.5"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">app/api/lookup/route.ts · lib/lookup.ts</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">  — 55 s budget, 60 s de-dupe</tspan></text>
+<rect x="896" y="180" width="312" height="60" rx="4" fill="#F3EFE4"/>
+<rect x="896" y="180" width="312" height="60" rx="4" fill="#FFFDF8" stroke="#1D1B16" stroke-width="1"/>
+<text x="908" y="205" font-size="15"><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#1D1B16" font-weight="600">Recorder</tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">  lib/receipts.ts</tspan></text>
+<text x="908" y="228" font-size="12" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">one per click · every CMC + RPC call recorded</text>
+<text x="92" y="358" font-size="11.5" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#6B6558" letter-spacing="0.1em">Every lookup</text>
+<text x="516" y="358" font-size="11.5" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#6B6558" text-anchor="end" letter-spacing="0.06em">1 → 2, then 3 · 4 · 5 together</text>
+<line x1="84" y1="368" x2="524" y2="368" stroke="#B4C2AE" stroke-width="1"/>
+<text x="96" y="387" font-size="12" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle">1</text>
+<text x="116" y="387" font-size="12.5" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" font-weight="500">/v5/real-world-assets/assets/list</text>
+<text x="116" y="403" font-size="11.5"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">rwa.ts</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">  underlying → rwa_id</tspan></text>
+<line x1="84" y1="410" x2="524" y2="410" stroke="#B4C2AE" stroke-width="1"/>
+<text x="96" y="429" font-size="12" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle">2</text>
+<text x="116" y="429" font-size="12.5" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" font-weight="500">/v5/real-world-assets/quotes/latest</text>
+<text x="116" y="445" font-size="11.5"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">rwa.ts</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">  every wrapper: crypto id, issuer, price</tspan></text>
+<line x1="84" y1="452" x2="524" y2="452" stroke="#B4C2AE" stroke-width="1"/>
+<text x="96" y="471" font-size="12" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle">3</text>
+<text x="116" y="471" font-size="12.5" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" font-weight="500">/v2/cryptocurrency/quotes/historical</text>
+<text x="116" y="487" font-size="11.5"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">history.ts</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">  daily supply + price series: the engine</tspan></text>
+<line x1="84" y1="494" x2="524" y2="494" stroke="#B4C2AE" stroke-width="1"/>
+<text x="96" y="513" font-size="12" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle">4</text>
+<text x="116" y="513" font-size="12.5" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" font-weight="500">/v2/cryptocurrency/info</text>
+<text x="116" y="529" font-size="11.5"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">info.ts</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">  contract address per chain</tspan></text>
+<line x1="84" y1="536" x2="524" y2="536" stroke="#B4C2AE" stroke-width="1"/>
+<text x="96" y="555" font-size="12" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle">5</text>
+<text x="116" y="555" font-size="12.5" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" font-weight="500">/v2/cryptocurrency/quotes/latest</text>
+<text x="116" y="571" font-size="11.5"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">quotes.ts</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">  today’s point, shown apart; volume</tspan></text>
+<line x1="84" y1="578" x2="524" y2="578" stroke="#B4C2AE" stroke-width="1"/>
+<circle cx="520" cy="473" r="2.6" fill="#1D1B16"/>
+<circle cx="520" cy="515" r="2.6" fill="#1D1B16"/>
+<rect x="104" y="604" width="416" height="72" rx="4" fill="#F3EFE4"/>
+<rect x="104" y="604" width="416" height="72" rx="4" fill="#F3EFE4" stroke="#5E6166" stroke-width="1" stroke-dasharray="5 3"/>
+<rect x="116" y="612" width="63" height="14" rx="2" fill="none" stroke="#5E6166" stroke-opacity="0.55" stroke-width="0.8"/>
+<text x="147.6" y="622.5" font-size="8.5" font-family="'Chivo Mono', Menlo, monospace" fill="#5E6166" text-anchor="middle" letter-spacing="0.08em">FALLBACK</text>
+<text x="188" y="623" font-size="13.5"><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#1D1B16" font-weight="600">live-stored</tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">  lib/stored.ts</tspan></text>
+<text x="116" y="645" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">a call CMC refuses on plan is answered by its committed body,</text>
+<text x="116" y="662" font-size="11"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">evidence/&lt;date&gt;/…/NN-&lt;endpoint&gt;.json</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">  · capture date shown</tspan></text>
+<text x="92" y="700" font-size="11.5" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#6B6558" letter-spacing="0.1em">Other routes</text>
+<line x1="84" y1="708" x2="524" y2="708" stroke="#B4C2AE" stroke-width="1"/>
+<text x="96" y="727" font-size="12" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle">6</text>
+<text x="116" y="727" font-size="12.5" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" font-weight="500">/v1/dex/holders/count</text>
+<text x="116" y="743" font-size="11.5"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">holders.ts</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">  holders per chain → /api/holders</tspan></text>
+<line x1="84" y1="750" x2="524" y2="750" stroke="#B4C2AE" stroke-width="1"/>
+<text x="96" y="769" font-size="12" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle">7</text>
+<text x="116" y="769" font-size="12.5" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" font-weight="500">/v1/key/info</text>
+<text x="116" y="785" font-size="11.5"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">key.ts</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">  plan + credits → /api/health</tspan></text>
+<line x1="84" y1="792" x2="524" y2="792" stroke="#B4C2AE" stroke-width="1"/>
+<rect x="584" y="404" width="264" height="236" rx="4" fill="#F3EFE4"/>
+<rect x="584" y="404" width="264" height="236" rx="4" fill="#FFFDF8" stroke="#1D1B16" stroke-width="1"/>
+<rect x="596" y="412" width="89" height="14" rx="2" fill="none" stroke="#6B6558" stroke-opacity="0.55" stroke-width="0.8"/>
+<text x="640.4" y="422.5" font-size="8.5" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle" letter-spacing="0.08em">STORE + LIVE</text>
+<text x="596" y="446" font-size="14" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#1D1B16" font-weight="600">totalSupply per leg, per day</text>
+<text x="596" y="463" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">at the first block ≥ 00:00 UTC</text>
+<line x1="596" y1="477" x2="836" y2="477" stroke="#B4C2AE" stroke-width="1"/>
+<text x="596" y="492" font-size="11.5" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#1D1B16" letter-spacing="0.06em">Legs</text>
+<text x="596" y="508" font-size="11"><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">each contract on BNB Smart Chain + Ethereum;</tspan></text>
+<text x="596" y="523" font-size="11"><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">other listed chains are unreadable</tspan></text>
+<line x1="596" y1="537" x2="836" y2="537" stroke="#B4C2AE" stroke-width="1"/>
+<text x="596" y="552" font-size="11.5" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#1D1B16" letter-spacing="0.06em">Tier 1 · committed baseline</text>
+<text x="596" y="568" font-size="11"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">data/chain-supply/&lt;chain&gt;/*.json</tspan></text>
+<text x="596" y="583" font-size="11"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">data/blocks/{bsc,eth}.json</tspan></text>
+<line x1="596" y1="597" x2="836" y2="597" stroke="#B4C2AE" stroke-width="1"/>
+<text x="596" y="612" font-size="11.5" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#1D1B16" letter-spacing="0.06em">Tier 3 · live eth_call</text>
+<text x="596" y="628" font-size="11"><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">a day the baseline lacks</tspan></text>
+<text x="836" y="588" font-size="11" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" text-anchor="end">Σ legs</text>
+<rect x="584" y="680" width="264" height="64" rx="4" fill="#F3EFE4"/>
+<rect x="584" y="680" width="264" height="64" rx="4" fill="#F7F4EC" stroke="#1D1B16" stroke-width="1" stroke-dasharray="2 2" stroke-opacity="0.35"/>
+<rect x="596" y="688" width="63" height="14" rx="2" fill="none" stroke="#6B6558" stroke-opacity="0.55" stroke-width="0.8"/>
+<text x="627.6" y="698.5" font-size="8.5" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle" letter-spacing="0.08em">EXTERNAL</text>
+<text x="596" y="718" font-size="14" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#1D1B16" font-weight="600">Alchemy archive RPC</text>
+<text x="596" y="735" font-size="11" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">eth_call · bnb-mainnet · eth-mainnet</text>
+<rect x="912" y="356" width="280" height="48" rx="4" fill="#F3EFE4"/>
+<rect x="912" y="356" width="280" height="48" rx="4" fill="#FFFDF8" stroke="#1D1B16" stroke-width="1"/>
+<text x="924" y="377" font-size="14" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#1D1B16" font-weight="600">Sanity guard</text>
+<text x="924" y="394" font-size="11"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">flow/sanity.ts</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">  every refused row listed</tspan></text>
+<rect x="912" y="428" width="280" height="60" rx="4" fill="#F3EFE4"/>
+<rect x="912" y="428" width="280" height="60" rx="4" fill="#FFFDF8" stroke="#1D1B16" stroke-width="1"/>
+<text x="924" y="449" font-size="14" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#1D1B16" font-weight="600">Net creation</text>
+<text x="924" y="465" font-size="11"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">flow/netCreation.ts</tspan></text>
+<text x="924" y="481" font-size="11" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">Δ circulating supply × average price, per day</text>
+<rect x="912" y="508" width="280" height="156" rx="4" fill="#F3EFE4"/>
+<rect x="912" y="508" width="280" height="156" rx="4" fill="#FFFDF8" stroke="#1D1B16" stroke-width="1.8"/>
+<rect x="916" y="512" width="272" height="148" rx="2" fill="none" stroke="#1D1B16" stroke-width="0.8"/>
+<text x="926" y="536" font-size="18" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#1D1B16" letter-spacing="0.04em">Mint check</text>
+<text x="1180" y="536" font-size="11" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="end">flow/mintCheck.ts</text>
+<text x="926" y="558.0" font-size="11.5"><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#1D1B16">CMC </tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16">total_supply</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#1D1B16"> vs Σ chain </tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16">totalSupply</tspan></text>
+<text x="926" y="574.5" font-size="11.5"><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">coverage at the start within </tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16">90–110%</tspan></text>
+<text x="926" y="591.0" font-size="11.5"><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">window move within </tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16">±10%</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558"> (floor </tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16">0.5%</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">)</tspan></text>
+<text x="926" y="607.5" font-size="11.5"><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">largest step days, up to </tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16">5</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">, 3-day sums</tspan></text>
+<text x="926" y="624.0" font-size="11.5"><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">direction: chain ≥ </tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16">0.75</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558"> × the CMC move</tspan></text>
+<text x="926" y="640.5" font-size="11.5"><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">issuer day offset </tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16">d</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">, </tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">data/offsets.json</tspan></text>
+<rect x="912" y="688" width="280" height="48" rx="4" fill="#F3EFE4"/>
+<rect x="912" y="688" width="280" height="48" rx="4" fill="#FFFDF8" stroke="#1D1B16" stroke-width="1"/>
+<text x="924" y="709" font-size="14" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" font-weight="600">verdict.ts</text>
+<text x="924" y="726" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">fixed precedence → one stamp</text>
+<rect x="72" y="832" width="1136" height="224" rx="6" fill="#1D1B16"/>
+<text x="92" y="864" font-size="17" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#F3EFE4" letter-spacing="0.12em">The verdict</text>
+<text x="214" y="863" font-size="12.5"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#F3EFE4">lib/flow/verdict.ts</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#F3EFE4">  ·  REAL INFLOW and OUTFLOW require a passing mint check</tspan></text>
+<rect x="88" y="880" width="208" height="140" rx="3" fill="#FBF8F1"/>
+<g transform="rotate(-2 192 908)"><g class="hallmark" style="animation-delay:200ms">
+<g transform="translate(122.42 890.00) scale(0.6923)">
+<polygon points="8.75,0.75 192.25,0.75 200.25,8.75 200.25,43.25 192.25,51.25 8.75,51.25 0.75,43.25 0.75,8.75" fill="none" stroke="#1F6B55" stroke-width="1.5"/>
+<polygon points="13.00,5.00 188.00,5.00 196.00,13.00 196.00,39.00 188.00,47.00 13.00,47.00 5.00,39.00 5.00,13.00" fill="none" stroke="#1F6B55" stroke-width="1"/>
+<text x="100.5" y="33.0" text-anchor="middle" font-size="20" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" letter-spacing="0.1em" fill="#1F6B55">REAL INFLOW</text>
+</g></g></g>
+<text x="192" y="950" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558" text-anchor="middle">issuer-level net creation,</text>
+<text x="192" y="965" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558" text-anchor="middle">not buyer data</text>
+<text x="192" y="1010" font-size="10.5" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" text-anchor="middle">check passed · net &gt; 0</text>
+<line x1="104" y1="994" x2="280" y2="994" stroke="#B4C2AE" stroke-width="1"/>
+<rect x="312" y="880" width="208" height="140" rx="3" fill="#FBF8F1"/>
+<g transform="rotate(-2 416 908)"><g class="hallmark" style="animation-delay:260ms">
+<g transform="translate(367.19 890.00) scale(0.6923)">
+<polygon points="8.75,0.75 132.25,0.75 140.25,8.75 140.25,43.25 132.25,51.25 8.75,51.25 0.75,43.25 0.75,8.75" fill="none" stroke="#1F6B55" stroke-width="1.5"/>
+<polygon points="13.00,5.00 128.00,5.00 136.00,13.00 136.00,39.00 128.00,47.00 13.00,47.00 5.00,39.00 5.00,13.00" fill="none" stroke="#1F6B55" stroke-width="1"/>
+<text x="70.5" y="33.0" text-anchor="middle" font-size="20" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" letter-spacing="0.1em" fill="#A3271B">OUTFLOW</text>
+</g></g></g>
+<text x="416" y="950" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558" text-anchor="middle">issuer-level net redemption</text>
+<text x="416" y="1010" font-size="10.5" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" text-anchor="middle">check passed · net &lt; 0</text>
+<line x1="328" y1="994" x2="504" y2="994" stroke="#B4C2AE" stroke-width="1"/>
+<rect x="536" y="880" width="208" height="140" rx="3" fill="#FBF8F1"/>
+<g transform="rotate(-2 640 908)"><g class="hallmark" style="animation-delay:320ms">
+<g transform="translate(591.19 890.00) scale(0.6923)">
+<polygon points="8.75,0.75 132.25,0.75 140.25,8.75 140.25,43.25 132.25,51.25 8.75,51.25 0.75,43.25 0.75,8.75" fill="none" stroke="#5E6166" stroke-width="1.5" stroke-dasharray="5 3"/>
+<polygon points="13.00,5.00 128.00,5.00 136.00,13.00 136.00,39.00 128.00,47.00 13.00,47.00 5.00,39.00 5.00,13.00" fill="none" stroke="#5E6166" stroke-width="1" stroke-dasharray="5 3"/>
+<text x="70.5" y="33.0" text-anchor="middle" font-size="20" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" letter-spacing="0.1em" fill="#5E6166">RECOUNT</text>
+</g></g></g>
+<text x="640" y="950" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558" text-anchor="middle">CMC’s supply step and the</text>
+<text x="640" y="965" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558" text-anchor="middle">summed chains’ step disagree</text>
+<text x="640" y="980" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558" text-anchor="middle">beyond tolerance</text>
+<text x="640" y="1010" font-size="10.5" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" text-anchor="middle">fails · every chain readable</text>
+<line x1="552" y1="994" x2="728" y2="994" stroke="#B4C2AE" stroke-width="1"/>
+<rect x="760" y="880" width="208" height="140" rx="3" fill="#FBF8F1"/>
+<g transform="rotate(-2 864 908)"><g class="hallmark" style="animation-delay:380ms">
+<g transform="translate(778.85 890.00) scale(0.6923)">
+<polygon points="8.75,0.75 237.25,0.75 245.25,8.75 245.25,43.25 237.25,51.25 8.75,51.25 0.75,43.25 0.75,8.75" fill="none" stroke="#5E6166" stroke-width="1.5" stroke-dasharray="5 3"/>
+<polygon points="13.00,5.00 233.00,5.00 241.00,13.00 241.00,39.00 233.00,47.00 13.00,47.00 5.00,39.00 5.00,13.00" fill="none" stroke="#5E6166" stroke-width="1" stroke-dasharray="5 3"/>
+<text x="123.0" y="33.0" text-anchor="middle" font-size="20" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" letter-spacing="0.1em" fill="#5E6166">NOT VERIFIABLE</text>
+</g></g></g>
+<text x="864" y="950" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558" text-anchor="middle">not put to a full trial</text>
+<text x="864" y="996" font-size="10.5" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" text-anchor="middle">coverage, guard, alignment,</text>
+<text x="864" y="1010" font-size="10.5" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" text-anchor="middle">or a chain NetMint can’t read</text>
+<line x1="776" y1="980" x2="952" y2="980" stroke="#B4C2AE" stroke-width="1"/>
+<rect x="984" y="880" width="208" height="140" rx="3" fill="#FBF8F1"/>
+<g transform="rotate(-2 1088 908)"><g class="hallmark" style="animation-delay:440ms">
+<g transform="translate(1054.77 890.00) scale(0.6923)">
+<polygon points="8.75,0.75 87.25,0.75 95.25,8.75 95.25,43.25 87.25,51.25 8.75,51.25 0.75,43.25 0.75,8.75" fill="none" stroke="#5E6166" stroke-width="1.5" stroke-dasharray="5 3"/>
+<polygon points="13.00,5.00 83.00,5.00 91.00,13.00 91.00,39.00 83.00,47.00 13.00,47.00 5.00,39.00 5.00,13.00" fill="none" stroke="#5E6166" stroke-width="1" stroke-dasharray="5 3"/>
+<text x="48.0" y="33.0" text-anchor="middle" font-size="20" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" letter-spacing="0.1em" fill="#5E6166">FLAT</text>
+</g></g></g>
+<text x="1088" y="950" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558" text-anchor="middle">below threshold, not put to trial</text>
+<text x="1088" y="1010" font-size="10.5" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" text-anchor="middle">|net| &lt; max($250K, 2% mcap)</text>
+<line x1="1000" y1="994" x2="1176" y2="994" stroke="#B4C2AE" stroke-width="1"/>
+<text x="92" y="1042" font-size="11.5"><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#F3EFE4">worked example · </tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#F3EFE4">NVDAB, 30 d to 2026-11-21: CMC +1,209,739 vs chain +1,216,792 units (+0.6%, tolerance ±10%) → </tspan><tspan font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#8FC5AE">REAL INFLOW</tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#F3EFE4">, +$202.83M net creation at market price</tspan></text>
+<rect x="72" y="1088" width="328" height="80" rx="4" fill="#F3EFE4"/>
+<rect x="72" y="1088" width="328" height="80" rx="4" fill="#FFFDF8" stroke="#1D1B16" stroke-width="1"/>
+<rect x="84" y="1096" width="63" height="14" rx="2" fill="none" stroke="#6B6558" stroke-opacity="0.55" stroke-width="0.8"/>
+<text x="115.6" y="1106.5" font-size="8.5" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle" letter-spacing="0.08em">RESPONSE</text>
+<text x="84" y="1128" font-size="14" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" font-weight="600">LookupResult</text>
+<text x="84" y="1146" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">per wrapper: verdict, net creation, proof rows</text>
+<text x="84" y="1161" font-size="10.5" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">receipts[] · mode live | live-stored | cached</text>
+<rect x="440" y="1088" width="312" height="80" rx="4" fill="#F3EFE4"/>
+<rect x="440" y="1088" width="312" height="80" rx="4" fill="#FFFDF8" stroke="#1D1B16" stroke-width="1"/>
+<rect x="452" y="1096" width="38" height="14" rx="2" fill="none" stroke="#6B6558" stroke-opacity="0.55" stroke-width="0.8"/>
+<text x="470.8" y="1106.5" font-size="8.5" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle" letter-spacing="0.08em">PAGE</text>
+<text x="452" y="1128" font-size="14" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#1D1B16" font-weight="600">Verdict rows + receipt drawer</text>
+<text x="452" y="1146" font-size="11.5"><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">/u/&lt;ticker&gt;</tspan><tspan font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558"> · Run it live on </tspan><tspan font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558">/</tspan></text>
+<text x="452" y="1161" font-size="11" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">each call verbatim, with curl and credit_count</text>
+<rect x="792" y="1088" width="208" height="80" rx="4" fill="#F3EFE4"/>
+<rect x="792" y="1088" width="208" height="80" rx="4" fill="#EDE8DA" stroke="#6B6558" stroke-width="1"/>
+<rect x="804" y="1096" width="70" height="14" rx="2" fill="none" stroke="#6B6558" stroke-opacity="0.55" stroke-width="0.8"/>
+<text x="838.8" y="1106.5" font-size="8.5" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle" letter-spacing="0.08em">COMMITTED</text>
+<text x="804" y="1128" font-size="14" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" font-weight="600">evidence/</text>
+<text x="804" y="1146" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">verbatim CMC bodies</text>
+<text x="804" y="1161" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">+ /flows tables</text>
+<rect x="1040" y="1088" width="168" height="80" rx="4" fill="#F3EFE4"/>
+<rect x="1040" y="1088" width="168" height="80" rx="4" fill="#FFFDF8" stroke="#1D1B16" stroke-width="1"/>
+<rect x="1052" y="1096" width="44" height="14" rx="2" fill="none" stroke="#6B6558" stroke-opacity="0.55" stroke-width="0.8"/>
+<text x="1074.0" y="1106.5" font-size="8.5" font-family="'Chivo Mono', Menlo, monospace" fill="#6B6558" text-anchor="middle" letter-spacing="0.08em">PAGES</text>
+<text x="1052" y="1128" font-size="14" font-family="'Chivo Mono', Menlo, monospace" fill="#1D1B16" font-weight="600">/ hero · /flows</text>
+<text x="1052" y="1146" font-size="11" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">read from evidence/;</text>
+<text x="1052" y="1161" font-size="11" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">no CMC call on load</text>
+<line x1="72" y1="1228" x2="1208" y2="1228" stroke="#1D1B16" stroke-opacity="0.25" stroke-width="0.8"/>
+<text x="72" y="1252" font-size="11.5" font-family="'Marcellus SC', 'Marcellus', Georgia, serif" fill="#6B6558" letter-spacing="0.14em">Key</text>
+<path d="M 116 1248 H 150" fill="none" stroke="#1D1B16" stroke-width="1.4" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<text x="158" y="1252" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">call / data</text>
+<path d="M 250.9 1248 H 284.9" fill="none" stroke="#5E6166" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#arrow-pencil)" stroke-linejoin="round"/>
+<text x="292.9" y="1252" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">fallback, conditional read, response</text>
+<rect x="533.3" y="1240" width="22" height="14" rx="2" fill="#EDE8DA" stroke="#6B6558"/>
+<text x="563.3" y="1252" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">committed in git</text>
+<rect x="685.6999999999999" y="1240" width="22" height="14" rx="2" fill="#F7F4EC" stroke="#1D1B16" stroke-opacity="0.35" stroke-dasharray="2 2"/>
+<text x="715.6999999999999" y="1252" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">outside service</text>
+<rect x="832.1999999999999" y="1241" width="22" height="12" rx="1" fill="none" stroke="#1F6B55" stroke-width="1.5"/>
+<text x="862.1999999999999" y="1252" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">chain-verified stamp</text>
+<rect x="1008.1999999999999" y="1241" width="22" height="12" rx="1" fill="none" stroke="#5E6166" stroke-width="1.2" stroke-dasharray="4 2"/>
+<text x="1038.1999999999998" y="1252" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">not certified</text>
+<text x="72" y="1274" font-size="11.5" font-family="'Albert Sans', 'Helvetica Neue', Arial, sans-serif" fill="#6B6558">CMC and Alchemy keys stay on the server and are never recorded. Thresholds: lib/flow/params.ts.</text>
+</svg>
+</div>
+<p class="note">Every box is traced to the code: <a href="../lib/lookup.ts"><code>lib/lookup.ts</code></a> runs the flow,
+<a href="../lib/cmc/"><code>lib/cmc/</code></a> holds one file per endpoint family, <a href="../lib/chain/supply.ts"><code>lib/chain/supply.ts</code></a> reads
+<code>totalSupply</code>, and <a href="../lib/flow/verdict.ts"><code>lib/flow/verdict.ts</code></a> fixes the verdict precedence. The worked example is
+<a href="../evidence/2026-11-21/nvda-30d/table.json"><code>evidence/2026-11-21/nvda-30d/table.json</code></a>. Rendered to
+<code>docs/assets/architecture.png</code> for the README.</p>
+</main>
+</body>
+</html>
