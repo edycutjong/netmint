@@ -9,6 +9,10 @@ export default defineConfig({
   reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : 'list',
   use: {
     baseURL: process.env.E2E_BASE_URL ?? 'https://netmint.edycu.dev',
+    // CI points this at a protected Vercel preview; the automation-bypass secret lets the run through without disabling protection.
+    extraHTTPHeaders: process.env.VERCEL_AUTOMATION_BYPASS_SECRET
+      ? { 'x-vercel-protection-bypass': process.env.VERCEL_AUTOMATION_BYPASS_SECRET }
+      : undefined,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },

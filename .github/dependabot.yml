@@ -5,6 +5,16 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    # Stack frozen for judging (10-25 Dec 2026); each of these majors needs a real migration.
+    ignore:
+      - dependency-name: next
+        update-types: ['version-update:semver-major']
+      - dependency-name: eslint-config-next
+        update-types: ['version-update:semver-major']
+      - dependency-name: eslint
+        update-types: ['version-update:semver-major']
+      - dependency-name: typescript
+        update-types: ['version-update:semver-major']
     groups:
       minor-and-patch:
         update-types: [minor, patch]

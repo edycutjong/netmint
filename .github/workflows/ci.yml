@@ -6,6 +6,7 @@ on:
     tags: ['v*']
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -71,11 +72,17 @@ jobs:
         with:
           fail-on-severity: high
 
-  # ── Stage 3 · build + the "unplug it" proof ─────────────────────────
+  # ── Stage 3 · build, the "unplug it" proof, and a Vercel PREVIEW deploy ─
   build:
-    name: Stage 3 · build and offline-must-fail
+    name: Stage 3 · build, offline-must-fail, preview deploy
     needs: [quality, secrets, audit]
     runs-on: ubuntu-latest
+    outputs:
+      preview_url: ${{ steps.deploy.outputs.url }}
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -95,38 +102,25 @@ jobs:
         run: |
           sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
           npm run verify:offline
+      # Dependabot and fork PRs get no repository secrets, so they skip the preview and stages 4-5 fall back to a local server.
+      - name: Deploy a Vercel preview (never production)
+        id: deploy
+        if: env.VERCEL_TOKEN != ''
+        run: |
+          npx vercel pull --yes --environment=preview --token="$VERCEL_TOKEN"
+          COMMIT_SHA="$GITHUB_SHA" npx vercel build --token="$VERCEL_TOKEN"
+          url=$(npx vercel deploy --prebuilt -e COMMIT_SHA="$GITHUB_SHA" --token="$VERCEL_TOKEN")
+          echo "preview: $url"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
 
-  # ── Stage 4 · deploy (main only) ────────────────────────────────────
-  deploy:
-    name: Stage 4 · deploy to Vercel production
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+  # ── Stage 4 · E2E against the preview, the judged click ─────────────
+  e2e:
+    name: Stage 4 · E2E on the preview
     needs: [build]
     runs-on: ubuntu-latest
-    environment:
-      name: production
-      url: https://netmint.edycu.dev
     env:
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-    steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-      - run: npx vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          COMMIT_SHA: ${{ github.sha }}
-      - run: npx vercel deploy --prebuilt --prod -e COMMIT_SHA=${{ github.sha }} --token=${{ secrets.VERCEL_TOKEN }}
-
-  # ── Stage 5 · E2E against the LIVE URL, the judged click ────────────
-  e2e:
-    name: Stage 5 · E2E on the live URL
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: [deploy]
-    runs-on: ubuntu-latest
+      PREVIEW_URL: ${{ needs.build.outputs.preview_url }}
+      VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -135,17 +129,27 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - name: Wait until /api/health reports THIS commit (not the previous deployment)
+      - name: Wait until the preview reports THIS commit
+        if: env.PREVIEW_URL != ''
         run: |
           for _ in $(seq 1 24); do
-            sha=$(curl -s https://netmint.edycu.dev/api/health | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(JSON.parse(s).commit||"")}catch{console.log("")}})')
+            sha=$(curl -s -H "x-vercel-protection-bypass: $VERCEL_AUTOMATION_BYPASS_SECRET" "$PREVIEW_URL/api/health" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(JSON.parse(s).commit||"")}catch{console.log("")}})')
             [ "$sha" = "$GITHUB_SHA" ] && exit 0
             sleep 5
           done
-          echo "::error::/api/health did not report commit $GITHUB_SHA"; exit 1
+          echo "::error::preview /api/health did not report commit $GITHUB_SHA"; exit 1
+      - name: Local server (only when there is no preview, for example a Dependabot PR)
+        if: env.PREVIEW_URL == ''
+        run: |
+          npm run build
+          nohup npm start > server.log 2>&1 &
+          npx --yes wait-on@8 http://localhost:3000/api/health --timeout 60000
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
+          COMMIT_SHA: ${{ github.sha }}
       - run: npm run e2e
         env:
-          E2E_BASE_URL: https://netmint.edycu.dev
+          E2E_BASE_URL: ${{ env.PREVIEW_URL != '' && env.PREVIEW_URL || 'http://localhost:3000' }}
           CI: 'true'
       - uses: actions/upload-artifact@v7
         if: always()
@@ -154,20 +158,36 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
-  # ── Stage 6 · performance gate on the live URL ──────────────────────
+  # ── Stage 5 · performance gate on the preview ───────────────────────
   lighthouse:
-    name: Stage 6 · Lighthouse budget
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: [e2e]
+    name: Stage 5 · Lighthouse budget on the preview
+    needs: [build, e2e]
     runs-on: ubuntu-latest
+    env:
+      PREVIEW_URL: ${{ needs.build.outputs.preview_url }}
+      VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
           node-version: 22
-      - name: Lighthouse (performance ≥ 0.9, accessibility ≥ 0.95, best-practices ≥ 0.95; measured 0.98 / 1 / 1 on 2026-11-21)
+          cache: npm
+      - name: Local server (only when there is no preview)
+        if: env.PREVIEW_URL == ''
         run: |
-          npx --yes lighthouse https://netmint.edycu.dev/ --quiet --chrome-flags="--headless=new --no-sandbox" \
+          npm ci
+          npm run build
+          nohup npm start > server.log 2>&1 &
+          npx --yes wait-on@8 http://localhost:3000/api/health --timeout 60000
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
+      - name: Lighthouse (performance >= 0.9, accessibility >= 0.95, best-practices >= 0.95; measured 0.98 / 1 / 1 on 2026-11-21)
+        run: |
+          target="${PREVIEW_URL:-http://localhost:3000}"
+          headers='{}'
+          [ -n "$PREVIEW_URL" ] && headers=$(node -e 'console.log(JSON.stringify({"x-vercel-protection-bypass": process.env.VERCEL_AUTOMATION_BYPASS_SECRET}))')
+          npx --yes lighthouse "$target/" --quiet --chrome-flags="--headless=new --no-sandbox" \
+            --extra-headers="$headers" \
             --only-categories=performance,accessibility,best-practices --output=json --output-path=lh.json
           node -e '
             const c = require("./lh.json").categories;
@@ -176,3 +196,31 @@ jobs:
             console.log(got);
             const bad = Object.keys(min).filter((k) => got[k] < min[k]);
             if (bad.length) { console.error("below budget:", bad.join(", ")); process.exit(1); }'
+
+  # ── Stage 6 · deploy gate (main only): promote the tested preview ───
+  deploy:
+    name: Stage 6 · deploy gate, promote to production
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: [quality, secrets, audit, build, e2e, lighthouse]
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://netmint.edycu.dev
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      PREVIEW_URL: ${{ needs.build.outputs.preview_url }}
+    steps:
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Promote the exact deployment that passed E2E and Lighthouse
+        run: npx vercel promote "$PREVIEW_URL" --yes --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Live smoke, https://netmint.edycu.dev must report THIS commit
+        run: |
+          for _ in $(seq 1 36); do
+            sha=$(curl -s https://netmint.edycu.dev/api/health | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(JSON.parse(s).commit||"")}catch{console.log("")}})')
+            [ "$sha" = "$GITHUB_SHA" ] && { echo "live commit $sha"; exit 0; }
+            sleep 5
+          done
+          echo "::error::live /api/health did not report commit $GITHUB_SHA"; exit 1
