@@ -146,7 +146,7 @@ footer.foot { max-width: 1240px; margin: 40px auto 0; padding: 18px 28px 40px; b
 .masthead .nav a { font-size: 15px; padding: 8px 12px; min-height: 44px; display: inline-flex; align-items: center; text-decoration: none; border: 1px solid transparent; transition: border-color 120ms ease, background 120ms ease; }
 .masthead .nav a:hover { border-color: var(--ink); background: var(--card); }
 
-/* interaction feedback: every interactive class gets a visible hover/press change (proved by specs/audit/hover-check.mjs) */
+/* interaction feedback: every interactive class gets a visible hover/press change */
 .masthead .mark { transition: color 120ms ease; }
 .masthead .mark:hover { color: var(--after); }
 .ledger button.expand { transition: color 120ms ease, text-decoration-color 120ms ease; }
