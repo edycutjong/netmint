@@ -8,7 +8,7 @@ All figures: NVDAB (bStocks), 2026-10-22 → 2026-11-21, captured 2026-11-21 (a 
 1. Open <https://netmint.edycu.dev>. The hero shows NVDAB: **REAL INFLOW +$202.8M** (`net_usd` 202,826,522.82), with the two proving rows beside it (CMC supply on
    the first and last day, and the on-chain step with its mint transaction).
 2. Open `/u/NVDA` and run it. The page calls `/api/lookup?u=NVDA&window=30`; the receipt drawer lists every CMC call verbatim
-   (endpoint, params, status, body) and the credit count. Below the result, the holder panel shows holder addresses per wrapper from
+   (endpoint, params, status, body) and the credit count. Below the result, the holder panel shows the holder count per chain for each wrapper from
    `/v1/dex/holders/count`.
 3. Open `/flows` for the top 20 tokenised stocks (152 wrappers). Switch 7 d / 30 d; the default view lists only rows with a verdict; "Show all wrappers" adds the not-verifiable ones.
 4. Open [`/api/health`](https://netmint.edycu.dev/api/health) for capture time, CMC plan state and RPC status (the key is never shown).
