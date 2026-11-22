@@ -53,6 +53,10 @@ async function main() {
   }
   console.log(`${rows} rows, ${diffs} differences, ${reworded} reason strings differ from HEAD's wording`);
   if (diffs) process.exit(1);
+  if (reworded && !writeReasons) {
+    console.log('stored reason strings are stale against the engine: re-derive them with `npm run verify:flows -- --write-reasons`');
+    process.exit(1);
+  }
   if (writeReasons && reworded) {
     for (const f of pending) writeFileSync(f.file, JSON.stringify(f.table, null, 1) + '\n');
     console.log(`--write-reasons: ${reworded} reason strings rewritten (verdicts and dollars unchanged)`);

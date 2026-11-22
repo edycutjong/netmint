@@ -54,7 +54,7 @@ export function ProofRows({ w }: { w: WrapperResult }) {
       <p className={`verdict-line${m.status === 'pass' ? ' pass' : ''}`}>
         Found:{' '}
         {m.status === 'pass'
-          ? `window and material steps verified: ${w.reason.replace(/^window endpoints and the largest step days \(up to 5\) verified \((.*)\)$/, '$1')}`
+          ? `window and material steps verified: ${w.reason.split(/ · \d+ missing CMC days? inside the window/)[0].replace(/^window endpoints and the largest step days \(up to 5\) verified \((.*)\)$/, '$1')}`
           : w.reason}
       </p>
       {w.mintReceipt ? (

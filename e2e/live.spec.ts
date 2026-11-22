@@ -29,6 +29,10 @@ test('the judged click: Run it live returns a verdict with CMC receipts behind i
   // the stamp on screen must carry a verdict that the click's own response returned for one of its wrappers
   const names = [...verdicts].map((v) => (v as string).replace('_', ' ')); // letters and spaces only, safe in a RegExp
   await expect(page.getByRole('img', { name: /^Verdict: / }).first()).toHaveAttribute('aria-label', new RegExp(names.join('|')));
+  // the card now carries the click's own capture line, not the recorded hero's (the recorded stamp can share a verdict word)
+  const card = page.locator('section.card').first();
+  await expect(card).not.toContainText('recorded capture');
+  await expect(card).toContainText(`${body.live ? 'live' : body.mode} capture`);
   expect(Number((await receipts.innerText()).match(/\((\d+)\)/)?.[1])).toBeGreaterThanOrEqual(3);
   await receipts.click();
   const drawer = page.getByRole('dialog', { name: 'Receipts' });
@@ -96,7 +100,9 @@ test('leaderboard renders the captured table with its capture date', async ({ pa
 });
 
 test('per-underlying page renders verdict stamps from a live lookup', async ({ page }) => {
+  const lookup = page.waitForResponse((r) => r.url().includes('/api/lookup'), { timeout: 60_000 });
   await page.goto('/u/NVDA');
+  expect((await lookup).status()).toBe(200); // the stamps come from the page's own /api/lookup call
   await expect(page.getByRole('img', { name: /^Verdict: / }).first()).toBeVisible({ timeout: 45_000 });
 });
 
