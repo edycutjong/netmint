@@ -7,11 +7,11 @@
  *   serve    : N GETs of the deployed /api/lookup (cached after the first within 60 s) and /flows, from this machine.
  * Credits are the sum of CMC credit_count over every call (from receipts), never estimated.
  */
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync } from 'node:fs';
 import { execSync } from 'node:child_process';
-import path from 'node:path';
 import { loadKeys, assertNoSecrets } from './_env';
 import { lookup } from '../lib/lookup';
+import { loadFlows } from '../lib/flows';
 
 loadKeys();
 const args = process.argv.slice(2);
@@ -74,7 +74,8 @@ async function main() {
 
   // 2. leaderboard refresh
   if (!args.includes('--skip-refresh')) {
-    const flows = JSON.parse(readFileSync(path.join('evidence/2026-11-21/flows-7d.json'), 'utf8')) as { rows: { underlying: string }[] };
+    const flows = loadFlows(7); // the same newest 7 d table the app serves, not a hard-coded evidence date
+    if (!flows) throw new Error('no flows-7d table under evidence/');
     const tickers = [...new Set(flows.rows.map((r) => r.underlying))].slice(0, 20);
     const per: number[] = [];
     let credits = 0;

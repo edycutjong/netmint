@@ -13,6 +13,7 @@ export const dynamic = 'force-dynamic';
 export const maxDuration = 60;
 
 const DEDUPE_MS = 60_000;
+const DEDUPE_MAX = 256; // hard cap: a burst of distinct keys cannot grow the map without bound
 const BUDGET_MS = 55_000; // answer before Vercel's 60 s kill: a slow CMC or RPC day is a 503 with a reason, never a bare 504
 const recent = new Map<string, { at: number; result: LookupResult }>();
 
@@ -42,8 +43,9 @@ export async function GET(req: Request) {
     const result = await Promise.race([lookup(p.u, { window: p.window, from: p.from, to: p.to, storedFallback: true }), budget]).finally(
       () => clearTimeout(timer),
     );
-    recent.set(p.key, { at: Date.now(), result });
     for (const [k, v] of recent) if (Date.now() - v.at > DEDUPE_MS) recent.delete(k);
+    while (recent.size >= DEDUPE_MAX) recent.delete(recent.keys().next().value as string); // oldest first (insertion order)
+    recent.set(p.key, { at: Date.now(), result });
     return NextResponse.json(result, { headers: { 'cache-control': 'no-store' } });
   } catch (e) {
     if (e instanceof LookupFailure) {
