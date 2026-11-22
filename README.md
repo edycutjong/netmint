@@ -14,6 +14,7 @@
   ![Next.js](https://img.shields.io/badge/Next.js-black?style=flat&logo=next.js)
   ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
   ![Vitest](https://img.shields.io/badge/Vitest_201_tests-6E9F18?style=flat&logo=vitest&logoColor=white)
+  [![CI](https://github.com/edycutjong/netmint/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/edycutjong/netmint/actions/workflows/ci.yml)
   [![License](https://img.shields.io/badge/License-MIT-yellow)](https://opensource.org/licenses/MIT)
 
 </div>
@@ -217,8 +218,8 @@ npm run verify:flows          # recompute /flows from the stored bodies, expect 
 npm run snapshot -- NVDA --window 30   # write a dated evidence folder
 ```
 
-The pipeline is in [`.github/workflows/ci.yml`](.github/workflows/ci.yml): quality (prettier, eslint, tsc, vitest coverage, stored-evidence replay) and security (gitleaks on full history, `npm audit`, dependency review) in parallel, then build with the unplug-must-fail check, deploy to Vercel, the Playwright E2E on the live URL and a Lighthouse budget; [`codeql.yml`](.github/workflows/codeql.yml) (security-and-quality, weekly), [`dependabot.yml`](.github/dependabot.yml) and a tagged-release workflow sit beside it.
-The dependency-review and CodeQL jobs need a public repo (or GitHub Advanced Security) and begin to work at the public flip. GitHub Actions has not started any job on this account yet (a billing/spending-limit error before the first step), so there is no CI badge. Stage 1 and the offline check were replayed in a Linux container (`act` and `docker`) and both passed; the commands above are the gate.
+The pipeline is in [`.github/workflows/ci.yml`](.github/workflows/ci.yml), six stages: quality (prettier, eslint, tsc, vitest coverage, stored-evidence replay) and security (gitleaks on full history, `npm audit`, dependency review) in parallel; build with the unplug-must-fail check and a Vercel preview deploy; the Playwright E2E and a Lighthouse budget against that preview; then a deploy gate that promotes the tested preview to production and checks that the live `/api/health` reports the same commit. [`codeql.yml`](.github/workflows/codeql.yml) (security-and-quality, weekly) and [`dependabot.yml`](.github/dependabot.yml) sit beside it. Releases are automatic: after the deploy gate passes on `main`, `scripts/release.mjs` derives the next semantic version from Conventional Commits, updates `CHANGELOG.md`, tags it and publishes the GitHub release.
+Latest green run, all six stages: [CI/CD run 45065776491](https://github.com/edycutjong/netmint/actions/runs/45065776491).
 
 ## 📁 Project Structure
 
