@@ -77,7 +77,7 @@ apart, tolerance ±10%). The 5 largest step days (3-day sums) all matched within
 
 ## 🏆 CoinMarketCap Integration
 
-Seven CMC endpoints are called live: five on every lookup (`npm run demo -- NVDA` = 5 calls, 7 credits, 1.8 s), `/v1/dex/holders/count`
+Seven CMC endpoints are called live: five on every lookup (`npm run demo -- NVDA` = 5 calls, 7 credits; bench p50 1,976 ms over 20 live lookups, [`docs/proof/bench.json`](docs/proof/bench.json)), `/v1/dex/holders/count`
 for the holder panel on `/u/<ticker>`, and `/v1/key/info` for `/api/health`.
 Verbatim bodies for every call are committed in [`docs/proof/spike/`](docs/proof/spike/) and
 [`evidence/2026-11-21/nvda-30d/`](evidence/2026-11-21/nvda-30d/); the same bodies appear in the app's receipt drawer.
@@ -92,7 +92,31 @@ Verbatim bodies for every call are committed in [`docs/proof/spike/`](docs/proof
 | 6 | `GET /v1/dex/holders/count` | holder count per chain (holder panel) | [`lib/cmc/holders.ts`](lib/cmc/holders.ts) |
 | 7 | `GET /v1/key/info` | plan and credits for `/api/health` | [`lib/cmc/key.ts`](lib/cmc/key.ts) |
 
-**Code and response, side by side** (from `npm run demo -- NVDA --from 2026-10-22 --to 2026-11-21`, live on 2026-11-21T06:47Z; full
+**The call, in code** ([`lib/cmc/history.ts`](lib/cmc/history.ts), every receipt kept by `lib/receipts.ts`):
+
+```ts
+const call = await rec.cmc<any>('/v2/cryptocurrency/quotes/historical', {
+  id: ids.join(','),
+  interval: 'daily',
+  time_start: addDays(from, -1),
+  time_end: to,
+});
+```
+
+**The response, verbatim** (NVDAB, id 40215, two of its daily rows from
+[`evidence/2026-11-21/nvda-30d/05-v2_cryptocurrency_quotes_historical.json`](evidence/2026-11-21/nvda-30d/05-v2_cryptocurrency_quotes_historical.json);
+⋮ marks omitted fields). 1,101,985.14 − 695,844.73 = the +406,140 units of Proof 1 on the hero card:
+
+```json
+{"status": {"timestamp": "2026-11-21T01:40:11.557Z", "error_code": 0, "credit_count": 3, ⋮},
+ "data": {"40215": {"symbol": "NVDAB", "quotes": [ ⋮
+   {"timestamp": "2026-11-12T00:00:00.000Z", "quote": {"USD": {"price": 160.64385797664036, ⋮
+     "circulating_supply": 695844.7318002796, "total_supply": 695844.7318002796}}},
+   {"timestamp": "2026-11-13T00:00:00.000Z", "quote": {"USD": {"price": 167.9757341339163, ⋮
+     "circulating_supply": 1101985.144135691, "total_supply": 1101985.144135691}}}, ⋮ ]}}}
+```
+
+**What the flow prints from it** (from `npm run demo -- NVDA --from 2026-10-22 --to 2026-11-21`, live on 2026-11-21T06:47Z; full
 transcript [`evidence/2026-11-21/demo-nvda-pinned.txt`](evidence/2026-11-21/demo-nvda-pinned.txt); the 01:40Z run in `nvda-30d/table.json` gives the
 same figures; ⋮ marks omitted lines):
 
@@ -142,7 +166,7 @@ Read-only on-chain calls, no wallet and no transactions from us. Proof the chain
 
 - Live app: <https://netmint.edycu.dev> (health: [`/api/health`](https://netmint.edycu.dev/api/health))
 - NVDAB mint transaction on BNB Smart Chain: `0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c`
-  ([`docs/proof/mints/nvdab-bsc.json`](docs/proof/mints/nvdab-bsc.json))
+  ([BscScan](https://bscscan.com/tx/0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c) · our capture: [`docs/proof/mints/nvdab-bsc.json`](docs/proof/mints/nvdab-bsc.json))
 - Block-boundary check of the day index: [`docs/proof/spike/chain-boundary.json`](docs/proof/spike/chain-boundary.json)
 
 ## 📊 Engineering Rigor
@@ -169,7 +193,7 @@ Read-only on-chain calls, no wallet and no transactions from us. Proof the chain
 ## 🚀 Getting Started
 
 ### Prerequisites
-Node 22, a CMC Pro API key, an Alchemy key for BNB Smart Chain and Ethereum archive reads (for refreshing the baseline, and for any day after it ends: 2026-11-21 today).
+Node 22, a CMC Pro API key, an Alchemy key for BNB Smart Chain and Ethereum archive reads (for refreshing the baseline, and for any day after it ends on 2026-11-21).
 
 ### Installation
 ```bash
