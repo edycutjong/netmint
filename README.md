@@ -36,7 +36,7 @@ whole flow behind that click and shows each CMC response verbatim in a receipt d
 
 ### The Problem
 CMC lists tokenised stocks with a daily circulating supply. That supply moves with primary-market creation and redemption
-(issuers mint on creation and burn on redemption), yet CMC does not show it the way an ETF flow table shows creations.
+(a creation mints tokens on chain, a redemption burns them), yet CMC does not show it the way an ETF flow table shows creations.
 A holder sees prices that move together and supplies that move apart, and nothing joins the two. A supply jump can also be a
 data artefact, a listing change, or a move on a chain nobody reads.
 
