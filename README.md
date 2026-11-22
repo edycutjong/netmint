@@ -35,8 +35,8 @@ whole flow behind that click and shows each CMC response verbatim in a receipt d
 ## 💡 The Problem & Solution
 
 ### The Problem
-CMC lists tokenised stocks with a daily circulating supply. That supply is the only public trace of primary-market creation and
-redemption (issuers mint on creation and burn on redemption), yet CMC does not show it the way an ETF flow table shows creations.
+CMC lists tokenised stocks with a daily circulating supply. That supply moves with primary-market creation and redemption
+(issuers mint on creation and burn on redemption), yet CMC does not show it the way an ETF flow table shows creations.
 A holder sees prices that move together and supplies that move apart, and nothing joins the two. A supply jump can also be a
 data artefact, a listing change, or a move on a chain nobody reads.
 
@@ -175,6 +175,7 @@ Node 22, a CMC Pro API key, an Alchemy key for BNB Smart Chain and Ethereum arch
 ```bash
 npm ci
 export CMC_API_KEY=...        # server-side only
+export ALCHEMY_API_KEY=...    # BSC + Ethereum archive reads for days after the committed baseline (see .env.example)
 npm run demo -- NVDA          # the full flow in the terminal, 7 credits
 npm run dev                   # the app at http://localhost:3000
 ```
