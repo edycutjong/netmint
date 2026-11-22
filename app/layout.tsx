@@ -11,6 +11,8 @@ const chivo = Chivo_Mono({ subsets: ['latin'], variable: '--f-chivo', display: '
 const TITLE = 'NetMint: tokenised-stock creation and redemption, checked against the chain';
 const DESCRIPTION =
   'CMC lists each tokenised stock’s supply, not the dollars created or redeemed behind it. NetMint shows them, checked against the chain.';
+// og:description stays <= 125 chars (mobile cards clip earlier than desktop)
+const OG_DESCRIPTION = 'CMC lists each tokenised stock’s supply, not the dollars behind it. NetMint shows them, checked against the chain.';
 const OG_ALT =
   'NetMint: NVDAB supply rose ×7.1 while the price fell 41% (22 Oct to 21 Nov 2026); the chain confirms the supply steps within remedy, struck REAL INFLOW beside +$202.83M net creation at market price.';
 
@@ -26,10 +28,10 @@ export const metadata: Metadata = {
     siteName: 'NetMint',
     url: '/',
     title: TITLE,
-    description: DESCRIPTION,
-    images: [{ url: '/og-image.png', width: 2400, height: 1260, alt: OG_ALT }],
+    description: OG_DESCRIPTION,
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: OG_ALT }],
   },
-  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION, images: [{ url: '/og-image.png', alt: OG_ALT }] },
+  twitter: { card: 'summary_large_image', title: TITLE, description: OG_DESCRIPTION, images: [{ url: '/og-image.png', alt: OG_ALT }] },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
