@@ -135,6 +135,12 @@ footer.foot { max-width: 1240px; margin: 40px auto 0; padding: 18px 28px 40px; b
 .seg a.segl[aria-current='true'] { background: var(--ink); color: var(--card); }
 .tag-div { font-size: 13px; border-bottom: 2px solid var(--after); }
 .ledger.flows td:nth-child(2) { max-width: 360px; }
+/* wide screens: the wrapper column keeps its link on one line; unproven CMC deltas wrap instead of stealing the width */
+@media (min-width: 900px) {
+  .ledger.flows td:nth-child(2) { min-width: 230px; }
+  .ledger.flows td.money .muted { white-space: normal; display: inline-block; max-width: 34ch; }
+  .ledger.flows .tag-div { white-space: nowrap; }
+}
 .masthead .nav { display: flex; gap: 6px; }
 .masthead .nav a { font-size: 15px; padding: 8px 12px; min-height: 44px; display: inline-flex; align-items: center; text-decoration: none; border: 1px solid transparent; transition: border-color 120ms ease, background 120ms ease; }
 .masthead .nav a:hover { border-color: var(--ink); background: var(--card); }
