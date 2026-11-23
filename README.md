@@ -1,6 +1,6 @@
 <div align="center">
   <img src="docs/assets/icon-animated.svg" alt="NetMint icon: a supply staircase put on trial, struck with the REAL INFLOW hallmark" width="144">
-  <h1>NetMint ⚖️</h1>
+  <h1>NetMint 𓊍</h1>
   <p><em>For a holder of a tokenised stock, a supply jump on CoinMarketCap can be new tokens or a data change. NetMint turns CMC's daily supply history into net creation and redemption per wrapper, in dollars at market price, and checks the jump on chain: NVDAB's CMC supply went ×7.1 in 30 days while the price fell 41%, +$202.83M of net creation at market price, confirmed on BNB Chain.</em></p>
   <img src="docs/assets/readme-hero-animated.svg" alt="NetMint puts each tokenised stock's window and largest step days on trial against the chain. A pencilled supply jump meets the chain, lands within tolerance (the remedy), and the hallmark REAL INFLOW strikes beside +$202.83M." width="100%">
 
