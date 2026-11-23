@@ -11,6 +11,9 @@
   [![Landing page](https://img.shields.io/badge/🌐_Landing-About-0f766e?style=for-the-badge)](https://netmint.edycu.dev/about)
   [![Pitch deck](https://img.shields.io/badge/📊_Pitch-Deck-b45309?style=for-the-badge)](https://netmint.edycu.dev/pitch)
   [![Demo video](https://img.shields.io/badge/▶_Demo-Video_2:45-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/pdAQCRNSXoA)
+  [![DoraHacks BUIDL](https://img.shields.io/badge/🏗️_DoraHacks-BUIDL-1f2937?style=for-the-badge)](https://dorahacks.io/build/51745)
+  [![X post](https://img.shields.io/badge/Post-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/edycutjong/status/2124969071578173617)
+  [![dev.to article](https://img.shields.io/badge/dev.to-Article-0A0A0A?style=for-the-badge&logo=devdotto&logoColor=white)](https://dev.to/edycutjong/i-retracted-my-own-headline-tokenised-stock-supply-doesnt-show-inflow-until-the-chain-agrees-3a5d)
   [![Built for CoinMarketCap API Hackathon](https://img.shields.io/badge/DoraHacks-CMC_API_Hackathon-8b5cf6?style=for-the-badge)](https://dorahacks.io/hackathon/coinmarketcap-api-202611/detail)
 
   <br/>
