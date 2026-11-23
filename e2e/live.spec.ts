@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 
+// @upstream = needs the server's CMC and RPC keys; a secretless CI run (Dependabot or fork PR) skips those, main runs all
+
 const VERDICTS = ['REAL INFLOW', 'OUTFLOW', 'RECOUNT', 'NOT VERIFIABLE', 'FLAT'];
 
 test('health: names its commit and both clocks', async ({ request }) => {
@@ -12,7 +14,7 @@ test('health: names its commit and both clocks', async ({ request }) => {
   expect(j.commit).toMatch(/^[0-9a-f]{7,40}$/);
 });
 
-test('the judged click: Run it live returns a verdict with CMC receipts behind it', async ({ page }) => {
+test('the judged click: Run it live returns a verdict with CMC receipts behind it @upstream', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('img', { name: /^Verdict: / }).first()).toBeVisible(); // the recorded hero is there before any click
   const lookup = page.waitForResponse((r) => r.url().includes('/api/lookup'));
@@ -43,7 +45,7 @@ test('the judged click: Run it live returns a verdict with CMC receipts behind i
   await expect(drawer).toBeHidden();
 });
 
-test('/api/lookup: live NVDA flow answers with per-wrapper verdicts, endpoints and credits', async ({ request }) => {
+test('/api/lookup: live NVDA flow answers with per-wrapper verdicts, endpoints and credits @upstream', async ({ request }) => {
   const res = await request.get('/api/lookup?u=NVDA&window=30');
   expect(res.status()).toBe(200);
   const j = await res.json();
@@ -59,7 +61,7 @@ test('/api/lookup: live NVDA flow answers with per-wrapper verdicts, endpoints a
   expect(JSON.stringify(j)).not.toMatch(/X-CMC_PRO_API_KEY:\s*[0-9a-f]{8}-/i); // receipts carry the header name with a $CMC_API_KEY placeholder, never a value
 });
 
-test('/api/lookup: an uncached lookup reaches CMC live (a successful, non-stored CMC receipt)', async ({ request }, info) => {
+test('/api/lookup: an uncached lookup reaches CMC live (a successful, non-stored CMC receipt) @upstream', async ({ request }, info) => {
   test.skip(info.project.name !== 'desktop', 'one upstream provenance gate per run (7 CMC credits)');
   test.setTimeout(240_000);
   type GateReceipt = { kind: string; stored?: unknown; httpStatus: number; errorCode?: number; endpoint: string };
@@ -85,7 +87,7 @@ test('/api/lookup: an uncached lookup reaches CMC live (a successful, non-stored
   expect(live.length, `successful live CMC receipt (mode ${fresh!.mode})`).toBeGreaterThan(0);
 });
 
-test('/api/lookup: an unknown ticker is refused, not invented', async ({ request }) => {
+test('/api/lookup: an unknown ticker is refused, not invented @upstream', async ({ request }) => {
   const res = await request.get('/api/lookup?u=NOTATICKER99&window=30');
   expect(res.status()).toBeGreaterThanOrEqual(400);
   expect(res.status()).toBeLessThan(500);
@@ -99,7 +101,7 @@ test('leaderboard renders the captured table with its capture date', async ({ pa
   await expect(page.locator('body')).toContainText(/captured|capture/i);
 });
 
-test('per-underlying page renders verdict stamps from a live lookup', async ({ page }) => {
+test('per-underlying page renders verdict stamps from a live lookup @upstream', async ({ page }) => {
   const lookup = page.waitForResponse((r) => r.url().includes('/api/lookup'), { timeout: 60_000 });
   await page.goto('/u/NVDA');
   expect((await lookup).status()).toBe(200); // the stamps come from the page's own /api/lookup call
