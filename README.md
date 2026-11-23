@@ -32,6 +32,9 @@
 
 ## 📸 See it in Action
 
+<p align="center"><img src="docs/assets/netmint-broll.gif" alt="Screen capture of the live site: on the /judge page the cursor clicks Open the NVDAB 30-day lookup; the new tab calls CoinMarketCap and reads the chain, then stamps NVDAB REAL INFLOW +$202.8M (chain +1,216,792 vs CMC +1,209,739, +0.6%, within remedy ±10%) and NVDAX NOT VERIFIABLE, CMC Δ +$104.1M unproven; the receipt drawer shows 5 CMC calls, 7 credits charged and the verbatim rwa/quotes/latest response for Nvidia Corp" width="100%"></p>
+<p align="center"><sub>Real capture of the live site, 2026-11-23 13:51 UTC: the <a href="https://netmint.edycu.dev/judge">/judge</a> link opens the pinned NVDAB 30-day lookup (2026-10-22 → 2026-11-21); wait untrimmed; cursor, outlines and captions are overlays; the lookup's response: <a href="evidence/2026-11-23/broll/"><code>evidence/2026-11-23/broll/</code></a>.</sub></p>
+
 <p align="center"><img src="docs/assets/readme-hero.png" alt="NetMint hero: NVDAB, 30 days, supply on one scale and price on another, verdict REAL INFLOW +$202.83M" width="100%"></p>
 
 No wallet needed anywhere: every page is a read-only call. Open <https://netmint.edycu.dev>, type a ticker, and the page runs the
