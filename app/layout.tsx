@@ -10,9 +10,9 @@ const chivo = Chivo_Mono({ subsets: ['latin'], variable: '--f-chivo', display: '
 
 const TITLE = 'NetMint: tokenised-stock creation and redemption, checked against the chain';
 const DESCRIPTION =
-  'CMC lists each tokenised stock’s supply, not the dollars created or redeemed behind it. NetMint shows them, checked against the chain.';
+  'CMC lists each tokenised stock’s supply, not the units created or redeemed behind it. NetMint shows them, checked against the chain.';
 // og:description stays <= 125 chars (mobile cards clip earlier than desktop)
-const OG_DESCRIPTION = 'CMC lists each tokenised stock’s supply, not the dollars behind it. NetMint shows them, checked against the chain.';
+const OG_DESCRIPTION = 'CMC lists each tokenised stock’s supply, not the creation behind it. NetMint shows it, checked against the chain.';
 const OG_ALT =
   'NetMint: NVDAB supply rose ×7.1 while the price fell 41% (22 Oct to 21 Nov 2026); the chain confirms the supply steps within remedy, struck REAL INFLOW beside +$202.83M net creation at market price.';
 
