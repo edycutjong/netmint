@@ -19,6 +19,7 @@
   ![Vitest](https://img.shields.io/badge/Vitest_201_tests-6E9F18?style=flat&logo=vitest&logoColor=white)
   [![CI](https://github.com/edycutjong/netmint/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/edycutjong/netmint/actions/workflows/ci.yml)
   [![CodeQL](https://github.com/edycutjong/netmint/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/edycutjong/netmint/security/code-scanning)
+  [![Release](https://img.shields.io/github/v/release/edycutjong/netmint?style=flat)](https://github.com/edycutjong/netmint/releases)
   [![License](https://img.shields.io/badge/License-MIT-yellow)](https://opensource.org/licenses/MIT)
 
 </div>
