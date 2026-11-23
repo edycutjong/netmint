@@ -5,7 +5,7 @@ All figures: NVDAB (bStocks), 2026-10-22 → 2026-11-21, captured 2026-11-21 (a 
 
 ## Click path on the live app
 
-1. Open <https://netmint.edycu.dev>. The hero shows NVDAB: **REAL INFLOW +$202.8M** (`net_usd` 202,826,522.82), with the two proving rows beside it (CMC supply on
+1. Open <https://netmint.edycu.dev>. The hero shows NVDAB: **REAL INFLOW +$202.8M** net creation at market price (`net_usd` 202,826,522.82), with the two proving rows beside it (CMC supply on
    the first and last day, and the on-chain step with its mint transaction).
 2. Open `/u/NVDA` and run it. The page calls `/api/lookup?u=NVDA&window=30`; the receipt drawer lists every CMC call verbatim
    (endpoint, params, status, body) and the credit count. Below the result, the holder panel shows the holder count per chain for each wrapper from
@@ -18,13 +18,13 @@ All figures: NVDAB (bStocks), 2026-10-22 → 2026-11-21, captured 2026-11-21 (a 
 ```bash
 npm ci
 export CMC_API_KEY=...
-npm run demo -- NVDA --from 2026-10-22 --to 2026-11-21   # pinned: 5 CMC calls, 7 credits, ~2 s, 0 RPC reads (the committed baseline covers it)
+npm run demo -- NVDA --from 2026-10-22 --to 2026-11-21   # pinned: 5 CMC calls, 7 credits, ~2 s; chain from the committed baseline (to 2026-11-21), the boundary day after it read live by eth_call
 npm test                      # 201 passing
 npm run verify:offline        # network blocked: exits non-zero, prints no verdict
 npm run verify:flows          # 304 stored leaderboard rows re-derived, 0 diffs
 ```
 
-Expected output (excerpt) of the demo (live CMC, so figures drift with the market; the stored copy is in
+Expected output (excerpt) of the demo (live CMC; the pinned window reproduced the stored figures on 2026-11-21, `evidence/2026-11-21/demo-nvda-pinned.txt`; the stored copy is in
 `evidence/2026-11-21/nvda-30d/table.json`):
 
 ```text

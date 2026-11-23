@@ -1,7 +1,7 @@
 <div align="center">
   <img src="docs/assets/icon-animated.svg" alt="NetMint icon: a supply staircase put on trial, struck with the REAL INFLOW hallmark" width="144">
   <h1>NetMint ⚖️</h1>
-  <p><em>For a holder of a tokenised stock, a supply jump on CoinMarketCap can be new tokens or a data change. NetMint turns CMC's daily supply history into dollars created or redeemed per wrapper and checks the jump on chain: NVDAB's supply went ×7.1 in 30 days while the price fell 41%, +$202.83M of net creation, confirmed on BNB Chain.</em></p>
+  <p><em>For a holder of a tokenised stock, a supply jump on CoinMarketCap can be new tokens or a data change. NetMint turns CMC's daily supply history into net creation and redemption per wrapper, in dollars at market price, and checks the jump on chain: NVDAB's CMC supply went ×7.1 in 30 days while the price fell 41%, +$202.83M of net creation at market price, confirmed on BNB Chain.</em></p>
   <img src="docs/assets/readme-hero-animated.svg" alt="NetMint puts each tokenised stock's window and largest step days on trial against the chain. A pencilled supply jump meets the chain, lands within tolerance (the remedy), and the hallmark REAL INFLOW strikes beside +$202.83M." width="100%">
 
   <br/>
@@ -40,12 +40,14 @@ whole flow behind that click and shows each CMC response verbatim in a receipt d
 CMC lists tokenised stocks with a daily circulating supply. That supply moves with primary-market creation and redemption
 (a creation mints tokens on chain, a redemption burns them), yet CMC does not show it the way an ETF flow table shows creations.
 A holder sees prices that move together and supplies that move apart, and nothing joins the two. A supply jump can also be a
-data artefact, a listing change, or a move on a chain nobody reads.
+data artefact, a listing change, or a move on a chain nobody reads. CMC's market cap is price × circulating supply (true for all 2,000 daily rows in
+[`history-baseline.json`](docs/proof/calibration/history-baseline.json)), so an unverified supply jump is an unverified market-cap jump: on 2026-07-31 NVDAX's CMC circulating supply fell 659,169 → 178,276
+(−73%) in one day, a circulating/total split, not a redemption (What we got wrong, #2).
 
 ### The Solution
 NetMint turns CMC's daily supply history into **net creation and redemption in USD per wrapper** (Δsupply × price) and puts the
 window change and the largest step days (up to five, until they carry 80% of gross flow) **on trial against the chain**: each CMC
-move must match the on-chain `totalSupply` move within a ±10% tolerance (the app calls it the remedy), and a sampled mint is traced
+move must match the on-chain `totalSupply` move within a ±10% tolerance, or 0.5% of CMC supply at the window end if that is larger (the app calls it the remedy), and a sampled mint is traced
 to its transaction. Dollars use CMC's `circulating_supply` × price; the trial compares CMC's `total_supply` with the chain's
 `totalSupply`, and a guard requires the circulating and total moves to agree, else NOT VERIFIABLE. Then it stamps one verdict:
 
@@ -156,10 +158,12 @@ its wrappers ([`data/offsets.json`](data/offsets.json)).
 - Plan limits are real: CMC's pricing page lists daily `quotes/historical` for Basic at one year of depth ([`basic-tier.json`](docs/proof/spike/basic-tier.json));
   we could not test a Basic key. The one plan error we observed (1006, on `/v1/blockchain/statistics/latest`) is in
   [`plan-errors.json`](docs/proof/spike/plan-errors.json). Our event key (2M credits/month, 750 req/min per `/v1/key/info`) is expected to revert to the free Basic tier when submissions close (9 Dec 23:59 UTC).
-  The click still calls CMC live. If CMC refuses a call with a plan error, a stored dated CMC body answers that one call (`mode: "live-stored"`,
+  A new lookup still calls CMC live (a repeat within 60 s is answered from cache, `cacheHit: true`). If CMC refuses a call on plan, credits
+  or a disabled key (codes 1003, 1004, 1006, 1007, 1010; `docs/proof/spike/plan-errors.json`), a stored dated CMC body answers that one call (`mode: "live-stored"`,
   the receipt shows the refused call, then the stored body with its capture date), the verdict is re-run, and if no endpoint answered live the
-  click also calls `/v1/key/info` (0 credits) so a live CMC call stands behind every click. Chain supply comes from the committed baseline, and a day it
-  lacks is read live, as on every click. A window outside the stored bodies shows the verbatim plan error, not a guess. The path is tested with a simulated plan refusal
+  lookup also calls `/v1/key/info` (0 credits) so a live CMC call stands behind it. Chain supply comes from the committed baseline, and a day it
+  lacks is read live, as on every click. Stored 7 d and 30 d bodies exist for the 20 underlyings on `/flows`; a rolling window re-anchors on
+  their last stored day (2026-11-21). Any other ticker, or a window outside the stored bodies, shows CMC's error code and message, not a guess. The path is tested with a simulated plan refusal
   (`tests/stored.test.ts`); it has not yet run against a real Basic key.
 - The daily point closes at 00:00 UTC, so one day offset is fixed per issuer from the step alignment; ambiguous alignment
   yields NOT VERIFIABLE, never RECOUNT.
@@ -222,7 +226,7 @@ npm run snapshot -- NVDA --window 30   # write a dated evidence folder
 ```
 
 The pipeline is in [`.github/workflows/ci.yml`](.github/workflows/ci.yml), six stages: quality (prettier, eslint, tsc, vitest coverage, stored-evidence replay) and security (gitleaks on full history, `npm audit`; dependency review on pull requests) in parallel; build with the unplug-must-fail check and a staged production deployment on Vercel (production settings, domain not yet assigned; pull requests get a preview); the Playwright E2E and a Lighthouse budget against that deployment; then a deploy gate that points the domain at that same deployment and checks that the live `/api/health` reports the same commit. [`codeql.yml`](.github/workflows/codeql.yml) (security-and-quality, weekly) and [`dependabot.yml`](.github/dependabot.yml) sit beside it. Releases are automatic: after the deploy gate passes on `main`, `scripts/release.mjs` derives the next semantic version from Conventional Commits, updates `CHANGELOG.md`, and the release commit and tag are pushed together before the GitHub release is published.
-Latest green run, all six stages plus the release: [CI/CD run 45097104482](https://github.com/edycutjong/netmint/actions/runs/45097104482) (staged deployment promoted as is, v1.1.1 released).
+A green run of all six stages plus the release: [CI/CD run 45097104482](https://github.com/edycutjong/netmint/actions/runs/45097104482) (staged deployment promoted as is, v1.1.1 released).
 
 ## 📁 Project Structure
 
@@ -258,7 +262,7 @@ The visual identity (`docs/assets/`) was generated for NetMint during the event.
 
 ## 🙈 What we got wrong
 
-1. **We first called supply growth "inflow from holders".** Every sampled mint is a Transfer from the zero address, so a minter executed it, and all 7 NVDAB mints we sampled
+1. **We first called supply growth "inflow from holders".** Every sampled mint is a Transfer from the zero address, and all 7 NVDAB mints we sampled
    (one per step day) went to one address. It is issuer-level creation, so the wording is now "net creation", counted like an ETF flow.
 2. **We nearly called NVDAX's July–August fall a real redemption.** Most of it was one day, 2026-07-31, when at least 4 Backed/xStocks
    wrappers (NVDAX, AAPLX, INTCX, MUx) dropped together: a CMC circulating/total split, not a redemption. NVDAX's `circulating_supply`
@@ -267,7 +271,7 @@ The visual identity (`docs/assets/`) was generated for NetMint during the event.
 3. **One chain showed 44% of NVDAon's CMC supply.** CMC's figure is the sum over chains, so the check sums legs too.
 4. **The hero scale note was wrong on first draft.** "Supply ×7.1" is CMC's ratio; the chain's own ratio is 7.42 and the start
    value read 3.9% lower. This README says "CMC supply ×7.1"; the app prints the same ratio as ×7.13.
-5. **Dollars are net creation at market price, not money that changed hands.** Every dollar caption says "at market price".
+5. **Dollars are net creation at market price, not money that changed hands.** Headline dollar figures say "at market price".
 
 ## 📄 License
 
