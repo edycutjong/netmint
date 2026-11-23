@@ -9,7 +9,8 @@ on:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+  # a newer PR push cancels the old run; main runs queue instead, so a deploy or release is never cut off halfway
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: read
@@ -59,9 +60,8 @@ jobs:
       - run: npm run audit
 
   dependency-review:
-    name: Stage 2 · dependency review (needs a public repo or GitHub Advanced Security)
+    name: Stage 2 · dependency review (pull requests)
     if: github.event_name == 'pull_request'
-    continue-on-error: true
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -71,17 +71,16 @@ jobs:
         with:
           fail-on-severity: high
 
-  # ── Stage 3 · build, the "unplug it" proof, and a Vercel PREVIEW deploy ─
+  # ── Stage 3 · build, the "unplug it" proof, and a staged Vercel deploy ─
   build:
-    name: Stage 3 · build, offline-must-fail, preview deploy
+    name: Stage 3 · build, offline-must-fail, staged deploy
     needs: [quality, secrets, audit]
     runs-on: ubuntu-latest
     outputs:
-      preview_url: ${{ steps.deploy.outputs.url }}
+      deploy_url: ${{ steps.deploy.outputs.url }}
     env:
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      # only a flag here; the token itself is scoped to the deploy step, so npm ci and the build never see it
+      HAS_VERCEL: ${{ secrets.VERCEL_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -101,24 +100,37 @@ jobs:
         run: |
           sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
           npm run verify:offline
-      # Dependabot and fork PRs get no repository secrets, so they skip the preview and stages 4-5 fall back to a local server.
-      - name: Deploy a Vercel preview (never production)
+      # main: a STAGED production deployment (production config, no domain assigned), which stages 4-5 test and stage 6 promotes
+      # as is. Same-repo PRs: a preview. Dependabot and fork PRs get no secrets, so stages 4-5 fall back to a local server.
+      - name: Deploy (main, staged production without the domain; PR, preview)
         id: deploy
-        if: env.VERCEL_TOKEN != ''
+        if: env.HAS_VERCEL == 'true'
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          npx vercel pull --yes --environment=preview --token="$VERCEL_TOKEN"
-          COMMIT_SHA="$GITHUB_SHA" npx vercel build --token="$VERCEL_TOKEN"
-          url=$(npx vercel deploy --prebuilt -e COMMIT_SHA="$GITHUB_SHA" --token="$VERCEL_TOKEN")
-          echo "preview: $url"
+          set -euo pipefail
+          vercel() { npx --yes vercel@66.6.0 "$@" --token="$VERCEL_TOKEN"; }
+          if [ "$GITHUB_EVENT_NAME" != pull_request ] && [ "$GITHUB_REF" = refs/heads/main ]; then
+            vercel pull --yes --environment=production
+            COMMIT_SHA="$GITHUB_SHA" vercel build --prod
+            url=$(vercel deploy --prebuilt --prod --skip-domain -e COMMIT_SHA="$GITHUB_SHA")
+          else
+            vercel pull --yes --environment=preview
+            COMMIT_SHA="$GITHUB_SHA" vercel build
+            url=$(vercel deploy --prebuilt -e COMMIT_SHA="$GITHUB_SHA")
+          fi
+          echo "deployment: $url"
           echo "url=$url" >> "$GITHUB_OUTPUT"
 
-  # ── Stage 4 · E2E against the preview, the judged click ─────────────
+  # ── Stage 4 · E2E against the staged deployment, the judged click ───
   e2e:
-    name: Stage 4 · E2E on the preview
+    name: Stage 4 · E2E on the staged deployment
     needs: [build]
     runs-on: ubuntu-latest
     env:
-      PREVIEW_URL: ${{ needs.build.outputs.preview_url }}
+      DEPLOY_URL: ${{ needs.build.outputs.deploy_url }}
       VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
     steps:
       - uses: actions/checkout@v7
@@ -128,27 +140,36 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - name: Wait until the preview reports THIS commit
-        if: env.PREVIEW_URL != ''
+      - name: Wait until the deployment reports THIS commit
+        if: env.DEPLOY_URL != ''
         run: |
           for _ in $(seq 1 24); do
-            sha=$(curl -s -H "x-vercel-protection-bypass: $VERCEL_AUTOMATION_BYPASS_SECRET" "$PREVIEW_URL/api/health" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(JSON.parse(s).commit||"")}catch{console.log("")}})')
+            sha=$(curl -s -H "x-vercel-protection-bypass: $VERCEL_AUTOMATION_BYPASS_SECRET" "$DEPLOY_URL/api/health" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(JSON.parse(s).commit||"")}catch{console.log("")}})')
             [ "$sha" = "$GITHUB_SHA" ] && exit 0
             sleep 5
           done
-          echo "::error::preview /api/health did not report commit $GITHUB_SHA"; exit 1
-      - name: Local server (only when there is no preview, for example a Dependabot PR)
-        if: env.PREVIEW_URL == ''
+          echo "::error::deployment /api/health did not report commit $GITHUB_SHA"; exit 1
+      - name: Local server (only when there is no deployment, for example a Dependabot PR)
+        if: env.DEPLOY_URL == ''
         run: |
           npm run build
           nohup npm start > server.log 2>&1 &
-          npx --yes wait-on@8 http://localhost:3000/api/health --timeout 60000
+          npx --yes wait-on@8.0.5 http://localhost:3000/api/health --timeout 60000
         env:
           NEXT_TELEMETRY_DISABLED: '1'
           COMMIT_SHA: ${{ github.sha }}
-      - run: npm run e2e
+      - name: E2E, full suite on the deployment
+        if: env.DEPLOY_URL != ''
+        run: npm run e2e
         env:
-          E2E_BASE_URL: ${{ env.PREVIEW_URL != '' && env.PREVIEW_URL || 'http://localhost:3000' }}
+          E2E_BASE_URL: ${{ env.DEPLOY_URL }}
+          CI: 'true'
+      # a secretless local server has no CMC or RPC key: run every spec that needs no upstream; the full suite gates main
+      - name: E2E, specs that need no CMC or RPC key (secretless run)
+        if: env.DEPLOY_URL == ''
+        run: npm run e2e -- --grep-invert @upstream
+        env:
+          E2E_BASE_URL: http://localhost:3000
           CI: 'true'
       - uses: actions/upload-artifact@v7
         if: always()
@@ -157,13 +178,13 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
-  # ── Stage 5 · performance gate on the preview ───────────────────────
+  # ── Stage 5 · performance gate on the staged deployment ─────────────
   lighthouse:
-    name: Stage 5 · Lighthouse budget on the preview
+    name: Stage 5 · Lighthouse budget on the staged deployment
     needs: [build, e2e]
     runs-on: ubuntu-latest
     env:
-      PREVIEW_URL: ${{ needs.build.outputs.preview_url }}
+      DEPLOY_URL: ${{ needs.build.outputs.deploy_url }}
       VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
     steps:
       - uses: actions/checkout@v7
@@ -171,24 +192,24 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - name: Local server (only when there is no preview)
-        if: env.PREVIEW_URL == ''
+      - name: Local server (only when there is no deployment)
+        if: env.DEPLOY_URL == ''
         run: |
           npm ci
           npm run build
           nohup npm start > server.log 2>&1 &
-          npx --yes wait-on@8 http://localhost:3000/api/health --timeout 60000
+          npx --yes wait-on@8.0.5 http://localhost:3000/api/health --timeout 60000
         env:
           NEXT_TELEMETRY_DISABLED: '1'
       - name: Lighthouse (performance >= 0.9, accessibility >= 0.95, best-practices >= 0.95; measured 0.98 / 1 / 1 on 2026-11-21)
         run: |
-          target="${PREVIEW_URL:-http://localhost:3000}"
+          target="${DEPLOY_URL:-http://localhost:3000}"
           headers='{}'
-          [ -n "$PREVIEW_URL" ] && headers=$(node -e 'console.log(JSON.stringify({"x-vercel-protection-bypass": process.env.VERCEL_AUTOMATION_BYPASS_SECRET}))')
+          [ -n "$DEPLOY_URL" ] && headers=$(node -e 'console.log(JSON.stringify({"x-vercel-protection-bypass": process.env.VERCEL_AUTOMATION_BYPASS_SECRET}))')
           # shared runners are noisy (0.89 to 0.99 on identical HTML): warm the edge, run three times, gate on the median
           curl -s -o /dev/null -H "x-vercel-protection-bypass: ${VERCEL_AUTOMATION_BYPASS_SECRET:-}" "$target/"
           for i in 1 2 3; do
-            npx --yes lighthouse "$target/" --quiet --chrome-flags="--headless=new --no-sandbox" \
+            npx --yes lighthouse@13.6.0 "$target/" --quiet --chrome-flags="--headless=new --no-sandbox" \
               --extra-headers="$headers" \
               --only-categories=performance,accessibility,best-practices --output=json --output-path="lh$i.json"
           done
@@ -202,7 +223,7 @@ jobs:
             const bad = Object.keys(min).filter((k) => got[k] < min[k]);
             if (bad.length) { console.error("below budget:", bad.join(", ")); process.exit(1); }'
 
-  # ── Stage 6 · deploy gate (main only): promote the tested preview ───
+  # ── Stage 6 · deploy gate (main only): promote the tested deployment ─
   deploy:
     name: Stage 6 · deploy gate, promote to production
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
@@ -214,13 +235,18 @@ jobs:
     env:
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-      PREVIEW_URL: ${{ needs.build.outputs.preview_url }}
+      DEPLOY_URL: ${{ needs.build.outputs.deploy_url }}
     steps:
       - uses: actions/setup-node@v7
         with:
           node-version: 22
+      # the staged deployment is already a production deployment, so promote assigns the domain to it: no rebuild, no copy
       - name: Promote the exact deployment that passed E2E and Lighthouse
-        run: npx vercel promote "$PREVIEW_URL" --yes --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          [ -n "$DEPLOY_URL" ] || { echo "::error::no staged deployment URL from stage 3"; exit 1; }
+          npx --yes vercel@66.6.0 promote "$DEPLOY_URL" --yes --token="$VERCEL_TOKEN"
       - name: Live smoke, https://netmint.edycu.dev must report THIS commit
         run: |
           for _ in $(seq 1 36); do
@@ -232,7 +258,8 @@ jobs:
 
   # ── Release · automatic semantic version after the deploy gate is green ─
   # Replaces the old tag-triggered release.yml (a tag pushed with GITHUB_TOKEN would not trigger it).
-  # Its test gate is stages 1-6 above. Uses GITHUB_TOKEN only; the [skip ci] commit starts no run.
+  # Its test gate is stages 1-6 above, for exactly this commit: if main has moved on, the newer run releases instead.
+  # Uses GITHUB_TOKEN only; the [skip ci] release commit starts no run.
   release:
     name: Release · semver from Conventional Commits
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
@@ -249,10 +276,25 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Finish a release whose tag was pushed but whose GitHub release was not created
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          tag=$(node scripts/release.mjs --last-tag)
+          if ! gh release view "$tag" > /dev/null 2>&1; then
+            node scripts/release.mjs --notes-for "$tag" > RELEASE_NOTES.md
+            gh release create "$tag" --title "NetMint $tag" --notes-file RELEASE_NOTES.md --verify-tag
+          fi
       - name: Bump, changelog, commit, tag, release (no-op when nothing is releasable)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -euo pipefail
+          git fetch origin main --tags
+          if [ "$(git rev-parse origin/main)" != "$GITHUB_SHA" ]; then
+            echo "main moved past $GITHUB_SHA; the run for the newer commit releases it"; exit 0
+          fi
           version=$(node scripts/release.mjs)
           if [ -z "$version" ]; then echo "no releasable commits since the last tag"; exit 0; fi
           npx prettier --write CHANGELOG.md
@@ -260,11 +302,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add package.json package-lock.json CHANGELOG.md
           git commit -m "chore(release): v$version [skip ci]"
-          for attempt in 1 2 3; do
-            git fetch origin main
-            git rebase origin/main
-            git tag -f "v$version"
-            git push origin HEAD:main "refs/tags/v$version" --force-with-lease="refs/tags/v$version:" && break
-            [ "$attempt" = 3 ] && exit 1
-          done
+          git tag "v$version"
+          # branch and tag land together or not at all; a plain fast-forward, never a force
+          git push --atomic origin HEAD:refs/heads/main "refs/tags/v$version"
           gh release create "v$version" --title "NetMint v$version" --notes-file RELEASE_NOTES.md --verify-tag
