@@ -222,7 +222,7 @@ npm run snapshot -- NVDA --window 30   # write a dated evidence folder
 ```
 
 The pipeline is in [`.github/workflows/ci.yml`](.github/workflows/ci.yml), six stages: quality (prettier, eslint, tsc, vitest coverage, stored-evidence replay) and security (gitleaks on full history, `npm audit`; dependency review on pull requests) in parallel; build with the unplug-must-fail check and a staged production deployment on Vercel (production settings, domain not yet assigned; pull requests get a preview); the Playwright E2E and a Lighthouse budget against that deployment; then a deploy gate that points the domain at that same deployment and checks that the live `/api/health` reports the same commit. [`codeql.yml`](.github/workflows/codeql.yml) (security-and-quality, weekly) and [`dependabot.yml`](.github/dependabot.yml) sit beside it. Releases are automatic: after the deploy gate passes on `main`, `scripts/release.mjs` derives the next semantic version from Conventional Commits, updates `CHANGELOG.md`, and the release commit and tag are pushed together before the GitHub release is published.
-Latest green run, all six stages: [CI/CD run 45065776491](https://github.com/edycutjong/netmint/actions/runs/45065776491).
+Latest green run, all six stages plus the release: [CI/CD run 45097104482](https://github.com/edycutjong/netmint/actions/runs/45097104482) (staged deployment promoted as is, v1.1.1 released).
 
 ## 📁 Project Structure
 
