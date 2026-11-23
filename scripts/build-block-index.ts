@@ -5,11 +5,11 @@
  *
  *   npm run blocks                 (FROM defaults to 2026-07-20)
  */
-import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { firstBlockAtOrAfter, headBlock, type BlockIndex } from '../lib/chain/blockIndex';
 import type { ChainId } from '../lib/chain/rpc';
-import { loadKeys } from './_env';
+import { loadKeys, readJsonOr } from './_env';
 
 loadKeys();
 const FROM = process.argv[2] ?? '2026-07-20';
@@ -21,7 +21,7 @@ const ymd = (t: number) => new Date(t * 1000).toISOString().slice(0, 10);
 
 async function build(chain: ChainId) {
   const file = path.join(DIR, `${chain}.json`);
-  const prev: BlockIndex | null = existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : null;
+  const prev = readJsonOr<BlockIndex | null>(file, null);
   const days: Record<string, number> = { ...(prev?.days ?? {}) };
   const head = await headBlock(chain);
   const cache = new Map<number, number>([[head.n, head.ts]]);

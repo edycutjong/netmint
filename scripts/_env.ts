@@ -26,3 +26,13 @@ export function assertNoSecrets(text: string): void {
     if (k && k.length > 8 && text.includes(k)) throw new Error('refusing to write a secret into an artefact');
   }
 }
+
+/** Parse a JSON file, or return `fallback` when it does not exist (one read, no exists-then-read race). */
+export function readJsonOr<T>(file: string, fallback: T): T {
+  try {
+    return JSON.parse(readFileSync(file, 'utf8')) as T;
+  } catch (e) {
+    if ((e as NodeJS.ErrnoException).code === 'ENOENT') return fallback;
+    throw e;
+  }
+}

@@ -8,11 +8,11 @@
  * Contracts come from a live /v2/cryptocurrency/info call (saved verbatim to
  * docs/proof/spike/info-chain-supply-set.json). Incremental per day.
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { cmcFetch } from '../lib/cmc/client';
 import { RPC_SCRIPT, rpcBatch, totalSupplyReq, chainFromPlatform, scaleUnits, isRevert, SEL, type ChainId } from '../lib/chain/rpc';
-import { loadKeys, assertNoSecrets } from './_env';
+import { loadKeys, assertNoSecrets, readJsonOr } from './_env';
 
 loadKeys();
 const ROOT = path.resolve(__dirname, '..');
@@ -61,14 +61,17 @@ async function main() {
   const legsOf = (id: number): Leg[] => {
     const m = info.body.data[String(id)];
     if (!m) return [];
-    return (m.contract_address ?? [])
-      .map((c: any) => ({
-        crypto_id: id,
-        symbol: m.symbol,
-        chain: chainFromPlatform(c.platform?.name),
-        address: String(c.contract_address).toLowerCase(),
-      }))
-      .filter((l: any) => l.chain) as Leg[];
+    return (
+      (m.contract_address ?? [])
+        .map((c: any) => ({
+          crypto_id: id,
+          symbol: m.symbol,
+          chain: chainFromPlatform(c.platform?.name),
+          address: String(c.contract_address).toLowerCase(),
+        }))
+        // the address names the output file: keep only a well-formed EVM address (same rule as lib/cmc/info.ts)
+        .filter((l: any) => l.chain && /^0x[0-9a-f]{40}$/.test(l.address)) as Leg[]
+    );
   };
   const selected: number[] = [];
   if (process.argv[2]) selected.push(...ids);
@@ -88,9 +91,9 @@ async function main() {
     const dir = path.join(ROOT, 'data/chain-supply', leg.chain);
     mkdirSync(dir, { recursive: true });
     const file = path.join(dir, `${leg.address}.json`);
-    const prev = existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : null;
+    const prev = readJsonOr<{ days?: Record<string, number | null>; decimals?: number } | null>(file, null);
     const days: Record<string, number | null> = { ...(prev?.days ?? {}) };
-    let decimals: number = prev?.decimals;
+    let decimals = prev?.decimals as number;
     if (decimals === undefined) {
       const [d] = await rpcBatch(
         leg.chain,

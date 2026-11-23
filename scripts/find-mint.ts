@@ -5,8 +5,8 @@
  * free-tier cap) for Transfer(0x0 → recipient) and keep the largest mint. Results merge into data/mints.json; the
  * verbatim logs go to docs/proof/mints/. Never runs inside a user request.
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { loadKeys, assertNoSecrets } from './_env';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { loadKeys, assertNoSecrets, readJsonOr } from './_env';
 import { EXPLORER, rpcBatch, scaleUnits, totalSupplyReq, hex, SEL, type ChainId } from '../lib/chain/rpc';
 import { addDays } from '../lib/cmc/history';
 import type { MintReceipt } from '../lib/types';
@@ -80,7 +80,7 @@ async function main() {
     );
   }
   const path = 'data/mints.json';
-  const prev: MintReceipt[] = existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')) : [];
+  const prev = readJsonOr<MintReceipt[]>(path, []);
   const merged = [...prev.filter((p) => !found.some((f) => f.crypto_id === p.crypto_id && f.date === p.date)), ...found].sort(
     (a, b) => a.crypto_id - b.crypto_id || a.date.localeCompare(b.date),
   );
