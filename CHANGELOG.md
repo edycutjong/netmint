@@ -2,6 +2,12 @@
 
 All notable changes, generated from Conventional Commits by `scripts/release.mjs`.
 
+## 1.1.2 (2026-11-23)
+
+### Bug fixes
+
+- **copy:** app description says units created or redeemed, not dollars (ad9d776)
+
 ## 1.1.1 (2026-11-23)
 
 ### Bug fixes
