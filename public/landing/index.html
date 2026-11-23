@@ -744,7 +744,7 @@ footer a:hover { color: var(--paper-ink); text-decoration: underline; }
 </main>
 <footer><div class="wrap">
   <div><a class="mark" href="/about"><span>NetMint</span></a><p>Net creation at market price, checked against the chain. Not investment advice.</p>
-    <p class="nm-data stamp-line">page built from evidence at commit 4beb7b8 · v1.1.0</p></div>
+    <p class="nm-data stamp-line">page built from evidence at commit 4beb7b8 · v1.1.1</p></div>
   <div><p class="fh">Product</p><ul><li><a href="/">Live app</a></li><li><a href="/judge">For judges</a></li><li><a href="/flows">The trial book</a></li><li><a href="/pitch">Pitch deck</a></li><li><a href="/api/health">Service status</a></li></ul></div>
   <div><p class="fh">Source</p><ul><li><a href="https://github.com/edycutjong/netmint">GitHub repository</a></li><li><a href="https://github.com/edycutjong/netmint/blob/main/LICENSE">MIT licence</a></li><li><a href="https://dorahacks.io/hackathon/coinmarketcap-api-202611/detail">CoinMarketCap API Hackathon</a></li></ul></div>
 </div></footer>
@@ -870,9 +870,10 @@ footer a:hover { color: var(--paper-ink); text-decoration: underline; }
 
   /* ---------- copy command ---------- */
   $$('.copy').forEach((b) => b.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(b.dataset.copy); } catch { /* clipboard blocked: the command stays visible */ }
+    let ok = false;
+    try { await navigator.clipboard.writeText(b.dataset.copy); ok = true; } catch { /* clipboard blocked: the command stays visible to copy by hand */ }
     const s = $('.st', b); if (!s) return;
-    const old = s.textContent; s.textContent = 'copied';
+    const old = s.textContent; s.textContent = ok ? 'copied' : 'not copied';
     setTimeout(() => { s.textContent = old; }, 1400);
   }));
 
@@ -973,7 +974,8 @@ footer a:hover { color: var(--paper-ink); text-decoration: underline; }
     statusEl.innerHTML = `<span class="mode">${esc(t)} · 30 days</span><span>calling CoinMarketCap now …</span>`;
     const t0 = performance.now();
     try {
-      const r = await fetch(`/api/lookup?u=${encodeURIComponent(t)}&window=30`, { cache: 'no-store' });
+      // the route answers within its 55 s budget; this only stops a stalled connection from spinning forever
+      const r = await fetch(`/api/lookup?u=${encodeURIComponent(t)}&window=30`, { cache: 'no-store', signal: AbortSignal.timeout ? AbortSignal.timeout(65000) : undefined });
       const j = await r.json();
       const wall = ((performance.now() - t0) / 1000).toFixed(2);
       if (!r.ok || !j.wrappers) {
@@ -984,9 +986,15 @@ footer a:hover { color: var(--paper-ink); text-decoration: underline; }
         footEl.innerHTML = `<span>Nothing is stamped on an error.</span><a href="/u/${encodeURIComponent(t)}">Try it in the app →</a>`;
         return;
       }
-      const cmc = (j.receipts || []).filter((x) => x.kind === 'cmc').length;
-      const modeTxt = { live: 'Live', cached: 'Cached · a repeat within 60 s', 'live-stored': 'Live-stored · CMC refused on plan, stored dated bodies answered', recorded: 'Recorded' }[j.mode] || j.mode;
-      statusEl.innerHTML = `<span class="mode ${j.mode === 'live' ? 'live' : ''}">${esc(modeTxt)}</span><span>${esc(j.underlying.name)} · ${esc(j.range.from)} → ${esc(j.range.to)}</span><span class="nm-data">${cmc} CMC calls · ${j.credits} credits · server ${(j.elapsedMs / 1000).toFixed(2)} s · your wait ${wall} s</span>`;
+      // live calls and stored bodies are counted apart (as the app's receipts do); a 60 s repeat says its figures are the first run's
+      const rc = (j.receipts || []).filter((x) => x.kind === 'cmc');
+      const liveN = rc.filter((x) => !x.stored).length, storedN = rc.length - liveN;
+      const calls = `${liveN} CMC call${liveN === 1 ? '' : 's'}${storedN ? ` + ${storedN} stored bod${storedN === 1 ? 'y' : 'ies'}` : ''}`;
+      const modeTxt = j.cacheHit
+        ? `Cached · a repeat within 60 s${j.mode === 'live-stored' ? ' of a live-stored answer' : ''}`
+        : ({ live: 'Live', 'live-stored': 'Live-stored · CMC refused on plan, stored dated bodies answered', recorded: 'Recorded' }[j.mode] || j.mode);
+      const stats = `${j.cacheHit ? 'first run: ' : ''}${calls} · ${j.credits} credits · server ${(j.elapsedMs / 1000).toFixed(2)} s`;
+      statusEl.innerHTML = `<span class="mode ${j.mode === 'live' && !j.cacheHit ? 'live' : ''}">${esc(modeTxt)}</span><span>${esc(j.underlying.name)} · ${esc(j.range.from)} → ${esc(j.range.to)}</span><span class="nm-data">${stats} · your wait ${wall} s</span>`;
       const ws = j.wrappers.slice(0, 9);
       rowsEl.innerHTML = ws.map(rowHtml).join('');
       keyCounts(ws);
