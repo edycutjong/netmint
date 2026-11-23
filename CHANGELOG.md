@@ -2,6 +2,13 @@
 
 All notable changes, generated from Conventional Commits by `scripts/release.mjs`.
 
+## 1.1.1 (2026-11-23)
+
+### Bug fixes
+
+- **site:** landing trial counts live CMC calls apart from stored bodies and marks a 60 s repeat as the first run's figures; copy buttons report a refused clipboard (fedcadc)
+- **scripts:** chain-supply names files only from well-formed EVM addresses; one read instead of exists-then-read (39091c1)
+
 ## 1.1.0 (2026-11-22)
 
 ### Features
