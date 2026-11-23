@@ -6,10 +6,11 @@
 
   <br/>
 
-  [![Live Demo](https://img.shields.io/badge/🚀_Live-Demo-06b6d4?style=for-the-badge)](https://netmint.edycu.dev)
   [![For judges: the 30-second path](https://img.shields.io/badge/⚖️_For_judges-30--second_path-1F6B55?style=for-the-badge)](https://netmint.edycu.dev/judge)
+  [![Live Demo](https://img.shields.io/badge/🚀_Live-Demo-06b6d4?style=for-the-badge)](https://netmint.edycu.dev)
   [![Landing page](https://img.shields.io/badge/🌐_Landing-About-0f766e?style=for-the-badge)](https://netmint.edycu.dev/about)
   [![Pitch deck](https://img.shields.io/badge/📊_Pitch-Deck-b45309?style=for-the-badge)](https://netmint.edycu.dev/pitch)
+  [![Demo video](https://img.shields.io/badge/▶_Demo-Video_2:45-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/pdAQCRNSXoA)
   [![Built for CoinMarketCap API Hackathon](https://img.shields.io/badge/DoraHacks-CMC_API_Hackathon-8b5cf6?style=for-the-badge)](https://dorahacks.io/hackathon/coinmarketcap-api-202611/detail)
 
   <br/>
@@ -259,7 +260,7 @@ tests/          Vitest suites
 
 ## 📽️ Demo Materials
 
-Live: <https://netmint.edycu.dev> · Walkthrough with the exact click path and commands: [DEMO.md](DEMO.md).
+Live: <https://netmint.edycu.dev> · Demo video (2:45, chapters in the description): <https://youtu.be/pdAQCRNSXoA> · the verdict at [0:26](https://youtu.be/pdAQCRNSXoA?t=26), the live run at [1:15](https://youtu.be/pdAQCRNSXoA?t=75) · Walkthrough with the exact click path and commands: [DEMO.md](DEMO.md).
 
 ## 🧾 Pre-existing work and what is new
 
