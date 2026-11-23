@@ -8,6 +8,8 @@
 
   [![Live Demo](https://img.shields.io/badge/🚀_Live-Demo-06b6d4?style=for-the-badge)](https://netmint.edycu.dev)
   [![For judges: the 30-second path](https://img.shields.io/badge/⚖️_For_judges-30--second_path-1F6B55?style=for-the-badge)](https://netmint.edycu.dev/judge)
+  [![Landing page](https://img.shields.io/badge/🌐_Landing-About-0f766e?style=for-the-badge)](https://netmint.edycu.dev/about)
+  [![Pitch deck](https://img.shields.io/badge/📊_Pitch-Deck-b45309?style=for-the-badge)](https://netmint.edycu.dev/pitch)
   [![Built for CoinMarketCap API Hackathon](https://img.shields.io/badge/DoraHacks-CMC_API_Hackathon-8b5cf6?style=for-the-badge)](https://dorahacks.io/hackathon/coinmarketcap-api-202611/detail)
 
   <br/>
