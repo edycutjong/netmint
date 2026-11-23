@@ -18,6 +18,7 @@
   ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
   ![Vitest](https://img.shields.io/badge/Vitest_201_tests-6E9F18?style=flat&logo=vitest&logoColor=white)
   [![CI](https://github.com/edycutjong/netmint/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/edycutjong/netmint/actions/workflows/ci.yml)
+  [![CodeQL](https://github.com/edycutjong/netmint/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/edycutjong/netmint/security/code-scanning)
   [![License](https://img.shields.io/badge/License-MIT-yellow)](https://opensource.org/licenses/MIT)
 
 </div>
