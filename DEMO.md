@@ -23,7 +23,7 @@ All figures: NVDAB (bStocks), 2026-10-22 → 2026-11-21, captured 2026-11-21 (a 
 npm ci
 export CMC_API_KEY=...
 npm run demo -- NVDA --from 2026-10-22 --to 2026-11-21   # pinned: 5 CMC calls, 7 credits, ~2 s; chain from the committed baseline (to 2026-11-21), the boundary day after it read live by eth_call
-npm test                      # 227 passing
+npm test                      # 238 passing
 npm run verify:offline        # network blocked: exits non-zero, prints no verdict
 npm run verify:flows          # 304 stored leaderboard rows re-derived, 0 diffs
 ```

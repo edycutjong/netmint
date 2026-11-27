@@ -20,7 +20,7 @@
 
   ![Next.js](https://img.shields.io/badge/Next.js-black?style=flat&logo=next.js)
   ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
-  ![Vitest](https://img.shields.io/badge/Vitest_227_tests-6E9F18?style=flat&logo=vitest&logoColor=white)
+  ![Vitest](https://img.shields.io/badge/Vitest_238_tests-6E9F18?style=flat&logo=vitest&logoColor=white)
   [![CI](https://github.com/edycutjong/netmint/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/edycutjong/netmint/actions/workflows/ci.yml)
   [![CodeQL](https://github.com/edycutjong/netmint/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/edycutjong/netmint/security/code-scanning)
   [![Release](https://img.shields.io/github/v/release/edycutjong/netmint?style=flat)](https://github.com/edycutjong/netmint/releases)
@@ -90,7 +90,7 @@ apart, tolerance ±10%). The 5 largest step days (3-day sums) all matched within
 | App | Next.js (App Router) + TypeScript on Vercel; one route handler, `/api/lookup`, runs the flow |
 | Sponsor data | CoinMarketCap Pro API, key server-side only (the key never reaches a response) |
 | Chain check | `totalSupply` at day-boundary blocks on BNB Smart Chain + Ethereum: the committed daily baseline in `data/chain-supply/` (to 2026-11-21) answers first; a day it lacks is read live with Alchemy archive JSON-RPC `eth_call` |
-| Tests | Vitest, 227 tests in 10 files |
+| Tests | Vitest, 238 tests in 11 files |
 | Routes | `/` hero · `/u/<ticker>` lookup · `/flows` leaderboard · `/api/lookup` · `/api/holders` · `/api/health` |
 
 ## 🏆 CoinMarketCap Integration
@@ -181,7 +181,8 @@ its wrappers ([`data/offsets.json`](data/offsets.json)).
 - `/v2/cryptocurrency/info` fails a whole multi-id call when one id has no record (HTTP 400 `Invalid value for 'id'`), while `quotes/latest` and
   `quotes/historical` skip that id. The RWA list carries one: `crypto_id` 39002 under HOOD, with no symbol, issuer or price (2026-11-27). Any lookup that
   included that id failed, because `info` rejected the whole multi-id call. NetMint now retries `info` once with `skip_invalid=true` and keeps both calls as receipts
-  ([`docs/proof/spike/`](docs/proof/spike/), the five `info-invalid-id-*.json` bodies).
+  ([`docs/proof/spike/`](docs/proof/spike/), the five `info-invalid-id-*.json` bodies). Stored bodies are matched without that flag, so a capture taken
+  through the retry replays offline from its own bodies (`tests/review4.test.ts`).
 - The daily point closes at 00:00 UTC, so one day offset is fixed per issuer from the step alignment; ambiguous alignment
   yields NOT VERIFIABLE, never RECOUNT.
 
@@ -198,18 +199,18 @@ Read-only on-chain calls, no wallet and no transactions from us. Proof the chain
 
 | Metric | Value |
 |---|---|
-| Tests | 227 passing, 10 files (`npm test`) |
+| Tests | 238 passing, 11 files (`npm test`) |
 | Offline check | `npm run verify:offline` runs the demo with the network blocked and passes only if it fails on a transport error and prints no verdict; a control run with the network allowed must reach CMC (HTTP 401 for the dummy key), so it cannot pass for the wrong reason |
 | Stored-evidence replay | `npm run verify:flows`: 304 leaderboard rows re-derived from the stored bodies, 0 diffs |
 | Latency (measured 2026-11-21 at commit 848c00e and not re-measured since; later commits changed reason strings, error handling and the refusal fallback, not the calls a successful lookup makes) | One live lookup, NVDA 30 d, n=20: p50 2.0 s, p95 2.6 s (nearest-rank; credits per call 0 to 7 (7 on the first, uncached run; see the note in bench.json)). A top-20 leaderboard refresh (20 live lookups, 7 d, sequential): 38.4 s wall, per-lookup p50 1950 ms, p95 2537 ms (n=20, so p95 is the 2nd-largest of 20), 85 credits. Deployed `/api/lookup` (cached repeat, n=20) p50 500 ms, p95 782 ms; `/flows` p50 306 ms, p95 515 ms. One machine, home broadband, not a load test; raw samples in [`docs/proof/bench.json`](docs/proof/bench.json) (`npm run bench`) |
-| E2E | 12 Playwright tests in 3 specs, each on 2 viewports (one, the uncached-CMC provenance gate, on desktop only) against the live URL (`npm run e2e`), including the judged click: Run it live, verdict, receipts drawer; the `/judge` path to a live REAL INFLOW verdict; and two states that cannot be produced on demand, a refused plan and a failed run, where the `/api/lookup` response (and, in the refused-plan test, the `/api/holders` response) is replaced in the browser (`e2e/states.spec.ts`) |
-| Coverage | v8 line coverage over `lib/` 90.3% (floor 80, enforced by `npm run test:coverage`) |
+| E2E | 14 Playwright tests in 3 specs, each on 2 viewports (one, the uncached-CMC provenance gate, on desktop only) against the live URL (`npm run e2e`), including the judged click: Run it live, verdict, receipts drawer; the `/judge` path to a live REAL INFLOW verdict; and four states that cannot be produced on demand (a refused plan, a failed run, a failed run after a stored answer, a CMC day missing inside a verified window), where the `/api/lookup` response (and, in the refused-plan test, the `/api/holders` response) is replaced in the browser (`e2e/states.spec.ts`) |
+| Coverage | v8 line coverage over `lib/` 91.2% (floor 80, enforced by `npm run test:coverage`) |
 | Dependencies | `npm audit`: 0 vulnerabilities (a `postcss` override lifts the copy bundled in Next 15.5) |
 | Secrets | gitleaks clean on full history at HEAD (`gitleaks detect --log-opts=--all`, 2026-11-21) |
 
 ### Invariants (stated and tested)
 1. **No direction without a mint check.** REAL INFLOW or OUTFLOW requires a passing chain check.
-2. **No verdict on error.** A CMC error for a wrapper yields an error row, never a verdict (one stated exception: `live-stored`).
+2. **No verdict on error.** A CMC error for a wrapper yields an error row, never a verdict (one stated exception: `live-stored`). A chain read that fails on the click (rate limit, timeout) prints no verdict either and says to run it again; a call the contract itself reverts is that contract's answer, so only its own read is unknown and the other wrappers on the chain keep theirs ([`rpc-batch-revert.json`](docs/proof/spike/rpc-batch-revert.json), `tests/chain.test.ts`).
 3. **No silent drop.** Every raw CMC row is either accepted or listed as refused with its reason (`accepted + refused = raw`; a `gap` entry marks a missing day and has no raw row).
 4. **Key never leaves the server.** A test sets a canary key and asserts it never appears in serialized output.
 5. **Keyed by id.** Symbol is display only.
@@ -232,7 +233,7 @@ npm run dev                   # the app at http://localhost:3000
 ## 🧪 Testing & CI
 
 ```bash
-npm test                      # 227 tests
+npm test                      # 238 tests
 npm run ci                    # audit + prettier + eslint + tsc + vitest coverage floor
 npm run bench                 # p50/p95 into docs/proof/bench.json
 npm run e2e                   # Playwright on the live URL
