@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { VerdictStamp } from './VerdictStamp';
 import { ProofRows } from './ProofRows';
 import { ReceiptDrawer } from './ReceiptDrawer';
@@ -8,7 +8,7 @@ import { pct, times, usd, utcStamp } from '@/lib/format';
 import { citeLine } from '@/lib/cite';
 import { heroOf } from '@/lib/hero';
 import type { LookupResult, LookupWindow, WrapperResult } from '@/lib/types';
-import { StoredNotice } from './StoredNotice';
+import { StoredNotice, storedStamp } from './StoredNotice';
 
 const chainNames = (w: WrapperResult) => w.chains.slice(0, 2).join(' + ');
 
@@ -21,6 +21,8 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
   const [strikeKey, setStrikeKey] = useState(0);
   const [drawer, setDrawer] = useState(false);
   const [copied, setCopied] = useState(false);
+  // the window of the answer on the card: a failed run puts the pressed chip back on it (the card still shows that answer)
+  const shownWin = useRef<LookupWindow>(initial?.window ?? 30);
 
   // "Run it live" re-runs the window on screen (the pinned hero window, or the chosen rolling one); chips pick a rolling window
   const run = useCallback(
@@ -33,13 +35,16 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
         const j = await r.json();
         if (!r.ok) {
           setErr({ status: r.status, at: new Date().toISOString(), ...j });
+          setWin(shownWin.current);
         } else {
           setRes(j);
           setErr(null);
+          shownWin.current = w;
           setStrikeKey((k) => k + 1);
         }
       } catch (e) {
         setErr({ status: 0, at: new Date().toISOString(), error: `network error: ${(e as Error).message}` });
+        setWin(shownWin.current);
       } finally {
         setBusy(false);
       }
@@ -55,6 +60,15 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
   return (
     <section className="card" aria-live="polite">
       {err ? <ErrorBanner e={err} /> : null}
+      {err && res ? (
+        <p className="note">
+          That run printed no verdict. The card below is the earlier answer (
+          {res.mode === 'recorded'
+            ? `recorded capture ${utcStamp(res.recordedUtc ?? res.fetchedUtc)}`
+            : `${res.live ? 'live' : res.mode} capture ${utcStamp(res.fetchedUtc)}`}
+          ), not a new one.
+        </p>
+      ) : null}
       {res && !hero.verified ? (
         <p className="note">No wrapper passed the mint check in this window. Largest move shown with its actual verdict.</p>
       ) : null}
@@ -124,8 +138,8 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
       {res ? (
         <p className="capture">
           {res.mode === 'recorded'
-            ? `recorded capture ${utcStamp(res.recordedUtc ?? res.fetchedUtc)} · replayed from the committed CMC responses (no CMC call on page load) · Run it live calls CMC now; if CMC’s plan refuses a call (expected after 9 Dec 23:59 UTC), a stored dated CMC body answers it, labelled`
-            : `${res.live ? 'live' : res.mode} capture ${utcStamp(res.fetchedUtc)} · ${res.credits} credits charged by CMC for this lookup (status.credit_count; repeat identical calls are not charged) · ${res.elapsedMs} ms`}
+            ? `recorded capture ${utcStamp(res.recordedUtc ?? res.fetchedUtc)} · replayed from the committed CMC responses (no CMC call on page load) · Run it live calls CMC now; if CMC refuses a call (plan, credits or a disabled key), a stored dated CMC body answers it, labelled`
+            : `${res.live ? 'live' : res.mode} capture ${utcStamp(res.fetchedUtc)}${storedStamp(res)} · ${res.credits} credits charged by CMC for this lookup (status.credit_count; repeat identical calls are not charged) · ${res.elapsedMs} ms`}
           {w && w.series.length > 1 && (w.series[0].date !== res.range.from || w.series[w.series.length - 1].date !== res.range.to)
             ? ` · math over ${w.series[0].date} → ${w.series[w.series.length - 1].date} (accepted CMC days)`
             : ''}

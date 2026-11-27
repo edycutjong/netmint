@@ -1,8 +1,18 @@
 import type { LookupResult } from '@/lib/types';
 
 /**
- * live-stored state: CMC's plan refused some calls (after the event key reverts), committed CMC bodies answered
- * them, and the verdict was still re-run on this click with the chain read live. Says exactly that, with the refusal.
+ * For the capture line of a live-stored answer. The time printed there is the click (when the verdict was re-run), so the
+ * line also says when CMC's bodies were captured: an old figure never stands under a fresh time without its own date.
+ */
+export function storedStamp(res: LookupResult): string {
+  if (res.mode !== 'live-stored' || !res.stored?.length) return '';
+  const days = [...new Set(res.stored.map((s) => s.capturedUtc.slice(0, 10)))].join(', ');
+  return ` (the verdict was re-run then; the stored CMC bodies were captured ${days})`;
+}
+
+/**
+ * live-stored state: CMC refused some calls on plan, credits or a disabled key, committed CMC bodies answered them, and
+ * the verdict was still re-run on this click with the chain read live. Says exactly that, with the refusal.
  */
 export function StoredNotice({ res }: { res: LookupResult }) {
   if (res.mode !== 'live-stored' || !res.stored?.length) return null;

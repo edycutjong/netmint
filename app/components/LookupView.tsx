@@ -6,7 +6,7 @@ import { HolderPanel } from './HolderPanel';
 import { ErrorBanner, type LookupError } from './ErrorBanner';
 import { utcStamp } from '@/lib/format';
 import type { LookupResult, LookupWindow } from '@/lib/types';
-import { StoredNotice } from './StoredNotice';
+import { StoredNotice, storedStamp } from './StoredNotice';
 
 /** S2: a click fires /api/lookup live; every wrapper of the stock gets a verdict row. */
 export function LookupView({ u, from, to, initialWindow }: { u: string; from?: string; to?: string; initialWindow: LookupWindow }) {
@@ -35,6 +35,7 @@ export function LookupView({ u, from, to, initialWindow }: { u: string; from?: s
         }
       } catch (e) {
         setErr({ status: 0, at: new Date().toISOString(), error: `network error: ${(e as Error).message}` });
+        setRes(null); // as on an HTTP error: an earlier table never stays under "No verdict printed"
       } finally {
         setBusy(false);
       }
@@ -81,8 +82,9 @@ export function LookupView({ u, from, to, initialWindow }: { u: string; from?: s
           <StoredNotice res={res} />
           <p className="capture">
             {res.underlying.name} · {res.range.from} → {res.range.to} UTC {res.range.pinned ? '· pinned window' : `· ${res.window} d`} ·{' '}
-            {res.live ? 'live' : res.mode} {utcStamp(res.fetchedUtc)} · {res.credits} credits charged by CMC for this lookup
-            (status.credit_count; repeat identical calls are not charged) · {res.elapsedMs} ms
+            {res.live ? 'live' : res.mode} {utcStamp(res.fetchedUtc)}
+            {storedStamp(res)} · {res.credits} credits charged by CMC for this lookup (status.credit_count; repeat identical calls are not
+            charged) · {res.elapsedMs} ms
           </p>
           <Ledger res={res} strikeKey={strikeKey} />
           <p className="definition">
