@@ -1,4 +1,5 @@
 /** Validation for /api/lookup query params (kept out of the route file: Next.js allows only handler exports there). */
+import { isUtcDay } from './cmc/history';
 import type { LookupWindow } from './types';
 
 export function parseLookupParams(
@@ -13,9 +14,9 @@ export function parseLookupParams(
   const from = sp.get('from') ?? undefined;
   const to = sp.get('to') ?? undefined;
   if ((from && !to) || (!from && to)) return { ok: false, error: 'from and to go together' };
-  const re = /^\d{4}-\d{2}-\d{2}$/;
-  if (from && to && (!re.test(from) || !re.test(to) || from >= to))
-    return { ok: false, error: 'from/to must be YYYY-MM-DD with from < to' };
+  // a day that does not exist (2026-11-31) would otherwise be printed as the window's last day, or throw after CMC was called
+  if (from && to && (!isUtcDay(from) || !isUtcDay(to) || from >= to))
+    return { ok: false, error: 'from/to must be real calendar days (YYYY-MM-DD) with from < to' };
   if (from && to && (Date.parse(to) - Date.parse(from)) / 86_400_000 > 120)
     return { ok: false, error: 'a pinned window is at most 120 days' };
   const key = `${u.toUpperCase()}|${from ? `${from}..${to}` : `w${window}`}`;

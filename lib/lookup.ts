@@ -8,7 +8,7 @@ import path from 'node:path';
 import { Recorder, redact } from './receipts';
 import { committedStore } from './stored';
 import { resolveUnderlying, wrappersOf } from './cmc/rwa';
-import { addDays, dailyHistory, historyRows, historySpan } from './cmc/history';
+import { addDays, dailyHistory, historyRows, historySpan, isUtcDay } from './cmc/history';
 import { contractMaps, type ContractMap } from './cmc/info';
 import { latestQuotes } from './cmc/quotes';
 import { CmcError } from './cmc/errors';
@@ -53,7 +53,6 @@ export function cachedMints(): MintReceipt[] {
 }
 
 export const todayUtc = (nowMs = Date.now()) => new Date(nowMs).toISOString().slice(0, 10);
-const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 export interface LookupOpts {
   window?: LookupWindow;
@@ -75,8 +74,8 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
   const rec = opts.rec ?? new Recorder(undefined, undefined, opts.storedFallback ? committedStore : null);
   const fetchedUtc = new Date(opts.nowMs ?? Date.now()).toISOString();
   const pinned = Boolean(opts.from && opts.to);
-  if (pinned && (!DATE_RE.test(opts.from!) || !DATE_RE.test(opts.to!) || opts.from! >= opts.to!)) {
-    throw new LookupFailure(400, 'from/to must be YYYY-MM-DD with from < to');
+  if (pinned && (!isUtcDay(opts.from!) || !isUtcDay(opts.to!) || opts.from! >= opts.to!)) {
+    throw new LookupFailure(400, 'from/to must be real calendar days (YYYY-MM-DD) with from < to');
   }
   const window: LookupWindow | null = pinned ? null : (opts.window ?? 30);
   let to = pinned ? opts.to! : todayUtc(opts.nowMs);

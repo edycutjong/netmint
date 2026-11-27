@@ -14,6 +14,13 @@ export function addDays(date: string, n: number): string {
   return new Date(t).toISOString().slice(0, 10);
 }
 
+/** A real UTC calendar day written YYYY-MM-DD. `2026-11-31` and `2026-13-01` match the pattern and are not days. */
+export function isUtcDay(s: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return false;
+  const t = Date.parse(`${s}T00:00:00Z`);
+  return Number.isFinite(t) && new Date(t).toISOString().slice(0, 10) === s;
+}
+
 export function parseHistoryBody(body: any): Map<number, RawDailyRow[]> {
   const out = new Map<number, RawDailyRow[]>();
   const data = body?.data;
