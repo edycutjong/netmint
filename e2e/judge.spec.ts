@@ -11,7 +11,7 @@ test('/judge: answers 200 and shows the one primary button, pointing at the real
   await expect(go).toHaveAttribute('href', HERO_PATH);
   await expect(go).toHaveAttribute('target', '_blank');
   await expect(go).toHaveAttribute('rel', /noopener/);
-  await expect(page.locator('body')).not.toContainText(/pending/i); // no video link until a URL exists, never a placeholder label
+  await expect(page.locator('body')).not.toContainText(/pending/i); // never a placeholder label
 });
 
 test('/judge → the button opens the NVDAB lookup in a new tab, runs it through the live route, and a REAL INFLOW verdict renders @upstream', async ({
