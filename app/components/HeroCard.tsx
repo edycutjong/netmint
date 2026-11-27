@@ -12,6 +12,10 @@ import { StoredNotice, storedDays, storedStamp } from './StoredNotice';
 
 const chainNames = (w: WrapperResult) => w.chains.slice(0, 2).join(' + ');
 
+/** Query for the per-stock page: the pinned days, or the rolling length. Without it the page runs today's rolling 30 d, whose verdicts can differ. */
+const ledgerQuery = (res: LookupResult | null) =>
+  !res ? '' : res.range.pinned ? `?from=${res.range.from}&to=${res.range.to}` : res.window ? `?window=${res.window}` : '';
+
 /** S1 hero: the strongest verified wrapper, its stamp, net creation, 2 proving rows, "Run it live", Cite, receipts. */
 export function HeroCard({ initial, initialError, u }: { initial: LookupResult | null; initialError: LookupError | null; u: string }) {
   const [res, setRes] = useState<LookupResult | null>(initial);
@@ -131,7 +135,8 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
             Receipts ({res.receipts.filter((r) => r.kind === 'cmc').length})
           </button>
         ) : null}
-        <a className="btn quiet" href={`/u/${encodeURIComponent(u)}`} style={{ textDecoration: 'none' }}>
+        {/* keeps the card's window: a pinned answer links to the same pinned days, a rolling one to a rolling window of the same length */}
+        <a className="btn quiet" href={`/u/${encodeURIComponent(u)}${ledgerQuery(res)}`} style={{ textDecoration: 'none' }}>
           Every {u} wrapper →
         </a>
       </div>

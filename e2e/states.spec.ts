@@ -87,6 +87,9 @@ test('failed run on the home card (response replaced in the browser): the card s
   const pressed = card.locator('.seg button[aria-pressed="true"]');
   await expect(card.locator('.seg button')).toHaveCount(3);
   await expect(pressed).toHaveCount(0);
+  // and the link to the per-stock page keeps that pinned window (a bare /u/NVDA would run today's rolling 30 d instead)
+  const ledger = card.getByRole('link', { name: /Every NVDA wrapper/ });
+  await expect(ledger).toHaveAttribute('href', '/u/NVDA?from=2026-10-22&to=2026-11-21');
   await page.route('**/api/lookup**', (r) => r.fulfill(FAILED));
   await card.getByRole('button', { name: '90 d' }).click();
   await expect(card.getByRole('alert')).toContainText('No verdict printed.');
@@ -112,6 +115,7 @@ test('failed run after a live-stored answer (responses replaced in the browser):
   await card.getByRole('button', { name: '7 d' }).click();
   await expect(card.locator('.notice')).toContainText('CMC no longer lets this key read part of its data');
   await expect(pressed).toHaveText('7 d');
+  await expect(card.getByRole('link', { name: /Every NVDA wrapper/ })).toHaveAttribute('href', '/u/NVDA?window=7'); // the card's window
   fail = true;
   await card.getByRole('button', { name: '90 d' }).click();
   await expect(card.getByRole('alert')).toContainText('No verdict printed.');
