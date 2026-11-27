@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   ...(process.env.COMMIT_SHA ? { env: { COMMIT_SHA: process.env.COMMIT_SHA } } : {}),
   // the lookup reads the committed block index, chain-supply baseline, per-issuer offsets and cached mints at runtime
   outputFileTracingIncludes: {
-    // + the committed verbatim CMC bodies that answer a plan-refused call after the key reverts (live-stored path)
+    // + the committed verbatim CMC bodies that answer a call CMC refuses on plan or credits (live-stored path)
     '/api/lookup': ['./data/**/*.json', './evidence/**/*.json'],
     '/': ['./data/**/*.json', './evidence/**/*.json'],
     '/api/holders': ['./data/mints.json'],

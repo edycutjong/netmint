@@ -81,7 +81,7 @@ test('/api/lookup: an uncached lookup reaches CMC live (a successful, non-stored
       { timeout: 180_000, intervals: [5_000, 20_000, 30_000] },
     )
     .toBe(true);
-  // after the plan revert quotes/historical may be refused and answered from a stored body (live-stored); that is allowed,
+  // if CMC refuses quotes/historical on plan it is answered from a stored body (live-stored); that is allowed,
   // but at least one CMC call in this response must have succeeded live: a refusal plus its stored answer is not enough
   const live = fresh!.receipts.filter((r) => r.kind === 'cmc' && !r.stored && r.httpStatus === 200 && (r.errorCode ?? 0) === 0);
   expect(live.length, `successful live CMC receipt (mode ${fresh!.mode})`).toBeGreaterThan(0);

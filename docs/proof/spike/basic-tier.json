@@ -62,7 +62,7 @@
   "oldest_quotes_historical_daily": "2013-04-29 (BTC, id=1; quotes-historical-oldest-probe.json)",
   "source": "key-info.json"
  },
- "consequence": "If the event key reverts to Basic on 10 Dec, the pricing table says daily quotes/historical stays available with 1 year depth at 15,000 credits/month and 50 rpm, which covers NetMint's 2026-07-20+ window. The live-stored fallback remains for the case where the reverted key is refused anyway (classified 1006 plan error) or the credit cap is hit (1010).",
+ "consequence": "If this key's plan is reduced to Basic (hackathon event access ends when submissions close, 9 Dec 2026 23:59 UTC), the pricing table says daily quotes/historical stays available with 1 year depth at 15,000 credits/month and 50 rpm, which covers NetMint's 2026-07-20+ window. The live-stored fallback remains for the case where a call is refused anyway (classified 1006 plan error) or the credit cap is hit (1010).",
  "unverified": "Per-endpoint inclusion on Basic can only be confirmed by calling with a Basic key; none is available to this project.",
  "transcription": "Plan table transcribed by hand from the page text; no copy of the page is stored."
 }

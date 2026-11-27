@@ -50,7 +50,7 @@ export async function GET() {
       },
       chain: { rpc_configured: Boolean(process.env.ALCHEMY_API_KEY), baseline_generated_utc: baselineGenerated() },
       cron_last_ok_utc: null, // no nightly job runs: `npm run flows` + redeploy refreshes /flows and the stored bodies
-      // what a click falls back to if CMC refuses quotes/historical (plan revert): committed verbatim bodies
+      // what a click falls back to if CMC refuses quotes/historical on plan or credits: committed verbatim bodies
       stored: storedSummary(),
       cmc: plan ?? { ok: false, error: 'CMC_API_KEY not configured' },
     },

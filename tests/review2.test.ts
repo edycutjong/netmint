@@ -19,7 +19,7 @@ const asStored = (name: string): StoredBody => {
 const hist30 = asStored('hist-nvda-wrappers-30d');
 
 describe('stored history: the window is never wider than the stored days', () => {
-  it('a 90 d rolling click after the revert, against 30 d of stored days, is a 503 — not 30 days labelled 90', async () => {
+  it('a refused 90 d rolling click, against 30 d of stored days, is a 503 — not 30 days labelled 90', async () => {
     const store = storeFrom(
       ['hist-nvda-wrappers-30d', 'rwa-quotes-nvda', 'quotes-latest-nvda', 'info-nvda-wrappers', 'rwa-assets-list-p1'].map(asStored),
     );

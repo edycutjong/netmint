@@ -114,7 +114,7 @@ describe('recorded replay of the 2026-11-21 NVDA 30 d capture (the critical test
     expect(JSON.stringify(e.extra)).not.toMatch(/REAL_INFLOW|OUTFLOW|RECOUNT/);
   });
 
-  it('a 5xx is a failed run (503, transient), never a plan revert', async () => {
+  it('a 5xx is a failed run (503, transient), never a plan refusal', async () => {
     const e = (await replay({
       '/v2/cryptocurrency/quotes/historical': { body: { status: { error_code: 500, error_message: 'Internal' } }, httpStatus: 500 },
     }).catch((x) => x)) as LookupFailure;

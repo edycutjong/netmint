@@ -1,5 +1,5 @@
 /**
- * The live-stored path: what the judged URL does after the event key reverts to CMC's Basic plan.
+ * The live-stored path: what the judged URL does when CMC refuses a call on plan, credits or a disabled key.
  * A classified ENTITLEMENT refusal (1006 "plan doesn't support this endpoint") is answered from a committed
  * body; a 5xx / timeout / rate limit is a failed run and never falls back.
  */
@@ -100,7 +100,7 @@ describe('live-stored: a plan-refused quotes/historical is answered from the com
     expect(r.range).toEqual({ from: '2026-11-07', to: '2026-11-14', pinned: true });
   });
 
-  it('a ticker outside the stored universe after the revert is a 503 that says so', async () => {
+  it('a refused ticker outside the stored universe is a 503 that says so', async () => {
     const e = (await run({ '/v5/real-world-assets/quotes/latest': PLAN }, {}, 'AAPL').catch((x) => x)) as LookupFailure;
     expect(e.httpStatus).toBe(503);
     expect(e.message).toContain('outside the stored universe');

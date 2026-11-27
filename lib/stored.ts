@@ -1,9 +1,10 @@
 /**
  * Stored verbatim CMC bodies: the "live-stored" click path.
  *
- * The event key reverts to CMC's free Basic plan when submissions close. If `quotes/historical` (or any other call)
- * then answers with a classified ENTITLEMENT error (lib/cmc/errors.ts: plan / credit refusal, never a 5xx, timeout or
- * rate limit), the Recorder may answer that one call from a committed body instead: every capture writes
+ * A key's plan can shrink (hackathon event access reverts to CMC's free Basic tier when submissions close), its credits
+ * can run out, or it can be disabled. If `quotes/historical` (or any other call) answers with a classified ENTITLEMENT
+ * error (lib/cmc/errors.ts: plan / credit refusal, never a 5xx, timeout or rate limit), the Recorder may answer that one
+ * call from a committed body instead: every capture writes
  * `evidence/<date>/**\/NN-<endpoint>.json` as `{ receipt, body }`, exactly what CMC returned on that day.
  * The verdict is still re-run on the click, the chain is still read live, and the response says which bodies were
  * stored and when they were captured. Nothing here ever fabricates a body.

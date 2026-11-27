@@ -1,6 +1,6 @@
 /**
  * CMC error classification (codes measured in P1a, docs/proof/spike/plan-errors.json).
- * entitlement → a plan/credit refusal (the 10 Dec revert path); transient → a failed run, never a revert;
+ * entitlement → a plan/credit refusal (the live-stored path); transient → a failed run, never a refusal;
  * config → our fault (bad key / bad params) → 502.
  */
 export type CmcErrorClass = 'entitlement' | 'transient' | 'config' | 'other';
