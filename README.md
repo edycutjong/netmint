@@ -79,6 +79,10 @@ apart, tolerance ±10%). The 5 largest step days (3-day sums) all matched within
 2026-11-12 and 2026-11-19) we sampled the one mint at the block where on-chain supply crossed that day's halfway point; all 7 went to a single recipient, `0x5948…adad1`. The sampled mint for the 2026-11-13 step (`0xa239f888…15266c`, block 133,127,844, 2026-11-12 08:25 UTC; 640 units) is
 0.16% of that day's on-chain step, so it shows who receives mints, not how big the creation was; a single recipient is consistent with issuer-level creation rather than retail buying.
 
+That case is the pinned window 2026-10-22 → 2026-11-21, which the hero card, its "Every NVDA wrapper" link and `/judge` all open. A rolling window ends today,
+so its verdict can differ: on 2026-11-27 the rolling 30 days stamped NVDAB RECOUNT (the window still agreed, chain +1,102,441 vs CMC +1,096,702, but the 3-day sum
+around 2026-11-25 did not: chain −5,798 vs CMC +26,065; [`evidence/2026-11-27/demo-nvda-rolling.txt`](evidence/2026-11-27/demo-nvda-rolling.txt)).
+
 ## 🏗️ Architecture & Tech Stack
 
 <p align="center"><a href="docs/architecture.html"><img src="docs/assets/architecture.png" alt="NetMint architecture: the browser calls /api/lookup; lookup() reads seven CoinMarketCap endpoints in lib/cmc (five per lookup, with a live-stored fallback to committed bodies on a plan refusal), reads on-chain totalSupply on BNB Smart Chain and Ethereum in lib/chain (committed baseline, live eth_call for missing days), and lib/flow runs the sanity guard, net creation, the mint check and fixed verdict code that stamps REAL INFLOW, OUTFLOW, RECOUNT, NOT VERIFIABLE or FLAT; the response carries every call as a receipt" width="100%"></a></p>
