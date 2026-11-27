@@ -1,12 +1,14 @@
 /** Regression tests for the architecture review of 2026-11-28 (what the live rail tickers and a fresh read turned up). */
 import { describe, expect, it } from 'vitest';
 import type { CmcCall } from '@/lib/cmc/client';
-import { isUtcDay } from '@/lib/cmc/history';
+import { addDays, isUtcDay } from '@/lib/cmc/history';
 import { wrappersOf } from '@/lib/cmc/rwa';
-import { lookup, LookupFailure, heroOf } from '@/lib/lookup';
+import { decideVerdict } from '@/lib/flow/verdict';
+import { evaluateWrapper, lookup, LookupFailure, heroOf } from '@/lib/lookup';
 import { parseLookupParams } from '@/lib/lookupParams';
 import { Recorder } from '@/lib/receipts';
-import { fixture, NOW, recordedTransport } from './helpers';
+import type { WrapperResult } from '@/lib/types';
+import { check, fixture, mirrorChain, NOW, recordedTransport, series } from './helpers';
 
 const INFO = '/v2/cryptocurrency/info';
 const RWA_QUOTES = '/v5/real-world-assets/quotes/latest';
@@ -133,5 +135,74 @@ describe('window dates must be real calendar days', () => {
     expect(e).toBeInstanceOf(LookupFailure);
     expect(e.httpStatus).toBe(400);
     expect(rec.receipts).toHaveLength(0);
+  });
+});
+
+describe('the trial behind a proof row', () => {
+  it('each step day carries the CMC days its sum ran over: three days inside the window, fewer at its edge', () => {
+    const s = series([1e6, 1e6, 1e6, 1e6, 1.5e6, 1.5e6, 1.5e6, 1.5e6, 2e6], 100); // moves land on 11-05 and on the last day, 11-09
+    const { mint } = check(s, mirrorChain(s));
+    expect(mint.status).toBe('pass');
+    expect(mint.stepDays.find((d) => d.date === '2026-11-05')!.span).toEqual(['2026-11-03', '2026-11-06']);
+    expect(mint.stepDays.find((d) => d.date === '2026-11-09')!.span).toEqual(['2026-11-07', '2026-11-09']); // clamped: no day after B
+  });
+
+  it('an ambiguous alignment says what was re-tried at the other offset: the window and its direction, not the step days', () => {
+    const s = series([1e6, 1e6, 1e6, 1.85e6, 1.85e6, 1.85e6, 2e6], 100);
+    const { metrics, mint } = check(s, mirrorChain(s, 1, 1), { offset: 0 });
+    expect(mint.status).toBe('ambiguous');
+    expect(decideVerdict(metrics, mint).reason).toBe(
+      'endpoint alignment ambiguous: fails at d = 0 (issuer offset); the window and its direction pass at d = 1',
+    );
+  });
+});
+
+describe('a day the sanity guard refused inside a verified window', () => {
+  const START = '2026-11-10';
+  const sup = [1e6, 1e6, 3e6, 1e6, 1e6, 1.5e6, 1.5e6]; // 11-12 is a spike that reverts the next day; the real move lands on 11-15
+  const rows = sup.map((v, i) => ({
+    timestamp: `${addDays(START, i)}T00:00:00.000Z`,
+    price: 150,
+    circulating_supply: v,
+    total_supply: v,
+    volume_24h: 1,
+    market_cap: v * 150,
+  }));
+  const chain = [1e6, 1e6, 1e6, 1e6, 1e6, 1.5e6, 1.5e6]; // the chain never saw the spike
+  const leg = {
+    chain: 'bsc' as const,
+    address: '0xabc',
+    decimals: 18,
+    source: 'baseline' as const,
+    baselineUtc: null,
+    values: new Map(
+      Array.from({ length: chain.length + 6 }, (_, i) => [addDays(START, i - 3), chain[Math.min(Math.max(i - 3, 0), chain.length - 1)]]),
+    ),
+    blocks: new Map<string, number | null>(),
+  };
+  const base: WrapperResult = {
+    cryptoId: 1,
+    symbol: 'TEST',
+    name: 'x',
+    issuer: 'bStocks',
+    chains: ['BNB Chain'],
+    derivative: false,
+    marketCap: null,
+    exitRatio: null,
+    metrics: null,
+    series: [],
+    refused: [],
+    mint: null,
+    verdict: null,
+    reason: '',
+  };
+
+  it('is named beside the stamp, not only in the row detail', () => {
+    const w = evaluateWrapper(base, rows, { legs: [{ chain: 'bsc', address: '0xabc' }], unreadable: [] }, [leg]);
+    expect(w.refused.map((r) => `${r.reason} ${r.date}`)).toEqual(['spike_revert 2026-11-12']);
+    expect(w.verdict).toBe('REAL_INFLOW');
+    expect(w.reason).toContain(
+      "· 1 CMC day inside the window refused by the sanity guard (2026-11-12): the supply move is chain-verified, the dollars across it use the neighbouring days' average price",
+    );
   });
 });

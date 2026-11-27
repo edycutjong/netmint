@@ -6,6 +6,8 @@ export function ProofRows({ w }: { w: WrapperResult }) {
   const p = w.proof;
   const m = w.mint;
   if (!m) return null;
+  // the rows above show a 1-day step; the trial that decided the verdict used the sum around that day (lib/flow/mintCheck.ts)
+  const trial = p ? m.stepDays.find((s) => s.date === p.date) : undefined;
   const field = m.comparator === 'total_supply' ? 'total supply' : 'circulating supply';
   const recount = w.verdict === 'RECOUNT';
   return (
@@ -39,6 +41,13 @@ export function ProofRows({ w }: { w: WrapperResult }) {
                   : ' · outside remedy (tolerance ±10%)'}
             </p>
           ) : null}
+          {trial ? (
+            <p className="verdict-line" style={{ margin: '4px 0 0' }}>
+              The trial used the sum over {trial.span ? `${trial.span[0]} → ${trial.span[1]}` : 'up to 3 days around it'}: CMC{' '}
+              {units(trial.cmc3d)} · chain {trial.chain3d === null ? 'not read' : units(trial.chain3d)}
+              {trial.chain3d === null ? '' : trial.ok ? ' · within tolerance' : ' · outside tolerance'}
+            </p>
+          ) : null}
         </>
       ) : null}
       {m.cmcDelta !== null && m.chainDelta !== null && m.coverageA !== null ? (
@@ -54,7 +63,7 @@ export function ProofRows({ w }: { w: WrapperResult }) {
       <p className={`verdict-line${m.status === 'pass' ? ' pass' : ''}`}>
         Found:{' '}
         {m.status === 'pass'
-          ? `window and material steps verified: ${w.reason.split(/ · \d+ missing CMC days? inside the window/)[0].replace(/^window endpoints and the largest step days \(up to 5\) verified \((.*)\)$/, '$1')}`
+          ? `window and material steps verified: ${w.reason.split(/ · \d+ (?:missing CMC days?|CMC days?) inside the window/)[0].replace(/^window endpoints and the largest step days \(up to 5\) verified \((.*)\)$/, '$1')}`
           : w.reason}
       </p>
       {w.mintReceipt ? (
@@ -68,7 +77,8 @@ export function ProofRows({ w }: { w: WrapperResult }) {
             {short(w.mintReceipt.tx, 8, 6)}
           </a>{' '}
           (block <span className="data">{w.mintReceipt.block}</span>) → recipient{' '}
-          <span className="data">{short(w.mintReceipt.recipient, 6, 5)}</span>. A mint can only be executed by the token’s minter.
+          <span className="data">{short(w.mintReceipt.recipient, 6, 5)}</span>: a Transfer from the zero address, one sample, not the whole
+          step.
         </p>
       ) : null}
     </div>

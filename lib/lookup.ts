@@ -218,7 +218,7 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
     };
   } catch (e) {
     if (e instanceof CmcError) {
-      // after the plan revert, a refusal no committed body can answer = a ticker outside the stored universe
+      // a plan / credit refusal that no committed body can answer = a ticker outside the stored universe
       const outside = e.kind === 'entitlement' && rec.storedEnabled;
       throw new LookupFailure(
         e.kind === 'transient' || outside ? 503 : 502,
@@ -273,6 +273,15 @@ export function evaluateWrapper(
   const gaps = refused.filter((r) => r.reason === 'gap' && r.date > A && r.date < B).length;
   if (gaps && (v.verdict === 'REAL_INFLOW' || v.verdict === 'OUTFLOW')) {
     v.reason += ` · ${gaps} missing CMC day${gaps > 1 ? 's' : ''} inside the window: the supply move is chain-verified, the dollars across ${gaps > 1 ? 'them use' : 'it use'} the neighbouring days' average price`;
+  }
+  // a day the sanity guard refused (a spike that reverted, a missing price …) leaves the same hole as a missing day: say so
+  // beside the stamp too, not only in the row detail. A duplicate row is not a hole (its day has an accepted point).
+  const held = new Set(accepted.map((p) => p.date));
+  const dropped = [
+    ...new Set(refused.filter((r) => r.reason !== 'gap' && r.date > A && r.date < B && !held.has(r.date)).map((r) => r.date)),
+  ];
+  if (dropped.length && (v.verdict === 'REAL_INFLOW' || v.verdict === 'OUTFLOW')) {
+    v.reason += ` · ${dropped.length} CMC day${dropped.length > 1 ? 's' : ''} inside the window refused by the sanity guard (${dropped.join(', ')}): the supply move is chain-verified, the dollars across ${dropped.length > 1 ? 'them use' : 'it use'} the neighbouring days' average price`;
   }
   // a zero-address mint can only illustrate creation: never shown under OUTFLOW (a redemption is a burn)
   const proof = proofStep(accepted, metrics, summed(legs), d, mint.comparator);

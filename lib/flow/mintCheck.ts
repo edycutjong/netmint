@@ -133,12 +133,12 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
       chHi = chainAt(addDays(hi, offset));
     if (chLo === null || chHi === null) {
       stepUnavailable ??= chLo === null ? addDays(lo, offset) : addDays(hi, offset);
-      stepDays.push({ date: D, cmc3d, chain3d: null, ok: false });
+      stepDays.push({ date: D, cmc3d, chain3d: null, ok: false, span: [lo, hi] });
       continue;
     }
     const chain3d = chHi - chLo;
     const tolStep = Math.max(p.remedy * Math.abs(cmc3d), p.floorFrac * cmcB);
-    stepDays.push({ date: D, cmc3d, chain3d, ok: Math.abs(chain3d - cmc3d) <= tolStep });
+    stepDays.push({ date: D, cmc3d, chain3d, ok: Math.abs(chain3d - cmc3d) <= tolStep, span: [lo, hi] });
   }
   out.stepDays = stepDays;
   if (stepUnavailable) return { ...out, reason: `chain check unavailable: no chain supply for ${stepUnavailable}` };
@@ -180,7 +180,8 @@ export function mintCheck(input: MintInput, p = PARAMS): MintCheck {
         status: 'ambiguous',
         altOffsetPasses: true,
         altOffset: alt,
-        reason: `endpoint alignment ambiguous: fails at d = ${offset} (issuer offset), passes at d = ${alt}`,
+        // only the window and its direction are re-tried at the other offset; the step days were read at the issuer offset
+        reason: `endpoint alignment ambiguous: fails at d = ${offset} (issuer offset); the window and its direction pass at d = ${alt}`,
       };
     }
   }

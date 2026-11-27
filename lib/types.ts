@@ -47,6 +47,8 @@ export interface StepDay {
   cmc3d: number;
   chain3d: number | null;
   ok: boolean;
+  /** the CMC days the sum actually runs over: [D−2, D+1] snapped to accepted points and clamped to the window (shorter at its edges) */
+  span?: [string, string];
 }
 
 export interface MintCheck {
