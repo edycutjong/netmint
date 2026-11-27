@@ -8,7 +8,7 @@ import { pct, times, usd, utcStamp } from '@/lib/format';
 import { citeLine } from '@/lib/cite';
 import { heroOf } from '@/lib/hero';
 import type { LookupResult, LookupWindow, WrapperResult } from '@/lib/types';
-import { StoredNotice, storedStamp } from './StoredNotice';
+import { StoredNotice, storedDays, storedStamp } from './StoredNotice';
 
 const chainNames = (w: WrapperResult) => w.chains.slice(0, 2).join(' + ');
 
@@ -17,20 +17,21 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
   const [res, setRes] = useState<LookupResult | null>(initial);
   const [err, setErr] = useState<LookupError | null>(initialError);
   const [busy, setBusy] = useState(false);
-  const [win, setWin] = useState<LookupWindow>(initial?.window ?? 30);
+  // the rolling window the chips show; null while the card shows (or is running) the pinned window, which is no chip's window
+  const [win, setWin] = useState<LookupWindow | null>(initial ? initial.window : 30);
   const [strikeKey, setStrikeKey] = useState(0);
   const [drawer, setDrawer] = useState(false);
   const [copied, setCopied] = useState(false);
-  // the window of the answer on the card: a failed run puts the pressed chip back on it (the card still shows that answer)
-  const shownWin = useRef<LookupWindow>(initial?.window ?? 30);
+  // the window of the answer on the card: a failed run puts the chips back on it (the card still shows that answer)
+  const shownWin = useRef<LookupWindow | null>(initial ? initial.window : 30);
 
   // "Run it live" re-runs the window on screen (the pinned hero window, or the chosen rolling one); chips pick a rolling window
   const run = useCallback(
-    async (w: LookupWindow, pin?: { from: string; to: string }) => {
+    async (w: LookupWindow | null, pin?: { from: string; to: string }) => {
       setBusy(true);
-      setWin(w);
+      setWin(pin ? null : w);
       try {
-        const q = pin ? `from=${pin.from}&to=${pin.to}` : `window=${w}`;
+        const q = pin ? `from=${pin.from}&to=${pin.to}` : `window=${w ?? 30}`;
         const r = await fetch(`/api/lookup?u=${encodeURIComponent(u)}&${q}`, { cache: 'no-store' });
         const j = await r.json();
         if (!r.ok) {
@@ -39,7 +40,7 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
         } else {
           setRes(j);
           setErr(null);
-          shownWin.current = w;
+          shownWin.current = pin ? null : w;
           setStrikeKey((k) => k + 1);
         }
       } catch (e) {
@@ -65,7 +66,7 @@ export function HeroCard({ initial, initialError, u }: { initial: LookupResult |
           That run printed no verdict. The card below is the earlier answer (
           {res.mode === 'recorded'
             ? `recorded capture ${utcStamp(res.recordedUtc ?? res.fetchedUtc)}`
-            : `${res.live ? 'live' : res.mode} capture ${utcStamp(res.fetchedUtc)}`}
+            : `${res.live ? 'live' : res.mode} capture ${utcStamp(res.fetchedUtc)}${storedDays(res) ? `, on stored CMC bodies captured ${storedDays(res)}` : ''}`}
           ), not a new one.
         </p>
       ) : null}

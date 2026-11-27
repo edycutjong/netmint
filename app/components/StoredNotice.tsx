@@ -5,9 +5,14 @@ import type { LookupResult } from '@/lib/types';
  * line also says when CMC's bodies were captured: an old figure never stands under a fresh time without its own date.
  */
 export function storedStamp(res: LookupResult): string {
+  const days = storedDays(res);
+  return days ? ` (the verdict was re-run then; the stored CMC bodies were captured ${days})` : '';
+}
+
+/** The capture day(s) of the stored CMC bodies behind a live-stored answer; '' for any other answer. */
+export function storedDays(res: LookupResult): string {
   if (res.mode !== 'live-stored' || !res.stored?.length) return '';
-  const days = [...new Set(res.stored.map((s) => s.capturedUtc.slice(0, 10)))].join(', ');
-  return ` (the verdict was re-run then; the stored CMC bodies were captured ${days})`;
+  return [...new Set(res.stored.map((s) => s.capturedUtc.slice(0, 10)))].join(', ');
 }
 
 /**
@@ -23,8 +28,8 @@ export function StoredNotice({ res }: { res: LookupResult }) {
     <div className="notice" role="status">
       <strong>
         {historyStored
-          ? `CMC no longer lets this key read part of its data, so the daily supply and price numbers below are CMC’s own saved answers${res.history?.lastDay ? ` up to ${res.history.lastDay}` : ''}, not today’s.`
-          : 'CMC no longer lets this key make some of its calls, so those answers below are CMC’s own saved responses; the daily history itself was read live.'}
+          ? `CMC no longer lets this key read part of its data, so the daily supply and price numbers on this page are CMC’s own saved answers${res.history?.lastDay ? ` up to ${res.history.lastDay}` : ''}, not today’s.`
+          : 'CMC no longer lets this key make some of its calls, so those answers are CMC’s own saved responses; the daily history itself was read live.'}
       </strong>{' '}
       The on-chain check and the verdict were re-run on your click; saved answers were captured {captured} UTC
       {res.liveCmcCalls?.length
