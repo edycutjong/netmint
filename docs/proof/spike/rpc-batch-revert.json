@@ -1,0 +1,168 @@
+{
+ "what": "How the archive RPC answers a JSON-RPC batch in which one eth_call reverts: the HTTP call is a 200, the other entries carry their results, and the reverted entry carries its own error object. An address with no contract answers \"0x\". Read-only eth_call at block \"latest\"; the provider URL holds the key and is not recorded.",
+ "captured_by": "one-off read with python urllib (not a repo script); request bodies below are what was sent",
+ "used_by": "lib/chain/rpc.ts (RpcEntryError, isRevertEntry), lib/chain/supply.ts (a reverted call costs its own read), tests/chain.test.ts",
+ "chains": {
+  "bsc": {
+   "network": "bnb-mainnet",
+   "received_utc": "2026-11-27T20:45:44Z",
+   "http_status": 200,
+   "request": [
+    {
+     "id": 0,
+     "note": "totalSupply() on a wrapper contract with a committed baseline",
+     "method": "eth_call",
+     "params": [
+      {
+       "to": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+       "data": "0x18160ddd"
+      },
+      "latest"
+     ]
+    },
+    {
+     "id": 1,
+     "note": "a selector the contract does not implement: the call reverts",
+     "method": "eth_call",
+     "params": [
+      {
+       "to": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+       "data": "0xdeadbeef"
+      },
+      "latest"
+     ]
+    },
+    {
+     "id": 2,
+     "note": "decimals() on the same contract",
+     "method": "eth_call",
+     "params": [
+      {
+       "to": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+       "data": "0x313ce567"
+      },
+      "latest"
+     ]
+    },
+    {
+     "id": 3,
+     "note": "decimals() on an address with no contract",
+     "method": "eth_call",
+     "params": [
+      {
+       "to": "0xc0dec0dec0dec0dec0dec0dec0dec0dec0dec0de",
+       "data": "0x313ce567"
+      },
+      "latest"
+     ]
+    }
+   ],
+   "response": [
+    {
+     "jsonrpc": "2.0",
+     "id": 0,
+     "result": "0x0000000000000000000000000000000000000000000124d9f65ef54782ac8000"
+    },
+    {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "error": {
+      "code": 3,
+      "message": "execution reverted"
+     }
+    },
+    {
+     "jsonrpc": "2.0",
+     "id": 2,
+     "result": "0x0000000000000000000000000000000000000000000000000000000000000012"
+    },
+    {
+     "jsonrpc": "2.0",
+     "id": 3,
+     "result": "0x"
+    }
+   ]
+  },
+  "eth": {
+   "network": "eth-mainnet",
+   "received_utc": "2026-11-27T20:45:44Z",
+   "http_status": 200,
+   "request": [
+    {
+     "id": 0,
+     "note": "totalSupply() on a wrapper contract with a committed baseline",
+     "method": "eth_call",
+     "params": [
+      {
+       "to": "0x050362ab1072cb2ce74d74770e22a3203ad04ee5",
+       "data": "0x18160ddd"
+      },
+      "latest"
+     ]
+    },
+    {
+     "id": 1,
+     "note": "a selector the contract does not implement: the call reverts",
+     "method": "eth_call",
+     "params": [
+      {
+       "to": "0x050362ab1072cb2ce74d74770e22a3203ad04ee5",
+       "data": "0xdeadbeef"
+      },
+      "latest"
+     ]
+    },
+    {
+     "id": 2,
+     "note": "decimals() on the same contract",
+     "method": "eth_call",
+     "params": [
+      {
+       "to": "0x050362ab1072cb2ce74d74770e22a3203ad04ee5",
+       "data": "0x313ce567"
+      },
+      "latest"
+     ]
+    },
+    {
+     "id": 3,
+     "note": "decimals() on an address with no contract",
+     "method": "eth_call",
+     "params": [
+      {
+       "to": "0xc0dec0dec0dec0dec0dec0dec0dec0dec0dec0de",
+       "data": "0x313ce567"
+      },
+      "latest"
+     ]
+    }
+   ],
+   "response": [
+    {
+     "jsonrpc": "2.0",
+     "id": 0,
+     "result": "0x000000000000000000000000000000000000000000000321df7852d7f3a34261"
+    },
+    {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "error": {
+      "code": 3,
+      "message": "execution reverted",
+      "data": "0x"
+     }
+    },
+    {
+     "jsonrpc": "2.0",
+     "result": "0x0000000000000000000000000000000000000000000000000000000000000012",
+     "id": 2
+    },
+    {
+     "jsonrpc": "2.0",
+     "result": "0x",
+     "id": 3
+    }
+   ]
+  }
+ }
+}

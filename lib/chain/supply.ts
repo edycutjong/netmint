@@ -7,7 +7,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { firstBlockAtOrAfter, headBlock } from './blockIndex';
-import { RpcError, SEL, scaleUnits, totalSupplyReq, type ChainId } from './rpc';
+import { RpcEntryError, RpcError, SEL, isRevertEntry, scaleUnits, totalSupplyReq, type ChainId, type RpcReq } from './rpc';
 import type { Recorder } from '../receipts';
 import type { ChainLeg } from '../types';
 
@@ -49,6 +49,8 @@ export interface LegSupply {
   blocks: Map<string, number | null>;
   source: 'baseline' | 'live' | 'mixed' | 'none';
   baselineUtc: string | null;
+  /** set when a live read got no usable decimals() from the contract: no code at the address, a reverted call, or a value outside 0–36 */
+  dead?: true;
 }
 
 /**
@@ -67,6 +69,23 @@ export async function legSupplies(
   };
   const now = opts.nowMs ?? Date.now();
   const errors: string[] = [];
+  // One batch through the recorder. A call that REVERTS is deterministic: it costs its own read (null), not the chain's.
+  // Any other entry error (a rate limit that outlived the retries, an internal error) or a transport failure throws, and
+  // the chain's reads fail as before ("chain read failed on this click … run it again"). No extra request either way.
+  const settled = async (
+    r: Recorder,
+    chain: ChainId,
+    reqs: RpcReq[],
+    meta: { label: string; deadline?: number },
+  ): Promise<(string | null)[]> => {
+    try {
+      return await r.rpc<string>(chain, reqs, meta);
+    } catch (e) {
+      if (e instanceof RpcEntryError && e.entries.every((x) => 'result' in x || isRevertEntry(x)))
+        return e.entries.map((x) => ('result' in x ? (x.result as string) : null));
+      throw e;
+    }
+  };
   const out: LegSupply[] = legs.map((l) => {
     const b = loadBaseline(l.chain, l.address);
     const values = new Map<string, number | null>();
@@ -121,20 +140,22 @@ export async function legSupplies(
       inTime(chain);
       const noDec = mine.filter((l) => l.decimals === null);
       if (noDec.length) {
-        const res = await rec.rpc<string>(
+        const res = await settled(
+          rec,
           chain,
           noDec.map((l) => ({ method: 'eth_call', params: [{ to: l.address, data: SEL.decimals }, 'latest'] })),
           { label: 'decimals', deadline: opts.deadlineMs },
         );
         noDec.forEach((l, i) => {
-          // '0x' (no contract at this address on this chain) or a nonsense value: that leg stays unknown. It must not
-          // throw here, or one bad address would void every other leg's read on the chain.
+          // a reverted call (null), '0x' (no contract at this address on this chain) or a nonsense value: that leg stays
+          // unknown. It must not throw here, or one bad address would void every other leg's read on the chain.
           try {
-            const n = Number(BigInt(res[i]));
+            const n = res[i] === null ? NaN : Number(BigInt(res[i] as string));
             l.decimals = Number.isInteger(n) && n >= 0 && n <= 36 ? n : null;
           } catch {
             l.decimals = null;
           }
+          if (l.decimals === null) l.dead = true;
         });
       }
       const reqs: { leg: LegSupply; date: string; block: number }[] = [];
@@ -151,12 +172,13 @@ export async function legSupplies(
           reqs.push({ leg: l, date: d, block });
         }
       if (reqs.length) {
-        const res: string[] = [];
+        const res: (string | null)[] = [];
         for (let i = 0; i < reqs.length; i += 40) {
           inTime(chain);
           const chunk = reqs.slice(i, i + 40);
           res.push(
-            ...(await rec.rpc<string>(
+            ...(await settled(
+              rec,
               chain,
               chunk.map((r) => totalSupplyReq(r.leg.address, r.block)),
               { label: 'totalSupply', deadline: opts.deadlineMs },
@@ -165,7 +187,8 @@ export async function legSupplies(
         }
         reqs.forEach((r, i) => {
           try {
-            r.leg.values.set(r.date, scaleUnits(res[i], r.leg.decimals as number));
+            // null = that one call reverted: the day is unknown for this leg
+            r.leg.values.set(r.date, res[i] === null ? null : scaleUnits(res[i] as string, r.leg.decimals as number));
           } catch {
             r.leg.values.set(r.date, null); // empty result: contract not deployed at that block
           }

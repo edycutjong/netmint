@@ -176,7 +176,7 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
           reason: `CMC refused ${lack.endpoint} and the stored body (captured ${lack.capturedUtc.slice(0, 10)}) does not hold this wrapper: no verdict printed`,
         };
       }
-      const w = evaluateWrapper(base, hist.get(t.crypto_id) ?? [], map, chain.legs);
+      let w = evaluateWrapper(base, hist.get(t.crypto_id) ?? [], map, chain.legs);
       // a chain read that FAILED on this click (rate limit, timeout) is not "the chain cannot be read": no verdict
       const failed = chain.errors.find((e) => map.legs.some((l) => e.startsWith(`${l.chain} RPC`)));
       if (failed && w.verdict === 'NOT_VERIFIABLE' && /^chain check unavailable/.test(w.mint?.reason ?? '')) {
@@ -184,6 +184,15 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
           ...w,
           verdict: null,
           reason: `chain read failed on this click (${redact(failed).slice(0, 160)}); no verdict printed — run it again`,
+        };
+      }
+      // a listed contract with no usable decimals() on this click (no code at the address, the call reverts, or a value
+      // outside 0–36) is deterministic: name it instead of the day that came back empty, and promise no retry
+      const dead = chain.legs.find((l) => l.dead && map.legs.some((m) => m.chain === l.chain && m.address === l.address));
+      if (dead && w.verdict === 'NOT_VERIFIABLE' && /^chain check unavailable/.test(w.mint?.reason ?? '')) {
+        w = {
+          ...w,
+          reason: `chain check unavailable: the contract CMC lists on ${dead.chain === 'bsc' ? 'BNB Chain' : 'Ethereum'} (${dead.address}) returned no usable decimals(), so its supply cannot be read`,
         };
       }
       return w;

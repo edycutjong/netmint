@@ -36,6 +36,24 @@ export class RpcError extends Error {
   }
 }
 
+/** One entry of a JSON-RPC batch reply: its result, or its own error object. */
+export type RpcEntry<T = unknown> = { result: T } | { error: { code?: number; message: string } };
+
+/**
+ * The HTTP call answered, but at least one entry carries a JSON-RPC error. `entries` holds every entry's own outcome in
+ * request order, so a caller can tell one call's deterministic failure (a revert) from the rest of the batch. Message and
+ * code are those of the first failing entry, exactly what a plain RpcError carried before.
+ */
+export class RpcEntryError extends RpcError {
+  constructor(
+    message: string,
+    code: number | undefined,
+    readonly entries: RpcEntry[],
+  ) {
+    super(message, code);
+  }
+}
+
 /** Request-path budget (the lookup route has maxDuration 60 s): 8 s per attempt, 5 retries, backoff 0.5 + 1 + 2 + 4 + 4 s.
  * The retries exist for Alchemy's compute-units-per-second cap: a burst of lookups for wrappers without a committed
  * baseline (every day of the window is an eth_call per leg) is throttled for a few seconds, and three short retries gave
@@ -87,12 +105,14 @@ export async function rpcBatch<T = string>(
       await backoff(attempt);
       continue;
     }
-    return reqs.map((_, i) => {
+    const entries: RpcEntry<T>[] = reqs.map((_, i) => {
       const o = done.get(i);
       if (!o) throw new RpcError(`${chain} RPC: missing id ${i}`);
-      if (o.error) throw new RpcError(`${chain} RPC: ${o.error.message}`, o.error.code);
-      return o.result as T;
+      return o.error ? { error: o.error } : { result: o.result as T };
     });
+    const bad = entries.find((e) => 'error' in e);
+    if (bad && 'error' in bad) throw new RpcEntryError(`${chain} RPC: ${bad.error.message}`, bad.error.code, entries);
+    return entries.map((e) => (e as { result: T }).result);
   }
 }
 
@@ -104,6 +124,10 @@ export async function rpc<T = string>(chain: ChainId, method: string, params: un
 /** JSON-RPC error that means the call itself reverted / hit no code (deterministic), vs. a transport failure. */
 export function isRevert(e: unknown): boolean {
   return e instanceof RpcError && (e.code === 3 || /revert|execution reverted|invalid opcode/i.test(e.message));
+}
+/** The same test for one entry of a batch reply (a rate-limited or internal-error entry is not a revert). */
+export function isRevertEntry(e: RpcEntry): boolean {
+  return 'error' in e && (e.error.code === 3 || /revert|execution reverted|invalid opcode/i.test(e.error.message));
 }
 
 export const hex = (n: number | bigint) => '0x' + n.toString(16);

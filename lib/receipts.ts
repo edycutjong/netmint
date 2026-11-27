@@ -5,7 +5,7 @@
  */
 import { CMC_BASE, cmcErrorCode, cmcFetch, type CmcCall } from './cmc/client';
 import { classifyCmcError } from './cmc/errors';
-import { EXPLORER, RPC_REQUEST, rpcBatch, type ChainId, type RpcReq } from './chain/rpc';
+import { EXPLORER, RPC_REQUEST, RpcEntryError, rpcBatch, type ChainId, type RpcReq } from './chain/rpc';
 import type { StoredLookup } from './stored';
 import type { Receipt } from './types';
 
@@ -161,7 +161,15 @@ export class Recorder {
       const blockHex = r.params[1];
       const block = typeof blockHex === 'string' && blockHex.startsWith('0x') ? parseInt(blockHex, 16) : undefined;
       const to = (r.params[0] as { to?: string } | undefined)?.to ?? meta.address;
-      const body = results ? results[i] : { error: redact(String((err as Error)?.message ?? err)) };
+      // the HTTP call answered and one or more entries carry their own JSON-RPC error: each receipt keeps its own entry's
+      // outcome (an answered call is not recorded as failed, and a failed one shows its own error, not a neighbour's)
+      const entry = err instanceof RpcEntryError ? err.entries[i] : undefined;
+      const answered = results !== null || entry !== undefined;
+      const body = results
+        ? results[i]
+        : entry && 'result' in entry
+          ? entry.result
+          : { error: redact(String(entry && 'error' in entry ? entry.error.message : ((err as Error)?.message ?? err))) };
       const text = JSON.stringify(body);
       this.receipts.push({
         id: `r${++this.n}`,
@@ -175,7 +183,7 @@ export class Recorder {
         },
         startedUtc,
         elapsedMs,
-        httpStatus: err ? 0 : 200,
+        httpStatus: answered ? 200 : 0,
         body,
         bodyBytes: Buffer.byteLength(text),
         chain,
