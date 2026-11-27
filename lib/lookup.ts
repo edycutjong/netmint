@@ -12,7 +12,7 @@ import { addDays, dailyHistory, historyRows, historySpan, isUtcDay } from './cmc
 import { contractMaps, type ContractMap } from './cmc/info';
 import { latestQuotes } from './cmc/quotes';
 import { CmcError } from './cmc/errors';
-import { sanityGuard } from './flow/sanity';
+import { interiorHoles, sanityGuard } from './flow/sanity';
 import { netCreation } from './flow/netCreation';
 import { mintCheck } from './flow/mintCheck';
 import { decideVerdict } from './flow/verdict';
@@ -285,16 +285,14 @@ export function evaluateWrapper(
     chainSource: sourceOf(legs),
   });
   const v = decideVerdict(metrics, mint);
-  const gaps = refused.filter((r) => r.reason === 'gap' && r.date > A && r.date < B).length;
+  const holes = interiorHoles(accepted, refused);
+  const gaps = holes.gaps.length;
   if (gaps && (v.verdict === 'REAL_INFLOW' || v.verdict === 'OUTFLOW')) {
     v.reason += ` · ${gaps} missing CMC day${gaps > 1 ? 's' : ''} inside the window: the supply move is chain-verified, the dollars across ${gaps > 1 ? 'them use' : 'it use'} the neighbouring days' average price`;
   }
   // a day the sanity guard refused (a spike that reverted, a missing price …) leaves the same hole as a missing day: say so
   // beside the stamp too, not only in the row detail. A duplicate row is not a hole (its day has an accepted point).
-  const held = new Set(accepted.map((p) => p.date));
-  const dropped = [
-    ...new Set(refused.filter((r) => r.reason !== 'gap' && r.date > A && r.date < B && !held.has(r.date)).map((r) => r.date)),
-  ];
+  const dropped = holes.refusedDays;
   if (dropped.length && (v.verdict === 'REAL_INFLOW' || v.verdict === 'OUTFLOW')) {
     v.reason += ` · ${dropped.length} CMC day${dropped.length > 1 ? 's' : ''} inside the window refused by the sanity guard (${dropped.join(', ')}): the supply move is chain-verified, the dollars across ${dropped.length > 1 ? 'them use' : 'it use'} the neighbouring days' average price`;
   }

@@ -1,4 +1,5 @@
 import { pct, plain, short, units } from '@/lib/format';
+import { interiorHoles } from '@/lib/flow/sanity';
 import type { WrapperResult } from '@/lib/types';
 
 /** The two proving rows beside every verdict: CMC's step vs the chain's step, then the jury's verdict line. */
@@ -10,6 +11,20 @@ export function ProofRows({ w }: { w: WrapperResult }) {
   const trial = p ? m.stepDays.find((s) => s.date === p.date) : undefined;
   const field = m.comparator === 'total_supply' ? 'total supply' : 'circulating supply';
   const recount = w.verdict === 'RECOUNT';
+  // days inside a verified window with no accepted CMC point, read from the payload (the "Found" line below trims the same
+  // disclosure out of the reason string, so it must not be the only place that carries it)
+  const holes = w.verdict === 'REAL_INFLOW' || w.verdict === 'OUTFLOW' ? interiorHoles(w.series, w.refused) : { gaps: [], refusedDays: [] };
+  const holeCount = holes.gaps.length + holes.refusedDays.length;
+  const holeLine = holeCount
+    ? `Inside the window ${[
+        holes.gaps.length ? `CMC sent no row for ${holes.gaps.join(', ')}` : '',
+        holes.refusedDays.length ? `the sanity guard refused ${holes.refusedDays.join(', ')}` : '',
+      ]
+        .filter(Boolean)
+        .join(
+          ' and ',
+        )}: the supply move is chain-verified, the dollars across ${holeCount > 1 ? 'those days' : 'that day'} use the neighbouring days’ average price.`
+    : null;
   return (
     <div className="proof">
       {p ? (
@@ -66,6 +81,11 @@ export function ProofRows({ w }: { w: WrapperResult }) {
           ? `window and material steps verified: ${w.reason.split(/ · \d+ (?:missing CMC days?|CMC days?) inside the window/)[0].replace(/^window endpoints and the largest step days \(up to 5\) verified \((.*)\)$/, '$1')}`
           : w.reason}
       </p>
+      {holeLine ? (
+        <p className="verdict-line" style={{ margin: '4px 0 0' }}>
+          {holeLine}
+        </p>
+      ) : null}
       {w.mintReceipt ? (
         <p className="capture" style={{ margin: '6px 0 0' }}>
           One of the day’s mints ({plain(w.mintReceipt.amount)} units

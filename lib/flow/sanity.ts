@@ -86,6 +86,21 @@ export function sanityGuard(raw: RawDailyRow[], p = PARAMS): GuardResult {
   return { accepted, refused };
 }
 
+/**
+ * Days strictly inside the accepted window that have no accepted point: CMC sent no row for them (`gaps`) or the guard
+ * refused the row (`refusedDays`). Across such a day the flow is priced with the neighbouring days' average, so it is
+ * disclosed wherever a verified verdict is shown; a duplicate row is not a hole (its day has an accepted point).
+ */
+export function interiorHoles(accepted: DailyPoint[], refused: RefusedRow[]): { gaps: string[]; refusedDays: string[] } {
+  if (accepted.length < 2) return { gaps: [], refusedDays: [] };
+  const A = accepted[0].date,
+    B = accepted[accepted.length - 1].date;
+  const held = new Set(accepted.map((p) => p.date));
+  const inside = refused.filter((r) => r.date > A && r.date < B && !held.has(r.date));
+  const days = (rows: RefusedRow[]) => [...new Set(rows.map((r) => r.date))].sort();
+  return { gaps: days(inside.filter((r) => r.reason === 'gap')), refusedDays: days(inside.filter((r) => r.reason !== 'gap')) };
+}
+
 export function dayDiff(a: string, b: string): number {
   return Math.round((Date.parse(`${b}T00:00:00Z`) - Date.parse(`${a}T00:00:00Z`)) / 86_400_000);
 }
