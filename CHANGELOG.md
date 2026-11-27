@@ -2,6 +2,16 @@
 
 All notable changes, generated from Conventional Commits by `scripts/release.mjs`.
 
+## 1.1.4 (2026-11-27)
+
+### Bug fixes
+
+- **proof:** the missing-day line says what the chain check covers (05f6673)
+- **ui:** a pinned answer presses no window chip; the earlier-answer note dates stored bodies (394b040)
+- **proof:** days missing inside a verified window are listed under the proof rows (3dcbe65)
+- **stored:** skip_invalid is not part of what a stored info body answers (4ab0f2f)
+- **chain:** a reverted eth_call costs its own read, not every wrapper on the chain (a3ef1c3)
+
 ## 1.1.3 (2026-11-27)
 
 ### Bug fixes
