@@ -79,6 +79,26 @@ describe('live-stored: a plan-refused quotes/historical is answered from the com
     expect(heroOf(r).wrapper!.verdict).toBe('REAL_INFLOW');
   });
 
+  it('a disabled key refuses /v1/key/info too: nothing answered live, the response says so, the stored verdict still prints', async () => {
+    const DISABLED = {
+      httpStatus: 403,
+      body: { status: { error_code: 1007, error_message: 'This API Key has been disabled.', credit_count: 0 } },
+    };
+    const all = [
+      '/v5/real-world-assets/assets/list',
+      '/v5/real-world-assets/quotes/latest',
+      '/v2/cryptocurrency/info',
+      LATEST,
+      HIST,
+      '/v1/key/info',
+    ];
+    const r = await run(Object.fromEntries(all.map((e) => [e, DISABLED])));
+    expect(r.mode).toBe('live-stored');
+    expect(r.liveCmcCalls).toEqual([]); // the page then prints "CMC answered nothing live on this click"
+    expect(r.receipts.filter((x) => x.endpoint === '/v1/key/info').map((x) => x.errorCode)).toEqual([1007]);
+    expect(heroOf(r).wrapper!.verdict).toBe('REAL_INFLOW');
+  });
+
   it('a rolling window after the stored history ends is re-anchored on its last day, never padded to today', async () => {
     const r = await run({ [HIST]: PLAN }, { nowMs: Date.parse('2026-12-15T09:00:00Z') });
     expect(r.range.to).toBe('2026-11-21');
