@@ -1,0 +1,156 @@
+{
+ "receipt": {
+  "endpoint": "/v2/cryptocurrency/info",
+  "method": "GET",
+  "params": {
+   "id": "37041,39002",
+   "aux": "platform",
+   "skip_invalid": "true"
+  },
+  "http_status": 200,
+  "started_utc": "2026-11-27T18:54:45.661Z",
+  "elapsed_ms": 276
+ },
+ "body": {
+  "data": {
+   "37041": {
+    "id": 37041,
+    "name": "Robinhood tokenized stock (xStock)",
+    "symbol": "HOODX",
+    "category": "token",
+    "slug": "robinhood-tokenized-stock-xstock",
+    "subreddit": "",
+    "tag-names": [
+     "DeFi",
+     "Ethereum Ecosystem",
+     "Tokenized Stock",
+     "Solana Ecosystem",
+     "Arbitrum Ecosystem",
+     "BNB Chain Ecosystem",
+     "Toncoin Ecosystem",
+     "X Layer Ecosystem",
+     "Internet Capital Markets",
+     "Tokenized Assets",
+     "xStocks Ecosystem"
+    ],
+    "tag-groups": [
+     "CATEGORY",
+     "PLATFORM",
+     "CATEGORY",
+     "PLATFORM",
+     "PLATFORM",
+     "PLATFORM",
+     "PLATFORM",
+     "PLATFORM",
+     "CATEGORY",
+     "CATEGORY",
+     "CATEGORY"
+    ],
+    "platform": {
+     "id": "5426",
+     "name": "Solana",
+     "symbol": "SOL",
+     "slug": "solana",
+     "token_address": "XsvNBAYkrDRNhA7wPHQfX3ZUXZyZLdnCQDfHZ56bzpg"
+    },
+    "twitter_username": "xStocksFi",
+    "is_hidden": 0,
+    "contract_address": [
+     {
+      "contract_address": "XsvNBAYkrDRNhA7wPHQfX3ZUXZyZLdnCQDfHZ56bzpg",
+      "platform": {
+       "name": "Solana",
+       "coin": {
+        "id": "5426",
+        "name": "Solana",
+        "symbol": "SOL",
+        "slug": "solana"
+       }
+      }
+     },
+     {
+      "contract_address": "0xE1385FDd5ffB10081Cd52C56584F25EFa9084015",
+      "platform": {
+       "name": "Arbitrum",
+       "coin": {
+        "id": "11841",
+        "name": "Arbitrum",
+        "symbol": "ARB",
+        "slug": "arbitrum"
+       }
+      }
+     },
+     {
+      "contract_address": "0xe1385fdd5ffb10081cd52c56584f25efa9084015",
+      "platform": {
+       "name": "BNB Smart Chain (BEP20)",
+       "coin": {
+        "id": "1839",
+        "name": "BNB",
+        "symbol": "BNB",
+        "slug": "bnb"
+       }
+      }
+     },
+     {
+      "contract_address": "EQAHz1jK27NO5IdHrht8146-EFz9p4kSZZx2H1xXuNQOYp_r",
+      "platform": {
+       "name": "TON",
+       "coin": {
+        "id": "11419",
+        "name": "Gram (prev. Toncoin)",
+        "symbol": "GRAM",
+        "slug": "gram"
+       }
+      }
+     },
+     {
+      "contract_address": "0xe1385fdd5ffb10081cd52c56584f25efa9084015",
+      "platform": {
+       "name": "Ethereum",
+       "coin": {
+        "id": "1027",
+        "name": "Ethereum",
+        "symbol": "ETH",
+        "slug": "ethereum"
+       }
+      }
+     },
+     {
+      "contract_address": "0xe1385fdd5ffb10081cd52c56584f25efa9084015",
+      "platform": {
+       "name": "Ink",
+       "coin": {
+        "id": "36851",
+        "name": "INK",
+        "symbol": "INK",
+        "slug": "ink-token"
+       }
+      }
+     },
+     {
+      "contract_address": "0xE1385FDd5ffB10081Cd52C56584F25EFa9084015",
+      "platform": {
+       "name": "X Layer",
+       "coin": {
+        "id": "3897",
+        "name": "OKB",
+        "symbol": "OKB",
+        "slug": "okb"
+       }
+      }
+     }
+    ],
+    "infinite_supply": true
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-27T18:54:45.818Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 9,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

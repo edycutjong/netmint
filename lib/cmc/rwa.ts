@@ -83,9 +83,17 @@ export async function wrappersOf(
 ): Promise<{ asset: RwaAsset; tokens: (RwaToken & { derivative: boolean })[] }> {
   const call = await rec.cmc<any>('/v5/real-world-assets/quotes/latest', { rwa_id: String(rwaId) });
   ensureOk(call);
-  const a = (call.body?.data?.rwa_assets ?? []).find((x: any) => x.rwa_id === rwaId) ?? call.body?.data?.rwa_assets?.[0];
+  // keyed by id: the row must BE the requested rwa_id (never "the first row"), or the page would print another stock's wrappers
+  const a = (call.body?.data?.rwa_assets ?? []).find((x: any) => Number(x?.rwa_id) === rwaId);
   if (!a) throw new CmcError(call.endpoint, 0, call.httpStatus, `no rwa_assets row for rwa_id ${rwaId}`);
-  const tokens = (a.tokens ?? []).map((t: RwaToken) => ({ ...t, derivative: isDerivative(t) }));
+  // CMC can list a crypto_id under a stock with no symbol, name or issuer (HOOD id 39002, 2026-11-27): shown by its id
+  const tokens = (a.tokens ?? []).map((t: RwaToken) => ({
+    ...t,
+    symbol: t.symbol ?? `#${t.crypto_id}`,
+    name: t.name ?? '',
+    issuer_name: t.issuer_name ?? 'issuer not named by CMC',
+    derivative: isDerivative(t),
+  }));
   return { asset: { rwa_id: a.rwa_id, symbol: a.symbol, name: a.name, asset_type: a.asset_type }, tokens };
 }
 

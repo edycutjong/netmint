@@ -1,0 +1,151 @@
+{
+ "receipt": {
+  "endpoint": "/v5/real-world-assets/quotes/latest",
+  "method": "GET",
+  "params": {
+   "rwa_id": "84"
+  },
+  "http_status": 200,
+  "started_utc": "2026-11-27T18:54:12.943Z",
+  "elapsed_ms": 786
+ },
+ "body": {
+  "data": {
+   "rwa_assets": [
+    {
+     "name": "Robinhood Markets Inc",
+     "symbol": "HOOD",
+     "slug": "robinhood",
+     "quotes": [
+      {
+       "symbol": "USD",
+       "crypto_id": 2781,
+       "average_tokenized_price": 67.89330895189447,
+       "tokenized_market_cap": 15110937.774782274,
+       "tokenized_volume_24h": 12623763.05762237,
+       "last_updated": "2026-11-27T18:53:03.000Z"
+      }
+     ],
+     "rwa_id": 84,
+     "asset_type": "stock",
+     "rwa_rank": 274,
+     "has_tokens": true,
+     "average_tokenized_price": 67.89330895189447,
+     "tokenized_market_cap": 15110937.774782274,
+     "tokenized_volume_24h": 12623763.05762237,
+     "last_updated": "2026-11-27T18:54:12.124Z",
+     "tokens": [
+      {
+       "symbol": "HOODX",
+       "name": "Robinhood tokenized stock (xStock)",
+       "price": 67.91624986471399,
+       "crypto_id": 37041,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 8030156.209903663,
+       "volume_24h": 4615069.673882708
+      },
+      {
+       "symbol": "HOODon",
+       "name": "Robinhood Markets Tokenized Stock (Ondo)",
+       "price": 67.8745624378231,
+       "crypto_id": 38004,
+       "issuer_id": "688ca4ccabae9b5b9fb3167a",
+       "issuer_name": "Ondo Assets",
+       "market_cap": 2683975.9071080866,
+       "volume_24h": 2175699.2986467993
+      },
+      {
+       "symbol": null,
+       "name": null,
+       "price": null,
+       "crypto_id": 39002,
+       "issuer_id": null,
+       "issuer_name": null,
+       "market_cap": null,
+       "volume_24h": null
+      },
+      {
+       "symbol": "HOOD",
+       "name": "Robinhood Markets (Derivatives)",
+       "price": 67.90973657657082,
+       "crypto_id": 39478,
+       "issuer_id": "695e11f774b54210f3b95dc3",
+       "issuer_name": "NA (Derivatives)",
+       "market_cap": 0,
+       "volume_24h": 165389.51279847272
+      },
+      {
+       "symbol": "HOOD",
+       "name": "Robinhood Tokenized Stock (Hyperliquid)",
+       "price": 71.98769318701397,
+       "crypto_id": 39625,
+       "issuer_id": "699ed38db54c9320b15928e3",
+       "issuer_name": "Hyperliquid Assets",
+       "market_cap": 0,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "rHOOD",
+       "name": "Robinhood Tokenized Stock (Reality)",
+       "price": 67.81702434772804,
+       "crypto_id": 40620,
+       "issuer_id": "6a43600c282e7240b76c8bbb",
+       "issuer_name": "Reality",
+       "market_cap": 461965.9437432301,
+       "volume_24h": 396988.0759915738
+      },
+      {
+       "symbol": "HOODB",
+       "name": "Robinhood Tokenized bStocks",
+       "price": 67.86202739403117,
+       "crypto_id": 40850,
+       "issuer_id": "6a2aed5097c45356b1a5f710",
+       "issuer_name": "bStocks",
+       "market_cap": 3608875.9050393603,
+       "volume_24h": 3047892.886642139
+      },
+      {
+       "symbol": "WHOODX",
+       "name": "Wrapped Robinhood Tokenized stock (xStock)",
+       "price": null,
+       "crypto_id": 37200,
+       "issuer_id": "6878977dcbbf471de3366e85",
+       "issuer_name": "Backed Assets",
+       "market_cap": 75417.49,
+       "volume_24h": 0
+      },
+      {
+       "symbol": "HOODc",
+       "name": "Robinhood Markets, Inc. Tokenized Stock (Coinbase)",
+       "price": 67.91873541066947,
+       "crypto_id": 42923,
+       "issuer_id": "6a72fe7072996604d45c6733",
+       "issuer_name": "Coinbase",
+       "market_cap": 325941.0051481041,
+       "volume_24h": 2222721.3807874685
+      }
+     ],
+     "tradfi_markets": [
+      {
+       "exchange": {
+        "slug": "binance",
+        "name": "Binance",
+        "exchange_id": 270
+       },
+       "ticker": "HOOD",
+       "market_url": "https://www.binance.com/en/stocks/EQ_HOOD"
+      }
+     ]
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-27T18:54:13.607Z",
+   "error_code": "0",
+   "error_message": "",
+   "elapsed": 5,
+   "credit_count": 1
+  }
+ }
+}

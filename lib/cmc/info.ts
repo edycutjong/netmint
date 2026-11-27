@@ -34,7 +34,16 @@ export function contractMapFrom(entry: any): ContractMap {
 export async function contractMaps(rec: Recorder, ids: number[]): Promise<Map<number, ContractMap>> {
   const out = new Map<number, ContractMap>();
   if (ids.length === 0) return out;
-  const call = await rec.cmc<any>('/v2/cryptocurrency/info', { id: ids.join(','), aux: 'platform' });
+  const params = { id: ids.join(','), aux: 'platform' };
+  const ask = (p: Record<string, string>) => rec.cmc<any>('/v2/cryptocurrency/info', p);
+  let call = await ask(params);
+  // info answers the WHOLE multi-id call with HTTP 400 "Invalid value for 'id': '<n>'" when one id has no record, while
+  // quotes/latest and quotes/historical skip such an id (measured 2026-11-27: CMC lists crypto_id 39002 under HOOD with no
+  // symbol or issuer; docs/proof/spike/info-invalid-id-*.json). skip_invalid=true returns every valid id, so one ghost
+  // listing never costs the other wrappers their verdict. Both calls stay in the receipts.
+  if (!call.ok && call.httpStatus === 400 && /invalid value for 'id'/i.test(String(call.status?.error_message ?? ''))) {
+    call = await ask({ ...params, skip_invalid: 'true' });
+  }
   if (!call.ok) {
     throw new CmcError(
       call.endpoint,

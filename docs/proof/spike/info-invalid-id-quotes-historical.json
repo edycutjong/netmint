@@ -1,0 +1,85 @@
+{
+ "receipt": {
+  "endpoint": "/v2/cryptocurrency/quotes/historical",
+  "method": "GET",
+  "params": {
+   "id": "37041,39002",
+   "interval": "daily",
+   "time_start": "2026-11-24",
+   "time_end": "2026-11-27"
+  },
+  "http_status": 200,
+  "started_utc": "2026-11-27T18:54:46.207Z",
+  "elapsed_ms": 267
+ },
+ "body": {
+  "data": {
+   "id": 37041,
+   "name": "Robinhood tokenized stock (xStock)",
+   "symbol": "HOODX",
+   "is_active": 1,
+   "is_fiat": 0,
+   "quotes": [
+    {
+     "timestamp": "2026-11-25T00:00:00.000Z",
+     "quote": {
+      "USD": {
+       "price": 65.13043820545239,
+       "percent_change_1h": -0.736205669794,
+       "percent_change_24h": -3.760009848483,
+       "percent_change_7d": -8.10996132917,
+       "percent_change_30d": -31.458111854356,
+       "volume_24h": 9699730.06,
+       "market_cap": 7690642.524171506,
+       "circulating_supply": 118080.62,
+       "total_supply": 2082696.82,
+       "timestamp": "2026-11-25T00:00:00.000Z"
+      }
+     }
+    },
+    {
+     "timestamp": "2026-11-26T00:00:00.000Z",
+     "quote": {
+      "USD": {
+       "price": 67.05933203972315,
+       "percent_change_1h": 1.089829238039,
+       "percent_change_24h": 2.961585838231,
+       "percent_change_7d": -4.832366749174,
+       "percent_change_30d": -28.356112406269,
+       "volume_24h": 8925366.83,
+       "market_cap": 7893283.725287692,
+       "circulating_supply": 117705.97,
+       "total_supply": 2082696.8,
+       "timestamp": "2026-11-26T00:00:00.000Z"
+      }
+     }
+    },
+    {
+     "timestamp": "2026-11-27T00:00:00.000Z",
+     "quote": {
+      "USD": {
+       "price": 67.03985684839523,
+       "percent_change_1h": -0.056547707186,
+       "percent_change_24h": -0.029041731755,
+       "percent_change_7d": -2.018983750265,
+       "percent_change_30d": -23.38621525515,
+       "volume_24h": 3544308.6,
+       "market_cap": 7885953.333759347,
+       "circulating_supply": 117630.82,
+       "total_supply": 2082696.8,
+       "timestamp": "2026-11-27T00:00:00.000Z"
+      }
+     }
+    }
+   ]
+  },
+  "status": {
+   "timestamp": "2026-11-27T18:54:46.357Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 7,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

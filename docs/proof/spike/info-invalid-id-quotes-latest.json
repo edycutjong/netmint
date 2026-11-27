@@ -1,0 +1,128 @@
+{
+ "receipt": {
+  "endpoint": "/v2/cryptocurrency/quotes/latest",
+  "method": "GET",
+  "params": {
+   "id": "37041,39002"
+  },
+  "http_status": 200,
+  "started_utc": "2026-11-27T18:54:45.937Z",
+  "elapsed_ms": 270
+ },
+ "body": {
+  "data": {
+   "37041": {
+    "tags": [
+     {
+      "slug": "defi",
+      "name": "DeFi",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "ethereum-ecosystem",
+      "name": "Ethereum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "tokenized-stock",
+      "name": "Tokenized Stock",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "solana-ecosystem",
+      "name": "Solana Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "arbitrum-ecosystem",
+      "name": "Arbitrum Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "bnb-chain-ecosystem",
+      "name": "BNB Chain Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "toncoin-ecosystem",
+      "name": "Toncoin Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "x-layer-ecosystem",
+      "name": "X Layer Ecosystem",
+      "category": "PLATFORM"
+     },
+     {
+      "slug": "internet-capital-markets",
+      "name": "Internet Capital Markets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "tokenized-assets",
+      "name": "Tokenized Assets",
+      "category": "CATEGORY"
+     },
+     {
+      "slug": "xstocks-ecosystem",
+      "name": "xStocks Ecosystem",
+      "category": "CATEGORY"
+     }
+    ],
+    "id": 37041,
+    "name": "Robinhood tokenized stock (xStock)",
+    "symbol": "HOODX",
+    "slug": "robinhood-tokenized-stock-xstock",
+    "is_active": 1,
+    "infinite_supply": true,
+    "is_fiat": 0,
+    "circulating_supply": 118236.15446818,
+    "total_supply": 2082696.80183739,
+    "max_supply": null,
+    "date_added": "2025-07-01T18:39:24.000Z",
+    "num_market_pairs": 65,
+    "cmc_rank": 942,
+    "last_updated": "2026-11-27T18:54:18.253Z",
+    "tvl_ratio": null,
+    "platform": {
+     "id": 5426,
+     "slug": "solana",
+     "name": "Solana",
+     "symbol": "SOL",
+     "token_address": "XsvNBAYkrDRNhA7wPHQfX3ZUXZyZLdnCQDfHZ56bzpg"
+    },
+    "self_reported_circulating_supply": null,
+    "self_reported_market_cap": null,
+    "minted_market_cap": 141442482.02,
+    "quote": {
+     "USD": {
+      "price": 67.91314122150234,
+      "volume_24h": 4612880.749539769,
+      "volume_change_24h": 1.609000917821,
+      "cex_volume_24h": 4453964.096400216,
+      "dex_volume_24h": 158916.65313955312,
+      "percent_change_1h": 0.766495481304,
+      "percent_change_24h": 1.068533480933,
+      "percent_change_7d": 6.533644772307,
+      "percent_change_30d": -25.807098514444,
+      "percent_change_60d": -41.855401117198,
+      "percent_change_90d": -35.179062990464,
+      "market_cap": 8029788.655884873,
+      "market_cap_dominance": 0,
+      "fully_diluted_market_cap": 141442482.02,
+      "tvl": null,
+      "last_updated": "2026-11-27T18:54:03.000Z"
+     }
+    }
+   }
+  },
+  "status": {
+   "timestamp": "2026-11-27T18:54:46.089Z",
+   "error_code": 0,
+   "error_message": null,
+   "elapsed": 5,
+   "credit_count": 1,
+   "notice": null
+  }
+ }
+}

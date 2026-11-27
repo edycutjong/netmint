@@ -1,0 +1,23 @@
+{
+ "receipt": {
+  "endpoint": "/v2/cryptocurrency/info",
+  "method": "GET",
+  "params": {
+   "id": "37041,39002",
+   "aux": "platform"
+  },
+  "http_status": 400,
+  "started_utc": "2026-11-27T18:54:45.372Z",
+  "elapsed_ms": 288
+ },
+ "body": {
+  "status": {
+   "timestamp": "2026-11-27T18:54:45.537Z",
+   "error_code": 400,
+   "error_message": "Invalid value for 'id': '39002'",
+   "elapsed": 16,
+   "credit_count": 0,
+   "notice": null
+  }
+ }
+}
