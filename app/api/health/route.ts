@@ -49,7 +49,9 @@ export async function GET() {
           : null,
       },
       chain: { rpc_configured: Boolean(process.env.ALCHEMY_API_KEY), baseline_generated_utc: baselineGenerated() },
-      cron_last_ok_utc: null, // no nightly job runs: `npm run flows` + redeploy refreshes /flows and the stored bodies
+      // no scheduled refresh job exists: the /flows tables and the stored bodies stay as captured until someone re-runs them
+      refresh:
+        'no scheduled refresh job: /flows and the stored CMC bodies are refreshed by `npm run flows` and a redeploy (see capture_utc and stored.newest_capture_utc)',
       // what a click falls back to if CMC refuses quotes/historical on plan or credits: committed verbatim bodies
       stored: storedSummary(),
       cmc: plan ?? { ok: false, error: 'CMC_API_KEY not configured' },
