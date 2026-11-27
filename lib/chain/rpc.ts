@@ -36,10 +36,13 @@ export class RpcError extends Error {
   }
 }
 
-/** Request-path budget (the lookup route has maxDuration 60 s): 8 s per attempt, 3 retries, backoff ≤ 0.5 + 1 + 2 s, so
- * one batch is ≤ ~36 s worst case; the lookup also stops all chain reads at a 40 s deadline (lib/chain/supply.ts).
+/** Request-path budget (the lookup route has maxDuration 60 s): 8 s per attempt, 5 retries, backoff 0.5 + 1 + 2 + 4 + 4 s.
+ * The retries exist for Alchemy's compute-units-per-second cap: a burst of lookups for wrappers without a committed
+ * baseline (100 to 200 eth_call each) is throttled for a few seconds, and three short retries gave up too early
+ * (measured 2026-11-27: 40 of 111 reads lost, three wrappers without a verdict). Every attempt and every wait is bounded
+ * by the lookup's chain-read deadline, 45 s after it starts (lib/lookup.ts), so patience here can never become a 504.
  * Capture scripts pass the long budget explicitly. */
-export const RPC_REQUEST = { timeoutMs: 8_000, maxRetries: 3, maxBackoffMs: 2_000 } as const;
+export const RPC_REQUEST = { timeoutMs: 8_000, maxRetries: 5, maxBackoffMs: 4_000 } as const;
 export const RPC_SCRIPT = { timeoutMs: 30_000, maxRetries: 8, maxBackoffMs: 8_000 } as const;
 
 /** One JSON-RPC batch; returns results in request order. Throws if any entry errors. */
@@ -50,12 +53,15 @@ export async function rpcBatch<T = string>(
 ): Promise<T[]> {
   const { timeoutMs, maxRetries: MAX_RETRIES } = budget;
   if (reqs.length === 0) return [];
+  const left = () => (budget.deadline === undefined ? Infinity : budget.deadline - Date.now());
+  // never sleep past the deadline: the next attempt then fails at once with the budget message
   const backoff = (a: number) =>
-    new Promise((r) => setTimeout(r, Math.min(500 * 2 ** a, budget.maxBackoffMs ?? 4_000) + Math.random() * 250));
+    new Promise((r) =>
+      setTimeout(r, Math.max(0, Math.min(Math.min(500 * 2 ** a, budget.maxBackoffMs ?? 4_000) + Math.random() * 250, left()))),
+    );
   type Entry = { id: number; result?: T; error?: { code: number; message: string } };
   const done = new Map<number, Entry>();
   let pending = reqs.map((_, i) => i);
-  const left = () => (budget.deadline === undefined ? Infinity : budget.deadline - Date.now());
   for (let attempt = 0; ; attempt++) {
     if (left() <= 0) throw new RpcError(`${chain} chain-read time budget exhausted`);
     const payload = pending.map((i) => ({ jsonrpc: '2.0', id: i, method: reqs[i].method, params: reqs[i].params }));

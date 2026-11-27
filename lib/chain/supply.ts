@@ -126,14 +126,24 @@ export async function legSupplies(
           noDec.map((l) => ({ method: 'eth_call', params: [{ to: l.address, data: SEL.decimals }, 'latest'] })),
           { label: 'decimals', deadline: opts.deadlineMs },
         );
-        noDec.forEach((l, i) => (l.decimals = Number(BigInt(res[i]))));
+        noDec.forEach((l, i) => {
+          // '0x' (no contract at this address on this chain) or a nonsense value: that leg stays unknown. It must not
+          // throw here, or one bad address would void every other leg's read on the chain.
+          try {
+            const n = Number(BigInt(res[i]));
+            l.decimals = Number.isInteger(n) && n >= 0 && n <= 36 ? n : null;
+          } catch {
+            l.decimals = null;
+          }
+        });
       }
       const reqs: { leg: LegSupply; date: string; block: number }[] = [];
       for (const l of mine)
         for (const d of missing) {
           if (l.values.has(d)) continue;
           const block = blockIndex(chain)[d];
-          if (block === undefined) {
+          // no block yet for that day, or decimals unknown: the value is unknown, never a guessed scale
+          if (block === undefined || l.decimals === null) {
             l.values.set(d, null);
             continue;
           }
@@ -155,15 +165,17 @@ export async function legSupplies(
         }
         reqs.forEach((r, i) => {
           try {
-            r.leg.values.set(r.date, scaleUnits(res[i], r.leg.decimals ?? 18));
+            r.leg.values.set(r.date, scaleUnits(res[i], r.leg.decimals as number));
           } catch {
             r.leg.values.set(r.date, null); // empty result: contract not deployed at that block
           }
-          r.leg.source = r.leg.source === 'baseline' ? 'mixed' : 'live';
+          // baseline days + live days = mixed, however many live days there are (a second live read used to relabel it "live")
+          r.leg.source = r.leg.source === 'none' || r.leg.source === 'live' ? 'live' : 'mixed';
         });
       }
     } catch (e) {
-      errors.push(`${chain} RPC: ${e instanceof RpcError || e instanceof Error ? e.message : String(e)}`);
+      const msg = e instanceof RpcError || e instanceof Error ? e.message : String(e);
+      errors.push(msg.startsWith(`${chain} RPC`) ? msg : `${chain} RPC: ${msg}`); // one prefix, not "bsc RPC: bsc RPC: …"
       for (const l of mine) for (const d of missing) if (!l.values.has(d)) l.values.set(d, null);
     }
   }

@@ -101,7 +101,7 @@ describe('a chain read that fails on the click is not a verdict', () => {
         legSupplies: async (...a: Parameters<typeof real.legSupplies>) => {
           const out = await real.legSupplies(a[0], a[1], a[2], { ...a[3], allowLive: false });
           for (const l of out.legs) if (l.chain === 'bsc') for (const d of l.values.keys()) l.values.set(d, null);
-          return { legs: out.legs, errors: ['bsc RPC: bsc RPC HTTP 429'] };
+          return { legs: out.legs, errors: ['bsc RPC HTTP 429'] };
         },
       };
     });
@@ -110,7 +110,7 @@ describe('a chain read that fails on the click is not a verdict', () => {
     const r = await lk('NVDA', { window: 30, nowMs: NOW, allowLiveChain: false, rec: new R(recordedTransport()) });
     const nvdab = r.wrappers.find((w) => w.symbol === 'NVDAB')!; // BNB Chain only
     expect(nvdab.verdict).toBeNull();
-    expect(nvdab.reason).toMatch(/^chain read failed on this click \(bsc RPC: bsc RPC HTTP 429\); no verdict printed/);
+    expect(nvdab.reason).toMatch(/^chain read failed on this click \(bsc RPC HTTP 429\); no verdict printed/);
     vi.doUnmock('@/lib/chain/supply');
   });
 });
