@@ -15,6 +15,7 @@ export function ProofRows({ w }: { w: WrapperResult }) {
   // disclosure out of the reason string, so it must not be the only place that carries it)
   const holes = w.verdict === 'REAL_INFLOW' || w.verdict === 'OUTFLOW' ? interiorHoles(w.series, w.refused) : { gaps: [], refusedDays: [] };
   const holeCount = holes.gaps.length + holes.refusedDays.length;
+  // "chain-verified" here is what the mint check covers: the window's endpoints and its largest step days, not every day
   const holeLine = holeCount
     ? `Inside the window ${[
         holes.gaps.length ? `CMC sent no row for ${holes.gaps.join(', ')}` : '',
@@ -23,7 +24,7 @@ export function ProofRows({ w }: { w: WrapperResult }) {
         .filter(Boolean)
         .join(
           ' and ',
-        )}: the supply move is chain-verified, the dollars across ${holeCount > 1 ? 'those days' : 'that day'} use the neighbouring days’ average price.`
+        )}: the window’s supply move is chain-verified at its endpoints and largest step days, and the dollars across ${holeCount > 1 ? 'those days' : 'that day'} use the neighbouring days’ average price.`
     : null;
   return (
     <div className="proof">

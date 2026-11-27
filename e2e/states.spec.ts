@@ -144,7 +144,7 @@ test('a CMC day missing inside a verified window (response replaced in the brows
   await expect(card.locator('p.capture').filter({ hasText: 'credits charged by CMC' })).toBeVisible(); // the replaced answer is on the card
   await expect(card.getByRole('img', { name: /^Verdict: REAL INFLOW/ }).first()).toBeVisible();
   await expect(card).toContainText(
-    'Inside the window CMC sent no row for 2026-10-27: the supply move is chain-verified, the dollars across that day use the neighbouring days’ average price.',
+    'Inside the window CMC sent no row for 2026-10-27: the window’s supply move is chain-verified at its endpoints and largest step days, and the dollars across that day use the neighbouring days’ average price.',
   );
   await expect(card.locator('.seg button[aria-pressed="true"]')).toHaveCount(0); // a pinned run: still no rolling chip pressed
 });
