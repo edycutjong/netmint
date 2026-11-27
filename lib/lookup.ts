@@ -177,6 +177,11 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
         };
       }
       let w = evaluateWrapper(base, hist.get(t.crypto_id) ?? [], map, chain.legs);
+      // info answered without an entry for this id (the skip_invalid retry, or a stored body captured through it): there
+      // is no contract list to read, which is not "CMC lists no contract on a chain NetMint reads"
+      if (!maps.has(t.crypto_id) && w.verdict === 'NOT_VERIFIABLE' && /^no contract on BNB Chain or Ethereum/.test(w.mint?.reason ?? '')) {
+        w = { ...w, reason: `CMC's ${INFO} answer has no entry for this id, so there is no contract to check on chain` };
+      }
       // a chain read that FAILED on this click (rate limit, timeout) is not "the chain cannot be read": no verdict
       const failed = chain.errors.find((e) => map.legs.some((l) => e.startsWith(`${l.chain} RPC`)));
       if (failed && w.verdict === 'NOT_VERIFIABLE' && /^chain check unavailable/.test(w.mint?.reason ?? '')) {
@@ -216,9 +221,10 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
               liveError: f.liveError,
               ...(f.missingIds ? { missingIds: f.missingIds } : {}),
             })),
-            history: { source: 'stored' as const, lastDay: span?.last || null, capturedUtc: histFb?.capturedUtc ?? null },
           }
         : {}),
+      // history provenance is claimed only when quotes/historical itself was answered from a stored body
+      ...(histFb ? { history: { source: 'stored' as const, lastDay: span?.last || null, capturedUtc: histFb.capturedUtc } } : {}),
       wrappers: sortWrappers(wrappers),
       receipts: rec.receipts,
       credits: rec.credits,

@@ -71,6 +71,12 @@ function widest(bodies: StoredBody[], want: Set<string>): StoredBody[] {
   const best = Math.max(0, ...bodies.map(held));
   return best ? bodies.filter((s) => held(s) === best) : [];
 }
+/**
+ * `skip_invalid` only relaxes CMC's validation of an id list (lib/cmc/info.ts retries with it when one id has no record);
+ * it never changes what CMC returns for an id. So it is not part of what a stored body answers: the retry's body must
+ * answer a replay's plain request (verify:flows, the recorded hero), and a plain body must answer a refused retry.
+ */
+const ID_KEYED_SKIP = ['id', 'skip_invalid'];
 const sameExcept = (a: Record<string, string>, b: Record<string, string>, skip: string[]) => {
   const keys = new Set([...Object.keys(a), ...Object.keys(b)].filter((k) => !skip.includes(k)));
   return [...keys].every((k) => a[k] === b[k]);
@@ -81,10 +87,12 @@ const sameExcept = (a: Record<string, string>, b: Record<string, string>, skip: 
  * - id-keyed endpoints: the stored id set must contain every requested id (other params equal).
  * - quotes/historical: prefer a body whose [time_start, time_end] contains the request; else the body with the latest
  *   time_end (the caller re-anchors a rolling window on it, or refuses a pinned window it does not contain).
- * - `partial` (the refusal path of /api/lookup only): the id list of a click comes from CMC's LIVE wrapper list, so one
- *   wrapper listed after the capture would leave no body that holds every id and cost every stored wrapper its verdict.
- *   With `partial`, the body holding the most of the requested ids answers instead and names the ids it lacks
- *   (`missingIds`); the caller prints those wrappers without a verdict. Never used to replay or to build evidence.
+ * - `partial` (the refusal path of /api/lookup only): when CMC still answers the wrapper list live, the id list of a click
+ *   is today's, so one wrapper listed after the capture would leave no body that holds every id and cost every stored
+ *   wrapper its verdict. With `partial`, the body holding the most of the requested ids answers instead and names the ids
+ *   its request did not ask for (`missingIds`); the caller prints those wrappers without a verdict. (When the wrapper
+ *   list itself is refused and stored, the list is the captured one and a newer wrapper is simply not on it.) Never used
+ *   to replay or to build evidence.
  */
 export function findStored(
   index: StoredBody[],
@@ -115,7 +123,7 @@ export function findStored(
   }
   if ('id' in params) {
     const want = idSet(params);
-    const same = mine.filter((s) => sameExcept(s.params, params, ['id']));
+    const same = mine.filter((s) => sameExcept(s.params, params, ID_KEYED_SKIP));
     const hit = same.find((s) => covers(idSet(s.params), want));
     if (hit || !opts.partial) return hit ?? null;
     return named(widest(same, want)[0], want); // newest first among the widest
