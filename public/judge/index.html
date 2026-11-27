@@ -321,7 +321,7 @@ code { font-family: var(--font-data); font-size: .88em; background: rgba(243, 23
     <h2>Verify it yourself</h2>
     <div class="cmd"><span class="ck">The same call, from a terminal</span><code>curl -s &quot;https://netmint.edycu.dev/api/lookup?u=NVDA&amp;from=2026-10-22&amp;to=2026-11-21&quot;</code><button class="copy" type="button" data-copy="curl -s &quot;https://netmint.edycu.dev/api/lookup?u=NVDA&amp;from=2026-10-22&amp;to=2026-11-21&quot;">copy</button></div>
     <div class="cmd"><span class="ck">Re-derive /flows from the stored bodies</span><code>npm run verify:flows</code><span class="res">304 rows (152 wrappers × 7 d and 30 d), 0 diffs</span></div>
-    <div class="cmd"><span class="ck">The test suite</span><code>npm test</code><span class="res">227 passing</span></div>
+    <div class="cmd"><span class="ck">The test suite</span><code>npm test</code><span class="res">238 passing</span></div>
     <div class="cmd"><span class="ck">One sampled mint (640 units), on BscScan</span><a href="https://bscscan.com/tx/0xa239f8886f2b7a4a61daa2787b0b53e58715c2c0dcd8d8f4ef84c8dfea15266c"><code>0xa239f888…15266c</code></a><span class="res">block 133,127,844</span></div>
   </div>
   <div class="blk eps">
@@ -332,7 +332,7 @@ code { font-family: var(--font-data); font-size: .88em; background: rgba(243, 23
   <div class="blk limits">
     <h2>Honest limits</h2>
     <ul>
-      <li><b>If CMC refuses a call.</b> A new lookup calls CMC live. If CMC refuses a call on plan, credits or a disabled key, a stored dated body answers it: the result line says <code>live-stored</code>, and the receipt shows the stored body with its capture date. The 20 stocks on /flows have stored bodies; a wrapper CMC has listed since prints no verdict, and any other ticker shows CMC’s error. The hackathon listing says “Event access ends when submissions close and reverts to the free Basic tier” (9 Dec 2026, 23:59 UTC); the key behind this app reports Growth-tier limits at <a href="/api/health">/api/health</a> (2M credits/month, 750 req/min), and whether anything changes for it then cannot be verified in advance. Tested with simulated refusals only; it has not yet run against a real Basic key.</li>
+      <li><b>If CMC refuses a call.</b> A new lookup calls CMC live. If CMC refuses a call on plan, credits or a disabled key, a stored dated body answers it: the result line says <code>live-stored</code>, and the receipt shows the stored body with its capture date. The 20 stocks on /flows have stored bodies. A wrapper CMC has listed since has none: it prints no verdict while CMC still answers the wrapper list, and is missing from the table if that list is itself refused and answered from its stored body. Any other ticker shows CMC’s error. The hackathon listing says “Event access ends when submissions close and reverts to the free Basic tier” (9 Dec 2026, 23:59 UTC); the key behind this app reports Growth-tier limits at <a href="/api/health">/api/health</a> (2M credits/month, 750 req/min), and whether anything changes for it then cannot be verified in advance. Tested with simulated refusals only; it has not yet run against a real Basic key.</li>
       <li><b>Unread chains.</b> NetMint reads BNB Chain and Ethereum. Supply on other chains (Solana, Arbitrum, Base, Robinhood Chain, X Layer and more) stays NOT VERIFIABLE.</li>
       <li><b>Dollars</b> are net creation at market price, not money that changed hands.</li>
     </ul>
@@ -343,7 +343,7 @@ code { font-family: var(--font-data); font-size: .88em; background: rgba(243, 23
   </div>
 </div></section>
 </main>
-<footer class="jf"><div class="wrap"><span>NetMint · not investment advice</span><span class="nm-data">built from evidence at commit cd2a628 · v1.1.3</span></div></footer>
+<footer class="jf"><div class="wrap"><span>NetMint · not investment advice</span><span class="nm-data">built from evidence at commit 4965389 · v1.1.4</span></div></footer>
 <script>document.querySelectorAll('.copy').forEach(function (b) { b.addEventListener('click', function () { var t = b.textContent; var show = function (m) { b.textContent = m; setTimeout(function () { b.textContent = t; }, 1400); }; (navigator.clipboard ? navigator.clipboard.writeText(b.dataset.copy) : Promise.reject()).then(function () { show('copied'); }, function () { show('not copied'); }); }); });</script>
 </body>
 </html>
