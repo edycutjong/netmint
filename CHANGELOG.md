@@ -2,6 +2,13 @@
 
 All notable changes, generated from Conventional Commits by `scripts/release.mjs`.
 
+## 1.1.5 (2026-11-27)
+
+### Bug fixes
+
+- **api:** /api/health says there is no scheduled refresh, instead of a null cron field (8d5f5cd)
+- **ui:** the home card's link to the per-stock page keeps the card's window (0140cb3)
+
 ## 1.1.4 (2026-11-27)
 
 ### Bug fixes
