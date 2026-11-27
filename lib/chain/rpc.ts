@@ -38,8 +38,9 @@ export class RpcError extends Error {
 
 /** Request-path budget (the lookup route has maxDuration 60 s): 8 s per attempt, 5 retries, backoff 0.5 + 1 + 2 + 4 + 4 s.
  * The retries exist for Alchemy's compute-units-per-second cap: a burst of lookups for wrappers without a committed
- * baseline (100 to 200 eth_call each) is throttled for a few seconds, and three short retries gave up too early
- * (measured 2026-11-27: 40 of 111 reads lost, three wrappers without a verdict). Every attempt and every wait is bounded
+ * baseline (every day of the window is an eth_call per leg) is throttled for a few seconds, and three short retries gave
+ * up too early (seen on the live site on 2026-11-27: part of one lookup's reads were lost to the cap and the wrappers on
+ * that chain got no verdict). Every attempt and every wait is bounded
  * by the lookup's chain-read deadline, 45 s after it starts (lib/lookup.ts), so patience here can never become a 504.
  * Capture scripts pass the long budget explicitly. */
 export const RPC_REQUEST = { timeoutMs: 8_000, maxRetries: 5, maxBackoffMs: 4_000 } as const;
