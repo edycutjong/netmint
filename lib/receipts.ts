@@ -17,6 +17,8 @@ export interface Fallback {
   storedParams: Record<string, string>;
   liveError: { code: number; message: string; httpStatus: number };
   body: unknown;
+  /** ids the refused call asked for that the stored body does not hold (for example wrappers CMC listed after the capture) */
+  missingIds?: string[];
 }
 
 /** Bodies bigger than this are kept in the receipt only as a byte count + summary (drawer payload cap). */
@@ -122,6 +124,7 @@ export class Recorder {
       storedParams: s.params,
       liveError: { code, message: redact(String(call.status?.error_message ?? '')), httpStatus: call.httpStatus },
       body: s.body,
+      ...(s.missingIds?.length ? { missingIds: s.missingIds } : {}),
     });
     const answered: CmcCall<T> = {
       endpoint,

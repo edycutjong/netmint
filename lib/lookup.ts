@@ -6,7 +6,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { Recorder, redact } from './receipts';
-import { committedStore } from './stored';
+import { committedStorePartial } from './stored';
 import { resolveUnderlying, wrappersOf } from './cmc/rwa';
 import { addDays, dailyHistory, historyRows, historySpan, isUtcDay } from './cmc/history';
 import { contractMaps, type ContractMap } from './cmc/info';
@@ -66,12 +66,13 @@ export interface LookupOpts {
 }
 
 const HIST = '/v2/cryptocurrency/quotes/historical';
+const INFO = '/v2/cryptocurrency/info';
 
 export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupResult> {
   const t0 = performance.now();
   // chain reads stop 45 s after the lookup starts (the route answers by 55 s whatever happens; Vercel kills at 60 s)
   const chainDeadline = Date.now() + 45_000;
-  const rec = opts.rec ?? new Recorder(undefined, undefined, opts.storedFallback ? committedStore : null);
+  const rec = opts.rec ?? new Recorder(undefined, undefined, opts.storedFallback ? committedStorePartial : null);
   const fetchedUtc = new Date(opts.nowMs ?? Date.now()).toISOString();
   const pinned = Boolean(opts.from && opts.to);
   if (pinned && (!isUtcDay(opts.from!) || !isUtcDay(opts.to!) || opts.from! >= opts.to!)) {
@@ -140,6 +141,12 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
       deadlineMs: chainDeadline,
     });
 
+    // live-stored with a partial body: a wrapper on CMC's live list that the stored history or contract body does not hold
+    // (for example one listed after the capture). It gets no verdict and says why; the stored wrappers keep theirs.
+    const unstored = new Map<string, (typeof rec.fallbacks)[number]>();
+    for (const f of rec.fallbacks)
+      if (f.endpoint === HIST || f.endpoint === INFO) for (const id of f.missingIds ?? []) if (!unstored.has(id)) unstored.set(id, f);
+
     const wrappers: WrapperResult[] = tokens.map((t) => {
       const map: ContractMap = maps.get(t.crypto_id) ?? { legs: [], unreadable: [] };
       const chains = [...map.legs.map((l) => (l.chain === 'bsc' ? 'BNB Chain' : 'Ethereum')), ...map.unreadable];
@@ -162,6 +169,13 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
         today: tq ? { price: tq.price, supply: tq.supply, volume24h: tq.volume24h, capturedUtc: tq.capturedUtc } : undefined,
       };
       if (t.derivative) return { ...base, reason: 'derivative listing: no supply to mint' };
+      const lack = unstored.get(String(t.crypto_id));
+      if (lack) {
+        return {
+          ...base,
+          reason: `CMC refused ${lack.endpoint} and the stored body (captured ${lack.capturedUtc.slice(0, 10)}) does not hold this wrapper: no verdict printed`,
+        };
+      }
       const w = evaluateWrapper(base, hist.get(t.crypto_id) ?? [], map, chain.legs);
       // a chain read that FAILED on this click (rate limit, timeout) is not "the chain cannot be read": no verdict
       const failed = chain.errors.find((e) => map.legs.some((l) => e.startsWith(`${l.chain} RPC`)));
@@ -186,7 +200,13 @@ export async function lookup(u: string, opts: LookupOpts = {}): Promise<LookupRe
       liveCmcCalls,
       ...(rec.fallbacks.length
         ? {
-            stored: rec.fallbacks.map((f) => ({ endpoint: f.endpoint, file: f.file, capturedUtc: f.capturedUtc, liveError: f.liveError })),
+            stored: rec.fallbacks.map((f) => ({
+              endpoint: f.endpoint,
+              file: f.file,
+              capturedUtc: f.capturedUtc,
+              liveError: f.liveError,
+              ...(f.missingIds ? { missingIds: f.missingIds } : {}),
+            })),
             history: { source: 'stored' as const, lastDay: span?.last || null, capturedUtc: histFb?.capturedUtc ?? null },
           }
         : {}),

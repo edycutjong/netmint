@@ -183,7 +183,13 @@ export interface LookupResult {
   recordedUtc?: string;
   /** every CMC endpoint that answered live on this click (empty if CMC answered nothing live) */
   liveCmcCalls?: string[];
-  /** live-stored only: every refused call and the committed body that answered it */
-  stored?: { endpoint: string; file: string; capturedUtc: string; liveError: { code: number; message: string; httpStatus: number } }[];
+  /** live-stored only: every refused call and the committed body that answered it (`missingIds`: requested ids it does not hold) */
+  stored?: {
+    endpoint: string;
+    file: string;
+    capturedUtc: string;
+    liveError: { code: number; message: string; httpStatus: number };
+    missingIds?: string[];
+  }[];
   history?: { source: 'stored'; lastDay: string | null; capturedUtc: string | null };
 }

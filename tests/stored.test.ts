@@ -137,7 +137,101 @@ describe('live-stored: a plan-refused quotes/historical is answered from the com
   });
 });
 
+describe('live-stored: a wrapper on the live CMC list that no stored body holds', () => {
+  // the id list of a click comes from CMC's LIVE wrapper list; a wrapper listed after the capture is in no committed body
+  const RWA = '/v5/real-world-assets/quotes/latest';
+  const INFO = '/v2/cryptocurrency/info';
+  const NEW_ID = 999001;
+  const rwaPlus = (only = false) => {
+    const body = structuredClone(fixture('recorded/rwa-quotes-nvda.json').body);
+    const token = {
+      crypto_id: NEW_ID,
+      symbol: 'NVDAnew',
+      name: 'New NVDA wrapper',
+      issuer_id: 1,
+      issuer_name: 'New Issuer',
+      price: 150,
+      market_cap: 1e6,
+      volume_24h: 1e4,
+    };
+    body.data.rwa_assets[0].tokens = only ? [token] : [...body.data.rwa_assets[0].tokens, token];
+    return { body };
+  };
+  const partial = storeFrom(BODIES, { partial: true });
+  const click = (over: Record<string, unknown>, st = partial, rwa = rwaPlus()) =>
+    lookup('NVDA', {
+      window: 30,
+      nowMs: NOW,
+      allowLiveChain: false,
+      rec: new Recorder(recordedTransport({ '/v1/key/info': KEY_INFO, [RWA]: rwa, ...over } as any), undefined, st),
+    });
+
+  it('history refused: the stored wrappers keep their verdicts; the new one gets none and says why', async () => {
+    const live = heroOf(await lookup('NVDA', { window: 30, nowMs: NOW, allowLiveChain: false, rec: new Recorder(recordedTransport()) }));
+    const r = await click({ [HIST]: PLAN });
+    expect(r.mode).toBe('live-stored');
+    const h = heroOf(r);
+    expect(h.wrapper!.symbol).toBe('NVDAB');
+    expect(h.wrapper!.verdict).toBe('REAL_INFLOW');
+    expect(Math.abs(h.wrapper!.metrics!.net - live.wrapper!.metrics!.net)).toBeLessThan(1);
+    const nw = r.wrappers.find((w) => w.cryptoId === NEW_ID)!;
+    expect(nw.verdict).toBeNull();
+    expect(nw.metrics).toBeNull();
+    expect(nw.reason).toBe(
+      'CMC refused /v2/cryptocurrency/quotes/historical and the stored body (captured 2026-11-21) does not hold this wrapper: no verdict printed',
+    );
+    expect(r.stored!.find((x) => x.endpoint === HIST)!.missingIds).toEqual([String(NEW_ID)]);
+    // the refused call asked for the new id; the stored receipt shows the ids the body really holds
+    const [refused, stored] = r.receipts.filter((x) => x.endpoint === HIST);
+    expect(refused.params.id.split(',')).toContain(String(NEW_ID));
+    expect(stored.params.id.split(',')).not.toContain(String(NEW_ID));
+  });
+
+  it('contract addresses refused: the new wrapper is not called "no contract"; it gets no verdict', async () => {
+    const r = await click({ [INFO]: PLAN });
+    expect(heroOf(r).wrapper!.verdict).toBe('REAL_INFLOW');
+    const nw = r.wrappers.find((w) => w.cryptoId === NEW_ID)!;
+    expect(nw.verdict).toBeNull();
+    expect(nw.reason).toContain('CMC refused /v2/cryptocurrency/info and the stored body');
+  });
+
+  it('a replay store stays strict: the same click against it is the 503 it always was', async () => {
+    const e = (await click({ [HIST]: PLAN }, store).catch((x) => x)) as LookupFailure;
+    expect(e).toBeInstanceOf(LookupFailure);
+    expect(e.httpStatus).toBe(503);
+    expect(e.message).toContain('outside the stored universe');
+  });
+
+  it('when no stored body holds ANY requested id it is still a 503, never an empty answer', async () => {
+    const e = (await click({ [HIST]: PLAN }, partial, rwaPlus(true)).catch((x) => x)) as LookupFailure;
+    expect(e).toBeInstanceOf(LookupFailure);
+    expect(e.httpStatus).toBe(503);
+    expect((e.extra.cmcError as any).code).toBe(1006);
+  });
+
+  it('a rate limit with the same new wrapper never reaches the stored bodies', async () => {
+    const limited = {
+      httpStatus: 429,
+      body: { status: { error_code: 1008, error_message: "You've exceeded your API Key's HTTP request rate limit." } },
+    };
+    const e = (await click({ [HIST]: limited }).catch((x) => x)) as LookupFailure;
+    expect(e.httpStatus).toBe(503);
+    expect((e.extra.receipts as any[]).some((x) => x.stored)).toBe(false);
+  });
+});
+
 describe('findStored / loadStoredIndex', () => {
+  it('partial: the body holding the most requested ids answers and names the ids it lacks; strict: null', () => {
+    const ids = BODIES[0].params.id.split(',');
+    const ask = { ...BODIES[0].params, id: `${ids.join(',')},999001` };
+    expect(findStored(BODIES, HIST, ask)).toBeNull();
+    const hit = findStored(BODIES, HIST, ask, { partial: true })!;
+    expect(hit.file).toContain('hist-nvda');
+    expect(hit.missingIds).toEqual(['999001']);
+    expect(findStored(BODIES, HIST, BODIES[0].params, { partial: true })!.missingIds).toBeUndefined(); // a full answer is not marked
+    expect(findStored(BODIES, LATEST, { id: '999001,999002' }, { partial: true })).toBeNull(); // no overlap: no answer
+  });
+
   it('matches id-keyed bodies on a superset of ids and refuses a missing id', () => {
     const ids = BODIES[0].params.id.split(',');
     expect(findStored(BODIES, LATEST, { id: ids.slice(0, 2).join(',') })?.file).toContain('quotes-latest-nvda');
