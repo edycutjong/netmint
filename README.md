@@ -175,7 +175,7 @@ its wrappers ([`data/offsets.json`](data/offsets.json)).
   the receipt shows the refused call, then the stored body with its capture date), the verdict is re-run, and if no endpoint answered live the
   lookup also calls `/v1/key/info` (0 credits); if that is refused too, the response says `liveCmcCalls: []` and the page prints "CMC answered nothing live on this click". Chain supply comes from the committed baseline, and a day it
   lacks is read live, as on every click. Stored 7 d and 30 d bodies exist for the 20 underlyings on `/flows`; a rolling window re-anchors on
-  their last stored day (2026-11-21). A wrapper on CMC's live list that the stored body does not hold (one listed after the capture) prints no verdict and says so; the stored wrappers keep theirs.
+  their last stored day (2026-11-21). A wrapper on CMC's live list that the stored body does not hold (one listed after the capture) prints no verdict and says so; the stored wrappers keep theirs. If the wrapper list itself is refused and answered from its stored body, a wrapper listed since is not on it.
   Any other ticker, or a window outside the stored bodies, shows CMC's error code and message, not a guess. The path is tested with simulated refusals
   (`tests/stored.test.ts`, and in the browser in `e2e/states.spec.ts`); it has not yet run against a real Basic key.
 - `/v2/cryptocurrency/info` fails a whole multi-id call when one id has no record (HTTP 400 `Invalid value for 'id'`), while `quotes/latest` and
