@@ -630,7 +630,7 @@ footer a:hover { color: var(--paper-ink); text-decoration: underline; }
   <div class="rc"><p class="n" data-count="202826522.82" data-fmt="musd">+$202.83M</p><p class="t">NVDAB net creation, 30 days, at market price</p><p class="p">evidence/2026-11-21/nvda-30d/table.json</p></div>
   <div class="rc"><p class="n v" data-count="5" data-fmt="frac" data-of="5">5 / 5</p><p class="t">largest step days within remedy (±10%)</p><p class="p">table.json · mint.step_days</p></div>
   <div class="rc"><p class="n" data-count="152">152</p><p class="t">wrappers screened, top 20 tokenised stocks</p><p class="p">evidence/2026-11-21/flows-30d.json</p></div>
-  <div class="rc"><p class="n" data-count="201">201</p><p class="t">tests; 304 stored rows re-derived, 0 diffs</p><p class="p">npm test · npm run verify:flows</p></div>
+  <div class="rc"><p class="n" data-count="227">227</p><p class="t">tests; 304 stored rows re-derived, 0 diffs</p><p class="p">npm test · npm run verify:flows</p></div>
 </div></section>
 
 <section class="s" id="trial"><div class="wrap">
@@ -733,7 +733,7 @@ footer a:hover { color: var(--paper-ink); text-decoration: underline; }
 
 <section class="s" id="faq"><div class="wrap faq-wrap">
   <h2>Questions a judge would ask</h2>
-  <div class="faq"><details open><summary>Is net creation money that buyers put in?</summary><div class="a"><p>No. It is units created minus redeemed, times the market price, counted like an ETF flow table. Every sampled NVDAB mint came from the zero address to one recipient: issuer-level creation, not buyer data.</p></div></details><details><summary>What does “within remedy” mean?</summary><div class="a"><p>The Trial of the Pyx checks the Royal Mint’s coins within a legal tolerance, the remedy. Here the chain’s change must match CMC’s within ±10% (or 0.5% of supply for a small move) before REAL INFLOW or OUTFLOW is struck.</p></div></details><details><summary>Why are 107 wrappers not verifiable?</summary><div class="a"><p>Their supply, or the move, sits, or may sit, on chains NetMint does not read yet (Solana, Arbitrum, Base, Robinhood Chain, X Layer), and NetMint says so.</p></div></details><details open><summary>What happens when the event key reverts?</summary><div class="a"><p>It is expected to revert to CMC’s free Basic tier after 9 Dec 2026, 23:59 UTC. A call CMC refuses on plan is answered by a stored dated body, labelled <code>live-stored</code>; outside the stored bodies you see CMC’s error. Tested only with a simulated refusal.</p></div></details></div>
+  <div class="faq"><details open><summary>Is net creation money that buyers put in?</summary><div class="a"><p>No. It is units created minus redeemed, times the market price, counted like an ETF flow table. Every sampled NVDAB mint came from the zero address to one recipient: issuer-level creation, not buyer data.</p></div></details><details><summary>What does “within remedy” mean?</summary><div class="a"><p>The Trial of the Pyx checks the Royal Mint’s coins within a legal tolerance, the remedy. Here the chain’s change must match CMC’s within ±10% (or 0.5% of supply for a small move) before REAL INFLOW or OUTFLOW is struck.</p></div></details><details><summary>Why are 107 wrappers not verifiable?</summary><div class="a"><p>Their supply, or the move, sits, or may sit, on chains NetMint does not read yet (Solana, Arbitrum, Base, Robinhood Chain, X Layer), and NetMint says so.</p></div></details><details open><summary>What happens if CMC refuses a call?</summary><div class="a"><p>A call CMC refuses (plan, credits, disabled key) gets a stored dated body, labelled <code>live-stored</code>; beyond those bodies you see CMC’s error. Event access reverts to Basic after 9 Dec; whether that touches this app’s key (Growth-tier limits) is not known. Tested only with simulated refusals.</p></div></details></div>
 </div></section>
 
 <section class="close"><div class="wrap">
@@ -744,7 +744,7 @@ footer a:hover { color: var(--paper-ink); text-decoration: underline; }
 </main>
 <footer><div class="wrap">
   <div><a class="mark" href="/about"><span>NetMint</span></a><p>Net creation at market price, checked against the chain. Not investment advice.</p>
-    <p class="nm-data stamp-line">page built from evidence at commit 4beb7b8 · v1.1.2</p></div>
+    <p class="nm-data stamp-line">page built from evidence at commit cd2a628 · v1.1.3</p></div>
   <div><p class="fh">Product</p><ul><li><a href="/">Live app</a></li><li><a href="/judge">For judges</a></li><li><a href="/flows">The trial book</a></li><li><a href="/pitch">Pitch deck</a></li><li><a href="/api/health">Service status</a></li></ul></div>
   <div><p class="fh">Source</p><ul><li><a href="https://github.com/edycutjong/netmint">GitHub repository</a></li><li><a href="https://github.com/edycutjong/netmint/blob/main/LICENSE">MIT licence</a></li><li><a href="https://dorahacks.io/hackathon/coinmarketcap-api-202611/detail">CoinMarketCap API Hackathon</a></li></ul></div>
 </div></footer>
