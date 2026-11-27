@@ -5,11 +5,15 @@ All figures: NVDAB (bStocks), 2026-10-22 → 2026-11-21, captured 2026-11-21 (a 
 
 ## Click path on the live app
 
-1. Open <https://netmint.edycu.dev>. The hero shows NVDAB: **REAL INFLOW +$202.8M** net creation at market price (`net_usd` 202,826,522.82), with the two proving rows beside it (CMC supply on
-   the first and last day, and the on-chain step with its mint transaction).
+1. Open <https://netmint.edycu.dev>. The hero shows NVDAB: **REAL INFLOW +$202.8M** net creation at market price (`net_usd` 202,826,522.82), with the two proving rows beside it (CMC's supply step on
+   the largest step day and the chain's step for the same day), the trial's 3-day sum under them, and one sampled mint transaction.
 2. Open `/u/NVDA` and run it. The page calls `/api/lookup?u=NVDA&window=30`; the receipt drawer lists every CMC call verbatim
    (endpoint, params, status, body) and the credit count. Below the result, the holder panel shows the holder count per chain for each wrapper from
    `/v1/dex/holders/count`.
+   This window rolls with the data, so its verdicts can differ from the pinned hero: on 2026-11-27 the 30 days to that date stamped NVDAB
+   RECOUNT (the window still agreed, chain +1,102,441 vs CMC +1,096,702, but two of its five largest step days did not: step day
+   2026-11-25, 3-day sum, chain −5,798 vs CMC +26,065), transcript in [`evidence/2026-11-27/demo-nvda-rolling.txt`](evidence/2026-11-27/demo-nvda-rolling.txt).
+   The hero and `/judge` use the pinned window, which does not move.
 3. Open `/flows` for the top 20 tokenised stocks (152 wrappers). Switch 7 d / 30 d; the default view lists only rows with a verdict; "Show all wrappers" adds the not-verifiable ones.
 4. Open [`/api/health`](https://netmint.edycu.dev/api/health) for capture time, CMC plan state and RPC status (the key is never shown).
 
@@ -19,7 +23,7 @@ All figures: NVDAB (bStocks), 2026-10-22 → 2026-11-21, captured 2026-11-21 (a 
 npm ci
 export CMC_API_KEY=...
 npm run demo -- NVDA --from 2026-10-22 --to 2026-11-21   # pinned: 5 CMC calls, 7 credits, ~2 s; chain from the committed baseline (to 2026-11-21), the boundary day after it read live by eth_call
-npm test                      # 201 passing
+npm test                      # 227 passing
 npm run verify:offline        # network blocked: exits non-zero, prints no verdict
 npm run verify:flows          # 304 stored leaderboard rows re-derived, 0 diffs
 ```
@@ -50,6 +54,9 @@ The trial checks the 3-day sums; the hero card shows the 1-day pair for the same
 ## Limits
 
 Wrappers whose supply sits on Solana, Arbitrum, Base, Robinhood Chain or X Layer return NOT VERIFIABLE (for example NVDAX: 86% of
-its CMC total supply sits outside BNB Chain + Ethereum, Solana among the unread chains). Dollar figures are net creation at market price, not buyer data and not advice. After the event key is expected to revert to Basic
-(9 Dec 23:59 UTC), a click still calls CMC live; any call CMC refuses with a plan error is answered by a stored dated CMC body (`live-stored`,
-labelled in the receipts with its capture date), and a window outside the stored bodies shows CMC's error instead of a verdict.
+its CMC total supply sits outside BNB Chain + Ethereum, Solana among the unread chains). Dollar figures are net creation at market price, not buyer data and not advice. A new lookup calls CMC live (a repeat within 60 s is answered
+from cache). If CMC refuses a call on plan, credits or a disabled key, that call is answered by a stored dated CMC body (`live-stored`,
+labelled in the receipts with its capture date), and a window outside the stored bodies shows CMC's error instead of a verdict. The
+hackathon listing says "Event access ends when submissions close and reverts to the free Basic tier" (9 Dec 2026, 23:59 UTC); the key
+behind the app reports Growth-tier limits at `/api/health` (2M credits/month, 750 req/min), and we cannot verify in advance whether
+anything changes for it then.

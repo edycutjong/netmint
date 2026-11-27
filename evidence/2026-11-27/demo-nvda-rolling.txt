@@ -1,0 +1,29 @@
+$ npm run demo -- NVDA   # rolling 30 d, live, 2026-11-27T19:19Z, commit a305d51
+NetMint · Nvidia Corp (NVDA, rwa_id 2) · 2026-10-28 → 2026-11-27 (30 d)
+fetched 2026-11-27T19:19:47.880Z · 5 CMC calls · 7 credits · 30 RPC reads · 3844 ms
+
+RECOUNT         NVDAB    bStocks           +$183.58M units ×6.03  price −31.0%   cov 96.2%
+                CMC's step and the summed chains' step disagree beyond tolerance: step check failed at d = 0: step day 2026-11-25 (3-day sum) chain −5,798 vs CMC +26,065 (tolerance ±6,575), 2 of 5 step days outside; window chain +1,102,441 vs CMC +1,096,702 (tolerance ±109,670, within)
+NOT VERIFIABLE  NVDAX    Backed Assets     +$108.48M units ×4.00  price −31.0%   cov 14.3%
+                86% of supply sits outside BNB Chain + Ethereum (Solana), a chain NetMint does not read yet
+NOT VERIFIABLE  rNVDA    Reality            +$11.70M units ×5.56  price −31.1%   
+                no contract on BNB Chain or Ethereum (listed on Arbitrum); NetMint reads no other chain yet
+NOT VERIFIABLE  NVDAon   Ondo Assets        +$10.09M units ×1.41  price −31.0%   cov 99.5%
+                the move may sit on Robinhood Chain (0.5% of supply outside the summed chains at the window start); step check failed at d = 0: step day 2026-11-24 (3-day sum) chain +1,248 vs CMC −1,013 (tolerance ±1,118), 2 of 5 step days outside; window chain +60,168 vs CMC +64,905 (tolerance ±6,491, within)
+NOT VERIFIABLE  NVDA     Robinhood           +$9.18M units ×1.63  price −31.0%   
+                no contract on BNB Chain or Ethereum (listed on Robinhood Chain); NetMint reads no other chain yet
+NOT VERIFIABLE  NVDAc    Coinbase            +$6.36M units ×2.24  price −30.9%   
+                no contract on BNB Chain or Ethereum (listed on Base); NetMint reads no other chain yet
+NOT VERIFIABLE  WNVDAX   Backed Assets       +$1.38M units ×2.24  price −31.0%   
+                no contract on BNB Chain or Ethereum (listed on X Layer, Arbitrum); NetMint reads no other chain yet
+NO VERDICT      NVDA.D   Dinari Assets                                           
+                CMC returned no daily history for this window
+DERIVATIVE      NVDA     NA (Derivatives)                                        
+                derivative listing: no supply to mint
+
+HERO NVDAB: RECOUNT +$183.58M · d = 0 (issuer) · chain 2026-10-28 → 2026-11-27
+  step 2026-11-13: CMC 3d 522,505 · chain 3d 535,910 · ok
+  step 2026-11-25: CMC 3d 26,065 · chain 3d -5,798 · FAIL
+  step 2026-11-24: CMC 3d -187,337 · chain 3d -280,168 · FAIL
+  step 2026-11-18: CMC 3d 400,526 · chain 3d 409,071 · ok
+  step 2026-11-17: CMC 3d 386,252 · chain 3d 372,839 · ok

@@ -1,7 +1,7 @@
 # Live lookups behind the demo video (2026-11-22)
 
 Headless Chrome recorded the demo video by clicking the production site (https://netmint.edycu.dev, commit 28a2c36).
-Each file is the `/api/lookup` response body the browser received during a take, verbatim:
+Each file holds the `/api/lookup` response body the browser received during a take, verbatim, under `response` (beside the request path and the HTTP status):
 
 | File | Take | Request | CMC calls · credits · ms | fetchedUtc |
 |---|---|---|---|---|

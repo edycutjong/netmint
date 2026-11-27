@@ -20,7 +20,7 @@
 
   ![Next.js](https://img.shields.io/badge/Next.js-black?style=flat&logo=next.js)
   ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
-  ![Vitest](https://img.shields.io/badge/Vitest_201_tests-6E9F18?style=flat&logo=vitest&logoColor=white)
+  ![Vitest](https://img.shields.io/badge/Vitest_227_tests-6E9F18?style=flat&logo=vitest&logoColor=white)
   [![CI](https://github.com/edycutjong/netmint/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/edycutjong/netmint/actions/workflows/ci.yml)
   [![CodeQL](https://github.com/edycutjong/netmint/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/edycutjong/netmint/security/code-scanning)
   [![Release](https://img.shields.io/github/v/release/edycutjong/netmint?style=flat)](https://github.com/edycutjong/netmint/releases)
@@ -60,7 +60,8 @@ NetMint turns CMC's daily supply history into **net creation and redemption in U
 window change and the largest step days (up to five, until they carry 80% of gross flow) **on trial against the chain**: each CMC
 move must match the on-chain `totalSupply` move within a ±10% tolerance, or 0.5% of CMC supply at the window end if that is larger (the app calls it the remedy), and a sampled mint is traced
 to its transaction. Dollars use CMC's `circulating_supply` × price; the trial compares CMC's `total_supply` with the chain's
-`totalSupply`, and a guard requires the circulating and total moves to agree, else NOT VERIFIABLE. Then it stamps one verdict:
+`totalSupply` (`circulating_supply` when CMC sends no usable total, missing or zero, on any day of the window), and when it uses the total a
+guard requires the circulating and total moves to agree, else NOT VERIFIABLE. Then it stamps one verdict:
 
 | Verdict | Meaning |
 |---|---|
@@ -89,7 +90,7 @@ apart, tolerance ±10%). The 5 largest step days (3-day sums) all matched within
 | App | Next.js (App Router) + TypeScript on Vercel; one route handler, `/api/lookup`, runs the flow |
 | Sponsor data | CoinMarketCap Pro API, key server-side only (the key never reaches a response) |
 | Chain check | `totalSupply` at day-boundary blocks on BNB Smart Chain + Ethereum: the committed daily baseline in `data/chain-supply/` (to 2026-11-21) answers first; a day it lacks is read live with Alchemy archive JSON-RPC `eth_call` |
-| Tests | Vitest, 201 tests in 8 files |
+| Tests | Vitest, 227 tests in 10 files |
 | Routes | `/` hero · `/u/<ticker>` lookup · `/flows` leaderboard · `/api/lookup` · `/api/holders` · `/api/health` |
 
 ## 🏆 CoinMarketCap Integration
@@ -168,14 +169,19 @@ its wrappers ([`data/offsets.json`](data/offsets.json)).
   [`docs/proof/spike/`](docs/proof/spike/)), so the holder panel uses the count endpoint only.
 - Plan limits are real: CMC's pricing page lists daily `quotes/historical` for Basic at one year of depth ([`basic-tier.json`](docs/proof/spike/basic-tier.json));
   we could not test a Basic key. The one plan error we observed (1006, on `/v1/blockchain/statistics/latest`) is in
-  [`plan-errors.json`](docs/proof/spike/plan-errors.json). Our event key (2M credits/month, 750 req/min per `/v1/key/info`) is expected to revert to the free Basic tier when submissions close (9 Dec 23:59 UTC).
-  A new lookup still calls CMC live (a repeat within 60 s is answered from cache, `cacheHit: true`). If CMC refuses a call on plan, credits
+  [`plan-errors.json`](docs/proof/spike/plan-errors.json). The key behind the live app reports 2M credits/month and 750 req/min at `/v1/key/info` (the Growth row of that pricing table; live at [`/api/health`](https://netmint.edycu.dev/api/health)). The [hackathon listing](https://dorahacks.io/hackathon/coinmarketcap-api-202611/detail) gives every participant "a free Startup tier plan for the duration of the event" and says "Event access ends when submissions close and reverts to the free Basic tier" (submissions close 9 Dec 2026, 23:59 UTC); we cannot verify in advance whether anything changes for this key then, so the app carries a fallback.
+  A new lookup calls CMC live (a repeat within 60 s is answered from cache, `cacheHit: true`). If CMC refuses a call on plan, credits
   or a disabled key (codes 1003, 1004, 1006, 1007, 1010; `docs/proof/spike/plan-errors.json`), a stored dated CMC body answers that one call (`mode: "live-stored"`,
   the receipt shows the refused call, then the stored body with its capture date), the verdict is re-run, and if no endpoint answered live the
-  lookup also calls `/v1/key/info` (0 credits) so a live CMC call stands behind it. Chain supply comes from the committed baseline, and a day it
+  lookup also calls `/v1/key/info` (0 credits); if that is refused too, the response says `liveCmcCalls: []` and the page prints "CMC answered nothing live on this click". Chain supply comes from the committed baseline, and a day it
   lacks is read live, as on every click. Stored 7 d and 30 d bodies exist for the 20 underlyings on `/flows`; a rolling window re-anchors on
-  their last stored day (2026-11-21). Any other ticker, or a window outside the stored bodies, shows CMC's error code and message, not a guess. The path is tested with a simulated plan refusal
-  (`tests/stored.test.ts`); it has not yet run against a real Basic key.
+  their last stored day (2026-11-21). A wrapper on CMC's live list that the stored body does not hold (one listed after the capture) prints no verdict and says so; the stored wrappers keep theirs.
+  Any other ticker, or a window outside the stored bodies, shows CMC's error code and message, not a guess. The path is tested with simulated refusals
+  (`tests/stored.test.ts`, and in the browser in `e2e/states.spec.ts`); it has not yet run against a real Basic key.
+- `/v2/cryptocurrency/info` fails a whole multi-id call when one id has no record (HTTP 400 `Invalid value for 'id'`), while `quotes/latest` and
+  `quotes/historical` skip that id. The RWA list carries one: `crypto_id` 39002 under HOOD, with no symbol, issuer or price (2026-11-27). Any lookup that
+  included that id failed, because `info` rejected the whole multi-id call. NetMint now retries `info` once with `skip_invalid=true` and keeps both calls as receipts
+  ([`docs/proof/spike/`](docs/proof/spike/), the five `info-invalid-id-*.json` bodies).
 - The daily point closes at 00:00 UTC, so one day offset is fixed per issuer from the step alignment; ambiguous alignment
   yields NOT VERIFIABLE, never RECOUNT.
 
@@ -192,19 +198,19 @@ Read-only on-chain calls, no wallet and no transactions from us. Proof the chain
 
 | Metric | Value |
 |---|---|
-| Tests | 201 passing, 8 files (`npm test`) |
+| Tests | 227 passing, 10 files (`npm test`) |
 | Offline check | `npm run verify:offline` runs the demo with the network blocked and passes only if it fails on a transport error and prints no verdict; a control run with the network allowed must reach CMC (HTTP 401 for the dummy key), so it cannot pass for the wrong reason |
 | Stored-evidence replay | `npm run verify:flows`: 304 leaderboard rows re-derived from the stored bodies, 0 diffs |
-| Latency (measured 2026-11-21 at commit 848c00e; later `lib/` commits change only verdict reason strings in `lib/flow/`) | One live lookup, NVDA 30 d, n=20: p50 2.0 s, p95 2.6 s (nearest-rank; credits per call 0 to 7 (7 on the first, uncached run; see the note in bench.json)). A top-20 leaderboard refresh (20 live lookups, 7 d, sequential): 38.4 s wall, per-lookup p50 1950 ms, p95 2537 ms (n=20, so p95 is the 2nd-largest of 20), 85 credits. Deployed `/api/lookup` (cached repeat, n=20) p50 500 ms, p95 782 ms; `/flows` p50 306 ms, p95 515 ms. One machine, home broadband, not a load test; raw samples in [`docs/proof/bench.json`](docs/proof/bench.json) (`npm run bench`) |
-| E2E | 10 Playwright tests in 2 specs, each on 2 viewports (one, the uncached-CMC provenance gate, on desktop only) against the live URL (`npm run e2e`), including the judged click: Run it live, verdict, receipts drawer; and the `/judge` path to a live REAL INFLOW verdict |
-| Coverage | v8 line coverage over `lib/` 86.6% (floor 80, enforced by `npm run test:coverage`) |
+| Latency (measured 2026-11-21 at commit 848c00e and not re-measured since; later commits changed reason strings, error handling and the refusal fallback, not the calls a successful lookup makes) | One live lookup, NVDA 30 d, n=20: p50 2.0 s, p95 2.6 s (nearest-rank; credits per call 0 to 7 (7 on the first, uncached run; see the note in bench.json)). A top-20 leaderboard refresh (20 live lookups, 7 d, sequential): 38.4 s wall, per-lookup p50 1950 ms, p95 2537 ms (n=20, so p95 is the 2nd-largest of 20), 85 credits. Deployed `/api/lookup` (cached repeat, n=20) p50 500 ms, p95 782 ms; `/flows` p50 306 ms, p95 515 ms. One machine, home broadband, not a load test; raw samples in [`docs/proof/bench.json`](docs/proof/bench.json) (`npm run bench`) |
+| E2E | 12 Playwright tests in 3 specs, each on 2 viewports (one, the uncached-CMC provenance gate, on desktop only) against the live URL (`npm run e2e`), including the judged click: Run it live, verdict, receipts drawer; the `/judge` path to a live REAL INFLOW verdict; and two states that cannot be produced on demand, a refused plan and a failed run, where the `/api/lookup` response (and, in the refused-plan test, the `/api/holders` response) is replaced in the browser (`e2e/states.spec.ts`) |
+| Coverage | v8 line coverage over `lib/` 90.3% (floor 80, enforced by `npm run test:coverage`) |
 | Dependencies | `npm audit`: 0 vulnerabilities (a `postcss` override lifts the copy bundled in Next 15.5) |
 | Secrets | gitleaks clean on full history at HEAD (`gitleaks detect --log-opts=--all`, 2026-11-21) |
 
 ### Invariants (stated and tested)
 1. **No direction without a mint check.** REAL INFLOW or OUTFLOW requires a passing chain check.
 2. **No verdict on error.** A CMC error for a wrapper yields an error row, never a verdict (one stated exception: `live-stored`).
-3. **No silent drop.** `accepted + refused = raw` for every series.
+3. **No silent drop.** Every raw CMC row is either accepted or listed as refused with its reason (`accepted + refused = raw`; a `gap` entry marks a missing day and has no raw row).
 4. **Key never leaves the server.** A test sets a canary key and asserts it never appears in serialized output.
 5. **Keyed by id.** Symbol is display only.
 6. **Window honesty.** Every number carries its window and capture time.
@@ -226,7 +232,7 @@ npm run dev                   # the app at http://localhost:3000
 ## 🧪 Testing & CI
 
 ```bash
-npm test                      # 201 tests
+npm test                      # 227 tests
 npm run ci                    # audit + prettier + eslint + tsc + vitest coverage floor
 npm run bench                 # p50/p95 into docs/proof/bench.json
 npm run e2e                   # Playwright on the live URL
