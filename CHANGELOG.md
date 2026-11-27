@@ -2,6 +2,17 @@
 
 All notable changes, generated from Conventional Commits by `scripts/release.mjs`.
 
+## 1.1.3 (2026-11-27)
+
+### Bug fixes
+
+- **ui:** a stored answer carries its capture date, a failed run labels the card it leaves (e46a8f7)
+- **proof:** show the trial that decided the verdict beside the 1-day proof rows (8271283)
+- **stored:** a wrapper listed after the capture no longer voids the stored fallback (543afb8)
+- **chain:** ride out the RPC rate cap, keep one dead address from voiding a chain, label mixed sources (c55a44c)
+- **cmc:** one wrapper id that info rejects no longer fails the whole lookup (7ae4e9d)
+- **api:** a window date that is not a real calendar day is a 400 (a5e9052)
+
 ## 1.1.2 (2026-11-23)
 
 ### Bug fixes
