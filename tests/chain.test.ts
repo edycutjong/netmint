@@ -147,9 +147,12 @@ describe('rpcBatch: the request-path budget under a compute-units-per-second cap
 
   it('never waits past the chain-read deadline', async () => {
     process.env.ALCHEMY_API_KEY ??= 'test-key-not-real';
+    vi.useFakeTimers(); // the clock is faked too, so the elapsed time below is exact and does not depend on machine load
     throttledFor(Infinity);
     const t0 = Date.now();
-    await expect(rpcBatch('bsc', one, { ...RPC_REQUEST, deadline: Date.now() + 120 })).rejects.toThrow(/chain-read time budget exhausted/);
-    expect(Date.now() - t0).toBeLessThan(450); // one wait capped at the 120 ms left, not the 500 ms backoff step
+    const p = rpcBatch('bsc', one, { ...RPC_REQUEST, deadline: t0 + 120 }).catch((e: Error) => e);
+    await vi.runAllTimersAsync();
+    expect(((await p) as Error).message).toMatch(/chain-read time budget exhausted/);
+    expect(Date.now() - t0).toBe(120); // the one wait was the 120 ms left, not the 500 ms backoff step
   });
 });
